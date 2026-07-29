@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chardonnay Partners — We Build Hit Mobile Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1633;
+    --ink-soft:#4f4a66;
+    --violet:#7c5cfc;
+    --chip:#efeafd;
+    --line:#ececf2;
+    --bg:#fefefe;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Poppins",system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1560px;margin:0 auto;padding:0 56px;}
+  @media (max-width:760px){.wrap{padding:0 24px;}}
+
+  /* ── header ── */
+  header{border-bottom:1px solid var(--line);background:var(--bg);position:relative;z-index:5;}
+  .head-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 0;}
+  .logo{font-weight:700;font-size:19px;line-height:1.25;letter-spacing:.002em;}
+  .burger{width:46px;height:34px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:7px;padding:0 2px;}
+  .burger span{display:block;width:100%;height:3px;border-radius:3px;background:var(--ink);}
+
+  /* ── hero ── */
+  .hero{display:flex;align-items:flex-start;gap:24px;padding:86px 0 40px;position:relative;}
+  .hero-left{flex:0 0 46%;max-width:780px;padding-top:26px;}
+  .hero-right{flex:1 1 auto;min-width:0;display:flex;justify-content:center;align-items:flex-start;}
+  .hero-right img{width:100%;max-width:950px;height:auto;display:block;}
+  h1{
+    font-size:clamp(40px,4.6vw,78px);
+    font-weight:800;line-height:1.12;letter-spacing:-.01em;
+    white-space:nowrap;
+  }
+  @media (max-width:560px){h1{white-space:normal;}}
+  .tagline{margin-top:22px;font-size:clamp(15px,1.35vw,22px);font-weight:500;color:var(--ink-soft);}
+
+  /* ── rows ── */
+  .rows{margin-top:52px;max-width:540px;}
+  .row{border-bottom:1px solid var(--line);}
+  .row-head{
+    display:flex;align-items:center;gap:26px;width:100%;
+    background:none;border:none;cursor:pointer;text-align:left;
+    font-family:inherit;color:inherit;padding:19px 2px;
+    transition:opacity .15s;
+  }
+  .row-head:hover{opacity:.75;}
+  .row-num{
+    flex:0 0 auto;width:40px;height:40px;border-radius:10px;
+    background:var(--chip);color:var(--violet);
+    font-weight:700;font-size:15px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .row-label{
+    flex:1 1 auto;font-weight:700;font-size:17px;
+    letter-spacing:.04em;text-transform:uppercase;
+  }
+  .row-arrow{
+    flex:0 0 auto;width:40px;height:40px;border-radius:50%;
+    background:var(--chip);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .35s ease,background .2s;
+  }
+  .row-arrow svg{width:16px;height:16px;stroke:var(--violet);stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .row.open .row-arrow{transform:rotate(90deg);background:var(--violet);}
+  .row.open .row-arrow svg{stroke:#fff;}
+  .row-body{max-height:0;overflow:hidden;transition:max-height .45s ease;}
+  .row-body-inner{padding:6px 2px 26px;}
+
+  /* plan content inside 00 */
+  .plan{list-style:none;display:flex;flex-direction:column;}
+  .plan li{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:13px 0;border-bottom:1px dashed var(--line);
+  }
+  .plan li:last-child{border-bottom:none;}
+  .p-num{
+    flex:0 0 auto;min-width:30px;height:30px;border-radius:8px;padding:0 8px;
+    background:var(--chip);color:var(--violet);
+    font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .p-text{flex:1 1 auto;font-size:14px;font-weight:500;line-height:1.55;color:var(--ink-soft);}
+  .p-text b{color:var(--ink);font-weight:600;}
+  .p-hours{
+    flex:0 0 auto;font-size:12px;font-weight:700;color:var(--violet);
+    background:var(--chip);border-radius:999px;padding:5px 11px;
+    white-space:nowrap;margin-top:3px;
+  }
+  .plan li.final .p-num{background:var(--violet);color:#fff;}
+  .plan-total{margin-top:14px;text-align:right;font-size:13px;font-weight:600;color:var(--ink-soft);}
+  .plan-total b{font-size:17px;color:var(--ink);font-weight:800;}
+  .soon{font-size:14px;font-weight:500;color:var(--ink-soft);}
+
+  /* scroll button */
+  .scroll-btn{
+    margin:64px 0 72px;width:52px;height:52px;border-radius:50%;
+    border:none;cursor:pointer;
+    background:#f3d7f0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .scroll-btn svg{width:18px;height:18px;stroke:#c06ecf;stroke-width:2.6;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+  @media (max-width:980px){
+    .hero{flex-direction:column;padding-top:48px;}
+    .hero-left{flex:1 1 auto;max-width:none;padding-top:0;}
+    .hero-right{order:-1;}
+    .hero-right img{max-width:560px;}
+    .rows{max-width:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="logo">Chardonnay<br>Partners</div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="wrap hero">
+  <div class="hero-left">
+    <h1>We Build<br>Hit Mobile Games</h1>
+    <p class="tagline">From idea to global success</p>
+
+    <div class="rows">
+
+      <div class="row" id="r0">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">00</span>
+          <span class="row-label">Planning</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body">
+          <div class="row-body-inner">
+            <ul class="plan">
+              <li>
+                <span class="p-num">0</span>
+                <span class="p-text">Наиграть в целевую игру, игру-оригинал и другие игры на группах слов и ассоциациях — сформировать <b>требования по контенту</b> и придумать <b>источники безлимитного набора слов</b> для обучения и генерации моделью.</span>
+                <span class="p-hours">4+ h</span>
+              </li>
+              <li>
+                <span class="p-num">1</span>
+                <span class="p-text">Собрать <b>играбельный прототип</b> с помощью Claude Code.</span>
+                <span class="p-hours">4–6 h</span>
+              </li>
+              <li>
+                <span class="p-num">2</span>
+                <span class="p-text">Подготовить <b>MD-файлы для солвера</b> уровней.</span>
+                <span class="p-hours">2 h</span>
+              </li>
+              <li>
+                <span class="p-num">3</span>
+                <span class="p-text">Реализовать скилл <b>Level Solver</b>.</span>
+                <span class="p-hours">4 h</span>
+              </li>
+              <li>
+                <span class="p-num">4</span>
+                <span class="p-text">Подготовить <b>MD-файлы для генератора</b> уровней с помощью нескольких источников.</span>
+                <span class="p-hours">2 h</span>
+              </li>
+              <li>
+                <span class="p-num">5</span>
+                <span class="p-text">Реализовать скилл <b>Level Generator</b>.</span>
+                <span class="p-hours">4 h</span>
+              </li>
+              <li>
+                <span class="p-num">6</span>
+                <span class="p-text">Разработать скилл <b>оценки уровней</b>.</span>
+                <span class="p-hours">3 h</span>
+              </li>
+              <li>
+                <span class="p-num">7</span>
+                <span class="p-text">Разработать скилл <b>JSON Export</b>.</span>
+                <span class="p-hours">2 h</span>
+              </li>
+              <li class="final">
+                <span class="p-num">F</span>
+                <span class="p-text"><b>Финал:</b> описать весь процесс, показать MD-файлы, обосновать выводы и принятые решения, визуализировать структуру скиллов/агентов, собрать сайт-отчёт и выложить в доступ.</span>
+                <span class="p-hours">8 h</span>
+              </li>
+            </ul>
+            <div class="plan-total">Итого <b>33–35 h</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">01</span>
+          <span class="row-label">Research</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">02</span>
+          <span class="row-label">Prompting</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">03</span>
+          <span class="row-label">GDD Readme MD</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">04</span>
+          <span class="row-label">Build Playable</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">05</span>
+          <span class="row-label">Level Design Tool</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+      </div>
+
+    </div>
+
+    <button class="scroll-btn" aria-label="Scroll down" onclick="window.scrollBy({top:innerHeight*0.8,behavior:'smooth'})">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/hero.png" alt="Game development scene: monitor with level editor, gamepad, blueprint and knight character">
+  </div>
+</main>
+
+<script>
+  function toggle(head){
+    var row = head.parentElement;
+    var body = row.querySelector('.row-body');
+    var open = row.classList.toggle('open');
+    head.setAttribute('aria-expanded', open);
+    body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+  }
+</script>
+
+</body>
+</html>
