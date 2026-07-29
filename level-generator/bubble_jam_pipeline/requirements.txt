@@ -1,0 +1,8 @@
+nltk>=3.9
+wordfreq>=3.1
+pandas>=2.2
+openpyxl>=3.1
+requests>=2.32
+tenacity>=9.0
+pyyaml>=6.0
+rapidfuzz>=3.9

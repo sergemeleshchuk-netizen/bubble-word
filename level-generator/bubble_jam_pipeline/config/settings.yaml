@@ -1,0 +1,18 @@
+language: en
+group_size: 4
+min_zipf: 3.2
+max_word_length: 14
+min_members_before_combinations: 4
+max_groups_per_concept: 60
+risk_threshold_review: 45
+risk_threshold_reject: 70
+sources:
+  wordnet: true
+  wikidata: true
+  conceptnet: true
+wikidata:
+  endpoint: https://query.wikidata.org/sparql
+  user_agent: BubbleJamWordPipeline/1.0 (game content research)
+conceptnet:
+  endpoint: https://api.conceptnet.io
+  min_weight: 1.0

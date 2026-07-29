@@ -5,6 +5,10 @@ reference/
 .env
 .env.*
 
+# Питон-окружение и тяжёлые результаты пайплайна слов
+.venv/
+level-generator/bubble_jam_pipeline/output/
+
 # Системный мусор
 .DS_Store
 node_modules/
