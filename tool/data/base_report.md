@@ -1,0 +1,141 @@
+# Отчёт сборки базы слов
+
+- Категорий: 175
+- Слов всего: 1199, уникальных: 1125
+- Слов в двух+ категориях (кандидаты в ловушки): 71
+- Средний zipf: 3.92, минимум: 1.32
+- Записей в блок-листе: 131
+
+## Пересечения (слово -> категории)
+
+- **balloon**: aviation, birthday
+- **bark**: dog-things, tree-parts
+- **bass**: guitars, band-members
+- **bed**: furniture, bedding
+- **bird**: pets, animal-classes
+- **bread**: breakfast-foods, baked-goods
+- **bullseye**: darts, archery
+- **cement**: building-materials, construction
+- **chalk**: writing-tools, soils
+- **cold**: illness, temperature
+- **cookie**: sweets, baked-goods
+- **crane**: birds, construction
+- **cream**: dairy, facial-care
+- **crown**: royalty, tree-parts
+- **cucumber**: garden-vegetables, salad-things
+- **dessert**: meals, menu-courses
+- **diamond**: shapes, gems
+- **elephant**: safari-animals, large-animals
+- **eraser**: school-supplies, stationery
+- **fish**: pets, animal-classes
+- **five**: numbers, odd-numbers
+- **flower**: plants, garden-bloom
+- **frost**: weather, water-states
+- **galaxy**: space, astronomy
+- **giraffe**: safari-animals, large-animals
+- **glass**: cutlery, materials
+- **green**: colors, teas
+- **guitar**: instruments, band-members
+- **hat**: accessories, clothes
+- **heart**: shapes, organs
+- **hippo**: safari-animals, large-animals
+- **lace**: shoe-parts, fabrics
+- **lane**: road, swimming
+- **lettuce**: vegetables, salad-things
+- **lion**: safari-animals, wild-cats
+- **milk**: breakfast-foods, drinks, dairy
+- **mint**: teas, ice-cream
+- **nine**: numbers, odd-numbers
+- **north**: compass, americas
+- **ocean**: water-bodies, nature-places
+- **one**: numbers, odd-numbers
+- **orange**: colors, fruits
+- **painter**: creative-professions, trade-professions
+- **paper**: materials, stationery
+- **parrot**: pets, birds
+- **peanut**: nuts, snacks-salty
+- **pen**: school-supplies, writing-tools, stationery
+- **pie**: desserts, baked-goods
+- **pistachio**: nuts, ice-cream
+- **popcorn**: cinema, snacks-salty
+- **protein**: food-groups, nutrients
+- **pyramid**: solid-shapes, ancient-egypt
+- **rhino**: safari-animals, large-animals
+- **salad**: fast-food, menu-courses
+- **seven**: numbers, odd-numbers
+- **soil**: landscape, gardening
+- **south**: compass, americas
+- **sponge**: bathroom-items, ocean-floor
+- **spring**: easter, seasons
+- **square**: shapes, polygons
+- **strawberry**: berries, ice-cream
+- **sun**: weather, stars-named
+- **three**: numbers, odd-numbers
+- **tomato**: garden-vegetables, salad-things
+- **triangle**: shapes, polygons
+- **turtle**: pets, sea-animals
+- **umbrella**: beach, rain-gear
+- **watch**: accessories, timepieces
+- **whale**: sea-animals, large-animals
+- **wood**: materials, building-materials
+- **zinc**: nutrients, supplements, metals
+
+## Ошибки (0)
+
+- нет
+
+## Предупреждения (53)
+
+- [compass] пул из 4 слов - генератору мало выбора
+- [polygons] редкое слово: rhombus (zipf 2.12)
+- [desserts] редкое слово: tiramisu (zipf 2.46)
+- [toys] редкое слово: yoyo (zipf 2.59)
+- [senses] пул из 5 слов - генератору мало выбора
+- [shoe-parts] редкое слово: aglet (zipf 1.32)
+- [shoe-parts] редкое слово: outsole (zipf 1.72)
+- [shoe-parts] редкое слово: eyelet (zipf 2.17)
+- [shoe-parts] редкое слово: insole (zipf 2.15)
+- [breads] редкое слово: ciabatta (zipf 2.01)
+- [breads] редкое слово: focaccia (zipf 2.07)
+- [breads] редкое слово: brioche (zipf 2.57)
+- [breads] редкое слово: naan (zipf 2.58)
+- [flowers] редкое слово: peony (zipf 2.57)
+- [coffee-drinks] редкое слово: macchiato (zipf 2.34)
+- [dairy] редкое слово: kefir (zipf 2.13)
+- [time-units] пул из 4 слов - генератору мало выбора
+- [continents] пул из 5 слов - генератору мало выбора
+- [americas] пул из 4 слов - генератору мало выбора
+- [bovines] редкое слово: zebu (zipf 1.78)
+- [jungle] редкое слово: toucan (zipf 2.36)
+- [tastes] редкое слово: umami (zipf 2.38)
+- [cured-meats] редкое слово: prosciutto (zipf 2.53)
+- [basketball] редкое слово: backboard (zipf 2.57)
+- [teas] редкое слово: oolong (zipf 2.38)
+- [stars-named] редкое слово: rigel (zipf 2.14)
+- [stars-named] редкое слово: altair (zipf 2.49)
+- [archery] редкое слово: bowstring (zipf 1.97)
+- [cat-breeds] редкое слово: sphynx (zipf 1.98)
+- [cat-breeds] редкое слово: ragdoll (zipf 2.21)
+- [card-suits] пул из 4 слов - генератору мало выбора
+- [board-games] редкое слово: backgammon (zipf 2.45)
+- [laundry] редкое слово: softener (zipf 2.51)
+- [timepieces] редкое слово: sundial (zipf 2.46)
+- [timepieces] редкое слово: stopwatch (zipf 2.59)
+- [self-care] редкое слово: haircare (zipf 2.15)
+- [doctors] редкое слово: allergist (zipf 2.11)
+- [gardening] редкое слово: trowel (zipf 2.45)
+- [supplements] редкое слово: biotin (zipf 2.53)
+- [supplements] редкое слово: keratin (zipf 2.58)
+- [construction] редкое слово: jackhammer (zipf 2.33)
+- [circus] редкое слово: juggler (zipf 2.55)
+- [circus] редкое слово: ringmaster (zipf 2.28)
+- [stationery] редкое слово: stapler (zipf 2.53)
+- [astronomy] длинное слово: constellation (13 букв)
+- [seasons] пул из 5 слов - генератору мало выбора
+- [kitchen-tools] редкое слово: grater (zipf 2.51)
+- [kitchen-tools] редкое слово: peeler (zipf 2.48)
+- [kitchen-tools] редкое слово: colander (zipf 2.37)
+- [salad-things] редкое слово: croutons (zipf 2.49)
+- [winter-fun] редкое слово: icicle (zipf 2.43)
+- [beach] редкое слово: sandcastle (zipf 2.27)
+- [beach] редкое слово: seashell (zipf 2.39)
