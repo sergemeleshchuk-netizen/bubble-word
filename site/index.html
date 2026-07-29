@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siarhei Meliashchuk — Case Study: Bubble Associations</title>
+<title>Siarhei Meliashchuk: Case Study, Bubble Associations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +48,8 @@
   .tagline{margin-top:22px;font-size:clamp(15px,1.35vw,22px);font-weight:500;color:var(--ink-soft);}
 
   /* ── rows ── */
-  .rows{margin-top:52px;max-width:540px;}
+  .stages{padding:8px 0 88px;}
+  .rows{margin-top:0;}
   .row{border-bottom:1px solid var(--line);}
   .row-head{
     display:flex;align-items:center;gap:26px;width:100%;
@@ -106,7 +107,7 @@
 
   /* scroll button */
   .scroll-btn{
-    margin:64px 0 72px;width:52px;height:52px;border-radius:50%;
+    margin:56px 0 0;width:52px;height:52px;border-radius:50%;
     border:none;cursor:pointer;
     background:#f3d7f0;
     display:flex;align-items:center;justify-content:center;
@@ -136,6 +137,17 @@
     <h1>Siarhei Meliashchuk<br>Case Study</h1>
     <p class="tagline">Bubble Associations</p>
 
+    <button class="scroll-btn" aria-label="Scroll to stages" onclick="document.getElementById('stages').scrollIntoView({behavior:'smooth'})">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="hero-right">
+    <img src="assets/hero.png" alt="Game development scene: monitor with level editor, gamepad, blueprint and knight character">
+  </div>
+</main>
+
+<section class="wrap stages" id="stages">
     <div class="rows">
 
       <div class="row" id="r0">
@@ -149,7 +161,7 @@
             <ul class="plan">
               <li>
                 <span class="p-num">0</span>
-                <span class="p-text">Наиграть в целевую игру, игру-оригинал и другие игры на группах слов и ассоциациях — сформировать <b>требования по контенту</b> и придумать <b>источники безлимитного набора слов</b> для обучения и генерации моделью.</span>
+                <span class="p-text">Наиграть в целевую игру, игру-оригинал и другие игры на группах слов и ассоциациях: сформировать <b>требования по контенту</b> и придумать <b>источники безлимитного набора слов</b> для обучения и генерации моделью.</span>
                 <span class="p-hours">4+ h</span>
               </li>
               <li>
@@ -244,16 +256,7 @@
       </div>
 
     </div>
-
-    <button class="scroll-btn" aria-label="Scroll down" onclick="window.scrollBy({top:innerHeight*0.8,behavior:'smooth'})">
-      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-    </button>
-  </div>
-
-  <div class="hero-right">
-    <img src="assets/hero.png" alt="Game development scene: monitor with level editor, gamepad, blueprint and knight character">
-  </div>
-</main>
+</section>
 
 <script>
   function toggle(head){
