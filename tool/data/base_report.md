@@ -1,23 +1,23 @@
 # Отчёт сборки базы слов
 
-- Категорий: 198
-- Слов всего: 1349, уникальных: 1233
-- Слов в двух+ категориях (кандидаты в ловушки): 108
-- Средний zipf: 3.90, минимум: 1.32
+- Категорий: 212
+- Слов всего: 1433, уникальных: 1307
+- Слов в двух+ категориях (кандидаты в ловушки): 115
+- Средний zipf: 3.91, минимум: 1.32
 - Записей в блок-листе: 131
 
 ## Пересечения (слово -> категории)
 
 - **actor**: creative-professions, theater
 - **alarm**: security, morning-routine
-- **anchor**: ocean-floor, pirates
+- **anchor**: ocean-floor, pirates, harbor
 - **august**: months, summer
 - **bacon**: cured-meats, meats
 - **ball**: toys, bowling
 - **balloon**: aviation, birthday
 - **bark**: dog-things, tree-parts
 - **basket**: easter, picnic
-- **bass**: guitars, band-members
+- **bass**: guitars, band-members, singing-voices
 - **bed**: furniture, bedding
 - **bird**: pets, animal-classes
 - **blanket**: bedding, picnic
@@ -25,11 +25,13 @@
 - **bread**: breakfast-foods, baked-goods
 - **breakfast**: meals, morning-routine
 - **bullseye**: darts, archery
+- **burger**: fast-food, barbecue
 - **cap**: swimming, hats
 - **cement**: building-materials, construction
 - **chalk**: writing-tools, soils
 - **cherry**: fruits, berries
 - **chicken**: farm-animals, meats
+- **clue**: board-games, detective
 - **coffee**: drinks, morning-routine
 - **cold**: illness, temperature
 - **compass**: camping, pirates
@@ -45,6 +47,7 @@
 - **donut**: baked-goods, pastries
 - **elephant**: safari-animals, large-animals
 - **eraser**: school-supplies, stationery
+- **ferry**: boats, harbor
 - **fish**: pets, animal-classes
 - **five**: numbers, odd-numbers
 - **flower**: plants, garden-bloom
@@ -60,6 +63,7 @@
 - **hat**: accessories, clothes
 - **heart**: shapes, organs
 - **hippo**: safari-animals, large-animals
+- **hook**: pirates, fishing
 - **icicle**: winter-fun, winter
 - **july**: months, summer
 - **june**: months, summer
@@ -73,6 +77,7 @@
 - **milk**: breakfast-foods, drinks, dairy
 - **mint**: teas, ice-cream
 - **muffin**: baked-goods, pastries
+- **net**: tennis, fishing
 - **nine**: numbers, odd-numbers
 - **north**: compass, americas
 - **ocean**: water-bodies, nature-places
@@ -97,7 +102,8 @@
 - **scarecrow**: farm-work, autumn
 - **seven**: numbers, odd-numbers
 - **shower**: bathroom-items, morning-routine
-- **sled**: winter-fun, winter
+- **sled**: winter-fun, winter, winter-sports
+- **smoke**: fire, barbecue
 - **snow**: weather, winter
 - **soil**: landscape, gardening
 - **south**: compass, americas
@@ -109,6 +115,7 @@
 - **sun**: weather, stars-named, summer
 - **three**: numbers, odd-numbers
 - **tomato**: garden-vegetables, salad-things
+- **tongs**: kitchen-tools, barbecue
 - **triangle**: shapes, polygons
 - **turtle**: pets, sea-animals
 - **umbrella**: beach, rain-gear

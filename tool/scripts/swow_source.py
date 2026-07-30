@@ -10,6 +10,9 @@ cue -> R1,R2,R3. Лицензия: research/personal use, без редистр�
     python3 tool/scripts/swow_source.py word orange    # топ-ассоциации слова
     python3 tool/scripts/swow_source.py traps          # замер ловушек базы (shared_words)
     python3 tool/scripts/swow_source.py mine [--top 30]  # новые кандидаты в ловушки
+    python3 tool/scripts/swow_source.py reservoir      # резервуар слов вне базы -> json
+    python3 tool/scripts/swow_source.py pool camping   # кандидаты пула по стимулу
+    python3 tool/scripts/swow_source.py cats [--top 40]  # стимулы-кандидаты в категории
 
 Сила связи слово-слово: sym(a,b) = s(a->b) + s(b->a), где s = доля взвешенных
 ответов (R1 вес 1.0, R2/R3 вес 0.5) среди всех ответов на стимул.
@@ -139,9 +142,79 @@ def cmd_mine(agg, top):
     print(f"всего кандидатов с sym>=0.012: {len(cands)}")
 
 
+def zipf_fn():
+    sys.path.insert(0, str(ROOT / "level-generator" / "bubble_jam_pipeline"
+                           / ".venv" / "lib" / "python3.9" / "site-packages"))
+    from wordfreq import zipf_frequency
+    return lambda w: zipf_frequency(w, "en")
+
+
+RESERVOIR = ROOT / "reference" / "swow" / "reservoir.json"
+
+
+def usable(w, z):
+    return w.isascii() and w.isalpha() and len(w) <= 12 and z(w) >= 3.0
+
+
+def cmd_reservoir(agg):
+    z = zipf_fn()
+    base = json.loads(BASE.read_text())
+    base_words = {w["w"] for c in base["categories"] for w in c["words"]}
+    vocab = set(agg["fwd"]) | set(agg["bwd"])
+    res = {w: round(z(w), 2) for w in vocab if usable(w, z) and w not in base_words}
+    RESERVOIR.write_text(json.dumps(dict(sorted(res.items())), ensure_ascii=False, indent=0))
+    print(f"резервуар: {len(res)} слов вне базы (частотные, однословные) -> {RESERVOIR}")
+
+
+def pool_candidates(agg, cue, z, n=15):
+    """Кандидаты пула по стимулу: прямые + обратные ассоциации, фильтр качества."""
+    score = collections.Counter()
+    for w, s in agg["fwd"].get(cue, {}).items():
+        score[w] += s
+    for w, s in agg["bwd"].get(cue, {}).items():
+        score[w] += s * 0.7  # обратная связь чуть слабее
+    out = [(w, round(s, 3)) for w, s in score.most_common()
+           if w != cue and usable(w, z)]
+    return out[:n]
+
+
+def cmd_pool(agg, cue):
+    z = zipf_fn()
+    cand = pool_candidates(agg, cue, z)
+    print(f"пул-кандидаты '{cue}' (ассоциации людей, НЕ готовые члены категории -"
+          f" членство отбирает LLM, судит решатель):")
+    for w, s in cand:
+        print(f"  {w:14} sym={s:.3f} zipf={z(w):.2f}")
+
+
+def cmd_cats(agg, top):
+    z = zipf_fn()
+    base = json.loads(BASE.read_text())
+    taken = {c["id"] for c in base["categories"]} | \
+            {c["name"].lower() for c in base["categories"]}
+    rows = []
+    for cue in agg["fwd"]:
+        if not usable(cue, z) or cue in taken or (cue + "s") in taken:
+            continue
+        cand = [w for w, s in agg["fwd"][cue].items() if s >= 0.02 and usable(w, z)]
+        if len(cand) < 8:
+            continue
+        top10 = cand[:10]
+        links = sum(1 for i, a in enumerate(top10) for b in top10[i + 1:]
+                    if sym(agg, a, b) > 0)
+        rows.append((cue, len(cand), links))
+    rows.sort(key=lambda r: (-r[2], -r[1]))
+    print(f"Стимулы-кандидаты в категории (связный пул из ассоциаций), топ {top}:")
+    for cue, n, links in rows[:top]:
+        sample = [w for w, _ in pool_candidates(agg, cue, z, 8)]
+        print(f"  {cue:14} кандидатов {n:3}, связность {links:2}  пример: {', '.join(sample)}")
+    print(f"всего кандидатов: {len(rows)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["build", "word", "traps", "mine"])
+    ap.add_argument("cmd", choices=["build", "word", "traps", "mine",
+                                    "reservoir", "pool", "cats"])
     ap.add_argument("arg", nargs="?")
     ap.add_argument("--top", type=int, default=30)
     a = ap.parse_args()
@@ -155,6 +228,12 @@ def main():
         cmd_traps(agg)
     elif a.cmd == "mine":
         cmd_mine(agg, a.top)
+    elif a.cmd == "reservoir":
+        cmd_reservoir(agg)
+    elif a.cmd == "pool":
+        cmd_pool(agg, (a.arg or "").lower())
+    elif a.cmd == "cats":
+        cmd_cats(agg, a.top)
 
 
 if __name__ == "__main__":

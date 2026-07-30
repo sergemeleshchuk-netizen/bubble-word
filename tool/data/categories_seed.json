@@ -3410,6 +3410,233 @@
         "clothes",
         "accessories"
       ]
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "words": [
+        "necklace",
+        "bracelet",
+        "earrings",
+        "pendant",
+        "brooch",
+        "ring"
+      ],
+      "related": [
+        "gems",
+        "accessories"
+      ]
+    },
+    {
+      "id": "harbor",
+      "name": "At the Harbor",
+      "words": [
+        "dock",
+        "pier",
+        "port",
+        "anchor",
+        "lighthouse",
+        "ferry"
+      ],
+      "related": [
+        "boats",
+        "water-bodies",
+        "pirates"
+      ]
+    },
+    {
+      "id": "police",
+      "name": "Police",
+      "words": [
+        "officer",
+        "badge",
+        "siren",
+        "patrol",
+        "handcuffs",
+        "uniform"
+      ],
+      "related": [
+        "detective",
+        "security"
+      ]
+    },
+    {
+      "id": "detective",
+      "name": "Detective",
+      "words": [
+        "clue",
+        "suspect",
+        "evidence",
+        "mystery",
+        "disguise",
+        "witness"
+      ],
+      "related": [
+        "police",
+        "board-games",
+        "movie-genres"
+      ]
+    },
+    {
+      "id": "wedding",
+      "name": "Wedding",
+      "words": [
+        "bride",
+        "groom",
+        "veil",
+        "bouquet",
+        "tuxedo",
+        "altar"
+      ],
+      "related": [
+        "birthday",
+        "family"
+      ]
+    },
+    {
+      "id": "camera",
+      "name": "Camera",
+      "words": [
+        "lens",
+        "flash",
+        "tripod",
+        "zoom",
+        "shutter",
+        "selfie"
+      ],
+      "related": [
+        "cinema"
+      ]
+    },
+    {
+      "id": "sewing",
+      "name": "Sewing",
+      "words": [
+        "needle",
+        "thread",
+        "button",
+        "stitch",
+        "seam",
+        "yarn"
+      ],
+      "related": [
+        "fabrics",
+        "clothes"
+      ]
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "words": [
+        "rod",
+        "bait",
+        "reel",
+        "worm",
+        "hook",
+        "net"
+      ],
+      "related": [
+        "boats",
+        "pirates",
+        "tennis"
+      ]
+    },
+    {
+      "id": "barbecue",
+      "name": "Barbecue",
+      "words": [
+        "grill",
+        "charcoal",
+        "ribs",
+        "smoke",
+        "burger",
+        "tongs"
+      ],
+      "related": [
+        "fast-food",
+        "fire",
+        "kitchen-tools",
+        "picnic"
+      ]
+    },
+    {
+      "id": "winter-sports",
+      "name": "Winter Sports",
+      "words": [
+        "skiing",
+        "skating",
+        "hockey",
+        "curling",
+        "snowboard",
+        "sled"
+      ],
+      "related": [
+        "winter-fun",
+        "winter",
+        "swimming"
+      ]
+    },
+    {
+      "id": "singing-voices",
+      "name": "Singing Voices",
+      "words": [
+        "soprano",
+        "tenor",
+        "alto",
+        "bass",
+        "choir",
+        "solo"
+      ],
+      "related": [
+        "band-members",
+        "instruments"
+      ]
+    },
+    {
+      "id": "classroom",
+      "name": "Classroom",
+      "words": [
+        "blackboard",
+        "homework",
+        "student",
+        "lesson",
+        "quiz",
+        "exam"
+      ],
+      "related": [
+        "school-subjects",
+        "school-supplies"
+      ]
+    },
+    {
+      "id": "money",
+      "name": "Money",
+      "words": [
+        "coin",
+        "dollar",
+        "euro",
+        "cent",
+        "dime",
+        "quarter"
+      ],
+      "related": [
+        "banking"
+      ]
+    },
+    {
+      "id": "mail",
+      "name": "Mail",
+      "words": [
+        "envelope",
+        "stamp",
+        "postcard",
+        "parcel",
+        "mailbox",
+        "address"
+      ],
+      "related": [
+        "stationery"
+      ]
     }
   ]
 }

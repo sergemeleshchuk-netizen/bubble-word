@@ -2989,7 +2989,11 @@
           "len": 5
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "smoke": [
+          "barbecue"
+        ]
+      }
     },
     {
       "id": "temperature",
@@ -3386,7 +3390,11 @@
           "len": 5
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "ferry": [
+          "harbor"
+        ]
+      }
     },
     {
       "id": "writing-tools",
@@ -3840,6 +3848,9 @@
       "shared_words": {
         "salad": [
           "menu-courses"
+        ],
+        "burger": [
+          "barbecue"
         ],
         "steak": [
           "meats"
@@ -4875,7 +4886,11 @@
           "len": 3
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "net": [
+          "fishing"
+        ]
+      }
     },
     {
       "id": "guitars",
@@ -4918,7 +4933,8 @@
       ],
       "shared_words": {
         "bass": [
-          "band-members"
+          "band-members",
+          "singing-voices"
         ]
       }
     },
@@ -5347,7 +5363,8 @@
           "instruments"
         ],
         "bass": [
-          "guitars"
+          "guitars",
+          "singing-voices"
         ]
       }
     },
@@ -6016,7 +6033,11 @@
           "len": 8
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "clue": [
+          "detective"
+        ]
+      }
     },
     {
       "id": "sleep-things",
@@ -8139,7 +8160,11 @@
           "len": 8
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "tongs": [
+          "barbecue"
+        ]
+      }
     },
     {
       "id": "salad-things",
@@ -8376,7 +8401,8 @@
       ],
       "shared_words": {
         "sled": [
-          "winter"
+          "winter",
+          "winter-sports"
         ],
         "icicle": [
           "winter"
@@ -8617,7 +8643,8 @@
       ],
       "shared_words": {
         "anchor": [
-          "pirates"
+          "pirates",
+          "harbor"
         ],
         "sponge": [
           "bathroom-items",
@@ -8822,7 +8849,11 @@
           "birds"
         ],
         "anchor": [
-          "ocean-floor"
+          "ocean-floor",
+          "harbor"
+        ],
+        "hook": [
+          "fishing"
         ],
         "compass": [
           "camping"
@@ -8954,7 +8985,8 @@
           "winter-fun"
         ],
         "sled": [
-          "winter-fun"
+          "winter-fun",
+          "winter-sports"
         ]
       }
     },
@@ -9814,6 +9846,622 @@
           "swimming"
         ]
       }
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "related": [
+        "gems",
+        "accessories"
+      ],
+      "words": [
+        {
+          "w": "necklace",
+          "zipf": 3.85,
+          "len": 8
+        },
+        {
+          "w": "bracelet",
+          "zipf": 3.7,
+          "len": 8
+        },
+        {
+          "w": "earrings",
+          "zipf": 3.62,
+          "len": 8
+        },
+        {
+          "w": "pendant",
+          "zipf": 3.43,
+          "len": 7
+        },
+        {
+          "w": "brooch",
+          "zipf": 3.04,
+          "len": 6
+        },
+        {
+          "w": "ring",
+          "zipf": 4.81,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "harbor",
+      "name": "At the Harbor",
+      "related": [
+        "boats",
+        "water-bodies",
+        "pirates"
+      ],
+      "words": [
+        {
+          "w": "dock",
+          "zipf": 3.99,
+          "len": 4
+        },
+        {
+          "w": "pier",
+          "zipf": 3.82,
+          "len": 4
+        },
+        {
+          "w": "port",
+          "zipf": 4.73,
+          "len": 4
+        },
+        {
+          "w": "anchor",
+          "zipf": 4.02,
+          "len": 6
+        },
+        {
+          "w": "lighthouse",
+          "zipf": 3.55,
+          "len": 10
+        },
+        {
+          "w": "ferry",
+          "zipf": 4.02,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "anchor": [
+          "ocean-floor",
+          "pirates"
+        ],
+        "ferry": [
+          "boats"
+        ]
+      }
+    },
+    {
+      "id": "police",
+      "name": "Police",
+      "related": [
+        "detective",
+        "security"
+      ],
+      "words": [
+        {
+          "w": "officer",
+          "zipf": 5.03,
+          "len": 7
+        },
+        {
+          "w": "badge",
+          "zipf": 4.02,
+          "len": 5
+        },
+        {
+          "w": "siren",
+          "zipf": 3.46,
+          "len": 5
+        },
+        {
+          "w": "patrol",
+          "zipf": 4.14,
+          "len": 6
+        },
+        {
+          "w": "handcuffs",
+          "zipf": 3.21,
+          "len": 9
+        },
+        {
+          "w": "uniform",
+          "zipf": 4.33,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "detective",
+      "name": "Detective",
+      "related": [
+        "police",
+        "board-games",
+        "movie-genres"
+      ],
+      "words": [
+        {
+          "w": "clue",
+          "zipf": 4.18,
+          "len": 4
+        },
+        {
+          "w": "suspect",
+          "zipf": 4.51,
+          "len": 7
+        },
+        {
+          "w": "evidence",
+          "zipf": 5.14,
+          "len": 8
+        },
+        {
+          "w": "mystery",
+          "zipf": 4.45,
+          "len": 7
+        },
+        {
+          "w": "disguise",
+          "zipf": 3.72,
+          "len": 8
+        },
+        {
+          "w": "witness",
+          "zipf": 4.52,
+          "len": 7
+        }
+      ],
+      "shared_words": {
+        "clue": [
+          "board-games"
+        ]
+      }
+    },
+    {
+      "id": "wedding",
+      "name": "Wedding",
+      "related": [
+        "birthday",
+        "family"
+      ],
+      "words": [
+        {
+          "w": "bride",
+          "zipf": 4.08,
+          "len": 5
+        },
+        {
+          "w": "groom",
+          "zipf": 3.63,
+          "len": 5
+        },
+        {
+          "w": "veil",
+          "zipf": 3.66,
+          "len": 4
+        },
+        {
+          "w": "bouquet",
+          "zipf": 3.41,
+          "len": 7
+        },
+        {
+          "w": "tuxedo",
+          "zipf": 3.11,
+          "len": 6
+        },
+        {
+          "w": "altar",
+          "zipf": 3.8,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "camera",
+      "name": "Camera",
+      "related": [
+        "cinema"
+      ],
+      "words": [
+        {
+          "w": "lens",
+          "zipf": 4.17,
+          "len": 4
+        },
+        {
+          "w": "flash",
+          "zipf": 4.45,
+          "len": 5
+        },
+        {
+          "w": "tripod",
+          "zipf": 3.18,
+          "len": 6
+        },
+        {
+          "w": "zoom",
+          "zipf": 3.83,
+          "len": 4
+        },
+        {
+          "w": "shutter",
+          "zipf": 3.48,
+          "len": 7
+        },
+        {
+          "w": "selfie",
+          "zipf": 3.75,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "sewing",
+      "name": "Sewing",
+      "related": [
+        "fabrics",
+        "clothes"
+      ],
+      "words": [
+        {
+          "w": "needle",
+          "zipf": 3.98,
+          "len": 6
+        },
+        {
+          "w": "thread",
+          "zipf": 4.44,
+          "len": 6
+        },
+        {
+          "w": "button",
+          "zipf": 4.56,
+          "len": 6
+        },
+        {
+          "w": "stitch",
+          "zipf": 3.64,
+          "len": 6
+        },
+        {
+          "w": "seam",
+          "zipf": 3.44,
+          "len": 4
+        },
+        {
+          "w": "yarn",
+          "zipf": 3.6,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "related": [
+        "boats",
+        "pirates",
+        "tennis"
+      ],
+      "words": [
+        {
+          "w": "rod",
+          "zipf": 4.14,
+          "len": 3
+        },
+        {
+          "w": "bait",
+          "zipf": 3.85,
+          "len": 4
+        },
+        {
+          "w": "reel",
+          "zipf": 3.68,
+          "len": 4
+        },
+        {
+          "w": "worm",
+          "zipf": 3.77,
+          "len": 4
+        },
+        {
+          "w": "hook",
+          "zipf": 4.37,
+          "len": 4
+        },
+        {
+          "w": "net",
+          "zipf": 4.76,
+          "len": 3
+        }
+      ],
+      "shared_words": {
+        "hook": [
+          "pirates"
+        ],
+        "net": [
+          "tennis"
+        ]
+      }
+    },
+    {
+      "id": "barbecue",
+      "name": "Barbecue",
+      "related": [
+        "fast-food",
+        "fire",
+        "kitchen-tools",
+        "picnic"
+      ],
+      "words": [
+        {
+          "w": "grill",
+          "zipf": 3.84,
+          "len": 5
+        },
+        {
+          "w": "charcoal",
+          "zipf": 3.58,
+          "len": 8
+        },
+        {
+          "w": "ribs",
+          "zipf": 3.8,
+          "len": 4
+        },
+        {
+          "w": "smoke",
+          "zipf": 4.67,
+          "len": 5
+        },
+        {
+          "w": "burger",
+          "zipf": 4.07,
+          "len": 6
+        },
+        {
+          "w": "tongs",
+          "zipf": 2.8,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "smoke": [
+          "fire"
+        ],
+        "burger": [
+          "fast-food"
+        ],
+        "tongs": [
+          "kitchen-tools"
+        ]
+      }
+    },
+    {
+      "id": "winter-sports",
+      "name": "Winter Sports",
+      "related": [
+        "winter-fun",
+        "winter",
+        "swimming"
+      ],
+      "words": [
+        {
+          "w": "skiing",
+          "zipf": 3.84,
+          "len": 6
+        },
+        {
+          "w": "skating",
+          "zipf": 3.84,
+          "len": 7
+        },
+        {
+          "w": "hockey",
+          "zipf": 4.42,
+          "len": 6
+        },
+        {
+          "w": "curling",
+          "zipf": 3.51,
+          "len": 7
+        },
+        {
+          "w": "snowboard",
+          "zipf": 3.01,
+          "len": 9
+        },
+        {
+          "w": "sled",
+          "zipf": 3.23,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "sled": [
+          "winter-fun",
+          "winter"
+        ]
+      }
+    },
+    {
+      "id": "singing-voices",
+      "name": "Singing Voices",
+      "related": [
+        "band-members",
+        "instruments"
+      ],
+      "words": [
+        {
+          "w": "soprano",
+          "zipf": 3.31,
+          "len": 7
+        },
+        {
+          "w": "tenor",
+          "zipf": 3.4,
+          "len": 5
+        },
+        {
+          "w": "alto",
+          "zipf": 3.47,
+          "len": 4
+        },
+        {
+          "w": "bass",
+          "zipf": 4.28,
+          "len": 4
+        },
+        {
+          "w": "choir",
+          "zipf": 3.88,
+          "len": 5
+        },
+        {
+          "w": "solo",
+          "zipf": 4.61,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "bass": [
+          "guitars",
+          "band-members"
+        ]
+      }
+    },
+    {
+      "id": "classroom",
+      "name": "Classroom",
+      "related": [
+        "school-subjects",
+        "school-supplies"
+      ],
+      "words": [
+        {
+          "w": "blackboard",
+          "zipf": 3.02,
+          "len": 10
+        },
+        {
+          "w": "homework",
+          "zipf": 4.13,
+          "len": 8
+        },
+        {
+          "w": "student",
+          "zipf": 5.02,
+          "len": 7
+        },
+        {
+          "w": "lesson",
+          "zipf": 4.47,
+          "len": 6
+        },
+        {
+          "w": "quiz",
+          "zipf": 3.82,
+          "len": 4
+        },
+        {
+          "w": "exam",
+          "zipf": 4.26,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "money",
+      "name": "Money",
+      "related": [
+        "banking"
+      ],
+      "words": [
+        {
+          "w": "coin",
+          "zipf": 4.19,
+          "len": 4
+        },
+        {
+          "w": "dollar",
+          "zipf": 4.59,
+          "len": 6
+        },
+        {
+          "w": "euro",
+          "zipf": 4.09,
+          "len": 4
+        },
+        {
+          "w": "cent",
+          "zipf": 4.83,
+          "len": 4
+        },
+        {
+          "w": "dime",
+          "zipf": 3.66,
+          "len": 4
+        },
+        {
+          "w": "quarter",
+          "zipf": 4.72,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "mail",
+      "name": "Mail",
+      "related": [
+        "stationery"
+      ],
+      "words": [
+        {
+          "w": "envelope",
+          "zipf": 3.86,
+          "len": 8
+        },
+        {
+          "w": "stamp",
+          "zipf": 4.11,
+          "len": 5
+        },
+        {
+          "w": "postcard",
+          "zipf": 3.44,
+          "len": 8
+        },
+        {
+          "w": "parcel",
+          "zipf": 3.67,
+          "len": 6
+        },
+        {
+          "w": "mailbox",
+          "zipf": 3.31,
+          "len": 7
+        },
+        {
+          "w": "address",
+          "zipf": 4.91,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
     }
   ]
 }
