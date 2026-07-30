@@ -32,9 +32,16 @@
       Блок-лист `tool/data/blocklist.txt` (~150 записей). Сборка и валидация:
       `tool/scripts/build_base.py` (запуск из venv пайплайна), отчёт `tool/data/base_report.md`.
 
+- [x] Скилл `word-associations-generator` (30.07, `.claude/skills/`): генерит
+      категории слов по теме/примеру и наполняет базу через build_base.py.
+      Проверен боевым прогоном: тема «путешествия» -> +4 категории (airport,
+      hotel, pirates, picnic), 9 новых ловушек-пересечений (basket, blanket,
+      key, compass, parrot...). База: 179 категорий, 1144 уникальных слова.
+
 ## В работе
 
 - [ ] Шаг 2 (approach.md): 2-3 эталонных уровня руками по схеме + прогон в playable
+- [ ] Шаг 3: скилл `level-generator` (база -> уровень JSON: ловушки, повторы, механики)
 
 ## Впереди (план из блока 00 PLANNING)
 

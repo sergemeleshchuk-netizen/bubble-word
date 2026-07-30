@@ -177,6 +177,10 @@
     { "id": "tools", "name": "Toolbox", "words": ["hammer", "wrench", "screwdriver", "pliers", "drill", "saw", "level"], "related": ["construction", "trade-professions"] },
     { "id": "farm-work", "name": "On the Farm", "words": ["barn", "tractor", "harvest", "plow", "silo", "scarecrow", "hay"], "related": ["farm-animals", "gardening", "grains"] },
     { "id": "ocean-floor", "name": "Ocean Floor", "words": ["coral", "seaweed", "anchor", "shipwreck", "sponge", "reef"], "related": ["sea-animals", "water-bodies", "beach"] },
-    { "id": "rain-gear", "name": "Rainy Day Gear", "words": ["umbrella", "raincoat", "boots", "puddle", "poncho", "hood"], "related": ["weather", "clothes", "seasons"] }
+    { "id": "rain-gear", "name": "Rainy Day Gear", "words": ["umbrella", "raincoat", "boots", "puddle", "poncho", "hood"], "related": ["weather", "clothes", "seasons"] },
+    { "id": "airport", "name": "At the Airport", "words": ["boarding", "luggage", "passport", "gate", "runway", "customs", "terminal"], "related": ["aviation", "tickets", "hotel"] },
+    { "id": "hotel", "name": "At the Hotel", "words": ["lobby", "suite", "reception", "checkout", "key", "housekeeper", "vacancy"], "related": ["airport", "rooms"] },
+    { "id": "pirates", "name": "Pirates", "words": ["treasure", "parrot", "anchor", "plank", "hook", "compass", "eyepatch"], "related": ["boats", "ocean-floor", "beach"] },
+    { "id": "picnic", "name": "Picnic", "words": ["basket", "blanket", "thermos", "sandwich", "lemonade", "hamper", "cooler"], "related": ["beach", "camping", "meals"] }
   ]
 }

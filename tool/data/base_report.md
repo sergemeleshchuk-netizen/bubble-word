@@ -1,23 +1,27 @@
 # Отчёт сборки базы слов
 
-- Категорий: 175
-- Слов всего: 1199, уникальных: 1125
-- Слов в двух+ категориях (кандидаты в ловушки): 71
+- Категорий: 179
+- Слов всего: 1227, уникальных: 1144
+- Слов в двух+ категориях (кандидаты в ловушки): 79
 - Средний zipf: 3.92, минимум: 1.32
 - Записей в блок-листе: 131
 
 ## Пересечения (слово -> категории)
 
+- **anchor**: ocean-floor, pirates
 - **balloon**: aviation, birthday
 - **bark**: dog-things, tree-parts
+- **basket**: easter, picnic
 - **bass**: guitars, band-members
 - **bed**: furniture, bedding
 - **bird**: pets, animal-classes
+- **blanket**: bedding, picnic
 - **bread**: breakfast-foods, baked-goods
 - **bullseye**: darts, archery
 - **cement**: building-materials, construction
 - **chalk**: writing-tools, soils
 - **cold**: illness, temperature
+- **compass**: camping, pirates
 - **cookie**: sweets, baked-goods
 - **crane**: birds, construction
 - **cream**: dairy, facial-care
@@ -36,11 +40,14 @@
 - **glass**: cutlery, materials
 - **green**: colors, teas
 - **guitar**: instruments, band-members
+- **hamper**: laundry, picnic
 - **hat**: accessories, clothes
 - **heart**: shapes, organs
 - **hippo**: safari-animals, large-animals
+- **key**: security, hotel
 - **lace**: shoe-parts, fabrics
 - **lane**: road, swimming
+- **lemonade**: drinks, picnic
 - **lettuce**: vegetables, salad-things
 - **lion**: safari-animals, wild-cats
 - **milk**: breakfast-foods, drinks, dairy
@@ -52,7 +59,7 @@
 - **orange**: colors, fruits
 - **painter**: creative-professions, trade-professions
 - **paper**: materials, stationery
-- **parrot**: pets, birds
+- **parrot**: pets, birds, pirates
 - **peanut**: nuts, snacks-salty
 - **pen**: school-supplies, writing-tools, stationery
 - **pie**: desserts, baked-goods
@@ -62,6 +69,7 @@
 - **pyramid**: solid-shapes, ancient-egypt
 - **rhino**: safari-animals, large-animals
 - **salad**: fast-food, menu-courses
+- **sandwich**: fast-food, picnic
 - **seven**: numbers, odd-numbers
 - **soil**: landscape, gardening
 - **south**: compass, americas
@@ -84,7 +92,7 @@
 
 - нет
 
-## Предупреждения (53)
+## Предупреждения (54)
 
 - [compass] пул из 4 слов - генератору мало выбора
 - [polygons] редкое слово: rhombus (zipf 2.12)
@@ -139,3 +147,4 @@
 - [winter-fun] редкое слово: icicle (zipf 2.43)
 - [beach] редкое слово: sandcastle (zipf 2.27)
 - [beach] редкое слово: seashell (zipf 2.39)
+- [pirates] редкое слово: eyepatch (zipf 2.08)

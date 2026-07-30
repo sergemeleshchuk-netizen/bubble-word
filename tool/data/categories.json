@@ -2137,7 +2137,8 @@
           "animal-classes"
         ],
         "parrot": [
-          "birds"
+          "birds",
+          "pirates"
         ],
         "turtle": [
           "sea-animals"
@@ -2382,6 +2383,9 @@
         "milk": [
           "breakfast-foods",
           "dairy"
+        ],
+        "lemonade": [
+          "picnic"
         ]
       }
     },
@@ -2885,6 +2889,9 @@
       "shared_words": {
         "bed": [
           "furniture"
+        ],
+        "blanket": [
+          "picnic"
         ]
       }
     },
@@ -3565,7 +3572,8 @@
       ],
       "shared_words": {
         "parrot": [
-          "pets"
+          "pets",
+          "pirates"
         ],
         "crane": [
           "construction"
@@ -3774,6 +3782,9 @@
       "shared_words": {
         "salad": [
           "menu-courses"
+        ],
+        "sandwich": [
+          "picnic"
         ]
       }
     },
@@ -6149,7 +6160,11 @@
           "len": 4
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "hamper": [
+          "picnic"
+        ]
+      }
     },
     {
       "id": "timepieces",
@@ -7051,7 +7066,11 @@
           "len": 7
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "key": [
+          "hotel"
+        ]
+      }
     },
     {
       "id": "metals",
@@ -7869,6 +7888,9 @@
         }
       ],
       "shared_words": {
+        "basket": [
+          "picnic"
+        ],
         "spring": [
           "seasons"
         ]
@@ -8200,7 +8222,11 @@
           "len": 11
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "compass": [
+          "pirates"
+        ]
+      }
     },
     {
       "id": "winter-fun",
@@ -8470,6 +8496,9 @@
         }
       ],
       "shared_words": {
+        "anchor": [
+          "pirates"
+        ],
         "sponge": [
           "bathroom-items"
         ]
@@ -8518,6 +8547,224 @@
       "shared_words": {
         "umbrella": [
           "beach"
+        ]
+      }
+    },
+    {
+      "id": "airport",
+      "name": "At the Airport",
+      "related": [
+        "aviation",
+        "tickets",
+        "hotel"
+      ],
+      "words": [
+        {
+          "w": "boarding",
+          "zipf": 3.96,
+          "len": 8
+        },
+        {
+          "w": "luggage",
+          "zipf": 3.8,
+          "len": 7
+        },
+        {
+          "w": "passport",
+          "zipf": 4.05,
+          "len": 8
+        },
+        {
+          "w": "gate",
+          "zipf": 4.47,
+          "len": 4
+        },
+        {
+          "w": "runway",
+          "zipf": 3.92,
+          "len": 6
+        },
+        {
+          "w": "customs",
+          "zipf": 4.19,
+          "len": 7
+        },
+        {
+          "w": "terminal",
+          "zipf": 4.31,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "hotel",
+      "name": "At the Hotel",
+      "related": [
+        "airport",
+        "rooms"
+      ],
+      "words": [
+        {
+          "w": "lobby",
+          "zipf": 4.03,
+          "len": 5
+        },
+        {
+          "w": "suite",
+          "zipf": 4.18,
+          "len": 5
+        },
+        {
+          "w": "reception",
+          "zipf": 4.23,
+          "len": 9
+        },
+        {
+          "w": "checkout",
+          "zipf": 3.64,
+          "len": 8
+        },
+        {
+          "w": "key",
+          "zipf": 5.12,
+          "len": 3
+        },
+        {
+          "w": "housekeeper",
+          "zipf": 3.29,
+          "len": 11
+        },
+        {
+          "w": "vacancy",
+          "zipf": 3.65,
+          "len": 7
+        }
+      ],
+      "shared_words": {
+        "key": [
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "pirates",
+      "name": "Pirates",
+      "related": [
+        "boats",
+        "ocean-floor",
+        "beach"
+      ],
+      "words": [
+        {
+          "w": "treasure",
+          "zipf": 4.17,
+          "len": 8
+        },
+        {
+          "w": "parrot",
+          "zipf": 3.49,
+          "len": 6
+        },
+        {
+          "w": "anchor",
+          "zipf": 4.02,
+          "len": 6
+        },
+        {
+          "w": "plank",
+          "zipf": 3.46,
+          "len": 5
+        },
+        {
+          "w": "hook",
+          "zipf": 4.37,
+          "len": 4
+        },
+        {
+          "w": "compass",
+          "zipf": 3.74,
+          "len": 7
+        },
+        {
+          "w": "eyepatch",
+          "zipf": 2.08,
+          "len": 8
+        }
+      ],
+      "shared_words": {
+        "parrot": [
+          "pets",
+          "birds"
+        ],
+        "anchor": [
+          "ocean-floor"
+        ],
+        "compass": [
+          "camping"
+        ]
+      }
+    },
+    {
+      "id": "picnic",
+      "name": "Picnic",
+      "related": [
+        "beach",
+        "camping",
+        "meals"
+      ],
+      "words": [
+        {
+          "w": "basket",
+          "zipf": 4.07,
+          "len": 6
+        },
+        {
+          "w": "blanket",
+          "zipf": 4.07,
+          "len": 7
+        },
+        {
+          "w": "thermos",
+          "zipf": 2.65,
+          "len": 7
+        },
+        {
+          "w": "sandwich",
+          "zipf": 4.13,
+          "len": 8
+        },
+        {
+          "w": "lemonade",
+          "zipf": 3.44,
+          "len": 8
+        },
+        {
+          "w": "hamper",
+          "zipf": 3.26,
+          "len": 6
+        },
+        {
+          "w": "cooler",
+          "zipf": 3.96,
+          "len": 6
+        }
+      ],
+      "shared_words": {
+        "basket": [
+          "easter"
+        ],
+        "blanket": [
+          "bedding"
+        ],
+        "sandwich": [
+          "fast-food"
+        ],
+        "lemonade": [
+          "drinks"
+        ],
+        "hamper": [
+          "laundry"
         ]
       }
     }
