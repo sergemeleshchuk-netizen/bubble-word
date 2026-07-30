@@ -1,0 +1,63 @@
+# plants — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+houseplants | HOUSEPLANTS | is_a | 0.3 | 0.78 | A | Plants commonly kept indoors in pots | $W is commonly kept indoors as a houseplant
+fern, cactus, succulent, ivy, orchid, aloe, bamboo, philodendron, spider plant, jade, snake plant, peace lily, rubber plant, pothos, begonia, geranium, violet, palm
+
+herbs | COOKING HERBS | is_a | 0.3 | 0.78 | A | Leafy plants grown to flavor food | $W is a leafy plant grown to flavor food
+basil, mint, parsley, cilantro, dill, thyme, oregano, rosemary, sage, chive, tarragon, lavender, marjoram, bay, lemongrass
+
+weeds | WEEDS | is_a | 0.35 | 0.72 | A | Unwanted plants that grow in lawns and gardens | $W is an unwanted plant in a lawn or garden
+dandelion, crabgrass, thistle, clover, nettle, ragweed, bindweed, chickweed, poison ivy, ivy, moss, plantain, purslane, foxtail
+
+cactus_and_succulents | CACTUS AND SUCCULENTS | is_a | 0.4 | 0.68 | C | Desert plants that store water in thick leaves or stems | $W stores water in thick leaves or stems
+cactus, aloe, agave, jade, saguaro, prickly pear, barrel cactus, echeveria, sedum, yucca, hens and chicks, cholla
+
+vines | VINES AND CLIMBERS | is_a | 0.4 | 0.68 | C | Plants that climb or trail along a surface | $W is a plant that climbs or trails
+ivy, grape, honeysuckle, wisteria, clematis, morning glory, pea, bean, cucumber, pumpkin, jasmine, kudzu, hops, passion flower
+
+crops | FARM CROPS | is_a | 0.25 | 0.85 | A | Plants grown on farms for food or material | $W is a crop grown on farms
+corn, wheat, rice, soybean, cotton, potato, barley, oat, hay, alfalfa, sorghum, sugarcane, millet, canola, rye, flax, peanut, sunflower
+
+fruit_trees | FRUIT TREES | is_a | 0.3 | 0.78 | A | Trees grown for their edible fruit | $W is a tree grown for its fruit
+apple, pear, peach, cherry, plum, orange, lemon, lime, fig, olive, apricot, avocado, mango, almond, walnut, pecan, banana, coconut
+
+evergreens | EVERGREEN TREES | is_a | 0.35 | 0.72 | A | Trees that keep their leaves or needles all year | $W keeps its leaves or needles all year
+pine, spruce, fir, cedar, juniper, cypress, hemlock, yew, holly, redwood, magnolia, laurel, arborvitae, sequoia
+
+garden_flowers_spring | SPRING FLOWERS | found_in | 0.35 | 0.72 | A | Flowers that bloom in spring | $W blooms in spring
+tulip, daffodil, crocus, hyacinth, lilac, cherry blossom, magnolia, pansy, primrose, bluebell, forsythia, snowdrop, iris, azalea
+
+garden_flowers_summer | SUMMER FLOWERS | found_in | 0.35 | 0.72 | A | Flowers that bloom in summer | $W blooms in summer
+rose, sunflower, daisy, zinnia, marigold, petunia, lily, dahlia, hydrangea, lavender, geranium, black eyed susan, cosmos, snapdragon
+
+shrubs | SHRUBS AND BUSHES | is_a | 0.4 | 0.68 | C | Woody plants smaller than a tree | $W is a woody plant smaller than a tree
+rose, hedge, azalea, boxwood, holly, lilac, hydrangea, juniper, forsythia, rhododendron, barberry, privet, viburnum, spirea
+
+seeds_and_bulbs | SEEDS AND BULBS | is_a | 0.35 | 0.72 | A | Plant parts you put in the ground to grow a new plant | $W is planted in the ground to grow a new plant
+seed, bulb, tuber, sprout, cutting, acorn, kernel, pit, spore, rhizome, clove, sapling, seedling, corm
+
+plant_parts | PLANT PARTS | part_of | 0.25 | 0.85 | A | Parts of a growing plant | $W is a part of a growing plant
+root, stem, leaf, flower, seed, bud, thorn, petal, stalk, vine, bark, pollen, fruit, sprout, tendril, node
+
+poisonous_plants | POISONOUS PLANTS | has_property | 0.4 | 0.68 | C | Plants that are dangerous to touch or eat | $W is dangerous to touch or eat
+poison ivy, poison oak, nightshade, hemlock, oleander, foxglove, mistletoe, holly berry, castor bean, sumac, monkshood, yew
+
+tropical_plants | TROPICAL PLANTS | found_in | 0.35 | 0.72 | A | Plants that grow in tropical climates | $W grows in a tropical climate
+palm, banana, orchid, bamboo, hibiscus, fern, mangrove, bromeliad, papaya, cocoa, coffee, rubber tree, banyan, plumeria
+
+water_plants | WATER PLANTS | found_in | 0.35 | 0.72 | A | Plants that grow in or on water | $W grows in or on water
+lily pad, seaweed, cattail, reed, algae, duckweed, lotus, kelp, watercress, papyrus, water lily, moss, eelgrass
+
+grasses | GRASSES | is_a | 0.4 | 0.68 | C | Kinds of grass and grain plants | $W is a kind of grass plant
+bluegrass, fescue, bamboo, wheat, rye, oat, barley, corn, rice, sugarcane, ryegrass, bermuda, crabgrass, reed
+
+mushroom_types | MUSHROOM TYPES | is_a | 0.4 | 0.65 | C | Kinds of edible and wild mushrooms | $W is a kind of mushroom
+button, portobello, shiitake, oyster, morel, chanterelle, truffle, cremini, enoki, porcini, puffball, toadstool
+
+leaf_shapes | LEAF WORDS | found_in | 0.45 | 0.6 | C | Words describing leaves and how they grow | $W describes a leaf or how it grows
+needle, blade, frond, lobe, vein, stalk, sprout, foliage, canopy, deciduous, evergreen, broadleaf, bud, stem
+
+gardening_words | GARDENING WORDS | found_in | 0.3 | 0.8 | A | Words used when growing a garden | $W is used when growing a garden
+soil, compost, mulch, fertilizer, seed, sprout, prune, weed, water, sunlight, greenhouse, trellis, pot, bed, row, harvest, hose, shade

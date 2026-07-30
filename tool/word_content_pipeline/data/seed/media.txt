@@ -1,0 +1,57 @@
+# media — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+superheroes | SUPERHEROES | is_a | 0.25 | 0.85 | AP | Comic book superheroes most people can name | $W is a comic book superhero
+Superman, Batman, Spiderman, Wonder Woman, Hulk, Iron Man, Thor, Flash, Aquaman, Wolverine, Captain America, Black Widow, Green Lantern, Robin, Supergirl, Daredevil, Ant Man, Storm
+
+cartoon_characters | CARTOON CHARACTERS | is_a | 0.25 | 0.85 | AP | Classic cartoon characters | $W is a classic cartoon character
+Mickey, Donald, Goofy, Bugs Bunny, Daffy, Popeye, Snoopy, Garfield, Scooby, Tom, Jerry, Pluto, Woody, Tweety, Porky, Sylvester, Betty Boop, Yogi
+
+disney_characters | DISNEY CHARACTERS | is_a | 0.25 | 0.85 | AP | Characters from Disney animated films | $W is a Disney character
+Cinderella, Ariel, Belle, Simba, Aladdin, Jasmine, Mulan, Pocahontas, Dumbo, Bambi, Peter Pan, Tinkerbell, Pinocchio, Elsa, Anna, Rapunzel, Snow White, Buzz, Nemo, Moana
+
+fairy_tales | FAIRY TALES | is_a | 0.3 | 0.82 | AP | Classic fairy tales children know | $W is a classic fairy tale
+Cinderella, Snow White, Rapunzel, Rumpelstiltskin, Hansel and Gretel, Sleeping Beauty, Little Mermaid, Beauty and the Beast, Three Little Pigs, Goldilocks, Jack and the Beanstalk, Red Riding Hood, Pinocchio, Thumbelina, Ugly Duckling
+
+nursery_rhymes | NURSERY RHYMES | is_a | 0.35 | 0.75 | AP | Nursery rhymes American children learn | $W is a nursery rhyme
+Humpty Dumpty, Jack and Jill, Little Bo Peep, Old MacDonald, Twinkle Twinkle, Mary Had a Little Lamb, Hickory Dickory Dock, Baa Baa Black Sheep, Three Blind Mice, Row Your Boat, London Bridge, Itsy Bitsy Spider
+
+classic_novels | CLASSIC NOVELS | is_a | 0.4 | 0.72 | AP | Classic novels widely read in school | $W is a classic novel
+Frankenstein, Dracula, Treasure Island, Oliver Twist, Great Expectations, Jane Eyre, Wuthering Heights, Little Women, Robinson Crusoe, Gulliver, Tom Sawyer, Huckleberry Finn, Great Gatsby, Of Mice and Men, Call of the Wild
+
+shakespeare_plays | SHAKESPEARE PLAYS | is_a | 0.4 | 0.72 | AP | Plays written by Shakespeare | $W is a play by Shakespeare
+Hamlet, Macbeth, Othello, Romeo and Juliet, King Lear, Julius Caesar, Tempest, Twelfth Night, Midsummer Night, Much Ado, Merchant of Venice, As You Like It, Richard III, Taming of the Shrew
+
+book_genres | BOOK GENRES | is_a | 0.3 | 0.8 | A | Categories used to classify books | $W is a category of book
+mystery, romance, biography, fantasy, thriller, memoir, history, poetry, cookbook, textbook, self help, science fiction, horror, western, travel, humor, atlas, encyclopedia
+
+tv_genres | TV SHOW TYPES | is_a | 0.3 | 0.8 | A | Kinds of television program | $W is a kind of television program
+sitcom, drama, news, soap opera, game show, talk show, reality, documentary, cartoon, sports, cooking show, talent show, crime show, mini series, variety show
+
+famous_movies | FAMOUS MOVIES | is_a | 0.3 | 0.8 | AP | Films most Americans have heard of | $W is a film most Americans have heard of
+Titanic, Jaws, Casablanca, Star Wars, Rocky, Ghostbusters, Jurassic Park, Godfather, Wizard of Oz, Psycho, Terminator, Gladiator, Avatar, Frozen, Shrek, Grease, Alien, Braveheart
+
+movie_roles | MOVIE CREW ROLES | is_a | 0.35 | 0.75 | A | Jobs in the crew of a film production | $W is a job on a film crew
+director, producer, actor, editor, cameraman, screenwriter, stunt double, gaffer, composer, costume designer, makeup artist, sound engineer, extra, casting director, set designer
+
+awards | AWARDS | is_a | 0.35 | 0.78 | AP | Famous prizes and awards | $W is a famous award
+Oscar, Grammy, Emmy, Tony, Nobel, Pulitzer, Golden Globe, Olympic medal, Heisman, Cannes, Booker, Peabody
+
+newspaper_parts | NEWSPAPER PARTS | part_of | 0.35 | 0.75 | A | Sections and parts of a newspaper | $W is a section or part of a newspaper
+headline, editorial, comics, classifieds, obituary, sports, weather, front page, byline, column, crossword, advice, review, horoscope, letters
+
+radio_words | RADIO WORDS | found_in | 0.35 | 0.75 | A | Things and roles in radio broadcasting | $W is part of radio broadcasting
+station, frequency, DJ, broadcast, antenna, dial, static, jingle, call sign, airwave, studio, transmitter, playlist, host, tuner
+
+magazines | MAGAZINE TYPES | is_a | 0.35 | 0.75 | A | Kinds of magazine sold at a newsstand | $W is a kind of magazine
+fashion, sports, news, gossip, science, cooking, travel, gardening, hobby, tabloid, comic, trade, teen, business, parenting
+
+famous_musicians | MUSIC LEGENDS | is_a | 0.35 | 0.78 | AP | Musicians widely known across generations | $W is a widely known musician
+Beatles, Elvis, Mozart, Bach, Sinatra, Armstrong, Dylan, Beethoven, Presley, Hendrix, Cash, Ellington, Chopin, Gershwin
+
+game_shows | GAME SHOW WORDS | found_in | 0.4 | 0.7 | A | Things found on a television game show | $W is found on a television game show
+host, contestant, buzzer, prize, wheel, category, podium, audience, jackpot, round, question, lifeline, trophy, spin, board
+
+comic_words | COMIC BOOK WORDS | found_in | 0.4 | 0.68 | C | Words used about comic books | $W is used when talking about comic books
+panel, speech bubble, issue, hero, villain, origin, cape, sidekick, series, artist, inker, cover, strip, graphic novel

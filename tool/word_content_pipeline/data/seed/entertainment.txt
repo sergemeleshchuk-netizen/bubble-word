@@ -3,19 +3,85 @@
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
 musical_instruments | MUSICAL INSTRUMENTS | is_a | 0.15 | 0.92 | A | Instruments played to produce music | $W is a musical instrument
-piano, guitar, drum, violin, flute, trumpet, cello, harp, banjo, clarinet, saxophone, tuba
+piano, guitar, drum, violin, flute, trumpet, cello, harp, banjo, clarinet, saxophone, tuba, trombone, accordion, harmonica, ukulele, organ, xylophone, bagpipes, mandolin, oboe, bassoon, tambourine, cymbal, keyboard
+
+string_instruments | STRING INSTRUMENTS | is_a | 0.3 | 0.78 | A | Musical instruments played by plucking or bowing strings | $W is a string instrument
+guitar, violin, cello, harp, banjo, ukulele, mandolin, viola, bass, sitar, lute, zither, fiddle, harpsichord
+
+wind_instruments | WIND INSTRUMENTS | is_a | 0.3 | 0.78 | A | Musical instruments played by blowing air | $W is a wind instrument
+flute, trumpet, clarinet, saxophone, tuba, trombone, oboe, harmonica, bassoon, recorder, bagpipes, french horn, piccolo, whistle
+
+percussion | PERCUSSION INSTRUMENTS | is_a | 0.3 | 0.78 | A | Musical instruments played by striking or shaking | $W is a percussion instrument
+drum, cymbal, tambourine, xylophone, triangle, gong, bongo, maraca, timpani, chime, cowbell, snare, marimba, castanets
 
 music_words | MUSIC WORDS | found_in | 0.3 | 0.75 | A | Words used to describe how a piece of music is written or performed | $W is a word used to describe written or performed music
-note, chord, scale, tempo, rhythm, beat, melody, harmony, verse, chorus
+note, chord, scale, tempo, rhythm, beat, melody, harmony, verse, chorus, key, pitch, bar, rest, staff, clef, sharp, flat, octave, solo, duet, riff, bridge, refrain, measure
+
+music_genres | MUSIC GENRES | is_a | 0.25 | 0.85 | A | Styles used to classify music | $W is a style of music
+rock, jazz, pop, blues, country, classical, rap, folk, reggae, metal, punk, disco, soul, gospel, techno, opera, funk, swing, indie, hip hop
 
 board_games | BOARD GAMES | is_a | 0.25 | 0.85 | A | Games played on a board with pieces or cards on a table | $W is a board game played on a table
-chess, checkers, monopoly, scrabble, clue, risk, backgammon, battleship, jenga, dominoes
+chess, checkers, monopoly, scrabble, clue, risk, backgammon, battleship, jenga, dominoes, sorry, trouble, life, candy land, chutes and ladders, othello, mancala, parcheesi, trivial pursuit, yahtzee
 
 card_words | PLAYING CARD WORDS | found_in | 0.3 | 0.8 | A | Words for the cards, suits and parts of a standard deck of playing cards | $W is a word for something in a standard deck of playing cards
-ace, king, queen, jack, joker, deck, suit, trump
+ace, king, queen, jack, joker, deck, suit, trump, face card, cut, shuffle, deal, hand, pair, flush, straight, wild card, discard
+
+card_games | CARD GAMES | is_a | 0.3 | 0.8 | A | Games played with a deck of cards | $W is a card game
+poker, solitaire, blackjack, bridge, rummy, hearts, spades, go fish, war, crazy eights, uno, canasta, cribbage, euchre, old maid, pinochle
 
 movie_genres | MOVIE GENRES | is_a | 0.25 | 0.85 | A | Categories used to classify films | $W is a genre used to classify films
-comedy, horror, drama, western, thriller, romance, musical, documentary, fantasy, action
+comedy, horror, drama, western, thriller, romance, musical, documentary, fantasy, action, mystery, adventure, sci-fi, animation, biopic, noir, war, satire
+
+movie_words | MOVIE MAKING WORDS | found_in | 0.3 | 0.78 | A | Words used in making and showing films | $W is used when making or showing a film
+director, script, scene, take, camera, actor, set, cut, trailer, premiere, credits, extra, stunt, editing, close up, screenplay, cast, sequel, box office, matinee
+
+theater_words | THEATER WORDS | found_in | 0.3 | 0.78 | A | Words for the parts and people of a live theater production | $W is part of a live theater production
+stage, curtain, act, script, cast, prop, aisle, balcony, spotlight, backstage, understudy, intermission, playbill, rehearsal, encore, wings, box office, matinee, usher, monologue
 
 circus_words | CIRCUS WORDS | found_in | 0.3 | 0.8 | A | People, animals and objects you see at a traditional circus | $W is something you see at a traditional circus
-clown, tent, trapeze, juggler, acrobat, ringmaster, elephant, unicycle, tightrope, stilts
+clown, tent, trapeze, juggler, acrobat, ringmaster, elephant, unicycle, tightrope, stilts, lion tamer, cannon, popcorn, cotton candy, sword swallower, ring, net, sequin
+
+amusement_park | AMUSEMENT PARK THINGS | found_in | 0.25 | 0.85 | A | Rides and things found at an amusement park | $W is found at an amusement park
+roller coaster, ferris wheel, carousel, bumper car, cotton candy, ticket, arcade, funhouse, log flume, drop tower, ride, mascot, popcorn, souvenir, teacups, midway, prize, turnstile
+
+toys | TOYS | is_a | 0.2 | 0.88 | A | Things children play with | $W is a toy children play with
+doll, ball, blocks, puzzle, teddy bear, yo-yo, kite, top, marble, robot, train set, action figure, jump rope, slinky, jack in the box, rattle, tricycle, frisbee, bubble, crayon
+
+video_game_words | VIDEO GAME WORDS | found_in | 0.3 | 0.78 | A | Words used when playing video games | $W is a word used in video games
+level, boss, controller, save, respawn, avatar, quest, checkpoint, console, joystick, score, power up, lag, multiplayer, health bar, cheat code, loot, arcade
+
+party_things | PARTY THINGS | found_in | 0.2 | 0.88 | A | Things found at a birthday party | $W is found at a birthday party
+balloon, cake, candle, present, streamer, confetti, invitation, party hat, piñata, candy, punch, banner, plate, napkin, game, prize, favor, guest, music, ribbon
+
+magic_words | MAGIC SHOW THINGS | found_in | 0.35 | 0.72 | A | Things used in a stage magic performance | $W is used in a stage magic act
+wand, hat, rabbit, cape, deck, illusion, trick, assistant, box, rope, scarf, coin, mirror, smoke, dove, chain, handcuffs, top hat
+
+dance_styles | DANCE STYLES | is_a | 0.3 | 0.8 | A | Styles of dance | $W is a style of dance
+ballet, tango, salsa, waltz, hip hop, tap, jazz, swing, breakdance, flamenco, ballroom, folk, disco, samba, foxtrot, polka, line dance, cha cha
+
+tv_words | TELEVISION WORDS | found_in | 0.3 | 0.78 | A | Words used about television programs | $W is a word used about television
+channel, episode, season, remote, sitcom, rerun, network, ratings, host, commercial, screen, cable, pilot, finale, spinoff, broadcast, subtitle, streaming
+
+storybook_characters | FAIRY TALE CHARACTERS | is_a | 0.25 | 0.85 | A | Characters that appear in classic fairy tales | $W appears in classic fairy tales
+princess, dragon, witch, giant, wolf, fairy, king, queen, knight, troll, elf, ogre, prince, dwarf, mermaid, goblin, wizard, unicorn, genie, frog
+
+fantasy_creatures | MYTHICAL CREATURES | is_a | 0.3 | 0.8 | A | Creatures from myth and legend | $W is a creature from myth or legend
+dragon, unicorn, mermaid, griffin, phoenix, centaur, minotaur, troll, elf, fairy, goblin, ogre, yeti, kraken, pegasus, sphinx, vampire, werewolf, giant, gnome
+
+reading_material | THINGS YOU READ | is_a | 0.25 | 0.85 | A | Things people read | $W is something people read
+book, magazine, newspaper, comic, letter, menu, sign, label, manual, blog, poem, novel, brochure, recipe, script, map, article, diary, textbook, ticket
+
+art_forms | ART FORMS | is_a | 0.3 | 0.8 | A | Forms of visual and performing art | $W is a form of art
+painting, sculpture, drawing, photography, dance, music, theater, poetry, film, pottery, mosaic, printmaking, calligraphy, collage, weaving, origami
+
+comedy_words | COMEDY WORDS | found_in | 0.35 | 0.72 | A | Words used about comedy performances | $W is used when talking about comedy
+joke, punchline, gag, standup, sketch, pun, slapstick, parody, roast, improv, timing, heckler, one liner, routine, satire
+
+instruments_you_strum | THINGS WITH STRINGS | has_property | 0.4 | 0.65 | C | Objects that have strings as an essential part | $W has strings as an essential part
+guitar, violin, harp, bow, kite, puppet, tennis racket, yo-yo, banjo, piano, apron, balloon, cello, hammock, marionette
+
+famous_composers | COMPOSERS | is_a | 0.4 | 0.65 | AP | Famous classical composers | $W is a famous classical composer
+Mozart, Beethoven, Bach, Chopin, Tchaikovsky, Handel, Vivaldi, Brahms, Schubert, Wagner, Haydn, Debussy, Liszt, Verdi
+
+instruments_in_an_orchestra | ORCHESTRA SECTIONS | part_of | 0.4 | 0.65 | C | Sections and roles in a symphony orchestra | $W is a section or role in an orchestra
+strings, brass, woodwind, percussion, conductor, soloist, first violin, cellist, section, concertmaster, timpanist, ensemble

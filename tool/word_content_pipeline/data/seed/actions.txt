@@ -3,7 +3,76 @@
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
 cooking_actions | COOKING ACTIONS | does_action | 0.25 | 0.85 | A | Verbs describing something a cook does to food | To $w is something a cook does to food
-bake, boil, fry, grill, chop, stir, roast, simmer, peel, slice, knead, whisk
+bake, boil, fry, grill, chop, stir, roast, simmer, peel, slice, knead, whisk, dice, mince, saute, steam, broil, marinate, blend, season, toss, drain, mash, garnish, sear
 
 ways_of_moving | WAYS OF MOVING | does_action | 0.25 | 0.85 | A | Verbs describing a way a person moves their body from place to place | To $w is a way a person moves from place to place
-walk, run, jump, crawl, skip, swim, climb, slide, march, hop, sprint, stroll
+walk, run, jump, crawl, skip, swim, climb, slide, march, hop, sprint, stroll, dash, wander, tiptoe, limp, stagger, jog, leap, wade, scramble, shuffle, dart, race, trudge
+
+ways_of_looking | WAYS OF LOOKING | does_action | 0.35 | 0.72 | A | Verbs describing a way of looking at something | To $w is a way of looking at something
+stare, glance, peek, gaze, glare, watch, squint, observe, peer, scan, spy, ogle, inspect, survey, blink
+
+ways_of_speaking | WAYS OF SPEAKING | does_action | 0.3 | 0.78 | A | Verbs describing a way of saying something aloud | To $w is a way of saying something aloud
+whisper, shout, mumble, yell, murmur, chant, scream, sing, mutter, announce, recite, stammer, holler, gossip, chatter, declare, growl, hiss
+
+ways_of_laughing | WAYS OF LAUGHING | does_action | 0.4 | 0.68 | C | Verbs for different kinds of laughing | To $w is a kind of laughing
+laugh, giggle, chuckle, snicker, cackle, guffaw, titter, howl, roar, snort, chortle
+
+hand_actions | THINGS HANDS DO | does_action | 0.3 | 0.78 | A | Actions performed with the hands | $W is an action performed with the hands
+grab, push, pull, wave, clap, point, squeeze, hold, throw, catch, write, knock, pinch, tap, twist, scratch, rub, shake, slap, wring
+
+cleaning_actions | CLEANING ACTIONS | does_action | 0.3 | 0.8 | A | Actions done when cleaning something | To $w is done when cleaning
+wash, wipe, scrub, sweep, mop, dust, rinse, polish, vacuum, scour, dry, shine, launder, disinfect, tidy, declutter
+
+building_actions | BUILDING ACTIONS | does_action | 0.3 | 0.78 | A | Actions done when building or repairing something | To $w is done when building or repairing
+hammer, saw, nail, drill, weld, glue, sand, paint, measure, bolt, screw, plaster, tile, assemble, mount, caulk, level, install
+
+destroying_actions | BREAKING ACTIONS | does_action | 0.35 | 0.72 | A | Actions that damage or destroy something | To $w damages or destroys something
+break, smash, crush, tear, rip, shatter, snap, burst, split, crumble, dent, demolish, puncture, shred, squash, flatten
+
+water_actions | WATER ACTIONS | does_action | 0.35 | 0.72 | A | Actions done in or with water | To $w is done in or with water
+swim, dive, splash, float, sink, pour, spill, drip, soak, wade, paddle, sprinkle, flood, rinse, drain, spray, dunk, wash
+
+sleeping_actions | SLEEP ACTIONS | does_action | 0.35 | 0.75 | A | Things a person does while sleeping or falling asleep | $W is done while sleeping or falling asleep
+snore, dream, doze, nap, yawn, rest, drift off, toss, turn, sleepwalk, slumber, stretch, wake
+
+eating_actions | EATING ACTIONS | does_action | 0.3 | 0.8 | A | Actions done while eating or drinking | To $w is done while eating or drinking
+chew, bite, swallow, sip, gulp, nibble, munch, slurp, taste, lick, devour, gnaw, drink, feast, snack
+
+carrying_actions | CARRYING ACTIONS | does_action | 0.35 | 0.72 | A | Ways of carrying or moving an object | To $w is a way of moving an object
+lift, carry, drag, push, pull, haul, tow, hoist, shove, roll, toss, slide, load, transport, heave
+
+thinking_actions | THINKING ACTIONS | does_action | 0.35 | 0.75 | A | Verbs for mental activity | $W is a kind of mental activity
+think, remember, forget, imagine, decide, plan, guess, wonder, learn, doubt, consider, recall, solve, invent, judge, focus
+
+giving_and_taking | GIVING AND TAKING | does_action | 0.35 | 0.72 | A | Verbs about transferring something to or from someone | $W is about giving or taking something
+give, take, lend, borrow, share, donate, receive, offer, return, trade, sell, buy, hand, deliver, collect, swap
+
+joining_actions | JOINING ACTIONS | does_action | 0.35 | 0.7 | A | Actions that join two things together | To $w joins two things together
+tie, glue, staple, sew, weld, tape, clip, button, zip, knot, link, fasten, bind, stitch, buckle, attach
+
+opening_actions | OPENING ACTIONS | does_action | 0.35 | 0.72 | A | Actions that open or uncover something | To $w opens or uncovers something
+open, unlock, unwrap, unzip, uncork, pry, peel, lift, unfold, unbutton, reveal, unscrew, unroll, uncover
+
+sports_actions | SPORTS ACTIONS | does_action | 0.3 | 0.8 | A | Actions done while playing sports | $W is done while playing sports
+kick, throw, catch, dribble, serve, tackle, shoot, pass, swing, block, dunk, sprint, dive, score, punt, volley, spike, pitch
+
+weather_actions | WEATHER ACTIONS | does_action | 0.35 | 0.75 | A | Verbs describing what weather does | $W describes what the weather does
+rain, snow, hail, pour, drizzle, blow, thunder, freeze, thaw, melt, gust, sleet, clear, flood, shine
+
+animal_actions | THINGS ANIMALS DO | does_action | 0.35 | 0.75 | A | Actions typical of animals rather than people | $W is an action typical of animals
+hibernate, migrate, nest, hunt, graze, molt, burrow, prowl, hatch, shed, roost, forage, pounce, spawn, perch, slither
+
+money_actions | MONEY ACTIONS | does_action | 0.3 | 0.8 | A | Actions people do with money | To $w is something people do with money
+spend, save, earn, borrow, lend, invest, pay, owe, budget, donate, withdraw, deposit, tip, refund, gamble, bill
+
+garden_actions | GARDEN ACTIONS | does_action | 0.35 | 0.75 | A | Actions done while gardening | To $w is done while gardening
+plant, water, weed, prune, dig, rake, mow, harvest, sow, mulch, trim, transplant, fertilize, compost, seed
+
+driving_actions | DRIVING ACTIONS | does_action | 0.3 | 0.8 | A | Actions done while driving a car | $W is done while driving a car
+steer, brake, accelerate, park, reverse, signal, merge, honk, shift, swerve, yield, stall, cruise, tailgate, idle
+
+school_actions | SCHOOL ACTIONS | does_action | 0.3 | 0.8 | A | Actions done at school | $W is done at school
+study, read, write, learn, teach, quiz, grade, memorize, recite, review, submit, present, spell, calculate, research
+
+quiet_actions | THINGS DONE SILENTLY | does_action | 0.4 | 0.62 | C | Actions that make almost no noise | $W makes almost no noise when done
+whisper, tiptoe, nod, wink, read, sneak, glide, sleep, think, stare, wave, smile, breathe, blink

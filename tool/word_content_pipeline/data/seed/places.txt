@@ -1,0 +1,63 @@
+# places — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+state_capitals | US STATE CAPITALS | is_a | 0.35 | 0.75 | AP | Capital cities of American states | $W is the capital of an American state
+Albany, Boston, Denver, Sacramento, Austin, Nashville, Phoenix, Atlanta, Boise, Honolulu, Trenton, Richmond, Columbus, Madison, Lansing, Helena, Salem, Topeka, Juneau, Olympia, Raleigh, Dover, Concord, Augusta, Lincoln
+
+great_lakes_and_us_water | US WATERS | is_a | 0.4 | 0.7 | AP | Famous lakes and rivers in the United States | $W is a famous American lake or river
+Superior, Michigan, Huron, Erie, Ontario, Mississippi, Missouri, Colorado, Hudson, Potomac, Rio Grande, Ohio, Tahoe, Okeechobee, Powell
+
+us_landmarks | US LANDMARKS | is_a | 0.3 | 0.82 | AP | Famous landmarks in the United States | $W is a famous American landmark
+Grand Canyon, Statue of Liberty, Mount Rushmore, Golden Gate, White House, Times Square, Niagara Falls, Yellowstone, Alcatraz, Hollywood, Liberty Bell, Space Needle, Gateway Arch, Everglades, Yosemite
+
+world_cities | WORLD CITIES | is_a | 0.3 | 0.82 | AP | Large well known cities around the world | $W is a large well known world city
+Shanghai, Mumbai, Istanbul, Barcelona, Sydney, Toronto, Dubai, Munich, Milan, Venice, Naples, Geneva, Vancouver, Melbourne, Osaka, Hamburg, Marseille, Manchester, Casablanca, Johannesburg, Buenos Aires, Rio de Janeiro, Santiago, Bogota, Jakarta
+
+seas_and_oceans | SEAS | is_a | 0.35 | 0.75 | AP | Named seas of the world | $W is a named sea
+Mediterranean, Caribbean, Baltic, Red Sea, Black Sea, North Sea, Dead Sea, Coral Sea, Bering Sea, Aegean, Adriatic, Caspian, Arabian Sea, Yellow Sea
+
+world_mountains | FAMOUS MOUNTAINS | is_a | 0.4 | 0.72 | AP | Famous individual mountains | $W is a famous mountain
+Everest, Kilimanjaro, Fuji, Denali, Matterhorn, Whitney, Rainier, Vesuvius, Etna, Olympus, Ararat, Elbrus, Aconcagua, Shasta
+
+world_rivers | WORLD RIVERS | is_a | 0.35 | 0.75 | AP | Major rivers outside the United States | $W is a major river outside the United States
+Nile, Amazon, Yangtze, Danube, Thames, Seine, Rhine, Ganges, Congo, Volga, Mekong, Tigris, Euphrates, Elbe, Loire, Po
+
+canadian_places | CANADIAN PLACES | is_a | 0.4 | 0.7 | AP | Well known places in Canada | $W is a well known place in Canada
+Toronto, Montreal, Vancouver, Ottawa, Quebec, Calgary, Banff, Yukon, Alberta, Manitoba, Halifax, Winnipeg, Niagara, Nova Scotia
+
+caribbean_places | CARIBBEAN PLACES | is_a | 0.4 | 0.7 | AP | Islands and countries of the Caribbean | $W is a Caribbean island or country
+Jamaica, Cuba, Bahamas, Barbados, Haiti, Aruba, Trinidad, Dominica, Grenada, Antigua, Martinique, Curacao, Saint Lucia, Bermuda
+
+middle_east_places | MIDDLE EAST PLACES | is_a | 0.4 | 0.7 | AP | Countries and cities of the Middle East | $W is a place in the Middle East
+Israel, Jordan, Lebanon, Syria, Iraq, Iran, Yemen, Oman, Qatar, Kuwait, Bahrain, Jerusalem, Damascus, Baghdad, Tehran, Riyadh
+
+oceania_places | OCEANIA PLACES | is_a | 0.45 | 0.65 | AP | Countries and islands of Oceania | $W is a place in Oceania
+Australia, New Zealand, Fiji, Samoa, Tonga, Papua New Guinea, Tahiti, Guam, Vanuatu, Palau, Solomon Islands, Micronesia
+
+famous_buildings | FAMOUS BUILDINGS | is_a | 0.35 | 0.75 | AP | Famous buildings around the world | $W is a famous building
+Empire State, Burj Khalifa, Louvre, Kremlin, Parthenon, Sagrada Familia, Notre Dame, Sydney Opera House, Buckingham Palace, Pentagon, Vatican, Taj Mahal, Petronas Towers, Guggenheim
+
+kinds_of_buildings | KINDS OF BUILDINGS | is_a | 0.2 | 0.88 | A | Kinds of building found in towns and cities | $W is a kind of building
+house, apartment, church, school, hospital, barn, factory, warehouse, skyscraper, cabin, castle, cottage, mansion, hotel, stadium, theater, library, museum, temple, tower, shed, mall, garage, bungalow, courthouse
+
+rooms_in_public_buildings | PUBLIC BUILDING ROOMS | part_of | 0.35 | 0.72 | A | Rooms found in public buildings | $W is a room in a public building
+lobby, hall, auditorium, office, waiting room, restroom, cafeteria, corridor, stairwell, elevator, storeroom, chapel, gallery, ballroom, foyer
+
+streets_and_roads | KINDS OF ROADS | is_a | 0.3 | 0.8 | A | Kinds of road and pathway | $W is a kind of road or pathway
+street, avenue, highway, freeway, lane, alley, boulevard, path, trail, driveway, road, route, turnpike, causeway, bypass, byway, cul de sac, expressway
+
+places_you_sleep | PLACES YOU SLEEP | found_in | 0.3 | 0.8 | C | Places where people sleep away from home | $W is a place people sleep away from home
+hotel, motel, tent, cabin, hostel, inn, lodge, camper, bunkhouse, dorm, guest room, sleeper car, yurt, cottage
+
+places_to_eat | PLACES TO EAT | is_a | 0.2 | 0.88 | A | Places where people go to eat a meal | $W is a place people go to eat
+restaurant, diner, cafe, bistro, buffet, food truck, deli, pizzeria, steakhouse, bakery, cafeteria, pub, grill, tavern, snack bar, drive through
+
+places_with_animals | PLACES WITH ANIMALS | found_in | 0.3 | 0.8 | A | Places where animals are kept or seen | $W is a place where animals are kept or seen
+zoo, farm, aquarium, stable, kennel, ranch, barn, shelter, safari, pet store, sanctuary, hive, coop, aviary, pasture, reef
+
+underground_places | UNDERGROUND PLACES | found_in | 0.35 | 0.75 | C | Places that are below ground level | $W is below ground level
+basement, cellar, subway, tunnel, cave, mine, bunker, crypt, catacomb, parking garage, sewer, root cellar, dungeon, burrow
+
+high_places | HIGH PLACES | has_property | 0.35 | 0.72 | C | Places high above the ground | $W is high above the ground
+attic, roof, tower, mountain, cliff, balcony, treehouse, skyscraper, bridge, ladder, crane, hilltop, penthouse, summit, steeple

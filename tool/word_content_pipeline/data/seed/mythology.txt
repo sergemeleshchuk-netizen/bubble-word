@@ -1,0 +1,48 @@
+# mythology — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+greek_gods | GREEK GODS | is_a | 0.3 | 0.8 | AP | Gods and goddesses of Greek mythology | $W is a god of Greek mythology
+Zeus, Hera, Poseidon, Athena, Apollo, Artemis, Ares, Aphrodite, Hermes, Hades, Demeter, Hephaestus, Dionysus, Persephone, Hestia
+
+roman_gods | ROMAN GODS | is_a | 0.35 | 0.75 | AP | Gods and goddesses of Roman mythology | $W is a god of Roman mythology
+Jupiter, Juno, Neptune, Minerva, Mars, Venus, Mercury, Pluto, Ceres, Vulcan, Bacchus, Diana, Apollo, Saturn
+
+norse_gods | NORSE GODS | is_a | 0.35 | 0.75 | AP | Gods of Norse mythology | $W is a god of Norse mythology
+Odin, Thor, Loki, Freya, Frigg, Balder, Heimdall, Tyr, Njord, Idun, Hel, Vidar
+
+greek_heroes | MYTHOLOGICAL HEROES | is_a | 0.35 | 0.75 | AP | Heroes of classical mythology | $W is a hero of classical mythology
+Hercules, Achilles, Odysseus, Perseus, Theseus, Jason, Orpheus, Atalanta, Aeneas, Ajax, Hector, Paris
+
+mythical_monsters | MYTHICAL MONSTERS | is_a | 0.3 | 0.8 | A | Monsters from myth and legend | $W is a monster from myth or legend
+minotaur, medusa, cyclops, hydra, chimera, sphinx, kraken, cerberus, harpy, siren, gorgon, basilisk, manticore, banshee
+
+magic_creatures | MAGICAL BEINGS | is_a | 0.25 | 0.85 | A | Magical beings from folklore | $W is a magical being from folklore
+fairy, elf, dwarf, goblin, troll, gnome, leprechaun, genie, sprite, imp, nymph, pixie, brownie, banshee, wizard, witch
+
+legendary_places | LEGENDARY PLACES | is_a | 0.4 | 0.68 | AP | Places known only from myth and legend | $W is a place known from myth and legend
+Atlantis, Olympus, Valhalla, Camelot, Eden, Shangri-La, Avalon, Asgard, Hades, El Dorado, Troy, Xanadu
+
+magic_objects | MAGIC OBJECTS | is_a | 0.3 | 0.8 | A | Objects with magical powers in stories | $W is a magical object in stories
+wand, potion, crystal ball, magic carpet, cauldron, amulet, ring, cloak, sword, lamp, mirror, broomstick, spellbook, talisman, elixir, charm
+
+monsters | SCARY CREATURES | is_a | 0.25 | 0.85 | A | Frightening creatures from stories and folklore | $W is a frightening creature from stories
+vampire, werewolf, zombie, ghost, mummy, witch, monster, demon, goblin, banshee, poltergeist, bogeyman, gremlin, ghoul, phantom
+
+american_legends | AMERICAN FOLK HEROES | is_a | 0.4 | 0.68 | AP | Legendary figures from American folklore | $W is a figure from American folklore
+Paul Bunyan, Johnny Appleseed, Pecos Bill, John Henry, Davy Crockett, Rip Van Winkle, Big Foot, Uncle Sam, Sasquatch
+
+fortune_telling | FORTUNE TELLING THINGS | used_in | 0.4 | 0.68 | C | Things used to tell fortunes | $W is used to tell fortunes
+crystal ball, tarot, palm, tea leaves, horoscope, rune, pendulum, cards, stars, dice, omen, oracle, dream
+
+zodiac_signs | ZODIAC SIGNS | is_a | 0.35 | 0.78 | AP | Signs of the astrological zodiac | $W is a sign of the zodiac
+Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces
+
+superstitions | SUPERSTITION THINGS | found_in | 0.4 | 0.68 | C | Objects tied to common superstitions | $W is tied to a common superstition
+black cat, ladder, mirror, horseshoe, four leaf clover, rabbit foot, wishbone, salt, penny, umbrella, cross, knock on wood, broken mirror
+
+wizards_and_spells | WIZARD WORDS | found_in | 0.35 | 0.75 | A | Things belonging to a wizard in stories | $W belongs to a wizard in stories
+wand, spell, robe, hat, staff, potion, book, familiar, tower, apprentice, incantation, crystal, cauldron, scroll
+
+fairy_tale_things | FAIRY TALE THINGS | found_in | 0.25 | 0.85 | A | Objects that appear in classic fairy tales | $W appears in classic fairy tales
+glass slipper, spinning wheel, beanstalk, golden egg, red hood, gingerbread house, magic mirror, apple, breadcrumb, pumpkin coach, tower, porridge, harp, cottage

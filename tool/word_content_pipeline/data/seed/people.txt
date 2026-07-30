@@ -1,0 +1,72 @@
+# people — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+family_members | FAMILY MEMBERS | is_a | 0.12 | 0.92 | A | Words for members of a family | $W is a member of a family
+mother, father, sister, brother, aunt, uncle, cousin, grandmother, grandfather, niece, nephew, son, daughter, wife, husband, stepmother, stepfather, twin, in law, godmother, sibling, parent, child, spouse, grandchild
+
+boys_names | BOYS NAMES | is_a | 0.2 | 0.88 | AP | Common first names given to boys in the United States | $W is a common American boys name
+James, John, Michael, William, David, Robert, Joseph, Thomas, Daniel, Matthew, Andrew, Christopher, Ryan, Jacob, Ethan, Noah, Liam, Mason, Lucas, Henry, Jack, Owen, Samuel, Benjamin, Nathan
+
+girls_names | GIRLS NAMES | is_a | 0.2 | 0.88 | AP | Common first names given to girls in the United States | $W is a common American girls name
+Mary, Jennifer, Linda, Elizabeth, Susan, Sarah, Emily, Emma, Olivia, Sophia, Ava, Isabella, Mia, Grace, Chloe, Hannah, Lily, Zoe, Abigail, Ella, Madison, Charlotte, Amelia, Natalie, Rachel
+
+nicknames | NICKNAMES | is_a | 0.35 | 0.72 | AP | Short familiar forms of common first names | $W is a short familiar form of a first name
+Bob, Bill, Jim, Tom, Dave, Mike, Joe, Sam, Ben, Nick, Kate, Liz, Sue, Meg, Peg, Ted, Chris, Andy, Rick, Pat
+
+titles_of_address | TITLES | is_a | 0.3 | 0.82 | A | Titles put before a person name | $W is a title put before a person name
+mister, missus, miss, doctor, professor, captain, sir, madam, lord, lady, reverend, judge, senator, officer, chief, coach, dean, sergeant
+
+groups_of_people | GROUPS OF PEOPLE | is_a | 0.3 | 0.78 | A | Words for gatherings of people | $W is a word for a gathering of people
+crowd, team, band, crew, gang, class, choir, jury, staff, committee, audience, troop, congregation, panel, squad, tribe, cast, council, mob, party
+
+life_stages | STAGES OF LIFE | is_a | 0.25 | 0.85 | A | Words for the stages of a human life | $W is a stage of human life
+baby, infant, toddler, child, teenager, adult, elder, youth, newborn, adolescent, senior, middle age, retiree, preschooler, grownup
+
+feelings | FEELINGS | is_a | 0.25 | 0.85 | A | Words naming human emotions | $W names a human emotion
+happy, sad, angry, scared, excited, nervous, calm, proud, jealous, lonely, surprised, bored, worried, grateful, embarrassed, curious, hopeful, tired, confused, relieved, joyful, anxious, content, guilty, frustrated
+
+facial_expressions | FACIAL EXPRESSIONS | does_action | 0.35 | 0.75 | A | Expressions people make with their face | $W is an expression made with the face
+smile, frown, wink, grin, scowl, pout, smirk, grimace, blink, sneer, gape, beam, glare, yawn, blush
+
+body_language | BODY LANGUAGE | does_action | 0.4 | 0.68 | C | Gestures people make with the body to communicate | $W is a gesture that communicates something
+wave, nod, shrug, point, bow, salute, handshake, hug, thumbs up, high five, clap, curtsy, fist bump, shake head, cross arms
+
+relationships | RELATIONSHIP WORDS | is_a | 0.3 | 0.8 | A | Words for how people are connected to each other | $W describes how people are connected
+friend, neighbor, partner, colleague, roommate, classmate, teammate, boss, mentor, rival, stranger, acquaintance, coworker, guest, host, client, ally
+
+famous_americans | FAMOUS AMERICANS | is_a | 0.3 | 0.8 | AP | Americans widely known from history | $W is a widely known American from history
+Washington, Lincoln, Edison, Franklin, Roosevelt, Jefferson, Ford, Twain, Earhart, Armstrong, Parks, Douglass, Tubman, Carver, Keller, Kennedy, Disney, Wright
+
+us_presidents | US PRESIDENTS | is_a | 0.3 | 0.82 | AP | Presidents of the United States | $W was a president of the United States
+Washington, Adams, Jefferson, Madison, Monroe, Jackson, Lincoln, Grant, Roosevelt, Wilson, Truman, Eisenhower, Kennedy, Johnson, Nixon, Carter, Reagan, Clinton, Bush, Obama
+
+explorers | EXPLORERS | is_a | 0.35 | 0.75 | AP | Famous explorers from history | $W is a famous explorer
+Columbus, Magellan, Cook, Lewis, Clark, Marco Polo, Cortes, Hudson, Amundsen, Shackleton, Vespucci, Livingstone, Cabot, Balboa
+
+inventors | INVENTORS | is_a | 0.35 | 0.75 | AP | Famous inventors | $W is a famous inventor
+Edison, Bell, Tesla, Ford, Gutenberg, Wright, Franklin, Morse, Marconi, Watt, Whitney, Daguerre, Diesel, Goodyear
+
+scientists | FAMOUS SCIENTISTS | is_a | 0.35 | 0.75 | AP | Famous scientists from history | $W is a famous scientist
+Einstein, Newton, Curie, Darwin, Galileo, Pasteur, Copernicus, Mendel, Hawking, Faraday, Kepler, Bohr, Fleming, Archimedes
+
+artists | FAMOUS PAINTERS | is_a | 0.35 | 0.75 | AP | Famous painters from history | $W is a famous painter
+Picasso, Van Gogh, Monet, Rembrandt, Da Vinci, Michelangelo, Warhol, Dali, Matisse, Renoir, Cezanne, Vermeer, Pollock, Degas
+
+authors | FAMOUS AUTHORS | is_a | 0.35 | 0.75 | AP | Famous authors from literature | $W is a famous author
+Shakespeare, Dickens, Twain, Austen, Hemingway, Poe, Tolkien, Orwell, Steinbeck, Fitzgerald, Melville, Bronte, Kipling, Wilde, Verne
+
+personality_words | PERSONALITY WORDS | is_a | 0.35 | 0.75 | A | Words describing a person character | $W describes a person character
+shy, bold, honest, curious, patient, stubborn, cheerful, quiet, serious, funny, careful, generous, clever, loyal, calm, brave, gentle, sensible
+
+people_at_a_wedding | PEOPLE AT A WEDDING | found_in | 0.3 | 0.8 | A | People with a role at a wedding | $W has a role at a wedding
+bride, groom, best man, bridesmaid, flower girl, ring bearer, officiant, guest, photographer, usher, maid of honor, father of the bride, caterer, DJ
+
+people_in_a_story | STORY CHARACTERS | is_a | 0.3 | 0.78 | A | Character roles found in stories | $W is a character role in stories
+hero, villain, narrator, sidekick, mentor, rival, victim, witness, protagonist, stranger, detective, orphan, outlaw, guardian
+
+crowd_words | AUDIENCE WORDS | found_in | 0.4 | 0.65 | C | Words for people watching an event | $W is a word for someone watching an event
+spectator, fan, viewer, listener, guest, witness, bystander, onlooker, attendee, crowd, audience, patron, subscriber
+
+nationalities | NATIONALITIES | is_a | 0.3 | 0.8 | AP | Words for people from a particular country | $W is a word for a person from a country
+American, French, German, Italian, Spanish, Japanese, Chinese, Mexican, Canadian, Brazilian, Russian, Greek, Irish, Swedish, Egyptian, Australian, Indian, Korean, Dutch, Polish
