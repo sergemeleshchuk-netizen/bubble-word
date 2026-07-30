@@ -1,0 +1,26 @@
+{
+  "level_id": 3,
+  "difficulty_target": 9,
+  "categories": [
+    { "id": "fruits", "name": "Fruits", "words": ["apple", "banana", "grape", "mango"] },
+    { "id": "berries", "name": "Berries", "words": ["cherry", "strawberry", "raspberry", "blueberry"] },
+    { "id": "sweets", "name": "Sweets", "words": ["candy", "cookie", "caramel", "fudge"] },
+    { "id": "baked-goods", "name": "Baked Goods", "words": ["cake", "bread", "muffin", "donut"] },
+    { "id": "dairy", "name": "Dairy Products", "words": ["cheese", "butter", "yogurt", "milk"] },
+    { "id": "illness", "name": "Feeling Sick", "words": ["flu", "cough", "fever", "cold"] },
+    { "id": "temperature", "name": "Temperature", "words": ["hot", "warm", "freezing", "chilly"] },
+    { "id": "shapes", "name": "Shapes", "words": ["triangle", "square", "circle", "oval"] },
+    { "id": "gems", "name": "Gemstones", "words": ["ruby", "emerald", "sapphire", "diamond"] }
+  ],
+  "traps": [
+    { "word": "cherry", "home": "berries", "tempts": "fruits" },
+    { "word": "cookie", "home": "sweets", "tempts": "baked-goods" },
+    { "word": "cold", "home": "illness", "tempts": "temperature" },
+    { "word": "diamond", "home": "gems", "tempts": "shapes" }
+  ],
+  "repeats": [
+    { "word": "milk", "prev_level": 2, "prev_category": "drinks" }
+  ],
+  "board": { "start_bubbles": 24, "move_limit": 34, "move_limit_k": 1.25 },
+  "extensions": { "chunks": [], "chains": null, "picture_words": [] }
+}

@@ -403,11 +403,19 @@
           "w": "apricot",
           "zipf": 2.98,
           "len": 7
+        },
+        {
+          "w": "cherry",
+          "zipf": 4.18,
+          "len": 6
         }
       ],
       "shared_words": {
         "orange": [
           "colors"
+        ],
+        "cherry": [
+          "berries"
         ]
       }
     },
@@ -451,6 +459,9 @@
         }
       ],
       "shared_words": {
+        "cherry": [
+          "fruits"
+        ],
         "strawberry": [
           "ice-cream"
         ]

@@ -1,0 +1,15 @@
+{
+  "level_id": 1,
+  "difficulty_target": 1,
+  "categories": [
+    { "id": "pets", "name": "Pets", "words": ["dog", "cat", "rabbit", "turtle"] },
+    { "id": "weather", "name": "Weather", "words": ["sun", "rain", "snow", "wind"] },
+    { "id": "instruments", "name": "Musical Instruments", "words": ["piano", "drum", "guitar", "violin"] },
+    { "id": "vegetables", "name": "Vegetables", "words": ["carrot", "onion", "potato", "cabbage"] },
+    { "id": "clothes", "name": "Clothes", "words": ["shirt", "pants", "dress", "jacket"] }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": { "start_bubbles": 20, "move_limit": 27, "move_limit_k": 1.8 },
+  "extensions": { "chunks": [], "chains": null, "picture_words": [] }
+}

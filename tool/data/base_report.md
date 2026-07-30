@@ -1,8 +1,8 @@
 # Отчёт сборки базы слов
 
 - Категорий: 179
-- Слов всего: 1227, уникальных: 1144
-- Слов в двух+ категориях (кандидаты в ловушки): 79
+- Слов всего: 1228, уникальных: 1144
+- Слов в двух+ категориях (кандидаты в ловушки): 80
 - Средний zipf: 3.92, минимум: 1.32
 - Записей в блок-листе: 131
 
@@ -20,6 +20,7 @@
 - **bullseye**: darts, archery
 - **cement**: building-materials, construction
 - **chalk**: writing-tools, soils
+- **cherry**: fruits, berries
 - **cold**: illness, temperature
 - **compass**: camping, pirates
 - **cookie**: sweets, baked-goods
