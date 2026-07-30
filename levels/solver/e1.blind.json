@@ -1,0 +1,33 @@
+{
+  "source": "levels/etalon/e1.json",
+  "level_id": 1,
+  "categories": [
+    "Clothes",
+    "Musical Instruments",
+    "Pets",
+    "Vegetables",
+    "Weather"
+  ],
+  "words": [
+    "potato",
+    "cat",
+    "turtle",
+    "wind",
+    "cabbage",
+    "jacket",
+    "drum",
+    "dog",
+    "carrot",
+    "piano",
+    "shirt",
+    "rabbit",
+    "pants",
+    "guitar",
+    "onion",
+    "dress",
+    "violin",
+    "sun",
+    "rain",
+    "snow"
+  ]
+}

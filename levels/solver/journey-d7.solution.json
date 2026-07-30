@@ -1,0 +1,19 @@
+{
+  "groups": [
+    { "category": "At the Airport", "words": ["runway", "passport", "boarding", "luggage"], "confidence": 5 },
+    { "category": "At the Hotel", "words": ["key", "reception", "suite", "lobby"], "confidence": 5 },
+    { "category": "At the Pool", "words": ["dive", "goggles", "lane", "pool"], "confidence": 4 },
+    { "category": "Boats and Ships", "words": ["canoe", "ship", "yacht", "ferry"], "confidence": 5 },
+    { "category": "Bodies of Water", "words": ["lake", "river", "pond", "bay"], "confidence": 5 },
+    { "category": "Compass Directions", "words": ["north", "south", "east", "west"], "confidence": 5 },
+    { "category": "Pets", "words": ["hamster", "cat", "rabbit", "dog"], "confidence": 5 },
+    { "category": "Picnic", "words": ["basket", "thermos", "sandwich", "blanket"], "confidence": 5 },
+    { "category": "Pirates", "words": ["treasure", "hook", "parrot", "plank"], "confidence": 5 },
+    { "category": "Sea Animals", "words": ["shark", "dolphin", "octopus", "turtle"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "pool", "also_fits": "Bodies of Water", "why": "бассейн тоже водоём, но lake/river/pond/bay заполняют категорию полностью" },
+    { "word": "parrot", "also_fits": "Pets", "why": "попугай - питомец, но Pets уже укомплектован (hamster/cat/rabbit/dog), а пиратам нужен попугай" },
+    { "word": "dive", "also_fits": "Pirates", "why": "ныряние ассоциируется с морем, но прыжки в воду - классика бассейна" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "groups": [
+    { "category": "Clothes", "words": ["jacket", "shirt", "pants", "dress"], "confidence": 5 },
+    { "category": "Musical Instruments", "words": ["drum", "piano", "guitar", "violin"], "confidence": 5 },
+    { "category": "Pets", "words": ["cat", "dog", "rabbit", "turtle"], "confidence": 5 },
+    { "category": "Vegetables", "words": ["potato", "cabbage", "carrot", "onion"], "confidence": 5 },
+    { "category": "Weather", "words": ["wind", "sun", "rain", "snow"], "confidence": 5 }
+  ],
+  "hesitations": []
+}

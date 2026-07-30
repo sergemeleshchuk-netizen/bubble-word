@@ -1,0 +1,20 @@
+{
+  "groups": [
+    { "category": "Baked Goods", "words": ["bread", "muffin", "cake", "cookie"], "confidence": 4 },
+    { "category": "Berries", "words": ["raspberry", "strawberry", "blueberry", "cherry"], "confidence": 4 },
+    { "category": "Dairy Products", "words": ["milk", "cheese", "butter", "yogurt"], "confidence": 5 },
+    { "category": "Feeling Sick", "words": ["flu", "cough", "fever", "cold"], "confidence": 5 },
+    { "category": "Fruits", "words": ["apple", "banana", "mango", "grape"], "confidence": 4 },
+    { "category": "Gemstones", "words": ["sapphire", "emerald", "ruby", "diamond"], "confidence": 5 },
+    { "category": "Shapes", "words": ["circle", "square", "triangle", "oval"], "confidence": 5 },
+    { "category": "Sweets", "words": ["candy", "fudge", "caramel", "donut"], "confidence": 3 },
+    { "category": "Temperature", "words": ["hot", "warm", "chilly", "freezing"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "donut", "also_fits": "Baked Goods", "why": "донат часто считают выпечкой, но он жарится, а bread/muffin/cake/cookie - более канонная четвёрка выпечки, донату остаётся место в сладостях" },
+    { "word": "cherry", "also_fits": "Fruits", "why": "ботанически вишня не ягода, но в бытовом ряду raspberry/strawberry/blueberry она смотрится ягодой, а grape закрывает фрукты" },
+    { "word": "grape", "also_fits": "Berries", "why": "ботанически виноград - ягода, но обыденно это фрукт; поставил в Fruits, чтобы cherry осталась в ягодах" },
+    { "word": "cold", "also_fits": "Temperature", "why": "cold = и «холодно», и «простуда»; температура уже укомплектована hot/warm/chilly/freezing, значит здесь это простуда" },
+    { "word": "diamond", "also_fits": "Shapes", "why": "ромб - тоже фигура, но фигур уже 4 (circle/square/triangle/oval), а камням нужен четвёртый" }
+  ]
+}

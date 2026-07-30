@@ -1,0 +1,17 @@
+{
+  "groups": [
+    { "category": "Colors", "words": ["purple", "green", "blue", "red"], "confidence": 5 },
+    { "category": "Dog Things", "words": ["collar", "leash", "fetch", "bone"], "confidence": 5 },
+    { "category": "Drinks", "words": ["juice", "tea", "soda", "milk"], "confidence": 5 },
+    { "category": "Farm Animals", "words": ["cow", "pig", "goat", "sheep"], "confidence": 5 },
+    { "category": "Fruits", "words": ["grape", "pear", "orange", "apple"], "confidence": 5 },
+    { "category": "Parts of a Tree", "words": ["leaf", "trunk", "bark", "root"], "confidence": 5 },
+    { "category": "Toys", "words": ["ball", "kite", "puzzle", "doll"], "confidence": 5 },
+    { "category": "Vehicles", "words": ["car", "train", "truck", "bus"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "orange", "also_fits": "Colors", "why": "и цвет, и фрукт; в Colors уже 4 слова, поэтому фрукт" },
+    { "word": "ball", "also_fits": "Dog Things", "why": "собаки играют с мячом, но у собак уже полный набор (collar/leash/fetch/bone)" },
+    { "word": "bark", "also_fits": "Dog Things", "why": "bark = лай собаки, но здесь кора дерева, т.к. Dog Things заполнены" }
+  ]
+}
