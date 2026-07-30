@@ -193,7 +193,11 @@
           "len": 6
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "chicken": [
+          "meats"
+        ]
+      }
     },
     {
       "id": "vehicles",
@@ -875,11 +879,19 @@
           "w": "pie",
           "zipf": 4.19,
           "len": 3
+        },
+        {
+          "w": "cupcake",
+          "zipf": 3.35,
+          "len": 7
         }
       ],
       "shared_words": {
         "pie": [
           "baked-goods"
+        ],
+        "cupcake": [
+          "pastries"
         ]
       }
     },
@@ -978,7 +990,8 @@
       ],
       "shared_words": {
         "lane": [
-          "swimming"
+          "swimming",
+          "bowling"
         ]
       }
     },
@@ -1242,7 +1255,11 @@
           "len": 5
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "ball": [
+          "bowling"
+        ]
+      }
     },
     {
       "id": "music-genres",
@@ -1461,10 +1478,18 @@
       ],
       "shared_words": {
         "sun": [
-          "stars-named"
+          "stars-named",
+          "summer"
+        ],
+        "rain": [
+          "spring"
+        ],
+        "snow": [
+          "winter"
         ],
         "frost": [
-          "water-states"
+          "water-states",
+          "winter"
         ]
       }
     },
@@ -1871,6 +1896,9 @@
         }
       ],
       "shared_words": {
+        "breakfast": [
+          "morning-routine"
+        ],
         "dessert": [
           "menu-courses"
         ]
@@ -2042,6 +2070,15 @@
         ],
         "bread": [
           "breakfast-foods"
+        ],
+        "muffin": [
+          "pastries"
+        ],
+        "donut": [
+          "pastries"
+        ],
+        "croissant": [
+          "pastries"
         ]
       }
     },
@@ -2394,6 +2431,9 @@
         "milk": [
           "breakfast-foods",
           "dairy"
+        ],
+        "coffee": [
+          "morning-routine"
         ],
         "lemonade": [
           "picnic"
@@ -3479,7 +3519,11 @@
           "len": 12
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "blizzard": [
+          "winter"
+        ]
+      }
     },
     {
       "id": "organs",
@@ -3687,6 +3731,9 @@
         }
       ],
       "shared_words": {
+        "actor": [
+          "theater"
+        ],
         "painter": [
           "trade-professions"
         ]
@@ -3793,6 +3840,9 @@
       "shared_words": {
         "salad": [
           "menu-courses"
+        ],
+        "steak": [
+          "meats"
         ],
         "sandwich": [
           "picnic"
@@ -4460,7 +4510,17 @@
           "len": 10
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "ham": [
+          "meats"
+        ],
+        "bacon": [
+          "meats"
+        ],
+        "sausage": [
+          "meats"
+        ]
+      }
     },
     {
       "id": "emotions",
@@ -4677,8 +4737,12 @@
         }
       ],
       "shared_words": {
+        "cap": [
+          "hats"
+        ],
         "lane": [
-          "road"
+          "road",
+          "bowling"
         ]
       }
     },
@@ -5438,7 +5502,17 @@
           "len": 7
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "august": [
+          "summer"
+        ],
+        "june": [
+          "summer"
+        ],
+        "july": [
+          "summer"
+        ]
+      }
     },
     {
       "id": "fabrics",
@@ -5588,7 +5662,8 @@
       ],
       "shared_words": {
         "sun": [
-          "weather"
+          "weather",
+          "summer"
         ]
       }
     },
@@ -6030,8 +6105,12 @@
         }
       ],
       "shared_words": {
+        "shower": [
+          "morning-routine"
+        ],
         "sponge": [
-          "ocean-floor"
+          "ocean-floor",
+          "cleaning-tools"
         ]
       }
     },
@@ -6687,7 +6766,8 @@
       ],
       "shared_words": {
         "frost": [
-          "weather"
+          "weather",
+          "winter"
         ]
       }
     },
@@ -7030,6 +7110,11 @@
           "w": "teller",
           "zipf": 3.49,
           "len": 6
+        },
+        {
+          "w": "cash",
+          "zipf": 4.92,
+          "len": 4
         }
       ],
       "shared_words": {}
@@ -7080,6 +7165,9 @@
       "shared_words": {
         "key": [
           "hotel"
+        ],
+        "alarm": [
+          "morning-routine"
         ]
       }
     },
@@ -7904,6 +7992,9 @@
         ],
         "spring": [
           "seasons"
+        ],
+        "lamb": [
+          "meats"
         ]
       }
     },
@@ -7965,7 +8056,11 @@
       "related": [
         "months",
         "weather",
-        "easter"
+        "easter",
+        "winter",
+        "spring",
+        "summer",
+        "autumn"
       ],
       "words": [
         {
@@ -8279,7 +8374,14 @@
           "len": 6
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "sled": [
+          "winter"
+        ],
+        "icicle": [
+          "winter"
+        ]
+      }
     },
     {
       "id": "beach",
@@ -8464,7 +8566,14 @@
           "len": 3
         }
       ],
-      "shared_words": {}
+      "shared_words": {
+        "harvest": [
+          "autumn"
+        ],
+        "scarecrow": [
+          "autumn"
+        ]
+      }
     },
     {
       "id": "ocean-floor",
@@ -8511,7 +8620,8 @@
           "pirates"
         ],
         "sponge": [
-          "bathroom-items"
+          "bathroom-items",
+          "cleaning-tools"
         ]
       }
     },
@@ -8558,6 +8668,9 @@
       "shared_words": {
         "umbrella": [
           "beach"
+        ],
+        "puddle": [
+          "spring"
         ]
       }
     },
@@ -8776,6 +8889,929 @@
         ],
         "hamper": [
           "laundry"
+        ]
+      }
+    },
+    {
+      "id": "winter",
+      "name": "Winter",
+      "related": [
+        "seasons",
+        "weather",
+        "temperature",
+        "storms",
+        "winter-fun"
+      ],
+      "words": [
+        {
+          "w": "snow",
+          "zipf": 4.66,
+          "len": 4
+        },
+        {
+          "w": "frost",
+          "zipf": 3.95,
+          "len": 5
+        },
+        {
+          "w": "blizzard",
+          "zipf": 3.53,
+          "len": 8
+        },
+        {
+          "w": "icicle",
+          "zipf": 2.43,
+          "len": 6
+        },
+        {
+          "w": "sled",
+          "zipf": 3.23,
+          "len": 4
+        },
+        {
+          "w": "snowflake",
+          "zipf": 3.25,
+          "len": 9
+        },
+        {
+          "w": "fireplace",
+          "zipf": 3.54,
+          "len": 9
+        }
+      ],
+      "shared_words": {
+        "snow": [
+          "weather"
+        ],
+        "frost": [
+          "weather",
+          "water-states"
+        ],
+        "blizzard": [
+          "storms"
+        ],
+        "icicle": [
+          "winter-fun"
+        ],
+        "sled": [
+          "winter-fun"
+        ]
+      }
+    },
+    {
+      "id": "spring",
+      "name": "Spring",
+      "related": [
+        "seasons",
+        "garden-bloom",
+        "weather",
+        "rain-gear"
+      ],
+      "words": [
+        {
+          "w": "thaw",
+          "zipf": 3.18,
+          "len": 4
+        },
+        {
+          "w": "puddle",
+          "zipf": 3.26,
+          "len": 6
+        },
+        {
+          "w": "sprout",
+          "zipf": 3.11,
+          "len": 6
+        },
+        {
+          "w": "nest",
+          "zipf": 4.07,
+          "len": 4
+        },
+        {
+          "w": "rain",
+          "zipf": 4.71,
+          "len": 4
+        },
+        {
+          "w": "warmth",
+          "zipf": 3.8,
+          "len": 6
+        }
+      ],
+      "shared_words": {
+        "puddle": [
+          "rain-gear"
+        ],
+        "rain": [
+          "weather"
+        ]
+      }
+    },
+    {
+      "id": "summer",
+      "name": "Summer",
+      "related": [
+        "seasons",
+        "months",
+        "beach"
+      ],
+      "words": [
+        {
+          "w": "beach",
+          "zipf": 4.92,
+          "len": 5
+        },
+        {
+          "w": "heat",
+          "zipf": 4.86,
+          "len": 4
+        },
+        {
+          "w": "sun",
+          "zipf": 4.97,
+          "len": 3
+        },
+        {
+          "w": "june",
+          "zipf": 5.21,
+          "len": 4
+        },
+        {
+          "w": "july",
+          "zipf": 5.17,
+          "len": 4
+        },
+        {
+          "w": "august",
+          "zipf": 5.1,
+          "len": 6
+        }
+      ],
+      "shared_words": {
+        "sun": [
+          "weather",
+          "stars-named"
+        ],
+        "june": [
+          "months"
+        ],
+        "july": [
+          "months"
+        ],
+        "august": [
+          "months"
+        ]
+      }
+    },
+    {
+      "id": "autumn",
+      "name": "Autumn",
+      "related": [
+        "seasons",
+        "halloween",
+        "gardening",
+        "farm-work"
+      ],
+      "words": [
+        {
+          "w": "harvest",
+          "zipf": 4.03,
+          "len": 7
+        },
+        {
+          "w": "pumpkin",
+          "zipf": 3.83,
+          "len": 7
+        },
+        {
+          "w": "acorn",
+          "zipf": 3.08,
+          "len": 5
+        },
+        {
+          "w": "rake",
+          "zipf": 3.38,
+          "len": 4
+        },
+        {
+          "w": "foliage",
+          "zipf": 3.41,
+          "len": 7
+        },
+        {
+          "w": "scarecrow",
+          "zipf": 3.09,
+          "len": 9
+        }
+      ],
+      "shared_words": {
+        "harvest": [
+          "farm-work"
+        ],
+        "scarecrow": [
+          "farm-work"
+        ]
+      }
+    },
+    {
+      "id": "meats",
+      "name": "Meats",
+      "related": [
+        "cured-meats",
+        "fast-food",
+        "farm-animals"
+      ],
+      "words": [
+        {
+          "w": "beef",
+          "zipf": 4.29,
+          "len": 4
+        },
+        {
+          "w": "pork",
+          "zipf": 4.03,
+          "len": 4
+        },
+        {
+          "w": "lamb",
+          "zipf": 4.02,
+          "len": 4
+        },
+        {
+          "w": "chicken",
+          "zipf": 4.63,
+          "len": 7
+        },
+        {
+          "w": "steak",
+          "zipf": 3.97,
+          "len": 5
+        },
+        {
+          "w": "sausage",
+          "zipf": 3.8,
+          "len": 7
+        },
+        {
+          "w": "ham",
+          "zipf": 4.12,
+          "len": 3
+        },
+        {
+          "w": "bacon",
+          "zipf": 4.15,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "lamb": [
+          "easter"
+        ],
+        "chicken": [
+          "farm-animals"
+        ],
+        "steak": [
+          "fast-food"
+        ],
+        "sausage": [
+          "cured-meats"
+        ],
+        "ham": [
+          "cured-meats"
+        ],
+        "bacon": [
+          "cured-meats"
+        ]
+      }
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "related": [
+        "fast-food",
+        "breads"
+      ],
+      "words": [
+        {
+          "w": "spaghetti",
+          "zipf": 3.65,
+          "len": 9
+        },
+        {
+          "w": "macaroni",
+          "zipf": 3.11,
+          "len": 8
+        },
+        {
+          "w": "lasagna",
+          "zipf": 3.12,
+          "len": 7
+        },
+        {
+          "w": "penne",
+          "zipf": 2.47,
+          "len": 5
+        },
+        {
+          "w": "ravioli",
+          "zipf": 2.86,
+          "len": 7
+        },
+        {
+          "w": "noodle",
+          "zipf": 3.42,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "cheeses",
+      "name": "Cheeses",
+      "related": [
+        "dairy"
+      ],
+      "words": [
+        {
+          "w": "cheddar",
+          "zipf": 3.29,
+          "len": 7
+        },
+        {
+          "w": "mozzarella",
+          "zipf": 3.1,
+          "len": 10
+        },
+        {
+          "w": "parmesan",
+          "zipf": 3.17,
+          "len": 8
+        },
+        {
+          "w": "brie",
+          "zipf": 3.08,
+          "len": 4
+        },
+        {
+          "w": "feta",
+          "zipf": 2.79,
+          "len": 4
+        },
+        {
+          "w": "gouda",
+          "zipf": 2.52,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "sauces",
+      "name": "Sauces",
+      "related": [
+        "fast-food"
+      ],
+      "words": [
+        {
+          "w": "ketchup",
+          "zipf": 3.46,
+          "len": 7
+        },
+        {
+          "w": "mustard",
+          "zipf": 3.69,
+          "len": 7
+        },
+        {
+          "w": "mayonnaise",
+          "zipf": 3.24,
+          "len": 10
+        },
+        {
+          "w": "ranch",
+          "zipf": 4.03,
+          "len": 5
+        },
+        {
+          "w": "relish",
+          "zipf": 3.32,
+          "len": 6
+        },
+        {
+          "w": "gravy",
+          "zipf": 3.48,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "spices",
+      "name": "Spices",
+      "related": [
+        "teas"
+      ],
+      "words": [
+        {
+          "w": "cinnamon",
+          "zipf": 3.7,
+          "len": 8
+        },
+        {
+          "w": "ginger",
+          "zipf": 3.93,
+          "len": 6
+        },
+        {
+          "w": "pepper",
+          "zipf": 4.14,
+          "len": 6
+        },
+        {
+          "w": "cumin",
+          "zipf": 3.01,
+          "len": 5
+        },
+        {
+          "w": "paprika",
+          "zipf": 2.96,
+          "len": 7
+        },
+        {
+          "w": "clove",
+          "zipf": 2.91,
+          "len": 5
+        },
+        {
+          "w": "thyme",
+          "zipf": 3.07,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "pastries",
+      "name": "Pastries",
+      "related": [
+        "baked-goods",
+        "desserts",
+        "breads"
+      ],
+      "words": [
+        {
+          "w": "croissant",
+          "zipf": 2.78,
+          "len": 9
+        },
+        {
+          "w": "muffin",
+          "zipf": 3.35,
+          "len": 6
+        },
+        {
+          "w": "tart",
+          "zipf": 3.37,
+          "len": 4
+        },
+        {
+          "w": "biscuit",
+          "zipf": 3.45,
+          "len": 7
+        },
+        {
+          "w": "scone",
+          "zipf": 2.74,
+          "len": 5
+        },
+        {
+          "w": "donut",
+          "zipf": 3.31,
+          "len": 5
+        },
+        {
+          "w": "cupcake",
+          "zipf": 3.35,
+          "len": 7
+        }
+      ],
+      "shared_words": {
+        "croissant": [
+          "baked-goods"
+        ],
+        "muffin": [
+          "baked-goods"
+        ],
+        "donut": [
+          "baked-goods"
+        ],
+        "cupcake": [
+          "desserts"
+        ]
+      }
+    },
+    {
+      "id": "home-appliances",
+      "name": "Home Appliances",
+      "related": [
+        "kitchen-tools",
+        "rooms"
+      ],
+      "words": [
+        {
+          "w": "fridge",
+          "zipf": 4.02,
+          "len": 6
+        },
+        {
+          "w": "microwave",
+          "zipf": 3.8,
+          "len": 9
+        },
+        {
+          "w": "toaster",
+          "zipf": 3.33,
+          "len": 7
+        },
+        {
+          "w": "dishwasher",
+          "zipf": 3.29,
+          "len": 10
+        },
+        {
+          "w": "washer",
+          "zipf": 3.34,
+          "len": 6
+        },
+        {
+          "w": "dryer",
+          "zipf": 3.54,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "cleaning-tools",
+      "name": "Cleaning Tools",
+      "related": [
+        "laundry",
+        "bathroom-items"
+      ],
+      "words": [
+        {
+          "w": "broom",
+          "zipf": 3.42,
+          "len": 5
+        },
+        {
+          "w": "mop",
+          "zipf": 3.39,
+          "len": 3
+        },
+        {
+          "w": "sponge",
+          "zipf": 3.59,
+          "len": 6
+        },
+        {
+          "w": "vacuum",
+          "zipf": 4.09,
+          "len": 6
+        },
+        {
+          "w": "duster",
+          "zipf": 2.78,
+          "len": 6
+        },
+        {
+          "w": "dustpan",
+          "zipf": 1.9,
+          "len": 7
+        }
+      ],
+      "shared_words": {
+        "sponge": [
+          "bathroom-items",
+          "ocean-floor"
+        ]
+      }
+    },
+    {
+      "id": "house-types",
+      "name": "Types of Houses",
+      "related": [
+        "house-parts",
+        "rooms"
+      ],
+      "words": [
+        {
+          "w": "apartment",
+          "zipf": 4.65,
+          "len": 9
+        },
+        {
+          "w": "cabin",
+          "zipf": 4.13,
+          "len": 5
+        },
+        {
+          "w": "cottage",
+          "zipf": 4.0,
+          "len": 7
+        },
+        {
+          "w": "mansion",
+          "zipf": 4.02,
+          "len": 7
+        },
+        {
+          "w": "bungalow",
+          "zipf": 3.34,
+          "len": 8
+        },
+        {
+          "w": "duplex",
+          "zipf": 3.13,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "morning-routine",
+      "name": "Morning Routine",
+      "related": [
+        "bedding",
+        "meals"
+      ],
+      "words": [
+        {
+          "w": "alarm",
+          "zipf": 4.28,
+          "len": 5
+        },
+        {
+          "w": "breakfast",
+          "zipf": 4.61,
+          "len": 9
+        },
+        {
+          "w": "coffee",
+          "zipf": 4.86,
+          "len": 6
+        },
+        {
+          "w": "shower",
+          "zipf": 4.5,
+          "len": 6
+        },
+        {
+          "w": "stretch",
+          "zipf": 4.35,
+          "len": 7
+        },
+        {
+          "w": "wake",
+          "zipf": 4.76,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "alarm": [
+          "security"
+        ],
+        "breakfast": [
+          "meals"
+        ],
+        "coffee": [
+          "drinks"
+        ],
+        "shower": [
+          "bathroom-items"
+        ]
+      }
+    },
+    {
+      "id": "theater",
+      "name": "At the Theater",
+      "related": [
+        "cinema",
+        "creative-professions"
+      ],
+      "words": [
+        {
+          "w": "stage",
+          "zipf": 5.1,
+          "len": 5
+        },
+        {
+          "w": "actor",
+          "zipf": 4.65,
+          "len": 5
+        },
+        {
+          "w": "curtain",
+          "zipf": 3.86,
+          "len": 7
+        },
+        {
+          "w": "audience",
+          "zipf": 4.73,
+          "len": 8
+        },
+        {
+          "w": "script",
+          "zipf": 4.36,
+          "len": 6
+        },
+        {
+          "w": "props",
+          "zipf": 3.72,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "actor": [
+          "creative-professions"
+        ]
+      }
+    },
+    {
+      "id": "dog-breeds",
+      "name": "Dog Breeds",
+      "related": [
+        "cat-breeds",
+        "dog-things",
+        "pets"
+      ],
+      "words": [
+        {
+          "w": "beagle",
+          "zipf": 3.06,
+          "len": 6
+        },
+        {
+          "w": "bulldog",
+          "zipf": 3.38,
+          "len": 7
+        },
+        {
+          "w": "labrador",
+          "zipf": 3.3,
+          "len": 8
+        },
+        {
+          "w": "dalmatian",
+          "zipf": 2.66,
+          "len": 9
+        },
+        {
+          "w": "poodle",
+          "zipf": 3.02,
+          "len": 6
+        },
+        {
+          "w": "husky",
+          "zipf": 3.29,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "bowling",
+      "name": "Bowling",
+      "related": [
+        "baseball",
+        "basketball"
+      ],
+      "words": [
+        {
+          "w": "pins",
+          "zipf": 3.8,
+          "len": 4
+        },
+        {
+          "w": "lane",
+          "zipf": 4.57,
+          "len": 4
+        },
+        {
+          "w": "strike",
+          "zipf": 4.66,
+          "len": 6
+        },
+        {
+          "w": "spare",
+          "zipf": 4.28,
+          "len": 5
+        },
+        {
+          "w": "gutter",
+          "zipf": 3.38,
+          "len": 6
+        },
+        {
+          "w": "ball",
+          "zipf": 5.04,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "lane": [
+          "road",
+          "swimming"
+        ],
+        "ball": [
+          "toys"
+        ]
+      }
+    },
+    {
+      "id": "times-of-day",
+      "name": "Times of Day",
+      "related": [
+        "time-units",
+        "calendar-units"
+      ],
+      "words": [
+        {
+          "w": "dawn",
+          "zipf": 4.27,
+          "len": 4
+        },
+        {
+          "w": "dusk",
+          "zipf": 3.44,
+          "len": 4
+        },
+        {
+          "w": "noon",
+          "zipf": 4.11,
+          "len": 4
+        },
+        {
+          "w": "midnight",
+          "zipf": 4.31,
+          "len": 8
+        },
+        {
+          "w": "sunset",
+          "zipf": 4.04,
+          "len": 6
+        },
+        {
+          "w": "sunrise",
+          "zipf": 3.82,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "hats",
+      "name": "Hats",
+      "related": [
+        "clothes",
+        "accessories"
+      ],
+      "words": [
+        {
+          "w": "cap",
+          "zipf": 4.51,
+          "len": 3
+        },
+        {
+          "w": "beanie",
+          "zipf": 2.99,
+          "len": 6
+        },
+        {
+          "w": "beret",
+          "zipf": 2.92,
+          "len": 5
+        },
+        {
+          "w": "fedora",
+          "zipf": 3.06,
+          "len": 6
+        },
+        {
+          "w": "panama",
+          "zipf": 3.86,
+          "len": 6
+        },
+        {
+          "w": "bonnet",
+          "zipf": 3.35,
+          "len": 6
+        }
+      ],
+      "shared_words": {
+        "cap": [
+          "swimming"
         ]
       }
     }

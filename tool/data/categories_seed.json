@@ -291,7 +291,8 @@
         "tiramisu",
         "cheesecake",
         "gelato",
-        "pie"
+        "pie",
+        "cupcake"
       ],
       "related": [
         "sweets",
@@ -2463,7 +2464,8 @@
         "credit",
         "savings",
         "interest",
-        "teller"
+        "teller",
+        "cash"
       ],
       "related": [
         "security"
@@ -2809,7 +2811,11 @@
       "related": [
         "months",
         "weather",
-        "easter"
+        "easter",
+        "winter",
+        "spring",
+        "summer",
+        "autumn"
       ]
     },
     {
@@ -3086,6 +3092,323 @@
         "beach",
         "camping",
         "meals"
+      ]
+    },
+    {
+      "id": "winter",
+      "name": "Winter",
+      "words": [
+        "snow",
+        "frost",
+        "blizzard",
+        "icicle",
+        "sled",
+        "snowflake",
+        "fireplace"
+      ],
+      "related": [
+        "seasons",
+        "weather",
+        "temperature",
+        "storms",
+        "winter-fun"
+      ]
+    },
+    {
+      "id": "spring",
+      "name": "Spring",
+      "words": [
+        "thaw",
+        "puddle",
+        "sprout",
+        "nest",
+        "rain",
+        "warmth"
+      ],
+      "related": [
+        "seasons",
+        "garden-bloom",
+        "weather",
+        "rain-gear"
+      ]
+    },
+    {
+      "id": "summer",
+      "name": "Summer",
+      "words": [
+        "beach",
+        "heat",
+        "sun",
+        "june",
+        "july",
+        "august"
+      ],
+      "related": [
+        "seasons",
+        "months",
+        "beach"
+      ]
+    },
+    {
+      "id": "autumn",
+      "name": "Autumn",
+      "words": [
+        "harvest",
+        "pumpkin",
+        "acorn",
+        "rake",
+        "foliage",
+        "scarecrow"
+      ],
+      "related": [
+        "seasons",
+        "halloween",
+        "gardening",
+        "farm-work"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "Meats",
+      "words": [
+        "beef",
+        "pork",
+        "lamb",
+        "chicken",
+        "steak",
+        "sausage",
+        "ham",
+        "bacon"
+      ],
+      "related": [
+        "cured-meats",
+        "fast-food",
+        "farm-animals"
+      ]
+    },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "words": [
+        "spaghetti",
+        "macaroni",
+        "lasagna",
+        "penne",
+        "ravioli",
+        "noodle"
+      ],
+      "related": [
+        "fast-food",
+        "breads"
+      ]
+    },
+    {
+      "id": "cheeses",
+      "name": "Cheeses",
+      "words": [
+        "cheddar",
+        "mozzarella",
+        "parmesan",
+        "brie",
+        "feta",
+        "gouda"
+      ],
+      "related": [
+        "dairy"
+      ]
+    },
+    {
+      "id": "sauces",
+      "name": "Sauces",
+      "words": [
+        "ketchup",
+        "mustard",
+        "mayonnaise",
+        "ranch",
+        "relish",
+        "gravy"
+      ],
+      "related": [
+        "fast-food"
+      ]
+    },
+    {
+      "id": "spices",
+      "name": "Spices",
+      "words": [
+        "cinnamon",
+        "ginger",
+        "pepper",
+        "cumin",
+        "paprika",
+        "clove",
+        "thyme"
+      ],
+      "related": [
+        "teas"
+      ]
+    },
+    {
+      "id": "pastries",
+      "name": "Pastries",
+      "words": [
+        "croissant",
+        "muffin",
+        "tart",
+        "biscuit",
+        "scone",
+        "donut",
+        "cupcake"
+      ],
+      "related": [
+        "baked-goods",
+        "desserts",
+        "breads"
+      ]
+    },
+    {
+      "id": "home-appliances",
+      "name": "Home Appliances",
+      "words": [
+        "fridge",
+        "microwave",
+        "toaster",
+        "dishwasher",
+        "washer",
+        "dryer"
+      ],
+      "related": [
+        "kitchen-tools",
+        "rooms"
+      ]
+    },
+    {
+      "id": "cleaning-tools",
+      "name": "Cleaning Tools",
+      "words": [
+        "broom",
+        "mop",
+        "sponge",
+        "vacuum",
+        "duster",
+        "dustpan"
+      ],
+      "related": [
+        "laundry",
+        "bathroom-items"
+      ]
+    },
+    {
+      "id": "house-types",
+      "name": "Types of Houses",
+      "words": [
+        "apartment",
+        "cabin",
+        "cottage",
+        "mansion",
+        "bungalow",
+        "duplex"
+      ],
+      "related": [
+        "house-parts",
+        "rooms"
+      ]
+    },
+    {
+      "id": "morning-routine",
+      "name": "Morning Routine",
+      "words": [
+        "alarm",
+        "breakfast",
+        "coffee",
+        "shower",
+        "stretch",
+        "wake"
+      ],
+      "related": [
+        "bedding",
+        "meals"
+      ]
+    },
+    {
+      "id": "theater",
+      "name": "At the Theater",
+      "words": [
+        "stage",
+        "actor",
+        "curtain",
+        "audience",
+        "script",
+        "props"
+      ],
+      "related": [
+        "cinema",
+        "creative-professions"
+      ]
+    },
+    {
+      "id": "dog-breeds",
+      "name": "Dog Breeds",
+      "words": [
+        "beagle",
+        "bulldog",
+        "labrador",
+        "dalmatian",
+        "poodle",
+        "husky"
+      ],
+      "related": [
+        "cat-breeds",
+        "dog-things",
+        "pets"
+      ]
+    },
+    {
+      "id": "bowling",
+      "name": "Bowling",
+      "words": [
+        "pins",
+        "lane",
+        "strike",
+        "spare",
+        "gutter",
+        "ball"
+      ],
+      "related": [
+        "baseball",
+        "basketball"
+      ]
+    },
+    {
+      "id": "times-of-day",
+      "name": "Times of Day",
+      "words": [
+        "dawn",
+        "dusk",
+        "noon",
+        "midnight",
+        "sunset",
+        "sunrise"
+      ],
+      "related": [
+        "time-units",
+        "calendar-units"
+      ]
+    },
+    {
+      "id": "hats",
+      "name": "Hats",
+      "words": [
+        "cap",
+        "beanie",
+        "beret",
+        "fedora",
+        "panama",
+        "bonnet"
+      ],
+      "related": [
+        "clothes",
+        "accessories"
       ]
     }
   ]

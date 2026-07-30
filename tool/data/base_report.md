@@ -1,14 +1,19 @@
 # Отчёт сборки базы слов
 
-- Категорий: 179
-- Слов всего: 1228, уникальных: 1144
-- Слов в двух+ категориях (кандидаты в ловушки): 80
-- Средний zipf: 3.92, минимум: 1.32
+- Категорий: 198
+- Слов всего: 1349, уникальных: 1233
+- Слов в двух+ категориях (кандидаты в ловушки): 108
+- Средний zipf: 3.90, минимум: 1.32
 - Записей в блок-листе: 131
 
 ## Пересечения (слово -> категории)
 
+- **actor**: creative-professions, theater
+- **alarm**: security, morning-routine
 - **anchor**: ocean-floor, pirates
+- **august**: months, summer
+- **bacon**: cured-meats, meats
+- **ball**: toys, bowling
 - **balloon**: aviation, birthday
 - **bark**: dog-things, tree-parts
 - **basket**: easter, picnic
@@ -16,43 +21,58 @@
 - **bed**: furniture, bedding
 - **bird**: pets, animal-classes
 - **blanket**: bedding, picnic
+- **blizzard**: storms, winter
 - **bread**: breakfast-foods, baked-goods
+- **breakfast**: meals, morning-routine
 - **bullseye**: darts, archery
+- **cap**: swimming, hats
 - **cement**: building-materials, construction
 - **chalk**: writing-tools, soils
 - **cherry**: fruits, berries
+- **chicken**: farm-animals, meats
+- **coffee**: drinks, morning-routine
 - **cold**: illness, temperature
 - **compass**: camping, pirates
 - **cookie**: sweets, baked-goods
 - **crane**: birds, construction
 - **cream**: dairy, facial-care
+- **croissant**: baked-goods, pastries
 - **crown**: royalty, tree-parts
 - **cucumber**: garden-vegetables, salad-things
+- **cupcake**: desserts, pastries
 - **dessert**: meals, menu-courses
 - **diamond**: shapes, gems
+- **donut**: baked-goods, pastries
 - **elephant**: safari-animals, large-animals
 - **eraser**: school-supplies, stationery
 - **fish**: pets, animal-classes
 - **five**: numbers, odd-numbers
 - **flower**: plants, garden-bloom
-- **frost**: weather, water-states
+- **frost**: weather, water-states, winter
 - **galaxy**: space, astronomy
 - **giraffe**: safari-animals, large-animals
 - **glass**: cutlery, materials
 - **green**: colors, teas
 - **guitar**: instruments, band-members
+- **ham**: cured-meats, meats
 - **hamper**: laundry, picnic
+- **harvest**: farm-work, autumn
 - **hat**: accessories, clothes
 - **heart**: shapes, organs
 - **hippo**: safari-animals, large-animals
+- **icicle**: winter-fun, winter
+- **july**: months, summer
+- **june**: months, summer
 - **key**: security, hotel
 - **lace**: shoe-parts, fabrics
-- **lane**: road, swimming
+- **lamb**: easter, meats
+- **lane**: road, swimming, bowling
 - **lemonade**: drinks, picnic
 - **lettuce**: vegetables, salad-things
 - **lion**: safari-animals, wild-cats
 - **milk**: breakfast-foods, drinks, dairy
 - **mint**: teas, ice-cream
+- **muffin**: baked-goods, pastries
 - **nine**: numbers, odd-numbers
 - **north**: compass, americas
 - **ocean**: water-bodies, nature-places
@@ -67,18 +87,26 @@
 - **pistachio**: nuts, ice-cream
 - **popcorn**: cinema, snacks-salty
 - **protein**: food-groups, nutrients
+- **puddle**: rain-gear, spring
 - **pyramid**: solid-shapes, ancient-egypt
+- **rain**: weather, spring
 - **rhino**: safari-animals, large-animals
 - **salad**: fast-food, menu-courses
 - **sandwich**: fast-food, picnic
+- **sausage**: cured-meats, meats
+- **scarecrow**: farm-work, autumn
 - **seven**: numbers, odd-numbers
+- **shower**: bathroom-items, morning-routine
+- **sled**: winter-fun, winter
+- **snow**: weather, winter
 - **soil**: landscape, gardening
 - **south**: compass, americas
-- **sponge**: bathroom-items, ocean-floor
+- **sponge**: bathroom-items, ocean-floor, cleaning-tools
 - **spring**: easter, seasons
 - **square**: shapes, polygons
+- **steak**: fast-food, meats
 - **strawberry**: berries, ice-cream
-- **sun**: weather, stars-named
+- **sun**: weather, stars-named, summer
 - **three**: numbers, odd-numbers
 - **tomato**: garden-vegetables, salad-things
 - **triangle**: shapes, polygons
@@ -93,7 +121,7 @@
 
 - нет
 
-## Предупреждения (54)
+## Предупреждения (58)
 
 - [compass] пул из 4 слов - генератору мало выбора
 - [polygons] редкое слово: rhombus (zipf 2.12)
@@ -149,3 +177,7 @@
 - [beach] редкое слово: sandcastle (zipf 2.27)
 - [beach] редкое слово: seashell (zipf 2.39)
 - [pirates] редкое слово: eyepatch (zipf 2.08)
+- [winter] редкое слово: icicle (zipf 2.43)
+- [pasta] редкое слово: penne (zipf 2.47)
+- [cheeses] редкое слово: gouda (zipf 2.52)
+- [cleaning-tools] редкое слово: dustpan (zipf 1.9)
