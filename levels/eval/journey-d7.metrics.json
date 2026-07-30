@@ -1,0 +1,82 @@
+{
+  "level": "levels/demo/journey-d7.json",
+  "solver_verdict": "PASS",
+  "mismatches": [],
+  "categories_m": 10,
+  "words_total": 40,
+  "traps": [
+    {
+      "word": "parrot",
+      "home": "Pirates",
+      "tempts": "Pets",
+      "valid": true,
+      "noticed": true
+    },
+    {
+      "word": "turtle",
+      "home": "Sea Animals",
+      "tempts": "Pets",
+      "valid": true,
+      "noticed": false
+    }
+  ],
+  "traps_valid": 2,
+  "aha_moments": 1,
+  "unplanned_hesitations": [
+    {
+      "word": "dive",
+      "also_fits": "Pirates",
+      "why": "ныряние ассоциируется с морем, но прыжки в воду - классика бассейна"
+    },
+    {
+      "word": "pool",
+      "also_fits": "Bodies of Water",
+      "why": "бассейн тоже водоём, но lake/river/pond/bay заполняют категорию полностью"
+    }
+  ],
+  "rare_words": [
+    {
+      "word": "thermos",
+      "zipf": 2.65
+    }
+  ],
+  "words_not_in_base": [],
+  "move_limit_k": 1.3,
+  "move_limit": 39,
+  "repeats": [],
+  "confidence": {
+    "At the Airport": 5,
+    "At the Hotel": 5,
+    "At the Pool": 4,
+    "Boats and Ships": 5,
+    "Bodies of Water": 5,
+    "Compass Directions": 5,
+    "Pets": 5,
+    "Picnic": 5,
+    "Pirates": 5,
+    "Sea Animals": 5
+  },
+  "confidence_min": 4,
+  "related_pairs_from_base": [
+    [
+      "At the Airport",
+      "At the Hotel"
+    ],
+    [
+      "Pirates",
+      "Boats and Ships"
+    ],
+    [
+      "Sea Animals",
+      "Bodies of Water"
+    ],
+    [
+      "Boats and Ships",
+      "Bodies of Water"
+    ],
+    [
+      "Bodies of Water",
+      "At the Pool"
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "level": "levels/etalon/e1.json",
+  "solver_verdict": "PASS",
+  "mismatches": [],
+  "categories_m": 5,
+  "words_total": 20,
+  "traps": [],
+  "traps_valid": 0,
+  "aha_moments": 0,
+  "unplanned_hesitations": [],
+  "rare_words": [],
+  "words_not_in_base": [],
+  "move_limit_k": 1.8,
+  "move_limit": 27,
+  "repeats": [],
+  "confidence": {
+    "Clothes": 5,
+    "Musical Instruments": 5,
+    "Pets": 5,
+    "Vegetables": 5,
+    "Weather": 5
+  },
+  "confidence_min": 5,
+  "related_pairs_from_base": []
+}

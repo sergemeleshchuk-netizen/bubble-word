@@ -1,0 +1,54 @@
+{
+  "level": "levels/etalon/e2.json",
+  "solver_verdict": "PASS",
+  "mismatches": [],
+  "categories_m": 8,
+  "words_total": 32,
+  "traps": [
+    {
+      "word": "orange",
+      "home": "Fruits",
+      "tempts": "Colors",
+      "valid": true,
+      "noticed": true
+    },
+    {
+      "word": "bark",
+      "home": "Parts of a Tree",
+      "tempts": "Dog Things",
+      "valid": true,
+      "noticed": true
+    }
+  ],
+  "traps_valid": 2,
+  "aha_moments": 2,
+  "unplanned_hesitations": [
+    {
+      "word": "ball",
+      "also_fits": "Dog Things",
+      "why": "собаки играют с мячом, но у собак уже полный набор (collar/leash/fetch/bone)"
+    }
+  ],
+  "rare_words": [],
+  "words_not_in_base": [],
+  "move_limit_k": 1.4,
+  "move_limit": 34,
+  "repeats": [],
+  "confidence": {
+    "Colors": 5,
+    "Dog Things": 5,
+    "Drinks": 5,
+    "Farm Animals": 5,
+    "Fruits": 5,
+    "Parts of a Tree": 5,
+    "Toys": 5,
+    "Vehicles": 5
+  },
+  "confidence_min": 5,
+  "related_pairs_from_base": [
+    [
+      "Fruits",
+      "Colors"
+    ]
+  ]
+}

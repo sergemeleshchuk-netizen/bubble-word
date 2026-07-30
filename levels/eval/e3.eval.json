@@ -1,0 +1,72 @@
+{
+  "level": "levels/etalon/e3.json",
+  "solver_verdict": "PASS",
+  "difficulty": {
+    "score": 8.5,
+    "target": 9,
+    "factors": [
+      {
+        "factor": "F1 масштаб",
+        "points": 1.5,
+        "why": "M=9"
+      },
+      {
+        "factor": "F2 ловушки",
+        "points": 3,
+        "why": "4 валидные (cherry, cookie, cold, diamond), максимум фактора 3"
+      },
+      {
+        "factor": "F3 близость",
+        "points": 1.5,
+        "why": "2 разрезания темы: Fruits/Berries и Sweets/Baked Goods, решатель сомневался на обеих границах"
+      },
+      {
+        "factor": "F4 редкость",
+        "points": 0,
+        "why": "редких слов нет"
+      },
+      {
+        "factor": "F5 лимит",
+        "points": 1,
+        "why": "K=1.25, спайк"
+      },
+      {
+        "factor": "F6 память",
+        "points": 0.5,
+        "why": "повтор milk (в e2 Drinks, здесь Dairy)"
+      },
+      {
+        "factor": "F7 внеплановая двусмысленность",
+        "points": 0,
+        "why": "ред.3: незапланированных сомнений не осталось"
+      }
+    ]
+  },
+  "fun": {
+    "score": 9.0,
+    "factors": [
+      {
+        "factor": "узнаваемость",
+        "points": 1,
+        "why": "все 9 категорий конкретные"
+      },
+      {
+        "factor": "ага-моменты",
+        "points": 2,
+        "why": "4 ловушки укусили и разрешились честно - максимум фактора"
+      },
+      {
+        "factor": "разнообразие сфер",
+        "points": 0.5,
+        "why": "еда с замыслом смежности + болезни, температура, фигуры, камни"
+      },
+      {
+        "factor": "темп",
+        "points": 0.5,
+        "why": "Shapes/Gemstones/Dairy - быстрый старт с уверенностью 5"
+      }
+    ]
+  },
+  "notes": "Спайк после двух браков решателя (cookie-donut, grape-cherry) доведён до честного: вся сложность управляемая.",
+  "eval_model": "levels/EVAL.md @ 30.07.2026"
+}

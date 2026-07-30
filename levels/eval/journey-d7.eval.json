@@ -1,0 +1,82 @@
+{
+  "level": "levels/demo/journey-d7.json",
+  "solver_verdict": "PASS",
+  "difficulty": {
+    "score": 7.5,
+    "target": 7,
+    "factors": [
+      {
+        "factor": "F1 масштаб",
+        "points": 1.5,
+        "why": "M=10"
+      },
+      {
+        "factor": "F2 ловушки",
+        "points": 2,
+        "why": "2 валидные: parrot (Pirates vs Pets), turtle (Sea Animals vs Pets)"
+      },
+      {
+        "factor": "F3 близость",
+        "points": 0.75,
+        "why": "реальная путаница на границе Bodies of Water / At the Pool (pool, dive); остальные related-пары решатель не путал"
+      },
+      {
+        "factor": "F4 редкость",
+        "points": 0.5,
+        "why": "thermos zipf 2.65"
+      },
+      {
+        "factor": "F5 лимит",
+        "points": 1,
+        "why": "K=1.3"
+      },
+      {
+        "factor": "F6 память",
+        "points": 0,
+        "why": "повторов нет"
+      },
+      {
+        "factor": "F7 внеплановая двусмысленность",
+        "points": 0.5,
+        "why": "pool и dive тянуло в соседние категории"
+      }
+    ]
+  },
+  "fun": {
+    "score": 7.5,
+    "factors": [
+      {
+        "factor": "узнаваемость",
+        "points": 1,
+        "why": "все 10 категорий конкретные"
+      },
+      {
+        "factor": "ага-моменты",
+        "points": 0.5,
+        "why": "parrot укусил и разрешился; turtle валидна, но прошла без сомнения (слабее)"
+      },
+      {
+        "factor": "разнообразие сфер",
+        "points": 0.5,
+        "why": "аэропорт, отель, пираты, питомцы, стороны света"
+      },
+      {
+        "factor": "тематический сюжет",
+        "points": 0.5,
+        "why": "цельная тема путешествия"
+      },
+      {
+        "factor": "незапланированные сомнения",
+        "points": -0.5,
+        "why": "pool, dive"
+      },
+      {
+        "factor": "темп",
+        "points": 0.5,
+        "why": "Compass Directions и другие - мгновенный старт"
+      }
+    ]
+  },
+  "notes": "Сюжетный уровень; ловушку turtle стоит усилить или заменить (не кусается).",
+  "eval_model": "levels/EVAL.md @ 30.07.2026"
+}

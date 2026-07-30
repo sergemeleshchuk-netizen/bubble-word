@@ -1,0 +1,73 @@
+{
+  "level": "levels/etalon/e3.json",
+  "solver_verdict": "PASS",
+  "mismatches": [],
+  "categories_m": 9,
+  "words_total": 36,
+  "traps": [
+    {
+      "word": "cherry",
+      "home": "Berries",
+      "tempts": "Fruits",
+      "valid": true,
+      "noticed": true
+    },
+    {
+      "word": "cookie",
+      "home": "Baked Goods",
+      "tempts": "Sweets",
+      "valid": true,
+      "noticed": true
+    },
+    {
+      "word": "cold",
+      "home": "Feeling Sick",
+      "tempts": "Temperature",
+      "valid": true,
+      "noticed": true
+    },
+    {
+      "word": "diamond",
+      "home": "Gemstones",
+      "tempts": "Shapes",
+      "valid": true,
+      "noticed": true
+    }
+  ],
+  "traps_valid": 4,
+  "aha_moments": 4,
+  "unplanned_hesitations": [],
+  "rare_words": [],
+  "words_not_in_base": [],
+  "move_limit_k": 1.25,
+  "move_limit": 34,
+  "repeats": [
+    {
+      "word": "milk",
+      "prev_level": 2,
+      "prev_category": "drinks"
+    }
+  ],
+  "confidence": {
+    "Shapes": 5,
+    "Gemstones": 5,
+    "Feeling Sick": 4,
+    "Temperature": 4,
+    "Fruits": 5,
+    "Berries": 4,
+    "Baked Goods": 5,
+    "Dairy Products": 5,
+    "Sweets": 5
+  },
+  "confidence_min": 4,
+  "related_pairs_from_base": [
+    [
+      "Fruits",
+      "Berries"
+    ],
+    [
+      "Sweets",
+      "Baked Goods"
+    ]
+  ]
+}

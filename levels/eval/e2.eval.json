@@ -1,0 +1,77 @@
+{
+  "level": "levels/etalon/e2.json",
+  "solver_verdict": "PASS",
+  "difficulty": {
+    "score": 5.0,
+    "target": 5,
+    "factors": [
+      {
+        "factor": "F1 масштаб",
+        "points": 1,
+        "why": "M=8"
+      },
+      {
+        "factor": "F2 ловушки",
+        "points": 2,
+        "why": "2 валидные: orange (Fruits vs Colors), bark (Parts of a Tree vs Dog Things)"
+      },
+      {
+        "factor": "F3 близость",
+        "points": 0,
+        "why": "Fruits-Colors связаны только словом-ловушкой, это F2, не смежность"
+      },
+      {
+        "factor": "F4 редкость",
+        "points": 0,
+        "why": "редких слов нет (порог zipf 3.0)"
+      },
+      {
+        "factor": "F5 лимит",
+        "points": 0.5,
+        "why": "K=1.4"
+      },
+      {
+        "factor": "F6 память",
+        "points": 0,
+        "why": "повторов нет"
+      },
+      {
+        "factor": "F7 внеплановая двусмысленность",
+        "points": 0.25,
+        "why": "ball тянуло в Dog Things (вне заявленных ловушек)"
+      }
+    ]
+  },
+  "fun": {
+    "score": 8.0,
+    "factors": [
+      {
+        "factor": "узнаваемость",
+        "points": 1,
+        "why": "все 8 категорий конкретные"
+      },
+      {
+        "factor": "ага-моменты",
+        "points": 1,
+        "why": "обе ловушки укусили и разрешились честно (orange, bark)"
+      },
+      {
+        "factor": "разнообразие сфер",
+        "points": 0.5,
+        "why": "цвета, животные, техника, еда, игрушки"
+      },
+      {
+        "factor": "незапланированные сомнения",
+        "points": -0.25,
+        "why": "ball (мяч и игрушка, и собачья вещь)"
+      },
+      {
+        "factor": "темп",
+        "points": 0.5,
+        "why": "есть стартовые категории с уверенностью 5 без сомнений"
+      }
+    ]
+  },
+  "notes": "Середина кривой: ловушки работают, уровень честный.",
+  "eval_model": "levels/EVAL.md @ 30.07.2026"
+}
