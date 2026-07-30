@@ -1,0 +1,149 @@
+{
+  "level_id": 200,
+  "difficulty_target": 5,
+  "categories": [
+    {
+      "id": "fruits",
+      "name": "Fruits",
+      "words": [
+        "orange",
+        "apple",
+        "cherry",
+        "banana"
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "Colors",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "brown"
+      ]
+    },
+    {
+      "id": "toys",
+      "name": "Toys",
+      "words": [
+        "blocks",
+        "doll",
+        "puzzle",
+        "teddy"
+      ]
+    },
+    {
+      "id": "bowling",
+      "name": "Bowling",
+      "words": [
+        "ball",
+        "strike",
+        "lane",
+        "spare"
+      ]
+    },
+    {
+      "id": "farm-animals",
+      "name": "Farm Animals",
+      "words": [
+        "horse",
+        "chicken",
+        "duck",
+        "sheep"
+      ]
+    },
+    {
+      "id": "vehicles",
+      "name": "Vehicles",
+      "words": [
+        "car",
+        "train",
+        "bus",
+        "van"
+      ]
+    },
+    {
+      "id": "weekdays",
+      "name": "Days of the Week",
+      "words": [
+        "friday",
+        "sunday",
+        "saturday",
+        "monday"
+      ]
+    },
+    {
+      "id": "breads",
+      "name": "Breads of the World",
+      "words": [
+        "pita",
+        "baguette",
+        "sourdough",
+        "naan"
+      ]
+    },
+    {
+      "id": "flowers",
+      "name": "Flowers",
+      "words": [
+        "rose",
+        "lily",
+        "daisy",
+        "orchid"
+      ]
+    },
+    {
+      "id": "sea-animals",
+      "name": "Sea Animals",
+      "words": [
+        "seal",
+        "shark",
+        "whale",
+        "turtle"
+      ]
+    },
+    {
+      "id": "house-parts",
+      "name": "Parts of a House",
+      "words": [
+        "door",
+        "wall",
+        "floor",
+        "window"
+      ]
+    },
+    {
+      "id": "emotions",
+      "name": "Emotions",
+      "words": [
+        "happy",
+        "fear",
+        "worry",
+        "sad"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "orange",
+      "home": "fruits",
+      "tempts": "colors"
+    },
+    {
+      "word": "ball",
+      "home": "bowling",
+      "tempts": "toys"
+    }
+  ],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 54,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

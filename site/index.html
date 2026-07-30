@@ -165,6 +165,13 @@
     width:100%;height:100%;border:none;border-radius:24px;display:block;background:#062c52;
   }
   .phone-note{font-size:13px;font-weight:500;color:var(--ink-soft);text-align:center;max-width:520px;line-height:1.5;}
+  .lvl-pick{display:flex;align-items:center;gap:10px;}
+  .lvl-pick label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.03em;text-transform:uppercase;}
+  .lvl-pick select{
+    font:inherit;font-size:14px;font-weight:600;color:var(--ink);
+    background:var(--chip);border:none;border-radius:999px;padding:9px 16px;
+    cursor:pointer;max-width:76vw;
+  }
 
   /* scroll button */
   .scroll-btn{
@@ -576,10 +583,33 @@ solver that must reproduce the intended grouping without seeing answers.</div>
         </button>
         <div class="row-body"><div class="row-body-inner">
           <div class="phone-wrap">
-            <div class="phone-frame">
-              <iframe src="playable/index.html" loading="lazy" title="Bubble Words playable prototype"></iframe>
+            <div class="lvl-pick">
+              <label for="lvlSel">Уровень</label>
+              <select id="lvlSel" onchange="pickLevel(this.value)">
+                <option value="">Демо · встроенный контент</option>
+                <optgroup label="Эталонные (собраны руками)">
+                  <option value="levels/e1.json">E1 · лёгкий, 5 категорий</option>
+                  <option value="levels/e2.json">E2 · средний, ловушки orange/bark</option>
+                  <option value="levels/e3.json">E3 · спайк, 4 ловушки</option>
+                </optgroup>
+                <optgroup label="Пакет volume1 (сгенерирован, PASS решателя 10/10)">
+                  <option value="levels/l200.json">L200 · вход, 12 категорий</option>
+                  <option value="levels/l201.json">L201 · parrot/bark</option>
+                  <option value="levels/l202.json">L202 · лето против месяцев</option>
+                  <option value="levels/l203.json">L203 · пекарня и молочка</option>
+                  <option value="levels/l204.json">L204 · цепочка WINTER (мета)</option>
+                  <option value="levels/l205.json">L205 · передышка</option>
+                  <option value="levels/l206.json">L206 · школа и мясо, 5 ловушек</option>
+                  <option value="levels/l207.json">L207 · пляж/бассейн, 15 категорий</option>
+                  <option value="levels/l208.json">L208 · фигуры против камней</option>
+                  <option value="levels/l209.json">L209 · СПАЙК, 16 категорий, K=1.25</option>
+                </optgroup>
+              </select>
             </div>
-            <p class="phone-note">Играбельный прототип Bubble Words. Позже через него будут прогоняться уровни, сгенерированные инструментом.</p>
+            <div class="phone-frame">
+              <iframe id="playFrame" src="playable/index.html" loading="lazy" title="Bubble Words playable prototype"></iframe>
+            </div>
+            <p class="phone-note">Играбельный прототип Bubble Words. Выбери уровень сверху: эталонные и сгенерированные пакеты грузятся в тот же телефон; все уровни проверены слепым решателем.</p>
           </div>
         </div></div>
       </div>
@@ -648,6 +678,9 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 </section>
 
 <script>
+  function pickLevel(v){
+    document.getElementById('playFrame').src='playable/index.html'+(v?'?level='+v:'');
+  }
   function toggle(head){
     var row = head.parentElement;
     var body = row.querySelector('.row-body');

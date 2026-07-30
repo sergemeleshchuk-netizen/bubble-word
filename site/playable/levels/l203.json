@@ -1,0 +1,175 @@
+{
+  "level_id": 203,
+  "difficulty_target": 6,
+  "categories": [
+    {
+      "id": "baked-goods",
+      "name": "Baked Goods",
+      "words": [
+        "cake",
+        "bread",
+        "cookie",
+        "bagel"
+      ]
+    },
+    {
+      "id": "pastries",
+      "name": "Pastries",
+      "words": [
+        "croissant",
+        "tart",
+        "scone",
+        "eclair"
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "words": [
+        "pudding",
+        "cheesecake",
+        "mousse",
+        "gelato"
+      ]
+    },
+    {
+      "id": "dairy",
+      "name": "Dairy Products",
+      "words": [
+        "cream",
+        "milk",
+        "cheese",
+        "butter"
+      ]
+    },
+    {
+      "id": "facial-care",
+      "name": "Facial Care",
+      "words": [
+        "patches",
+        "serum",
+        "toner",
+        "cleanser"
+      ]
+    },
+    {
+      "id": "planets",
+      "name": "Planets",
+      "words": [
+        "earth",
+        "mars",
+        "mercury",
+        "venus"
+      ]
+    },
+    {
+      "id": "us-states",
+      "name": "US States",
+      "words": [
+        "texas",
+        "florida",
+        "ohio",
+        "oregon"
+      ]
+    },
+    {
+      "id": "dances",
+      "name": "Dances",
+      "words": [
+        "ballet",
+        "tango",
+        "salsa",
+        "waltz"
+      ]
+    },
+    {
+      "id": "insects",
+      "name": "Insects",
+      "words": [
+        "fly",
+        "cricket",
+        "bee",
+        "ant"
+      ]
+    },
+    {
+      "id": "shoe-parts",
+      "name": "Parts of a Shoe",
+      "words": [
+        "tongue",
+        "sole",
+        "heel",
+        "lace"
+      ]
+    },
+    {
+      "id": "timepieces",
+      "name": "Timepieces",
+      "words": [
+        "watch",
+        "clock",
+        "hourglass",
+        "metronome"
+      ]
+    },
+    {
+      "id": "accessories",
+      "name": "Accessories",
+      "words": [
+        "tie",
+        "belt",
+        "wallet",
+        "gloves"
+      ]
+    },
+    {
+      "id": "banking",
+      "name": "At the Bank",
+      "words": [
+        "account",
+        "interest",
+        "credit",
+        "cash"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "croissant",
+      "home": "pastries",
+      "tempts": "baked-goods"
+    },
+    {
+      "word": "cream",
+      "home": "dairy",
+      "tempts": "facial-care"
+    },
+    {
+      "word": "watch",
+      "home": "timepieces",
+      "tempts": "accessories"
+    }
+  ],
+  "repeats": [
+    {
+      "word": "cookie",
+      "prev_level": 202,
+      "prev_category": "sweets"
+    },
+    {
+      "word": "milk",
+      "prev_level": 201,
+      "prev_category": "drinks"
+    }
+  ],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 55,
+    "move_limit_k": 1.4
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}
