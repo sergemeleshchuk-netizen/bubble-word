@@ -6,10 +6,10 @@
       "id": "pets",
       "name": "Pets",
       "words": [
-        "dog",
         "fish",
-        "cat",
-        "bird"
+        "bird",
+        "hamster",
+        "dog"
       ]
     },
     {
@@ -26,10 +26,10 @@
       "id": "dog-things",
       "name": "Dog Things",
       "words": [
+        "paw",
+        "kennel",
         "bone",
-        "collar",
-        "fetch",
-        "paw"
+        "collar"
       ]
     },
     {
@@ -39,7 +39,7 @@
         "bark",
         "branch",
         "crown",
-        "root"
+        "twig"
       ]
     },
     {
@@ -48,8 +48,8 @@
       "words": [
         "milk",
         "coffee",
-        "tea",
-        "juice"
+        "cocoa",
+        "lemonade"
       ]
     },
     {
@@ -66,20 +66,20 @@
       "id": "gems",
       "name": "Gemstones",
       "words": [
-        "diamond",
         "pearl",
-        "ruby",
-        "emerald"
+        "opal",
+        "amethyst",
+        "topaz"
       ]
     },
     {
       "id": "clothes",
       "name": "Clothes",
       "words": [
-        "dress",
-        "shirt",
         "hat",
-        "pants"
+        "socks",
+        "skirt",
+        "sweater"
       ]
     },
     {

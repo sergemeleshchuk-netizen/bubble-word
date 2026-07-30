@@ -26,10 +26,10 @@
       "id": "weather",
       "name": "Weather",
       "words": [
-        "wind",
-        "rain",
-        "snow",
-        "frost"
+        "hail",
+        "fog",
+        "drizzle",
+        "wind"
       ]
     },
     {
@@ -128,8 +128,8 @@
       "words": [
         "strawberry",
         "blackberry",
-        "raspberry",
-        "blueberry"
+        "cranberry",
+        "raspberry"
       ]
     },
     {
@@ -176,16 +176,6 @@
     }
   ],
   "repeats": [
-    {
-      "word": "snow",
-      "prev_level": 204,
-      "prev_category": "winter"
-    },
-    {
-      "word": "frost",
-      "prev_level": 204,
-      "prev_category": "winter"
-    },
     {
       "word": "sun",
       "prev_level": 202,

@@ -17,9 +17,9 @@
       "name": "Summer",
       "words": [
         "august",
-        "sun",
         "beach",
-        "heat"
+        "heat",
+        "sun"
       ]
     },
     {
@@ -56,10 +56,10 @@
       "id": "instruments",
       "name": "Musical Instruments",
       "words": [
-        "guitar",
-        "piano",
         "horn",
-        "drum"
+        "trumpet",
+        "flute",
+        "cello"
       ]
     },
     {
@@ -96,10 +96,10 @@
       "id": "sweets",
       "name": "Sweets",
       "words": [
+        "brownie",
+        "toffee",
         "candy",
-        "cookie",
-        "caramel",
-        "fudge"
+        "cookie"
       ]
     },
     {
@@ -129,7 +129,7 @@
         "king",
         "queen",
         "prince",
-        "crown"
+        "princess"
       ]
     }
   ],
@@ -155,13 +155,7 @@
       "tempts": "materials"
     }
   ],
-  "repeats": [
-    {
-      "word": "crown",
-      "prev_level": 201,
-      "prev_category": "tree-parts"
-    }
-  ],
+  "repeats": [],
   "board": {
     "start_bubbles": 24,
     "move_limit": 55,

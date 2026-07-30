@@ -6,10 +6,10 @@
       "id": "baked-goods",
       "name": "Baked Goods",
       "words": [
+        "bagel",
         "cake",
         "bread",
-        "cookie",
-        "bagel"
+        "cookie"
       ]
     },
     {
@@ -26,9 +26,9 @@
       "id": "desserts",
       "name": "Desserts",
       "words": [
+        "mousse",
         "pudding",
         "cheesecake",
-        "mousse",
         "gelato"
       ]
     },
@@ -38,8 +38,8 @@
       "words": [
         "cream",
         "milk",
-        "cheese",
-        "butter"
+        "kefir",
+        "cheese"
       ]
     },
     {

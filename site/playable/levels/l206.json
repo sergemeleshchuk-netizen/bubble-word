@@ -56,10 +56,10 @@
       "id": "meats",
       "name": "Meats",
       "words": [
-        "chicken",
         "beef",
         "pork",
-        "lamb"
+        "lamb",
+        "steak"
       ]
     },
     {
@@ -87,9 +87,9 @@
       "name": "Wild Cats",
       "words": [
         "tiger",
-        "lion",
         "panther",
-        "leopard"
+        "leopard",
+        "puma"
       ]
     },
     {
@@ -106,10 +106,10 @@
       "id": "security",
       "name": "Under Lock",
       "words": [
-        "code",
-        "safe",
         "lock",
-        "alarm"
+        "safe",
+        "code",
+        "vault"
       ]
     },
     {
@@ -129,7 +129,7 @@
         "basket",
         "blanket",
         "cooler",
-        "lemonade"
+        "hamper"
       ]
     },
     {
@@ -165,18 +165,7 @@
       "tempts": "security"
     }
   ],
-  "repeats": [
-    {
-      "word": "chicken",
-      "prev_level": 200,
-      "prev_category": "farm-animals"
-    },
-    {
-      "word": "lion",
-      "prev_level": 202,
-      "prev_category": "safari-animals"
-    }
-  ],
+  "repeats": [],
   "board": {
     "start_bubbles": 24,
     "move_limit": 57,

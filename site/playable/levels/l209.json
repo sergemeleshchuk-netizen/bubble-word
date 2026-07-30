@@ -7,19 +7,19 @@
       "name": "Feeling Sick",
       "words": [
         "cold",
-        "fever",
         "headache",
-        "flu"
+        "chills",
+        "sneeze"
       ]
     },
     {
       "id": "temperature",
       "name": "Temperature",
       "words": [
-        "hot",
         "cool",
-        "warm",
-        "mild"
+        "mild",
+        "hot",
+        "warm"
       ]
     },
     {
@@ -38,8 +38,8 @@
       "words": [
         "wake",
         "breakfast",
-        "shower",
-        "stretch"
+        "stretch",
+        "shower"
       ]
     },
     {
@@ -47,9 +47,9 @@
       "name": "Drinks",
       "words": [
         "coffee",
+        "smoothie",
         "tea",
-        "juice",
-        "soda"
+        "juice"
       ]
     },
     {
@@ -77,9 +77,9 @@
       "name": "Accessories",
       "words": [
         "hat",
-        "tie",
-        "belt",
-        "wallet"
+        "purse",
+        "scarf",
+        "tie"
       ]
     },
     {
@@ -98,8 +98,8 @@
       "words": [
         "milk",
         "cream",
-        "cheese",
-        "butter"
+        "butter",
+        "yogurt"
       ]
     },
     {
@@ -146,20 +146,20 @@
       "id": "movie-genres",
       "name": "Movie Genres",
       "words": [
-        "action",
-        "western",
-        "drama",
-        "comedy"
+        "musical",
+        "horror",
+        "romance",
+        "thriller"
       ]
     },
     {
       "id": "music-genres",
       "name": "Music Genres",
       "words": [
-        "rock",
-        "pop",
-        "blues",
-        "jazz"
+        "rap",
+        "disco",
+        "funk",
+        "reggae"
       ]
     }
   ],

@@ -26,20 +26,20 @@
       "id": "pets",
       "name": "Pets",
       "words": [
-        "dog",
         "fish",
         "cat",
-        "bird"
+        "bird",
+        "rabbit"
       ]
     },
     {
       "id": "dances",
       "name": "Dances",
       "words": [
-        "ballet",
-        "tango",
-        "salsa",
-        "waltz"
+        "polka",
+        "samba",
+        "flamenco",
+        "ballet"
       ]
     },
     {
@@ -48,8 +48,8 @@
       "words": [
         "dessert",
         "soup",
-        "salad",
-        "starter"
+        "starter",
+        "appetizer"
       ]
     },
     {
@@ -87,8 +87,8 @@
       "name": "Shapes",
       "words": [
         "square",
-        "heart",
         "star",
+        "heart",
         "circle"
       ]
     },
@@ -106,10 +106,10 @@
       "id": "weather-days",
       "name": "Weather Words",
       "words": [
-        "sunny",
-        "rainy",
-        "windy",
-        "cloudy"
+        "snowy",
+        "stormy",
+        "foggy",
+        "sunny"
       ]
     },
     {
@@ -136,10 +136,10 @@
       "id": "royalty",
       "name": "Royalty",
       "words": [
+        "duke",
+        "throne",
         "king",
-        "queen",
-        "prince",
-        "crown"
+        "queen"
       ]
     }
   ],
@@ -166,11 +166,6 @@
     }
   ],
   "repeats": [
-    {
-      "word": "salad",
-      "prev_level": 204,
-      "prev_category": "fast-food"
-    },
     {
       "word": "heart",
       "prev_level": 206,

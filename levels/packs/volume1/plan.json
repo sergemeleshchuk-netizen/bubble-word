@@ -209,12 +209,6 @@
           "autumn",
           "spring"
         ],
-        "vegetables": [
-          "carrot",
-          "onion",
-          "potato",
-          "broccoli"
-        ],
         "salad-things": [
           "lettuce",
           "dressing",
@@ -313,6 +307,12 @@
           "lesson",
           "student",
           "quiz"
+        ],
+        "security": [
+          "lock",
+          "safe",
+          "code",
+          "vault"
         ]
       }
     },
@@ -409,7 +409,15 @@
           "home": "gems",
           "tempts": "shapes"
         }
-      ]
+      ],
+      "must": {
+        "shapes": [
+          "square",
+          "star",
+          "heart",
+          "circle"
+        ]
+      }
     },
     {
       "level_id": 209,
@@ -464,7 +472,20 @@
           "home": "solid-shapes",
           "tempts": "ancient-egypt"
         }
-      ]
+      ],
+      "must": {
+        "morning-routine": [
+          "wake",
+          "breakfast",
+          "stretch",
+          "shower"
+        ]
+      }
     }
+  ],
+  "seed_levels": [
+    "levels/etalon/e1.json",
+    "levels/etalon/e2.json",
+    "levels/etalon/e3.json"
   ]
 }

@@ -7,7 +7,7 @@
       "name": "Fruits",
       "words": [
         "orange",
-        "apple",
+        "apricot",
         "cherry",
         "banana"
       ]
@@ -16,10 +16,10 @@
       "id": "colors",
       "name": "Colors",
       "words": [
-        "red",
-        "blue",
-        "green",
-        "brown"
+        "brown",
+        "yellow",
+        "pink",
+        "red"
       ]
     },
     {
@@ -27,9 +27,9 @@
       "name": "Toys",
       "words": [
         "blocks",
-        "doll",
-        "puzzle",
-        "teddy"
+        "teddy",
+        "marbles",
+        "yoyo"
       ]
     },
     {
@@ -49,17 +49,17 @@
         "horse",
         "chicken",
         "duck",
-        "sheep"
+        "donkey"
       ]
     },
     {
       "id": "vehicles",
       "name": "Vehicles",
       "words": [
-        "car",
-        "train",
-        "bus",
-        "van"
+        "van",
+        "bicycle",
+        "scooter",
+        "tram"
       ]
     },
     {
@@ -99,7 +99,7 @@
         "seal",
         "shark",
         "whale",
-        "turtle"
+        "crab"
       ]
     },
     {

@@ -6,10 +6,10 @@
       "id": "colors",
       "name": "Colors",
       "words": [
-        "red",
         "blue",
         "brown",
-        "yellow"
+        "yellow",
+        "pink"
       ]
     },
     {
@@ -38,8 +38,8 @@
       "words": [
         "milk",
         "rice",
-        "bread",
-        "egg"
+        "egg",
+        "jam"
       ]
     },
     {
@@ -136,16 +136,6 @@
     }
   ],
   "repeats": [
-    {
-      "word": "green",
-      "prev_level": 200,
-      "prev_category": "colors"
-    },
-    {
-      "word": "bread",
-      "prev_level": 203,
-      "prev_category": "baked-goods"
-    },
     {
       "word": "milk",
       "prev_level": 203,
