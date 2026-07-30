@@ -13,13 +13,13 @@
       ]
     },
     {
-      "id": "astronomy",
-      "name": "Astronomy",
+      "id": "metals",
+      "name": "Metals",
       "words": [
-        "orbit",
-        "eclipse",
-        "telescope",
-        "observatory"
+        "lead",
+        "copper",
+        "tin",
+        "nickel"
       ]
     },
     {
@@ -154,11 +154,6 @@
     }
   ],
   "traps": [
-    {
-      "word": "galaxy",
-      "home": "space",
-      "tempts": "astronomy"
-    },
     {
       "word": "sun",
       "home": "stars-named",

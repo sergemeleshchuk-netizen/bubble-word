@@ -271,7 +271,7 @@
       "k": 1.35,
       "cats": [
         "school-supplies",
-        "stationery",
+        "organs",
         "writing-tools",
         "soils",
         "classroom",
@@ -289,12 +289,7 @@
         {
           "word": "pen",
           "home": "writing-tools",
-          "tempts": "stationery"
-        },
-        {
-          "word": "eraser",
-          "home": "school-supplies",
-          "tempts": "stationery"
+          "tempts": "school-supplies"
         },
         {
           "word": "chalk",
@@ -327,7 +322,7 @@
       "k": 1.3,
       "cats": [
         "space",
-        "astronomy",
+        "metals",
         "weather",
         "stars-named",
         "rain-gear",
@@ -343,11 +338,6 @@
         "bovines"
       ],
       "traps": [
-        {
-          "word": "galaxy",
-          "home": "space",
-          "tempts": "astronomy"
-        },
         {
           "word": "sun",
           "home": "stars-named",

@@ -6,20 +6,20 @@
       "id": "school-supplies",
       "name": "School Supplies",
       "words": [
-        "eraser",
         "book",
         "desk",
-        "ruler"
+        "ruler",
+        "backpack"
       ]
     },
     {
-      "id": "stationery",
-      "name": "Office Supplies",
+      "id": "organs",
+      "name": "Organs",
       "words": [
-        "paper",
-        "tape",
-        "clip",
-        "folder"
+        "heart",
+        "brain",
+        "stomach",
+        "liver"
       ]
     },
     {
@@ -87,9 +87,9 @@
       "name": "Wild Cats",
       "words": [
         "tiger",
+        "lion",
         "panther",
-        "leopard",
-        "puma"
+        "leopard"
       ]
     },
     {
@@ -147,12 +147,7 @@
     {
       "word": "pen",
       "home": "writing-tools",
-      "tempts": "stationery"
-    },
-    {
-      "word": "eraser",
-      "home": "school-supplies",
-      "tempts": "stationery"
+      "tempts": "school-supplies"
     },
     {
       "word": "chalk",
@@ -172,14 +167,14 @@
   ],
   "repeats": [
     {
-      "word": "paper",
-      "prev_level": 202,
-      "prev_category": "materials"
-    },
-    {
       "word": "chicken",
       "prev_level": 200,
       "prev_category": "farm-animals"
+    },
+    {
+      "word": "lion",
+      "prev_level": 202,
+      "prev_category": "safari-animals"
     }
   ],
   "board": {
