@@ -7,6 +7,8 @@ __pycache__/
 # рабочая база и выгрузки — воспроизводятся из data/*.jsonl
 database/*.sqlite
 database/*.sqlite-journal
+database/*.sqlite-shm
+database/*.sqlite-wal
 data/review_candidates.csv
 data/generated_*.jsonl
 data/gen_*.jsonl
