@@ -1,0 +1,23 @@
+{
+  "level_id": 1,
+  "difficulty_target": 7,
+  "categories": [
+    { "id": "airport", "name": "At the Airport", "words": ["boarding", "luggage", "passport", "runway"] },
+    { "id": "hotel", "name": "At the Hotel", "words": ["lobby", "suite", "reception", "key"] },
+    { "id": "pirates", "name": "Pirates", "words": ["treasure", "plank", "hook", "parrot"] },
+    { "id": "pets", "name": "Pets", "words": ["dog", "cat", "rabbit", "hamster"] },
+    { "id": "sea-animals", "name": "Sea Animals", "words": ["shark", "dolphin", "octopus", "turtle"] },
+    { "id": "boats", "name": "Boats and Ships", "words": ["ship", "canoe", "yacht", "ferry"] },
+    { "id": "water-bodies", "name": "Bodies of Water", "words": ["river", "lake", "pond", "bay"] },
+    { "id": "picnic", "name": "Picnic", "words": ["basket", "blanket", "sandwich", "thermos"] },
+    { "id": "compass", "name": "Compass Directions", "words": ["north", "south", "east", "west"] },
+    { "id": "swimming", "name": "At the Pool", "words": ["pool", "goggles", "dive", "lane"] }
+  ],
+  "traps": [
+    { "word": "parrot", "home": "pirates", "tempts": "pets" },
+    { "word": "turtle", "home": "sea-animals", "tempts": "pets" }
+  ],
+  "repeats": [],
+  "board": { "start_bubbles": 24, "move_limit": 39, "move_limit_k": 1.3 },
+  "extensions": { "chunks": [], "chains": null, "picture_words": [] }
+}

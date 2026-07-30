@@ -108,8 +108,10 @@
   /* playable phone frame */
   .phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 0 12px;}
   .phone-frame{
-    width:min(340px,86vw);aspect-ratio:9/16;
-    background:#1c1633;border-radius:34px;padding:10px;
+    /* экран стандартного телефона 390x844, высота почти во весь экран */
+    width:min(calc(min(88vh,900px)*0.462),92vw);
+    aspect-ratio:390/844;
+    background:#1c1633;border-radius:40px;padding:12px;
     box-shadow:0 24px 60px rgba(28,22,51,.28);
   }
   .phone-frame iframe{
@@ -283,7 +285,16 @@
     var body = row.querySelector('.row-body');
     var open = row.classList.toggle('open');
     head.setAttribute('aria-expanded', open);
-    body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+    if(open){
+      body.style.maxHeight = body.scrollHeight + 'px';
+      /* после анимации отпускаем ограничение: контент с vh-размерами
+         (рамка телефона) не должен обрезаться при изменении окна */
+      setTimeout(function(){ if(row.classList.contains('open')) body.style.maxHeight = 'none'; }, 500);
+    }else{
+      body.style.maxHeight = body.scrollHeight + 'px';
+      void body.offsetHeight;
+      body.style.maxHeight = '0px';
+    }
   }
 </script>
 
