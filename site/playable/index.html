@@ -186,7 +186,7 @@ let boardScale=1;
    недостающие слова + 5 целых категорий = ОБЩАЯ ПЕРЕМЕШАННАЯ очередь. Поле постоянно
    пополняется СЛУЧАЙНЫМИ словами до 19 пузырей (иначе возможен тупик: одни шары без пар).
    Контент = декки Word Solitaire (Solitaire Balance.xlsx → лист Decks text). */
-const TARGETS=[
+const DEFAULT_TARGETS=[
  {v:'SEASONS',   ex:['SPRING','AUTUMN','SUMMER','WINTER']},
  {v:'SPACE',     ex:['STAR','ROCKET','PLANET','MOON']},
  {v:'FOOD',      ex:['PIZZA','SOUP','POTATO','PASTA']},
@@ -200,9 +200,28 @@ const TARGETS=[
  {v:'JOBS',      ex:['CHEF','DOCTOR','WAITER','ENGINEER']},
  {v:'MAGIC',     ex:['WAND','POTION','SPELL','CAULDRON']},
 ];
-const START_COUNTS=[4,3,3,3,2,2,2]; /* сколько слов первых категорий лежит на поле */
-const FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length);
-const MOVES_START=48, CATS_TOTAL=TARGETS.length;
+let TARGETS=DEFAULT_TARGETS;
+let START_COUNTS=[4,3,3,3,2,2,2]; /* сколько слов первых категорий лежит на поле */
+let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=19, NO_LIMIT=false;
+function applyContent(){ FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length); CATS_TOTAL=TARGETS.length; }
+applyContent();
+
+/* ===== уровень из JSON (?level=путь-к-файлу) — схема в levels/SCHEMA.md =====
+   имена категорий скрыты до сборки (как в референсе): пузыри показывают слова,
+   имя категории появляется только на финальном оранжевом пузыре. */
+function applyLevel(L){
+  TARGETS=L.categories.map(c=>({v:c.name.toUpperCase(),ex:c.words.map(w=>w.toUpperCase())}));
+  const M=TARGETS.length,total=M*4;
+  NO_LIMIT=(L.board.move_limit==null);
+  MOVES_START=NO_LIMIT?total*3:L.board.move_limit;
+  FIELD_TARGET=Math.min(L.board.start_bubbles||19,total);
+  /* старт: раздаём FIELD_TARGET слов по категориям почти поровну (не больше 4) */
+  START_COUNTS=new Array(M).fill(0);
+  let left=FIELD_TARGET,i=0;
+  while(left>0){ if(START_COUNTS[i%M]<4){START_COUNTS[i%M]++;left--;} i++; }
+  applyContent();
+  document.getElementById('lvl').textContent='LVL '+(L.level_id||1);
+}
 const W=390,H=600;
 const PRAISE=['Cool!','Great!','Splendid!','Awesome!','Nice!'];
 
@@ -227,11 +246,17 @@ function paint(b){
   const n=b.exs.length;
   b.r=rFor(n);
   b.el.className='bub t'+Math.min(n,4)+(b.el.classList.contains('hintGlow')?' hintGlow':'');
-  /* одиночка = слово; склеенный шар = ВСЕ собранные слова стопкой (как в референсе) */
-  const maxLen = Math.max(...b.exs.map(e=>e.length));
-  const base = n===1 ? 15 : 14;
-  const fs = Math.min(base, Math.floor((b.r*2-14)/(0.62*maxLen)), Math.floor((b.r*2-18)/(1.3*n)));
-  b.el.innerHTML = b.exs.map(e=>`<div class="ln" style="font-size:${fs}px">${e}</div>`).join('');
+  /* одиночка = слово; склеенный шар = ВСЕ собранные слова стопкой (как в референсе);
+     полная категория = оранжевый пузырь с ИМЕНЕМ категории (до этого имя скрыто) */
+  if(n>=(FULL[b.val]||4)){
+    const fs=Math.min(17, Math.floor((b.r*2-16)/(0.62*b.val.length)));
+    b.el.innerHTML=`<div class="ln" style="font-size:${fs}px">${b.val}</div>`;
+  }else{
+    const maxLen = Math.max(...b.exs.map(e=>e.length));
+    const base = n===1 ? 15 : 14;
+    const fs = Math.min(base, Math.floor((b.r*2-14)/(0.62*maxLen)), Math.floor((b.r*2-18)/(1.3*n)));
+    b.el.innerHTML = b.exs.map(e=>`<div class="ln" style="font-size:${fs}px">${e}</div>`).join('');
+  }
   b.el.style.width=b.el.style.height=b.r*2+'px';
 }
 function place(b){
@@ -264,8 +289,8 @@ function init(){
 
 /* ===== HUD ===== */
 function updHud(){
-  document.getElementById('movesNum').textContent=moves;
-  document.getElementById('ring').style.strokeDashoffset=219.9*(1-Math.max(0,moves)/MOVES_START);
+  document.getElementById('movesNum').textContent=NO_LIMIT?'∞':moves;
+  document.getElementById('ring').style.strokeDashoffset=NO_LIMIT?0:219.9*(1-Math.max(0,moves)/MOVES_START);
   document.getElementById('pillTxt').textContent=done+'/'+CATS_TOTAL;
   document.getElementById('pillFill').style.width=(done/CATS_TOTAL*100)+'%';
 }
@@ -281,12 +306,17 @@ function physStep(dt,settle){
   const g=0.4, damp=0.9; /* терминальная скорость ~240px/с — новый набор долетает за ~2с */
   for(const b of bubbles){
     if(b.dragging||b.popping) continue;
-    b.fx=b.x; b.fy=b.y; b.supported=false;
-    const nx=b.x+(b.x-b.px)*damp;
-    const ny=b.y+(b.y-b.py)*damp+g;
-    b.px=b.x; b.py=b.y; b.x=nx; b.y=ny;
+    b.fx=b.x; b.fy=b.y;
+    b.wasSup=b.supported; b.supported=false;
+    let vx=(b.x-b.px)*damp, vy=(b.y-b.py)*damp;
+    if(Math.abs(vx)<0.04) vx=0;
+    if(Math.abs(vy)<0.04) vy=0;
+    /* лежащий на опоре неподвижный пузырь гравитация не дёргает,
+       иначе куча вечно микро-проседает и дрожит */
+    if(!(b.wasSup&&vx===0&&vy===0)) vy+=g;
+    b.px=b.x; b.py=b.y; b.x+=vx; b.y+=vy;
   }
-  for(let it=0;it<3;it++){
+  for(let it=0;it<4;it++){
     for(let i=0;i<bubbles.length;i++)for(let j=i+1;j<bubbles.length;j++){
       const a=bubbles[i],c=bubbles[j];
       if(a.popping||c.popping||a.dragging||c.dragging) continue; /* поднятый пузырь парит над полем */
@@ -294,11 +324,12 @@ function physStep(dt,settle){
       if(d<min){
         if(dy>0.5*d) a.supported=true;      /* сосед снизу — опора */
         else if(dy<-0.5*d) c.supported=true;
-        if(d<min-0.5){
-          const push=(min-d)/2, nx=dx/d, ny=dy/d;
-          a.x-=nx*push; a.y-=ny*push;
-          c.x+=nx*push; c.y+=ny*push;
-        }
+        /* мягкое расталкивание: четверть перекрытия на пузырь за итерацию.
+           Резкий толчок всего перекрытия сразу выглядел прыжком,
+           а мёртвая зона в полпикселя оставляла постоянное наслоение */
+        const push=(min-d)*0.25, nx=dx/d, ny=dy/d;
+        a.x-=nx*push; a.y-=ny*push;
+        c.x+=nx*push; c.y+=ny*push;
       }
     }
     for(const b of bubbles){
@@ -309,20 +340,17 @@ function physStep(dt,settle){
       if(b.y<-90) b.y=-90;
     }
   }
-  /* трение покоя: есть ОПОРА СНИЗУ и сдвиг за кадр < порога → пузырь не двигается вовсе.
-     Падающие (без опоры) не трогаем — иначе замрут в воздухе. */
+  /* трение покоя: опора снизу и почти нет движения → гасим только СКОРОСТЬ.
+     Позицию не откатываем: откат отменял расталкивание и консервировал наслоения. */
   for(const b of bubbles){
     if(b.dragging||b.popping) continue;
-    if(b.supported&&Math.hypot(b.x-b.fx,b.y-b.fy)<0.5){
-      b.x=b.fx; b.y=b.fy; b.px=b.x; b.py=b.y;
-    }
+    if(b.supported&&Math.hypot(b.x-b.fx,b.y-b.fy)<0.35){ b.px=b.x; b.py=b.y; }
   }
   if(!settle) bubbles.forEach(place);
 }
 function still(b){ b.px=b.x; b.py=b.y; } /* обнулить скорость после ручного перемещения */
 
 /* ===== постоянная досыпка: поле держит FIELD_TARGET пузырей, слова случайные ===== */
-const FIELD_TARGET=19;
 let lastSpawn=0;
 function trySpawn(ts){
   if(over||!queue.length||bubbles.length>=FIELD_TARGET) return;
@@ -507,9 +535,17 @@ function loop(ts){
   }
   requestAnimationFrame(loop);
 }
-init();
-requestAnimationFrame(fit);
-requestAnimationFrame(loop);
+/* ===== старт: уровень из ?level=... (JSON) либо встроенный контент ===== */
+(async function boot(){
+  const q=new URLSearchParams(location.search).get('level');
+  if(q){
+    try{ applyLevel(await (await fetch(q)).json()); console.log('level loaded:',q); }
+    catch(e){ console.warn('level load failed, играем встроенный контент:',e); }
+  }
+  init();
+  requestAnimationFrame(fit);
+  requestAnimationFrame(loop);
+})();
 </script>
 </body>
 </html>
