@@ -137,6 +137,20 @@
     display:flex;align-items:center;justify-content:center;
   }
   .gdd b{color:var(--ink);font-weight:600;}
+  .prompt-box{
+    background:#1c1633;color:#e8e3f5;border-radius:16px;
+    padding:18px 20px;margin:10px 0 6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:12.5px;line-height:1.65;white-space:pre-wrap;
+    box-shadow:0 12px 32px rgba(28,22,51,.18);
+  }
+  .prompt-box .pb-label{
+    display:block;font-family:inherit;font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:#b9a8e8;margin-bottom:10px;font-weight:700;
+  }
+  .verdict{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-right:6px;
+    background:var(--chip);color:var(--violet);}
 
   /* playable phone frame */
   .phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 0 12px;}
@@ -263,7 +277,79 @@
           <span class="row-label">Research</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+        <div class="row-body"><div class="row-body-inner">
+          <div class="gdd">
+            <p class="gdd-intro"><b>Задача этапа:</b> найти источники <b>безлимитного</b> набора слов,
+            категорий и связей между словами для генератора уровней, чтобы контент не был ограничен
+            рамками задания (10 уровней), а масштабировался на сотни уровней с контролем качества.</p>
+
+            <h3><span class="g-num">1</span>Промпт для LLM: поиск источников</h3>
+            <div class="prompt-box"><span class="pb-label">Research prompt</span>You are a computational-linguistics researcher for a word-association puzzle
+game. Players sort words into hidden categories of 4; the fun and difficulty
+come from TRAP words that plausibly fit two categories of the level but have
+exactly one true home (ORANGE: fruit vs color).
+
+Find and evaluate sources for an UNLIMITED supply of:
+(a) casual, instantly recognizable category names;
+(b) pools of 6-8 common single words per category;
+(c) word-to-category association strengths, to mine trap words;
+(d) category-to-category relatedness, to control level difficulty.
+
+Consider at minimum: lexical databases (WordNet), commonsense knowledge
+graphs (ConceptNet), human word-association norms (Small World of Words),
+structured encyclopedic data (Wikidata SPARQL), word-frequency lists
+(wordfreq / zipf), fan-made answer keys of similar live games, and direct
+LLM generation.
+
+For each source report: coverage and size, license, access (dump or API),
+noise level, what it contributes SPECIFICALLY to trap mining, and
+integration cost. Recommend a minimal combination that yields
+quality-controlled unlimited content, and define the validation gates every
+candidate word must pass: profanity blocklist, frequency threshold,
+duplicate and pool-overlap checks against the existing base, and a blind
+solver that must reproduce the intended grouping without seeing answers.</div>
+
+            <h3><span class="g-num">2</span>Результат: карта источников и вердикты</h3>
+            <ul>
+              <li><span class="verdict">внедрено</span><b>LLM-генерация</b> - основной «кран»: скилл
+                word-associations-generator, 3 режима (тема / augment: ядро из источника + досыпка
+                до пула 6-8 / дочерпка выгрузки). Безлимитен по построению, качество держат фильтры.</li>
+              <li><span class="verdict">внедрено</span><b>Ответы живой игры-референса</b> (фанатская
+                расшифровка, 199 уровней): выгружено 2244 категории × 4 слова, 4793 уникальных слова;
+                достоверность подтверждена покадровым разбором видео (20/20 по числу категорий).
+                В базу влито 19 категорий первой пачкой; майнер mine_bwj.py держит очередь
+                из ~1050 кандидатов и сам исключает уже влитое.</li>
+              <li><span class="verdict">внедрено</span><b>Частотный словарь wordfreq (zipf)</b> -
+                аннотация каждого слова: частотные слова для лёгких уровней, редкие (zipf&lt;3)
+                дозированно как рычаг сложности.</li>
+              <li><span class="verdict">слабо</span><b>WordNet</b> (прогнан пайплайном): 114 555 групп,
+                но категории абстрактны (act, abstraction), в «безопасные» группы попали слуры.
+                Вердикт: только как сырьё после курирования и обязательного блок-листа.</li>
+              <li><span class="verdict">в работе</span><b>Small World of Words (SWOW)</b> - живые
+                ассоциации людей (стимул → первые ответы тысяч респондентов). Даёт СИЛУ ловушки
+                числом: если на ORANGE 40% отвечают «фрукт» и 35% «цвет» - ловушка измерена,
+                а не угадана. Профильный датасет для игры про ассоциации.</li>
+              <li><span class="verdict">кандидат</span><b>ConceptNet</b> - граф здравого смысла
+                (~34 млн связей IsA/PartOf/AtLocation): пулы категорий обходом графа, ловушки =
+                слова с рёбрами к двум категориям, смежность = общие соседи. Подключаем после SWOW,
+                если связка даст измеримое улучшение.</li>
+              <li><span class="verdict">точечно</span><b>Wikidata SPARQL</b> - точные закрытые наборы
+                (планеты, валюты, породы) по запросу; не основа, а дополнение.</li>
+            </ul>
+
+            <h3><span class="g-num">3</span>Архитектура безлимитности</h3>
+            <ol>
+              <li><b>Источники</b> (LLM, выгрузка, графы) порождают кандидатов - без ограничений объёма.</li>
+              <li><b>Фильтры</b> режут мусор: блок-лист, частотность, дубли по именам И по пересечению
+                пулов (урок: bank≈banking совпадали на 4/6 слов при разных именах).</li>
+              <li><b>База</b> - кэш проверенного (198 категорий / 1233 слова / 108 пересечений-ловушек),
+                только растёт и никогда не является потолком: уровни ссылаются на базу, база
+                докачивается по требованию.</li>
+              <li><b>Слепой решатель</b> замыкает контур: независимая AI-проверка без ответов
+                бракует двусмысленность, поэтому массовая докачка не роняет качество.</li>
+            </ol>
+          </div>
+        </div></div>
       </div>
 
       <div class="row">
