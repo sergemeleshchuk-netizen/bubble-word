@@ -210,6 +210,21 @@
 {"category_key": "pest_control", "label": "CROP PESTS", "rule": "Creatures that damage crops", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.4}
 {"category_key": "country_life", "label": "COUNTRY LIFE THINGS", "rule": "Things associated with rural country living", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
 {"category_key": "ranch_words", "label": "RANCH WORDS", "rule": "Things found on a cattle ranch", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
+{"category_key": "makeup", "label": "MAKEUP", "rule": "Cosmetics applied to the face", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "beauty_tools", "label": "BEAUTY TOOLS", "rule": "Tools used for hair, nails and makeup", "relation_type": "used_in", "theme": "fashion", "base_difficulty": 0.35}
+{"category_key": "hairstyles", "label": "HAIRSTYLES", "rule": "Ways of styling hair", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "nail_words", "label": "NAIL CARE WORDS", "rule": "Things used for manicures and nail care", "relation_type": "found_in", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "perfume_words", "label": "FRAGRANCE WORDS", "rule": "Words used to describe perfumes and scents", "relation_type": "found_in", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "fashion_styles", "label": "FASHION STYLES", "rule": "Named styles of dressing", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "patterns", "label": "PATTERNS", "rule": "Patterns printed on cloth", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "bags", "label": "BAGS AND CASES", "rule": "Kinds of bag people carry", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.25}
+{"category_key": "eyewear", "label": "EYEWEAR", "rule": "Things worn over the eyes", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "fashion_accessories", "label": "FASHION ACCESSORIES", "rule": "Items added to complete a look", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "shoe_styles", "label": "SHOE STYLES", "rule": "Styles of shoe", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.3}
+{"category_key": "sewing_patterns", "label": "GARMENT DETAILS", "rule": "Details sewn into a garment design", "relation_type": "part_of", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "wardrobe_care", "label": "WARDROBE CARE", "rule": "Things used to store and care for clothes", "relation_type": "used_in", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "jewelry_stones", "label": "JEWELRY STONES", "rule": "Stones set into jewelry", "relation_type": "is_a", "theme": "fashion", "base_difficulty": 0.35}
+{"category_key": "fashion_show", "label": "FASHION SHOW THINGS", "rule": "Things found at a fashion show", "relation_type": "found_in", "theme": "fashion", "base_difficulty": 0.4}
 {"category_key": "fruits", "label": "FRUITS", "rule": "Common edible fruits familiar to an average American adult", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.1}
 {"category_key": "vegetables", "label": "VEGETABLES", "rule": "Common edible vegetables sold in an ordinary American grocery store", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.12}
 {"category_key": "berries", "label": "BERRIES", "rule": "Small soft fruits called berries in everyday American English", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
@@ -431,6 +446,22 @@
 {"category_key": "punishments", "label": "PENALTIES", "rule": "Penalties handed down for breaking rules", "relation_type": "is_a", "theme": "law", "base_difficulty": 0.4}
 {"category_key": "emergency_services", "label": "EMERGENCY SERVICES", "rule": "Public services that respond to emergencies", "relation_type": "is_a", "theme": "law", "base_difficulty": 0.25}
 {"category_key": "detective_words", "label": "DETECTIVE WORDS", "rule": "Words used in a criminal investigation", "relation_type": "found_in", "theme": "law", "base_difficulty": 0.35}
+{"category_key": "building_materials", "label": "BUILDING MATERIALS", "rule": "Materials used to construct buildings", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.25}
+{"category_key": "things_made_of_wood", "label": "WOODEN THINGS", "rule": "Everyday things normally made of wood", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.3}
+{"category_key": "things_made_of_glass", "label": "GLASS THINGS", "rule": "Everyday things normally made of glass", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.3}
+{"category_key": "things_made_of_metal", "label": "METAL THINGS", "rule": "Everyday things normally made of metal", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.3}
+{"category_key": "things_made_of_paper", "label": "PAPER THINGS", "rule": "Everyday things normally made of paper", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.3}
+{"category_key": "things_made_of_plastic", "label": "PLASTIC THINGS", "rule": "Everyday things normally made of plastic", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "things_made_of_leather", "label": "LEATHER THINGS", "rule": "Everyday things normally made of leather", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "things_made_of_rubber", "label": "RUBBER THINGS", "rule": "Everyday things normally made of rubber", "relation_type": "made_of", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "fabric_types", "label": "FABRIC TYPES", "rule": "Kinds of cloth used to make things", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.3}
+{"category_key": "minerals", "label": "MINERALS", "rule": "Minerals found in the earth", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.4}
+{"category_key": "precious_materials", "label": "PRECIOUS MATERIALS", "rule": "Rare and valuable materials", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "recycled_materials", "label": "RECYCLABLE MATERIALS", "rule": "Materials that can be recycled", "relation_type": "has_property", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "liquids", "label": "LIQUIDS", "rule": "Common liquids found around a home", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.25}
+{"category_key": "powders", "label": "POWDERS", "rule": "Common substances that come as a powder", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.4}
+{"category_key": "things_that_burn", "label": "FUELS", "rule": "Materials burned to produce heat or power", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.35}
+{"category_key": "insulating_materials", "label": "INSULATING MATERIALS", "rule": "Materials used to keep heat or sound in or out", "relation_type": "used_in", "theme": "materials", "base_difficulty": 0.45}
 {"category_key": "superheroes", "label": "SUPERHEROES", "rule": "Comic book superheroes most people can name", "relation_type": "is_a", "theme": "media", "base_difficulty": 0.25}
 {"category_key": "cartoon_characters", "label": "CARTOON CHARACTERS", "rule": "Classic cartoon characters", "relation_type": "is_a", "theme": "media", "base_difficulty": 0.25}
 {"category_key": "disney_characters", "label": "DISNEY CHARACTERS", "rule": "Characters from Disney animated films", "relation_type": "is_a", "theme": "media", "base_difficulty": 0.25}
