@@ -1,0 +1,9 @@
+# actions — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+cooking_actions | COOKING ACTIONS | does_action | 0.25 | 0.85 | A | Verbs describing something a cook does to food | To $w is something a cook does to food
+bake, boil, fry, grill, chop, stir, roast, simmer, peel, slice, knead, whisk
+
+ways_of_moving | WAYS OF MOVING | does_action | 0.25 | 0.85 | A | Verbs describing a way a person moves their body from place to place | To $w is a way a person moves from place to place
+walk, run, jump, crawl, skip, swim, climb, slide, march, hop, sprint, stroll

@@ -1,0 +1,9 @@
+# education — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+school_supplies | SCHOOL SUPPLIES | used_in | 0.15 | 0.9 | A | Items a student brings to school in a backpack | $W is an item a student brings to school
+backpack, notebook, pencil, eraser, ruler, crayon, glue, folder, marker, calculator, binder
+
+school_subjects | SCHOOL SUBJECTS | is_a | 0.15 | 0.9 | A | Subjects taught in an American school | $W is a subject taught in school
+math, history, science, art, music, geography, biology, chemistry, English, gym, algebra, physics

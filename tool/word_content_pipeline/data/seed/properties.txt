@@ -1,0 +1,18 @@
+# properties — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+round_things | ROUND THINGS | has_property | 0.3 | 0.7 | C | Everyday objects whose normal shape is round or circular | $W is normally round in shape
+ball, coin, plate, wheel, pizza, button, clock, donut, tire, marble
+
+red_things | RED THINGS | has_property | 0.3 | 0.7 | C | Everyday things that are typically red in color | $W is typically red in color
+blood, brick, cherry, ruby, stop sign, lobster, strawberry, cardinal, fire truck, tomato
+
+sticky_things | STICKY THINGS | has_property | 0.35 | 0.7 | C | Substances that stick to whatever they touch | $W sticks to whatever it touches
+honey, glue, tape, syrup, gum, tar, jam, sap, caramel, molasses
+
+cold_things | COLD THINGS | has_property | 0.3 | 0.75 | C | Things that are cold by their physical nature | $W is cold by its physical nature
+ice, snow, freezer, popsicle, iceberg, frost, sleet, glacier, refrigerator, icicle
+
+colors | COLORS | is_a | 0.1 | 0.95 | A | Basic color names used in everyday English | $W is a basic color name
+red, blue, green, yellow, purple, pink, brown, black, white, gray, teal

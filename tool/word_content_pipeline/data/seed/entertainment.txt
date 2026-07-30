@@ -1,0 +1,21 @@
+# entertainment — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+musical_instruments | MUSICAL INSTRUMENTS | is_a | 0.15 | 0.92 | A | Instruments played to produce music | $W is a musical instrument
+piano, guitar, drum, violin, flute, trumpet, cello, harp, banjo, clarinet, saxophone, tuba
+
+music_words | MUSIC WORDS | found_in | 0.3 | 0.75 | A | Words used to describe how a piece of music is written or performed | $W is a word used to describe written or performed music
+note, chord, scale, tempo, rhythm, beat, melody, harmony, verse, chorus
+
+board_games | BOARD GAMES | is_a | 0.25 | 0.85 | A | Games played on a board with pieces or cards on a table | $W is a board game played on a table
+chess, checkers, monopoly, scrabble, clue, risk, backgammon, battleship, jenga, dominoes
+
+card_words | PLAYING CARD WORDS | found_in | 0.3 | 0.8 | A | Words for the cards, suits and parts of a standard deck of playing cards | $W is a word for something in a standard deck of playing cards
+ace, king, queen, jack, joker, deck, suit, trump
+
+movie_genres | MOVIE GENRES | is_a | 0.25 | 0.85 | A | Categories used to classify films | $W is a genre used to classify films
+comedy, horror, drama, western, thriller, romance, musical, documentary, fantasy, action
+
+circus_words | CIRCUS WORDS | found_in | 0.3 | 0.8 | A | People, animals and objects you see at a traditional circus | $W is something you see at a traditional circus
+clown, tent, trapeze, juggler, acrobat, ringmaster, elephant, unicycle, tightrope, stilts

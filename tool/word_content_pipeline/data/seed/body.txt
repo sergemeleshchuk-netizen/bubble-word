@@ -1,0 +1,66 @@
+# body — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+body_parts | BODY PARTS | is_a | 0.1 | 0.95 | A | External parts of the human body | $W is an external part of the human body
+arm, leg, hand, foot, head, knee, elbow, shoulder, neck, back, chest, ankle, hip, wrist, thigh, waist, calf, heel, toe, finger, chin, forehead, stomach, shin, jaw
+
+face_parts | PARTS OF THE FACE | part_of | 0.12 | 0.92 | A | Parts of the human face | $W is a part of the human face
+eye, nose, mouth, ear, cheek, chin, lip, forehead, eyebrow, eyelash, jaw, dimple, nostril, iris, pupil, temple, freckle, brow, lash, eyelid
+
+internal_organs | INTERNAL ORGANS | part_of | 0.25 | 0.85 | A | Organs inside the human body | $W is an organ inside the human body
+lung, liver, kidney, stomach, brain, spleen, pancreas, intestine, bladder, gallbladder, heart, colon, appendix, thyroid, esophagus, womb, artery, vein, gland, marrow
+
+hand_parts | PARTS OF THE HAND | part_of | 0.3 | 0.8 | A | Parts of the human hand | $W is a part of the human hand
+thumb, finger, knuckle, nail, wrist, pinky, cuticle, index finger, ring finger, fingertip, palm, middle finger, joint, tendon, grip
+
+bones | BONES | is_a | 0.3 | 0.78 | A | Bones of the human skeleton | $W is a bone in the human skeleton
+skull, rib, spine, femur, jawbone, collarbone, kneecap, pelvis, shoulder blade, tailbone, vertebra, shin bone, wrist bone, hip bone, breastbone, ankle bone
+
+senses_and_perception | THE SENSES | is_a | 0.3 | 0.85 | A | Ways the human body senses the world | $W is a way the body senses the world
+sight, hearing, smell, taste, touch, balance, pain, temperature, pressure, hunger, thirst, itch
+
+hair_words | HAIR WORDS | found_in | 0.3 | 0.78 | A | Words for hairstyles and things done to hair | $W has to do with hair or hairstyles
+braid, ponytail, bun, curl, bang, wave, part, bob, dreadlock, mohawk, perm, updo, pigtail, cornrow, wig, bald, trim, layer, highlight, bangs
+
+body_movements | BODY MOVEMENTS | does_action | 0.3 | 0.8 | A | Movements the human body makes | $W is a movement the human body makes
+blink, nod, wave, shrug, stretch, bend, twist, kick, clap, jump, wink, yawn, sneeze, cough, swallow, breathe, lean, crouch, point, shiver
+
+body_sounds | BODY SOUNDS | does_action | 0.35 | 0.75 | A | Sounds the human body makes on its own | $W is a sound the human body makes
+cough, sneeze, hiccup, yawn, snore, burp, growl, sigh, gasp, wheeze, sniffle, grunt, whistle, laugh, cry, gulp
+
+illnesses | ILLNESSES | is_a | 0.25 | 0.85 | A | Common illnesses an average person can name | $W is a common illness
+cold, flu, fever, allergy, asthma, migraine, chickenpox, measles, pneumonia, bronchitis, strep throat, ulcer, diabetes, rash, infection, sinusitis, mumps, arthritis
+
+symptoms | SYMPTOMS | is_a | 0.3 | 0.8 | A | Signs that a person feels unwell | $W is a sign that a person feels unwell
+fever, cough, headache, rash, nausea, chills, sneeze, ache, swelling, dizziness, fatigue, sore throat, cramp, congestion, itching, bruise
+
+medicine_cabinet | MEDICINE CABINET THINGS | found_in | 0.25 | 0.82 | A | Things kept in a home medicine cabinet | $W is kept in a home medicine cabinet
+aspirin, bandage, thermometer, ointment, cough syrup, vitamin, antacid, gauze, tweezers, alcohol, cotton swab, sunscreen, eye drops, ice pack, painkiller, lozenge
+
+hospital_things | HOSPITAL THINGS | found_in | 0.25 | 0.85 | A | Things and places found in a hospital | $W is found in a hospital
+bed, stethoscope, gown, chart, IV, monitor, wheelchair, syringe, scalpel, ward, emergency room, gurney, X-ray, waiting room, oxygen mask, bandage, scrubs, ambulance
+
+dentist_things | DENTIST THINGS | found_in | 0.3 | 0.8 | A | Things found at a dentist office | $W is found at a dentist office
+drill, floss, mirror, chair, X-ray, filling, crown, brace, toothbrush, rinse, cavity, plaque, bib, suction, mold, retainer
+
+exercise_words | EXERCISE WORDS | does_action | 0.3 | 0.8 | A | Movements done as physical exercise | $W is done as physical exercise
+pushup, situp, squat, lunge, plank, jog, stretch, curl, crunch, burpee, pullup, jumping jack, sprint, row, press, dip
+
+things_that_grow_on_you | THINGS THAT GROW ON THE BODY | has_property | 0.35 | 0.72 | C | Things that grow naturally on the human body | $W grows naturally on the human body
+hair, nail, beard, eyelash, eyebrow, mustache, skin, tooth, freckle, mole, callus, whisker, sideburn, wart
+
+fingers_and_toes | DIGITS | is_a | 0.35 | 0.75 | A | Names for individual fingers and toes | $W is the name of a finger or toe
+thumb, index finger, middle finger, ring finger, pinky, big toe, little toe, forefinger, toe, digit
+
+parts_of_the_eye | PARTS OF THE EYE | part_of | 0.4 | 0.65 | C | Parts of the human eye | $W is a part of the human eye
+pupil, iris, lens, cornea, retina, eyelid, lash, socket, tear duct, white, brow, optic nerve
+
+body_systems | BODY SYSTEMS | is_a | 0.4 | 0.65 | C | Systems that make up the human body | $W is a system of the human body
+nervous, digestive, immune, skeletal, muscular, respiratory, circulatory, endocrine, urinary, lymphatic
+
+things_that_hurt | THINGS THAT HURT | has_property | 0.4 | 0.65 | C | Everyday things that cause physical pain | $W causes physical pain
+burn, cut, bruise, splinter, sunburn, blister, sprain, bee sting, paper cut, stubbed toe, cramp, headache, thorn, scrape, pinch
+
+muscles | MUSCLES | is_a | 0.4 | 0.62 | C | Muscles an average person can name | $W is a muscle
+bicep, tricep, abs, quad, hamstring, calf, glute, pec, delt, trap, lat, forearm, core, obliques

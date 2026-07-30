@@ -1,0 +1,12 @@
+# time — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+months | MONTHS | is_a | 0.1 | 0.95 | AP | Months of the Gregorian calendar year | $W is a month of the calendar year
+January, February, March, April, June, July, August, September, October, November, December
+
+calendar_words | CALENDAR WORDS | is_a | 0.25 | 0.85 | A | Everyday English words for dates and periods of time on a calendar | $W is an everyday word for a date or period of time
+month, year, week, day, weekend, season, decade, century, holiday, leap year
+
+holidays | HOLIDAYS | is_a | 0.2 | 0.88 | AP | Holidays widely celebrated in the United States | $W is a holiday widely celebrated in the United States
+Christmas, Halloween, Thanksgiving, Easter, Hanukkah, Passover, Independence Day, New Year, Labor Day, Valentine's Day

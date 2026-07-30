@@ -1,0 +1,9 @@
+# business — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+tech_companies | TECH COMPANIES | is_a | 0.25 | 0.85 | AP | Well-known technology companies or consumer technology brands | $W is a well-known technology company
+Google, Microsoft, Amazon, Intel, Oracle, Netflix, Adobe, Dell, Nvidia, IBM, Samsung
+
+money_words | MONEY WORDS | is_a | 0.25 | 0.85 | A | Everyday English words for money, payments and personal finance | $W is an everyday word for money or payment
+cash, coin, bill, check, credit, debit, loan, salary, budget, change, wallet, interest

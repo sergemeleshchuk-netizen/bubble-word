@@ -3,33 +3,23 @@
 
 Источник правды для seed-контента — каталог `data/seed/`:
 
-  data/seed/<theme>.json   категории одной темы + пулы слов
+  data/seed/<theme>.txt      категории одной темы + пулы слов (компактный формат)
   data/seed/_ambiguous.json  многозначные слова: значения разведены через sense_key
 
 Добавить контент = отредактировать или создать файл темы, затем запустить:
 
     python scripts/build_seed.py
 
-Формат файла темы:
+Формат файла темы: две строки на категорию.
 
-{
-  "theme": "food",
-  "categories": [
-    {
-      "category_key": "fruits",
-      "label": "FRUITS",
-      "rule": "Common edible fruits familiar to an average American adult",
-      "relation_type": "is_a",
-      "theme": "food",
-      "base_difficulty": 0.1,
-      "obviousness": 0.95,          // очевидность связей этой категории
-      "approve": true,              // можно ли ставить approved без ручной проверки
-      "reason_template": "$W is a common edible fruit",   // $W — слово с заглавной, $w — как есть
-      "is_proper_noun": false,      // необязательно
-      "words": ["apple", "banana"]
-    }
-  ]
-}
+  key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+  слово, слово, слово, ...
+
+  flags: A — связи можно ставить approved, C — только candidate; добавьте P
+         для категорий из имён собственных (US STATES, TECH COMPANIES).
+  reason_template: $W — слово с заглавной буквы, $w — слово как есть.
+
+Строки, начинающиеся с #, и пустые строки игнорируются.
 """
 
 from __future__ import annotations
@@ -51,21 +41,65 @@ DEFAULT_FIT = 0.97
 RARE_ZIPF = 2.5  # ниже этого слово помечается в отчёте как редкое
 
 
+HEADER_FIELDS = 8
+
+
+def parse_theme_file(path: Path) -> list[dict]:
+    """Разбирает компактный файл темы: заголовок категории + строка слов."""
+    theme = path.stem
+    categories: list[dict] = []
+    pending: dict | None = None
+
+    for line_no, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+
+        if "|" in line:
+            if pending is not None:
+                raise SystemExit(f"{path.name}:{line_no}: у категории {pending['category_key']} нет строки со словами")
+            parts = [part.strip() for part in line.split("|")]
+            if len(parts) != HEADER_FIELDS:
+                raise SystemExit(
+                    f"{path.name}:{line_no}: ожидалось {HEADER_FIELDS} полей через |, получено {len(parts)}"
+                )
+            key, label, relation, difficulty, obviousness, flags, rule, template = parts
+            pending = {
+                "category_key": key,
+                "label": label,
+                "relation_type": relation,
+                "base_difficulty": float(difficulty),
+                "obviousness": float(obviousness),
+                "approve": "A" in flags.upper(),
+                "is_proper_noun": "P" in flags.upper(),
+                "rule": rule,
+                "reason_template": template,
+                "theme": theme,
+                "_source_file": path.name,
+                "_line": line_no,
+            }
+        else:
+            if pending is None:
+                raise SystemExit(f"{path.name}:{line_no}: строка со словами без заголовка категории")
+            pending["words"] = [word.strip() for word in line.split(",") if word.strip()]
+            categories.append(pending)
+            pending = None
+
+    if pending is not None:
+        raise SystemExit(f"{path.name}: у категории {pending['category_key']} нет строки со словами")
+    return categories
+
+
 def load_seed() -> tuple[list[dict], list[dict]]:
     """Читает все файлы тем и файл многозначных слов."""
     if not SEED_DIR.is_dir():
         raise SystemExit(f"Нет каталога с сидом: {SEED_DIR}")
 
     categories: list[dict] = []
-    for path in sorted(SEED_DIR.glob("*.json")):
+    for path in sorted(SEED_DIR.glob("*.txt")):
         if path.name.startswith("_"):
             continue
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        theme = payload.get("theme") or path.stem
-        for item in payload["categories"]:
-            item.setdefault("theme", theme)
-            item["_source_file"] = path.name
-            categories.append(item)
+        categories.extend(parse_theme_file(path))
 
     ambiguous_path = SEED_DIR / "_ambiguous.json"
     ambiguous = (
@@ -96,6 +130,11 @@ def build_categories(specs: list[dict]) -> list[dict]:
         }
         for spec in specs
     ]
+
+
+def _is_rare(word: str) -> bool:
+    value = zipf(word)
+    return value is not None and value < RARE_ZIPF
 
 
 def build_memberships(specs: list[dict], ambiguous: list[dict]) -> list[dict]:
@@ -138,8 +177,11 @@ def build_memberships(specs: list[dict], ambiguous: list[dict]) -> list[dict]:
                     "fit_score": spec.get("fit_score", DEFAULT_FIT),
                     "obviousness_score": spec["obviousness"],
                     "source": SOURCE,
-                    # approved только для очевидных вручную выверенных пулов
-                    "review_status": "approved" if spec.get("approve") else "candidate",
+                    # approved только для очевидных вручную выверенных пулов;
+                    # редкое слово всегда уходит в очередь на ручную проверку
+                    "review_status": "approved"
+                    if spec.get("approve") and not _is_rare(word)
+                    else "candidate",
                 }
             )
     return records

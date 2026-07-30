@@ -1,0 +1,63 @@
+# transport — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+vehicles | VEHICLES | is_a | 0.1 | 0.95 | A | Machines built to carry people or goods from place to place | $W is a vehicle that carries people or goods
+car, truck, bus, train, bike, motorcycle, van, boat, plane, scooter, tractor, taxi, subway, ferry, ambulance, helicopter, jeep, trolley, limousine, minivan, sled, canoe, wagon, tram, moped
+
+things_with_wheels | THINGS WITH WHEELS | has_property | 0.25 | 0.75 | C | Everyday objects that have wheels as a normal part of their design | $W normally has wheels
+car, bike, bus, wagon, cart, skateboard, stroller, wheelchair, suitcase, tractor, scooter, truck, train, roller skate, lawnmower, dolly, trailer, unicycle, wheelbarrow, gurney, tricycle, golf cart, rollerblade, forklift, van
+
+car_parts | PARTS OF A CAR | part_of | 0.2 | 0.88 | A | Physical parts of an ordinary passenger car | $W is a part of an ordinary car
+engine, tire, brake, hood, trunk, bumper, windshield, wheel, horn, seat, door, muffler, headlight, mirror, dashboard, gearshift, clutch, radiator, axle, exhaust, wiper, battery, ignition, fender, glovebox
+
+airport_words | AIRPORT WORDS | found_in | 0.25 | 0.85 | A | Words for things, places or roles you encounter at an airport | $W is something you encounter at an airport
+gate, runway, terminal, luggage, ticket, passport, pilot, security, baggage, tarmac, boarding pass, customs, carousel, jetway, layover, concourse, checkpoint, duty free, hangar, control tower, steward, cockpit, aisle, seatbelt, tray table
+
+construction_equipment | CONSTRUCTION EQUIPMENT | is_a | 0.3 | 0.75 | A | Large machines used on a building or road construction site | $W is a machine used on a construction site
+bulldozer, excavator, forklift, backhoe, dump truck, cement mixer, jackhammer, roller, scaffold, digger, crane, grader, loader, paver, compactor, hoist, drill rig, trencher
+
+boats | BOATS AND SHIPS | is_a | 0.25 | 0.82 | A | Kinds of watercraft | $W is a kind of watercraft
+canoe, kayak, sailboat, yacht, ferry, tugboat, barge, raft, submarine, cruise ship, rowboat, motorboat, gondola, dinghy, trawler, houseboat, catamaran, freighter, speedboat, schooner
+
+aircraft | AIRCRAFT | is_a | 0.25 | 0.82 | A | Machines that fly through the air carrying people or cargo | $W is a flying machine
+airplane, helicopter, jet, glider, balloon, blimp, drone, biplane, seaplane, rocket, shuttle, airship, zeppelin, ultralight, cargo plane
+
+parts_of_a_bike | PARTS OF A BICYCLE | part_of | 0.3 | 0.78 | A | Physical parts of a bicycle | $W is a part of a bicycle
+pedal, wheel, chain, handlebar, seat, spoke, brake, tire, frame, gear, kickstand, fork, basket, bell, reflector, rim, crank, saddle
+
+road_things | THINGS ON A ROAD | found_in | 0.25 | 0.82 | A | Things you see on or beside a road | $W is seen on or beside a road
+sign, curb, lane, crosswalk, pothole, traffic light, guardrail, median, shoulder, exit, bridge, tunnel, toll booth, speed bump, cone, mile marker, ramp, sidewalk, streetlight, intersection
+
+traffic_signs | TRAFFIC SIGNS | is_a | 0.3 | 0.8 | A | Signs that direct drivers on the road | $W is a sign that directs drivers
+stop, yield, merge, detour, exit, one way, no parking, speed limit, crossing, dead end, do not enter, school zone, railroad, slow, curve ahead
+
+train_words | TRAIN WORDS | found_in | 0.3 | 0.78 | A | Words for the parts, places and roles of railway travel | $W has to do with railway travel
+track, station, platform, conductor, caboose, locomotive, boxcar, whistle, rail, tunnel, crossing, sleeper car, engine, freight, ticket, depot, switch, coupling
+
+space_travel | SPACE TRAVEL | found_in | 0.3 | 0.8 | A | Things involved in traveling into space | $W is involved in traveling into space
+rocket, astronaut, shuttle, launch, orbit, capsule, spacesuit, satellite, module, countdown, booster, mission, gravity, docking, lander, telescope, rover, station
+
+sailing_words | SAILING WORDS | found_in | 0.4 | 0.6 | C | Words used aboard a sailing boat | $W is a word used aboard a sailing boat
+sail, mast, anchor, deck, rudder, bow, stern, keel, helm, rope, port, starboard, hull, cabin, boom, oar, buoy, knot
+
+travel_documents | TRAVEL THINGS | used_in | 0.25 | 0.82 | A | Things a traveler packs or carries on a trip | $W is carried by a traveler on a trip
+passport, ticket, suitcase, map, camera, backpack, charger, wallet, guidebook, sunglasses, itinerary, visa, adapter, toiletries, neck pillow, boarding pass, currency, insurance
+
+hotel_words | HOTEL WORDS | found_in | 0.25 | 0.82 | A | Things and roles found at a hotel | $W is found at a hotel
+lobby, reception, key card, suite, concierge, bellhop, minibar, elevator, checkout, housekeeping, room service, pool, vacancy, front desk, luggage cart, balcony, buffet, valet
+
+gas_station_things | GAS STATION THINGS | found_in | 0.3 | 0.78 | A | Things found at an American gas station | $W is found at a gas station
+pump, nozzle, gas, diesel, air hose, squeegee, receipt, snack, coffee, car wash, oil, map, credit card reader, restroom, ice machine, windshield fluid
+
+emergency_vehicles | EMERGENCY VEHICLES | is_a | 0.25 | 0.85 | A | Vehicles used by emergency services | $W is used by emergency services
+ambulance, fire truck, police car, rescue boat, helicopter, tow truck, patrol car, squad car, paramedic van, hazmat truck, ladder truck, cruiser
+
+heavy_trucks | TRUCKS | is_a | 0.3 | 0.78 | A | Kinds of truck used to move goods and materials | $W is a kind of truck
+pickup, semi, dump truck, tanker, flatbed, tow truck, van, box truck, garbage truck, cement mixer, moving truck, delivery truck, logging truck, refrigerated truck
+
+parking_words | PARKING WORDS | found_in | 0.35 | 0.7 | A | Words used about parking a car | $W is used when talking about parking a car
+meter, garage, lot, space, valet, curb, ticket, permit, ramp, driveway, spot, sign, boot, tow, stall, handicap
+
+things_that_carry_people | THINGS THAT CARRY PEOPLE | does_action | 0.35 | 0.7 | C | Things built to carry a person from one place to another | $W carries a person from place to place
+elevator, escalator, bus, train, boat, plane, horse, stretcher, gondola, chairlift, taxi, ferry, sled, rickshaw, cable car, tram, moving walkway, wheelchair
