@@ -203,6 +203,7 @@ const DEFAULT_TARGETS=[
 let TARGETS=DEFAULT_TARGETS;
 let START_COUNTS=[4,3,3,3,2,2,2]; /* сколько слов первых категорий лежит на поле */
 let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=19, NO_LIMIT=false;
+let METAW=new Set(); /* мета-слова уровня: не спавнятся, приходят превращением четвёрки */
 function applyContent(){ FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length); CATS_TOTAL=TARGETS.length; }
 applyContent();
 
@@ -212,13 +213,34 @@ applyContent();
 function applyLevel(L){
   TARGETS=L.categories.map(c=>({v:c.name.toUpperCase(),ex:c.words.map(w=>w.toUpperCase())}));
   const M=TARGETS.length,total=M*4;
+  /* ЦЕПОЧКИ (правило референса): слово = имя другой категории уровня -> мета-слово.
+     Оно не спавнится: игрок собирает ту категорию, и четвёрка ПРЕВРАЩАЕТСЯ
+     в этот шар-слово родителя. */
+  const byName={}; TARGETS.forEach((t,ti)=>byName[t.v]=ti);
+  TARGETS.forEach(p=>{ p.meta=p.meta||null; });
+  TARGETS.forEach(p=>p.ex.forEach(w=>{
+    const ci=byName[w];
+    if(ci!==undefined&&TARGETS[ci]!==p) TARGETS[ci].meta={parent:p.v,word:w};
+  }));
+  METAW=new Set(TARGETS.filter(t=>t.meta).map(t=>t.meta.word));
   NO_LIMIT=(L.board.move_limit==null);
   MOVES_START=NO_LIMIT?total*3:L.board.move_limit;
   FIELD_TARGET=Math.min(L.board.start_bubbles||19,total);
-  /* старт: раздаём FIELD_TARGET слов по категориям почти поровну (не больше 4) */
+  /* старт: первой полную четвёрку получает категория без мета-слов,
+     остальным раздаём почти поровну (не выше числа спавнящихся слов) */
+  const spawnable=TARGETS.map(t=>t.ex.filter(w=>!METAW.has(w)).length);
+  const order=[...TARGETS.keys()];
+  const ff=spawnable.findIndex(n=>n===4);
+  if(ff>0){order.splice(ff,1);order.unshift(ff);}
   START_COUNTS=new Array(M).fill(0);
-  let left=FIELD_TARGET,i=0;
-  while(left>0){ if(START_COUNTS[i%M]<4){START_COUNTS[i%M]++;left--;} i++; }
+  if(ff>=0) START_COUNTS[order[0]]=4;
+  let left=FIELD_TARGET-(ff>=0?4:0), i=(ff>=0?1:0);
+  let guard=10*M;
+  while(left>0&&guard-->0){
+    const ci=order[i%M];
+    if(START_COUNTS[ci]<Math.min(4,spawnable[ci])){START_COUNTS[ci]++;left--;}
+    i++;
+  }
   applyContent();
   document.getElementById('lvl').textContent='LVL '+(L.level_id||1);
 }
@@ -272,7 +294,7 @@ function init(){
   boosts={plus:2,hint:2,mag:2};
   const start=[]; queue=[];
   TARGETS.forEach((t,ti)=>{
-    const ex=t.ex.slice();
+    const ex=t.ex.filter(e=>!METAW.has(e)); /* мета-слова не кладём ни на поле, ни в очередь */
     for(let i=ex.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ex[i],ex[j]]=[ex[j],ex[i]];}
     const k=ti<START_COUNTS.length?START_COUNTS[ti]:0;
     ex.forEach((e,i)=>(i<k?start:queue).push({v:t.v,e}));
@@ -419,6 +441,8 @@ function merge(a,b,costMove){
   checkEnd();
 }
 function popGroup(a){
+  const cd=TARGETS.find(t=>t.v===a.val);
+  if(cd&&cd.meta){ metaTransform(a,cd.meta); return; }
   a.el.classList.add('popping');
   particles(a.x,a.y,a.r);
   toast();
@@ -428,6 +452,18 @@ function popGroup(a){
     updHud();
     checkEnd();
   },300);
+}
+/* цепочка: собранная четвёрка не улетает, а ПРЕВРАЩАЕТСЯ в шар-слово родителя */
+function metaTransform(a,meta){
+  particles(a.x,a.y,a.r);
+  toast();
+  a.val=meta.parent; a.exs=[meta.word];
+  paint(a); place(a); still(a);
+  a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
+  a.popping=false;
+  done++; pendingPops--;
+  updHud();
+  checkEnd();
 }
 function particles(x,y,r){
   for(let i=0;i<9;i++){
