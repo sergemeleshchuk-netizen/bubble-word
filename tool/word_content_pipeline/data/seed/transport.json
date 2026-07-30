@@ -1,0 +1,125 @@
+{
+  "theme": "transport",
+  "categories": [
+    {
+      "category_key": "vehicles",
+      "label": "VEHICLES",
+      "rule": "Machines built to carry people or goods from place to place",
+      "relation_type": "is_a",
+      "theme": "transport",
+      "base_difficulty": 0.1,
+      "obviousness": 0.95,
+      "approve": true,
+      "reason_template": "$W is a vehicle that carries people or goods",
+      "words": [
+        "car",
+        "truck",
+        "bus",
+        "train",
+        "bike",
+        "motorcycle",
+        "van",
+        "boat",
+        "plane",
+        "scooter",
+        "tractor",
+        "taxi"
+      ]
+    },
+    {
+      "category_key": "things_with_wheels",
+      "label": "THINGS WITH WHEELS",
+      "rule": "Everyday objects that have wheels as a normal part of their design",
+      "relation_type": "has_property",
+      "theme": "transport",
+      "base_difficulty": 0.25,
+      "obviousness": 0.75,
+      "approve": false,
+      "reason_template": "$W normally has wheels",
+      "words": [
+        "car",
+        "bike",
+        "bus",
+        "wagon",
+        "cart",
+        "skateboard",
+        "stroller",
+        "wheelchair",
+        "suitcase",
+        "tractor",
+        "scooter"
+      ]
+    },
+    {
+      "category_key": "car_parts",
+      "label": "PARTS OF A CAR",
+      "rule": "Physical parts of an ordinary passenger car",
+      "relation_type": "part_of",
+      "theme": "transport",
+      "base_difficulty": 0.2,
+      "obviousness": 0.88,
+      "approve": true,
+      "reason_template": "$W is a part of an ordinary car",
+      "words": [
+        "engine",
+        "tire",
+        "brake",
+        "hood",
+        "trunk",
+        "bumper",
+        "windshield",
+        "wheel",
+        "horn",
+        "seat",
+        "door",
+        "muffler"
+      ]
+    },
+    {
+      "category_key": "airport_words",
+      "label": "AIRPORT WORDS",
+      "rule": "Words for things, places or roles you encounter at an airport",
+      "relation_type": "found_in",
+      "theme": "transport",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is something you encounter at an airport",
+      "words": [
+        "gate",
+        "runway",
+        "terminal",
+        "luggage",
+        "ticket",
+        "passport",
+        "pilot",
+        "security",
+        "baggage",
+        "tarmac"
+      ]
+    },
+    {
+      "category_key": "construction_equipment",
+      "label": "CONSTRUCTION EQUIPMENT",
+      "rule": "Large machines used on a building or road construction site",
+      "relation_type": "is_a",
+      "theme": "transport",
+      "base_difficulty": 0.3,
+      "obviousness": 0.75,
+      "approve": true,
+      "reason_template": "$W is a machine used on a construction site",
+      "words": [
+        "bulldozer",
+        "excavator",
+        "forklift",
+        "backhoe",
+        "dump truck",
+        "cement mixer",
+        "jackhammer",
+        "roller",
+        "scaffold",
+        "digger"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "theme": "actions",
+  "categories": [
+    {
+      "category_key": "cooking_actions",
+      "label": "COOKING ACTIONS",
+      "rule": "Verbs describing something a cook does to food",
+      "relation_type": "does_action",
+      "theme": "actions",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "To $w is something a cook does to food",
+      "words": [
+        "bake",
+        "boil",
+        "fry",
+        "grill",
+        "chop",
+        "stir",
+        "roast",
+        "simmer",
+        "peel",
+        "slice",
+        "knead",
+        "whisk"
+      ]
+    },
+    {
+      "category_key": "ways_of_moving",
+      "label": "WAYS OF MOVING",
+      "rule": "Verbs describing a way a person moves their body from place to place",
+      "relation_type": "does_action",
+      "theme": "actions",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "To $w is a way a person moves from place to place",
+      "words": [
+        "walk",
+        "run",
+        "jump",
+        "crawl",
+        "skip",
+        "swim",
+        "climb",
+        "slide",
+        "march",
+        "hop",
+        "sprint",
+        "stroll"
+      ]
+    }
+  ]
+}

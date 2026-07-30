@@ -9,4 +9,6 @@ database/*.sqlite
 database/*.sqlite-journal
 data/review_candidates.csv
 data/generated_*.jsonl
+data/gen_*.jsonl
+data/checkpoint*.txt
 data/ai_review.jsonl

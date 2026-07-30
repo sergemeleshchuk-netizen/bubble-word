@@ -1,0 +1,143 @@
+{
+  "theme": "entertainment",
+  "categories": [
+    {
+      "category_key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
+      "rule": "Instruments played to produce music",
+      "relation_type": "is_a",
+      "theme": "entertainment",
+      "base_difficulty": 0.15,
+      "obviousness": 0.92,
+      "approve": true,
+      "reason_template": "$W is a musical instrument",
+      "words": [
+        "piano",
+        "guitar",
+        "drum",
+        "violin",
+        "flute",
+        "trumpet",
+        "cello",
+        "harp",
+        "banjo",
+        "clarinet",
+        "saxophone",
+        "tuba"
+      ]
+    },
+    {
+      "category_key": "music_words",
+      "label": "MUSIC WORDS",
+      "rule": "Words used to describe how a piece of music is written or performed",
+      "relation_type": "found_in",
+      "theme": "entertainment",
+      "base_difficulty": 0.3,
+      "obviousness": 0.75,
+      "approve": true,
+      "reason_template": "$W is a word used to describe written or performed music",
+      "words": [
+        "note",
+        "chord",
+        "scale",
+        "tempo",
+        "rhythm",
+        "beat",
+        "melody",
+        "harmony",
+        "verse",
+        "chorus"
+      ]
+    },
+    {
+      "category_key": "board_games",
+      "label": "BOARD GAMES",
+      "rule": "Games played on a board with pieces or cards on a table",
+      "relation_type": "is_a",
+      "theme": "entertainment",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is a board game played on a table",
+      "words": [
+        "chess",
+        "checkers",
+        "monopoly",
+        "scrabble",
+        "clue",
+        "risk",
+        "backgammon",
+        "battleship",
+        "jenga",
+        "dominoes"
+      ]
+    },
+    {
+      "category_key": "card_words",
+      "label": "PLAYING CARD WORDS",
+      "rule": "Words for the cards, suits and parts of a standard deck of playing cards",
+      "relation_type": "found_in",
+      "theme": "entertainment",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is a word for something in a standard deck of playing cards",
+      "words": [
+        "ace",
+        "king",
+        "queen",
+        "jack",
+        "joker",
+        "deck",
+        "suit",
+        "trump"
+      ]
+    },
+    {
+      "category_key": "movie_genres",
+      "label": "MOVIE GENRES",
+      "rule": "Categories used to classify films",
+      "relation_type": "is_a",
+      "theme": "entertainment",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is a genre used to classify films",
+      "words": [
+        "comedy",
+        "horror",
+        "drama",
+        "western",
+        "thriller",
+        "romance",
+        "musical",
+        "documentary",
+        "fantasy",
+        "action"
+      ]
+    },
+    {
+      "category_key": "circus_words",
+      "label": "CIRCUS WORDS",
+      "rule": "People, animals and objects you see at a traditional circus",
+      "relation_type": "found_in",
+      "theme": "entertainment",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is something you see at a traditional circus",
+      "words": [
+        "clown",
+        "tent",
+        "trapeze",
+        "juggler",
+        "acrobat",
+        "ringmaster",
+        "elephant",
+        "unicycle",
+        "tightrope",
+        "stilts"
+      ]
+    }
+  ]
+}

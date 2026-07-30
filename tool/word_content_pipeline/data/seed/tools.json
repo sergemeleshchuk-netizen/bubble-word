@@ -1,0 +1,100 @@
+{
+  "theme": "tools",
+  "categories": [
+    {
+      "category_key": "hand_tools",
+      "label": "HAND TOOLS",
+      "rule": "Tools held in the hand and used for building or repair work",
+      "relation_type": "is_a",
+      "theme": "tools",
+      "base_difficulty": 0.15,
+      "obviousness": 0.9,
+      "approve": true,
+      "reason_template": "$W is a hand tool used for building or repair",
+      "words": [
+        "hammer",
+        "screwdriver",
+        "wrench",
+        "pliers",
+        "saw",
+        "drill",
+        "chisel",
+        "level",
+        "tape measure",
+        "clamp",
+        "file",
+        "mallet"
+      ]
+    },
+    {
+      "category_key": "garden_tools",
+      "label": "GARDEN TOOLS",
+      "rule": "Tools used for gardening and yard work",
+      "relation_type": "used_in",
+      "theme": "tools",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is a tool used for gardening",
+      "words": [
+        "rake",
+        "shovel",
+        "hoe",
+        "trowel",
+        "pruner",
+        "wheelbarrow",
+        "hose",
+        "watering can",
+        "shears",
+        "sprinkler"
+      ]
+    },
+    {
+      "category_key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
+      "rule": "Small items kept in an office desk and used for paperwork",
+      "relation_type": "found_in",
+      "theme": "tools",
+      "base_difficulty": 0.15,
+      "obviousness": 0.88,
+      "approve": true,
+      "reason_template": "$W is an office supply used for paperwork",
+      "words": [
+        "stapler",
+        "pen",
+        "pencil",
+        "folder",
+        "clip",
+        "tape",
+        "eraser",
+        "highlighter",
+        "envelope",
+        "notepad",
+        "scissors"
+      ]
+    },
+    {
+      "category_key": "sewing_supplies",
+      "label": "SEWING SUPPLIES",
+      "rule": "Items used for sewing and mending clothes",
+      "relation_type": "used_in",
+      "theme": "tools",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is used for sewing or mending clothes",
+      "words": [
+        "needle",
+        "thread",
+        "thimble",
+        "pin",
+        "button",
+        "zipper",
+        "patch",
+        "yarn",
+        "bobbin",
+        "hem"
+      ]
+    }
+  ]
+}

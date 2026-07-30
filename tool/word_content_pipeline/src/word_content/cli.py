@@ -11,6 +11,8 @@ from typing import Annotated, Any
 import typer
 
 from . import candidate_generation as gen
+from .blocklist import Blocklist
+from .blocklist import default_path as default_blocklist_path
 from .db import init_db, open_existing
 from .exporters import export_review_csv, write_jsonl
 from .importers import (
@@ -25,12 +27,14 @@ from .llm.mock import MockLLMProvider, echo_handler
 from .llm.openai_compatible import provider_from_env
 from .repositories import (
     collect_stats,
+    coverage_report,
     get_category,
+    list_categories,
     memberships_for_category,
     memberships_for_word,
     words_with_status,
 )
-from .validators import ValidationIssue, parse_statuses
+from .validators import ContentFilter, ValidationIssue, parse_statuses
 
 app = typer.Typer(
     add_completion=False,
@@ -44,6 +48,37 @@ StatusesOption = Annotated[
     str | None,
     typer.Option("--statuses", help="Фильтр статусов через запятую: approved,hard_only"),
 ]
+BlocklistOption = Annotated[
+    Path | None,
+    typer.Option("--blocklist", help="Файл блок-листа (по умолчанию data/blocklist.txt проекта)"),
+]
+NoBlocklistOption = Annotated[
+    bool, typer.Option("--no-blocklist", help="Отключить блок-лист (не рекомендуется)")
+]
+MinZipfOption = Annotated[
+    float | None,
+    typer.Option(
+        "--min-zipf",
+        help="Отклонять слова с частотностью ниже порога (ориентир 2.5; по умолчанию только предупреждение)",
+    ),
+]
+
+
+def _content_filter(
+    blocklist: Path | None, no_blocklist: bool, min_zipf: float | None
+) -> ContentFilter:
+    """Собирает фильтры контента. Блок-лист включён по умолчанию."""
+    if no_blocklist:
+        return ContentFilter(blocklist=None, min_zipf=min_zipf)
+    path = blocklist or default_blocklist_path()
+    try:
+        loaded = Blocklist.load(path)
+    except FileNotFoundError as exc:
+        _fail(str(exc))
+        raise
+    if path is not None:
+        typer.echo(f"Блок-лист: {path} ({len(loaded)} записей)")
+    return ContentFilter(blocklist=loaded, min_zipf=min_zipf)
 
 
 def _fail(message: str) -> None:
@@ -131,12 +166,18 @@ def cmd_import_memberships(
             help="Принудительно перезаписать review_status из файла (по умолчанию ручные решения сохраняются)",
         ),
     ] = False,
+    blocklist: BlocklistOption = None,
+    no_blocklist: NoBlocklistOption = False,
+    min_zipf: MinZipfOption = None,
 ) -> None:
     """Импортирует связи слово->категория из JSONL. Плохие строки не останавливают импорт."""
     conn = _open(db)
     try:
         report = import_memberships(
-            conn, input, overwrite_review_status=overwrite_review_status
+            conn,
+            input,
+            overwrite_review_status=overwrite_review_status,
+            content_filter=_content_filter(blocklist, no_blocklist, min_zipf),
         )
     except FileNotFoundError as exc:
         _fail(str(exc))
@@ -292,6 +333,59 @@ def cmd_stats(db: DbOption) -> None:
     for key, count in data["top_categories"]:
         typer.echo(f"  {key}: {count}")
 
+    typer.echo(
+        f"\nРедких слов (частотность ниже порога): {data['rare_words_total']}"
+        f" | без оценки частотности: {data['words_without_familiarity']}"
+    )
+    for text, score in data["rare_words"][:15]:
+        typer.echo(f"  {text}: {score}")
+
+
+@app.command("coverage")
+def cmd_coverage(
+    db: DbOption,
+    target: Annotated[
+        int, typer.Option("--target", help="Целевая глубина пула: сколько слов нужно категории")
+    ] = 25,
+    statuses: StatusesOption = None,
+    show: Annotated[int, typer.Option("--show", help="Сколько самых тонких категорий показать")] = 30,
+) -> None:
+    """План работы: каким категориям сколько слов не хватает до целевой глубины."""
+    conn = _open(db)
+    try:
+        status_list = parse_statuses(statuses)
+        data = coverage_report(conn, target_depth=target, statuses=status_list)
+    except ValidationIssue as exc:
+        _fail(str(exc))
+        return
+    finally:
+        conn.close()
+
+    typer.echo(
+        f"Категорий: {data['categories']} | слов: {data['words']} | "
+        f"в 2+ категориях: {data['multi_category_words']} ({data['multi_category_share'] * 100:.0f}%)"
+    )
+    typer.echo(
+        f"До глубины {data['target_depth']} слов на категорию не хватает "
+        f"{data['memberships_needed']} связей"
+    )
+
+    typer.echo("\nПо темам:")
+    _print_table(
+        ["theme", "категорий", "есть", "добрать"],
+        [
+            [theme, str(v["categories"]), str(v["have"]), str(v["need"])]
+            for theme, v in sorted(data["by_theme"].items(), key=lambda kv: -kv[1]["need"])
+        ],
+    )
+
+    thin = [item for item in data["per_category"] if item["need"] > 0][:show]
+    typer.echo(f"\nСамые тонкие категории (показано {len(thin)}):")
+    _print_table(
+        ["category_key", "тема", "есть", "добрать"],
+        [[i["category_key"], i["theme"], str(i["have"]), str(i["need"])] for i in thin],
+    )
+
 
 # --------------------------------------------------------------------------- AI-проходы
 
@@ -336,8 +430,21 @@ def _report_generation(result: gen.GenerationResult, output: Path) -> None:
 @app.command("generate-category-candidates")
 def cmd_generate_category_candidates(
     db: DbOption,
-    category: Annotated[str, typer.Option("--category", help="category_key")],
     output: OutputOption,
+    category: Annotated[
+        str | None, typer.Option("--category", help="category_key одной категории")
+    ] = None,
+    all_categories: Annotated[
+        bool, typer.Option("--all-categories", help="Прогнать весь каталог категорий")
+    ] = False,
+    only_thin: Annotated[
+        int | None,
+        typer.Option("--only-thin", help="Только категории, где слов меньше указанного числа"),
+    ] = None,
+    checkpoint: Annotated[
+        Path | None,
+        typer.Option("--checkpoint", help="Файл прогресса: пройденные категории пропускаются"),
+    ] = None,
     count: Annotated[int, typer.Option("--count", help="Сколько слов запросить")] = 30,
     batch_size: Annotated[int, typer.Option("--batch-size")] = 15,
     max_retries: Annotated[int, typer.Option("--max-retries")] = 2,
@@ -347,41 +454,113 @@ def cmd_generate_category_candidates(
     do_import: Annotated[
         bool, typer.Option("--import", help="Сразу импортировать кандидатов в базу")
     ] = False,
+    blocklist: BlocklistOption = None,
+    no_blocklist: NoBlocklistOption = False,
+    min_zipf: MinZipfOption = None,
 ) -> None:
     """Проход A: категория -> кандидатные слова. Всё сохраняется со статусом candidate."""
     conn = _open(db)
     try:
-        llm = _build_provider(provider, model, mock_file)
-        result = gen.expand_category(
-            conn,
-            llm,
-            category_key=category,
-            count=count,
-            batch_size=batch_size,
-            max_retries=max_retries,
-        )
-    except (LLMError, ValidationIssue) as exc:
-        conn.close()
-        _fail(str(exc))
-        return
+        targets = _generation_targets(conn, category, all_categories, only_thin, checkpoint)
+        if not targets:
+            typer.echo("Нечего генерировать: все категории уже пройдены или отфильтрованы.")
+            return
 
-    try:
-        _report_generation(result, output)
-        if result.hints:
-            typer.echo(
-                "Подсказки для reverse-прохода: "
-                + ", ".join(f"{w}->{sorted(set(keys))}" for w, keys in list(result.hints.items())[:10])
-            )
+        llm = _build_provider(provider, model, mock_file)
+        filters = _content_filter(blocklist, no_blocklist, min_zipf)
+        all_records: list[dict[str, Any]] = []
+        hints: dict[str, list[str]] = {}
+        merged = gen.GenerationResult()
+
+        for index, key in enumerate(targets, start=1):
+            if len(targets) > 1:
+                typer.echo(f"[{index}/{len(targets)}] {key}")
+            try:
+                result = gen.expand_category(
+                    conn,
+                    llm,
+                    category_key=key,
+                    count=count,
+                    batch_size=batch_size,
+                    max_retries=max_retries,
+                )
+            except LLMError as exc:  # провайдер лёг — не теряем уже собранное
+                typer.secho(f"  провайдер недоступен: {exc}", fg=typer.colors.RED, err=True)
+                break
+            all_records.extend(result.records)
+            merged.skipped.extend(result.skipped)
+            merged.batches_ok += result.batches_ok
+            merged.batches_failed += result.batches_failed
+            for word, keys in result.hints.items():
+                hints.setdefault(word, []).extend(keys)
+            if checkpoint is not None:
+                _append_checkpoint(checkpoint, key)
+
+        merged.records = all_records
+        merged.hints = hints
+        _report_generation(merged, output)
+        if hints:
+            preview = ", ".join(f"{w}->{sorted(set(k))}" for w, k in list(hints.items())[:10])
+            typer.echo(f"Подсказки для reverse-прохода: {preview}")
         if do_import:
             report = import_membership_records(
                 conn,
-                [(i, rec) for i, rec in enumerate(result.records, start=1)],
+                [(i, rec) for i, rec in enumerate(all_records, start=1)],
                 source_file=str(output),
                 import_type="ai_category_expansion",
+                content_filter=filters,
             )
             _print_report("Импорт кандидатов", report)
+    except (LLMError, ValidationIssue) as exc:
+        _fail(str(exc))
     finally:
         conn.close()
+
+
+def _generation_targets(
+    conn: sqlite3.Connection,
+    category: str | None,
+    all_categories: bool,
+    only_thin: int | None,
+    checkpoint: Path | None,
+) -> list[str]:
+    """Список категорий для прогона с учётом --only-thin и чекпойнта."""
+    if category and all_categories:
+        raise ValidationIssue("Укажите либо --category, либо --all-categories, но не оба")
+    if category:
+        keys = [category]
+    elif all_categories or only_thin is not None:
+        keys = [row["category_key"] for row in list_categories(conn)]
+    else:
+        raise ValidationIssue("Укажите --category, --all-categories или --only-thin")
+
+    if only_thin is not None:
+        sizes = {
+            row["category_key"]: int(row["n"])
+            for row in conn.execute(
+                """
+                SELECT c.category_key AS category_key, COUNT(m.id) AS n
+                  FROM categories c LEFT JOIN memberships m ON m.category_id = c.id
+                 GROUP BY c.id
+                """
+            )
+        }
+        keys = [key for key in keys if sizes.get(key, 0) < only_thin]
+
+    done = _read_checkpoint(checkpoint)
+    return [key for key in keys if key not in done]
+
+
+def _read_checkpoint(path: Path | None) -> set[str]:
+    if path is None or not path.exists():
+        return set()
+    return {line.strip() for line in path.read_text(encoding="utf-8").splitlines() if line.strip()}
+
+
+def _append_checkpoint(path: Path, key: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as handle:
+        handle.write(key + "\n")
 
 
 @app.command("generate-word-memberships")
@@ -404,6 +583,9 @@ def cmd_generate_word_memberships(
     do_import: Annotated[
         bool, typer.Option("--import", help="Сразу импортировать кандидатов в базу")
     ] = False,
+    blocklist: BlocklistOption = None,
+    no_blocklist: NoBlocklistOption = False,
+    min_zipf: MinZipfOption = None,
 ) -> None:
     """Проход B: слово -> дополнительные категории из существующего каталога."""
     conn = _open(db)
@@ -446,6 +628,7 @@ def cmd_generate_word_memberships(
                 [(i, rec) for i, rec in enumerate(result.records, start=1)],
                 source_file=str(output),
                 import_type="ai_reverse_expansion",
+                content_filter=_content_filter(blocklist, no_blocklist, min_zipf),
             )
             _print_report("Импорт кандидатов", report)
     finally:

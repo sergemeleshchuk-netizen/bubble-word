@@ -1,0 +1,77 @@
+{
+  "theme": "time",
+  "categories": [
+    {
+      "category_key": "months",
+      "label": "MONTHS",
+      "rule": "Months of the Gregorian calendar year",
+      "relation_type": "is_a",
+      "theme": "time",
+      "base_difficulty": 0.1,
+      "obviousness": 0.95,
+      "approve": true,
+      "reason_template": "$W is a month of the calendar year",
+      "is_proper_noun": true,
+      "words": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ]
+    },
+    {
+      "category_key": "calendar_words",
+      "label": "CALENDAR WORDS",
+      "rule": "Everyday English words for dates and periods of time on a calendar",
+      "relation_type": "is_a",
+      "theme": "time",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is an everyday word for a date or period of time",
+      "words": [
+        "month",
+        "year",
+        "week",
+        "day",
+        "weekend",
+        "season",
+        "decade",
+        "century",
+        "holiday",
+        "leap year"
+      ]
+    },
+    {
+      "category_key": "holidays",
+      "label": "HOLIDAYS",
+      "rule": "Holidays widely celebrated in the United States",
+      "relation_type": "is_a",
+      "theme": "time",
+      "base_difficulty": 0.2,
+      "obviousness": 0.88,
+      "approve": true,
+      "reason_template": "$W is a holiday widely celebrated in the United States",
+      "is_proper_noun": true,
+      "words": [
+        "Christmas",
+        "Halloween",
+        "Thanksgiving",
+        "Easter",
+        "Hanukkah",
+        "Passover",
+        "Independence Day",
+        "New Year",
+        "Labor Day",
+        "Valentine's Day"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "theme": "geography",
+  "categories": [
+    {
+      "category_key": "us_states",
+      "label": "US STATES",
+      "rule": "States of the United States of America",
+      "relation_type": "is_a",
+      "theme": "geography",
+      "base_difficulty": 0.2,
+      "obviousness": 0.9,
+      "approve": true,
+      "reason_template": "$W is a state of the United States",
+      "is_proper_noun": true,
+      "words": [
+        "Texas",
+        "Florida",
+        "Alaska",
+        "Ohio",
+        "Maine",
+        "Nevada",
+        "Kansas",
+        "Oregon",
+        "Utah",
+        "Virginia",
+        "Montana"
+      ]
+    },
+    {
+      "category_key": "world_capitals",
+      "label": "WORLD CAPITALS",
+      "rule": "Capital cities of countries around the world",
+      "relation_type": "is_a",
+      "theme": "geography",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is the capital city of a country",
+      "is_proper_noun": true,
+      "words": [
+        "Paris",
+        "London",
+        "Tokyo",
+        "Rome",
+        "Madrid",
+        "Berlin",
+        "Ottawa",
+        "Cairo",
+        "Moscow",
+        "Lima",
+        "Oslo",
+        "Athens"
+      ]
+    },
+    {
+      "category_key": "european_countries",
+      "label": "EUROPEAN COUNTRIES",
+      "rule": "Countries located in Europe",
+      "relation_type": "is_a",
+      "theme": "geography",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is a country in Europe",
+      "is_proper_noun": true,
+      "words": [
+        "France",
+        "Spain",
+        "Italy",
+        "Germany",
+        "Poland",
+        "Greece",
+        "Portugal",
+        "Sweden",
+        "Norway",
+        "Ireland",
+        "Austria",
+        "Hungary"
+      ]
+    },
+    {
+      "category_key": "landforms",
+      "label": "LANDFORMS",
+      "rule": "Natural features of the land surface",
+      "relation_type": "is_a",
+      "theme": "geography",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is a natural feature of the land surface",
+      "words": [
+        "mountain",
+        "valley",
+        "canyon",
+        "plateau",
+        "hill",
+        "cliff",
+        "dune",
+        "plain",
+        "cave",
+        "island",
+        "peninsula",
+        "glacier"
+      ]
+    },
+    {
+      "category_key": "town_places",
+      "label": "PLACES IN A TOWN",
+      "rule": "Public buildings and places found in an ordinary American town",
+      "relation_type": "found_in",
+      "theme": "geography",
+      "base_difficulty": 0.15,
+      "obviousness": 0.9,
+      "approve": true,
+      "reason_template": "$W is a public place found in an ordinary town",
+      "words": [
+        "school",
+        "library",
+        "hospital",
+        "park",
+        "museum",
+        "station",
+        "market",
+        "church",
+        "temple",
+        "post office",
+        "courthouse"
+      ]
+    }
+  ]
+}

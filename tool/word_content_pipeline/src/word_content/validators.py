@@ -3,13 +3,43 @@
 from __future__ import annotations
 
 import sqlite3
+from dataclasses import dataclass
 
+from .blocklist import Blocklist
+from .familiarity import familiarity, zipf
 from .models import REVIEW_STATUSES, MembershipCandidateInput
 from .repositories import find_sense_by_definition, get_word
 
 
 class ValidationIssue(ValueError):
     """Строка не прошла проверку и должна быть отклонена без остановки импорта."""
+
+
+@dataclass
+class ContentFilter:
+    """Качественные фильтры контента: запрещённые слова и порог частотности.
+
+    min_zipf=None — частотность считается и пишется в familiarity_score, но слово
+    не отклоняется. Это осознанно: частотность не равна узнаваемости.
+    """
+
+    blocklist: Blocklist | None = None
+    min_zipf: float | None = None
+
+    def check(self, word: str) -> None:
+        if self.blocklist:
+            hit = self.blocklist.check(word)
+            if hit:
+                raise ValidationIssue(f"Слово {word!r} запрещено блок-листом (совпадение: {hit})")
+        if self.min_zipf is not None:
+            value = zipf(word)
+            if value is not None and value < self.min_zipf:
+                raise ValidationIssue(
+                    f"Слово {word!r} слишком редкое: zipf {value:.2f} < {self.min_zipf}"
+                )
+
+    def score(self, word: str) -> float | None:
+        return familiarity(word)
 
 
 def require_category(conn: sqlite3.Connection, category_key: str) -> sqlite3.Row:

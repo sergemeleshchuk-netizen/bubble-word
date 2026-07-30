@@ -22,7 +22,7 @@ from .repositories import (
     upsert_sense,
     upsert_word,
 )
-from .validators import ValidationIssue, require_category, resolve_sense_key
+from .validators import ContentFilter, ValidationIssue, require_category, resolve_sense_key
 
 REVIEW_CSV_COLUMNS = [
     "membership_id",
@@ -141,9 +141,13 @@ def apply_membership(
     item: MembershipCandidateInput,
     *,
     overwrite_review_status: bool = False,
+    content_filter: ContentFilter | None = None,
 ) -> str:
     """Создаёт/обновляет слово, значение и связь. Бросает ValidationIssue при проблеме данных."""
     category = require_category(conn, item.category_key)
+
+    filters = content_filter or ContentFilter()
+    filters.check(item.word)
 
     word_id = upsert_word(
         conn,
@@ -151,6 +155,7 @@ def apply_membership(
         language=item.language,
         part_of_speech=item.part_of_speech,
         is_proper_noun=item.is_proper_noun,
+        familiarity_score=filters.score(item.word),
     )
 
     sense_id: int | None = None
@@ -187,6 +192,7 @@ def import_membership_records(
     source_file: str,
     overwrite_review_status: bool = False,
     import_type: str = "memberships",
+    content_filter: ContentFilter | None = None,
 ) -> ImportReport:
     """Общий импорт связей: принимает как готовые dict, так и сырые JSON-строки."""
     report = ImportReport(import_type=import_type, source_file=source_file)
@@ -211,7 +217,10 @@ def import_membership_records(
 
             try:
                 result = apply_membership(
-                    conn, item, overwrite_review_status=overwrite_review_status
+                    conn,
+                    item,
+                    overwrite_review_status=overwrite_review_status,
+                    content_filter=content_filter,
                 )
             except ValidationIssue as exc:
                 report.add_error(line_no, str(exc), raw_repr)
@@ -239,13 +248,18 @@ def import_membership_records(
 
 
 def import_memberships(
-    conn: sqlite3.Connection, path: Path, *, overwrite_review_status: bool = False
+    conn: sqlite3.Connection,
+    path: Path,
+    *,
+    overwrite_review_status: bool = False,
+    content_filter: ContentFilter | None = None,
 ) -> ImportReport:
     return import_membership_records(
         conn,
         iter_jsonl(path),
         source_file=str(path),
         overwrite_review_status=overwrite_review_status,
+        content_filter=content_filter,
     )
 
 

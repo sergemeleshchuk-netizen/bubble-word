@@ -12,6 +12,9 @@ from .normalization import normalize_word
 
 UpsertResult = Literal["inserted", "updated"]
 
+# familiarity_score = zipf / 7; 2.5 zipf ~= 0.357 — ниже этого слово считается редким
+RARE_FAMILIARITY = 0.357
+
 
 class RepositoryError(RuntimeError):
     """Ошибка уровня данных с понятным для пользователя сообщением."""
@@ -492,6 +495,71 @@ def record_generation_run(
 # ------------------------------------------------------------------------------ stats
 
 
+def coverage_report(
+    conn: sqlite3.Connection, target_depth: int = 25, statuses: list[str] | None = None
+) -> dict[str, Any]:
+    """План работы по контенту: сколько слов не хватает каждой категории до целевой глубины."""
+    where, params = ("", [])
+    if statuses:
+        placeholders = ",".join("?" for _ in statuses)
+        where = f" AND m.review_status IN ({placeholders})"
+        params = list(statuses)
+
+    rows = list(
+        conn.execute(
+            f"""
+            SELECT c.category_key AS category_key, c.label AS label, c.theme AS theme,
+                   COUNT(m.id) AS n
+              FROM categories c
+              LEFT JOIN memberships m ON m.category_id = c.id{where}
+             GROUP BY c.id
+             ORDER BY n, c.category_key
+            """,
+            params,
+        )
+    )
+
+    per_category = [
+        {
+            "category_key": row["category_key"],
+            "label": row["label"],
+            "theme": row["theme"],
+            "have": int(row["n"]),
+            "need": max(0, target_depth - int(row["n"])),
+        }
+        for row in rows
+    ]
+    by_theme: dict[str, dict[str, int]] = {}
+    for item in per_category:
+        bucket = by_theme.setdefault(item["theme"], {"categories": 0, "have": 0, "need": 0})
+        bucket["categories"] += 1
+        bucket["have"] += item["have"]
+        bucket["need"] += item["need"]
+
+    multi = int(
+        conn.execute(
+            """
+            SELECT COUNT(*) FROM (
+                SELECT word_id FROM memberships
+                 GROUP BY word_id HAVING COUNT(DISTINCT category_id) > 1
+            )
+            """
+        ).fetchone()[0]
+    )
+    words = int(conn.execute("SELECT COUNT(*) FROM words").fetchone()[0])
+
+    return {
+        "target_depth": target_depth,
+        "categories": len(per_category),
+        "words": words,
+        "multi_category_words": multi,
+        "multi_category_share": round(multi / words, 3) if words else 0.0,
+        "memberships_needed": sum(item["need"] for item in per_category),
+        "per_category": per_category,
+        "by_theme": by_theme,
+    }
+
+
 def collect_stats(conn: sqlite3.Connection) -> dict[str, Any]:
     """Сводка по базе для команды stats."""
 
@@ -555,6 +623,27 @@ def collect_stats(conn: sqlite3.Connection) -> dict[str, Any]:
             """
         )
     ]
+
+    stats["rare_words"] = [
+        (row["text"], row["familiarity_score"])
+        for row in conn.execute(
+            """
+            SELECT text, familiarity_score FROM words
+             WHERE familiarity_score IS NOT NULL AND familiarity_score < ?
+             ORDER BY familiarity_score, normalized LIMIT 30
+            """,
+            (RARE_FAMILIARITY,),
+        )
+    ]
+    stats["rare_words_total"] = int(
+        conn.execute(
+            "SELECT COUNT(*) FROM words WHERE familiarity_score IS NOT NULL AND familiarity_score < ?",
+            (RARE_FAMILIARITY,),
+        ).fetchone()[0]
+    )
+    stats["words_without_familiarity"] = int(
+        conn.execute("SELECT COUNT(*) FROM words WHERE familiarity_score IS NULL").fetchone()[0]
+    )
 
     stats["top_categories"] = [
         (row["category_key"], int(row["n"]))

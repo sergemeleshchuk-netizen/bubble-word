@@ -1,0 +1,99 @@
+{
+  "theme": "clothing",
+  "categories": [
+    {
+      "category_key": "clothing_items",
+      "label": "CLOTHING ITEMS",
+      "rule": "Garments worn on the body",
+      "relation_type": "is_a",
+      "theme": "clothing",
+      "base_difficulty": 0.1,
+      "obviousness": 0.95,
+      "approve": true,
+      "reason_template": "$W is a garment worn on the body",
+      "words": [
+        "shirt",
+        "pants",
+        "dress",
+        "skirt",
+        "jacket",
+        "coat",
+        "sweater",
+        "hat",
+        "sock",
+        "scarf",
+        "glove",
+        "tie"
+      ]
+    },
+    {
+      "category_key": "footwear",
+      "label": "FOOTWEAR",
+      "rule": "Things worn on the feet",
+      "relation_type": "is_a",
+      "theme": "clothing",
+      "base_difficulty": 0.15,
+      "obviousness": 0.9,
+      "approve": true,
+      "reason_template": "$W is worn on the feet",
+      "words": [
+        "boot",
+        "sneaker",
+        "sandal",
+        "slipper",
+        "heel",
+        "loafer",
+        "flip-flop",
+        "cleat",
+        "moccasin",
+        "clog"
+      ]
+    },
+    {
+      "category_key": "winter_clothing",
+      "label": "WINTER CLOTHING",
+      "rule": "Clothing worn specifically to stay warm in cold weather",
+      "relation_type": "used_in",
+      "theme": "clothing",
+      "base_difficulty": 0.2,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is worn to stay warm in cold weather",
+      "words": [
+        "coat",
+        "scarf",
+        "mitten",
+        "boot",
+        "sweater",
+        "glove",
+        "parka",
+        "earmuffs",
+        "thermals",
+        "beanie"
+      ]
+    },
+    {
+      "category_key": "jewelry",
+      "label": "JEWELRY",
+      "rule": "Decorative items worn on the body as jewelry",
+      "relation_type": "is_a",
+      "theme": "clothing",
+      "base_difficulty": 0.2,
+      "obviousness": 0.88,
+      "approve": true,
+      "reason_template": "$W is a piece of jewelry worn on the body",
+      "words": [
+        "necklace",
+        "bracelet",
+        "earring",
+        "brooch",
+        "pendant",
+        "chain",
+        "anklet",
+        "locket",
+        "watch",
+        "cufflink"
+      ]
+    }
+  ]
+}

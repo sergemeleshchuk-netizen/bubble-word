@@ -1,0 +1,55 @@
+{
+  "theme": "business",
+  "categories": [
+    {
+      "category_key": "tech_companies",
+      "label": "TECH COMPANIES",
+      "rule": "Well-known technology companies or consumer technology brands",
+      "relation_type": "is_a",
+      "theme": "business",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is a well-known technology company",
+      "is_proper_noun": true,
+      "words": [
+        "Google",
+        "Microsoft",
+        "Amazon",
+        "Intel",
+        "Oracle",
+        "Netflix",
+        "Adobe",
+        "Dell",
+        "Nvidia",
+        "IBM",
+        "Samsung"
+      ]
+    },
+    {
+      "category_key": "money_words",
+      "label": "MONEY WORDS",
+      "rule": "Everyday English words for money, payments and personal finance",
+      "relation_type": "is_a",
+      "theme": "business",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is an everyday word for money or payment",
+      "words": [
+        "cash",
+        "coin",
+        "bill",
+        "check",
+        "credit",
+        "debit",
+        "loan",
+        "salary",
+        "budget",
+        "change",
+        "wallet",
+        "interest"
+      ]
+    }
+  ]
+}

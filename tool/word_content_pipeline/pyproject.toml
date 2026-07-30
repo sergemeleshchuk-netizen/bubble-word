@@ -9,7 +9,10 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+# wordfreq даёт частотность слов (familiarity_score, фильтр --min-zipf).
+# Без него пайплайн работает, но частотность не считается.
+freq = ["wordfreq>=3.0"]
+dev = ["pytest>=8.0", "wordfreq>=3.0"]
 
 [project.scripts]
 word-content = "word_content.cli:app"

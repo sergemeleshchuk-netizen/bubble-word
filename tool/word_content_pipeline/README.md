@@ -98,9 +98,13 @@ categories                     import_runs            generation_runs
 ```bash
 cd tool/word_content_pipeline
 python3.12 -m venv .venv
-.venv/bin/pip install -e ".[dev]"     # pydantic v2, typer, pytest
-.venv/bin/pytest -q                   # 66 тестов
+.venv/bin/pip install -e ".[dev]"     # pydantic v2, typer, pytest, wordfreq
+.venv/bin/pytest -q                   # 86 тестов
 ```
+
+`wordfreq` — необязательная зависимость (`pip install -e ".[freq]"`): она даёт
+частотность слов. Без неё пайплайн работает, но `familiarity_score` остаётся пустым
+и фильтр `--min-zipf` ничего не отсекает.
 
 Дальше команды можно вызывать двумя способами:
 
@@ -129,6 +133,7 @@ word-content import-memberships --db database/content.sqlite --input data/member
 | `word-info` | Все категории слова. |
 | `category-info` | Все слова категории. |
 | `stats` | Сводка и узкие места контента. |
+| `coverage` | План работы: каким категориям сколько слов не хватает. |
 | `generate-category-candidates` | AI-проход A: категория -> слова. |
 | `generate-word-memberships` | AI-проход B: слово -> категории. |
 | `review-membership-candidates` | AI-проход C: критик кандидатов (базу не меняет). |
@@ -155,6 +160,25 @@ word-content import-memberships --db database/content.sqlite \
 
 Важное поведение импорта: несколько невалидных строк — это **не** ошибка запуска.
 Exit code 1 бывает только при системной ошибке (нет файла, нет базы).
+
+### Фильтры качества на импорте
+
+```bash
+# блок-лист включён по умолчанию (data/blocklist.txt, 131 запись)
+word-content import-memberships --db database/content.sqlite \
+    --input data/membership_candidates.jsonl --min-zipf 2.0
+
+# Связи: total=1041 inserted=1039 rejected=2
+#   Слово 'cufflink' слишком редкое: zipf 1.69 < 2.0
+#   Слово 'pruner' слишком редкое: zipf 1.61 < 2.0
+```
+
+- `--blocklist PATH` — свой файл блок-листа, `--no-blocklist` — отключить (не рекомендуется).
+  Совпадение по целому слову: `ass` блокирует `ass`, но не `grass`.
+- `--min-zipf N` — отклонять слова реже порога. Ориентиры: 5+ очень частое, 4 обычное,
+  3 заметно реже, ниже 2.5 редкое. **По умолчанию выключено**: частотность ≠ узнаваемость
+  (`jackhammer` знают все, а zipf у него 2.3). Частотность всё равно пишется
+  в `words.familiarity_score`, а `stats` показывает список редких слов для глазами-проверки.
 
 ## 6. Review workflow
 
@@ -252,6 +276,16 @@ word-content generate-word-memberships --db database/content.sqlite \
 word-content generate-word-memberships --db database/content.sqlite \
     --all-approved-words --limit 100 --batch-size 8 --output data/generated_reverse.jsonl
 
+# весь каталог за прогон, с чекпойнтом: прервали — запустили снова, пройденное пропустится
+word-content generate-category-candidates --db database/content.sqlite \
+    --all-categories --count 25 --checkpoint data/checkpoint.txt \
+    --output data/generated_all.jsonl
+
+# только категории, где меньше 15 слов
+word-content generate-category-candidates --db database/content.sqlite \
+    --only-thin 15 --count 25 --checkpoint data/checkpoint.txt \
+    --output data/generated_thin.jsonl
+
 word-content review-membership-candidates --db database/content.sqlite \
     --status candidate --limit 100 --output data/ai_review.jsonl
 ```
@@ -272,16 +306,64 @@ word-content review-membership-candidates --db database/content.sqlite \
 Промпты лежат в `prompts/` (`expand_category.txt`, `expand_words.txt`,
 `adversarial_review.txt`), версия промпта пишется в `generation_runs.prompt_version`.
 
-## 10. Seed-контент
+## 10. Seed-контент и как его пополнять
 
-`scripts/build_seed.py` собирает оба JSONL из компактного описания:
+Источник правды — каталог `data/seed/`: один файл на тему плюс `_ambiguous.json`
+для многозначных слов. Python трогать не нужно.
+
+```
+data/seed/food.json          10 категорий, 114 слов
+data/seed/animals.json        9 категорий,  97 слов
+data/seed/nature.json         8 категорий,  88 слов
+...
+data/seed/_ambiguous.json    62 связи с разведёнными значениями
+```
+
+Добавить контент = отредактировать файл темы (или создать новый) и пересобрать:
 
 ```bash
 .venv/bin/python scripts/build_seed.py
 # категорий: 92 в 19 темах
 # связей:    1041
 # слов:      904 (в двух и более категориях: 111)
+# редких слов (zipf < 2.5): 25 -> pruner, cufflink, earmuffs, ...
 ```
+
+Сборка сама проверяет: дубли `category_key` между файлами, дубли связей,
+ссылки на несуществующие категории и попадание слов в блок-лист. Нашла проблему —
+не пишет файлы и возвращает ненулевой код.
+
+Формат категории в файле темы:
+
+```json
+{
+  "category_key": "fruits",
+  "label": "FRUITS",
+  "rule": "Common edible fruits familiar to an average American adult",
+  "relation_type": "is_a",
+  "base_difficulty": 0.1,
+  "obviousness": 0.95,
+  "approve": true,
+  "reason_template": "$W is a common edible fruit",
+  "words": ["apple", "banana", "orange"]
+}
+```
+
+`reason_template` избавляет от написания объяснения к каждому слову:
+`$W` — слово с заглавной буквы, `$w` — как есть. Для многозначных слов объяснение
+пишется вручную в `_ambiguous.json` вместе со значением.
+
+### Что генерировать дальше
+
+```bash
+word-content coverage --db database/content.sqlite --target 25
+# Категорий: 92 | слов: 902 | в 2+ категориях: 111 (12%)
+# До глубины 25 слов на категорию не хватает 1261 связей
+# ... таблица по темам и список самых тонких категорий
+```
+
+Это и есть план работы: команда показывает, какие темы просели и каким категориям
+сколько слов добрать.
 
 Темы: food, animals, home, nature, transport, sports, jobs, body, clothing, tools,
 geography, science, language, entertainment, actions, properties, business, time, education.
@@ -299,10 +381,34 @@ temple, star, moon, ring.
 категории (`WORDS BEFORE BALL`, `ROUND THINGS`, `RIVER FEATURES`, `STICKY THINGS`…)
 намеренно оставлены в `candidate` — это и есть очередь на ручной review.
 
-## 11. Ограничения первой версии
+## 11. Масштабирование до 10 000 слов
+
+Ориентир: **~600 категорий × 25 слов ≈ 15 000 связей ≈ 10 000 уникальных слов.**
+Узкое место — не слова, а категории с точным правилом и плотность пересечений.
+
+| | сейчас | цель |
+|---|---|---|
+| категорий | 92 | ~600 |
+| слов | 902 | ~10 000 |
+| связей | 1039 | ~15 000 |
+| слов в 2+ категориях | 12% | 30–40% |
+
+Порядок работы:
+
+1. **Вширь** — новые файлы тем в `data/seed/`. Больше категорий важнее, чем более
+   глубокие пулы: на 4 слова в уровне глубина 25 уже избыточна, а разнообразие категорий
+   определяет, сколько уровней можно собрать без повторов.
+2. **Вглубь** — добить тонкие категории по списку из `coverage`.
+3. **Обратный проход** — прогнать слова по всему каталогу. Новых слов не даёт,
+   зато поднимает долю пересечений, а это ловушки для сложных уровней.
+4. **Чистка** — `stats` показывает редкие слова, `review-membership-candidates`
+   даёт AI-критику, `export-review` выгружает спорное человеку.
+
+## 12. Ограничения текущей версии
 
 - Дедупликация значений — только по точному совпадению определения, без семантики.
-- Нет частотности слов: поле `familiarity_score` есть в схеме, но seed его не заполняет.
+- Частотность считается только при установленном `wordfreq`; она измеряет
+  употребимость, а не узнаваемость, поэтому по умолчанию не отсекает слова.
 - Нет проверки, что слово реально существует в английском языке (нет словаря-оракула).
 - `words.is_proper_noun` = «встречается как имя собственное»; настоящее разделение —
   через `word_senses`.
@@ -311,7 +417,7 @@ temple, star, moon, ring.
 - Нет связи с игровой базой `tool/data/categories.json` — по договорённости
   этот пайплайн пока живёт отдельно.
 
-## 12. Следующие шаги
+## 13. Следующие шаги
 
 1. AI candidate generator в боевом режиме (реальная модель вместо mock, батчи по каталогу).
 2. Reverse expansion по всем approved-словам — набрать пересечения для «ловушек».

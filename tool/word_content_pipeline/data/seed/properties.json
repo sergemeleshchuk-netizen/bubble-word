@@ -1,0 +1,121 @@
+{
+  "theme": "properties",
+  "categories": [
+    {
+      "category_key": "round_things",
+      "label": "ROUND THINGS",
+      "rule": "Everyday objects whose normal shape is round or circular",
+      "relation_type": "has_property",
+      "theme": "properties",
+      "base_difficulty": 0.3,
+      "obviousness": 0.7,
+      "approve": false,
+      "reason_template": "$W is normally round in shape",
+      "words": [
+        "ball",
+        "coin",
+        "plate",
+        "wheel",
+        "pizza",
+        "button",
+        "clock",
+        "donut",
+        "tire",
+        "marble"
+      ]
+    },
+    {
+      "category_key": "red_things",
+      "label": "RED THINGS",
+      "rule": "Everyday things that are typically red in color",
+      "relation_type": "has_property",
+      "theme": "properties",
+      "base_difficulty": 0.3,
+      "obviousness": 0.7,
+      "approve": false,
+      "reason_template": "$W is typically red in color",
+      "words": [
+        "blood",
+        "brick",
+        "cherry",
+        "ruby",
+        "stop sign",
+        "lobster",
+        "strawberry",
+        "cardinal",
+        "fire truck",
+        "tomato"
+      ]
+    },
+    {
+      "category_key": "sticky_things",
+      "label": "STICKY THINGS",
+      "rule": "Substances that stick to whatever they touch",
+      "relation_type": "has_property",
+      "theme": "properties",
+      "base_difficulty": 0.35,
+      "obviousness": 0.7,
+      "approve": false,
+      "reason_template": "$W sticks to whatever it touches",
+      "words": [
+        "honey",
+        "glue",
+        "tape",
+        "syrup",
+        "gum",
+        "tar",
+        "jam",
+        "sap",
+        "caramel",
+        "molasses"
+      ]
+    },
+    {
+      "category_key": "cold_things",
+      "label": "COLD THINGS",
+      "rule": "Things that are cold by their physical nature",
+      "relation_type": "has_property",
+      "theme": "properties",
+      "base_difficulty": 0.3,
+      "obviousness": 0.75,
+      "approve": false,
+      "reason_template": "$W is cold by its physical nature",
+      "words": [
+        "ice",
+        "snow",
+        "freezer",
+        "popsicle",
+        "iceberg",
+        "frost",
+        "sleet",
+        "glacier",
+        "refrigerator",
+        "icicle"
+      ]
+    },
+    {
+      "category_key": "colors",
+      "label": "COLORS",
+      "rule": "Basic color names used in everyday English",
+      "relation_type": "is_a",
+      "theme": "properties",
+      "base_difficulty": 0.1,
+      "obviousness": 0.95,
+      "approve": true,
+      "reason_template": "$W is a basic color name",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "pink",
+        "brown",
+        "black",
+        "white",
+        "gray",
+        "teal"
+      ]
+    }
+  ]
+}

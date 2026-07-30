@@ -1,0 +1,100 @@
+{
+  "theme": "body",
+  "categories": [
+    {
+      "category_key": "body_parts",
+      "label": "BODY PARTS",
+      "rule": "External parts of the human body",
+      "relation_type": "is_a",
+      "theme": "body",
+      "base_difficulty": 0.1,
+      "obviousness": 0.95,
+      "approve": true,
+      "reason_template": "$W is an external part of the human body",
+      "words": [
+        "arm",
+        "leg",
+        "hand",
+        "foot",
+        "head",
+        "knee",
+        "elbow",
+        "shoulder",
+        "neck",
+        "back",
+        "chest",
+        "ankle"
+      ]
+    },
+    {
+      "category_key": "face_parts",
+      "label": "PARTS OF THE FACE",
+      "rule": "Parts of the human face",
+      "relation_type": "part_of",
+      "theme": "body",
+      "base_difficulty": 0.12,
+      "obviousness": 0.92,
+      "approve": true,
+      "reason_template": "$W is a part of the human face",
+      "words": [
+        "eye",
+        "nose",
+        "mouth",
+        "ear",
+        "cheek",
+        "chin",
+        "lip",
+        "forehead",
+        "eyebrow",
+        "eyelash",
+        "jaw"
+      ]
+    },
+    {
+      "category_key": "internal_organs",
+      "label": "INTERNAL ORGANS",
+      "rule": "Organs inside the human body",
+      "relation_type": "part_of",
+      "theme": "body",
+      "base_difficulty": 0.25,
+      "obviousness": 0.85,
+      "approve": true,
+      "reason_template": "$W is an organ inside the human body",
+      "words": [
+        "lung",
+        "liver",
+        "kidney",
+        "stomach",
+        "brain",
+        "spleen",
+        "pancreas",
+        "intestine",
+        "bladder",
+        "gallbladder"
+      ]
+    },
+    {
+      "category_key": "hand_parts",
+      "label": "PARTS OF THE HAND",
+      "rule": "Parts of the human hand",
+      "relation_type": "part_of",
+      "theme": "body",
+      "base_difficulty": 0.3,
+      "obviousness": 0.8,
+      "approve": true,
+      "reason_template": "$W is a part of the human hand",
+      "words": [
+        "thumb",
+        "finger",
+        "knuckle",
+        "nail",
+        "wrist",
+        "pinky",
+        "cuticle",
+        "index finger",
+        "ring finger",
+        "fingertip"
+      ]
+    }
+  ]
+}
