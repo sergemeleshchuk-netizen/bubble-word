@@ -1,0 +1,48 @@
+# jargon — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+music_tempo_terms | MUSIC TEMPO TERMS | is_a | 0.45 | 0.6 | C | Italian words used to mark tempo in music | $W is an Italian word used to mark tempo in music
+allegro, adagio, andante, presto, largo, vivace, moderato, lento, grave, accelerando, ritardando, forte, piano, crescendo, staccato, legato
+
+french_cooking_terms | FRENCH COOKING TERMS | is_a | 0.45 | 0.6 | C | French words used in professional cooking | $W is a French word used in cooking
+saute, julienne, blanch, flambe, roux, puree, souffle, braise, mise en place, au gratin, consomme, bouquet garni, chiffonade, deglaze
+
+aviation_words | AVIATION WORDS | found_in | 0.4 | 0.68 | A | Words used by pilots and air crew | $W is used by pilots and air crew
+cockpit, altitude, runway, throttle, rudder, flaps, taxi, cruise, turbulence, autopilot, hangar, radar, tower, callsign, wingspan, landing gear, yaw, stall
+
+sailing_terms | SAILING TERMS | found_in | 0.45 | 0.6 | C | Terms used when sailing a boat | $W is a term used when sailing
+tack, jibe, luff, leeward, windward, halyard, boom, cleat, sheet, spinnaker, heel, capsize, mooring, draft
+
+medical_procedures | MEDICAL PROCEDURES | is_a | 0.4 | 0.68 | A | Procedures performed by doctors | $W is a procedure performed by doctors
+surgery, transplant, biopsy, x-ray, scan, injection, transfusion, stitches, cast, dialysis, vaccination, checkup, screening, therapy, anesthesia, ultrasound
+
+legal_terms | COURT TERMS | is_a | 0.45 | 0.62 | C | Terms used in legal proceedings | $W is a term used in legal proceedings
+plea, motion, appeal, hearing, arraignment, indictment, settlement, deposition, injunction, verdict, acquittal, testimony, objection, recess
+
+accounting_words | ACCOUNTING WORDS | found_in | 0.45 | 0.6 | C | Words used in bookkeeping and accounting | $W is used in bookkeeping
+ledger, debit, credit, balance, audit, invoice, receipt, expense, revenue, asset, liability, payroll, depreciation, statement
+
+architecture_words | ARCHITECTURE WORDS | found_in | 0.4 | 0.68 | A | Words used to describe buildings and their design | $W is used to describe building design
+arch, column, dome, facade, balcony, gable, vault, buttress, cornice, foundation, blueprint, terrace, atrium, portico, spire, mezzanine
+
+theater_stage_terms | STAGE TERMS | found_in | 0.4 | 0.68 | A | Terms used backstage in a theater | $W is a term used backstage in a theater
+cue, blocking, wings, apron, catwalk, gel, dimmer, flat, set piece, prop table, green room, call time, strike, dress rehearsal
+
+kitchen_brigade | RESTAURANT KITCHEN TERMS | found_in | 0.45 | 0.6 | C | Terms used in a restaurant kitchen | $W is a term used in a restaurant kitchen
+order up, fire, plating, prep, station, line, expo, ticket, walk in, sous vide, mise, garnish, pass, comp
+
+photography_terms | CAMERA SETTINGS | found_in | 0.45 | 0.6 | C | Settings and controls on a camera | $W is a camera setting or control
+aperture, shutter speed, iso, focus, exposure, white balance, zoom, flash, timer, tripod mount, viewfinder, depth of field, metering
+
+weather_forecast_terms | FORECAST TERMS | found_in | 0.4 | 0.7 | A | Terms used in a weather forecast | $W is used in a weather forecast
+front, high, low, pressure, precipitation, chance of rain, wind chill, heat index, advisory, watch, warning, dew point, visibility, forecast
+
+nautical_ranks | SHIP CREW ROLES | is_a | 0.45 | 0.62 | C | Roles in the crew of a ship | $W is a role in a ship crew
+captain, first mate, navigator, engineer, deckhand, cook, boatswain, purser, helmsman, lookout, quartermaster, steward
+
+detective_procedures | FORENSICS WORDS | found_in | 0.45 | 0.62 | C | Words used in forensic investigation | $W is used in forensic investigation
+fingerprint, dna, ballistics, autopsy, trace, sample, lab, evidence bag, tape, cast, swab, spatter, toxicology, dusting
+
+printing_and_type | TYPOGRAPHY WORDS | found_in | 0.5 | 0.55 | C | Words used to describe printed type | $W describes printed type
+font, serif, bold, italic, kerning, leading, point size, caps, lowercase, underline, justify, margin, column, typeface

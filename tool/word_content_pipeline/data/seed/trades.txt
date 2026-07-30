@@ -1,0 +1,57 @@
+# trades — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+plumbing_words | PLUMBING WORDS | found_in | 0.35 | 0.72 | A | Things a plumber works with | $W is something a plumber works with
+pipe, faucet, drain, valve, wrench, washer, trap, sink, elbow, coupling, solder, gasket, plunger, sewer, spigot, fitting, flange, snake
+
+electrical_words | ELECTRICAL WORDS | found_in | 0.35 | 0.72 | A | Things an electrician works with | $W is something an electrician works with
+wire, outlet, breaker, switch, conduit, fuse, panel, voltage, ground, junction box, socket, cable, terminal, insulation, amp, transformer
+
+carpentry_words | CARPENTRY WORDS | found_in | 0.35 | 0.72 | A | Things a carpenter works with | $W is something a carpenter works with
+lumber, stud, joist, beam, plywood, miter, dovetail, groove, plane, chisel, level, square, nail gun, sawhorse, veneer, molding, rafter, shim
+
+welding_words | WELDING WORDS | found_in | 0.45 | 0.6 | C | Things used in welding metal | $W is used in welding metal
+torch, rod, arc, helmet, spark, flux, bead, clamp, gas, slag, tack, filler, apron, tip
+
+auto_repair | AUTO REPAIR WORDS | found_in | 0.35 | 0.75 | A | Things a mechanic works with | $W is something a mechanic works with
+oil, filter, spark plug, belt, hose, jack, lift, wrench, gasket, alternator, radiator, brake pad, transmission, battery, coolant, tire iron, diagnostic
+
+painting_trade | HOUSE PAINTING WORDS | found_in | 0.35 | 0.75 | A | Things a house painter uses | $W is used by a house painter
+roller, brush, primer, drop cloth, tape, ladder, tray, sprayer, sandpaper, putty, scraper, caulk, extension pole, stir stick
+
+masonry_words | MASONRY WORDS | found_in | 0.45 | 0.6 | C | Things a mason works with | $W is something a mason works with
+brick, mortar, trowel, level, block, grout, chisel, hod, scaffold, cement, joint, stone, plumb line, wheelbarrow
+
+roofing_words | ROOFING WORDS | found_in | 0.45 | 0.6 | C | Things used in roofing a house | $W is used in roofing a house
+shingle, tar, flashing, gutter, underlayment, nail gun, ladder, ridge, valley, vent, harness, tile, felt, drip edge
+
+printing_words | PRINTING WORDS | found_in | 0.4 | 0.65 | C | Things used in printing | $W is used in printing
+ink, press, plate, roller, type, proof, font, binding, paper, cartridge, toner, screen, stencil, registration
+
+barbershop_words | BARBERSHOP WORDS | found_in | 0.3 | 0.8 | A | Things found in a barbershop | $W is found in a barbershop
+chair, clippers, scissors, cape, razor, comb, mirror, shaving cream, towel, brush, pole, trimmer, powder, apron
+
+tailor_words | TAILOR SHOP WORDS | found_in | 0.4 | 0.68 | A | Things a tailor uses | $W is used by a tailor
+needle, thread, chalk, tape measure, pin, mannequin, shears, machine, iron, pattern, hem, seam ripper, bobbin, thimble
+
+locksmith_words | LOCK AND KEY WORDS | found_in | 0.4 | 0.68 | A | Things involved with locks and keys | $W has to do with locks and keys
+key, lock, deadbolt, latch, bolt, padlock, cylinder, tumbler, keyhole, chain, combination, safe, hinge, keypad, master key
+
+cleaning_trade | JANITORIAL WORDS | found_in | 0.35 | 0.75 | A | Things a janitor uses at work | $W is used by a janitor
+mop, bucket, vacuum, broom, cart, wax, buffer, trash bag, sign, gloves, disinfectant, squeegee, dustpan, keys, uniform
+
+landscaping_words | LANDSCAPING WORDS | found_in | 0.35 | 0.75 | A | Things a landscaper works with | $W is something a landscaper works with
+mower, edger, blower, mulch, sod, trimmer, hedge, sprinkler, gravel, planter, stake, wheelbarrow, shears, seed, fertilizer
+
+butcher_words | BUTCHER SHOP WORDS | found_in | 0.4 | 0.68 | A | Things found in a butcher shop | $W is found in a butcher shop
+cleaver, block, scale, case, apron, grinder, saw, twine, cut, sausage, brisket, rack, freezer, wrap
+
+baker_words | BAKERY WORDS | found_in | 0.3 | 0.8 | A | Things found in a bakery | $W is found in a bakery
+oven, dough, tray, rack, proofer, mixer, flour, icing, display case, tongs, apron, scale, cooling rack, pastry bag, timer
+
+warehouse_words | WAREHOUSE WORDS | found_in | 0.35 | 0.75 | A | Things found in a warehouse | $W is found in a warehouse
+pallet, forklift, shelf, crate, dock, conveyor, box, label, inventory, scanner, aisle, hand truck, ramp, tape gun
+
+factory_words | FACTORY WORDS | found_in | 0.35 | 0.75 | A | Things found in a factory | $W is found in a factory
+assembly line, conveyor, machine, shift, foreman, press, mold, quality control, uniform, safety goggles, whistle, timeclock, robot, crate

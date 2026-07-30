@@ -99,7 +99,7 @@ categories                     import_runs            generation_runs
 cd tool/word_content_pipeline
 python3.12 -m venv .venv
 .venv/bin/pip install -e ".[dev]"     # pydantic v2, typer, pytest, wordfreq
-.venv/bin/pytest -q                   # 86 тестов
+.venv/bin/pytest -q                   # 88 тестов
 ```
 
 `wordfreq` — необязательная зависимость (`pip install -e ".[freq]"`): она даёт
@@ -175,6 +175,8 @@ word-content import-memberships --db database/content.sqlite \
 
 - `--blocklist PATH` — свой файл блок-листа, `--no-blocklist` — отключить (не рекомендуется).
   Совпадение по целому слову: `ass` блокирует `ass`, но не `grass`.
+- `data/allowlist.txt` — исключения для безобидных многословных названий, внутри которых
+  есть запрещённое слово (`sperm whale`, `maine coon`). Совпадение по всей фразе целиком.
 - `--min-zipf N` — отклонять слова реже порога. Ориентиры: 5+ очень частое, 4 обычное,
   3 заметно реже, ниже 2.5 редкое. **По умолчанию выключено**: частотность ≠ узнаваемость
   (`jackhammer` знают все, а zipf у него 2.3). Частотность всё равно пишется
@@ -308,65 +310,65 @@ word-content review-membership-candidates --db database/content.sqlite \
 
 ## 10. Seed-контент и как его пополнять
 
-Источник правды — каталог `data/seed/`: один файл на тему плюс `_ambiguous.json`
-для многозначных слов. Python трогать не нужно.
+Источник правды — каталог `data/seed/`: один текстовый файл на тему плюс
+`_ambiguous.json` для многозначных слов. Python трогать не нужно.
 
 ```
-data/seed/food.json          10 категорий, 114 слов
-data/seed/animals.json        9 категорий,  97 слов
-data/seed/nature.json         8 категорий,  88 слов
-...
+data/seed/food.txt           43 категории
+data/seed/language.txt       46 категорий
+data/seed/animals.txt        30 категорий
+...                          58 файлов тем
 data/seed/_ambiguous.json    62 связи с разведёнными значениями
 ```
+
+Формат: две строки на категорию — заголовок через `|` и список слов через запятую.
+
+```
+fruits | FRUITS | is_a | 0.1 | 0.95 | A | Common edible fruits familiar to an average American adult | $W is a common edible fruit
+apple, banana, orange, grape, peach, cherry, lemon, strawberry, pear, watermelon
+```
+
+Поля заголовка: `key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template`.
+Флаги: `A` — связи можно ставить `approved`, `C` — только `candidate`, `P` — категория
+из имён собственных. В шаблоне `$W` — слово с заглавной буквы, `$w` — как есть;
+это избавляет от написания объяснения к каждому слову вручную. Для многозначных слов
+объяснение пишется в `_ambiguous.json` вместе со значением.
 
 Добавить контент = отредактировать файл темы (или создать новый) и пересобрать:
 
 ```bash
 .venv/bin/python scripts/build_seed.py
-# категорий: 92 в 19 темах
-# связей:    1041
-# слов:      904 (в двух и более категориях: 111)
-# редких слов (zipf < 2.5): 25 -> pruner, cufflink, earmuffs, ...
+# категорий: 1092 в 58 темах
+# связей:    17555
+# слов:      10007 (в двух и более категориях: 3456)
+# approved:  12623
+# редких слов (zipf < 2.5): 1232 -> mukluk, chiffonade, marionberry, ...
 ```
 
 Сборка сама проверяет: дубли `category_key` между файлами, дубли связей,
 ссылки на несуществующие категории и попадание слов в блок-лист. Нашла проблему —
-не пишет файлы и возвращает ненулевой код.
-
-Формат категории в файле темы:
-
-```json
-{
-  "category_key": "fruits",
-  "label": "FRUITS",
-  "rule": "Common edible fruits familiar to an average American adult",
-  "relation_type": "is_a",
-  "base_difficulty": 0.1,
-  "obviousness": 0.95,
-  "approve": true,
-  "reason_template": "$W is a common edible fruit",
-  "words": ["apple", "banana", "orange"]
-}
-```
-
-`reason_template` избавляет от написания объяснения к каждому слову:
-`$W` — слово с заглавной буквы, `$w` — как есть. Для многозначных слов объяснение
-пишется вручную в `_ambiguous.json` вместе со значением.
+не пишет файлы и возвращает ненулевой код. Редкое слово автоматически уходит
+в `candidate`, даже если категория помечена флагом `A`.
 
 ### Что генерировать дальше
 
 ```bash
 word-content coverage --db database/content.sqlite --target 25
-# Категорий: 92 | слов: 902 | в 2+ категориях: 111 (12%)
-# До глубины 25 слов на категорию не хватает 1261 связей
+# Категорий: 1092 | слов: 10007 | в 2+ категориях: 3456 (34%)
+# До глубины 25 слов на категорию не хватает 9756 связей
 # ... таблица по темам и список самых тонких категорий
 ```
 
 Это и есть план работы: команда показывает, какие темы просели и каким категориям
 сколько слов добрать.
 
-Темы: food, animals, home, nature, transport, sports, jobs, body, clothing, tools,
-geography, science, language, entertainment, actions, properties, business, time, education.
+58 тем: food, animals, home, nature, transport, sports, jobs, body, clothing, tools,
+geography, science, language, entertainment, actions, properties, business, time,
+education, people, technology, history, mythology, art, plants, ocean, places, media,
+medicine, law, world_food, species, hobbies, farming, religion, sounds, brands, space,
+materials, fashion, names, varieties, cities, culture, sports_world, nature_more,
+trades, descriptive, landmarks, jargon, names_world, animals_more, food_more, skills,
+world_more, lists, nature_species, misc.
 
 Категории описаны **правилом**, а не только ярлыком: `THINGS WITH SEEDS` — это
 «Common objects or foods that naturally contain seeds», и слово проверяется по правилу.
@@ -383,15 +385,15 @@ temple, star, moon, ring.
 
 ## 11. Масштабирование до 10 000 слов
 
-Ориентир: **~600 категорий × 25 слов ≈ 15 000 связей ≈ 10 000 уникальных слов.**
+Ориентир: **~600 категорий × 25 слов ≈ 15 000 связей ≈ 10 000 уникальных слов** — цель достигнута.
 Узкое место — не слова, а категории с точным правилом и плотность пересечений.
 
-| | сейчас | цель |
-|---|---|---|
-| категорий | 92 | ~600 |
-| слов | 902 | ~10 000 |
-| связей | 1039 | ~15 000 |
-| слов в 2+ категориях | 12% | 30–40% |
+| | было | стало | цель |
+|---|---|---|---|
+| категорий | 92 | **1092** | ~600 |
+| слов | 902 | **10 007** | ~10 000 |
+| связей | 1039 | **17 555** | ~15 000 |
+| слов в 2+ категориях | 12% | **34%** | 30–40% |
 
 Порядок работы:
 

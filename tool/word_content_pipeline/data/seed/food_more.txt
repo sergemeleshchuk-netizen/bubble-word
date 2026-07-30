@@ -1,0 +1,51 @@
+# food_more — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+cookie_types | COOKIE TYPES | is_a | 0.3 | 0.8 | A | Kinds of cookie baked at home or sold in stores | $W is a kind of cookie
+chocolate chip, oatmeal, sugar, snickerdoodle, gingerbread, shortbread, peanut butter, macaroon, biscotti, wafer, fortune cookie, sandwich cookie, thumbprint, molasses
+
+pie_types | PIE TYPES | is_a | 0.3 | 0.8 | A | Kinds of pie | $W is a kind of pie
+apple, pumpkin, pecan, cherry, blueberry, key lime, lemon meringue, shepherds, chicken pot, banana cream, peach, rhubarb, mince, custard, chess
+
+sandwich_types | SANDWICH TYPES | is_a | 0.3 | 0.8 | A | Named kinds of sandwich | $W is a named kind of sandwich
+club, blt, reuben, grilled cheese, hoagie, philly cheesesteak, po boy, monte cristo, panini, wrap, sloppy joe, muffuletta, hero, patty melt
+
+egg_and_dairy_dishes | BRUNCH DISHES | is_a | 0.35 | 0.75 | A | Dishes served at brunch | $W is served at brunch
+eggs benedict, quiche, frittata, french toast, waffle, crepe, hash, omelet, mimosa, bagel and lox, strata, scone, parfait, casserole
+
+salads | SALADS | is_a | 0.3 | 0.8 | A | Named kinds of salad | $W is a named kind of salad
+caesar, cobb, greek, garden, coleslaw, potato salad, pasta salad, waldorf, chef salad, caprese, macaroni salad, fruit salad, spinach salad, egg salad
+
+potato_dishes | POTATO DISHES | is_a | 0.3 | 0.8 | A | Ways potatoes are cooked and served | $W is a way potatoes are served
+mashed, baked, fried, hash browns, tater tots, au gratin, scalloped, wedges, latke, potato salad, chips, twice baked, home fries, croquette
+
+pasta_dishes | PASTA DISHES | is_a | 0.3 | 0.8 | A | Named pasta dishes | $W is a named pasta dish
+spaghetti and meatballs, lasagna, carbonara, alfredo, mac and cheese, pesto pasta, bolognese, primavera, puttanesca, cacio e pepe, baked ziti, marinara
+
+toppings_and_garnish | GARNISHES | is_a | 0.35 | 0.75 | A | Things added on top of a finished dish | $W is added on top of a finished dish
+parsley, lemon wedge, whipped cream, sprinkles, croutons, cheese, chives, sesame, olive, cherry, mint leaf, powdered sugar, bacon bits, scallion, paprika
+
+drink_mixers | DRINK MIXERS | used_in | 0.4 | 0.68 | A | Things mixed into drinks | $W is mixed into drinks
+soda water, tonic, juice, syrup, lime, ice, mint, ginger ale, cola, cream, bitters, cranberry, lemonade, sour mix
+
+candy_shapes | CANDY TYPES | is_a | 0.3 | 0.8 | A | Forms candy is sold in | $W is a form candy is sold in
+bar, gummy, hard candy, lollipop, chew, chocolate square, jelly, drop, stick, mint, ball, ribbon, brittle, cluster
+
+breakfast_cereals_types | CEREAL TYPES | is_a | 0.4 | 0.7 | A | Kinds of breakfast cereal by form | $W is a kind of breakfast cereal
+flakes, loops, puffs, granola, oatmeal, muesli, shredded wheat, crisped rice, bran, squares, clusters, porridge
+
+sandwich_breads | SANDWICH BREADS | is_a | 0.35 | 0.75 | A | Breads used to make a sandwich | $W is a bread used for sandwiches
+white, wheat, rye, sourdough, roll, hoagie roll, bagel, croissant, ciabatta, pita, focaccia, brioche bun, english muffin, texas toast
+
+cooking_methods | COOKING METHODS | is_a | 0.3 | 0.8 | A | Methods used to cook food | $W is a method used to cook food
+bake, fry, grill, roast, boil, steam, poach, braise, broil, saute, smoke, simmer, stir fry, deep fry, slow cook, blanch, sear, barbecue
+
+cuts_of_meat | CUTS OF MEAT | is_a | 0.4 | 0.7 | A | Cuts of meat sold by a butcher | $W is a cut of meat
+sirloin, ribeye, tenderloin, brisket, chuck, flank, rump, shank, loin, rib, round, T-bone, porterhouse, short rib, shoulder
+
+cheese_dishes | CHEESE DISHES | is_a | 0.4 | 0.7 | A | Dishes built around cheese | $W is a dish built around cheese
+fondue, grilled cheese, mac and cheese, cheesecake, quesadilla, pizza, lasagna, nachos, cheese board, raclette, queso, gratin
+
+dessert_toppings | DESSERT TOPPINGS | used_in | 0.35 | 0.75 | A | Things put on top of desserts | $W is put on top of desserts
+whipped cream, sprinkles, chocolate sauce, caramel, nuts, cherry, powdered sugar, fruit, syrup, frosting, glaze, coconut, marshmallow, hot fudge

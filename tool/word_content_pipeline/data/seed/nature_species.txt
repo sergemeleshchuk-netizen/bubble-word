@@ -1,0 +1,21 @@
+# nature_species — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+beetles | BEETLES | is_a | 0.45 | 0.6 | C | Kinds of beetle | $W is a kind of beetle
+ladybug, june bug, dung beetle, stag beetle, weevil, firefly, scarab, click beetle, rhinoceros beetle, boll weevil, water beetle, carpet beetle
+
+wildflowers | WILDFLOWERS | is_a | 0.4 | 0.68 | A | Flowers that grow wild in fields and roadsides | $W is a wildflower
+bluebonnet, black eyed susan, queen annes lace, goldenrod, chicory, columbine, indian paintbrush, aster, milkweed, coneflower, trillium, bloodroot, wild rose, primrose
+
+mosses_and_lichens | MOSS AND LICHEN WORDS | is_a | 0.5 | 0.55 | C | Small plants that grow on rocks and bark | $W grows on rocks or bark
+moss, lichen, algae, fungus, liverwort, sphagnum, reindeer moss, crustose, foliose, hornwort
+
+saltwater_fish | SALTWATER FISH | is_a | 0.4 | 0.7 | A | Fish that live in salt water | $W lives in salt water
+tuna, cod, mackerel, snapper, grouper, mahi mahi, wahoo, pompano, sea bass, bluefish, sole, hake, amberjack, tarpon, bonito
+
+garden_bugs | GARDEN BUGS | found_in | 0.4 | 0.7 | A | Small creatures found in a garden | $W is found in a garden
+earthworm, ladybug, snail, slug, beetle, caterpillar, aphid, spider, bee, ant, roly poly, cricket, grub, centipede, praying mantis, earwig
+
+pine_and_cones | CONIFER WORDS | found_in | 0.5 | 0.55 | C | Words about pine trees and their cones | $W has to do with pine trees
+needle, cone, resin, sap, bough, evergreen, pitch, cluster, seed, bark, spruce, fir, timber, scent

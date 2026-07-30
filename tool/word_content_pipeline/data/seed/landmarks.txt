@@ -1,0 +1,39 @@
+# landmarks — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+famous_bridges | FAMOUS BRIDGES | is_a | 0.4 | 0.72 | AP | Famous bridges around the world | $W is a famous bridge
+Golden Gate, Brooklyn, Tower Bridge, Sydney Harbour, Rialto, Ponte Vecchio, Charles Bridge, Mackinac, Bay Bridge, Millau, Chesapeake, London Bridge
+
+famous_towers | FAMOUS TOWERS | is_a | 0.4 | 0.72 | AP | Famous towers around the world | $W is a famous tower
+Eiffel, Big Ben, Leaning Tower, CN Tower, Space Needle, Willis Tower, Burj Khalifa, Petronas, Tokyo Tower, Belfry, Bell Tower, Minaret
+
+famous_museums | FAMOUS MUSEUMS | is_a | 0.45 | 0.65 | AP | Famous museums around the world | $W is a famous museum
+Louvre, Smithsonian, Met, Prado, Uffizi, Hermitage, Getty, Guggenheim, British Museum, MoMA, Rijksmuseum, Field Museum
+
+famous_streets | FAMOUS STREETS | is_a | 0.45 | 0.65 | AP | Famous streets and avenues | $W is a famous street
+Broadway, Wall Street, Bourbon Street, Abbey Road, Rodeo Drive, Fifth Avenue, Champs Elysees, Sunset Boulevard, Bourbon, Main Street, Michigan Avenue, Beale Street
+
+universities | UNIVERSITIES | is_a | 0.4 | 0.7 | AP | Well known universities | $W is a well known university
+Harvard, Yale, Stanford, Oxford, Cambridge, Princeton, MIT, Columbia, Berkeley, Cornell, Duke, Sorbonne, Georgetown, Dartmouth, Notre Dame
+
+sports_teams | SPORTS TEAM NAMES | is_a | 0.35 | 0.75 | AP | Names of long standing American sports teams | $W is a long standing American sports team name
+Yankees, Dodgers, Lakers, Celtics, Cowboys, Packers, Steelers, Red Sox, Cubs, Bulls, Knicks, Giants, Bears, Broncos, Rangers, Braves, Tigers, Eagles
+
+classic_tv_shows | CLASSIC TV SHOWS | is_a | 0.4 | 0.72 | AP | Television shows known across generations | $W is a television show known across generations
+Friends, Seinfeld, Cheers, MASH, I Love Lucy, Twilight Zone, Star Trek, Simpsons, Sesame Street, Jeopardy, Wheel of Fortune, Gunsmoke, Bonanza, Dallas
+
+theme_parks | THEME PARKS | is_a | 0.4 | 0.72 | AP | Well known theme parks | $W is a well known theme park
+Disneyland, Disney World, Six Flags, Universal Studios, Cedar Point, Busch Gardens, Knotts Berry Farm, Legoland, Epcot, Sea World, Hershey Park
+
+famous_ships_planes | FAMOUS AIRCRAFT | is_a | 0.45 | 0.62 | AP | Famous aircraft from history | $W is a famous aircraft
+Spirit of St Louis, Concorde, Enola Gay, Air Force One, Spruce Goose, Kitty Hawk, Hindenburg, Blackbird, Spitfire, Zeppelin
+
+famous_trains | FAMOUS TRAINS | is_a | 0.5 | 0.6 | AP | Famous trains and railway lines | $W is a famous train or railway line
+Orient Express, Trans Siberian, Bullet Train, Amtrak, Union Pacific, Flying Scotsman, Eurostar, Ghan, Rocky Mountaineer, Metro
+
+world_heritage | ANCIENT SITES | is_a | 0.45 | 0.65 | AP | Famous ancient sites people visit | $W is a famous ancient site
+Machu Picchu, Petra, Pompeii, Angkor Wat, Chichen Itza, Stonehenge, Acropolis, Easter Island, Great Wall, Valley of the Kings, Tikal, Ephesus
+
+zoos_and_aquariums | FAMOUS ZOOS | is_a | 0.5 | 0.58 | AP | Well known zoos and aquariums | $W is a well known zoo or aquarium
+San Diego Zoo, Bronx Zoo, London Zoo, Berlin Zoo, Monterey Bay, Georgia Aquarium, Shedd, National Zoo, Lincoln Park, Toronto Zoo

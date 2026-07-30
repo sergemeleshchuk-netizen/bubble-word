@@ -1,0 +1,63 @@
+# descriptive — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+taste_words | TASTE WORDS | is_a | 0.3 | 0.8 | A | Words describing how food tastes | $W describes how food tastes
+sweet, sour, salty, bitter, spicy, savory, tangy, bland, rich, buttery, smoky, tart, zesty, mild, hearty, creamy, crisp, syrupy, peppery, nutty
+
+smell_words | SMELL WORDS | is_a | 0.4 | 0.7 | C | Words describing how something smells | $W describes how something smells
+fragrant, musty, smoky, fresh, sour, floral, pungent, earthy, sweet, stale, spicy, minty, rancid, woodsy, briny
+
+weather_adjectives | WEATHER ADJECTIVES | is_a | 0.3 | 0.8 | A | Words describing the weather outside | $W describes the weather
+sunny, cloudy, rainy, windy, snowy, foggy, humid, muggy, breezy, stormy, clear, overcast, freezing, mild, sweltering, drizzly, icy, balmy
+
+brightness_words | BRIGHTNESS WORDS | is_a | 0.4 | 0.68 | C | Words describing how much light something gives | $W describes how much light something gives
+bright, dim, dark, glowing, dazzling, faint, radiant, murky, shady, blinding, gloomy, luminous, shining, dull
+
+cleanliness_words | CLEAN AND DIRTY WORDS | is_a | 0.35 | 0.75 | A | Words describing how clean something is | $W describes how clean something is
+clean, dirty, spotless, filthy, tidy, messy, grimy, sterile, dusty, muddy, stained, neat, polished, soiled, immaculate
+
+difficulty_words | DIFFICULTY WORDS | is_a | 0.35 | 0.75 | A | Words describing how hard a task is | $W describes how hard a task is
+easy, hard, simple, tricky, tough, complex, challenging, effortless, demanding, straightforward, tedious, impossible, manageable, grueling
+
+age_words | AGE WORDS | is_a | 0.35 | 0.75 | A | Words describing how old something is | $W describes how old something is
+new, old, ancient, modern, vintage, antique, fresh, aged, brand new, worn, prehistoric, contemporary, secondhand, timeworn
+
+shape_adjectives | SHAPE ADJECTIVES | is_a | 0.35 | 0.75 | A | Words describing the shape of an object | $W describes the shape of an object
+round, square, flat, curved, straight, crooked, pointed, oval, hollow, twisted, bent, narrow, wide, thick, thin, jagged, smooth, tapered
+
+quantity_words | QUANTITY WORDS | is_a | 0.35 | 0.78 | A | Words describing how much of something there is | $W describes how much of something there is
+many, few, several, plenty, scarce, abundant, some, none, dozens, handful, heap, pile, bunch, load, batch, sprinkle, pinch, ton
+
+wetness_words | WET AND DRY WORDS | is_a | 0.35 | 0.75 | A | Words describing how wet something is | $W describes how wet something is
+wet, dry, damp, soggy, moist, soaked, parched, drenched, humid, arid, dripping, saturated, dewy, crisp
+
+strength_words | STRONG AND WEAK WORDS | is_a | 0.35 | 0.75 | A | Words describing strength | $W describes strength
+strong, weak, sturdy, fragile, tough, flimsy, solid, brittle, mighty, frail, durable, feeble, robust, delicate
+
+value_words | EXPENSIVE AND CHEAP WORDS | is_a | 0.35 | 0.75 | A | Words describing how much something costs | $W describes how much something costs
+expensive, cheap, costly, affordable, pricey, free, bargain, priceless, discounted, overpriced, budget, valuable, worthless, luxurious
+
+fullness_words | FULL AND EMPTY WORDS | is_a | 0.4 | 0.7 | C | Words describing how full something is | $W describes how full something is
+full, empty, packed, crowded, stuffed, vacant, brimming, hollow, loaded, bare, overflowing, sparse, jammed, deserted
+
+noise_adjectives | LOUD AND QUIET WORDS | is_a | 0.35 | 0.75 | A | Words describing how loud something is | $W describes how loud something is
+loud, quiet, noisy, silent, deafening, hushed, booming, faint, roaring, muffled, thunderous, soft, shrill, still
+
+temperature_feel | HOW THINGS FEEL | is_a | 0.35 | 0.75 | C | Words describing how something feels to touch | $W describes how something feels to touch
+smooth, rough, soft, hard, sticky, slippery, fuzzy, prickly, silky, grainy, bumpy, cold, warm, damp, sharp, spongy
+
+speed_adjectives | SPEED WORDS | is_a | 0.35 | 0.75 | A | Words describing how fast something moves | $W describes how fast something moves
+fast, slow, quick, rapid, sluggish, brisk, swift, gradual, hasty, steady, creeping, speedy, leisurely, sudden
+
+distance_words | DISTANCE WORDS | is_a | 0.35 | 0.75 | A | Words describing how far something is | $W describes how far something is
+near, far, close, distant, nearby, remote, adjacent, faraway, next door, beyond, within reach, halfway, opposite, alongside
+
+frequency_words | FREQUENCY WORDS | is_a | 0.4 | 0.7 | A | Words describing how often something happens | $W describes how often something happens
+always, never, often, rarely, sometimes, daily, weekly, hourly, seldom, frequently, occasionally, constantly, annually, monthly
+
+order_words | ORDER WORDS | is_a | 0.35 | 0.78 | A | Words describing position in a sequence | $W describes position in a sequence
+first, second, third, last, next, final, previous, middle, initial, following, latter, former, subsequent, ultimate
+
+certainty_words | CERTAINTY WORDS | is_a | 0.4 | 0.68 | C | Words describing how sure something is | $W describes how sure something is
+certain, likely, unlikely, possible, definite, doubtful, probable, sure, maybe, perhaps, guaranteed, uncertain, obvious
