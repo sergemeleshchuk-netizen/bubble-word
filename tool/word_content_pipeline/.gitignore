@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# рабочая база и выгрузки — воспроизводятся из data/*.jsonl
+database/*.sqlite
+database/*.sqlite-journal
+data/review_candidates.csv
+data/generated_*.jsonl
+data/ai_review.jsonl

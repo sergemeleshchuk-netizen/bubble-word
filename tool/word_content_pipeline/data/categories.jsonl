@@ -1,0 +1,92 @@
+{"category_key": "fruits", "label": "FRUITS", "rule": "Common edible fruits familiar to an average American adult", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.1}
+{"category_key": "vegetables", "label": "VEGETABLES", "rule": "Common edible vegetables sold in an ordinary American grocery store", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.12}
+{"category_key": "pie_ingredients", "label": "PIE INGREDIENTS", "rule": "Ingredients commonly used in pie fillings or pie preparation", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.25}
+{"category_key": "breakfast_foods", "label": "BREAKFAST FOODS", "rule": "Foods typically eaten at breakfast in the United States", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "pizza_toppings", "label": "PIZZA TOPPINGS", "rule": "Ingredients commonly put on top of a pizza", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "dairy_products", "label": "DAIRY PRODUCTS", "rule": "Foods made from milk or sold in the dairy section", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.15}
+{"category_key": "baking_ingredients", "label": "BAKING INGREDIENTS", "rule": "Ingredients commonly used to bake cakes, bread or cookies", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.25}
+{"category_key": "hot_drinks", "label": "HOT DRINKS", "rule": "Drinks normally served hot", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.15}
+{"category_key": "desserts", "label": "DESSERTS", "rule": "Sweet dishes served at the end of a meal", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.15}
+{"category_key": "spices_and_herbs", "label": "SPICES AND HERBS", "rule": "Plant-based seasonings used to flavor food", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.3}
+{"category_key": "farm_animals", "label": "FARM ANIMALS", "rule": "Animals commonly kept on an ordinary farm", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.1}
+{"category_key": "birds", "label": "BIRDS", "rule": "Bird species an average American can name", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.12}
+{"category_key": "ocean_animals", "label": "OCEAN ANIMALS", "rule": "Animals that live in the ocean", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.15}
+{"category_key": "insects", "label": "INSECTS", "rule": "Insects and other small bugs an average person recognizes", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.15}
+{"category_key": "pets", "label": "PETS", "rule": "Animals commonly kept as household pets in the United States", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.12}
+{"category_key": "flying_animals", "label": "FLYING ANIMALS", "rule": "Animals that can fly under their own power", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.2}
+{"category_key": "animal_babies", "label": "BABY ANIMALS", "rule": "English words for the young of an animal species", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.25}
+{"category_key": "animal_sounds", "label": "ANIMAL SOUNDS", "rule": "English words for the sound an animal makes", "relation_type": "does_action", "theme": "animals", "base_difficulty": 0.3}
+{"category_key": "nocturnal_animals", "label": "NOCTURNAL ANIMALS", "rule": "Animals that are active at night and rest during the day", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.35}
+{"category_key": "kitchen_tools", "label": "KITCHEN TOOLS", "rule": "Handheld tools and utensils used to prepare food in a kitchen", "relation_type": "used_in", "theme": "home", "base_difficulty": 0.15}
+{"category_key": "bathroom_items", "label": "BATHROOM ITEMS", "rule": "Objects normally found in a home bathroom", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.15}
+{"category_key": "furniture", "label": "FURNITURE", "rule": "Movable household furniture", "relation_type": "is_a", "theme": "home", "base_difficulty": 0.12}
+{"category_key": "cleaning_supplies", "label": "CLEANING SUPPLIES", "rule": "Tools and products used to clean a house", "relation_type": "used_in", "theme": "home", "base_difficulty": 0.2}
+{"category_key": "bedroom_things", "label": "THINGS IN A BEDROOM", "rule": "Objects normally found in a bedroom", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.2}
+{"category_key": "trees", "label": "TREES", "rule": "Kinds of trees an average American can name", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.2}
+{"category_key": "tree_parts", "label": "PARTS OF A TREE", "rule": "Physical parts of a living tree", "relation_type": "part_of", "theme": "nature", "base_difficulty": 0.25}
+{"category_key": "flowers", "label": "FLOWERS", "rule": "Kinds of flowers commonly sold or grown in gardens", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.15}
+{"category_key": "weather_words", "label": "WEATHER WORDS", "rule": "Words describing weather conditions or events in the sky", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.15}
+{"category_key": "things_with_seeds", "label": "THINGS WITH SEEDS", "rule": "Common objects or foods that naturally contain seeds", "relation_type": "has_property", "theme": "nature", "base_difficulty": 0.35}
+{"category_key": "bodies_of_water", "label": "BODIES OF WATER", "rule": "Natural or man-made bodies of water on the surface of the earth", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.2}
+{"category_key": "river_features", "label": "RIVER FEATURES", "rule": "Parts and features of a river described in everyday English", "relation_type": "part_of", "theme": "nature", "base_difficulty": 0.35}
+{"category_key": "gemstones", "label": "GEMSTONES", "rule": "Precious or semi-precious stones used in jewelry", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.25}
+{"category_key": "vehicles", "label": "VEHICLES", "rule": "Machines built to carry people or goods from place to place", "relation_type": "is_a", "theme": "transport", "base_difficulty": 0.1}
+{"category_key": "things_with_wheels", "label": "THINGS WITH WHEELS", "rule": "Everyday objects that have wheels as a normal part of their design", "relation_type": "has_property", "theme": "transport", "base_difficulty": 0.25}
+{"category_key": "car_parts", "label": "PARTS OF A CAR", "rule": "Physical parts of an ordinary passenger car", "relation_type": "part_of", "theme": "transport", "base_difficulty": 0.2}
+{"category_key": "airport_words", "label": "AIRPORT WORDS", "rule": "Words for things, places or roles you encounter at an airport", "relation_type": "found_in", "theme": "transport", "base_difficulty": 0.25}
+{"category_key": "construction_equipment", "label": "CONSTRUCTION EQUIPMENT", "rule": "Large machines used on a building or road construction site", "relation_type": "is_a", "theme": "transport", "base_difficulty": 0.3}
+{"category_key": "baseball_equipment", "label": "BASEBALL EQUIPMENT", "rule": "Physical equipment used to play a game of baseball", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.25}
+{"category_key": "baseball_words", "label": "BASEBALL WORDS", "rule": "Words used to describe plays, places or roles in a baseball game", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3}
+{"category_key": "team_sports", "label": "TEAM SPORTS", "rule": "Sports played by two opposing teams", "relation_type": "is_a", "theme": "sports", "base_difficulty": 0.15}
+{"category_key": "olympic_sports", "label": "OLYMPIC SPORTS", "rule": "Sports contested at the modern Olympic Games", "relation_type": "is_a", "theme": "sports", "base_difficulty": 0.25}
+{"category_key": "gym_equipment", "label": "GYM EQUIPMENT", "rule": "Equipment used for exercise in a fitness gym", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.25}
+{"category_key": "medical_jobs", "label": "MEDICAL JOBS", "rule": "Jobs held by people who treat patients or work in healthcare", "relation_type": "is_a", "theme": "jobs", "base_difficulty": 0.2}
+{"category_key": "kitchen_jobs", "label": "KITCHEN JOBS", "rule": "Jobs held by people who work in a restaurant kitchen or food service", "relation_type": "is_a", "theme": "jobs", "base_difficulty": 0.3}
+{"category_key": "school_jobs", "label": "SCHOOL JOBS", "rule": "Jobs held by adults who work at a school", "relation_type": "is_a", "theme": "jobs", "base_difficulty": 0.25}
+{"category_key": "body_parts", "label": "BODY PARTS", "rule": "External parts of the human body", "relation_type": "is_a", "theme": "body", "base_difficulty": 0.1}
+{"category_key": "face_parts", "label": "PARTS OF THE FACE", "rule": "Parts of the human face", "relation_type": "part_of", "theme": "body", "base_difficulty": 0.12}
+{"category_key": "internal_organs", "label": "INTERNAL ORGANS", "rule": "Organs inside the human body", "relation_type": "part_of", "theme": "body", "base_difficulty": 0.25}
+{"category_key": "hand_parts", "label": "PARTS OF THE HAND", "rule": "Parts of the human hand", "relation_type": "part_of", "theme": "body", "base_difficulty": 0.3}
+{"category_key": "clothing_items", "label": "CLOTHING ITEMS", "rule": "Garments worn on the body", "relation_type": "is_a", "theme": "clothing", "base_difficulty": 0.1}
+{"category_key": "footwear", "label": "FOOTWEAR", "rule": "Things worn on the feet", "relation_type": "is_a", "theme": "clothing", "base_difficulty": 0.15}
+{"category_key": "winter_clothing", "label": "WINTER CLOTHING", "rule": "Clothing worn specifically to stay warm in cold weather", "relation_type": "used_in", "theme": "clothing", "base_difficulty": 0.2}
+{"category_key": "jewelry", "label": "JEWELRY", "rule": "Decorative items worn on the body as jewelry", "relation_type": "is_a", "theme": "clothing", "base_difficulty": 0.2}
+{"category_key": "hand_tools", "label": "HAND TOOLS", "rule": "Tools held in the hand and used for building or repair work", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.15}
+{"category_key": "garden_tools", "label": "GARDEN TOOLS", "rule": "Tools used for gardening and yard work", "relation_type": "used_in", "theme": "tools", "base_difficulty": 0.25}
+{"category_key": "office_supplies", "label": "OFFICE SUPPLIES", "rule": "Small items kept in an office desk and used for paperwork", "relation_type": "found_in", "theme": "tools", "base_difficulty": 0.15}
+{"category_key": "sewing_supplies", "label": "SEWING SUPPLIES", "rule": "Items used for sewing and mending clothes", "relation_type": "used_in", "theme": "tools", "base_difficulty": 0.3}
+{"category_key": "us_states", "label": "US STATES", "rule": "States of the United States of America", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.2}
+{"category_key": "world_capitals", "label": "WORLD CAPITALS", "rule": "Capital cities of countries around the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.3}
+{"category_key": "european_countries", "label": "EUROPEAN COUNTRIES", "rule": "Countries located in Europe", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.25}
+{"category_key": "landforms", "label": "LANDFORMS", "rule": "Natural features of the land surface", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.3}
+{"category_key": "town_places", "label": "PLACES IN A TOWN", "rule": "Public buildings and places found in an ordinary American town", "relation_type": "found_in", "theme": "geography", "base_difficulty": 0.15}
+{"category_key": "space_objects", "label": "SPACE OBJECTS", "rule": "Objects found in outer space", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.2}
+{"category_key": "metals", "label": "METALS", "rule": "Metals and metal alloys used in everyday objects", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.25}
+{"category_key": "lab_equipment", "label": "LAB EQUIPMENT", "rule": "Equipment found in a school science laboratory", "relation_type": "found_in", "theme": "science", "base_difficulty": 0.35}
+{"category_key": "shapes", "label": "SHAPES", "rule": "Geometric shapes taught in school", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.15}
+{"category_key": "words_before_sauce", "label": "WORDS BEFORE SAUCE", "rule": "Words that form a familiar English expression when placed before the word sauce", "relation_type": "phrase_before", "theme": "language", "base_difficulty": 0.45}
+{"category_key": "words_before_ball", "label": "WORDS BEFORE BALL", "rule": "Words that form a familiar English compound when placed before the word ball", "relation_type": "phrase_before", "theme": "language", "base_difficulty": 0.4}
+{"category_key": "words_after_fire", "label": "WORDS AFTER FIRE", "rule": "Words that form a familiar English compound when placed after the word fire", "relation_type": "phrase_after", "theme": "language", "base_difficulty": 0.45}
+{"category_key": "words_before_box", "label": "WORDS BEFORE BOX", "rule": "Words that form a familiar English compound when placed before the word box", "relation_type": "phrase_before", "theme": "language", "base_difficulty": 0.4}
+{"category_key": "words_before_light", "label": "WORDS BEFORE LIGHT", "rule": "Words that form a familiar English compound when placed before the word light", "relation_type": "phrase_before", "theme": "language", "base_difficulty": 0.4}
+{"category_key": "writing_words", "label": "WRITING WORDS", "rule": "Words for the parts and marks of written text", "relation_type": "found_in", "theme": "language", "base_difficulty": 0.3}
+{"category_key": "musical_instruments", "label": "MUSICAL INSTRUMENTS", "rule": "Instruments played to produce music", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.15}
+{"category_key": "music_words", "label": "MUSIC WORDS", "rule": "Words used to describe how a piece of music is written or performed", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.3}
+{"category_key": "board_games", "label": "BOARD GAMES", "rule": "Games played on a board with pieces or cards on a table", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
+{"category_key": "card_words", "label": "PLAYING CARD WORDS", "rule": "Words for the cards, suits and parts of a standard deck of playing cards", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.3}
+{"category_key": "movie_genres", "label": "MOVIE GENRES", "rule": "Categories used to classify films", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
+{"category_key": "circus_words", "label": "CIRCUS WORDS", "rule": "People, animals and objects you see at a traditional circus", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.3}
+{"category_key": "cooking_actions", "label": "COOKING ACTIONS", "rule": "Verbs describing something a cook does to food", "relation_type": "does_action", "theme": "actions", "base_difficulty": 0.25}
+{"category_key": "ways_of_moving", "label": "WAYS OF MOVING", "rule": "Verbs describing a way a person moves their body from place to place", "relation_type": "does_action", "theme": "actions", "base_difficulty": 0.25}
+{"category_key": "round_things", "label": "ROUND THINGS", "rule": "Everyday objects whose normal shape is round or circular", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.3}
+{"category_key": "red_things", "label": "RED THINGS", "rule": "Everyday things that are typically red in color", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.3}
+{"category_key": "sticky_things", "label": "STICKY THINGS", "rule": "Substances that stick to whatever they touch", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.35}
+{"category_key": "cold_things", "label": "COLD THINGS", "rule": "Things that are cold by their physical nature", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.3}
+{"category_key": "colors", "label": "COLORS", "rule": "Basic color names used in everyday English", "relation_type": "is_a", "theme": "properties", "base_difficulty": 0.1}
+{"category_key": "tech_companies", "label": "TECH COMPANIES", "rule": "Well-known technology companies or consumer technology brands", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
+{"category_key": "money_words", "label": "MONEY WORDS", "rule": "Everyday English words for money, payments and personal finance", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
+{"category_key": "months", "label": "MONTHS", "rule": "Months of the Gregorian calendar year", "relation_type": "is_a", "theme": "time", "base_difficulty": 0.1}
+{"category_key": "calendar_words", "label": "CALENDAR WORDS", "rule": "Everyday English words for dates and periods of time on a calendar", "relation_type": "is_a", "theme": "time", "base_difficulty": 0.25}
+{"category_key": "holidays", "label": "HOLIDAYS", "rule": "Holidays widely celebrated in the United States", "relation_type": "is_a", "theme": "time", "base_difficulty": 0.2}
+{"category_key": "school_supplies", "label": "SCHOOL SUPPLIES", "rule": "Items a student brings to school in a backpack", "relation_type": "used_in", "theme": "education", "base_difficulty": 0.15}
+{"category_key": "school_subjects", "label": "SCHOOL SUBJECTS", "rule": "Subjects taught in an American school", "relation_type": "is_a", "theme": "education", "base_difficulty": 0.15}
