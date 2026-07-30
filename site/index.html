@@ -80,29 +80,47 @@
   .row-body{max-height:0;overflow:hidden;transition:max-height .45s ease;}
   .row-body-inner{padding:6px 2px 26px;}
 
-  /* plan content inside 00 */
-  .plan{list-style:none;display:flex;flex-direction:column;}
-  .plan li{
-    display:flex;align-items:flex-start;gap:14px;
-    padding:13px 0;border-bottom:1px dashed var(--line);
+  /* approach content inside 00 */
+  .approach{max-width:1020px;}
+  .approach-intro{
+    font-size:14px;font-weight:500;line-height:1.6;color:var(--ink-soft);
+    margin:2px 0 18px;
   }
-  .plan li:last-child{border-bottom:none;}
-  .p-num{
-    flex:0 0 auto;min-width:30px;height:30px;border-radius:8px;padding:0 8px;
+  .approach-intro b{color:var(--ink);font-weight:600;}
+  .steps{list-style:none;display:flex;flex-direction:column;}
+  .steps li{
+    display:flex;align-items:flex-start;gap:16px;
+    padding:16px 0;border-bottom:1px dashed var(--line);
+  }
+  .steps li:last-child{border-bottom:none;}
+  .s-num{
+    flex:0 0 auto;width:30px;height:30px;border-radius:8px;
     background:var(--chip);color:var(--violet);
     font-weight:700;font-size:13px;
     display:flex;align-items:center;justify-content:center;margin-top:1px;
   }
-  .p-text{flex:1 1 auto;font-size:14px;font-weight:500;line-height:1.55;color:var(--ink-soft);}
-  .p-text b{color:var(--ink);font-weight:600;}
-  .p-hours{
-    flex:0 0 auto;font-size:12px;font-weight:700;color:var(--violet);
-    background:var(--chip);border-radius:999px;padding:5px 11px;
+  .s-main{flex:1 1 auto;min-width:0;}
+  .s-title{
+    display:block;font-size:14px;font-weight:700;color:var(--ink);
+    letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px;
+  }
+  .s-text{display:block;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink-soft);}
+  .s-text b{color:var(--ink);font-weight:600;}
+  .s-tool{
+    flex:0 0 auto;font-size:11px;font-weight:700;color:var(--violet);
+    background:var(--chip);border-radius:999px;padding:6px 12px;
+    letter-spacing:.05em;text-transform:uppercase;
     white-space:nowrap;margin-top:3px;
   }
-  .plan li.final .p-num{background:var(--violet);color:#fff;}
-  .plan-total{margin-top:14px;text-align:right;font-size:13px;font-weight:600;color:var(--ink-soft);}
-  .plan-total b{font-size:17px;color:var(--ink);font-weight:800;}
+  .s-aside{
+    display:block;margin-top:8px;padding-left:13px;
+    border-left:2px solid var(--chip);
+    font-size:13px;font-weight:500;line-height:1.55;color:var(--ink-soft);
+  }
+  @media (max-width:640px){
+    .steps li{flex-wrap:wrap;}
+    .s-tool{order:3;margin:10px 0 0 46px;}
+  }
   .soon{font-size:14px;font-weight:500;color:var(--ink-soft);}
 
   /* GDD content inside 03 */
@@ -221,59 +239,65 @@
       <div class="row" id="r0">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
           <span class="row-num">00</span>
-          <span class="row-label">Planning</span>
+          <span class="row-label">Approach</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
         <div class="row-body">
           <div class="row-body-inner">
-            <ul class="plan">
-              <li>
-                <span class="p-num">0</span>
-                <span class="p-text">Наиграть в целевую игру, игру-оригинал и другие игры на группах слов и ассоциациях: сформировать <b>требования по контенту</b> и придумать <b>источники безлимитного набора слов</b> для обучения и генерации моделью.</span>
-                <span class="p-hours">4+ h</span>
-              </li>
-              <li>
-                <span class="p-num">1</span>
-                <span class="p-text">Собрать <b>играбельный прототип</b> с помощью Claude Code.</span>
-                <span class="p-hours">4–6 h</span>
-              </li>
-              <li>
-                <span class="p-num">2</span>
-                <span class="p-text">Подготовить <b>MD-файлы для солвера</b> уровней.</span>
-                <span class="p-hours">2 h</span>
-              </li>
-              <li>
-                <span class="p-num">3</span>
-                <span class="p-text">Реализовать скилл <b>Level Solver</b>.</span>
-                <span class="p-hours">4 h</span>
-              </li>
-              <li>
-                <span class="p-num">4</span>
-                <span class="p-text">Подготовить <b>MD-файлы для генератора</b> уровней с помощью нескольких источников.</span>
-                <span class="p-hours">2 h</span>
-              </li>
-              <li>
-                <span class="p-num">5</span>
-                <span class="p-text">Реализовать скилл <b>Level Generator</b>.</span>
-                <span class="p-hours">4 h</span>
-              </li>
-              <li>
-                <span class="p-num">6</span>
-                <span class="p-text">Разработать скилл <b>оценки уровней</b>.</span>
-                <span class="p-hours">3 h</span>
-              </li>
-              <li>
-                <span class="p-num">7</span>
-                <span class="p-text">Разработать скилл <b>JSON Export</b>.</span>
-                <span class="p-hours">2 h</span>
-              </li>
-              <li class="final">
-                <span class="p-num">F</span>
-                <span class="p-text"><b>Финал:</b> описать весь процесс, показать MD-файлы, обосновать выводы и принятые решения, визуализировать структуру скиллов/агентов, собрать сайт-отчёт и выложить в доступ.</span>
-                <span class="p-hours">8 h</span>
-              </li>
-            </ul>
-            <div class="plan-total">Итого <b>33–35 h</b></div>
+            <div class="approach">
+              <p class="approach-intro">Так я работаю со <b>сложными задачами</b> — это мой обычный пайплайн,
+              а не схема, придуманная под тестовое. Смысл простой: сначала разобраться и договориться
+              о том, что делаем, и только потом писать код. Каждый шаг даёт следующему нормальную
+              вводную, поэтому реализация идёт без метаний.</p>
+
+              <ul class="steps">
+                <li>
+                  <span class="s-num">1</span>
+                  <span class="s-main">
+                    <span class="s-title">Готовлю документацию</span>
+                    <span class="s-text">Собираю всю вводную в документы: что за игра, как работает
+                    механика, какие ограничения и по каким критериям задачу будут принимать.
+                    <span class="s-aside">Иногда дополнительно прошу ИИ задать мне <b>20–50 уточняющих
+                    вопросов</b> — это отлично вытаскивает из головы то, что мне кажется очевидным,
+                    но нигде не записано. В этот раз шаг пропустил: задача с нуля, а не доработка
+                    готового проекта, уточнять было особо нечего.</span></span>
+                  </span>
+                  <span class="s-tool">Docs</span>
+                </li>
+                <li>
+                  <span class="s-num">2</span>
+                  <span class="s-main">
+                    <span class="s-title">Делаю Deep Research вместе с Claude</span>
+                    <span class="s-text">Прогоняю задачу через <b>Deep Research</b>: как устроены похожие
+                    игры, откуда брать контент, что уже решено до меня. Если нужно — сам указываю, где
+                    искать: <b>arxiv</b> для полноценных research papers, профильные базы и сайты для
+                    прикладных вещей.</span>
+                  </span>
+                  <span class="s-tool">Claude</span>
+                </li>
+                <li>
+                  <span class="s-num">3</span>
+                  <span class="s-main">
+                    <span class="s-title">Готовлю developer-ready план</span>
+                    <span class="s-text">Загружаю research и вводные в <b>GPT Pro</b> и вместе с ним
+                    собираю подробный план реализации — такой, по которому можно сразу писать код:
+                    структура, этапы, форматы данных, критерии готовности.</span>
+                  </span>
+                  <span class="s-tool">GPT Pro</span>
+                </li>
+                <li>
+                  <span class="s-num">4</span>
+                  <span class="s-main">
+                    <span class="s-title">Отдаю на реализацию в Claude Code</span>
+                    <span class="s-text">Скармливаю план <b>Claude Code</b> — он пишет код, а я
+                    контролирую результат и правлю курс.
+                    <span class="s-aside">На днях таким образом через <b>/goal</b> он пять часов делал
+                    невероятно масштабную продакшен-задачу — и сделал идеально.</span></span>
+                  </span>
+                  <span class="s-tool">Claude Code</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
