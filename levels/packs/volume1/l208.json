@@ -1,0 +1,185 @@
+{
+  "level_id": 208,
+  "difficulty_target": 7,
+  "categories": [
+    {
+      "id": "dog-breeds",
+      "name": "Dog Breeds",
+      "words": [
+        "bulldog",
+        "labrador",
+        "husky",
+        "beagle"
+      ]
+    },
+    {
+      "id": "cat-breeds",
+      "name": "Cat Breeds",
+      "words": [
+        "persian",
+        "bengal",
+        "burmese",
+        "siamese"
+      ]
+    },
+    {
+      "id": "pets",
+      "name": "Pets",
+      "words": [
+        "dog",
+        "fish",
+        "cat",
+        "bird"
+      ]
+    },
+    {
+      "id": "dances",
+      "name": "Dances",
+      "words": [
+        "ballet",
+        "tango",
+        "salsa",
+        "waltz"
+      ]
+    },
+    {
+      "id": "menu-courses",
+      "name": "Restaurant Menu",
+      "words": [
+        "dessert",
+        "soup",
+        "salad",
+        "starter"
+      ]
+    },
+    {
+      "id": "meals",
+      "name": "Meals of the Day",
+      "words": [
+        "dinner",
+        "lunch",
+        "breakfast",
+        "snack"
+      ]
+    },
+    {
+      "id": "gems",
+      "name": "Gemstones",
+      "words": [
+        "diamond",
+        "pearl",
+        "ruby",
+        "emerald"
+      ]
+    },
+    {
+      "id": "polygons",
+      "name": "Polygons",
+      "words": [
+        "triangle",
+        "pentagon",
+        "octagon",
+        "hexagon"
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "Shapes",
+      "words": [
+        "square",
+        "heart",
+        "star",
+        "circle"
+      ]
+    },
+    {
+      "id": "books",
+      "name": "Kinds of Books",
+      "words": [
+        "novel",
+        "fiction",
+        "poetry",
+        "essay"
+      ]
+    },
+    {
+      "id": "weather-days",
+      "name": "Weather Words",
+      "words": [
+        "sunny",
+        "rainy",
+        "windy",
+        "cloudy"
+      ]
+    },
+    {
+      "id": "personality",
+      "name": "Personality Traits",
+      "words": [
+        "kind",
+        "honest",
+        "curious",
+        "brave"
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "words": [
+        "smoke",
+        "ash",
+        "flame",
+        "spark"
+      ]
+    },
+    {
+      "id": "royalty",
+      "name": "Royalty",
+      "words": [
+        "king",
+        "queen",
+        "prince",
+        "crown"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "dessert",
+      "home": "menu-courses",
+      "tempts": "meals"
+    },
+    {
+      "word": "square",
+      "home": "shapes",
+      "tempts": "polygons"
+    },
+    {
+      "word": "triangle",
+      "home": "polygons",
+      "tempts": "shapes"
+    },
+    {
+      "word": "diamond",
+      "home": "gems",
+      "tempts": "shapes"
+    }
+  ],
+  "repeats": [
+    {
+      "word": "salad",
+      "prev_level": 204,
+      "prev_category": "fast-food"
+    }
+  ],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 57,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

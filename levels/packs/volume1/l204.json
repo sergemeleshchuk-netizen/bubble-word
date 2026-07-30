@@ -1,0 +1,179 @@
+{
+  "level_id": 204,
+  "difficulty_target": 7,
+  "categories": [
+    {
+      "id": "seasons",
+      "name": "Seasons",
+      "words": [
+        "winter",
+        "summer",
+        "autumn",
+        "spring"
+      ]
+    },
+    {
+      "id": "winter",
+      "name": "Winter",
+      "words": [
+        "snow",
+        "frost",
+        "fireplace",
+        "snowflake"
+      ]
+    },
+    {
+      "id": "winter-sports",
+      "name": "Winter Sports",
+      "words": [
+        "sled",
+        "hockey",
+        "skiing",
+        "skating"
+      ]
+    },
+    {
+      "id": "storms",
+      "name": "Storms",
+      "words": [
+        "blizzard",
+        "hurricane",
+        "tornado",
+        "typhoon"
+      ]
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "words": [
+        "ring",
+        "necklace",
+        "bracelet",
+        "earrings"
+      ]
+    },
+    {
+      "id": "camera",
+      "name": "Camera",
+      "words": [
+        "flash",
+        "lens",
+        "zoom",
+        "selfie"
+      ]
+    },
+    {
+      "id": "mail",
+      "name": "Mail",
+      "words": [
+        "address",
+        "stamp",
+        "envelope",
+        "parcel"
+      ]
+    },
+    {
+      "id": "fast-food",
+      "name": "Lunch Menu",
+      "words": [
+        "pizza",
+        "salad",
+        "sandwich",
+        "burger"
+      ]
+    },
+    {
+      "id": "vegetables",
+      "name": "Vegetables",
+      "words": [
+        "carrot",
+        "onion",
+        "potato",
+        "broccoli"
+      ]
+    },
+    {
+      "id": "salad-things",
+      "name": "In a Salad",
+      "words": [
+        "lettuce",
+        "dressing",
+        "olives",
+        "croutons"
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family Members",
+      "words": [
+        "father",
+        "mother",
+        "brother",
+        "sister"
+      ]
+    },
+    {
+      "id": "music-genres",
+      "name": "Music Genres",
+      "words": [
+        "rock",
+        "pop",
+        "blues",
+        "jazz"
+      ]
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "words": [
+        "net",
+        "hook",
+        "rod",
+        "bait"
+      ]
+    },
+    {
+      "id": "ages",
+      "name": "Stages of Life",
+      "words": [
+        "baby",
+        "kid",
+        "senior",
+        "adult"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "winter",
+      "home": "seasons",
+      "tempts": "winter"
+    },
+    {
+      "word": "sled",
+      "home": "winter-sports",
+      "tempts": "winter"
+    },
+    {
+      "word": "blizzard",
+      "home": "storms",
+      "tempts": "winter"
+    },
+    {
+      "word": "lettuce",
+      "home": "salad-things",
+      "tempts": "vegetables"
+    }
+  ],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 57,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -9426,6 +9426,11 @@
           "w": "cupcake",
           "zipf": 3.35,
           "len": 7
+        },
+        {
+          "w": "eclair",
+          "zipf": 2.18,
+          "len": 6
         }
       ],
       "shared_words": {

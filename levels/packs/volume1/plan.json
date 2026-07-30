@@ -1,0 +1,480 @@
+{
+  "pack": "volume1",
+  "out_dir": "levels/packs/volume1",
+  "comment": "Продолжение кривой оригинала: уровни 200-209. Коридор 12-16 категорий, спайк L209 (K=1.25), передышка L205. Ловушки из пересечений базы, сила сверена по SWOW.",
+  "levels": [
+    {
+      "level_id": 200,
+      "difficulty_target": 5,
+      "k": 1.5,
+      "cats": [
+        "fruits",
+        "colors",
+        "toys",
+        "bowling",
+        "farm-animals",
+        "vehicles",
+        "weekdays",
+        "breads",
+        "flowers",
+        "sea-animals",
+        "house-parts",
+        "emotions"
+      ],
+      "traps": [
+        {
+          "word": "orange",
+          "home": "fruits",
+          "tempts": "colors"
+        },
+        {
+          "word": "ball",
+          "home": "bowling",
+          "tempts": "toys"
+        }
+      ]
+    },
+    {
+      "level_id": 201,
+      "difficulty_target": 5,
+      "k": 1.45,
+      "cats": [
+        "pets",
+        "birds",
+        "dog-things",
+        "tree-parts",
+        "drinks",
+        "desserts",
+        "gems",
+        "clothes",
+        "weather-days",
+        "professions",
+        "water-bodies",
+        "numbers"
+      ],
+      "traps": [
+        {
+          "word": "parrot",
+          "home": "birds",
+          "tempts": "pets"
+        },
+        {
+          "word": "bark",
+          "home": "tree-parts",
+          "tempts": "dog-things"
+        }
+      ],
+      "must": {
+        "drinks": [
+          "milk"
+        ]
+      }
+    },
+    {
+      "level_id": 202,
+      "difficulty_target": 6,
+      "k": 1.4,
+      "cats": [
+        "months",
+        "summer",
+        "cutlery",
+        "materials",
+        "safari-animals",
+        "instruments",
+        "hospital",
+        "boats",
+        "face-parts",
+        "sweets",
+        "reptiles",
+        "movie-genres",
+        "royalty"
+      ],
+      "traps": [
+        {
+          "word": "june",
+          "home": "months",
+          "tempts": "summer"
+        },
+        {
+          "word": "july",
+          "home": "months",
+          "tempts": "summer"
+        },
+        {
+          "word": "august",
+          "home": "summer",
+          "tempts": "months"
+        },
+        {
+          "word": "glass",
+          "home": "cutlery",
+          "tempts": "materials"
+        }
+      ]
+    },
+    {
+      "level_id": 203,
+      "difficulty_target": 6,
+      "k": 1.4,
+      "cats": [
+        "baked-goods",
+        "pastries",
+        "desserts",
+        "dairy",
+        "facial-care",
+        "planets",
+        "us-states",
+        "dances",
+        "insects",
+        "shoe-parts",
+        "timepieces",
+        "accessories",
+        "banking"
+      ],
+      "traps": [
+        {
+          "word": "croissant",
+          "home": "pastries",
+          "tempts": "baked-goods"
+        },
+        {
+          "word": "cream",
+          "home": "dairy",
+          "tempts": "facial-care"
+        },
+        {
+          "word": "watch",
+          "home": "timepieces",
+          "tempts": "accessories"
+        }
+      ],
+      "must": {
+        "dairy": [
+          "milk"
+        ],
+        "pastries": [
+          "croissant",
+          "tart",
+          "scone",
+          "eclair"
+        ]
+      }
+    },
+    {
+      "level_id": 204,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "seasons",
+        "winter",
+        "winter-sports",
+        "storms",
+        "jewelry",
+        "camera",
+        "mail",
+        "fast-food",
+        "vegetables",
+        "salad-things",
+        "family",
+        "music-genres",
+        "fishing",
+        "ages"
+      ],
+      "traps": [
+        {
+          "word": "winter",
+          "home": "seasons",
+          "tempts": "winter"
+        },
+        {
+          "word": "sled",
+          "home": "winter-sports",
+          "tempts": "winter"
+        },
+        {
+          "word": "blizzard",
+          "home": "storms",
+          "tempts": "winter"
+        },
+        {
+          "word": "lettuce",
+          "home": "salad-things",
+          "tempts": "vegetables"
+        }
+      ],
+      "must": {
+        "seasons": [
+          "winter",
+          "summer",
+          "autumn",
+          "spring"
+        ],
+        "vegetables": [
+          "carrot",
+          "onion",
+          "potato",
+          "broccoli"
+        ],
+        "salad-things": [
+          "lettuce",
+          "dressing",
+          "olives",
+          "croutons"
+        ]
+      }
+    },
+    {
+      "level_id": 205,
+      "difficulty_target": 5,
+      "k": 1.5,
+      "cats": [
+        "colors",
+        "teas",
+        "coffee-drinks",
+        "breakfast-foods",
+        "farm-work",
+        "guitars",
+        "board-games",
+        "bathroom-items",
+        "cinema",
+        "snacks-salty",
+        "senses",
+        "house-types"
+      ],
+      "traps": [
+        {
+          "word": "green",
+          "home": "teas",
+          "tempts": "colors"
+        },
+        {
+          "word": "popcorn",
+          "home": "snacks-salty",
+          "tempts": "cinema"
+        }
+      ],
+      "must": {
+        "breakfast-foods": [
+          "milk"
+        ],
+        "teas": [
+          "green",
+          "black",
+          "matcha",
+          "chamomile"
+        ]
+      }
+    },
+    {
+      "level_id": 206,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "school-supplies",
+        "stationery",
+        "writing-tools",
+        "soils",
+        "classroom",
+        "meats",
+        "cured-meats",
+        "landscape",
+        "wild-cats",
+        "hotel",
+        "security",
+        "airport",
+        "picnic",
+        "gym"
+      ],
+      "traps": [
+        {
+          "word": "pen",
+          "home": "writing-tools",
+          "tempts": "stationery"
+        },
+        {
+          "word": "eraser",
+          "home": "school-supplies",
+          "tempts": "stationery"
+        },
+        {
+          "word": "chalk",
+          "home": "writing-tools",
+          "tempts": "soils"
+        },
+        {
+          "word": "bacon",
+          "home": "cured-meats",
+          "tempts": "meats"
+        },
+        {
+          "word": "key",
+          "home": "hotel",
+          "tempts": "security"
+        }
+      ],
+      "must": {
+        "classroom": [
+          "blackboard",
+          "lesson",
+          "student",
+          "quiz"
+        ]
+      }
+    },
+    {
+      "level_id": 207,
+      "difficulty_target": 8,
+      "k": 1.3,
+      "cats": [
+        "space",
+        "astronomy",
+        "weather",
+        "stars-named",
+        "rain-gear",
+        "beach",
+        "swimming",
+        "hats",
+        "singing-voices",
+        "band-members",
+        "nuts",
+        "ice-cream",
+        "berries",
+        "tennis",
+        "bovines"
+      ],
+      "traps": [
+        {
+          "word": "galaxy",
+          "home": "space",
+          "tempts": "astronomy"
+        },
+        {
+          "word": "sun",
+          "home": "stars-named",
+          "tempts": "weather"
+        },
+        {
+          "word": "cap",
+          "home": "hats",
+          "tempts": "swimming"
+        },
+        {
+          "word": "bass",
+          "home": "band-members",
+          "tempts": "singing-voices"
+        },
+        {
+          "word": "strawberry",
+          "home": "berries",
+          "tempts": "ice-cream"
+        }
+      ],
+      "must": {
+        "space": [
+          "galaxy",
+          "moon",
+          "asteroid",
+          "comets"
+        ]
+      }
+    },
+    {
+      "level_id": 208,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "dog-breeds",
+        "cat-breeds",
+        "pets",
+        "dances",
+        "menu-courses",
+        "meals",
+        "gems",
+        "polygons",
+        "shapes",
+        "books",
+        "weather-days",
+        "personality",
+        "fire",
+        "royalty"
+      ],
+      "traps": [
+        {
+          "word": "dessert",
+          "home": "menu-courses",
+          "tempts": "meals"
+        },
+        {
+          "word": "square",
+          "home": "shapes",
+          "tempts": "polygons"
+        },
+        {
+          "word": "triangle",
+          "home": "polygons",
+          "tempts": "shapes"
+        },
+        {
+          "word": "diamond",
+          "home": "gems",
+          "tempts": "shapes"
+        }
+      ]
+    },
+    {
+      "level_id": 209,
+      "difficulty_target": 9,
+      "k": 1.25,
+      "cats": [
+        "illness",
+        "temperature",
+        "medicines",
+        "morning-routine",
+        "drinks",
+        "furniture",
+        "bedding",
+        "accessories",
+        "clothes",
+        "dairy",
+        "solid-shapes",
+        "ancient-egypt",
+        "laundry",
+        "cleaning-tools",
+        "movie-genres",
+        "music-genres"
+      ],
+      "traps": [
+        {
+          "word": "cold",
+          "home": "illness",
+          "tempts": "temperature"
+        },
+        {
+          "word": "coffee",
+          "home": "drinks",
+          "tempts": "morning-routine"
+        },
+        {
+          "word": "bed",
+          "home": "furniture",
+          "tempts": "bedding"
+        },
+        {
+          "word": "hat",
+          "home": "accessories",
+          "tempts": "clothes"
+        },
+        {
+          "word": "milk",
+          "home": "dairy",
+          "tempts": "drinks"
+        },
+        {
+          "word": "pyramid",
+          "home": "solid-shapes",
+          "tempts": "ancient-egypt"
+        }
+      ]
+    }
+  ]
+}

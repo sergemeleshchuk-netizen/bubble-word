@@ -1,0 +1,149 @@
+{
+  "level_id": 201,
+  "difficulty_target": 5,
+  "categories": [
+    {
+      "id": "pets",
+      "name": "Pets",
+      "words": [
+        "dog",
+        "fish",
+        "cat",
+        "bird"
+      ]
+    },
+    {
+      "id": "birds",
+      "name": "Birds",
+      "words": [
+        "parrot",
+        "eagle",
+        "crane",
+        "owl"
+      ]
+    },
+    {
+      "id": "dog-things",
+      "name": "Dog Things",
+      "words": [
+        "bone",
+        "collar",
+        "fetch",
+        "paw"
+      ]
+    },
+    {
+      "id": "tree-parts",
+      "name": "Parts of a Tree",
+      "words": [
+        "bark",
+        "branch",
+        "crown",
+        "root"
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "words": [
+        "milk",
+        "coffee",
+        "tea",
+        "juice"
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "words": [
+        "pie",
+        "pudding",
+        "cupcake",
+        "cheesecake"
+      ]
+    },
+    {
+      "id": "gems",
+      "name": "Gemstones",
+      "words": [
+        "diamond",
+        "pearl",
+        "ruby",
+        "emerald"
+      ]
+    },
+    {
+      "id": "clothes",
+      "name": "Clothes",
+      "words": [
+        "dress",
+        "shirt",
+        "hat",
+        "pants"
+      ]
+    },
+    {
+      "id": "weather-days",
+      "name": "Weather Words",
+      "words": [
+        "sunny",
+        "rainy",
+        "windy",
+        "cloudy"
+      ]
+    },
+    {
+      "id": "professions",
+      "name": "Professions",
+      "words": [
+        "manager",
+        "doctor",
+        "teacher",
+        "lawyer"
+      ]
+    },
+    {
+      "id": "water-bodies",
+      "name": "Bodies of Water",
+      "words": [
+        "sea",
+        "river",
+        "lake",
+        "bay"
+      ]
+    },
+    {
+      "id": "numbers",
+      "name": "Numbers",
+      "words": [
+        "one",
+        "two",
+        "three",
+        "four"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "parrot",
+      "home": "birds",
+      "tempts": "pets"
+    },
+    {
+      "word": "bark",
+      "home": "tree-parts",
+      "tempts": "dog-things"
+    }
+  ],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 53,
+    "move_limit_k": 1.45
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

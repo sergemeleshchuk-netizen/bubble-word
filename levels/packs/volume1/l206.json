@@ -1,0 +1,195 @@
+{
+  "level_id": 206,
+  "difficulty_target": 7,
+  "categories": [
+    {
+      "id": "school-supplies",
+      "name": "School Supplies",
+      "words": [
+        "eraser",
+        "book",
+        "desk",
+        "ruler"
+      ]
+    },
+    {
+      "id": "stationery",
+      "name": "Office Supplies",
+      "words": [
+        "paper",
+        "tape",
+        "clip",
+        "folder"
+      ]
+    },
+    {
+      "id": "writing-tools",
+      "name": "Writing Tools",
+      "words": [
+        "pen",
+        "chalk",
+        "pencil",
+        "marker"
+      ]
+    },
+    {
+      "id": "soils",
+      "name": "Types of Soil",
+      "words": [
+        "sand",
+        "clay",
+        "peat",
+        "silt"
+      ]
+    },
+    {
+      "id": "classroom",
+      "name": "Classroom",
+      "words": [
+        "blackboard",
+        "lesson",
+        "student",
+        "quiz"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "Meats",
+      "words": [
+        "chicken",
+        "beef",
+        "pork",
+        "lamb"
+      ]
+    },
+    {
+      "id": "cured-meats",
+      "name": "Cured Meats",
+      "words": [
+        "bacon",
+        "pepperoni",
+        "salami",
+        "chorizo"
+      ]
+    },
+    {
+      "id": "landscape",
+      "name": "Landscape",
+      "words": [
+        "hill",
+        "sky",
+        "valley",
+        "cloud"
+      ]
+    },
+    {
+      "id": "wild-cats",
+      "name": "Wild Cats",
+      "words": [
+        "tiger",
+        "panther",
+        "leopard",
+        "puma"
+      ]
+    },
+    {
+      "id": "hotel",
+      "name": "At the Hotel",
+      "words": [
+        "key",
+        "reception",
+        "suite",
+        "lobby"
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Under Lock",
+      "words": [
+        "code",
+        "safe",
+        "lock",
+        "alarm"
+      ]
+    },
+    {
+      "id": "airport",
+      "name": "At the Airport",
+      "words": [
+        "gate",
+        "terminal",
+        "customs",
+        "passport"
+      ]
+    },
+    {
+      "id": "picnic",
+      "name": "Picnic",
+      "words": [
+        "basket",
+        "blanket",
+        "cooler",
+        "lemonade"
+      ]
+    },
+    {
+      "id": "gym",
+      "name": "At the Gym",
+      "words": [
+        "bench",
+        "trainer",
+        "weights",
+        "squat"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "pen",
+      "home": "writing-tools",
+      "tempts": "stationery"
+    },
+    {
+      "word": "eraser",
+      "home": "school-supplies",
+      "tempts": "stationery"
+    },
+    {
+      "word": "chalk",
+      "home": "writing-tools",
+      "tempts": "soils"
+    },
+    {
+      "word": "bacon",
+      "home": "cured-meats",
+      "tempts": "meats"
+    },
+    {
+      "word": "key",
+      "home": "hotel",
+      "tempts": "security"
+    }
+  ],
+  "repeats": [
+    {
+      "word": "paper",
+      "prev_level": 202,
+      "prev_category": "materials"
+    },
+    {
+      "word": "chicken",
+      "prev_level": 200,
+      "prev_category": "farm-animals"
+    }
+  ],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 57,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

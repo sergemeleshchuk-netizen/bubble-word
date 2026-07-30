@@ -1,0 +1,230 @@
+{
+  "level_id": 209,
+  "difficulty_target": 9,
+  "categories": [
+    {
+      "id": "illness",
+      "name": "Feeling Sick",
+      "words": [
+        "cold",
+        "fever",
+        "headache",
+        "flu"
+      ]
+    },
+    {
+      "id": "temperature",
+      "name": "Temperature",
+      "words": [
+        "hot",
+        "cool",
+        "warm",
+        "mild"
+      ]
+    },
+    {
+      "id": "medicines",
+      "name": "Medicines",
+      "words": [
+        "pill",
+        "vaccine",
+        "injection",
+        "insulin"
+      ]
+    },
+    {
+      "id": "morning-routine",
+      "name": "Morning Routine",
+      "words": [
+        "wake",
+        "breakfast",
+        "shower",
+        "stretch"
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "words": [
+        "coffee",
+        "tea",
+        "juice",
+        "soda"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture",
+      "words": [
+        "bed",
+        "table",
+        "chair",
+        "rack"
+      ]
+    },
+    {
+      "id": "bedding",
+      "name": "Bedtime",
+      "words": [
+        "sleep",
+        "sheets",
+        "pillow",
+        "mattress"
+      ]
+    },
+    {
+      "id": "accessories",
+      "name": "Accessories",
+      "words": [
+        "hat",
+        "tie",
+        "belt",
+        "wallet"
+      ]
+    },
+    {
+      "id": "clothes",
+      "name": "Clothes",
+      "words": [
+        "dress",
+        "shirt",
+        "pants",
+        "jacket"
+      ]
+    },
+    {
+      "id": "dairy",
+      "name": "Dairy Products",
+      "words": [
+        "milk",
+        "cream",
+        "cheese",
+        "butter"
+      ]
+    },
+    {
+      "id": "solid-shapes",
+      "name": "3D Shapes",
+      "words": [
+        "pyramid",
+        "cylinder",
+        "sphere",
+        "cone"
+      ]
+    },
+    {
+      "id": "ancient-egypt",
+      "name": "Ancient Egypt",
+      "words": [
+        "tomb",
+        "nile",
+        "mummy",
+        "pharaoh"
+      ]
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry",
+      "words": [
+        "spin",
+        "stain",
+        "bleach",
+        "rinse"
+      ]
+    },
+    {
+      "id": "cleaning-tools",
+      "name": "Cleaning Tools",
+      "words": [
+        "vacuum",
+        "sponge",
+        "broom",
+        "mop"
+      ]
+    },
+    {
+      "id": "movie-genres",
+      "name": "Movie Genres",
+      "words": [
+        "action",
+        "western",
+        "drama",
+        "comedy"
+      ]
+    },
+    {
+      "id": "music-genres",
+      "name": "Music Genres",
+      "words": [
+        "rock",
+        "pop",
+        "blues",
+        "jazz"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "cold",
+      "home": "illness",
+      "tempts": "temperature"
+    },
+    {
+      "word": "coffee",
+      "home": "drinks",
+      "tempts": "morning-routine"
+    },
+    {
+      "word": "bed",
+      "home": "furniture",
+      "tempts": "bedding"
+    },
+    {
+      "word": "hat",
+      "home": "accessories",
+      "tempts": "clothes"
+    },
+    {
+      "word": "milk",
+      "home": "dairy",
+      "tempts": "drinks"
+    },
+    {
+      "word": "pyramid",
+      "home": "solid-shapes",
+      "tempts": "ancient-egypt"
+    }
+  ],
+  "repeats": [
+    {
+      "word": "breakfast",
+      "prev_level": 208,
+      "prev_category": "meals"
+    },
+    {
+      "word": "shower",
+      "prev_level": 205,
+      "prev_category": "bathroom-items"
+    },
+    {
+      "word": "hat",
+      "prev_level": 201,
+      "prev_category": "clothes"
+    },
+    {
+      "word": "milk",
+      "prev_level": 205,
+      "prev_category": "breakfast-foods"
+    }
+  ],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 60,
+    "move_limit_k": 1.25
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}
