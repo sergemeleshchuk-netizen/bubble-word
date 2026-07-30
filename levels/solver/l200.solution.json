@@ -1,1 +1,23 @@
-{"groups":[{"category":"Bowling","words":["lane","spare","strike","ball"],"confidence":5},{"category":"Breads of the World","words":["pita","naan","baguette","sourdough"],"confidence":5},{"category":"Colors","words":["brown","pink","red","yellow"],"confidence":5},{"category":"Days of the Week","words":["sunday","friday","saturday","monday"],"confidence":5},{"category":"Emotions","words":["fear","worry","sad","happy"],"confidence":5},{"category":"Farm Animals","words":["donkey","duck","horse","chicken"],"confidence":5},{"category":"Flowers","words":["lily","orchid","daisy","rose"],"confidence":5},{"category":"Fruits","words":["apricot","banana","cherry","orange"],"confidence":5},{"category":"Parts of a House","words":["wall","door","floor","window"],"confidence":5},{"category":"Sea Animals","words":["seal","whale","crab","shark"],"confidence":5},{"category":"Toys","words":["marbles","yoyo","teddy","blocks"],"confidence":5},{"category":"Vehicles","words":["tram","scooter","bicycle","van"],"confidence":5}],"hesitations":[{"word":"orange","also_fits":"Colors","why":"orange is both a fruit and a color"},{"word":"ball","also_fits":"Toys","why":"a ball is a classic toy"},{"word":"rose","also_fits":"Colors","why":"rose is also a shade"},{"word":"cherry","also_fits":"Colors","why":"cherry red"},{"word":"apricot","also_fits":"Colors","why":"pale orange color"},{"word":"scooter","also_fits":"Toys","why":"kick scooters are kids' toys"}]}
+{
+  "groups": [
+    { "category": "Bowling", "words": ["lane", "spare", "strike", "ball"], "confidence": 4 },
+    { "category": "Breads of the World", "words": ["pita", "naan", "baguette", "sourdough"], "confidence": 5 },
+    { "category": "Colors", "words": ["brown", "pink", "red", "yellow"], "confidence": 4 },
+    { "category": "Days of the Week", "words": ["sunday", "friday", "saturday", "monday"], "confidence": 5 },
+    { "category": "Emotions", "words": ["fear", "worry", "sad", "happy"], "confidence": 5 },
+    { "category": "Farm Animals", "words": ["donkey", "duck", "horse", "chicken"], "confidence": 5 },
+    { "category": "Flowers", "words": ["lily", "orchid", "daisy", "rose"], "confidence": 4 },
+    { "category": "Fruits", "words": ["apricot", "banana", "cherry", "orange"], "confidence": 4 },
+    { "category": "Parts of a House", "words": ["wall", "door", "floor", "window"], "confidence": 5 },
+    { "category": "Sea Animals", "words": ["seal", "whale", "crab", "shark"], "confidence": 5 },
+    { "category": "Toys", "words": ["marbles", "yoyo", "teddy", "blocks"], "confidence": 4 },
+    { "category": "Vehicles", "words": ["tram", "scooter", "bicycle", "van"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "ball", "also_fits": "Toys", "why": "мяч - классическая игрушка, но Toys уже заполнены, а Bowling требует 4-е слово" },
+    { "word": "orange", "also_fits": "Colors", "why": "и цвет, и фрукт; Fruits без него остаются с 3 словами" },
+    { "word": "rose", "also_fits": "Colors", "why": "розовый оттенок, но как цветок уместнее - Colors уже укомплектованы" },
+    { "word": "pink", "also_fits": "Flowers", "why": "pink - также название цветка (гвоздика), но здесь очевидно цвет" },
+    { "word": "cherry", "also_fits": "Colors", "why": "вишнёвый как оттенок красного, но прежде всего фрукт" }
+  ]
+}

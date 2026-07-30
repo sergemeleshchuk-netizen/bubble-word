@@ -1,1 +1,26 @@
-{"groups":[{"category":"Camera","words":["flash","lens","selfie","zoom"],"confidence":5},{"category":"Family Members","words":["sister","father","brother","mother"],"confidence":5},{"category":"Fishing","words":["bait","rod","hook","net"],"confidence":5},{"category":"In a Salad","words":["dressing","olives","croutons","lettuce"],"confidence":4},{"category":"Jewelry","words":["ring","earrings","necklace","bracelet"],"confidence":5},{"category":"Lunch Menu","words":["sandwich","burger","pizza","salad"],"confidence":4},{"category":"Mail","words":["stamp","address","envelope","parcel"],"confidence":5},{"category":"Music Genres","words":["blues","jazz","rock","pop"],"confidence":5},{"category":"Seasons","words":["autumn","winter","summer","spring"],"confidence":5},{"category":"Stages of Life","words":["baby","kid","adult","senior"],"confidence":5},{"category":"Storms","words":["typhoon","hurricane","blizzard","tornado"],"confidence":4},{"category":"Vegetables","words":["cauliflower","celery","potato","broccoli"],"confidence":4},{"category":"Winter","words":["snowflake","frost","fireplace","icicle"],"confidence":4},{"category":"Winter Sports","words":["sled","skiing","hockey","skating"],"confidence":4}],"hesitations":[{"word":"winter","also_fits":"Winter","why":"literally the theme of the Winter category, but needed as a Season"},{"word":"lettuce","also_fits":"Vegetables","why":"a vegetable, but salad base"},{"word":"blizzard","also_fits":"Winter","why":"winter weather event"},{"word":"sled","also_fits":"Winter","why":"iconic winter object"},{"word":"celery","also_fits":"In a Salad","why":"common salad ingredient"}]}
+{
+  "groups": [
+    { "category": "Camera", "words": ["flash", "lens", "selfie", "zoom"], "confidence": 5 },
+    { "category": "Family Members", "words": ["sister", "father", "brother", "mother"], "confidence": 5 },
+    { "category": "Fishing", "words": ["bait", "rod", "hook", "net"], "confidence": 5 },
+    { "category": "In a Salad", "words": ["dressing", "olives", "croutons", "lettuce"], "confidence": 4 },
+    { "category": "Jewelry", "words": ["ring", "earrings", "necklace", "bracelet"], "confidence": 5 },
+    { "category": "Lunch Menu", "words": ["sandwich", "burger", "pizza", "salad"], "confidence": 4 },
+    { "category": "Mail", "words": ["stamp", "address", "envelope", "parcel"], "confidence": 5 },
+    { "category": "Music Genres", "words": ["blues", "jazz", "rock", "pop"], "confidence": 5 },
+    { "category": "Seasons", "words": ["autumn", "winter", "summer", "spring"], "confidence": 5 },
+    { "category": "Stages of Life", "words": ["baby", "kid", "adult", "senior"], "confidence": 5 },
+    { "category": "Storms", "words": ["typhoon", "hurricane", "tornado", "blizzard"], "confidence": 4 },
+    { "category": "Vegetables", "words": ["cauliflower", "celery", "potato", "broccoli"], "confidence": 5 },
+    { "category": "Winter", "words": ["snowflake", "frost", "fireplace", "icicle"], "confidence": 4 },
+    { "category": "Winter Sports", "words": ["sled", "skiing", "hockey", "skating"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "winter", "also_fits": "Winter", "why": "буквально совпадает с названием категории, но Seasons без него не собирается" },
+    { "word": "lettuce", "also_fits": "Vegetables", "why": "салат-латук - овощ, но Vegetables уже полна четырьмя однозначными, а In a Salad без него неполна" },
+    { "word": "salad", "also_fits": "In a Salad", "why": "тематически близко, но salad - блюдо в меню, а не ингредиент салата" },
+    { "word": "blizzard", "also_fits": "Winter", "why": "метель зимняя, но это шторм; Winter закрыт snowflake/frost/fireplace/icicle" },
+    { "word": "sled", "also_fits": "Winter", "why": "санки - зимний атрибут, но здесь логичнее как зимний спорт" },
+    { "word": "frost", "also_fits": "Winter", "why": "однозначно зимнее явление, сомнение слабое" }
+  ]
+}

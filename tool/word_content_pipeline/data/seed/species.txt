@@ -1,0 +1,63 @@
+# species — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+cat_breeds | CAT BREEDS | is_a | 0.35 | 0.72 | A | Breeds of domestic cat | $W is a breed of cat
+siamese, persian, tabby, calico, maine coon, sphynx, ragdoll, bengal, russian blue, burmese, himalayan, manx, abyssinian, bombay, birman
+
+horse_breeds | HORSE BREEDS | is_a | 0.4 | 0.68 | A | Breeds of horse | $W is a breed of horse
+arabian, mustang, clydesdale, thoroughbred, appaloosa, palomino, quarter horse, pinto, shetland, morgan, percheron, andalusian, paint, friesian
+
+cattle_and_farm_breeds | FARM BREEDS | is_a | 0.45 | 0.6 | C | Breeds of cattle, sheep and pigs raised on farms | $W is a farm animal breed
+holstein, angus, hereford, jersey, guernsey, merino, dorset, suffolk, berkshire, duroc, brahman, longhorn, shorthorn
+
+songbirds | SONGBIRDS | is_a | 0.4 | 0.68 | A | Small singing birds found in yards and woods | $W is a small singing bird
+robin, sparrow, finch, wren, warbler, thrush, cardinal, bluebird, chickadee, nuthatch, oriole, mockingbird, canary, lark, starling, swallow, junco
+
+birds_of_prey | BIRDS OF PREY | is_a | 0.3 | 0.8 | A | Birds that hunt other animals | $W is a bird that hunts other animals
+eagle, hawk, falcon, owl, kite, osprey, vulture, condor, harrier, kestrel, buzzard, merlin, goshawk
+
+butterflies_and_moths | BUTTERFLIES AND MOTHS | is_a | 0.4 | 0.68 | A | Kinds of butterfly and moth | $W is a kind of butterfly or moth
+monarch, swallowtail, painted lady, luna moth, admiral, fritillary, skipper, gypsy moth, sphinx moth, cabbage white, buckeye, viceroy
+
+snakes | SNAKES | is_a | 0.3 | 0.8 | A | Kinds of snake | $W is a kind of snake
+cobra, python, rattlesnake, boa, viper, garter, anaconda, mamba, adder, copperhead, king snake, coral snake, sidewinder, bullsnake
+
+frogs_and_toads | FROGS AND TOADS | is_a | 0.4 | 0.68 | C | Kinds of frog and toad | $W is a kind of frog or toad
+bullfrog, tree frog, poison dart, leopard frog, toad, spring peeper, wood frog, green frog, cane toad, pickerel frog
+
+bears_and_big_animals | BEARS | is_a | 0.3 | 0.82 | A | Kinds of bear | $W is a kind of bear
+grizzly, polar, black bear, brown bear, panda, sloth bear, sun bear, kodiak, spectacled bear, koala
+
+deer_family | DEER FAMILY | is_a | 0.35 | 0.75 | A | Animals of the deer family | $W is an animal of the deer family
+deer, elk, moose, caribou, reindeer, antelope, gazelle, impala, fawn, stag, doe, buck, roe deer, muntjac
+
+monkeys_and_apes | MONKEYS AND APES | is_a | 0.3 | 0.8 | A | Kinds of monkey and ape | $W is a monkey or ape
+chimpanzee, gorilla, orangutan, baboon, gibbon, macaque, marmoset, lemur, capuchin, mandrill, howler, spider monkey, bonobo, tamarin
+
+wild_dogs | WILD DOG FAMILY | is_a | 0.35 | 0.75 | A | Wild members of the dog family | $W is a wild member of the dog family
+wolf, fox, coyote, jackal, dingo, hyena, arctic fox, red fox, gray wolf, fennec, maned wolf
+
+whale_types | WHALE TYPES | is_a | 0.4 | 0.7 | A | Kinds of whale | $W is a kind of whale
+blue whale, humpback, sperm whale, orca, gray whale, beluga, narwhal, minke, right whale, fin whale, pilot whale, bowhead
+
+lizards | LIZARDS | is_a | 0.35 | 0.75 | A | Kinds of lizard | $W is a kind of lizard
+gecko, iguana, chameleon, monitor, skink, komodo dragon, anole, bearded dragon, gila monster, horned lizard, salamander
+
+spiders_and_crawlers | SPIDERS AND CRAWLERS | is_a | 0.35 | 0.75 | A | Small many-legged creatures that are not insects | $W is a small many-legged creature
+spider, tarantula, scorpion, tick, mite, centipede, millipede, daddy longlegs, black widow, brown recluse, harvestman, wolf spider
+
+owls | OWLS | is_a | 0.4 | 0.7 | A | Kinds of owl | $W is a kind of owl
+barn owl, snowy owl, great horned, screech owl, barred owl, burrowing owl, elf owl, spotted owl, tawny owl, long eared
+
+rodent_species | RODENT SPECIES | is_a | 0.4 | 0.68 | A | Particular kinds of rodent | $W is a kind of rodent
+field mouse, house mouse, gray squirrel, flying squirrel, chipmunk, groundhog, prairie dog, capybara, porcupine, lemming, jerboa, dormouse, vole
+
+farm_poultry_breeds | CHICKEN BREEDS | is_a | 0.45 | 0.6 | C | Breeds of chicken raised on farms | $W is a breed of chicken
+leghorn, rhode island red, plymouth rock, orpington, wyandotte, silkie, bantam, sussex, brahma, australorp
+
+pond_fish | FRESHWATER FISH | is_a | 0.35 | 0.75 | A | Fish that live in lakes and rivers | $W lives in fresh water
+bass, trout, catfish, perch, carp, pike, bluegill, walleye, sunfish, crappie, sturgeon, muskie, gar, minnow, koi
+
+extinct_and_prehistoric | PREHISTORIC ANIMALS | is_a | 0.35 | 0.75 | A | Animals that lived in prehistoric times | $W lived in prehistoric times
+mammoth, saber tooth, dodo, trilobite, megalodon, dire wolf, giant sloth, cave bear, mastodon, pterosaur, ammonite, glyptodon

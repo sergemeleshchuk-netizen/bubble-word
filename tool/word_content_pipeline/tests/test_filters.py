@@ -43,6 +43,24 @@ def test_blocklist_matches_word_inside_phrase(blocklist: Blocklist):
     assert blocklist.check("ice cream") is None
 
 
+def test_allowlist_lets_safe_phrases_through(tmp_path: Path):
+    """«sperm whale» — название кита, а не повод его выбрасывать."""
+    block = tmp_path / "block.txt"
+    block.write_text("sperm\ncoon\n", encoding="utf-8")
+    allow = tmp_path / "allow.txt"
+    allow.write_text("sperm whale\nmaine coon\n", encoding="utf-8")
+
+    loaded = Blocklist.load(block, allow)
+    assert loaded.check("sperm whale") is None
+    assert loaded.check("maine coon") is None
+    assert loaded.check("sperm") == "sperm"  # само слово по-прежнему запрещено
+
+
+def test_project_allowlist_is_applied():
+    loaded = Blocklist.load(default_path())
+    assert loaded.check("sperm whale") is None
+
+
 def test_empty_blocklist_allows_everything():
     empty = Blocklist.load(None)
     assert not empty

@@ -1,1 +1,23 @@
-{"groups":[{"category":"Birds","words":["crane","owl","parrot","eagle"],"confidence":5},{"category":"Bodies of Water","words":["sea","bay","lake","river"],"confidence":5},{"category":"Clothes","words":["skirt","sweater","hat","socks"],"confidence":5},{"category":"Desserts","words":["cupcake","cheesecake","pie","pudding"],"confidence":5},{"category":"Dog Things","words":["collar","paw","kennel","bone"],"confidence":5},{"category":"Drinks","words":["coffee","milk","cocoa","lemonade"],"confidence":5},{"category":"Gemstones","words":["opal","topaz","pearl","amethyst"],"confidence":5},{"category":"Numbers","words":["two","three","one","four"],"confidence":5},{"category":"Parts of a Tree","words":["twig","bark","branch","crown"],"confidence":5},{"category":"Pets","words":["hamster","dog","bird","fish"],"confidence":5},{"category":"Professions","words":["manager","teacher","lawyer","doctor"],"confidence":5},{"category":"Weather Words","words":["rainy","windy","cloudy","sunny"],"confidence":5}],"hesitations":[{"word":"bark","also_fits":"Dog Things","why":"a dog barks"},{"word":"collar","also_fits":"Clothes","why":"shirt collar"},{"word":"crown","also_fits":"Clothes","why":"worn on the head"},{"word":"parrot","also_fits":"Pets","why":"common pet bird"},{"word":"bird","also_fits":"Birds","why":"generic bird as a pet"}]}
+{
+  "groups": [
+    { "category": "Birds", "words": ["crane", "owl", "parrot", "eagle"], "confidence": 5 },
+    { "category": "Bodies of Water", "words": ["sea", "bay", "lake", "river"], "confidence": 5 },
+    { "category": "Clothes", "words": ["skirt", "sweater", "hat", "socks"], "confidence": 5 },
+    { "category": "Desserts", "words": ["cupcake", "cheesecake", "pie", "pudding"], "confidence": 5 },
+    { "category": "Dog Things", "words": ["collar", "paw", "kennel", "bone"], "confidence": 4 },
+    { "category": "Drinks", "words": ["coffee", "milk", "cocoa", "lemonade"], "confidence": 5 },
+    { "category": "Gemstones", "words": ["opal", "topaz", "pearl", "amethyst"], "confidence": 5 },
+    { "category": "Numbers", "words": ["one", "two", "three", "four"], "confidence": 5 },
+    { "category": "Parts of a Tree", "words": ["twig", "bark", "branch", "crown"], "confidence": 4 },
+    { "category": "Pets", "words": ["hamster", "dog", "bird", "fish"], "confidence": 4 },
+    { "category": "Professions", "words": ["manager", "teacher", "lawyer", "doctor"], "confidence": 5 },
+    { "category": "Weather Words", "words": ["rainy", "windy", "cloudy", "sunny"], "confidence": 5 }
+  ],
+  "hesitations": [
+    { "word": "bark", "also_fits": "Dog Things", "why": "лай собаки; но у Dog Things уже 4 слова, поэтому bark = кора дерева" },
+    { "word": "crown", "also_fits": "Clothes", "why": "корону можно надеть; но здесь это крона дерева, замыкающая Parts of a Tree" },
+    { "word": "bird", "also_fits": "Birds", "why": "родовое слово; конкретные птицы заполняют Birds, значит bird = домашний питомец" },
+    { "word": "parrot", "also_fits": "Pets", "why": "попугая держат дома; но Pets собираются из hamster/dog/bird/fish" },
+    { "word": "collar", "also_fits": "Clothes", "why": "воротник одежды; но Clothes уже полны, и в паре с kennel/bone это собачий ошейник" }
+  ]
+}

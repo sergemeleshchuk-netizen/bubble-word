@@ -12,33 +12,54 @@ _SPLIT_RE = re.compile(r"[ \-]+")
 
 def default_path() -> Path | None:
     """Штатный блок-лист проекта: data/blocklist.txt рядом с корнем пакета."""
+    return _data_file("blocklist.txt")
+
+
+def default_allowlist_path() -> Path | None:
+    """Список исключений: безобидные названия, внутри которых есть запрещённое слово."""
+    return _data_file("allowlist.txt")
+
+
+def _data_file(name: str) -> Path | None:
     for parent in Path(__file__).resolve().parents:
-        candidate = parent / "data" / "blocklist.txt"
+        candidate = parent / "data" / name
         if candidate.exists():
             return candidate
     return None
 
 
-class Blocklist:
-    """Проверка по точному совпадению слова или любого слова внутри фразы."""
+def _read_entries(path: Path) -> set[str]:
+    entries: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        entry = line.split("#", 1)[0].strip().lower()
+        if entry:
+            entries.add(entry)
+    return entries
 
-    def __init__(self, words: set[str] | None = None) -> None:
+
+class Blocklist:
+    """Проверка по точному совпадению слова или любого слова внутри фразы.
+
+    allowed — фразы-исключения целиком: «sperm whale» и «maine coon» проходят,
+    хотя внутри них есть слово из блок-листа.
+    """
+
+    def __init__(self, words: set[str] | None = None, allowed: set[str] | None = None) -> None:
         self.words = words or set()
+        self.allowed = allowed or set()
 
     @classmethod
-    def load(cls, path: Path | str | None) -> Blocklist:
+    def load(cls, path: Path | str | None, allowlist: Path | str | None = None) -> Blocklist:
         """Читает текстовый файл: одно слово в строке, # — комментарий."""
         if path is None:
             return cls()
         file_path = Path(path)
         if not file_path.exists():
             raise FileNotFoundError(f"Блок-лист не найден: {file_path}")
-        words: set[str] = set()
-        for line in file_path.read_text(encoding="utf-8").splitlines():
-            entry = line.split("#", 1)[0].strip().lower()
-            if entry:
-                words.add(entry)
-        return cls(words)
+
+        allow_path = Path(allowlist) if allowlist else default_allowlist_path()
+        allowed = _read_entries(allow_path) if allow_path and allow_path.exists() else set()
+        return cls(_read_entries(file_path), allowed)
 
     def __len__(self) -> int:
         return len(self.words)
@@ -53,6 +74,8 @@ class Blocklist:
         try:
             normalized = normalize_word(word)
         except Exception:
+            return None
+        if normalized in self.allowed:
             return None
         if normalized in self.words:
             return normalized

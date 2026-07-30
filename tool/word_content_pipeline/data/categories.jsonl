@@ -89,6 +89,26 @@
 {"category_key": "body_systems", "label": "BODY SYSTEMS", "rule": "Systems that make up the human body", "relation_type": "is_a", "theme": "body", "base_difficulty": 0.4}
 {"category_key": "things_that_hurt", "label": "THINGS THAT HURT", "rule": "Everyday things that cause physical pain", "relation_type": "has_property", "theme": "body", "base_difficulty": 0.4}
 {"category_key": "muscles", "label": "MUSCLES", "rule": "Muscles an average person can name", "relation_type": "is_a", "theme": "body", "base_difficulty": 0.4}
+{"category_key": "soda_brands", "label": "SODA BRANDS", "rule": "Soft drink brands sold in the United States", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.3}
+{"category_key": "candy_brands", "label": "CANDY BRANDS", "rule": "Candy brands sold in American stores", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.3}
+{"category_key": "cereal_brands", "label": "CEREAL BRANDS", "rule": "Breakfast cereal brands sold in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "fast_food_chains", "label": "FAST FOOD CHAINS", "rule": "Fast food restaurant chains in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.25}
+{"category_key": "retail_stores", "label": "RETAIL STORES", "rule": "Large retail store chains in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.3}
+{"category_key": "clothing_brands", "label": "CLOTHING BRANDS", "rule": "Well known clothing and shoe brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.3}
+{"category_key": "airlines", "label": "AIRLINES", "rule": "Major passenger airlines", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "hotel_chains", "label": "HOTEL CHAINS", "rule": "Major hotel chains", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "appliance_brands", "label": "APPLIANCE BRANDS", "rule": "Brands of home appliance", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "tool_brands", "label": "TOOL BRANDS", "rule": "Brands of hand and power tools", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
+{"category_key": "toy_brands", "label": "TOY BRANDS", "rule": "Well known toy brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "car_models", "label": "CAR MODELS", "rule": "Well known car model names", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "candy_bar_flavors", "label": "ICE CREAM BRANDS", "rule": "Ice cream brands sold in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "sports_brands", "label": "SPORTS EQUIPMENT BRANDS", "rule": "Brands of sports equipment", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "camera_and_electronics", "label": "ELECTRONICS BRANDS", "rule": "Brands of consumer electronics", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "snack_brands", "label": "SNACK BRANDS", "rule": "Brands of packaged snacks", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
+{"category_key": "coffee_brands", "label": "COFFEE BRANDS", "rule": "Coffee brands and coffee shops", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "watch_and_luxury", "label": "LUXURY BRANDS", "rule": "Well known luxury brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "bank_brands", "label": "BANK BRANDS", "rule": "Major American banks and card brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
+{"category_key": "paint_and_home", "label": "HOME IMPROVEMENT BRANDS", "rule": "Brands sold at a hardware store", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
 {"category_key": "tech_companies", "label": "TECH COMPANIES", "rule": "Well-known technology companies or consumer technology brands", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
 {"category_key": "money_words", "label": "MONEY WORDS", "rule": "Everyday English words for money, payments and personal finance", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
 {"category_key": "currencies", "label": "CURRENCIES", "rule": "Names of national currencies", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.35}
@@ -175,6 +195,21 @@
 {"category_key": "instruments_you_strum", "label": "THINGS WITH STRINGS", "rule": "Objects that have strings as an essential part", "relation_type": "has_property", "theme": "entertainment", "base_difficulty": 0.4}
 {"category_key": "famous_composers", "label": "COMPOSERS", "rule": "Famous classical composers", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.4}
 {"category_key": "instruments_in_an_orchestra", "label": "ORCHESTRA SECTIONS", "rule": "Sections and roles in a symphony orchestra", "relation_type": "part_of", "theme": "entertainment", "base_difficulty": 0.4}
+{"category_key": "farm_machines", "label": "FARM MACHINES", "rule": "Machines used on a modern farm", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.3}
+{"category_key": "barn_things", "label": "BARN THINGS", "rule": "Things found inside a barn", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.3}
+{"category_key": "dairy_words", "label": "DAIRY FARM WORDS", "rule": "Things involved in dairy farming", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
+{"category_key": "harvest_words", "label": "HARVEST WORDS", "rule": "Words used at harvest time", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
+{"category_key": "soil_words", "label": "SOIL WORDS", "rule": "Words used to describe soil and its care", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.4}
+{"category_key": "irrigation", "label": "IRRIGATION THINGS", "rule": "Things used to water crops", "relation_type": "used_in", "theme": "farming", "base_difficulty": 0.4}
+{"category_key": "orchard_words", "label": "ORCHARD WORDS", "rule": "Things found in a fruit orchard", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
+{"category_key": "vineyard_words", "label": "VINEYARD WORDS", "rule": "Things found in a vineyard", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.4}
+{"category_key": "beekeeping", "label": "BEEKEEPING THINGS", "rule": "Things used in beekeeping", "relation_type": "used_in", "theme": "farming", "base_difficulty": 0.4}
+{"category_key": "livestock", "label": "LIVESTOCK", "rule": "Animals raised for food or farm work", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.25}
+{"category_key": "farm_buildings", "label": "FARM BUILDINGS", "rule": "Buildings and structures on a farm", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.3}
+{"category_key": "farm_products", "label": "FARM PRODUCTS", "rule": "Things a farm produces to sell", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.3}
+{"category_key": "pest_control", "label": "CROP PESTS", "rule": "Creatures that damage crops", "relation_type": "is_a", "theme": "farming", "base_difficulty": 0.4}
+{"category_key": "country_life", "label": "COUNTRY LIFE THINGS", "rule": "Things associated with rural country living", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
+{"category_key": "ranch_words", "label": "RANCH WORDS", "rule": "Things found on a cattle ranch", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.35}
 {"category_key": "fruits", "label": "FRUITS", "rule": "Common edible fruits familiar to an average American adult", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.1}
 {"category_key": "vegetables", "label": "VEGETABLES", "rule": "Common edible vegetables sold in an ordinary American grocery store", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.12}
 {"category_key": "berries", "label": "BERRIES", "rule": "Small soft fruits called berries in everyday American English", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
@@ -263,6 +298,25 @@
 {"category_key": "ancient_wonders", "label": "WONDERS OF THE WORLD", "rule": "Structures known as wonders of the world", "relation_type": "is_a", "theme": "history", "base_difficulty": 0.4}
 {"category_key": "historic_ships", "label": "FAMOUS SHIPS", "rule": "Ships famous from history", "relation_type": "is_a", "theme": "history", "base_difficulty": 0.4}
 {"category_key": "time_capsule_things", "label": "THINGS FROM THE PAST", "rule": "Everyday objects that are no longer commonly used", "relation_type": "has_property", "theme": "history", "base_difficulty": 0.4}
+{"category_key": "collecting_hobbies", "label": "THINGS PEOPLE COLLECT", "rule": "Things people collect as a hobby", "relation_type": "is_a", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "knitting_words", "label": "KNITTING WORDS", "rule": "Things used in knitting and crochet", "relation_type": "found_in", "theme": "hobbies", "base_difficulty": 0.4}
+{"category_key": "camping_gear", "label": "CAMPING GEAR", "rule": "Gear packed for a camping trip", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.25}
+{"category_key": "hiking_words", "label": "HIKING WORDS", "rule": "Things involved in hiking a trail", "relation_type": "found_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "puzzle_types", "label": "PUZZLES", "rule": "Kinds of puzzle people solve for fun", "relation_type": "is_a", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "chess_words", "label": "CHESS WORDS", "rule": "Pieces and moves in a game of chess", "relation_type": "found_in", "theme": "hobbies", "base_difficulty": 0.35}
+{"category_key": "gardening_hobby", "label": "GARDENING HOBBY THINGS", "rule": "Things a hobby gardener uses", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "model_building", "label": "MODEL BUILDING THINGS", "rule": "Things used to build scale models", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.4}
+{"category_key": "birdwatching", "label": "BIRDWATCHING THINGS", "rule": "Things a birdwatcher uses", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.4}
+{"category_key": "fishing_hobby", "label": "FISHING TRIP THINGS", "rule": "Things taken on a fishing trip", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "board_game_pieces", "label": "GAME PIECES", "rule": "Pieces and parts used in board games", "relation_type": "is_a", "theme": "hobbies", "base_difficulty": 0.35}
+{"category_key": "dance_class", "label": "DANCE CLASS THINGS", "rule": "Things found in a dance class", "relation_type": "found_in", "theme": "hobbies", "base_difficulty": 0.35}
+{"category_key": "photography_hobby", "label": "PHOTOGRAPHY GEAR", "rule": "Gear a hobby photographer uses", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "cooking_hobby", "label": "BAKING HOBBY THINGS", "rule": "Things a home baker uses", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "music_practice", "label": "PRACTICING MUSIC THINGS", "rule": "Things used when practicing an instrument", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.35}
+{"category_key": "video_gaming", "label": "GAMING SETUP THINGS", "rule": "Things in a video gaming setup", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "crafting_materials", "label": "CRAFT MATERIALS", "rule": "Materials used in craft projects", "relation_type": "made_of", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "hobby_verbs", "label": "HOBBY ACTIVITIES", "rule": "Activities people do as a hobby", "relation_type": "is_a", "theme": "hobbies", "base_difficulty": 0.3}
+{"category_key": "magic_tricks", "label": "MAGIC TRICK PROPS", "rule": "Props used in performing magic tricks", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.4}
 {"category_key": "kitchen_tools", "label": "KITCHEN TOOLS", "rule": "Handheld tools and utensils used to prepare food in a kitchen", "relation_type": "used_in", "theme": "home", "base_difficulty": 0.15}
 {"category_key": "bathroom_items", "label": "BATHROOM ITEMS", "rule": "Objects normally found in a home bathroom", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.15}
 {"category_key": "furniture", "label": "FURNITURE", "rule": "Movable household furniture", "relation_type": "is_a", "theme": "home", "base_difficulty": 0.12}
@@ -562,6 +616,18 @@
 {"category_key": "square_things", "label": "SQUARE THINGS", "rule": "Everyday things shaped like a square", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.35}
 {"category_key": "long_thin_things", "label": "LONG THIN THINGS", "rule": "Everyday things that are long and thin", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.35}
 {"category_key": "things_that_shrink", "label": "THINGS THAT SHRINK", "rule": "Things that get smaller over time or with heat", "relation_type": "has_property", "theme": "properties", "base_difficulty": 0.45}
+{"category_key": "world_religions", "label": "WORLD RELIGIONS", "rule": "Major religions of the world", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.3}
+{"category_key": "places_of_worship", "label": "PLACES OF WORSHIP", "rule": "Buildings where people gather to worship", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.3}
+{"category_key": "religious_leaders", "label": "RELIGIOUS LEADERS", "rule": "Titles of religious leaders", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.3}
+{"category_key": "religious_books", "label": "SACRED TEXTS", "rule": "Sacred books of world religions", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.35}
+{"category_key": "church_things", "label": "CHURCH THINGS", "rule": "Things found inside a church", "relation_type": "found_in", "theme": "religion", "base_difficulty": 0.3}
+{"category_key": "religious_holidays", "label": "RELIGIOUS HOLIDAYS", "rule": "Holidays with religious origins", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.3}
+{"category_key": "ceremonies", "label": "RELIGIOUS CEREMONIES", "rule": "Ceremonies performed in religious life", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.35}
+{"category_key": "religious_symbols", "label": "RELIGIOUS SYMBOLS", "rule": "Symbols associated with religions", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.35}
+{"category_key": "bible_figures", "label": "BIBLE FIGURES", "rule": "People from Bible stories", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.35}
+{"category_key": "prayer_words", "label": "PRAYER WORDS", "rule": "Words used in prayer and worship", "relation_type": "found_in", "theme": "religion", "base_difficulty": 0.4}
+{"category_key": "heaven_and_afterlife", "label": "AFTERLIFE WORDS", "rule": "Words about what religions say comes after death", "relation_type": "is_a", "theme": "religion", "base_difficulty": 0.4}
+{"category_key": "monastery_life", "label": "MONASTERY THINGS", "rule": "Things found in a monastery", "relation_type": "found_in", "theme": "religion", "base_difficulty": 0.45}
 {"category_key": "space_objects", "label": "SPACE OBJECTS", "rule": "Objects found in outer space", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.2}
 {"category_key": "planets", "label": "PLANETS", "rule": "Planets of our solar system", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.2}
 {"category_key": "metals", "label": "METALS", "rule": "Metals and metal alloys used in everyday objects", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.25}
@@ -586,6 +652,50 @@
 {"category_key": "temperature_words", "label": "TEMPERATURE WORDS", "rule": "Words describing how hot or cold something is", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.3}
 {"category_key": "rock_cycle_words", "label": "GEOLOGY WORDS", "rule": "Words used to describe the earth and its rocks", "relation_type": "found_in", "theme": "science", "base_difficulty": 0.4}
 {"category_key": "experiments", "label": "THINGS THAT DISSOLVE", "rule": "Substances that dissolve in water", "relation_type": "has_property", "theme": "science", "base_difficulty": 0.4}
+{"category_key": "onomatopoeia", "label": "SOUND WORDS", "rule": "Words that imitate the sound they name", "relation_type": "is_a", "theme": "sounds", "base_difficulty": 0.35}
+{"category_key": "machine_sounds", "label": "MACHINE SOUNDS", "rule": "Sounds that machines make", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "water_sounds", "label": "WATER SOUNDS", "rule": "Sounds that water makes", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "kitchen_sounds", "label": "KITCHEN SOUNDS", "rule": "Sounds heard in a kitchen", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.45}
+{"category_key": "nature_sounds", "label": "NATURE SOUNDS", "rule": "Sounds heard outdoors in nature", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "scary_sounds", "label": "SCARY SOUNDS", "rule": "Sounds that make people uneasy", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.45}
+{"category_key": "musical_sounds", "label": "MUSICAL SOUND WORDS", "rule": "Words for the sound a musical instrument makes", "relation_type": "is_a", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "city_sounds", "label": "CITY SOUNDS", "rule": "Sounds heard on a city street", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "loud_noises", "label": "LOUD NOISES", "rule": "Words for very loud noises", "relation_type": "is_a", "theme": "sounds", "base_difficulty": 0.35}
+{"category_key": "quiet_sounds", "label": "QUIET SOUNDS", "rule": "Words for very soft sounds", "relation_type": "is_a", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "voice_sounds", "label": "VOICE SOUNDS", "rule": "Sounds a human voice makes without words", "relation_type": "does_action", "theme": "sounds", "base_difficulty": 0.35}
+{"category_key": "bell_and_alarm", "label": "ALARM SOUNDS", "rule": "Sounds made by alarms and signals", "relation_type": "is_a", "theme": "sounds", "base_difficulty": 0.4}
+{"category_key": "constellations", "label": "CONSTELLATIONS", "rule": "Constellations in the night sky", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "bright_stars", "label": "STARS", "rule": "Individual stars people can name", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.45}
+{"category_key": "moons", "label": "MOONS", "rule": "Named moons of the solar system", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.45}
+{"category_key": "spacecraft", "label": "SPACECRAFT", "rule": "Famous spacecraft and space missions", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "space_agencies_and_places", "label": "SPACE PLACES", "rule": "Places and organizations connected with space flight", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.45}
+{"category_key": "astronaut_gear", "label": "ASTRONAUT GEAR", "rule": "Equipment an astronaut uses", "relation_type": "used_in", "theme": "space", "base_difficulty": 0.35}
+{"category_key": "solar_system_words", "label": "SOLAR SYSTEM WORDS", "rule": "Words describing the solar system", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.35}
+{"category_key": "telescope_words", "label": "TELESCOPE WORDS", "rule": "Parts and words used with a telescope", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "space_phenomena", "label": "SPACE PHENOMENA", "rule": "Events and phenomena seen in space", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "rocket_parts", "label": "ROCKET PARTS", "rule": "Parts of a rocket", "relation_type": "part_of", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "space_measurements", "label": "SPACE MEASUREMENTS", "rule": "Units used to measure distance and time in space", "relation_type": "is_a", "theme": "space", "base_difficulty": 0.45}
+{"category_key": "science_fiction_space", "label": "SCI FI SPACE WORDS", "rule": "Words used in space science fiction", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.4}
+{"category_key": "cat_breeds", "label": "CAT BREEDS", "rule": "Breeds of domestic cat", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "horse_breeds", "label": "HORSE BREEDS", "rule": "Breeds of horse", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "cattle_and_farm_breeds", "label": "FARM BREEDS", "rule": "Breeds of cattle, sheep and pigs raised on farms", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.45}
+{"category_key": "songbirds", "label": "SONGBIRDS", "rule": "Small singing birds found in yards and woods", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "birds_of_prey", "label": "BIRDS OF PREY", "rule": "Birds that hunt other animals", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.3}
+{"category_key": "butterflies_and_moths", "label": "BUTTERFLIES AND MOTHS", "rule": "Kinds of butterfly and moth", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "snakes", "label": "SNAKES", "rule": "Kinds of snake", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.3}
+{"category_key": "frogs_and_toads", "label": "FROGS AND TOADS", "rule": "Kinds of frog and toad", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "bears_and_big_animals", "label": "BEARS", "rule": "Kinds of bear", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.3}
+{"category_key": "deer_family", "label": "DEER FAMILY", "rule": "Animals of the deer family", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "monkeys_and_apes", "label": "MONKEYS AND APES", "rule": "Kinds of monkey and ape", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.3}
+{"category_key": "wild_dogs", "label": "WILD DOG FAMILY", "rule": "Wild members of the dog family", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "whale_types", "label": "WHALE TYPES", "rule": "Kinds of whale", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "lizards", "label": "LIZARDS", "rule": "Kinds of lizard", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "spiders_and_crawlers", "label": "SPIDERS AND CRAWLERS", "rule": "Small many-legged creatures that are not insects", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "owls", "label": "OWLS", "rule": "Kinds of owl", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "rodent_species", "label": "RODENT SPECIES", "rule": "Particular kinds of rodent", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.4}
+{"category_key": "farm_poultry_breeds", "label": "CHICKEN BREEDS", "rule": "Breeds of chicken raised on farms", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.45}
+{"category_key": "pond_fish", "label": "FRESHWATER FISH", "rule": "Fish that live in lakes and rivers", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "extinct_and_prehistoric", "label": "PREHISTORIC ANIMALS", "rule": "Animals that lived in prehistoric times", "relation_type": "is_a", "theme": "species", "base_difficulty": 0.35}
 {"category_key": "baseball_equipment", "label": "BASEBALL EQUIPMENT", "rule": "Physical equipment used to play a game of baseball", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.25}
 {"category_key": "baseball_words", "label": "BASEBALL WORDS", "rule": "Words used to describe plays, places or roles in a baseball game", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3}
 {"category_key": "team_sports", "label": "TEAM SPORTS", "rule": "Sports played by two opposing teams", "relation_type": "is_a", "theme": "sports", "base_difficulty": 0.15}
@@ -687,3 +797,21 @@
 {"category_key": "heavy_trucks", "label": "TRUCKS", "rule": "Kinds of truck used to move goods and materials", "relation_type": "is_a", "theme": "transport", "base_difficulty": 0.3}
 {"category_key": "parking_words", "label": "PARKING WORDS", "rule": "Words used about parking a car", "relation_type": "found_in", "theme": "transport", "base_difficulty": 0.35}
 {"category_key": "things_that_carry_people", "label": "THINGS THAT CARRY PEOPLE", "rule": "Things built to carry a person from one place to another", "relation_type": "does_action", "theme": "transport", "base_difficulty": 0.35}
+{"category_key": "french_dishes", "label": "FRENCH DISHES", "rule": "Dishes from French cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "greek_dishes", "label": "GREEK DISHES", "rule": "Dishes from Greek cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "indian_dishes", "label": "INDIAN DISHES", "rule": "Dishes from Indian cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "japanese_dishes", "label": "JAPANESE DISHES", "rule": "Dishes from Japanese cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.3}
+{"category_key": "german_dishes", "label": "GERMAN DISHES", "rule": "Dishes from German cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "spanish_dishes", "label": "SPANISH DISHES", "rule": "Dishes from Spanish cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "middle_eastern_dishes", "label": "MIDDLE EASTERN DISHES", "rule": "Dishes from Middle Eastern cuisine", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "southern_dishes", "label": "SOUTHERN US DISHES", "rule": "Dishes from the American South", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.3}
+{"category_key": "soups", "label": "SOUPS AND STEWS", "rule": "Kinds of soup and stew", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.25}
+{"category_key": "sauces", "label": "SAUCES", "rule": "Sauces used in cooking", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.3}
+{"category_key": "wines_and_drinks", "label": "WINE AND BEER WORDS", "rule": "Kinds of wine and beer", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "coffee_drinks", "label": "COFFEE DRINKS", "rule": "Ways coffee is prepared and served", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.25}
+{"category_key": "teas", "label": "TEAS", "rule": "Kinds of tea", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.3}
+{"category_key": "street_food", "label": "STREET FOOD", "rule": "Foods sold from street carts and stands", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.3}
+{"category_key": "world_breads", "label": "WORLD BREADS", "rule": "Breads from cuisines around the world", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}
+{"category_key": "cured_meats", "label": "CURED MEATS", "rule": "Meats preserved by curing or smoking", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.4}
+{"category_key": "fermented_foods", "label": "PICKLED AND FERMENTED FOODS", "rule": "Foods preserved by pickling or fermenting", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.4}
+{"category_key": "nuts_world", "label": "SNACK NUTS", "rule": "Nuts sold as snacks", "relation_type": "is_a", "theme": "world_food", "base_difficulty": 0.35}

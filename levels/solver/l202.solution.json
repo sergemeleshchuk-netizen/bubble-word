@@ -1,1 +1,23 @@
-{"groups":[{"category":"At the Hospital","words":["hospital","medicine","nurse","patient"],"confidence":5},{"category":"Boats and Ships","words":["boat","ferry","yacht","ship"],"confidence":5},{"category":"Materials","words":["paper","metal","wood","plastic"],"confidence":4},{"category":"Months","words":["march","may","june","july"],"confidence":3},{"category":"Movie Genres","words":["action","drama","western","comedy"],"confidence":5},{"category":"Musical Instruments","words":["flute","trumpet","horn","cello"],"confidence":4},{"category":"Parts of the Face","words":["nose","mouth","lips","eyes"],"confidence":5},{"category":"Reptiles","words":["lizard","crocodile","snake","cobra"],"confidence":4},{"category":"Royalty","words":["king","queen","prince","princess"],"confidence":5},{"category":"Safari Animals","words":["elephant","lion","rhino","zebra"],"confidence":5},{"category":"Summer","words":["beach","sun","heat","august"],"confidence":3},{"category":"Sweets","words":["cookie","brownie","toffee","candy"],"confidence":5},{"category":"Table Setting","words":["cup","bowl","glass","plate"],"confidence":4}],"hesitations":[{"word":"august","also_fits":"Months","why":"August is a month; Summer needs a 4th"},{"word":"june","also_fits":"Summer","why":"summer month"},{"word":"july","also_fits":"Summer","why":"summer month"},{"word":"glass","also_fits":"Materials","why":"glass is a material"},{"word":"crocodile","also_fits":"Safari Animals","why":"seen on safari"}]}
+{
+  "groups": [
+    { "category": "At the Hospital", "words": ["medicine", "nurse", "hospital", "patient"], "confidence": 5 },
+    { "category": "Boats and Ships", "words": ["ferry", "ship", "yacht", "boat"], "confidence": 5 },
+    { "category": "Materials", "words": ["plastic", "wood", "paper", "metal"], "confidence": 4 },
+    { "category": "Months", "words": ["october", "may", "march", "april"], "confidence": 4 },
+    { "category": "Movie Genres", "words": ["comedy", "drama", "action", "western"], "confidence": 5 },
+    { "category": "Musical Instruments", "words": ["horn", "trumpet", "cello", "flute"], "confidence": 5 },
+    { "category": "Parts of the Face", "words": ["eyes", "mouth", "nose", "lips"], "confidence": 5 },
+    { "category": "Reptiles", "words": ["crocodile", "cobra", "snake", "lizard"], "confidence": 5 },
+    { "category": "Royalty", "words": ["prince", "queen", "king", "princess"], "confidence": 5 },
+    { "category": "Safari Animals", "words": ["elephant", "zebra", "rhino", "lion"], "confidence": 5 },
+    { "category": "Summer", "words": ["beach", "sun", "heat", "august"], "confidence": 4 },
+    { "category": "Sweets", "words": ["cookie", "brownie", "toffee", "candy"], "confidence": 5 },
+    { "category": "Table Setting", "words": ["cup", "plate", "bowl", "glass"], "confidence": 4 }
+  ],
+  "hesitations": [
+    { "word": "august", "also_fits": "Months", "why": "месяц, но месяцев 5 на 4 слота; август - единственный летний, а Summer без него неполон" },
+    { "word": "glass", "also_fits": "Materials", "why": "стекло - материал, но материалов 5 на 4 слота; стакан дополняет cup/plate/bowl" },
+    { "word": "march", "also_fits": "Musical Instruments", "why": "марш - музыкальный жанр, не инструмент; уверенно месяц" },
+    { "word": "horn", "also_fits": "Safari Animals", "why": "рог у носорога, но это часть животного, а не животное; валторна - инструмент" }
+  ]
+}

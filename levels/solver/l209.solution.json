@@ -1,1 +1,31 @@
-{"groups":[{"category":"3D Shapes","words":["cone","sphere","cylinder","pyramid"],"confidence":5},{"category":"Accessories","words":["scarf","hat","purse","tie"],"confidence":4},{"category":"Ancient Egypt","words":["pharaoh","mummy","nile","tomb"],"confidence":5},{"category":"Bedtime","words":["sleep","pillow","sheets","mattress"],"confidence":4},{"category":"Cleaning Tools","words":["vacuum","broom","sponge","mop"],"confidence":5},{"category":"Clothes","words":["pants","dress","shirt","jacket"],"confidence":5},{"category":"Dairy Products","words":["milk","butter","yogurt","cream"],"confidence":5},{"category":"Drinks","words":["tea","coffee","juice","smoothie"],"confidence":5},{"category":"Feeling Sick","words":["sneeze","chills","headache","cold"],"confidence":4},{"category":"Furniture","words":["rack","table","chair","bed"],"confidence":4},{"category":"Laundry","words":["stain","spin","rinse","bleach"],"confidence":4},{"category":"Medicines","words":["pill","injection","vaccine","insulin"],"confidence":5},{"category":"Morning Routine","words":["wake","breakfast","stretch","shower"],"confidence":5},{"category":"Movie Genres","words":["musical","horror","romance","thriller"],"confidence":5},{"category":"Music Genres","words":["funk","rap","disco","reggae"],"confidence":5},{"category":"Temperature","words":["mild","cool","hot","warm"],"confidence":4}],"hesitations":[{"word":"pyramid","also_fits":"Ancient Egypt","why":"pyramids of Giza"},{"word":"cold","also_fits":"Temperature","why":"cold is a temperature, but 'a cold' is an illness"},{"word":"chills","also_fits":"Temperature","why":"feeling chilly"},{"word":"hat","also_fits":"Clothes","why":"worn on the body"},{"word":"rack","also_fits":"Laundry","why":"drying rack"},{"word":"bed","also_fits":"Bedtime","why":"core bedtime word"},{"word":"milk","also_fits":"Drinks","why":"common drink, clearly dairy"},{"word":"mild","also_fits":"Feeling Sick","why":"mild symptoms"}]}
+{
+  "groups": [
+    { "category": "3D Shapes", "words": ["cone", "pyramid", "sphere", "cylinder"], "confidence": 5 },
+    { "category": "Accessories", "words": ["scarf", "hat", "purse", "tie"], "confidence": 4 },
+    { "category": "Ancient Egypt", "words": ["pharaoh", "mummy", "nile", "tomb"], "confidence": 5 },
+    { "category": "Bedtime", "words": ["sleep", "pillow", "sheets", "mattress"], "confidence": 4 },
+    { "category": "Cleaning Tools", "words": ["vacuum", "broom", "mop", "sponge"], "confidence": 5 },
+    { "category": "Clothes", "words": ["pants", "dress", "shirt", "jacket"], "confidence": 5 },
+    { "category": "Dairy Products", "words": ["milk", "butter", "yogurt", "cream"], "confidence": 5 },
+    { "category": "Drinks", "words": ["tea", "coffee", "juice", "smoothie"], "confidence": 5 },
+    { "category": "Feeling Sick", "words": ["sneeze", "chills", "headache", "cold"], "confidence": 4 },
+    { "category": "Furniture", "words": ["table", "chair", "bed", "rack"], "confidence": 4 },
+    { "category": "Laundry", "words": ["stain", "spin", "rinse", "bleach"], "confidence": 4 },
+    { "category": "Medicines", "words": ["pill", "injection", "vaccine", "insulin"], "confidence": 5 },
+    { "category": "Morning Routine", "words": ["wake", "stretch", "breakfast", "shower"], "confidence": 5 },
+    { "category": "Movie Genres", "words": ["musical", "horror", "romance", "thriller"], "confidence": 5 },
+    { "category": "Music Genres", "words": ["funk", "rap", "disco", "reggae"], "confidence": 5 },
+    { "category": "Temperature", "words": ["mild", "cool", "hot", "warm"], "confidence": 4 }
+  ],
+  "hesitations": [
+    { "word": "pyramid", "also_fits": "Ancient Egypt", "why": "пирамиды Египта, но как 3D-фигура закрывает четвёрку с cone/sphere/cylinder" },
+    { "word": "scarf", "also_fits": "Clothes", "why": "шарф - одежда, но Clothes уже полна, а аксессуарам он нужен" },
+    { "word": "cold", "also_fits": "Temperature", "why": "холодно - температура, но в Temperature 5 кандидатов, а простуда дополняет sneeze/chills/headache" },
+    { "word": "chills", "also_fits": "Temperature", "why": "озноб связан с холодом, но это симптом болезни" },
+    { "word": "rack", "also_fits": "Laundry", "why": "сушилка для белья, но в Laundry уже 4, а мебели не хватало четвёртого" },
+    { "word": "mattress", "also_fits": "Furniture", "why": "матрас - почти мебель, но bed логичнее в Furniture, mattress - в Bedtime" },
+    { "word": "bed", "also_fits": "Bedtime", "why": "кровать - про сон, но как предмет мебели встаёт рядом с table/chair" },
+    { "word": "milk", "also_fits": "Drinks", "why": "молоко пьют, но это базовый молочный продукт; Drinks закрыты tea/coffee/juice/smoothie" },
+    { "word": "bleach", "also_fits": "Cleaning Tools", "why": "отбеливатель - чистящее средство, но Cleaning Tools полны инструментами, а в стирке он на месте" }
+  ]
+}

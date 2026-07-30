@@ -1,0 +1,63 @@
+# brands — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+soda_brands | SODA BRANDS | is_a | 0.3 | 0.82 | AP | Soft drink brands sold in the United States | $W is an American soft drink brand
+Coke, Pepsi, Sprite, Fanta, Dr Pepper, Mountain Dew,7up, Crush, Schweppes, Canada Dry, Sunkist, Barqs, Squirt, Faygo
+
+candy_brands | CANDY BRANDS | is_a | 0.3 | 0.82 | AP | Candy brands sold in American stores | $W is an American candy brand
+Snickers, Twix, Skittles, Kitkat, Reeses, Hershey, Milky Way, Butterfinger, Starburst, Twizzlers, Nerds, Airheads, Jolly Rancher, Tootsie Roll, Whoppers, Almond Joy
+
+cereal_brands | CEREAL BRANDS | is_a | 0.35 | 0.78 | AP | Breakfast cereal brands sold in America | $W is an American breakfast cereal brand
+Cheerios, Frosted Flakes, Lucky Charms, Froot Loops, Rice Krispies, Corn Flakes, Wheaties, Raisin Bran, Trix, Special K, Chex, Grape Nuts, Cocoa Puffs, Life
+
+fast_food_chains | FAST FOOD CHAINS | is_a | 0.25 | 0.85 | AP | Fast food restaurant chains in America | $W is an American fast food chain
+McDonalds, Burger King, Wendys, Taco Bell, Subway, KFC, Pizza Hut, Dominos, Arbys, Chipotle, Sonic, Dairy Queen, Popeyes, Five Guys, Panera, Whataburger
+
+retail_stores | RETAIL STORES | is_a | 0.3 | 0.82 | AP | Large retail store chains in America | $W is an American retail chain
+Walmart, Target, Costco, Kroger, Safeway, Macys, Kohls, Sears, Nordstrom, Publix, Aldi, Dollar General, Home Depot, Lowes, Best Buy, Staples
+
+clothing_brands | CLOTHING BRANDS | is_a | 0.3 | 0.8 | AP | Well known clothing and shoe brands | $W is a well known clothing brand
+Nike, Adidas, Levi, Gap, Reebok, Puma, Converse, Vans, Wrangler, Timberland, Hanes, Fruit of the Loom, New Balance, Lacoste, Champion
+
+airlines | AIRLINES | is_a | 0.35 | 0.78 | AP | Major passenger airlines | $W is a major passenger airline
+Delta, United, American, Southwest, JetBlue, Lufthansa, Emirates, Alaska, Spirit, Frontier, Qantas, Air France, KLM, British Airways
+
+hotel_chains | HOTEL CHAINS | is_a | 0.4 | 0.7 | AP | Major hotel chains | $W is a major hotel chain
+Marriott, Hilton, Holiday Inn, Sheraton, Hyatt, Best Western, Ramada, Motel 6, Westin, Four Seasons, Radisson, Days Inn
+
+appliance_brands | APPLIANCE BRANDS | is_a | 0.4 | 0.7 | AP | Brands of home appliance | $W is a home appliance brand
+Whirlpool, Maytag, GE, Kenmore, Frigidaire, Bosch, LG, Samsung, KitchenAid, Amana, Electrolux, Hoover, Dyson
+
+tool_brands | TOOL BRANDS | is_a | 0.45 | 0.65 | AP | Brands of hand and power tools | $W is a tool brand
+Craftsman, DeWalt, Makita, Bosch, Stanley, Black and Decker, Ryobi, Milwaukee, Husky, Snap On, Skil, Hilti
+
+toy_brands | TOY BRANDS | is_a | 0.35 | 0.78 | AP | Well known toy brands | $W is a well known toy brand
+Lego, Hasbro, Mattel, Fisher Price, Barbie, Hot Wheels, Nerf, Play Doh, Lincoln Logs, Tonka, Little Tikes, Crayola, Etch a Sketch, Slinky
+
+car_models | CAR MODELS | is_a | 0.35 | 0.75 | AP | Well known car model names | $W is a well known car model
+Mustang, Corvette, Civic, Camry, Accord, Beetle, Jeep Wrangler, F150, Silverado, Prius, Impala, Charger, Explorer, Tahoe, Camaro, Ranger
+
+candy_bar_flavors | ICE CREAM BRANDS | is_a | 0.4 | 0.72 | AP | Ice cream brands sold in America | $W is an American ice cream brand
+Ben and Jerry, Haagen Dazs, Breyers, Dreyers, Blue Bell, Klondike, Popsicle, Drumstick, Eskimo Pie, Magnum, Talenti, Edys
+
+sports_brands | SPORTS EQUIPMENT BRANDS | is_a | 0.4 | 0.72 | AP | Brands of sports equipment | $W is a sports equipment brand
+Wilson, Spalding, Rawlings, Titleist, Callaway, Easton, Louisville Slugger, Bauer, Head, Prince, Franklin, Schwinn
+
+camera_and_electronics | ELECTRONICS BRANDS | is_a | 0.35 | 0.78 | AP | Brands of consumer electronics | $W is a consumer electronics brand
+Sony, Panasonic, Canon, Nikon, Kodak, Philips, Toshiba, Sharp, Pioneer, JVC, Bose, Fujifilm, Polaroid, Sanyo
+
+snack_brands | SNACK BRANDS | is_a | 0.35 | 0.78 | AP | Brands of packaged snacks | $W is a packaged snack brand
+Lays, Doritos, Cheetos, Pringles, Ritz, Oreo, Chips Ahoy, Goldfish, Fritos, Tostitos, Wheat Thins, Triscuit, Nabisco, Keebler
+
+coffee_brands | COFFEE BRANDS | is_a | 0.4 | 0.72 | AP | Coffee brands and coffee shops | $W is a coffee brand or coffee shop
+Starbucks, Folgers, Maxwell House, Dunkin, Peets, Nescafe, Keurig, Caribou, Lavazza, Tim Hortons, Community, Yuban
+
+watch_and_luxury | LUXURY BRANDS | is_a | 0.4 | 0.7 | AP | Well known luxury brands | $W is a well known luxury brand
+Rolex, Gucci, Chanel, Prada, Cartier, Tiffany, Versace, Dior, Hermes, Armani, Burberry, Omega, Ferrari, Lamborghini
+
+bank_brands | BANK BRANDS | is_a | 0.45 | 0.65 | AP | Major American banks and card brands | $W is a major American bank or card brand
+Chase, Wells Fargo, Citibank, Visa, Mastercard, Amex, Discover, PNC, Capital One, US Bank, TD Bank, Ally
+
+paint_and_home | HOME IMPROVEMENT BRANDS | is_a | 0.45 | 0.62 | AP | Brands sold at a hardware store | $W is a brand sold at a hardware store
+Sherwin Williams, Behr, Valspar, Rustoleum, Gorilla Glue, Elmers, Scotch, Duracell, Energizer, WD40, Weber, Ace

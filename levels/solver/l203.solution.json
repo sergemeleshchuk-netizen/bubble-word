@@ -1,1 +1,25 @@
-{"groups":[{"category":"Accessories","words":["gloves","belt","tie","wallet"],"confidence":4},{"category":"At the Bank","words":["account","cash","credit","interest"],"confidence":5},{"category":"Baked Goods","words":["bagel","bread","cookie","cake"],"confidence":3},{"category":"Dairy Products","words":["kefir","cream","cheese","milk"],"confidence":5},{"category":"Dances","words":["salsa","ballet","tango","waltz"],"confidence":5},{"category":"Desserts","words":["mousse","pudding","cheesecake","gelato"],"confidence":4},{"category":"Facial Care","words":["toner","cleanser","patches","serum"],"confidence":5},{"category":"Insects","words":["fly","ant","cricket","bee"],"confidence":5},{"category":"Parts of a Shoe","words":["sole","tongue","heel","lace"],"confidence":5},{"category":"Pastries","words":["tart","croissant","eclair","scone"],"confidence":3},{"category":"Planets","words":["earth","venus","mercury","mars"],"confidence":5},{"category":"Timepieces","words":["metronome","watch","clock","hourglass"],"confidence":4},{"category":"US States","words":["ohio","texas","florida","oregon"],"confidence":5}],"hesitations":[{"word":"watch","also_fits":"Accessories","why":"common accessory"},{"word":"cream","also_fits":"Facial Care","why":"face cream"},{"word":"cake","also_fits":"Desserts","why":"classic dessert"},{"word":"scone","also_fits":"Baked Goods","why":"scones are baked"},{"word":"croissant","also_fits":"Baked Goods","why":"baked, prototypical pastry"}]}
+{
+  "groups": [
+    { "category": "Planets", "words": ["earth", "venus", "mercury", "mars"], "confidence": 5 },
+    { "category": "US States", "words": ["ohio", "texas", "florida", "oregon"], "confidence": 5 },
+    { "category": "Insects", "words": ["fly", "ant", "cricket", "bee"], "confidence": 5 },
+    { "category": "At the Bank", "words": ["account", "cash", "credit", "interest"], "confidence": 5 },
+    { "category": "Parts of a Shoe", "words": ["sole", "tongue", "heel", "lace"], "confidence": 5 },
+    { "category": "Timepieces", "words": ["watch", "clock", "hourglass", "metronome"], "confidence": 4 },
+    { "category": "Dances", "words": ["salsa", "ballet", "tango", "waltz"], "confidence": 5 },
+    { "category": "Accessories", "words": ["gloves", "belt", "tie", "wallet"], "confidence": 4 },
+    { "category": "Facial Care", "words": ["toner", "cleanser", "patches", "serum"], "confidence": 4 },
+    { "category": "Dairy Products", "words": ["kefir", "cream", "cheese", "milk"], "confidence": 4 },
+    { "category": "Desserts", "words": ["mousse", "pudding", "gelato", "cheesecake"], "confidence": 3 },
+    { "category": "Pastries", "words": ["croissant", "eclair", "tart", "scone"], "confidence": 3 },
+    { "category": "Baked Goods", "words": ["bread", "bagel", "cookie", "cake"], "confidence": 3 }
+  ],
+  "hesitations": [
+    { "word": "watch", "also_fits": "Accessories", "why": "часы носят как аксессуар, но Timepieces без watch не собираются" },
+    { "word": "cream", "also_fits": "Facial Care", "why": "крем для лица; но toner/cleanser/serum/patches дают ровно 4, а Dairy без cream неполна" },
+    { "word": "cheesecake", "also_fits": "Baked Goods", "why": "чизкейк выпекается, но по роли это десерт" },
+    { "word": "cake", "also_fits": "Desserts", "why": "торт - десерт, но как выпечка дополняет bread/bagel/cookie" },
+    { "word": "tart", "also_fits": "Baked Goods", "why": "тарт печётся; отнесён к Pastries как классика кондитерского теста" },
+    { "word": "scone", "also_fits": "Baked Goods", "why": "скон ближе к выпечке, но нужен 4-м в Pastries" }
+  ]
+}

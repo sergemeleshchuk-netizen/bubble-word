@@ -6,10 +6,10 @@
       "id": "months",
       "name": "Months",
       "words": [
-        "june",
-        "july",
+        "march",
+        "april",
         "may",
-        "march"
+        "october"
       ]
     },
     {
@@ -134,16 +134,6 @@
     }
   ],
   "traps": [
-    {
-      "word": "june",
-      "home": "months",
-      "tempts": "summer"
-    },
-    {
-      "word": "july",
-      "home": "months",
-      "tempts": "summer"
-    },
     {
       "word": "august",
       "home": "summer",
