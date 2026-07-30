@@ -1,0 +1,108 @@
+{
+  "level_id": 210,
+  "difficulty_target": 6,
+  "categories": [
+    {
+      "id": "ballet-class",
+      "name": "Ballet Class",
+      "words": [
+        "recital",
+        "barre",
+        "leotard",
+        "arabesque"
+      ]
+    },
+    {
+      "id": "mexican-food",
+      "name": "Mexican Food",
+      "words": [
+        "burrito",
+        "tortilla",
+        "tamale",
+        "enchilada"
+      ]
+    },
+    {
+      "id": "dentist",
+      "name": "At the Dentist",
+      "words": [
+        "braces",
+        "fluoride",
+        "floss",
+        "dentures"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "Courtroom",
+      "words": [
+        "jury",
+        "testimony",
+        "objection",
+        "plaintiff"
+      ]
+    },
+    {
+      "id": "butterfly-life",
+      "name": "Butterfly Life",
+      "words": [
+        "monarch",
+        "caterpillar",
+        "cocoon",
+        "chrysalis"
+      ]
+    },
+    {
+      "id": "retro-music",
+      "name": "Retro Music",
+      "words": [
+        "vinyl",
+        "stereo",
+        "mixtape",
+        "walkman"
+      ]
+    },
+    {
+      "id": "garden-shed",
+      "name": "Garden Shed",
+      "words": [
+        "spade",
+        "mulch",
+        "wheelbarrow",
+        "trellis"
+      ]
+    },
+    {
+      "id": "greek-myths",
+      "name": "Greek Myths",
+      "words": [
+        "titan",
+        "olympus",
+        "cyclops",
+        "centaur"
+      ]
+    },
+    {
+      "id": "farm-work",
+      "name": "On the Farm",
+      "words": [
+        "plow",
+        "scarecrow",
+        "silo",
+        "harvest"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 38,
+    "move_limit_k": 1.4
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

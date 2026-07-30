@@ -1,0 +1,108 @@
+{
+  "level_id": 215,
+  "difficulty_target": 8,
+  "categories": [
+    {
+      "id": "barista",
+      "name": "Barista",
+      "words": [
+        "brewing",
+        "decaf",
+        "frothing",
+        "crema"
+      ]
+    },
+    {
+      "id": "nail-salon",
+      "name": "Nail Salon",
+      "words": [
+        "lacquer",
+        "cuticle",
+        "topcoat",
+        "nailfile"
+      ]
+    },
+    {
+      "id": "skate-park",
+      "name": "Skate Park",
+      "words": [
+        "kicker",
+        "vert",
+        "skatepark",
+        "longboard"
+      ]
+    },
+    {
+      "id": "zoo-visit",
+      "name": "Zoo Visit",
+      "words": [
+        "feeding",
+        "enclosure",
+        "petting",
+        "zookeeper"
+      ]
+    },
+    {
+      "id": "ancient-rome",
+      "name": "Ancient Rome",
+      "words": [
+        "senate",
+        "centurion",
+        "aqueduct",
+        "toga"
+      ]
+    },
+    {
+      "id": "arctic-trek",
+      "name": "Arctic Trek",
+      "words": [
+        "huskies",
+        "icebreaker",
+        "permafrost",
+        "auroras"
+      ]
+    },
+    {
+      "id": "scrapbooking",
+      "name": "Scrapbooking",
+      "words": [
+        "stickers",
+        "laminate",
+        "keepsake",
+        "cutouts"
+      ]
+    },
+    {
+      "id": "radio-station",
+      "name": "Radio Station",
+      "words": [
+        "static",
+        "broadcaster",
+        "transmitter",
+        "airwaves"
+      ]
+    },
+    {
+      "id": "castle-keep",
+      "name": "Castle Keep",
+      "words": [
+        "siege",
+        "rampart",
+        "gatehouse",
+        "battlements"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 36,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "pack": "volume2",
+  "out_dir": "levels/packs/volume2",
+  "comment": "Спец-пак: только категории и слова, которых НЕТ в 199 уровнях референса. Сложность через нишевые темы и смежные пары; ловушек мало (дефицит пересечений в свежем материале).",
+  "seed_levels": [
+    "levels/etalon/e1.json",
+    "levels/etalon/e2.json",
+    "levels/etalon/e3.json",
+    "levels/packs/volume1/l200.json",
+    "levels/packs/volume1/l201.json",
+    "levels/packs/volume1/l202.json",
+    "levels/packs/volume1/l203.json",
+    "levels/packs/volume1/l204.json",
+    "levels/packs/volume1/l205.json",
+    "levels/packs/volume1/l206.json",
+    "levels/packs/volume1/l207.json",
+    "levels/packs/volume1/l208.json",
+    "levels/packs/volume1/l209.json"
+  ],
+  "levels": [
+    {
+      "level_id": 210,
+      "difficulty_target": 6,
+      "k": 1.4,
+      "cats": [
+        "ballet-class",
+        "mexican-food",
+        "dentist",
+        "courtroom",
+        "butterfly-life",
+        "retro-music",
+        "garden-shed",
+        "greek-myths",
+        "farm-work"
+      ],
+      "traps": []
+    },
+    {
+      "level_id": 211,
+      "difficulty_target": 6,
+      "k": 1.4,
+      "cats": [
+        "indian-kitchen",
+        "barbershop",
+        "climbing-wall",
+        "newsroom",
+        "fairy-tale",
+        "cloud-types",
+        "supermarket",
+        "sail-away",
+        "police"
+      ],
+      "traps": [],
+      "must": {
+        "police": [
+          "officer",
+          "badge",
+          "patrol",
+          "handcuffs"
+        ]
+      }
+    },
+    {
+      "level_id": 212,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "italian-sauces",
+        "spa-day",
+        "marathon-day",
+        "election-day",
+        "whale-watch",
+        "calligraphy",
+        "clockwork",
+        "eyewear",
+        "heist"
+      ],
+      "traps": []
+    },
+    {
+      "level_id": 213,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "fresh-herbs",
+        "hairstyles-new",
+        "dive-shop",
+        "space-station",
+        "medieval-fair",
+        "frog-pond",
+        "street-art",
+        "trading-floor",
+        "first-aid"
+      ],
+      "traps": []
+    },
+    {
+      "level_id": 214,
+      "difficulty_target": 7,
+      "k": 1.35,
+      "cats": [
+        "sushi-bar",
+        "dojo",
+        "boxing-gym",
+        "museum-hall",
+        "vikings",
+        "savanna",
+        "tea-ceremony",
+        "plumber-visit",
+        "orchestra"
+      ],
+      "traps": [
+        {
+          "word": "sparring",
+          "home": "dojo",
+          "tempts": "boxing-gym"
+        }
+      ],
+      "must": {
+        "vikings": [
+          "fjord",
+          "longboat",
+          "berserker",
+          "mead"
+        ]
+      }
+    },
+    {
+      "level_id": 215,
+      "difficulty_target": 8,
+      "k": 1.3,
+      "cats": [
+        "barista",
+        "nail-salon",
+        "skate-park",
+        "zoo-visit",
+        "ancient-rome",
+        "arctic-trek",
+        "scrapbooking",
+        "radio-station",
+        "castle-keep"
+      ],
+      "traps": []
+    },
+    {
+      "level_id": 216,
+      "difficulty_target": 8,
+      "k": 1.3,
+      "cats": [
+        "dino-dig",
+        "seismology",
+        "volcano-watch",
+        "languages",
+        "highlands",
+        "gold-rush",
+        "billiards",
+        "haunted-house",
+        "farmers-market"
+      ],
+      "traps": []
+    },
+    {
+      "level_id": 217,
+      "difficulty_target": 8,
+      "k": 1.3,
+      "cats": [
+        "chemistry-lab",
+        "potions",
+        "wizard-tower",
+        "lumber-camp",
+        "carpenter",
+        "rainforest",
+        "hero-hq",
+        "bake-off",
+        "auditions"
+      ],
+      "traps": [
+        {
+          "word": "vial",
+          "home": "potions",
+          "tempts": "chemistry-lab"
+        }
+      ]
+    },
+    {
+      "level_id": 218,
+      "difficulty_target": 8,
+      "k": 1.3,
+      "cats": [
+        "blacksmith",
+        "stables",
+        "knot-tying",
+        "rodeo",
+        "antique-shop",
+        "vet-clinic",
+        "deep-cosmos",
+        "cooking-verbs",
+        "island-luau",
+        "submarine-duty"
+      ],
+      "traps": [
+        {
+          "word": "horseshoe",
+          "home": "blacksmith",
+          "tempts": "stables"
+        },
+        {
+          "word": "lasso",
+          "home": "knot-tying",
+          "tempts": "rodeo"
+        }
+      ]
+    },
+    {
+      "level_id": 219,
+      "difficulty_target": 9,
+      "k": 1.25,
+      "cats": [
+        "pirate-cove",
+        "ufo-sighting",
+        "winter-cabin",
+        "circus-ring",
+        "beekeeper",
+        "candle-making",
+        "pottery-studio",
+        "sculptor",
+        "handyman",
+        "skyline"
+      ],
+      "traps": []
+    }
+  ]
+}

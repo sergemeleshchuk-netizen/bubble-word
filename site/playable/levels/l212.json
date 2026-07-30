@@ -1,0 +1,108 @@
+{
+  "level_id": 212,
+  "difficulty_target": 7,
+  "categories": [
+    {
+      "id": "italian-sauces",
+      "name": "Italian Sauces",
+      "words": [
+        "alfredo",
+        "pesto",
+        "bolognese",
+        "marinara"
+      ]
+    },
+    {
+      "id": "spa-day",
+      "name": "Spa Day",
+      "words": [
+        "jacuzzi",
+        "pampering",
+        "masseuse",
+        "aromatherapy"
+      ]
+    },
+    {
+      "id": "marathon-day",
+      "name": "Marathon Day",
+      "words": [
+        "stamina",
+        "jog",
+        "finisher",
+        "pacer"
+      ]
+    },
+    {
+      "id": "election-day",
+      "name": "Election Day",
+      "words": [
+        "candidate",
+        "polls",
+        "incumbent",
+        "turnout"
+      ]
+    },
+    {
+      "id": "whale-watch",
+      "name": "Whale Watch",
+      "words": [
+        "breaching",
+        "krill",
+        "narwhal",
+        "blowhole"
+      ]
+    },
+    {
+      "id": "calligraphy",
+      "name": "Calligraphy",
+      "words": [
+        "flourish",
+        "lettering",
+        "cursive",
+        "italic"
+      ]
+    },
+    {
+      "id": "clockwork",
+      "name": "Clockwork",
+      "words": [
+        "winding",
+        "pendulum",
+        "chime",
+        "cogs"
+      ]
+    },
+    {
+      "id": "eyewear",
+      "name": "Eyewear",
+      "words": [
+        "frames",
+        "aviators",
+        "monocle",
+        "bifocals"
+      ]
+    },
+    {
+      "id": "heist",
+      "name": "The Heist",
+      "words": [
+        "lookout",
+        "getaway",
+        "loot",
+        "heist"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 37,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

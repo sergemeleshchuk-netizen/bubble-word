@@ -3638,6 +3638,1295 @@
       "related": [
         "stationery"
       ]
+    },
+    {
+      "id": "ballet-class",
+      "name": "Ballet Class",
+      "words": [
+        "pirouette",
+        "arabesque",
+        "leotard",
+        "barre",
+        "recital"
+      ],
+      "related": [
+        "dances"
+      ]
+    },
+    {
+      "id": "sushi-bar",
+      "name": "Sushi Bar",
+      "words": [
+        "sashimi",
+        "maki",
+        "bento",
+        "teriyaki",
+        "chopstick",
+        "edamame"
+      ],
+      "related": []
+    },
+    {
+      "id": "mexican-food",
+      "name": "Mexican Food",
+      "words": [
+        "burrito",
+        "enchilada",
+        "fajita",
+        "tortilla",
+        "tamale"
+      ],
+      "related": [
+        "fast-food"
+      ]
+    },
+    {
+      "id": "indian-kitchen",
+      "name": "Indian Kitchen",
+      "words": [
+        "biryani",
+        "masala",
+        "chutney",
+        "paneer",
+        "samosa",
+        "tandoori"
+      ],
+      "related": []
+    },
+    {
+      "id": "italian-sauces",
+      "name": "Italian Sauces",
+      "words": [
+        "marinara",
+        "pesto",
+        "alfredo",
+        "carbonara",
+        "bolognese"
+      ],
+      "related": [
+        "pasta"
+      ]
+    },
+    {
+      "id": "fresh-herbs",
+      "name": "Fresh Herbs",
+      "words": [
+        "parsley",
+        "dill",
+        "sage",
+        "oregano",
+        "chives",
+        "coriander"
+      ],
+      "related": [
+        "spices"
+      ]
+    },
+    {
+      "id": "barista",
+      "name": "Barista",
+      "words": [
+        "crema",
+        "frothing",
+        "decaf",
+        "brewing"
+      ],
+      "related": [
+        "coffee-drinks"
+      ]
+    },
+    {
+      "id": "dentist",
+      "name": "At the Dentist",
+      "words": [
+        "braces",
+        "floss",
+        "dentures",
+        "toothache",
+        "fluoride"
+      ],
+      "related": [
+        "hospital"
+      ]
+    },
+    {
+      "id": "barbershop",
+      "name": "Barbershop",
+      "words": [
+        "clippers",
+        "barber",
+        "pomade",
+        "aftershave"
+      ],
+      "related": [
+        "hairstyles-new"
+      ]
+    },
+    {
+      "id": "nail-salon",
+      "name": "Nail Salon",
+      "words": [
+        "cuticle",
+        "lacquer",
+        "topcoat",
+        "nailfile"
+      ],
+      "related": [
+        "spa-day"
+      ]
+    },
+    {
+      "id": "spa-day",
+      "name": "Spa Day",
+      "words": [
+        "jacuzzi",
+        "masseuse",
+        "pampering",
+        "aromatherapy",
+        "loofah"
+      ],
+      "related": [
+        "nail-salon",
+        "self-care"
+      ]
+    },
+    {
+      "id": "hairstyles-new",
+      "name": "Hairstyles",
+      "words": [
+        "pixie",
+        "perm",
+        "mullet",
+        "cornrows",
+        "updo"
+      ],
+      "related": [
+        "barbershop"
+      ]
+    },
+    {
+      "id": "dojo",
+      "name": "At the Dojo",
+      "words": [
+        "kendo",
+        "tatami",
+        "grappling",
+        "sumo",
+        "sparring",
+        "headlock"
+      ],
+      "related": [
+        "boxing-gym"
+      ]
+    },
+    {
+      "id": "boxing-gym",
+      "name": "Boxing Gym",
+      "words": [
+        "southpaw",
+        "clinch",
+        "mouthguard",
+        "spar",
+        "sparring"
+      ],
+      "related": [
+        "dojo",
+        "gym"
+      ]
+    },
+    {
+      "id": "skate-park",
+      "name": "Skate Park",
+      "words": [
+        "longboard",
+        "kicker",
+        "vert",
+        "halfpipe",
+        "skatepark",
+        "griptape"
+      ],
+      "related": []
+    },
+    {
+      "id": "climbing-wall",
+      "name": "Climbing Wall",
+      "words": [
+        "carabiner",
+        "belay",
+        "foothold",
+        "rappel",
+        "ascent"
+      ],
+      "related": [
+        "gym"
+      ]
+    },
+    {
+      "id": "dive-shop",
+      "name": "Dive Shop",
+      "words": [
+        "snorkel",
+        "wetsuit",
+        "regulator",
+        "flipper"
+      ],
+      "related": [
+        "swimming"
+      ]
+    },
+    {
+      "id": "marathon-day",
+      "name": "Marathon Day",
+      "words": [
+        "jog",
+        "stamina",
+        "pacer",
+        "finisher"
+      ],
+      "related": [
+        "gym"
+      ]
+    },
+    {
+      "id": "stables",
+      "name": "At the Stables",
+      "words": [
+        "stirrup",
+        "bridle",
+        "foal",
+        "paddock",
+        "reins",
+        "hooves",
+        "horseshoe"
+      ],
+      "related": [
+        "farm-animals",
+        "blacksmith"
+      ]
+    },
+    {
+      "id": "butcher-shop",
+      "name": "Butcher Shop",
+      "words": [
+        "sirloin",
+        "brisket",
+        "mince",
+        "cutlet",
+        "tenderloin"
+      ],
+      "related": [
+        "meats",
+        "cured-meats"
+      ]
+    },
+    {
+      "id": "farmers-market",
+      "name": "Farmers Market",
+      "words": [
+        "stall",
+        "vendor",
+        "crate",
+        "homegrown",
+        "preserves"
+      ],
+      "related": [
+        "picnic"
+      ]
+    },
+    {
+      "id": "supermarket",
+      "name": "Supermarket",
+      "words": [
+        "aisle",
+        "cart",
+        "trolley",
+        "grocer",
+        "bagger"
+      ],
+      "related": [
+        "banking"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "Courtroom",
+      "words": [
+        "jury",
+        "objection",
+        "subpoena",
+        "testimony",
+        "plaintiff"
+      ],
+      "related": [
+        "police",
+        "detective"
+      ]
+    },
+    {
+      "id": "election-day",
+      "name": "Election Day",
+      "words": [
+        "candidate",
+        "polls",
+        "incumbent",
+        "turnout",
+        "manifesto"
+      ],
+      "related": []
+    },
+    {
+      "id": "space-station",
+      "name": "Space Station",
+      "words": [
+        "airlock",
+        "module",
+        "cosmonaut",
+        "docking",
+        "spacewalk"
+      ],
+      "related": [
+        "space",
+        "astronomy"
+      ]
+    },
+    {
+      "id": "dino-dig",
+      "name": "Dino Dig",
+      "words": [
+        "raptor",
+        "brontosaurus",
+        "pterodactyl",
+        "bones"
+      ],
+      "related": []
+    },
+    {
+      "id": "volcano-watch",
+      "name": "Volcano Watch",
+      "words": [
+        "molten",
+        "caldera",
+        "pumice",
+        "dormant",
+        "vent"
+      ],
+      "related": [
+        "seismology"
+      ]
+    },
+    {
+      "id": "seismology",
+      "name": "Seismology",
+      "words": [
+        "aftershock",
+        "epicenter",
+        "magnitude",
+        "tectonic"
+      ],
+      "related": [
+        "volcano-watch"
+      ]
+    },
+    {
+      "id": "rainforest",
+      "name": "Rainforest",
+      "words": [
+        "macaw",
+        "liana",
+        "undergrowth",
+        "howler",
+        "treetop"
+      ],
+      "related": [
+        "jungle"
+      ]
+    },
+    {
+      "id": "arctic-trek",
+      "name": "Arctic Trek",
+      "words": [
+        "permafrost",
+        "floe",
+        "icebreaker",
+        "auroras",
+        "huskies"
+      ],
+      "related": [
+        "winter"
+      ]
+    },
+    {
+      "id": "savanna",
+      "name": "Savanna",
+      "words": [
+        "gazelle",
+        "wildebeest",
+        "acacia",
+        "meerkat",
+        "warthog"
+      ],
+      "related": [
+        "safari-animals"
+      ]
+    },
+    {
+      "id": "garden-shed",
+      "name": "Garden Shed",
+      "words": [
+        "wheelbarrow",
+        "spade",
+        "trellis",
+        "mulch"
+      ],
+      "related": [
+        "gardening"
+      ]
+    },
+    {
+      "id": "plumber-visit",
+      "name": "Plumber Visit",
+      "words": [
+        "plunger",
+        "sewer",
+        "pipeline",
+        "unclog"
+      ],
+      "related": [
+        "handyman"
+      ]
+    },
+    {
+      "id": "street-art",
+      "name": "Street Art",
+      "words": [
+        "graffiti",
+        "mural",
+        "stencil",
+        "tagging"
+      ],
+      "related": []
+    },
+    {
+      "id": "sculptor",
+      "name": "Sculptor's Studio",
+      "words": [
+        "pedestal",
+        "plinth",
+        "figurine",
+        "mould"
+      ],
+      "related": [
+        "pottery-studio"
+      ]
+    },
+    {
+      "id": "museum-hall",
+      "name": "Museum Hall",
+      "words": [
+        "antiquity",
+        "docent",
+        "diorama",
+        "archive",
+        "display"
+      ],
+      "related": [
+        "antique-shop"
+      ]
+    },
+    {
+      "id": "zoo-visit",
+      "name": "Zoo Visit",
+      "words": [
+        "zookeeper",
+        "enclosure",
+        "feeding",
+        "petting"
+      ],
+      "related": [
+        "savanna"
+      ]
+    },
+    {
+      "id": "newsroom",
+      "name": "Newsroom",
+      "words": [
+        "reporter",
+        "byline",
+        "tabloid",
+        "columnist",
+        "newsflash"
+      ],
+      "related": []
+    },
+    {
+      "id": "orchestra",
+      "name": "Orchestra",
+      "words": [
+        "symphony",
+        "maestro",
+        "overture",
+        "woodwind",
+        "concerto",
+        "crescendo"
+      ],
+      "related": [
+        "instruments"
+      ]
+    },
+    {
+      "id": "radio-station",
+      "name": "Radio Station",
+      "words": [
+        "static",
+        "airwaves",
+        "transmitter",
+        "broadcaster"
+      ],
+      "related": []
+    },
+    {
+      "id": "fairy-tale",
+      "name": "Fairy Tale",
+      "words": [
+        "godmother",
+        "gnome",
+        "troll",
+        "beanstalk",
+        "gingerbread"
+      ],
+      "related": [
+        "wizard-tower"
+      ]
+    },
+    {
+      "id": "greek-myths",
+      "name": "Greek Myths",
+      "words": [
+        "minotaur",
+        "cyclops",
+        "centaur",
+        "titan",
+        "olympus"
+      ],
+      "related": [
+        "ancient-greece"
+      ]
+    },
+    {
+      "id": "hero-hq",
+      "name": "Hero HQ",
+      "words": [
+        "sidekick",
+        "vigilante",
+        "nemesis",
+        "catchphrase"
+      ],
+      "related": []
+    },
+    {
+      "id": "spy-mission",
+      "name": "Spy Mission",
+      "words": [
+        "decoy",
+        "wiretap",
+        "dossier",
+        "infiltrate",
+        "alias"
+      ],
+      "related": [
+        "heist"
+      ]
+    },
+    {
+      "id": "castle-keep",
+      "name": "Castle Keep",
+      "words": [
+        "rampart",
+        "portcullis",
+        "battlements",
+        "gatehouse",
+        "chainmail",
+        "siege"
+      ],
+      "related": [
+        "weapons-medieval",
+        "royalty"
+      ]
+    },
+    {
+      "id": "eyewear",
+      "name": "Eyewear",
+      "words": [
+        "monocle",
+        "bifocals",
+        "aviators",
+        "frames"
+      ],
+      "related": [
+        "accessories"
+      ]
+    },
+    {
+      "id": "trading-floor",
+      "name": "Trading Floor",
+      "words": [
+        "dividend",
+        "portfolio",
+        "ticker",
+        "bullish",
+        "broker"
+      ],
+      "related": [
+        "banking"
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "World Languages",
+      "words": [
+        "hindi",
+        "swahili",
+        "portuguese",
+        "korean",
+        "vietnamese",
+        "turkish"
+      ],
+      "related": [
+        "countries"
+      ]
+    },
+    {
+      "id": "skyline",
+      "name": "On the Skyline",
+      "words": [
+        "pagoda",
+        "spire",
+        "obelisk",
+        "minaret"
+      ],
+      "related": [
+        "house-parts"
+      ]
+    },
+    {
+      "id": "butterfly-life",
+      "name": "Butterfly Life",
+      "words": [
+        "caterpillar",
+        "cocoon",
+        "chrysalis",
+        "monarch",
+        "milkweed"
+      ],
+      "related": [
+        "insects"
+      ]
+    },
+    {
+      "id": "frog-pond",
+      "name": "Frog Pond",
+      "words": [
+        "tadpole",
+        "croak",
+        "bullfrog",
+        "amphibious"
+      ],
+      "related": [
+        "reptiles"
+      ]
+    },
+    {
+      "id": "whale-watch",
+      "name": "Whale Watch",
+      "words": [
+        "blowhole",
+        "krill",
+        "narwhal",
+        "baleen",
+        "breaching"
+      ],
+      "related": [
+        "sea-animals"
+      ]
+    },
+    {
+      "id": "tea-ceremony",
+      "name": "Tea Ceremony",
+      "words": [
+        "teapot",
+        "infuser",
+        "darjeeling",
+        "teahouse",
+        "steep"
+      ],
+      "related": [
+        "teas"
+      ]
+    },
+    {
+      "id": "billiards",
+      "name": "Billiards",
+      "words": [
+        "snooker",
+        "felt",
+        "chalked",
+        "potting"
+      ],
+      "related": []
+    },
+    {
+      "id": "retro-music",
+      "name": "Retro Music",
+      "words": [
+        "vinyl",
+        "walkman",
+        "mixtape",
+        "stereo"
+      ],
+      "related": [
+        "music-genres"
+      ]
+    },
+    {
+      "id": "first-aid",
+      "name": "First Aid Kit",
+      "words": [
+        "gauze",
+        "splint",
+        "tourniquet",
+        "antiseptic",
+        "sling"
+      ],
+      "related": [
+        "medicines",
+        "hospital"
+      ]
+    },
+    {
+      "id": "cloud-types",
+      "name": "Cloud Types",
+      "words": [
+        "cumulus",
+        "cirrus",
+        "stratus",
+        "nimbus"
+      ],
+      "related": [
+        "weather"
+      ]
+    },
+    {
+      "id": "knot-tying",
+      "name": "Knot Tying",
+      "words": [
+        "hitch",
+        "slipknot",
+        "tangle",
+        "overhand",
+        "lasso"
+      ],
+      "related": [
+        "rodeo"
+      ]
+    },
+    {
+      "id": "cooking-verbs",
+      "name": "In the Recipe",
+      "words": [
+        "saute",
+        "marinate",
+        "knead",
+        "garnish",
+        "sear",
+        "whipping"
+      ],
+      "related": []
+    },
+    {
+      "id": "calligraphy",
+      "name": "Calligraphy",
+      "words": [
+        "cursive",
+        "penmanship",
+        "lettering",
+        "italic",
+        "flourish"
+      ],
+      "related": [
+        "writing-tools"
+      ]
+    },
+    {
+      "id": "ancient-rome",
+      "name": "Ancient Rome",
+      "words": [
+        "toga",
+        "aqueduct",
+        "senate",
+        "centurion"
+      ],
+      "related": [
+        "ancient-greece",
+        "ancient-egypt"
+      ]
+    },
+    {
+      "id": "vikings",
+      "name": "Vikings",
+      "words": [
+        "fjord",
+        "longboat",
+        "berserker",
+        "mead",
+        "norse"
+      ],
+      "related": []
+    },
+    {
+      "id": "medieval-fair",
+      "name": "Medieval Fair",
+      "words": [
+        "jester",
+        "minstrel",
+        "joust",
+        "banquet",
+        "falconer",
+        "bard"
+      ],
+      "related": [
+        "castle-keep"
+      ]
+    },
+    {
+      "id": "gold-rush",
+      "name": "Gold Rush",
+      "words": [
+        "prospector",
+        "pickaxe",
+        "sluice",
+        "panning"
+      ],
+      "related": [
+        "metals"
+      ]
+    },
+    {
+      "id": "lumber-camp",
+      "name": "Lumber Camp",
+      "words": [
+        "sawmill",
+        "flannel",
+        "logger",
+        "stump",
+        "chainsaw",
+        "timber"
+      ],
+      "related": [
+        "carpenter"
+      ]
+    },
+    {
+      "id": "blacksmith",
+      "name": "Blacksmith",
+      "words": [
+        "anvil",
+        "forge",
+        "bellows",
+        "quench",
+        "smithy",
+        "horseshoe"
+      ],
+      "related": [
+        "stables",
+        "metals"
+      ]
+    },
+    {
+      "id": "pottery-studio",
+      "name": "Pottery Studio",
+      "words": [
+        "ceramic",
+        "urn",
+        "terracotta",
+        "earthenware",
+        "kilnfire"
+      ],
+      "related": [
+        "sculptor"
+      ]
+    },
+    {
+      "id": "ufo-sighting",
+      "name": "UFO Sighting",
+      "words": [
+        "martian",
+        "roswell",
+        "sighting",
+        "hovering"
+      ],
+      "related": [
+        "space"
+      ]
+    },
+    {
+      "id": "potions",
+      "name": "Potions Class",
+      "words": [
+        "elixir",
+        "antidote",
+        "concoction",
+        "tincture",
+        "bubbling",
+        "vial"
+      ],
+      "related": [
+        "chemistry-lab",
+        "wizard-tower"
+      ]
+    },
+    {
+      "id": "chemistry-lab",
+      "name": "Chemistry Lab",
+      "words": [
+        "litmus",
+        "bunsen",
+        "reagent",
+        "titration",
+        "vial"
+      ],
+      "related": [
+        "potions"
+      ]
+    },
+    {
+      "id": "scrapbooking",
+      "name": "Scrapbooking",
+      "words": [
+        "stickers",
+        "keepsake",
+        "cutouts",
+        "laminate"
+      ],
+      "related": [
+        "stationery"
+      ]
+    },
+    {
+      "id": "antique-shop",
+      "name": "Antique Shop",
+      "words": [
+        "heirloom",
+        "auction",
+        "curio",
+        "dusty"
+      ],
+      "related": [
+        "museum-hall"
+      ]
+    },
+    {
+      "id": "clockwork",
+      "name": "Clockwork",
+      "words": [
+        "pendulum",
+        "chime",
+        "cogs",
+        "winding"
+      ],
+      "related": [
+        "timepieces"
+      ]
+    },
+    {
+      "id": "candle-making",
+      "name": "Candle Making",
+      "words": [
+        "wick",
+        "taper",
+        "paraffin",
+        "scented"
+      ],
+      "related": []
+    },
+    {
+      "id": "vet-clinic",
+      "name": "Vet Clinic",
+      "words": [
+        "muzzle",
+        "microchip",
+        "checkup",
+        "neutering"
+      ],
+      "related": [
+        "pets",
+        "hospital"
+      ]
+    },
+    {
+      "id": "beekeeper",
+      "name": "Beekeeper",
+      "words": [
+        "apiary",
+        "honeycomb",
+        "beeswax",
+        "smoker"
+      ],
+      "related": [
+        "insects"
+      ]
+    },
+    {
+      "id": "sail-away",
+      "name": "Set Sail",
+      "words": [
+        "mast",
+        "helm",
+        "jib",
+        "spinnaker"
+      ],
+      "related": [
+        "boats",
+        "harbor"
+      ]
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenter",
+      "words": [
+        "sawdust",
+        "dovetail",
+        "lathe",
+        "plywood",
+        "sander"
+      ],
+      "related": [
+        "lumber-camp",
+        "tools"
+      ]
+    },
+    {
+      "id": "tailor-shop",
+      "name": "Tailor Shop",
+      "words": [
+        "hem",
+        "cufflinks",
+        "pinstripe",
+        "seamstress",
+        "mannequin"
+      ],
+      "related": [
+        "sewing",
+        "clothes"
+      ]
+    },
+    {
+      "id": "bake-off",
+      "name": "Bake Off",
+      "words": [
+        "icing",
+        "dough",
+        "proofing",
+        "piping",
+        "fondant"
+      ],
+      "related": [
+        "baked-goods",
+        "pastries"
+      ]
+    },
+    {
+      "id": "winter-cabin",
+      "name": "Winter Cabin",
+      "words": [
+        "snowshoe",
+        "earmuffs",
+        "toboggan",
+        "thermals"
+      ],
+      "related": [
+        "winter",
+        "winter-sports"
+      ]
+    },
+    {
+      "id": "pirate-cove",
+      "name": "Pirate Cove",
+      "words": [
+        "spyglass",
+        "buccaneer",
+        "marooned",
+        "plunder"
+      ],
+      "related": [
+        "pirates"
+      ]
+    },
+    {
+      "id": "wizard-tower",
+      "name": "Wizard Tower",
+      "words": [
+        "grimoire",
+        "enchanted",
+        "incantation",
+        "conjure"
+      ],
+      "related": [
+        "potions",
+        "fairy-tale"
+      ]
+    },
+    {
+      "id": "circus-ring",
+      "name": "Circus Ring",
+      "words": [
+        "stilts",
+        "unicycle",
+        "cannonball",
+        "strongman"
+      ],
+      "related": [
+        "circus"
+      ]
+    },
+    {
+      "id": "haunted-house",
+      "name": "Haunted House",
+      "words": [
+        "poltergeist",
+        "seance",
+        "banshee",
+        "cobwebs",
+        "ouija"
+      ],
+      "related": [
+        "halloween"
+      ]
+    },
+    {
+      "id": "deep-cosmos",
+      "name": "Deep Cosmos",
+      "words": [
+        "quasar",
+        "pulsar",
+        "lightyear",
+        "stargazer",
+        "exoplanet"
+      ],
+      "related": [
+        "astronomy",
+        "space"
+      ]
+    },
+    {
+      "id": "submarine-duty",
+      "name": "Submarine Duty",
+      "words": [
+        "ballast",
+        "nautical",
+        "seabed",
+        "submerge"
+      ],
+      "related": [
+        "boats"
+      ]
+    },
+    {
+      "id": "handyman",
+      "name": "Handyman",
+      "words": [
+        "toolbelt",
+        "stepladder",
+        "crowbar",
+        "caulk"
+      ],
+      "related": [
+        "tools",
+        "plumber-visit"
+      ]
+    },
+    {
+      "id": "heist",
+      "name": "The Heist",
+      "words": [
+        "heist",
+        "loot",
+        "getaway",
+        "lookout"
+      ],
+      "related": [
+        "security",
+        "spy-mission"
+      ]
+    },
+    {
+      "id": "auditions",
+      "name": "Auditions",
+      "words": [
+        "audition",
+        "contestant",
+        "spotlight",
+        "callback"
+      ],
+      "related": [
+        "theater"
+      ]
+    },
+    {
+      "id": "weaving",
+      "name": "Weaving",
+      "words": [
+        "loom",
+        "spindle",
+        "tapestry",
+        "weaver",
+        "warp"
+      ],
+      "related": [
+        "fabrics",
+        "sewing"
+      ]
+    },
+    {
+      "id": "highlands",
+      "name": "Highlands",
+      "words": [
+        "kilt",
+        "bagpipes",
+        "tartan",
+        "loch",
+        "haggis"
+      ],
+      "related": []
+    },
+    {
+      "id": "island-luau",
+      "name": "Island Luau",
+      "words": [
+        "hula",
+        "ukulele",
+        "luau",
+        "lei",
+        "aloha",
+        "tiki"
+      ],
+      "related": [
+        "beach"
+      ]
+    },
+    {
+      "id": "rodeo",
+      "name": "Rodeo",
+      "words": [
+        "bronco",
+        "stampede",
+        "wrangler",
+        "cowgirl",
+        "lasso"
+      ],
+      "related": [
+        "knot-tying",
+        "stables"
+      ]
     }
   ]
 }

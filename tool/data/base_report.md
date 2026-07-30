@@ -1,9 +1,9 @@
 # Отчёт сборки базы слов
 
-- Категорий: 212
-- Слов всего: 1434, уникальных: 1308
-- Слов в двух+ категориях (кандидаты в ловушки): 115
-- Средний zipf: 3.90, минимум: 1.32
+- Категорий: 306
+- Слов всего: 1882, уникальных: 1751
+- Слов в двух+ категориях (кандидаты в ловушки): 120
+- Средний zipf: 3.68, минимум: 0.00
 - Записей в блок-листе: 131
 
 ## Пересечения (слово -> категории)
@@ -64,6 +64,7 @@
 - **heart**: shapes, organs
 - **hippo**: safari-animals, large-animals
 - **hook**: pirates, fishing
+- **horseshoe**: stables, blacksmith
 - **icicle**: winter-fun, winter
 - **july**: months, summer
 - **june**: months, summer
@@ -71,6 +72,7 @@
 - **lace**: shoe-parts, fabrics
 - **lamb**: easter, meats
 - **lane**: road, swimming, bowling
+- **lasso**: knot-tying, rodeo
 - **lemonade**: drinks, picnic
 - **lettuce**: vegetables, salad-things
 - **lion**: safari-animals, wild-cats
@@ -107,6 +109,7 @@
 - **snow**: weather, winter
 - **soil**: landscape, gardening
 - **south**: compass, americas
+- **sparring**: dojo, boxing-gym
 - **sponge**: bathroom-items, ocean-floor, cleaning-tools
 - **spring**: easter, seasons
 - **square**: shapes, polygons
@@ -118,7 +121,9 @@
 - **tongs**: kitchen-tools, barbecue
 - **triangle**: shapes, polygons
 - **turtle**: pets, sea-animals
+- **ukulele**: guitars, island-luau
 - **umbrella**: beach, rain-gear
+- **vial**: potions, chemistry-lab
 - **watch**: accessories, timepieces
 - **whale**: sea-animals, large-animals
 - **wood**: materials, building-materials
@@ -128,7 +133,7 @@
 
 - нет
 
-## Предупреждения (59)
+## Предупреждения (266)
 
 - [compass] пул из 4 слов - генератору мало выбора
 - [polygons] редкое слово: rhombus (zipf 2.12)
@@ -189,3 +194,210 @@
 - [cheeses] редкое слово: gouda (zipf 2.52)
 - [pastries] редкое слово: eclair (zipf 2.18)
 - [cleaning-tools] редкое слово: dustpan (zipf 1.9)
+- [ballet-class] пул из 5 слов - генератору мало выбора
+- [ballet-class] редкое слово: pirouette (zipf 2.18)
+- [ballet-class] редкое слово: arabesque (zipf 2.32)
+- [ballet-class] редкое слово: leotard (zipf 2.54)
+- [sushi-bar] редкое слово: teriyaki (zipf 2.53)
+- [sushi-bar] редкое слово: chopstick (zipf 2.22)
+- [sushi-bar] редкое слово: edamame (zipf 2.15)
+- [mexican-food] пул из 5 слов - генератору мало выбора
+- [mexican-food] редкое слово: enchilada (zipf 2.35)
+- [mexican-food] редкое слово: fajita (zipf 2.07)
+- [mexican-food] редкое слово: tamale (zipf 2.48)
+- [indian-kitchen] редкое слово: biryani (zipf 2.49)
+- [indian-kitchen] редкое слово: paneer (zipf 2.31)
+- [indian-kitchen] редкое слово: samosa (zipf 2.13)
+- [indian-kitchen] редкое слово: tandoori (zipf 2.36)
+- [italian-sauces] пул из 5 слов - генератору мало выбора
+- [italian-sauces] редкое слово: marinara (zipf 2.53)
+- [italian-sauces] редкое слово: carbonara (zipf 2.32)
+- [italian-sauces] редкое слово: bolognese (zipf 2.59)
+- [barista] пул из 4 слов - генератору мало выбора
+- [barista] редкое слово: crema (zipf 2.26)
+- [barista] редкое слово: frothing (zipf 2.49)
+- [dentist] пул из 5 слов - генератору мало выбора
+- [barbershop] пул из 4 слов - генератору мало выбора
+- [barbershop] редкое слово: pomade (zipf 2.28)
+- [barbershop] редкое слово: aftershave (zipf 2.56)
+- [nail-salon] пул из 4 слов - генератору мало выбора
+- [nail-salon] редкое слово: topcoat (zipf 2.07)
+- [nail-salon] редкое слово: nailfile (zipf 0.0)
+- [spa-day] пул из 5 слов - генератору мало выбора
+- [spa-day] редкое слово: loofah (zipf 2.05)
+- [hairstyles-new] пул из 5 слов - генератору мало выбора
+- [hairstyles-new] редкое слово: cornrows (zipf 2.13)
+- [hairstyles-new] редкое слово: updo (zipf 2.01)
+- [dojo] редкое слово: kendo (zipf 2.49)
+- [dojo] редкое слово: tatami (zipf 2.24)
+- [dojo] редкое слово: headlock (zipf 2.46)
+- [boxing-gym] пул из 5 слов - генератору мало выбора
+- [boxing-gym] редкое слово: southpaw (zipf 2.57)
+- [boxing-gym] редкое слово: mouthguard (zipf 2.0)
+- [skate-park] редкое слово: longboard (zipf 2.37)
+- [skate-park] редкое слово: halfpipe (zipf 2.25)
+- [skate-park] редкое слово: skatepark (zipf 2.46)
+- [skate-park] редкое слово: griptape (zipf 1.21)
+- [climbing-wall] пул из 5 слов - генератору мало выбора
+- [climbing-wall] редкое слово: carabiner (zipf 2.05)
+- [climbing-wall] редкое слово: belay (zipf 2.43)
+- [climbing-wall] редкое слово: rappel (zipf 2.23)
+- [dive-shop] пул из 4 слов - генератору мало выбора
+- [dive-shop] редкое слово: wetsuit (zipf 2.55)
+- [marathon-day] пул из 4 слов - генератору мало выбора
+- [stables] редкое слово: stirrup (zipf 2.44)
+- [butcher-shop] пул из 5 слов - генератору мало выбора
+- [butcher-shop] редкое слово: sirloin (zipf 2.52)
+- [butcher-shop] редкое слово: cutlet (zipf 2.14)
+- [butcher-shop] редкое слово: tenderloin (zipf 2.58)
+- [farmers-market] пул из 5 слов - генератору мало выбора
+- [supermarket] пул из 5 слов - генератору мало выбора
+- [supermarket] редкое слово: bagger (zipf 2.47)
+- [courtroom] пул из 5 слов - генератору мало выбора
+- [election-day] пул из 5 слов - генератору мало выбора
+- [space-station] пул из 5 слов - генератору мало выбора
+- [space-station] редкое слово: cosmonaut (zipf 2.51)
+- [space-station] редкое слово: spacewalk (zipf 2.43)
+- [dino-dig] пул из 4 слов - генератору мало выбора
+- [dino-dig] редкое слово: brontosaurus (zipf 2.16)
+- [dino-dig] редкое слово: pterodactyl (zipf 2.29)
+- [volcano-watch] пул из 5 слов - генератору мало выбора
+- [volcano-watch] редкое слово: pumice (zipf 2.51)
+- [seismology] пул из 4 слов - генератору мало выбора
+- [seismology] редкое слово: aftershock (zipf 2.58)
+- [rainforest] пул из 5 слов - генератору мало выбора
+- [rainforest] редкое слово: macaw (zipf 2.33)
+- [rainforest] редкое слово: liana (zipf 2.53)
+- [rainforest] редкое слово: howler (zipf 2.51)
+- [rainforest] редкое слово: treetop (zipf 2.17)
+- [arctic-trek] пул из 5 слов - генератору мало выбора
+- [arctic-trek] редкое слово: floe (zipf 2.15)
+- [arctic-trek] редкое слово: auroras (zipf 2.32)
+- [savanna] пул из 5 слов - генератору мало выбора
+- [savanna] редкое слово: wildebeest (zipf 2.52)
+- [savanna] редкое слово: meerkat (zipf 2.49)
+- [savanna] редкое слово: warthog (zipf 2.49)
+- [garden-shed] пул из 4 слов - генератору мало выбора
+- [garden-shed] редкое слово: trellis (zipf 2.59)
+- [plumber-visit] пул из 4 слов - генератору мало выбора
+- [plumber-visit] редкое слово: unclog (zipf 2.33)
+- [street-art] пул из 4 слов - генератору мало выбора
+- [sculptor] пул из 4 слов - генератору мало выбора
+- [museum-hall] пул из 5 слов - генератору мало выбора
+- [museum-hall] редкое слово: docent (zipf 2.3)
+- [museum-hall] редкое слово: diorama (zipf 2.49)
+- [zoo-visit] пул из 4 слов - генератору мало выбора
+- [zoo-visit] редкое слово: zookeeper (zipf 2.44)
+- [newsroom] пул из 5 слов - генератору мало выбора
+- [newsroom] редкое слово: byline (zipf 2.57)
+- [newsroom] редкое слово: newsflash (zipf 2.59)
+- [orchestra] редкое слово: woodwind (zipf 2.46)
+- [radio-station] пул из 4 слов - генератору мало выбора
+- [fairy-tale] пул из 5 слов - генератору мало выбора
+- [fairy-tale] редкое слово: beanstalk (zipf 2.46)
+- [greek-myths] пул из 5 слов - генератору мало выбора
+- [hero-hq] пул из 4 слов - генератору мало выбора
+- [spy-mission] пул из 5 слов - генератору мало выбора
+- [castle-keep] редкое слово: portcullis (zipf 2.16)
+- [castle-keep] редкое слово: battlements (zipf 2.54)
+- [castle-keep] редкое слово: chainmail (zipf 2.13)
+- [eyewear] пул из 4 слов - генератору мало выбора
+- [eyewear] редкое слово: monocle (zipf 2.47)
+- [eyewear] редкое слово: bifocals (zipf 1.94)
+- [trading-floor] пул из 5 слов - генератору мало выбора
+- [skyline] пул из 4 слов - генератору мало выбора
+- [skyline] редкое слово: minaret (zipf 2.36)
+- [butterfly-life] пул из 5 слов - генератору мало выбора
+- [butterfly-life] редкое слово: milkweed (zipf 2.45)
+- [frog-pond] пул из 4 слов - генератору мало выбора
+- [frog-pond] редкое слово: tadpole (zipf 2.51)
+- [frog-pond] редкое слово: croak (zipf 2.4)
+- [frog-pond] редкое слово: bullfrog (zipf 2.34)
+- [whale-watch] пул из 5 слов - генератору мало выбора
+- [whale-watch] редкое слово: blowhole (zipf 2.11)
+- [whale-watch] редкое слово: narwhal (zipf 2.28)
+- [whale-watch] редкое слово: baleen (zipf 2.1)
+- [tea-ceremony] пул из 5 слов - генератору мало выбора
+- [tea-ceremony] редкое слово: infuser (zipf 2.02)
+- [tea-ceremony] редкое слово: darjeeling (zipf 2.59)
+- [tea-ceremony] редкое слово: teahouse (zipf 2.34)
+- [billiards] пул из 4 слов - генератору мало выбора
+- [retro-music] пул из 4 слов - генератору мало выбора
+- [first-aid] пул из 5 слов - генератору мало выбора
+- [first-aid] редкое слово: tourniquet (zipf 2.54)
+- [cloud-types] пул из 4 слов - генератору мало выбора
+- [cloud-types] редкое слово: cumulus (zipf 2.57)
+- [cloud-types] редкое слово: stratus (zipf 2.41)
+- [knot-tying] пул из 5 слов - генератору мало выбора
+- [knot-tying] редкое слово: overhand (zipf 2.39)
+- [cooking-verbs] редкое слово: saute (zipf 2.46)
+- [cooking-verbs] редкое слово: marinate (zipf 2.59)
+- [cooking-verbs] редкое слово: knead (zipf 2.57)
+- [calligraphy] пул из 5 слов - генератору мало выбора
+- [calligraphy] редкое слово: penmanship (zipf 2.45)
+- [ancient-rome] пул из 4 слов - генератору мало выбора
+- [vikings] пул из 5 слов - генератору мало выбора
+- [vikings] редкое слово: longboat (zipf 2.22)
+- [vikings] редкое слово: berserker (zipf 2.41)
+- [medieval-fair] редкое слово: joust (zipf 2.47)
+- [gold-rush] пул из 4 слов - генератору мало выбора
+- [gold-rush] редкое слово: pickaxe (zipf 2.35)
+- [lumber-camp] редкое слово: logger (zipf 2.53)
+- [blacksmith] редкое слово: smithy (zipf 2.55)
+- [pottery-studio] пул из 5 слов - генератору мало выбора
+- [pottery-studio] редкое слово: earthenware (zipf 2.52)
+- [pottery-studio] редкое слово: kilnfire (zipf 0.0)
+- [ufo-sighting] пул из 4 слов - генератору мало выбора
+- [chemistry-lab] пул из 5 слов - генератору мало выбора
+- [chemistry-lab] редкое слово: bunsen (zipf 2.43)
+- [chemistry-lab] редкое слово: titration (zipf 2.38)
+- [scrapbooking] пул из 4 слов - генератору мало выбора
+- [scrapbooking] редкое слово: cutouts (zipf 2.59)
+- [antique-shop] пул из 4 слов - генератору мало выбора
+- [antique-shop] редкое слово: curio (zipf 2.43)
+- [clockwork] пул из 4 слов - генератору мало выбора
+- [candle-making] пул из 4 слов - генератору мало выбора
+- [vet-clinic] пул из 4 слов - генератору мало выбора
+- [vet-clinic] редкое слово: neutering (zipf 2.27)
+- [beekeeper] пул из 4 слов - генератору мало выбора
+- [beekeeper] редкое слово: apiary (zipf 2.01)
+- [sail-away] пул из 4 слов - генератору мало выбора
+- [sail-away] редкое слово: spinnaker (zipf 2.26)
+- [carpenter] пул из 5 слов - генератору мало выбора
+- [carpenter] редкое слово: dovetail (zipf 2.43)
+- [tailor-shop] пул из 5 слов - генератору мало выбора
+- [tailor-shop] редкое слово: pinstripe (zipf 2.37)
+- [bake-off] пул из 5 слов - генератору мало выбора
+- [bake-off] редкое слово: fondant (zipf 2.57)
+- [winter-cabin] пул из 4 слов - генератору мало выбора
+- [winter-cabin] редкое слово: snowshoe (zipf 2.41)
+- [winter-cabin] редкое слово: earmuffs (zipf 2.17)
+- [winter-cabin] редкое слово: toboggan (zipf 2.31)
+- [winter-cabin] редкое слово: thermals (zipf 2.39)
+- [pirate-cove] пул из 4 слов - генератору мало выбора
+- [pirate-cove] редкое слово: spyglass (zipf 2.25)
+- [pirate-cove] редкое слово: buccaneer (zipf 2.41)
+- [wizard-tower] пул из 4 слов - генератору мало выбора
+- [wizard-tower] редкое слово: grimoire (zipf 2.32)
+- [wizard-tower] редкое слово: incantation (zipf 2.56)
+- [circus-ring] пул из 4 слов - генератору мало выбора
+- [circus-ring] редкое слово: unicycle (zipf 2.37)
+- [haunted-house] пул из 5 слов - генератору мало выбора
+- [haunted-house] редкое слово: poltergeist (zipf 2.57)
+- [haunted-house] редкое слово: seance (zipf 2.35)
+- [deep-cosmos] пул из 5 слов - генератору мало выбора
+- [deep-cosmos] редкое слово: quasar (zipf 2.43)
+- [deep-cosmos] редкое слово: lightyear (zipf 2.51)
+- [deep-cosmos] редкое слово: stargazer (zipf 2.28)
+- [deep-cosmos] редкое слово: exoplanet (zipf 2.58)
+- [submarine-duty] пул из 4 слов - генератору мало выбора
+- [handyman] пул из 4 слов - генератору мало выбора
+- [handyman] редкое слово: toolbelt (zipf 1.17)
+- [handyman] редкое слово: stepladder (zipf 2.07)
+- [handyman] редкое слово: caulk (zipf 2.29)
+- [heist] пул из 4 слов - генератору мало выбора
+- [auditions] пул из 4 слов - генератору мало выбора
+- [weaving] пул из 5 слов - генератору мало выбора
+- [highlands] пул из 5 слов - генератору мало выбора
+- [island-luau] редкое слово: luau (zipf 2.36)
+- [rodeo] пул из 5 слов - генератору мало выбора

@@ -4935,6 +4935,9 @@
         "bass": [
           "band-members",
           "singing-voices"
+        ],
+        "ukulele": [
+          "island-luau"
         ]
       }
     },
@@ -10467,6 +10470,3217 @@
         }
       ],
       "shared_words": {}
+    },
+    {
+      "id": "ballet-class",
+      "name": "Ballet Class",
+      "related": [
+        "dances"
+      ],
+      "words": [
+        {
+          "w": "pirouette",
+          "zipf": 2.18,
+          "len": 9
+        },
+        {
+          "w": "arabesque",
+          "zipf": 2.32,
+          "len": 9
+        },
+        {
+          "w": "leotard",
+          "zipf": 2.54,
+          "len": 7
+        },
+        {
+          "w": "barre",
+          "zipf": 3.08,
+          "len": 5
+        },
+        {
+          "w": "recital",
+          "zipf": 3.28,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "sushi-bar",
+      "name": "Sushi Bar",
+      "related": [],
+      "words": [
+        {
+          "w": "sashimi",
+          "zipf": 2.61,
+          "len": 7
+        },
+        {
+          "w": "maki",
+          "zipf": 2.93,
+          "len": 4
+        },
+        {
+          "w": "bento",
+          "zipf": 2.7,
+          "len": 5
+        },
+        {
+          "w": "teriyaki",
+          "zipf": 2.53,
+          "len": 8
+        },
+        {
+          "w": "chopstick",
+          "zipf": 2.22,
+          "len": 9
+        },
+        {
+          "w": "edamame",
+          "zipf": 2.15,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "mexican-food",
+      "name": "Mexican Food",
+      "related": [
+        "fast-food"
+      ],
+      "words": [
+        {
+          "w": "burrito",
+          "zipf": 3.26,
+          "len": 7
+        },
+        {
+          "w": "enchilada",
+          "zipf": 2.35,
+          "len": 9
+        },
+        {
+          "w": "fajita",
+          "zipf": 2.07,
+          "len": 6
+        },
+        {
+          "w": "tortilla",
+          "zipf": 3.06,
+          "len": 8
+        },
+        {
+          "w": "tamale",
+          "zipf": 2.48,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "indian-kitchen",
+      "name": "Indian Kitchen",
+      "related": [],
+      "words": [
+        {
+          "w": "biryani",
+          "zipf": 2.49,
+          "len": 7
+        },
+        {
+          "w": "masala",
+          "zipf": 2.89,
+          "len": 6
+        },
+        {
+          "w": "chutney",
+          "zipf": 2.74,
+          "len": 7
+        },
+        {
+          "w": "paneer",
+          "zipf": 2.31,
+          "len": 6
+        },
+        {
+          "w": "samosa",
+          "zipf": 2.13,
+          "len": 6
+        },
+        {
+          "w": "tandoori",
+          "zipf": 2.36,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "italian-sauces",
+      "name": "Italian Sauces",
+      "related": [
+        "pasta"
+      ],
+      "words": [
+        {
+          "w": "marinara",
+          "zipf": 2.53,
+          "len": 8
+        },
+        {
+          "w": "pesto",
+          "zipf": 2.88,
+          "len": 5
+        },
+        {
+          "w": "alfredo",
+          "zipf": 3.27,
+          "len": 7
+        },
+        {
+          "w": "carbonara",
+          "zipf": 2.32,
+          "len": 9
+        },
+        {
+          "w": "bolognese",
+          "zipf": 2.59,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "fresh-herbs",
+      "name": "Fresh Herbs",
+      "related": [
+        "spices"
+      ],
+      "words": [
+        {
+          "w": "parsley",
+          "zipf": 3.27,
+          "len": 7
+        },
+        {
+          "w": "dill",
+          "zipf": 3.11,
+          "len": 4
+        },
+        {
+          "w": "sage",
+          "zipf": 3.83,
+          "len": 4
+        },
+        {
+          "w": "oregano",
+          "zipf": 2.8,
+          "len": 7
+        },
+        {
+          "w": "chives",
+          "zipf": 2.62,
+          "len": 6
+        },
+        {
+          "w": "coriander",
+          "zipf": 2.95,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "barista",
+      "name": "Barista",
+      "related": [
+        "coffee-drinks"
+      ],
+      "words": [
+        {
+          "w": "crema",
+          "zipf": 2.26,
+          "len": 5
+        },
+        {
+          "w": "frothing",
+          "zipf": 2.49,
+          "len": 8
+        },
+        {
+          "w": "decaf",
+          "zipf": 2.63,
+          "len": 5
+        },
+        {
+          "w": "brewing",
+          "zipf": 3.76,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "dentist",
+      "name": "At the Dentist",
+      "related": [
+        "hospital"
+      ],
+      "words": [
+        {
+          "w": "braces",
+          "zipf": 3.49,
+          "len": 6
+        },
+        {
+          "w": "floss",
+          "zipf": 3.18,
+          "len": 5
+        },
+        {
+          "w": "dentures",
+          "zipf": 2.81,
+          "len": 8
+        },
+        {
+          "w": "toothache",
+          "zipf": 2.76,
+          "len": 9
+        },
+        {
+          "w": "fluoride",
+          "zipf": 3.25,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "barbershop",
+      "name": "Barbershop",
+      "related": [
+        "hairstyles-new"
+      ],
+      "words": [
+        {
+          "w": "clippers",
+          "zipf": 3.6,
+          "len": 8
+        },
+        {
+          "w": "barber",
+          "zipf": 3.81,
+          "len": 6
+        },
+        {
+          "w": "pomade",
+          "zipf": 2.28,
+          "len": 6
+        },
+        {
+          "w": "aftershave",
+          "zipf": 2.56,
+          "len": 10
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "nail-salon",
+      "name": "Nail Salon",
+      "related": [
+        "spa-day"
+      ],
+      "words": [
+        {
+          "w": "cuticle",
+          "zipf": 2.69,
+          "len": 7
+        },
+        {
+          "w": "lacquer",
+          "zipf": 2.92,
+          "len": 7
+        },
+        {
+          "w": "topcoat",
+          "zipf": 2.07,
+          "len": 7
+        },
+        {
+          "w": "nailfile",
+          "zipf": 0.0,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "spa-day",
+      "name": "Spa Day",
+      "related": [
+        "nail-salon",
+        "self-care"
+      ],
+      "words": [
+        {
+          "w": "jacuzzi",
+          "zipf": 2.92,
+          "len": 7
+        },
+        {
+          "w": "masseuse",
+          "zipf": 2.62,
+          "len": 8
+        },
+        {
+          "w": "pampering",
+          "zipf": 2.65,
+          "len": 9
+        },
+        {
+          "w": "aromatherapy",
+          "zipf": 2.61,
+          "len": 12
+        },
+        {
+          "w": "loofah",
+          "zipf": 2.05,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "hairstyles-new",
+      "name": "Hairstyles",
+      "related": [
+        "barbershop"
+      ],
+      "words": [
+        {
+          "w": "pixie",
+          "zipf": 3.15,
+          "len": 5
+        },
+        {
+          "w": "perm",
+          "zipf": 3.12,
+          "len": 4
+        },
+        {
+          "w": "mullet",
+          "zipf": 2.97,
+          "len": 6
+        },
+        {
+          "w": "cornrows",
+          "zipf": 2.13,
+          "len": 8
+        },
+        {
+          "w": "updo",
+          "zipf": 2.01,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "dojo",
+      "name": "At the Dojo",
+      "related": [
+        "boxing-gym"
+      ],
+      "words": [
+        {
+          "w": "kendo",
+          "zipf": 2.49,
+          "len": 5
+        },
+        {
+          "w": "tatami",
+          "zipf": 2.24,
+          "len": 6
+        },
+        {
+          "w": "grappling",
+          "zipf": 3.22,
+          "len": 9
+        },
+        {
+          "w": "sumo",
+          "zipf": 3.06,
+          "len": 4
+        },
+        {
+          "w": "sparring",
+          "zipf": 3.11,
+          "len": 8
+        },
+        {
+          "w": "headlock",
+          "zipf": 2.46,
+          "len": 8
+        }
+      ],
+      "shared_words": {
+        "sparring": [
+          "boxing-gym"
+        ]
+      }
+    },
+    {
+      "id": "boxing-gym",
+      "name": "Boxing Gym",
+      "related": [
+        "dojo",
+        "gym"
+      ],
+      "words": [
+        {
+          "w": "southpaw",
+          "zipf": 2.57,
+          "len": 8
+        },
+        {
+          "w": "clinch",
+          "zipf": 3.29,
+          "len": 6
+        },
+        {
+          "w": "mouthguard",
+          "zipf": 2.0,
+          "len": 10
+        },
+        {
+          "w": "spar",
+          "zipf": 3.06,
+          "len": 4
+        },
+        {
+          "w": "sparring",
+          "zipf": 3.11,
+          "len": 8
+        }
+      ],
+      "shared_words": {
+        "sparring": [
+          "dojo"
+        ]
+      }
+    },
+    {
+      "id": "skate-park",
+      "name": "Skate Park",
+      "related": [],
+      "words": [
+        {
+          "w": "longboard",
+          "zipf": 2.37,
+          "len": 9
+        },
+        {
+          "w": "kicker",
+          "zipf": 3.41,
+          "len": 6
+        },
+        {
+          "w": "vert",
+          "zipf": 2.99,
+          "len": 4
+        },
+        {
+          "w": "halfpipe",
+          "zipf": 2.25,
+          "len": 8
+        },
+        {
+          "w": "skatepark",
+          "zipf": 2.46,
+          "len": 9
+        },
+        {
+          "w": "griptape",
+          "zipf": 1.21,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "climbing-wall",
+      "name": "Climbing Wall",
+      "related": [
+        "gym"
+      ],
+      "words": [
+        {
+          "w": "carabiner",
+          "zipf": 2.05,
+          "len": 9
+        },
+        {
+          "w": "belay",
+          "zipf": 2.43,
+          "len": 5
+        },
+        {
+          "w": "foothold",
+          "zipf": 3.07,
+          "len": 8
+        },
+        {
+          "w": "rappel",
+          "zipf": 2.23,
+          "len": 6
+        },
+        {
+          "w": "ascent",
+          "zipf": 3.42,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "dive-shop",
+      "name": "Dive Shop",
+      "related": [
+        "swimming"
+      ],
+      "words": [
+        {
+          "w": "snorkel",
+          "zipf": 2.68,
+          "len": 7
+        },
+        {
+          "w": "wetsuit",
+          "zipf": 2.55,
+          "len": 7
+        },
+        {
+          "w": "regulator",
+          "zipf": 3.62,
+          "len": 9
+        },
+        {
+          "w": "flipper",
+          "zipf": 2.8,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "marathon-day",
+      "name": "Marathon Day",
+      "related": [
+        "gym"
+      ],
+      "words": [
+        {
+          "w": "jog",
+          "zipf": 3.3,
+          "len": 3
+        },
+        {
+          "w": "stamina",
+          "zipf": 3.39,
+          "len": 7
+        },
+        {
+          "w": "pacer",
+          "zipf": 2.71,
+          "len": 5
+        },
+        {
+          "w": "finisher",
+          "zipf": 3.14,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "stables",
+      "name": "At the Stables",
+      "related": [
+        "farm-animals",
+        "blacksmith"
+      ],
+      "words": [
+        {
+          "w": "stirrup",
+          "zipf": 2.44,
+          "len": 7
+        },
+        {
+          "w": "bridle",
+          "zipf": 2.78,
+          "len": 6
+        },
+        {
+          "w": "foal",
+          "zipf": 2.83,
+          "len": 4
+        },
+        {
+          "w": "paddock",
+          "zipf": 3.11,
+          "len": 7
+        },
+        {
+          "w": "reins",
+          "zipf": 3.31,
+          "len": 5
+        },
+        {
+          "w": "hooves",
+          "zipf": 2.92,
+          "len": 6
+        },
+        {
+          "w": "horseshoe",
+          "zipf": 3.16,
+          "len": 9
+        }
+      ],
+      "shared_words": {
+        "horseshoe": [
+          "blacksmith"
+        ]
+      }
+    },
+    {
+      "id": "butcher-shop",
+      "name": "Butcher Shop",
+      "related": [
+        "meats",
+        "cured-meats"
+      ],
+      "words": [
+        {
+          "w": "sirloin",
+          "zipf": 2.52,
+          "len": 7
+        },
+        {
+          "w": "brisket",
+          "zipf": 2.87,
+          "len": 7
+        },
+        {
+          "w": "mince",
+          "zipf": 3.02,
+          "len": 5
+        },
+        {
+          "w": "cutlet",
+          "zipf": 2.14,
+          "len": 6
+        },
+        {
+          "w": "tenderloin",
+          "zipf": 2.58,
+          "len": 10
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "farmers-market",
+      "name": "Farmers Market",
+      "related": [
+        "picnic"
+      ],
+      "words": [
+        {
+          "w": "stall",
+          "zipf": 3.79,
+          "len": 5
+        },
+        {
+          "w": "vendor",
+          "zipf": 3.79,
+          "len": 6
+        },
+        {
+          "w": "crate",
+          "zipf": 3.47,
+          "len": 5
+        },
+        {
+          "w": "homegrown",
+          "zipf": 3.06,
+          "len": 9
+        },
+        {
+          "w": "preserves",
+          "zipf": 3.36,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "supermarket",
+      "name": "Supermarket",
+      "related": [
+        "banking"
+      ],
+      "words": [
+        {
+          "w": "aisle",
+          "zipf": 3.72,
+          "len": 5
+        },
+        {
+          "w": "cart",
+          "zipf": 3.98,
+          "len": 4
+        },
+        {
+          "w": "trolley",
+          "zipf": 3.44,
+          "len": 7
+        },
+        {
+          "w": "grocer",
+          "zipf": 3.01,
+          "len": 6
+        },
+        {
+          "w": "bagger",
+          "zipf": 2.47,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "courtroom",
+      "name": "Courtroom",
+      "related": [
+        "police",
+        "detective"
+      ],
+      "words": [
+        {
+          "w": "jury",
+          "zipf": 4.49,
+          "len": 4
+        },
+        {
+          "w": "objection",
+          "zipf": 3.77,
+          "len": 9
+        },
+        {
+          "w": "subpoena",
+          "zipf": 3.34,
+          "len": 8
+        },
+        {
+          "w": "testimony",
+          "zipf": 4.17,
+          "len": 9
+        },
+        {
+          "w": "plaintiff",
+          "zipf": 3.55,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "election-day",
+      "name": "Election Day",
+      "related": [],
+      "words": [
+        {
+          "w": "candidate",
+          "zipf": 4.66,
+          "len": 9
+        },
+        {
+          "w": "polls",
+          "zipf": 4.1,
+          "len": 5
+        },
+        {
+          "w": "incumbent",
+          "zipf": 3.77,
+          "len": 9
+        },
+        {
+          "w": "turnout",
+          "zipf": 3.68,
+          "len": 7
+        },
+        {
+          "w": "manifesto",
+          "zipf": 3.65,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "space-station",
+      "name": "Space Station",
+      "related": [
+        "space",
+        "astronomy"
+      ],
+      "words": [
+        {
+          "w": "airlock",
+          "zipf": 2.63,
+          "len": 7
+        },
+        {
+          "w": "module",
+          "zipf": 3.89,
+          "len": 6
+        },
+        {
+          "w": "cosmonaut",
+          "zipf": 2.51,
+          "len": 9
+        },
+        {
+          "w": "docking",
+          "zipf": 3.31,
+          "len": 7
+        },
+        {
+          "w": "spacewalk",
+          "zipf": 2.43,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "dino-dig",
+      "name": "Dino Dig",
+      "related": [],
+      "words": [
+        {
+          "w": "raptor",
+          "zipf": 3.15,
+          "len": 6
+        },
+        {
+          "w": "brontosaurus",
+          "zipf": 2.16,
+          "len": 12
+        },
+        {
+          "w": "pterodactyl",
+          "zipf": 2.29,
+          "len": 11
+        },
+        {
+          "w": "bones",
+          "zipf": 4.32,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "volcano-watch",
+      "name": "Volcano Watch",
+      "related": [
+        "seismology"
+      ],
+      "words": [
+        {
+          "w": "molten",
+          "zipf": 3.33,
+          "len": 6
+        },
+        {
+          "w": "caldera",
+          "zipf": 2.64,
+          "len": 7
+        },
+        {
+          "w": "pumice",
+          "zipf": 2.51,
+          "len": 6
+        },
+        {
+          "w": "dormant",
+          "zipf": 3.41,
+          "len": 7
+        },
+        {
+          "w": "vent",
+          "zipf": 3.8,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "seismology",
+      "name": "Seismology",
+      "related": [
+        "volcano-watch"
+      ],
+      "words": [
+        {
+          "w": "aftershock",
+          "zipf": 2.58,
+          "len": 10
+        },
+        {
+          "w": "epicenter",
+          "zipf": 2.9,
+          "len": 9
+        },
+        {
+          "w": "magnitude",
+          "zipf": 4.0,
+          "len": 9
+        },
+        {
+          "w": "tectonic",
+          "zipf": 3.13,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "rainforest",
+      "name": "Rainforest",
+      "related": [
+        "jungle"
+      ],
+      "words": [
+        {
+          "w": "macaw",
+          "zipf": 2.33,
+          "len": 5
+        },
+        {
+          "w": "liana",
+          "zipf": 2.53,
+          "len": 5
+        },
+        {
+          "w": "undergrowth",
+          "zipf": 2.67,
+          "len": 11
+        },
+        {
+          "w": "howler",
+          "zipf": 2.51,
+          "len": 6
+        },
+        {
+          "w": "treetop",
+          "zipf": 2.17,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "arctic-trek",
+      "name": "Arctic Trek",
+      "related": [
+        "winter"
+      ],
+      "words": [
+        {
+          "w": "permafrost",
+          "zipf": 2.79,
+          "len": 10
+        },
+        {
+          "w": "floe",
+          "zipf": 2.15,
+          "len": 4
+        },
+        {
+          "w": "icebreaker",
+          "zipf": 2.82,
+          "len": 10
+        },
+        {
+          "w": "auroras",
+          "zipf": 2.32,
+          "len": 7
+        },
+        {
+          "w": "huskies",
+          "zipf": 3.2,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "savanna",
+      "name": "Savanna",
+      "related": [
+        "safari-animals"
+      ],
+      "words": [
+        {
+          "w": "gazelle",
+          "zipf": 2.87,
+          "len": 7
+        },
+        {
+          "w": "wildebeest",
+          "zipf": 2.52,
+          "len": 10
+        },
+        {
+          "w": "acacia",
+          "zipf": 3.01,
+          "len": 6
+        },
+        {
+          "w": "meerkat",
+          "zipf": 2.49,
+          "len": 7
+        },
+        {
+          "w": "warthog",
+          "zipf": 2.49,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "garden-shed",
+      "name": "Garden Shed",
+      "related": [
+        "gardening"
+      ],
+      "words": [
+        {
+          "w": "wheelbarrow",
+          "zipf": 2.66,
+          "len": 11
+        },
+        {
+          "w": "spade",
+          "zipf": 3.33,
+          "len": 5
+        },
+        {
+          "w": "trellis",
+          "zipf": 2.59,
+          "len": 7
+        },
+        {
+          "w": "mulch",
+          "zipf": 2.9,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "plumber-visit",
+      "name": "Plumber Visit",
+      "related": [
+        "handyman"
+      ],
+      "words": [
+        {
+          "w": "plunger",
+          "zipf": 2.92,
+          "len": 7
+        },
+        {
+          "w": "sewer",
+          "zipf": 3.64,
+          "len": 5
+        },
+        {
+          "w": "pipeline",
+          "zipf": 4.04,
+          "len": 8
+        },
+        {
+          "w": "unclog",
+          "zipf": 2.33,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "street-art",
+      "name": "Street Art",
+      "related": [],
+      "words": [
+        {
+          "w": "graffiti",
+          "zipf": 3.65,
+          "len": 8
+        },
+        {
+          "w": "mural",
+          "zipf": 3.49,
+          "len": 5
+        },
+        {
+          "w": "stencil",
+          "zipf": 2.84,
+          "len": 7
+        },
+        {
+          "w": "tagging",
+          "zipf": 3.37,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "sculptor",
+      "name": "Sculptor's Studio",
+      "related": [
+        "pottery-studio"
+      ],
+      "words": [
+        {
+          "w": "pedestal",
+          "zipf": 3.35,
+          "len": 8
+        },
+        {
+          "w": "plinth",
+          "zipf": 2.6,
+          "len": 6
+        },
+        {
+          "w": "figurine",
+          "zipf": 2.85,
+          "len": 8
+        },
+        {
+          "w": "mould",
+          "zipf": 3.45,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "museum-hall",
+      "name": "Museum Hall",
+      "related": [
+        "antique-shop"
+      ],
+      "words": [
+        {
+          "w": "antiquity",
+          "zipf": 3.43,
+          "len": 9
+        },
+        {
+          "w": "docent",
+          "zipf": 2.3,
+          "len": 6
+        },
+        {
+          "w": "diorama",
+          "zipf": 2.49,
+          "len": 7
+        },
+        {
+          "w": "archive",
+          "zipf": 3.98,
+          "len": 7
+        },
+        {
+          "w": "display",
+          "zipf": 4.63,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "zoo-visit",
+      "name": "Zoo Visit",
+      "related": [
+        "savanna"
+      ],
+      "words": [
+        {
+          "w": "zookeeper",
+          "zipf": 2.44,
+          "len": 9
+        },
+        {
+          "w": "enclosure",
+          "zipf": 3.61,
+          "len": 9
+        },
+        {
+          "w": "feeding",
+          "zipf": 4.28,
+          "len": 7
+        },
+        {
+          "w": "petting",
+          "zipf": 3.05,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "newsroom",
+      "name": "Newsroom",
+      "related": [],
+      "words": [
+        {
+          "w": "reporter",
+          "zipf": 4.35,
+          "len": 8
+        },
+        {
+          "w": "byline",
+          "zipf": 2.57,
+          "len": 6
+        },
+        {
+          "w": "tabloid",
+          "zipf": 3.25,
+          "len": 7
+        },
+        {
+          "w": "columnist",
+          "zipf": 3.58,
+          "len": 9
+        },
+        {
+          "w": "newsflash",
+          "zipf": 2.59,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "orchestra",
+      "name": "Orchestra",
+      "related": [
+        "instruments"
+      ],
+      "words": [
+        {
+          "w": "symphony",
+          "zipf": 3.77,
+          "len": 8
+        },
+        {
+          "w": "maestro",
+          "zipf": 3.26,
+          "len": 7
+        },
+        {
+          "w": "overture",
+          "zipf": 3.01,
+          "len": 8
+        },
+        {
+          "w": "woodwind",
+          "zipf": 2.46,
+          "len": 8
+        },
+        {
+          "w": "concerto",
+          "zipf": 3.26,
+          "len": 8
+        },
+        {
+          "w": "crescendo",
+          "zipf": 2.83,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "radio-station",
+      "name": "Radio Station",
+      "related": [],
+      "words": [
+        {
+          "w": "static",
+          "zipf": 4.05,
+          "len": 6
+        },
+        {
+          "w": "airwaves",
+          "zipf": 2.98,
+          "len": 8
+        },
+        {
+          "w": "transmitter",
+          "zipf": 3.59,
+          "len": 11
+        },
+        {
+          "w": "broadcaster",
+          "zipf": 3.63,
+          "len": 11
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "fairy-tale",
+      "name": "Fairy Tale",
+      "related": [
+        "wizard-tower"
+      ],
+      "words": [
+        {
+          "w": "godmother",
+          "zipf": 2.92,
+          "len": 9
+        },
+        {
+          "w": "gnome",
+          "zipf": 3.2,
+          "len": 5
+        },
+        {
+          "w": "troll",
+          "zipf": 3.73,
+          "len": 5
+        },
+        {
+          "w": "beanstalk",
+          "zipf": 2.46,
+          "len": 9
+        },
+        {
+          "w": "gingerbread",
+          "zipf": 3.03,
+          "len": 11
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "greek-myths",
+      "name": "Greek Myths",
+      "related": [
+        "ancient-greece"
+      ],
+      "words": [
+        {
+          "w": "minotaur",
+          "zipf": 2.76,
+          "len": 8
+        },
+        {
+          "w": "cyclops",
+          "zipf": 3.11,
+          "len": 7
+        },
+        {
+          "w": "centaur",
+          "zipf": 2.79,
+          "len": 7
+        },
+        {
+          "w": "titan",
+          "zipf": 3.69,
+          "len": 5
+        },
+        {
+          "w": "olympus",
+          "zipf": 3.25,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "hero-hq",
+      "name": "Hero HQ",
+      "related": [],
+      "words": [
+        {
+          "w": "sidekick",
+          "zipf": 3.24,
+          "len": 8
+        },
+        {
+          "w": "vigilante",
+          "zipf": 3.31,
+          "len": 9
+        },
+        {
+          "w": "nemesis",
+          "zipf": 3.34,
+          "len": 7
+        },
+        {
+          "w": "catchphrase",
+          "zipf": 2.94,
+          "len": 11
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "spy-mission",
+      "name": "Spy Mission",
+      "related": [
+        "heist"
+      ],
+      "words": [
+        {
+          "w": "decoy",
+          "zipf": 3.04,
+          "len": 5
+        },
+        {
+          "w": "wiretap",
+          "zipf": 2.69,
+          "len": 7
+        },
+        {
+          "w": "dossier",
+          "zipf": 3.29,
+          "len": 7
+        },
+        {
+          "w": "infiltrate",
+          "zipf": 3.25,
+          "len": 10
+        },
+        {
+          "w": "alias",
+          "zipf": 3.46,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "castle-keep",
+      "name": "Castle Keep",
+      "related": [
+        "weapons-medieval",
+        "royalty"
+      ],
+      "words": [
+        {
+          "w": "rampart",
+          "zipf": 2.77,
+          "len": 7
+        },
+        {
+          "w": "portcullis",
+          "zipf": 2.16,
+          "len": 10
+        },
+        {
+          "w": "battlements",
+          "zipf": 2.54,
+          "len": 11
+        },
+        {
+          "w": "gatehouse",
+          "zipf": 2.62,
+          "len": 9
+        },
+        {
+          "w": "chainmail",
+          "zipf": 2.13,
+          "len": 9
+        },
+        {
+          "w": "siege",
+          "zipf": 3.93,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "eyewear",
+      "name": "Eyewear",
+      "related": [
+        "accessories"
+      ],
+      "words": [
+        {
+          "w": "monocle",
+          "zipf": 2.47,
+          "len": 7
+        },
+        {
+          "w": "bifocals",
+          "zipf": 1.94,
+          "len": 8
+        },
+        {
+          "w": "aviators",
+          "zipf": 2.69,
+          "len": 8
+        },
+        {
+          "w": "frames",
+          "zipf": 4.01,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "trading-floor",
+      "name": "Trading Floor",
+      "related": [
+        "banking"
+      ],
+      "words": [
+        {
+          "w": "dividend",
+          "zipf": 3.82,
+          "len": 8
+        },
+        {
+          "w": "portfolio",
+          "zipf": 4.15,
+          "len": 9
+        },
+        {
+          "w": "ticker",
+          "zipf": 3.03,
+          "len": 6
+        },
+        {
+          "w": "bullish",
+          "zipf": 3.14,
+          "len": 7
+        },
+        {
+          "w": "broker",
+          "zipf": 3.89,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "languages",
+      "name": "World Languages",
+      "related": [
+        "countries"
+      ],
+      "words": [
+        {
+          "w": "hindi",
+          "zipf": 3.82,
+          "len": 5
+        },
+        {
+          "w": "swahili",
+          "zipf": 2.87,
+          "len": 7
+        },
+        {
+          "w": "portuguese",
+          "zipf": 4.03,
+          "len": 10
+        },
+        {
+          "w": "korean",
+          "zipf": 4.49,
+          "len": 6
+        },
+        {
+          "w": "vietnamese",
+          "zipf": 3.85,
+          "len": 10
+        },
+        {
+          "w": "turkish",
+          "zipf": 4.28,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "skyline",
+      "name": "On the Skyline",
+      "related": [
+        "house-parts"
+      ],
+      "words": [
+        {
+          "w": "pagoda",
+          "zipf": 2.85,
+          "len": 6
+        },
+        {
+          "w": "spire",
+          "zipf": 3.11,
+          "len": 5
+        },
+        {
+          "w": "obelisk",
+          "zipf": 2.76,
+          "len": 7
+        },
+        {
+          "w": "minaret",
+          "zipf": 2.36,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "butterfly-life",
+      "name": "Butterfly Life",
+      "related": [
+        "insects"
+      ],
+      "words": [
+        {
+          "w": "caterpillar",
+          "zipf": 3.38,
+          "len": 11
+        },
+        {
+          "w": "cocoon",
+          "zipf": 3.08,
+          "len": 6
+        },
+        {
+          "w": "chrysalis",
+          "zipf": 2.6,
+          "len": 9
+        },
+        {
+          "w": "monarch",
+          "zipf": 3.69,
+          "len": 7
+        },
+        {
+          "w": "milkweed",
+          "zipf": 2.45,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "frog-pond",
+      "name": "Frog Pond",
+      "related": [
+        "reptiles"
+      ],
+      "words": [
+        {
+          "w": "tadpole",
+          "zipf": 2.51,
+          "len": 7
+        },
+        {
+          "w": "croak",
+          "zipf": 2.4,
+          "len": 5
+        },
+        {
+          "w": "bullfrog",
+          "zipf": 2.34,
+          "len": 8
+        },
+        {
+          "w": "amphibious",
+          "zipf": 3.06,
+          "len": 10
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "whale-watch",
+      "name": "Whale Watch",
+      "related": [
+        "sea-animals"
+      ],
+      "words": [
+        {
+          "w": "blowhole",
+          "zipf": 2.11,
+          "len": 8
+        },
+        {
+          "w": "krill",
+          "zipf": 2.63,
+          "len": 5
+        },
+        {
+          "w": "narwhal",
+          "zipf": 2.28,
+          "len": 7
+        },
+        {
+          "w": "baleen",
+          "zipf": 2.1,
+          "len": 6
+        },
+        {
+          "w": "breaching",
+          "zipf": 2.98,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "tea-ceremony",
+      "name": "Tea Ceremony",
+      "related": [
+        "teas"
+      ],
+      "words": [
+        {
+          "w": "teapot",
+          "zipf": 2.91,
+          "len": 6
+        },
+        {
+          "w": "infuser",
+          "zipf": 2.02,
+          "len": 7
+        },
+        {
+          "w": "darjeeling",
+          "zipf": 2.59,
+          "len": 10
+        },
+        {
+          "w": "teahouse",
+          "zipf": 2.34,
+          "len": 8
+        },
+        {
+          "w": "steep",
+          "zipf": 3.99,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "billiards",
+      "name": "Billiards",
+      "related": [],
+      "words": [
+        {
+          "w": "snooker",
+          "zipf": 3.03,
+          "len": 7
+        },
+        {
+          "w": "felt",
+          "zipf": 5.13,
+          "len": 4
+        },
+        {
+          "w": "chalked",
+          "zipf": 2.72,
+          "len": 7
+        },
+        {
+          "w": "potting",
+          "zipf": 2.71,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "retro-music",
+      "name": "Retro Music",
+      "related": [
+        "music-genres"
+      ],
+      "words": [
+        {
+          "w": "vinyl",
+          "zipf": 4.0,
+          "len": 5
+        },
+        {
+          "w": "walkman",
+          "zipf": 2.62,
+          "len": 7
+        },
+        {
+          "w": "mixtape",
+          "zipf": 3.34,
+          "len": 7
+        },
+        {
+          "w": "stereo",
+          "zipf": 3.77,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "first-aid",
+      "name": "First Aid Kit",
+      "related": [
+        "medicines",
+        "hospital"
+      ],
+      "words": [
+        {
+          "w": "gauze",
+          "zipf": 2.89,
+          "len": 5
+        },
+        {
+          "w": "splint",
+          "zipf": 2.66,
+          "len": 6
+        },
+        {
+          "w": "tourniquet",
+          "zipf": 2.54,
+          "len": 10
+        },
+        {
+          "w": "antiseptic",
+          "zipf": 2.81,
+          "len": 10
+        },
+        {
+          "w": "sling",
+          "zipf": 3.34,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "cloud-types",
+      "name": "Cloud Types",
+      "related": [
+        "weather"
+      ],
+      "words": [
+        {
+          "w": "cumulus",
+          "zipf": 2.57,
+          "len": 7
+        },
+        {
+          "w": "cirrus",
+          "zipf": 2.65,
+          "len": 6
+        },
+        {
+          "w": "stratus",
+          "zipf": 2.41,
+          "len": 7
+        },
+        {
+          "w": "nimbus",
+          "zipf": 2.62,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "knot-tying",
+      "name": "Knot Tying",
+      "related": [
+        "rodeo"
+      ],
+      "words": [
+        {
+          "w": "hitch",
+          "zipf": 3.42,
+          "len": 5
+        },
+        {
+          "w": "slipknot",
+          "zipf": 2.66,
+          "len": 8
+        },
+        {
+          "w": "tangle",
+          "zipf": 3.1,
+          "len": 6
+        },
+        {
+          "w": "overhand",
+          "zipf": 2.39,
+          "len": 8
+        },
+        {
+          "w": "lasso",
+          "zipf": 2.74,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "lasso": [
+          "rodeo"
+        ]
+      }
+    },
+    {
+      "id": "cooking-verbs",
+      "name": "In the Recipe",
+      "related": [],
+      "words": [
+        {
+          "w": "saute",
+          "zipf": 2.46,
+          "len": 5
+        },
+        {
+          "w": "marinate",
+          "zipf": 2.59,
+          "len": 8
+        },
+        {
+          "w": "knead",
+          "zipf": 2.57,
+          "len": 5
+        },
+        {
+          "w": "garnish",
+          "zipf": 3.04,
+          "len": 7
+        },
+        {
+          "w": "sear",
+          "zipf": 2.71,
+          "len": 4
+        },
+        {
+          "w": "whipping",
+          "zipf": 3.36,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "calligraphy",
+      "name": "Calligraphy",
+      "related": [
+        "writing-tools"
+      ],
+      "words": [
+        {
+          "w": "cursive",
+          "zipf": 2.9,
+          "len": 7
+        },
+        {
+          "w": "penmanship",
+          "zipf": 2.45,
+          "len": 10
+        },
+        {
+          "w": "lettering",
+          "zipf": 3.19,
+          "len": 9
+        },
+        {
+          "w": "italic",
+          "zipf": 2.73,
+          "len": 6
+        },
+        {
+          "w": "flourish",
+          "zipf": 3.53,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "ancient-rome",
+      "name": "Ancient Rome",
+      "related": [
+        "ancient-greece",
+        "ancient-egypt"
+      ],
+      "words": [
+        {
+          "w": "toga",
+          "zipf": 2.73,
+          "len": 4
+        },
+        {
+          "w": "aqueduct",
+          "zipf": 2.93,
+          "len": 8
+        },
+        {
+          "w": "senate",
+          "zipf": 4.8,
+          "len": 6
+        },
+        {
+          "w": "centurion",
+          "zipf": 3.05,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "vikings",
+      "name": "Vikings",
+      "related": [],
+      "words": [
+        {
+          "w": "fjord",
+          "zipf": 2.81,
+          "len": 5
+        },
+        {
+          "w": "longboat",
+          "zipf": 2.22,
+          "len": 8
+        },
+        {
+          "w": "berserker",
+          "zipf": 2.41,
+          "len": 9
+        },
+        {
+          "w": "mead",
+          "zipf": 3.43,
+          "len": 4
+        },
+        {
+          "w": "norse",
+          "zipf": 3.23,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "medieval-fair",
+      "name": "Medieval Fair",
+      "related": [
+        "castle-keep"
+      ],
+      "words": [
+        {
+          "w": "jester",
+          "zipf": 2.96,
+          "len": 6
+        },
+        {
+          "w": "minstrel",
+          "zipf": 2.79,
+          "len": 8
+        },
+        {
+          "w": "joust",
+          "zipf": 2.47,
+          "len": 5
+        },
+        {
+          "w": "banquet",
+          "zipf": 3.59,
+          "len": 7
+        },
+        {
+          "w": "falconer",
+          "zipf": 2.81,
+          "len": 8
+        },
+        {
+          "w": "bard",
+          "zipf": 3.34,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "gold-rush",
+      "name": "Gold Rush",
+      "related": [
+        "metals"
+      ],
+      "words": [
+        {
+          "w": "prospector",
+          "zipf": 2.63,
+          "len": 10
+        },
+        {
+          "w": "pickaxe",
+          "zipf": 2.35,
+          "len": 7
+        },
+        {
+          "w": "sluice",
+          "zipf": 2.63,
+          "len": 6
+        },
+        {
+          "w": "panning",
+          "zipf": 2.76,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "lumber-camp",
+      "name": "Lumber Camp",
+      "related": [
+        "carpenter"
+      ],
+      "words": [
+        {
+          "w": "sawmill",
+          "zipf": 2.89,
+          "len": 7
+        },
+        {
+          "w": "flannel",
+          "zipf": 3.18,
+          "len": 7
+        },
+        {
+          "w": "logger",
+          "zipf": 2.53,
+          "len": 6
+        },
+        {
+          "w": "stump",
+          "zipf": 3.45,
+          "len": 5
+        },
+        {
+          "w": "chainsaw",
+          "zipf": 3.2,
+          "len": 8
+        },
+        {
+          "w": "timber",
+          "zipf": 4.01,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "blacksmith",
+      "name": "Blacksmith",
+      "related": [
+        "stables",
+        "metals"
+      ],
+      "words": [
+        {
+          "w": "anvil",
+          "zipf": 3.04,
+          "len": 5
+        },
+        {
+          "w": "forge",
+          "zipf": 3.78,
+          "len": 5
+        },
+        {
+          "w": "bellows",
+          "zipf": 3.07,
+          "len": 7
+        },
+        {
+          "w": "quench",
+          "zipf": 2.89,
+          "len": 6
+        },
+        {
+          "w": "smithy",
+          "zipf": 2.55,
+          "len": 6
+        },
+        {
+          "w": "horseshoe",
+          "zipf": 3.16,
+          "len": 9
+        }
+      ],
+      "shared_words": {
+        "horseshoe": [
+          "stables"
+        ]
+      }
+    },
+    {
+      "id": "pottery-studio",
+      "name": "Pottery Studio",
+      "related": [
+        "sculptor"
+      ],
+      "words": [
+        {
+          "w": "ceramic",
+          "zipf": 3.74,
+          "len": 7
+        },
+        {
+          "w": "urn",
+          "zipf": 3.24,
+          "len": 3
+        },
+        {
+          "w": "terracotta",
+          "zipf": 2.83,
+          "len": 10
+        },
+        {
+          "w": "earthenware",
+          "zipf": 2.52,
+          "len": 11
+        },
+        {
+          "w": "kilnfire",
+          "zipf": 0.0,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "ufo-sighting",
+      "name": "UFO Sighting",
+      "related": [
+        "space"
+      ],
+      "words": [
+        {
+          "w": "martian",
+          "zipf": 3.39,
+          "len": 7
+        },
+        {
+          "w": "roswell",
+          "zipf": 3.0,
+          "len": 7
+        },
+        {
+          "w": "sighting",
+          "zipf": 3.3,
+          "len": 8
+        },
+        {
+          "w": "hovering",
+          "zipf": 3.38,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "potions",
+      "name": "Potions Class",
+      "related": [
+        "chemistry-lab",
+        "wizard-tower"
+      ],
+      "words": [
+        {
+          "w": "elixir",
+          "zipf": 3.16,
+          "len": 6
+        },
+        {
+          "w": "antidote",
+          "zipf": 3.25,
+          "len": 8
+        },
+        {
+          "w": "concoction",
+          "zipf": 2.81,
+          "len": 10
+        },
+        {
+          "w": "tincture",
+          "zipf": 2.67,
+          "len": 8
+        },
+        {
+          "w": "bubbling",
+          "zipf": 3.23,
+          "len": 8
+        },
+        {
+          "w": "vial",
+          "zipf": 3.1,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "vial": [
+          "chemistry-lab"
+        ]
+      }
+    },
+    {
+      "id": "chemistry-lab",
+      "name": "Chemistry Lab",
+      "related": [
+        "potions"
+      ],
+      "words": [
+        {
+          "w": "litmus",
+          "zipf": 2.77,
+          "len": 6
+        },
+        {
+          "w": "bunsen",
+          "zipf": 2.43,
+          "len": 6
+        },
+        {
+          "w": "reagent",
+          "zipf": 2.88,
+          "len": 7
+        },
+        {
+          "w": "titration",
+          "zipf": 2.38,
+          "len": 9
+        },
+        {
+          "w": "vial",
+          "zipf": 3.1,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "vial": [
+          "potions"
+        ]
+      }
+    },
+    {
+      "id": "scrapbooking",
+      "name": "Scrapbooking",
+      "related": [
+        "stationery"
+      ],
+      "words": [
+        {
+          "w": "stickers",
+          "zipf": 3.69,
+          "len": 8
+        },
+        {
+          "w": "keepsake",
+          "zipf": 2.63,
+          "len": 8
+        },
+        {
+          "w": "cutouts",
+          "zipf": 2.59,
+          "len": 7
+        },
+        {
+          "w": "laminate",
+          "zipf": 2.87,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "antique-shop",
+      "name": "Antique Shop",
+      "related": [
+        "museum-hall"
+      ],
+      "words": [
+        {
+          "w": "heirloom",
+          "zipf": 2.98,
+          "len": 8
+        },
+        {
+          "w": "auction",
+          "zipf": 4.27,
+          "len": 7
+        },
+        {
+          "w": "curio",
+          "zipf": 2.43,
+          "len": 5
+        },
+        {
+          "w": "dusty",
+          "zipf": 3.67,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "clockwork",
+      "name": "Clockwork",
+      "related": [
+        "timepieces"
+      ],
+      "words": [
+        {
+          "w": "pendulum",
+          "zipf": 3.27,
+          "len": 8
+        },
+        {
+          "w": "chime",
+          "zipf": 3.14,
+          "len": 5
+        },
+        {
+          "w": "cogs",
+          "zipf": 2.78,
+          "len": 4
+        },
+        {
+          "w": "winding",
+          "zipf": 3.71,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "candle-making",
+      "name": "Candle Making",
+      "related": [],
+      "words": [
+        {
+          "w": "wick",
+          "zipf": 3.34,
+          "len": 4
+        },
+        {
+          "w": "taper",
+          "zipf": 3.3,
+          "len": 5
+        },
+        {
+          "w": "paraffin",
+          "zipf": 2.73,
+          "len": 8
+        },
+        {
+          "w": "scented",
+          "zipf": 3.3,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "vet-clinic",
+      "name": "Vet Clinic",
+      "related": [
+        "pets",
+        "hospital"
+      ],
+      "words": [
+        {
+          "w": "muzzle",
+          "zipf": 3.31,
+          "len": 6
+        },
+        {
+          "w": "microchip",
+          "zipf": 2.87,
+          "len": 9
+        },
+        {
+          "w": "checkup",
+          "zipf": 2.88,
+          "len": 7
+        },
+        {
+          "w": "neutering",
+          "zipf": 2.27,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "beekeeper",
+      "name": "Beekeeper",
+      "related": [
+        "insects"
+      ],
+      "words": [
+        {
+          "w": "apiary",
+          "zipf": 2.01,
+          "len": 6
+        },
+        {
+          "w": "honeycomb",
+          "zipf": 2.94,
+          "len": 9
+        },
+        {
+          "w": "beeswax",
+          "zipf": 2.67,
+          "len": 7
+        },
+        {
+          "w": "smoker",
+          "zipf": 3.37,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "sail-away",
+      "name": "Set Sail",
+      "related": [
+        "boats",
+        "harbor"
+      ],
+      "words": [
+        {
+          "w": "mast",
+          "zipf": 3.52,
+          "len": 4
+        },
+        {
+          "w": "helm",
+          "zipf": 3.65,
+          "len": 4
+        },
+        {
+          "w": "jib",
+          "zipf": 2.79,
+          "len": 3
+        },
+        {
+          "w": "spinnaker",
+          "zipf": 2.26,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "carpenter",
+      "name": "Carpenter",
+      "related": [
+        "lumber-camp",
+        "tools"
+      ],
+      "words": [
+        {
+          "w": "sawdust",
+          "zipf": 2.85,
+          "len": 7
+        },
+        {
+          "w": "dovetail",
+          "zipf": 2.43,
+          "len": 8
+        },
+        {
+          "w": "lathe",
+          "zipf": 2.91,
+          "len": 5
+        },
+        {
+          "w": "plywood",
+          "zipf": 3.29,
+          "len": 7
+        },
+        {
+          "w": "sander",
+          "zipf": 2.94,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "tailor-shop",
+      "name": "Tailor Shop",
+      "related": [
+        "sewing",
+        "clothes"
+      ],
+      "words": [
+        {
+          "w": "hem",
+          "zipf": 3.24,
+          "len": 3
+        },
+        {
+          "w": "cufflinks",
+          "zipf": 2.65,
+          "len": 9
+        },
+        {
+          "w": "pinstripe",
+          "zipf": 2.37,
+          "len": 9
+        },
+        {
+          "w": "seamstress",
+          "zipf": 2.77,
+          "len": 10
+        },
+        {
+          "w": "mannequin",
+          "zipf": 3.06,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "bake-off",
+      "name": "Bake Off",
+      "related": [
+        "baked-goods",
+        "pastries"
+      ],
+      "words": [
+        {
+          "w": "icing",
+          "zipf": 3.49,
+          "len": 5
+        },
+        {
+          "w": "dough",
+          "zipf": 3.86,
+          "len": 5
+        },
+        {
+          "w": "proofing",
+          "zipf": 2.78,
+          "len": 8
+        },
+        {
+          "w": "piping",
+          "zipf": 3.42,
+          "len": 6
+        },
+        {
+          "w": "fondant",
+          "zipf": 2.57,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "winter-cabin",
+      "name": "Winter Cabin",
+      "related": [
+        "winter",
+        "winter-sports"
+      ],
+      "words": [
+        {
+          "w": "snowshoe",
+          "zipf": 2.41,
+          "len": 8
+        },
+        {
+          "w": "earmuffs",
+          "zipf": 2.17,
+          "len": 8
+        },
+        {
+          "w": "toboggan",
+          "zipf": 2.31,
+          "len": 8
+        },
+        {
+          "w": "thermals",
+          "zipf": 2.39,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "pirate-cove",
+      "name": "Pirate Cove",
+      "related": [
+        "pirates"
+      ],
+      "words": [
+        {
+          "w": "spyglass",
+          "zipf": 2.25,
+          "len": 8
+        },
+        {
+          "w": "buccaneer",
+          "zipf": 2.41,
+          "len": 9
+        },
+        {
+          "w": "marooned",
+          "zipf": 2.64,
+          "len": 8
+        },
+        {
+          "w": "plunder",
+          "zipf": 3.1,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "wizard-tower",
+      "name": "Wizard Tower",
+      "related": [
+        "potions",
+        "fairy-tale"
+      ],
+      "words": [
+        {
+          "w": "grimoire",
+          "zipf": 2.32,
+          "len": 8
+        },
+        {
+          "w": "enchanted",
+          "zipf": 3.44,
+          "len": 9
+        },
+        {
+          "w": "incantation",
+          "zipf": 2.56,
+          "len": 11
+        },
+        {
+          "w": "conjure",
+          "zipf": 3.1,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "circus-ring",
+      "name": "Circus Ring",
+      "related": [
+        "circus"
+      ],
+      "words": [
+        {
+          "w": "stilts",
+          "zipf": 2.75,
+          "len": 6
+        },
+        {
+          "w": "unicycle",
+          "zipf": 2.37,
+          "len": 8
+        },
+        {
+          "w": "cannonball",
+          "zipf": 2.87,
+          "len": 10
+        },
+        {
+          "w": "strongman",
+          "zipf": 2.88,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "haunted-house",
+      "name": "Haunted House",
+      "related": [
+        "halloween"
+      ],
+      "words": [
+        {
+          "w": "poltergeist",
+          "zipf": 2.57,
+          "len": 11
+        },
+        {
+          "w": "seance",
+          "zipf": 2.35,
+          "len": 6
+        },
+        {
+          "w": "banshee",
+          "zipf": 2.81,
+          "len": 7
+        },
+        {
+          "w": "cobwebs",
+          "zipf": 2.71,
+          "len": 7
+        },
+        {
+          "w": "ouija",
+          "zipf": 2.74,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "deep-cosmos",
+      "name": "Deep Cosmos",
+      "related": [
+        "astronomy",
+        "space"
+      ],
+      "words": [
+        {
+          "w": "quasar",
+          "zipf": 2.43,
+          "len": 6
+        },
+        {
+          "w": "pulsar",
+          "zipf": 2.7,
+          "len": 6
+        },
+        {
+          "w": "lightyear",
+          "zipf": 2.51,
+          "len": 9
+        },
+        {
+          "w": "stargazer",
+          "zipf": 2.28,
+          "len": 9
+        },
+        {
+          "w": "exoplanet",
+          "zipf": 2.58,
+          "len": 9
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "submarine-duty",
+      "name": "Submarine Duty",
+      "related": [
+        "boats"
+      ],
+      "words": [
+        {
+          "w": "ballast",
+          "zipf": 3.16,
+          "len": 7
+        },
+        {
+          "w": "nautical",
+          "zipf": 3.49,
+          "len": 8
+        },
+        {
+          "w": "seabed",
+          "zipf": 2.94,
+          "len": 6
+        },
+        {
+          "w": "submerge",
+          "zipf": 2.6,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "handyman",
+      "name": "Handyman",
+      "related": [
+        "tools",
+        "plumber-visit"
+      ],
+      "words": [
+        {
+          "w": "toolbelt",
+          "zipf": 1.17,
+          "len": 8
+        },
+        {
+          "w": "stepladder",
+          "zipf": 2.07,
+          "len": 10
+        },
+        {
+          "w": "crowbar",
+          "zipf": 2.72,
+          "len": 7
+        },
+        {
+          "w": "caulk",
+          "zipf": 2.29,
+          "len": 5
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "heist",
+      "name": "The Heist",
+      "related": [
+        "security",
+        "spy-mission"
+      ],
+      "words": [
+        {
+          "w": "heist",
+          "zipf": 3.39,
+          "len": 5
+        },
+        {
+          "w": "loot",
+          "zipf": 3.49,
+          "len": 4
+        },
+        {
+          "w": "getaway",
+          "zipf": 3.51,
+          "len": 7
+        },
+        {
+          "w": "lookout",
+          "zipf": 3.61,
+          "len": 7
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "auditions",
+      "name": "Auditions",
+      "related": [
+        "theater"
+      ],
+      "words": [
+        {
+          "w": "audition",
+          "zipf": 3.77,
+          "len": 8
+        },
+        {
+          "w": "contestant",
+          "zipf": 3.48,
+          "len": 10
+        },
+        {
+          "w": "spotlight",
+          "zipf": 3.9,
+          "len": 9
+        },
+        {
+          "w": "callback",
+          "zipf": 2.79,
+          "len": 8
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "weaving",
+      "name": "Weaving",
+      "related": [
+        "fabrics",
+        "sewing"
+      ],
+      "words": [
+        {
+          "w": "loom",
+          "zipf": 3.34,
+          "len": 4
+        },
+        {
+          "w": "spindle",
+          "zipf": 3.1,
+          "len": 7
+        },
+        {
+          "w": "tapestry",
+          "zipf": 3.24,
+          "len": 8
+        },
+        {
+          "w": "weaver",
+          "zipf": 3.6,
+          "len": 6
+        },
+        {
+          "w": "warp",
+          "zipf": 3.63,
+          "len": 4
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "highlands",
+      "name": "Highlands",
+      "related": [],
+      "words": [
+        {
+          "w": "kilt",
+          "zipf": 2.88,
+          "len": 4
+        },
+        {
+          "w": "bagpipes",
+          "zipf": 2.74,
+          "len": 8
+        },
+        {
+          "w": "tartan",
+          "zipf": 2.91,
+          "len": 6
+        },
+        {
+          "w": "loch",
+          "zipf": 3.45,
+          "len": 4
+        },
+        {
+          "w": "haggis",
+          "zipf": 2.66,
+          "len": 6
+        }
+      ],
+      "shared_words": {}
+    },
+    {
+      "id": "island-luau",
+      "name": "Island Luau",
+      "related": [
+        "beach"
+      ],
+      "words": [
+        {
+          "w": "hula",
+          "zipf": 3.01,
+          "len": 4
+        },
+        {
+          "w": "ukulele",
+          "zipf": 3.01,
+          "len": 7
+        },
+        {
+          "w": "luau",
+          "zipf": 2.36,
+          "len": 4
+        },
+        {
+          "w": "lei",
+          "zipf": 3.17,
+          "len": 3
+        },
+        {
+          "w": "aloha",
+          "zipf": 3.09,
+          "len": 5
+        },
+        {
+          "w": "tiki",
+          "zipf": 3.1,
+          "len": 4
+        }
+      ],
+      "shared_words": {
+        "ukulele": [
+          "guitars"
+        ]
+      }
+    },
+    {
+      "id": "rodeo",
+      "name": "Rodeo",
+      "related": [
+        "knot-tying",
+        "stables"
+      ],
+      "words": [
+        {
+          "w": "bronco",
+          "zipf": 2.99,
+          "len": 6
+        },
+        {
+          "w": "stampede",
+          "zipf": 3.13,
+          "len": 8
+        },
+        {
+          "w": "wrangler",
+          "zipf": 2.92,
+          "len": 8
+        },
+        {
+          "w": "cowgirl",
+          "zipf": 2.87,
+          "len": 7
+        },
+        {
+          "w": "lasso",
+          "zipf": 2.74,
+          "len": 5
+        }
+      ],
+      "shared_words": {
+        "lasso": [
+          "knot-tying"
+        ]
+      }
     }
   ]
 }

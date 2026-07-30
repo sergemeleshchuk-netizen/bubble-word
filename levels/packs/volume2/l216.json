@@ -1,0 +1,108 @@
+{
+  "level_id": 216,
+  "difficulty_target": 8,
+  "categories": [
+    {
+      "id": "dino-dig",
+      "name": "Dino Dig",
+      "words": [
+        "bones",
+        "raptor",
+        "pterodactyl",
+        "brontosaurus"
+      ]
+    },
+    {
+      "id": "seismology",
+      "name": "Seismology",
+      "words": [
+        "magnitude",
+        "tectonic",
+        "epicenter",
+        "aftershock"
+      ]
+    },
+    {
+      "id": "volcano-watch",
+      "name": "Volcano Watch",
+      "words": [
+        "vent",
+        "dormant",
+        "molten",
+        "caldera"
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "World Languages",
+      "words": [
+        "korean",
+        "turkish",
+        "portuguese",
+        "vietnamese"
+      ]
+    },
+    {
+      "id": "highlands",
+      "name": "Highlands",
+      "words": [
+        "loch",
+        "tartan",
+        "kilt",
+        "bagpipes"
+      ]
+    },
+    {
+      "id": "gold-rush",
+      "name": "Gold Rush",
+      "words": [
+        "panning",
+        "prospector",
+        "sluice",
+        "pickaxe"
+      ]
+    },
+    {
+      "id": "billiards",
+      "name": "Billiards",
+      "words": [
+        "felt",
+        "snooker",
+        "chalked",
+        "potting"
+      ]
+    },
+    {
+      "id": "haunted-house",
+      "name": "Haunted House",
+      "words": [
+        "banshee",
+        "ouija",
+        "cobwebs",
+        "poltergeist"
+      ]
+    },
+    {
+      "id": "farmers-market",
+      "name": "Farmers Market",
+      "words": [
+        "stall",
+        "vendor",
+        "crate",
+        "preserves"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 36,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

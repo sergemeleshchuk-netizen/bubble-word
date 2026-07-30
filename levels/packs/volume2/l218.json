@@ -1,0 +1,129 @@
+{
+  "level_id": 218,
+  "difficulty_target": 8,
+  "categories": [
+    {
+      "id": "blacksmith",
+      "name": "Blacksmith",
+      "words": [
+        "horseshoe",
+        "forge",
+        "bellows",
+        "anvil"
+      ]
+    },
+    {
+      "id": "stables",
+      "name": "At the Stables",
+      "words": [
+        "reins",
+        "paddock",
+        "hooves",
+        "foal"
+      ]
+    },
+    {
+      "id": "knot-tying",
+      "name": "Knot Tying",
+      "words": [
+        "lasso",
+        "hitch",
+        "tangle",
+        "slipknot"
+      ]
+    },
+    {
+      "id": "rodeo",
+      "name": "Rodeo",
+      "words": [
+        "stampede",
+        "bronco",
+        "wrangler",
+        "cowgirl"
+      ]
+    },
+    {
+      "id": "antique-shop",
+      "name": "Antique Shop",
+      "words": [
+        "auction",
+        "dusty",
+        "heirloom",
+        "curio"
+      ]
+    },
+    {
+      "id": "vet-clinic",
+      "name": "Vet Clinic",
+      "words": [
+        "muzzle",
+        "checkup",
+        "microchip",
+        "neutering"
+      ]
+    },
+    {
+      "id": "deep-cosmos",
+      "name": "Deep Cosmos",
+      "words": [
+        "pulsar",
+        "exoplanet",
+        "lightyear",
+        "quasar"
+      ]
+    },
+    {
+      "id": "cooking-verbs",
+      "name": "In the Recipe",
+      "words": [
+        "whipping",
+        "garnish",
+        "sear",
+        "marinate"
+      ]
+    },
+    {
+      "id": "island-luau",
+      "name": "Island Luau",
+      "words": [
+        "lei",
+        "tiki",
+        "aloha",
+        "hula"
+      ]
+    },
+    {
+      "id": "submarine-duty",
+      "name": "Submarine Duty",
+      "words": [
+        "nautical",
+        "ballast",
+        "seabed",
+        "submerge"
+      ]
+    }
+  ],
+  "traps": [
+    {
+      "word": "horseshoe",
+      "home": "blacksmith",
+      "tempts": "stables"
+    },
+    {
+      "word": "lasso",
+      "home": "knot-tying",
+      "tempts": "rodeo"
+    }
+  ],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 39,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}
