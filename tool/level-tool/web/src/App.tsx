@@ -4,6 +4,7 @@ import { DEFAULT_BLOCK_CONFIG, buildBlockPlan, checkBlockRhythm } from './core/b
 import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
+import { TOOL_VERSION } from './core/version.ts';
 import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
 import { Playable } from './components/Playable.tsx';
@@ -65,6 +66,7 @@ export function App() {
           </div>
         </div>
         <div className="sub mono">
+          v{TOOL_VERSION} ·
           снимок {snapshot.content_snapshot_hash.slice(0, 12)}… ·
           скоринг {scoring.scoring_version}
           {block && <> · пакет {block.packHash.slice(0, 12)}…</>}
