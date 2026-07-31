@@ -148,6 +148,24 @@
     font-size:11px;font-weight:700;vertical-align:middle;
   }
   .wmap .w-res{color:var(--ink);font-weight:600;}
+
+  /* FAQ content inside 07 */
+  .faq{max-width:1020px;list-style:none;display:flex;flex-direction:column;}
+  .faq li{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:15px 0;border-bottom:1px dashed var(--line);
+  }
+  .faq li:last-child{border-bottom:none;}
+  .f-num{
+    flex:0 0 auto;width:26px;height:26px;border-radius:7px;
+    background:var(--chip);color:var(--violet);
+    font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .f-main{flex:1 1 auto;min-width:0;}
+  .f-q{display:block;font-size:14px;font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:5px;}
+  .f-a{display:block;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink-soft);}
+  .f-a b{color:var(--ink);font-weight:600;}
   .soon{font-size:14px;font-weight:500;color:var(--ink-soft);}
 
   /* GDD content inside 03 */
@@ -805,6 +823,98 @@ solver that must reproduce the intended grouping without seeing answers.</div>
                 ловушками из 4.</li>
             </ul>
           </div>
+        </div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">07</span>
+          <span class="row-label">FAQ</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner">
+          <ul class="faq">
+            <li>
+              <span class="f-num">1</span>
+              <span class="f-main">
+                <span class="f-q">Почему данные другой игры?</span>
+                <span class="f-a">Они используются только как источник кривой и инвариантов; формат
+                целевой игры проверен отдельно, и все непроверенные параметры помечены.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">2</span>
+              <span class="f-main">
+                <span class="f-q">Где здесь AI, если уровень собирает алгоритм?</span>
+                <span class="f-a">AI масштабирует контентный граф и интерпретирует намерение; алгоритм
+                нужен для воспроизводимости и доказуемых ограничений.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">3</span>
+              <span class="f-main">
+                <span class="f-q">Откуда вы знаете, что уровень решаем?</span>
+                <span class="f-a">Hard validator, ровно одно глобальное распределение в модели базы,
+                независимый semantic audit и ручная игра.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">4</span>
+              <span class="f-main">
+                <span class="f-q">Корреляция с номером уровня доказывает сложность?</span>
+                <span class="f-a">Нет, это слабый proxy дизайнерской прогрессии; реальный ground truth
+                появится из completion rate, времени и попыток.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">5</span>
+              <span class="f-main">
+                <span class="f-q">Почему I не является вкусовщиной?</span>
+                <span class="f-a">Это формализованная модель зафиксированного продуктового суждения,
+                проверяемая на calibration set; не заявляется как объективный fun.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">6</span>
+              <span class="f-main">
+                <span class="f-q">50 random runs доказывают отсутствие тупика?</span>
+                <span class="f-a">Нет. Доказательство даёт только аналитика или exhaustive state search;
+                random runs представлены как stress test.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">7</span>
+              <span class="f-main">
+                <span class="f-q">Уровни не скопированы у конкурента?</span>
+                <span class="f-a">Reference content отделён, финальные уровни проходят exact и
+                near-duplicate novelty check.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">8</span>
+              <span class="f-main">
+                <span class="f-q">Что происходит после ручной правки?</span>
+                <span class="f-a">Hash меняется, solver и human review становятся stale, export
+                блокируется до повторной проверки.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">9</span>
+              <span class="f-main">
+                <span class="f-q">Что произойдёт, если AI API не работает?</span>
+                <span class="f-a">Основная генерация работает на утверждённом snapshot; live AI является
+                дополнительной демонстрацией.</span>
+              </span>
+            </li>
+            <li>
+              <span class="f-num">10</span>
+              <span class="f-main">
+                <span class="f-q">Почему SQLite?</span>
+                <span class="f-a">Для однопользовательского read-heavy инструмента и сотен тысяч связей
+                это достаточная и воспроизводимая база; публичное демо работает на immutable snapshot.</span>
+              </span>
+            </li>
+          </ul>
         </div></div>
       </div>
 
