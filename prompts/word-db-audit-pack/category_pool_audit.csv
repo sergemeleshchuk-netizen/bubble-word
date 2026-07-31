@@ -1,0 +1,1093 @@
+﻿category_id,category_key,label,theme,rule,relation_type,base_difficulty,total_links,approved_count,alternative_count,hard_only_count,rejected_count,playable_count,normal_pool_count,hard_share_playable,recommended_tier,severity,flags
+161,accessories,ACCESSORIES,clothing,Small items worn or carried to complete an outfit,is_a,0.3,18,5,12,1,0,18,17,0.0556,normal_pool_available,,
+445,accounting_words,ACCOUNTING WORDS,jargon,Words used in bookkeeping and accounting,found_in,0.45,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+997,adhesives,GLUES AND TAPES,tools,Sticky products used to join things,used_in,0.35,15,11,3,1,0,15,14,0.0667,normal_pool_available,,
+137,advertising_words,ADVERTISING WORDS,business,Words used in advertising and marketing,found_in,0.35,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+36,african_animals,AFRICAN ANIMALS,animals,Wild animals associated with the African savanna,found_in,0.2,20,14,4,2,0,20,18,0.1,normal_pool_available,,
+146,african_cities,AFRICAN CITIES,cities,Well known cities in Africa,is_a,0.4,16,14,1,1,0,16,15,0.0625,normal_pool_available,,
+353,african_countries,AFRICAN COUNTRIES,geography,Countries located in Africa,is_a,0.35,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+198,age_words,AGE WORDS,descriptive,Words describing how old something is,is_a,0.35,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+1035,aircraft,AIRCRAFT,transport,Machines that fly through the air carrying people or cargo,is_a,0.25,15,11,3,1,0,15,14,0.0667,normal_pool_available,,
+113,airlines,AIRLINES,brands,Major passenger airlines,is_a,0.35,14,7,7,0,0,14,14,0.0,normal_pool_available,,
+1032,airport_words,AIRPORT WORDS,transport,"Words for things, places or roles you encounter at an airport",found_in,0.25,25,20,4,1,0,25,24,0.04,normal_pool_available,,
+155,airports_and_ports,TRANSPORT HUBS,cities,Famous airports and transport hubs,is_a,0.45,12,9,0,2,1,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+226,alphabet_and_numbers,FIRST LESSONS,education,The very first things children learn at school,is_a,0.3,15,3,12,0,0,15,15,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+534,alphabet_code,RADIO ALPHABET,language,Code words used to spell letters over a radio,is_a,0.4,24,0,4,20,0,24,4,0.8333,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+148,american_east_cities,EAST COAST,cities,Cities on the American East Coast,is_a,0.3,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+634,american_legends,FOLK HEROES,mythology,Legendary figures from American folklore,is_a,0.4,9,8,0,1,0,9,8,0.1111,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+149,american_west_cities,WEST COAST,cities,Cities on the American West Coast,is_a,0.3,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+39,amphibians_and_bugs,AMPHIBIANS,animals,Animals that live both in water and on land as amphibians,is_a,0.35,10,0,6,1,3,7,6,0.1429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE
+245,amusement_park,AMUSEMENT PARK,entertainment,Rides and things found at an amusement park,found_in,0.25,18,11,4,3,0,18,15,0.1667,normal_pool_available,,
+374,ancient_civilizations,ANCIENT CIVILIZATIONS,history,Civilizations of the ancient world,is_a,0.3,15,9,4,2,0,15,13,0.1333,normal_pool_available,,
+391,ancient_wonders,WORLD WONDERS,history,Structures known as wonders of the world,is_a,0.4,11,7,2,2,0,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+20,animal_actions,ANIMAL ACTIONS,actions,Actions typical of animals rather than people,does_action,0.35,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+32,animal_babies,BABY ANIMALS,animals,English words for the young of an animal species,is_a,0.25,20,9,10,1,0,20,19,0.05,normal_pool_available,,
+47,animal_body_parts,ANIMAL PARTS,animals,Body parts that animals have but people do not,part_of,0.25,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+46,animal_coverings,ANIMAL COVERINGS,animals,Things that cover an animal body,part_of,0.35,15,5,10,0,0,15,15,0.0,normal_pool_available,,
+45,animal_groups,ANIMAL GROUPS,animals,Collective nouns for groups of animals,is_a,0.4,15,0,10,5,0,15,10,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+44,animal_homes,ANIMAL HOMES,animals,Words for the places animals live in,is_a,0.3,20,6,14,0,0,20,20,0.0,normal_pool_available,,
+68,animal_names_male_female,ANIMAL GENDERS,animals_more,Words for the male or female of an animal species,is_a,0.4,18,9,9,0,0,18,18,0.0,normal_pool_available,,
+33,animal_sounds,ANIMAL SOUNDS,animals,English words for the sound an animal makes,does_action,0.3,26,13,10,3,0,26,23,0.1154,normal_pool_available,,
+685,animal_tracks_and_signs,DIRT THINGS,nature,Marks and things you see in bare dirt,found_in,0.4,15,0,14,1,0,15,14,0.0667,usable_with_constraints,P2,NO_APPROVED_WORDS
+55,animal_verbs,ANIMAL MOVEMENTS,animals,Verbs for the way particular animals move,does_action,0.4,18,0,15,3,0,18,15,0.1667,usable_with_constraints,P2,NO_APPROVED_WORDS
+54,animals_with_shells,ANIMALS WITH SHELLS,animals,Animals whose body is protected by a hard shell,has_property,0.35,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+57,antelope_and_grazers,GRAZING ANIMALS,animals_more,Animals that graze on grass in herds,is_a,0.4,14,11,1,2,0,14,12,0.1429,normal_pool_available,,
+1049,apple_varieties,APPLE VARIETIES,varieties,Varieties of apple sold in stores,is_a,0.35,14,10,2,2,0,14,12,0.1429,normal_pool_available,,
+115,appliance_brands,APPLIANCE BRANDS,brands,Brands of home appliance,is_a,0.4,13,6,2,5,0,13,8,0.3846,normal_pool_available,,
+388,archaeology_words,ARCHAEOLOGY WORDS,history,Things involved in digging up the past,found_in,0.4,15,0,9,6,0,15,9,0.4,usable_with_constraints,P2,NO_APPROVED_WORDS
+948,archery_words,ARCHERY WORDS,sports_world,Words used in archery,found_in,0.4,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+446,architecture_words,ARCHITECTURE WORDS,jargon,Words used to describe buildings and their design,found_in,0.4,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+37,arctic_animals,ARCTIC ANIMALS,animals,Animals that live in the cold polar regions,found_in,0.25,18,10,5,3,0,18,15,0.1667,normal_pool_available,,
+227,art_class_things,ART CLASS,education,Things used in a school art class,found_in,0.25,18,8,10,0,0,18,18,0.0,normal_pool_available,,
+255,art_forms,ART FORMS,entertainment,Forms of visual and performing art,is_a,0.3,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+71,art_styles,ART STYLES,art,Named styles of visual art,is_a,0.35,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+1002,art_supplies,ART SUPPLIES,tools,Materials used to make art or crafts,used_in,0.25,20,8,12,0,0,20,20,0.0,normal_pool_available,,
+72,art_tools,ART TOOLS,art,Tools an artist uses to make art,used_in,0.25,16,4,12,0,0,16,16,0.0,normal_pool_available,,
+741,artists,FAMOUS PAINTERS,people,Famous painters from history,is_a,0.35,14,13,0,1,0,14,13,0.0714,normal_pool_available,,
+145,asian_cities,ASIAN CITIES,cities,Well known cities in Asia,is_a,0.35,20,20,0,0,0,20,20,0.0,normal_pool_available,,
+352,asian_countries,ASIAN COUNTRIES,geography,Countries located in Asia,is_a,0.3,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+325,asian_dishes,ASIAN DISHES,food,Dishes from East and Southeast Asian cuisines eaten in the United States,is_a,0.3,20,13,3,4,0,20,16,0.2,normal_pool_available,,
+886,astronaut_gear,ASTRONAUT GEAR,space,Equipment an astronaut uses,used_in,0.35,13,7,5,1,0,13,12,0.0769,normal_pool_available,,
+742,authors,FAMOUS AUTHORS,people,Famous authors from literature,is_a,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+1015,auto_repair,AUTO REPAIR,trades,Things a mechanic works with,found_in,0.35,17,10,7,0,0,17,17,0.0,normal_pool_available,,
+441,aviation_words,AVIATION WORDS,jargon,Words used by pilots and air crew,found_in,0.4,18,12,5,1,0,18,17,0.0556,normal_pool_available,,
+591,awards,AWARDS,media,Famous prizes and awards,is_a,0.35,12,12,0,0,0,12,12,0.0,normal_pool_available,,
+70,baby_animal_words_more,YOUNG ANIMALS,animals_more,Less common words for young animals,is_a,0.45,12,0,0,8,4,8,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+435,baby_things,BABY THINGS,home,Things used to care for a baby,used_in,0.25,18,11,4,3,0,18,15,0.1667,normal_pool_available,,
+282,bags,BAGS AND CASES,fashion,Kinds of bag people carry,is_a,0.25,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+1026,baker_words,BAKERY WORDS,trades,Things found in a bakery,found_in,0.3,15,9,5,1,0,15,14,0.0667,normal_pool_available,,
+300,baking_ingredients,BAKING INGREDIENTS,food,"Ingredients commonly used to bake cakes, bread or cookies",used_in,0.25,25,14,11,0,0,25,25,0.0,normal_pool_available,,
+125,bank_brands,BANK BRANDS,brands,Major American banks and card brands,is_a,0.45,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+135,banking_words,BANKING WORDS,business,Words used at a bank,found_in,0.3,18,15,3,0,0,18,18,0.0,normal_pool_available,,
+1020,barbershop_words,BARBERSHOP WORDS,trades,Things found in a barbershop,found_in,0.3,14,5,9,0,0,14,14,0.0,normal_pool_available,,
+261,barn_things,BARN THINGS,farming,Things found inside a barn,found_in,0.3,16,10,6,0,0,16,16,0.0,normal_pool_available,,
+913,baseball_equipment,BASEBALL EQUIPMENT,sports,Physical equipment used to play a game of baseball,used_in,0.25,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+914,baseball_words,BASEBALL WORDS,sports,"Words used to describe plays, places or roles in a baseball game",found_in,0.3,27,22,5,0,0,27,27,0.0,normal_pool_available,,
+918,basketball_words,BASKETBALL WORDS,sports,Words used to describe plays and roles in basketball,found_in,0.3,20,10,9,1,0,20,19,0.05,normal_pool_available,,
+414,bathroom_items,BATHROOM ITEMS,home,Objects normally found in a home bathroom,found_in,0.15,25,13,12,0,0,25,25,0.0,normal_pool_available,,
+326,bbq_foods,BARBECUE FOODS,food,Foods cooked or served at an American backyard barbecue,found_in,0.3,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+1056,bean_types,BEAN TYPES,varieties,Kinds of bean used in cooking,is_a,0.35,14,6,3,5,0,14,9,0.3571,normal_pool_available,,
+901,bears_and_big_animals,BEARS,species,Kinds of bear,is_a,0.3,10,9,0,1,0,10,9,0.1,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+468,beauty_jobs,BEAUTY JOBS,jobs,"Jobs held by people who work on hair, nails and appearance",is_a,0.3,12,7,0,5,0,12,7,0.4167,hard_only_or_manual_review,P1,
+276,beauty_tools,BEAUTY TOOLS,fashion,"Tools used for hair, nails and makeup",used_in,0.35,15,9,5,1,0,15,14,0.0667,normal_pool_available,,
+417,bedroom_things,BEDROOM THINGS,home,Objects normally found in a bedroom,found_in,0.2,21,12,8,1,0,21,20,0.0476,normal_pool_available,,
+268,beekeeping,BEEKEEPING THINGS,farming,Things used in beekeeping,used_in,0.4,14,7,7,0,0,14,14,0.0,normal_pool_available,,
+703,beetles,BEETLES,nature_species,Kinds of beetle,is_a,0.45,12,0,3,9,0,12,3,0.75,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+880,bell_and_alarm,ALARM SOUNDS,sounds,Sounds made by alarms and signals,is_a,0.4,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+292,berries,BERRIES,food,Small soft fruits called berries in everyday American English,is_a,0.2,13,11,0,2,0,13,11,0.1538,normal_pool_available,,
+1061,berry_varieties,BERRY VARIETIES,varieties,Varieties of berry sold fresh or frozen,is_a,0.35,12,7,0,4,1,11,7,0.3636,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+556,bible_books,BIBLE BOOKS,lists,Books of the Bible,is_a,0.45,24,19,5,0,0,24,24,0.0,normal_pool_available,,
+826,bible_figures,BIBLE FIGURES,religion,People from Bible stories,is_a,0.35,18,16,2,0,0,18,18,0.0,normal_pool_available,,
+641,biblical_names,BIBLICAL NAMES,names,First names that come from the Bible,is_a,0.35,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+692,biomes,BIOMES,nature_more,Major natural regions of the earth,is_a,0.4,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+27,birds,BIRDS,animals,Bird species an average American can name,is_a,0.12,26,25,1,0,0,26,26,0.0,normal_pool_available,,
+897,birds_of_prey,BIRDS OF PREY,species,Birds that hunt other animals,is_a,0.3,13,11,0,2,0,13,11,0.1538,normal_pool_available,,
+402,birdwatching,BIRDWATCHING THINGS,hobbies,Things a birdwatcher uses,used_in,0.4,12,6,6,0,0,12,12,0.0,normal_pool_available,,
+983,birthday_things,BIRTHDAY THINGS,time,Things associated with a birthday celebration,found_in,0.2,16,6,10,0,0,16,16,0.0,normal_pool_available,,
+793,black_things,BLACK THINGS,properties,Everyday things that are typically black in color,has_property,0.3,18,0,17,1,0,18,17,0.0556,usable_with_constraints,P2,NO_APPROVED_WORDS
+1009,blades,BLADES,tools,Parts of tools that do the cutting,is_a,0.35,11,9,2,0,0,11,11,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+936,board_and_card_games,GAMES OF SKILL,sports,Competitive indoor games of skill,is_a,0.3,14,8,3,3,0,14,11,0.2143,normal_pool_available,,
+404,board_game_pieces,GAME PIECES,hobbies,Pieces and parts used in board games,is_a,0.35,14,5,8,0,1,13,13,0.0,normal_pool_available,,
+238,board_games,BOARD GAMES,entertainment,Games played on a board with pieces or cards on a table,is_a,0.25,20,11,5,3,1,19,16,0.1579,normal_pool_available,,
+1034,boats,BOATS AND SHIPS,transport,Kinds of watercraft,is_a,0.25,20,17,2,1,0,20,19,0.05,normal_pool_available,,
+668,bodies_of_water,BODIES OF WATER,nature,Natural or man-made bodies of water on the surface of the earth,is_a,0.2,25,22,3,0,0,25,25,0.0,normal_pool_available,,
+606,body_fluids,BODY FLUIDS,medicine,Fluids produced by the human body,is_a,0.4,12,0,6,6,0,12,6,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+734,body_language,BODY LANGUAGE,people,Gestures people make with the body to communicate,does_action,0.4,15,0,6,9,0,15,6,0.6,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+93,body_movements,BODY MOVEMENTS,body,Movements the human body makes,does_action,0.3,20,6,14,0,0,20,20,0.0,normal_pool_available,,
+561,body_of_water_types,WATER FEATURES,lists,Kinds of water feature made by people,is_a,0.4,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+86,body_parts,BODY PARTS,body,External parts of the human body,is_a,0.1,25,16,9,0,0,25,25,0.0,normal_pool_available,,
+840,body_science,HUMAN BIOLOGY,science,Scientific words about how the human body works,found_in,0.4,18,0,15,3,0,18,15,0.1667,usable_with_constraints,P2,NO_APPROVED_WORDS
+94,body_sounds,BODY SOUNDS,body,Sounds the human body makes on its own,does_action,0.35,16,5,9,2,0,16,14,0.125,normal_pool_available,,
+104,body_systems,BODY SYSTEMS,body,Systems that make up the human body,is_a,0.4,10,0,4,6,0,10,4,0.6,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+90,bones,BONES,body,Bones of the human skeleton,is_a,0.3,16,14,0,2,0,16,14,0.125,normal_pool_available,,
+587,book_genres,BOOK GENRES,media,Categories used to classify books,is_a,0.3,18,11,7,0,0,18,18,0.0,normal_pool_available,,
+946,bowling_words,BOWLING WORDS,sports_world,Words used in bowling,found_in,0.35,14,2,12,0,0,14,14,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+1008,boxes_and_cases,TOOL STORAGE,tools,Things used to store and carry tools,is_a,0.35,14,7,6,1,0,14,13,0.0714,normal_pool_available,,
+943,boxing_words,BOXING WORDS,sports_world,Words used in a boxing match,found_in,0.35,16,6,9,0,1,15,15,0.0,normal_pool_available,,
+726,boys_names,BOYS NAMES,people,Common first names given to boys in the United States,is_a,0.2,25,20,5,0,0,25,25,0.0,normal_pool_available,,
+309,bread_types,BREAD TYPES,food,Kinds of bread and baked goods made from dough,is_a,0.25,25,18,2,5,0,25,20,0.2,normal_pool_available,,
+343,breakfast_cereals_types,CEREAL TYPES,food_more,Kinds of breakfast cereal by form,is_a,0.4,12,10,1,1,0,12,11,0.0833,normal_pool_available,,
+301,breakfast_foods,BREAKFAST FOODS,food,Foods typically eaten at breakfast in the United States,is_a,0.2,25,22,3,0,0,25,25,0.0,normal_pool_available,,
+882,bright_stars,STARS,space,Individual stars people can name,is_a,0.45,15,5,0,10,0,15,5,0.6667,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+195,brightness_words,BRIGHTNESS WORDS,descriptive,Words describing how much light something gives,is_a,0.4,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+8,building_actions,BUILDING ACTIONS,actions,Actions done when building or repairing something,does_action,0.3,18,3,14,1,0,18,17,0.0556,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+564,building_materials,BUILDING MATERIALS,materials,Materials used to construct buildings,made_of,0.25,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+457,building_trades,BUILDING TRADES,jobs,Skilled trades that build and repair buildings,is_a,0.25,18,9,4,5,0,18,13,0.2778,normal_pool_available,,
+132,business_words,BUSINESS WORDS,business,Words used in running a business,found_in,0.3,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+1025,butcher_words,BUTCHER SHOP,trades,Things found in a butcher shop,found_in,0.4,14,1,13,0,0,14,14,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+898,butterflies_and_moths,BUTTERFLIES AND MOTHS,species,Kinds of butterfly and moth,is_a,0.4,12,8,2,2,0,12,10,0.1667,normal_pool_available,,
+771,cactus_and_succulents,CACTUS AND SUCCULENTS,plants,Desert plants that store water in thick leaves or stems,is_a,0.4,12,0,2,10,0,12,2,0.8333,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+319,cake_types,CAKE TYPES,food,Kinds of cake baked and sold in the United States,is_a,0.3,20,11,7,2,0,20,18,0.1,normal_pool_available,,
+976,calendar_words,CALENDAR WORDS,time,Everyday English words for dates and periods of time on a calendar,is_a,0.25,22,17,5,0,0,22,22,0.0,normal_pool_available,,
+121,camera_and_electronics,ELECTRONICS BRANDS,brands,Brands of consumer electronics,is_a,0.35,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+931,camping_and_outdoors,OUTDOOR ACTIVITIES,sports,Recreational activities done outdoors,is_a,0.25,18,9,6,3,0,18,15,0.1667,normal_pool_available,,
+396,camping_gear,CAMPING GEAR,hobbies,Gear packed for a camping trip,used_in,0.25,20,8,12,0,0,20,20,0.0,normal_pool_available,,
+755,canadian_places,CANADIAN PLACES,places,Well known places in Canada,is_a,0.4,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+318,candy,CANDY,food,Sweets sold in a candy aisle,is_a,0.2,20,14,5,1,0,20,19,0.05,normal_pool_available,,
+119,candy_bar_flavors,DAIRY BRANDS,brands,Ice cream brands sold in America,is_a,0.4,12,7,2,2,1,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+108,candy_brands,CANDY BRANDS,brands,Candy brands sold in American stores,is_a,0.3,16,9,1,6,0,16,10,0.375,normal_pool_available,,
+342,candy_shapes,CANDY TYPES,food_more,Forms candy is sold in,is_a,0.3,14,3,11,0,0,14,14,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+689,canyons_and_valleys,CANYONS AND VALLEYS,nature_more,Famous canyons and valleys,is_a,0.45,10,10,0,0,0,10,10,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+153,capital_cities_more,MORE CAPITALS,cities,Capital cities less commonly named,is_a,0.4,18,18,0,0,0,18,18,0.0,normal_pool_available,,
+139,car_brands,CAR BRANDS,business,Car manufacturers sold in the United States,is_a,0.3,18,17,1,0,0,18,18,0.0,normal_pool_available,,
+118,car_models,CAR MODELS,brands,Well known car model names,is_a,0.35,16,11,4,0,1,15,15,0.0,normal_pool_available,,
+1031,car_parts,CAR PARTS,transport,Physical parts of an ordinary passenger car,part_of,0.2,25,19,4,2,0,25,23,0.08,normal_pool_available,,
+186,card_and_dice_games,CLASSIC GAMES,culture,Classic games played for generations,is_a,0.35,14,8,2,4,0,14,10,0.2857,normal_pool_available,,
+240,card_games,CARD GAMES,entertainment,Games played with a deck of cards,is_a,0.3,16,9,3,4,0,16,12,0.25,normal_pool_available,,
+860,card_tricks,CARD TRICKS,skills,Terms used in performing card tricks,found_in,0.5,12,0,2,10,0,12,2,0.8333,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+239,card_words,CARD WORDS,entertainment,"Words for the cards, suits and parts of a standard deck of playing cards",found_in,0.3,22,10,12,0,0,22,22,0.0,normal_pool_available,,
+756,caribbean_places,CARIBBEAN PLACES,places,Islands and countries of the Caribbean,is_a,0.4,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+1013,carpentry_words,CARPENTRY WORDS,trades,Things a carpenter works with,found_in,0.35,18,5,9,4,0,18,14,0.2222,normal_pool_available,,
+13,carrying_actions,CARRYING ACTIONS,actions,Ways of carrying or moving an object,does_action,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+581,cartoon_characters,CARTOON CHARACTERS,media,Classic cartoon characters,is_a,0.25,18,12,5,1,0,18,17,0.0556,normal_pool_available,,
+375,castle_things,CASTLE THINGS,history,Parts and features of a medieval castle,found_in,0.25,18,9,7,2,0,18,16,0.1111,normal_pool_available,,
+893,cat_breeds,CAT BREEDS,species,Breeds of domestic cat,is_a,0.35,15,11,0,4,0,15,11,0.2667,normal_pool_available,,
+895,cattle_and_farm_breeds,FARM BREEDS,species,"Breeds of cattle, sheep and pigs raised on farms",is_a,0.45,13,0,0,13,0,13,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+694,cave_things,CAVE THINGS,nature_more,Things found inside a cave,found_in,0.4,14,3,10,1,0,14,13,0.0714,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+109,cereal_brands,CEREAL BRANDS,brands,Breakfast cereal brands sold in America,is_a,0.35,14,8,1,5,0,14,9,0.3571,normal_pool_available,,
+824,ceremonies,RELIGIOUS CEREMONIES,religion,Ceremonies performed in religious life,is_a,0.35,14,11,3,0,0,14,14,0.0,normal_pool_available,,
+211,certainty_words,CERTAINTY WORDS,descriptive,Words describing how sure something is,is_a,0.4,13,0,12,1,0,13,12,0.0769,usable_with_constraints,P2,NO_APPROVED_WORDS
+347,cheese_dishes,CHEESE DISHES,food_more,Dishes built around cheese,is_a,0.4,12,8,1,3,0,12,9,0.25,normal_pool_available,,
+308,cheese_types,CHEESE TYPES,food,Kinds of cheese sold in American grocery stores,is_a,0.3,20,12,3,5,0,20,15,0.25,normal_pool_available,,
+846,chemistry_words,CHEMISTRY WORDS,science,Words used in chemistry class,found_in,0.4,16,0,12,4,0,16,12,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+399,chess_words,CHESS WORDS,hobbies,Pieces and moves in a game of chess,found_in,0.35,16,7,8,1,0,16,15,0.0625,normal_pool_available,,
+1059,chili_and_spice_blends,SPICE BLENDS,varieties,Mixtures of spices sold as one seasoning,is_a,0.4,14,11,0,3,0,14,11,0.2143,normal_pool_available,,
+981,christmas_things,CHRISTMAS THINGS,time,Things associated with an American Christmas,found_in,0.2,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+822,church_things,CHURCH THINGS,religion,Things found inside a church,found_in,0.3,18,10,7,1,0,18,17,0.0556,normal_pool_available,,
+474,circus_and_fair_jobs,CIRCUS JOBS,jobs,Jobs held by performers and workers at a circus or fair,is_a,0.35,12,8,2,2,0,12,10,0.1667,normal_pool_available,,
+244,circus_words,CIRCUS WORDS,entertainment,"People, animals and objects you see at a traditional circus",found_in,0.3,18,9,8,1,0,18,17,0.0556,normal_pool_available,,
+293,citrus_fruits,CITRUS FRUITS,food,Fruits of the citrus family with a thick peel and juicy segments,is_a,0.25,10,6,1,3,0,10,7,0.3,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+154,city_nicknames,CITY NICKNAMES,cities,Nicknames given to famous cities,is_a,0.45,12,11,0,1,0,12,11,0.0833,normal_pool_available,,
+876,city_sounds,CITY SOUNDS,sounds,Sounds heard on a city street,does_action,0.4,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+357,city_words,CITY WORDS,geography,Words for the parts and features of a city,found_in,0.25,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+585,classic_novels,CLASSIC NOVELS,media,Classic novels widely read in school,is_a,0.4,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+487,classic_tv_shows,CLASSIC TV,landmarks,Television shows known across generations,is_a,0.4,14,8,5,1,0,14,13,0.0714,normal_pool_available,,
+214,classroom_things,CLASSROOM THINGS,education,Things found in a school classroom,found_in,0.2,20,8,12,0,0,20,20,0.0,normal_pool_available,,
+7,cleaning_actions,CLEANING ACTIONS,actions,Actions done when cleaning something,does_action,0.3,16,13,2,1,0,16,15,0.0625,normal_pool_available,,
+416,cleaning_supplies,CLEANING SUPPLIES,home,Tools and products used to clean a house,used_in,0.2,20,12,6,2,0,20,18,0.1,normal_pool_available,,
+1003,cleaning_tools,CLEANING TOOLS,tools,Tools used for cleaning and tidying,used_in,0.25,16,9,5,2,0,16,14,0.125,normal_pool_available,,
+1023,cleaning_trade,JANITORIAL WORDS,trades,Things a janitor uses at work,found_in,0.35,15,5,9,1,0,15,14,0.0667,normal_pool_available,,
+196,cleanliness_words,CLEANLINESS WORDS,descriptive,Words describing how clean something is,is_a,0.35,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+364,climate_zones,CLIMATE WORDS,geography,Words describing the climate of a region,is_a,0.35,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+980,clock_words,CLOCK WORDS,time,Words and parts having to do with clocks,found_in,0.3,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+112,clothing_brands,CLOTHING BRANDS,brands,Well known clothing and shoe brands,is_a,0.3,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+156,clothing_items,CLOTHING ITEMS,clothing,Garments worn on the body,is_a,0.1,25,21,4,0,0,25,25,0.0,normal_pool_available,,
+163,clothing_parts,GARMENT PARTS,clothing,Parts sewn into a piece of clothing,part_of,0.3,17,10,6,1,0,17,16,0.0588,normal_pool_available,,
+170,clothing_sizes,CLOTHING SIZES,clothing,Words used for clothing sizes and fit,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+666,cloud_and_sky,SKY WORDS,nature,Things you can see in the sky,found_in,0.3,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+856,cocktails,COCKTAILS,skills,Named mixed drinks,is_a,0.35,16,13,0,3,0,16,13,0.1875,normal_pool_available,,
+123,coffee_brands,COFFEE BRANDS,brands,Coffee brands and coffee shops,is_a,0.4,12,6,2,4,0,12,8,0.3333,normal_pool_available,,
+1074,coffee_drinks,COFFEE DRINKS,world_food,Ways coffee is prepared and served,is_a,0.25,14,9,1,3,1,13,10,0.2308,normal_pool_available,,
+130,coins_and_bills,US MONEY,business,Coins and bills used in the United States,is_a,0.25,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+316,cold_drinks,COLD DRINKS,food,Drinks normally served cold,is_a,0.2,18,12,3,3,0,18,15,0.1667,normal_pool_available,,
+371,cold_places,COLD PLACES,geography,Places that are typically cold,has_property,0.3,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+795,cold_things,COLD THINGS,properties,Things that are cold by their physical nature,has_property,0.3,18,0,15,3,0,18,15,0.1667,usable_with_constraints,P2,NO_APPROVED_WORDS
+394,collecting_hobbies,COLLECTIBLES,hobbies,Things people collect as a hobby,is_a,0.3,20,1,18,1,0,20,19,0.05,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+218,college_words,COLLEGE WORDS,education,Words used about university education,found_in,0.3,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+390,colonial_america,COLONIAL AMERICA,history,Things associated with colonial America,found_in,0.4,15,0,4,11,0,15,4,0.7333,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+82,color_words_advanced,SHADES OF COLOR,art,Words for particular shades of color,is_a,0.35,20,8,12,0,0,20,20,0.0,normal_pool_available,,
+797,colors,COLORS,properties,Basic color names used in everyday English,is_a,0.1,25,18,7,0,0,25,25,0.0,normal_pool_available,,
+256,comedy_words,COMEDY WORDS,entertainment,Words used about comedy performances,found_in,0.35,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+597,comic_words,COMIC BOOKS,media,Words used about comic books,found_in,0.4,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+640,common_surnames,COMMON SURNAMES,names,Family names common in the United States,is_a,0.3,25,20,5,0,0,25,25,0.0,normal_pool_available,,
+955,computer_actions,COMPUTER ACTIONS,technology,Actions done while using a computer,does_action,0.25,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+954,computer_parts,COMPUTER PARTS,technology,Physical parts of a personal computer,part_of,0.25,20,11,8,1,0,20,19,0.05,normal_pool_available,,
+313,condiments,CONDIMENTS,food,Things squeezed or spooned onto food at the table,used_in,0.25,20,11,8,1,0,20,19,0.05,normal_pool_available,,
+881,constellations,CONSTELLATIONS,space,Constellations in the night sky,is_a,0.4,15,13,0,2,0,15,13,0.1333,normal_pool_available,,
+1033,construction_equipment,CONSTRUCTION EQUIPMENT,transport,Large machines used on a building or road construction site,is_a,0.3,18,10,4,4,0,18,14,0.2222,normal_pool_available,,
+359,continents_and_oceans,CONTINENTS AND OCEANS,geography,The continents and the world oceans,is_a,0.2,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+333,cookie_types,COOKIE TYPES,food_more,Kinds of cookie baked at home or sold in stores,is_a,0.3,14,7,3,4,0,14,10,0.2857,normal_pool_available,,
+1,cooking_actions,COOKING ACTIONS,actions,Verbs describing something a cook does to food,does_action,0.25,25,13,11,1,0,25,24,0.04,normal_pool_available,,
+328,cooking_fats,COOKING FATS,food,Fats and oils used to cook or dress food,used_in,0.4,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+407,cooking_hobby,HOME BAKING,hobbies,Things a home baker uses,used_in,0.3,16,8,7,1,0,16,15,0.0625,normal_pool_available,,
+345,cooking_methods,COOKING METHODS,food_more,Methods used to cook food,is_a,0.3,18,11,5,2,0,18,16,0.1111,normal_pool_available,,
+714,coral_reef,CORAL REEF,ocean,Things found on a coral reef,found_in,0.35,15,7,5,3,0,15,12,0.2,normal_pool_available,,
+1081,countries_more,MORE COUNTRIES,world_more,Countries less often named in lists,is_a,0.4,20,19,1,0,0,20,20,0.0,normal_pool_available,,
+273,country_life,COUNTRY LIFE,farming,Things associated with rural country living,found_in,0.35,15,4,10,1,0,15,14,0.0667,normal_pool_available,,
+539,courtroom_things,COURTROOM THINGS,law,Things and people found in a courtroom,found_in,0.3,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+410,crafting_materials,CRAFT MATERIALS,hobbies,Materials used in craft projects,made_of,0.3,18,5,13,0,0,18,18,0.0,normal_pool_available,,
+74,crafts,CRAFTS,art,Handmade crafts people do as a hobby,is_a,0.3,15,9,3,3,0,15,12,0.2,normal_pool_available,,
+461,creative_jobs,CREATIVE JOBS,jobs,Jobs held by people who make art or entertainment,is_a,0.25,18,15,3,0,0,18,18,0.0,normal_pool_available,,
+540,crimes,CRIMES,law,Acts that are against the law,is_a,0.3,18,16,2,0,0,18,18,0.0,normal_pool_available,,
+773,crops,FARM CROPS,plants,Plants grown on farms for food or material,is_a,0.25,18,12,6,0,0,18,18,0.0,normal_pool_available,,
+746,crowd_words,AUDIENCE WORDS,people,Words for people watching an event,found_in,0.4,13,0,4,9,0,13,4,0.6923,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+65,crustaceans,CRUSTACEANS,animals_more,Sea creatures with a hard shell and many legs,is_a,0.4,11,10,0,1,0,11,10,0.0909,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+1078,cured_meats,CURED MEATS,world_food,Meats preserved by curing or smoking,is_a,0.4,14,9,2,1,2,12,11,0.0833,normal_pool_available,,
+129,currencies,CURRENCIES,business,Names of national currencies,is_a,0.35,15,13,0,2,0,15,13,0.1333,normal_pool_available,,
+346,cuts_of_meat,CUTS OF MEAT,food_more,Cuts of meat sold by a butcher,is_a,0.4,15,9,4,2,0,15,13,0.1333,normal_pool_available,,
+995,cutting_tools,CUTTING TOOLS,tools,Tools used to cut material,used_in,0.3,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+935,cycling_words,CYCLING WORDS,sports,Words used about riding and racing bicycles,found_in,0.35,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+307,dairy_products,DAIRY PRODUCTS,food,Foods made from milk or sold in the dairy section,is_a,0.15,20,14,5,1,0,20,19,0.05,normal_pool_available,,
+262,dairy_words,DAIRY FARM,farming,Things involved in dairy farming,found_in,0.35,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+405,dance_class,DANCE CLASS,hobbies,Things found in a dance class,found_in,0.35,14,7,7,0,0,14,14,0.0,normal_pool_available,,
+859,dance_moves,DANCE MOVES,skills,Named dance moves,is_a,0.4,15,6,7,2,0,15,13,0.1333,normal_pool_available,,
+250,dance_styles,DANCE STYLES,entertainment,Styles of dance,is_a,0.3,18,16,1,1,0,18,17,0.0556,normal_pool_available,,
+975,days_and_parts_of_day,DAYS & TIMES,time,Names of weekdays and parts of the day,is_a,0.15,18,18,0,0,0,18,18,0.0,normal_pool_available,,
+80,decorative_things,DECORATIONS,art,Things used to decorate a room or an event,is_a,0.3,18,3,15,0,0,18,18,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+715,deep_sea,DEEP SEA,ocean,Things found in the deep ocean,found_in,0.4,13,0,4,9,0,13,4,0.6923,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+902,deer_family,DEER FAMILY,species,Animals of the deer family,is_a,0.35,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+219,degrees_and_titles,ACADEMIC DEGREES,education,Degrees and academic qualifications,is_a,0.35,12,9,3,0,0,12,12,0.0,normal_pool_available,,
+607,dental_words,DENTAL WORDS,medicine,Words used at a dental office,found_in,0.35,18,14,3,1,0,18,17,0.0556,normal_pool_available,,
+99,dentist_things,DENTIST THINGS,body,Things found at a dentist office,found_in,0.3,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+678,desert_things,DESERT THINGS,nature,Things found in a hot desert,found_in,0.3,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+369,deserts_and_wild_places,DESERTS,geography,Major deserts of the world,is_a,0.4,10,0,0,10,0,10,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+348,dessert_toppings,DESSERT TOPPINGS,food_more,Things put on top of desserts,used_in,0.35,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+317,desserts,DESSERTS,food,Sweet dishes served at the end of a meal,is_a,0.15,25,17,2,6,0,25,19,0.24,normal_pool_available,,
+9,destroying_actions,BREAKING ACTIONS,actions,Actions that damage or destroy something,does_action,0.35,16,14,2,0,0,16,16,0.0,normal_pool_available,,
+452,detective_procedures,FORENSICS WORDS,jargon,Words used in forensic investigation,found_in,0.45,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+553,detective_words,DETECTIVE WORDS,law,Words used in a criminal investigation,found_in,0.35,16,10,5,1,0,16,15,0.0625,normal_pool_available,,
+197,difficulty_words,DIFFICULTY WORDS,descriptive,Words describing how hard a task is,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+848,dinosaurs,DINOSAURS,science,Dinosaur species an average person can name,is_a,0.3,12,2,2,7,1,11,4,0.6364,hard_only_or_manual_review,P1,FEWER_THAN_4_APPROVED | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+365,directions,DIRECTIONS,geography,Words used to give directions,is_a,0.2,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+605,diseases,DISEASES,medicine,Diseases an average person can name,is_a,0.3,20,17,2,1,0,20,19,0.05,normal_pool_available,,
+420,dishes_and_glassware,DISHES,home,Things you eat and drink from at a table,is_a,0.2,20,17,1,2,0,20,18,0.1,normal_pool_available,,
+582,disney_characters,DISNEY CHARACTERS,media,Characters from Disney animated films,is_a,0.25,20,18,1,1,0,20,19,0.05,normal_pool_available,,
+208,distance_words,DISTANCE WORDS,descriptive,Words describing how far something is,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+718,diving_gear,DIVING GEAR,ocean,Equipment used for scuba diving and snorkeling,used_in,0.35,14,5,9,0,0,14,14,0.0,normal_pool_available,,
+42,dog_breeds,DOG BREEDS,animals,Breeds of domestic dog recognized by an average American,is_a,0.25,20,19,1,0,0,20,20,0.0,normal_pool_available,,
+557,dog_breeds_more,MORE BREEDS,lists,Dog breeds beyond the most common ones,is_a,0.4,20,9,0,11,0,20,9,0.55,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+77,drawing_words,DRAWING WORDS,art,Words used when drawing a picture,found_in,0.35,15,7,8,0,0,15,15,0.0,normal_pool_available,,
+341,drink_mixers,DRINK MIXERS,food_more,Things mixed into drinks,used_in,0.4,14,8,6,0,0,14,14,0.0,normal_pool_available,,
+23,driving_actions,DRIVING ACTIONS,actions,Actions done while driving a car,does_action,0.3,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+866,driving_skills,DRIVING SKILLS,skills,Skills tested on a driving exam,is_a,0.35,11,11,0,0,0,11,11,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+12,eating_actions,EATING ACTIONS,actions,Actions done while eating or drinking,does_action,0.3,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+336,egg_and_dairy_dishes,BRUNCH DISHES,food_more,Dishes served at brunch,is_a,0.35,14,9,3,2,0,14,12,0.1429,normal_pool_available,,
+302,egg_dishes,EGG DISHES,food,Ways eggs are cooked and served,is_a,0.35,14,9,2,3,0,14,11,0.2143,normal_pool_available,,
+380,egypt_things,ANCIENT EGYPT,history,Things associated with ancient Egypt,found_in,0.3,15,10,3,2,0,15,13,0.1333,normal_pool_available,,
+1012,electrical_words,ELECTRICAL WORDS,trades,Things an electrician works with,found_in,0.35,16,11,5,0,0,16,16,0.0,normal_pool_available,,
+844,electricity_words,ELECTRICITY WORDS,science,Words used to talk about electricity,found_in,0.3,18,16,2,0,0,18,18,0.0,normal_pool_available,,
+847,elements,CHEMICAL ELEMENTS,science,Chemical elements an average person can name,is_a,0.35,20,11,9,0,0,20,20,0.0,normal_pool_available,,
+555,elements_more,MORE ELEMENTS,lists,Chemical elements beyond the most familiar ones,is_a,0.45,22,17,4,1,0,22,21,0.0455,normal_pool_available,,
+962,email_words,EMAIL WORDS,technology,Parts and actions of an email message,found_in,0.3,16,8,7,1,0,16,15,0.0625,normal_pool_available,,
+458,emergency_jobs,EMERGENCY JOBS,jobs,Jobs held by people who respond to emergencies,is_a,0.2,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+552,emergency_services,EMERGENCY SERVICES,law,Public services that respond to emergencies,is_a,0.25,12,9,3,0,0,12,12,0.0,normal_pool_available,,
+1045,emergency_vehicles,EMERGENCY VEHICLES,transport,Vehicles used by emergency services,is_a,0.25,12,10,2,0,0,12,12,0.0,normal_pool_available,,
+613,emergency_words,EMERGENCY WORDS,medicine,Words used during a medical emergency,found_in,0.3,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+839,energy_words,ENERGY WORDS,science,Words for kinds and sources of energy,is_a,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+949,equestrian_words,HORSE RIDING,sports_world,Words used in horse riding sports,found_in,0.4,14,10,3,1,0,14,13,0.0714,normal_pool_available,,
+701,erosion_words,EROSION WORDS,nature_more,Ways water shapes the land over time,does_action,0.45,13,0,6,7,0,13,6,0.5385,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+144,european_cities,EUROPEAN CITIES,cities,Well known cities in Europe,is_a,0.3,25,23,2,0,0,25,25,0.0,normal_pool_available,,
+351,european_countries,EUROPEAN COUNTRIES,geography,Countries located in Europe,is_a,0.25,25,21,4,0,0,25,25,0.0,normal_pool_available,,
+775,evergreens,EVERGREEN TREES,plants,Trees that keep their leaves or needles all year,is_a,0.35,14,11,2,1,0,14,13,0.0714,normal_pool_available,,
+100,exercise_words,EXERCISE WORDS,body,Movements done as physical exercise,does_action,0.3,16,8,5,3,0,16,13,0.1875,normal_pool_available,,
+69,exotic_pets,EXOTIC PETS,animals_more,Unusual animals people keep as pets,is_a,0.4,13,5,6,1,1,12,11,0.0833,normal_pool_available,,
+853,experiments,DISSOLVING THINGS,science,Substances that dissolve in water,has_property,0.4,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+387,exploration_words,AGE OF EXPLORATION,history,Things associated with sea exploration in the age of sail,found_in,0.35,15,9,5,1,0,15,14,0.0667,normal_pool_available,,
+738,explorers,EXPLORERS,people,Famous explorers from history,is_a,0.35,14,11,1,2,0,14,12,0.1429,normal_pool_available,,
+912,extinct_and_prehistoric,PREHISTORIC ANIMALS,species,Animals that lived in prehistoric times,is_a,0.35,12,6,2,4,0,12,8,0.3333,normal_pool_available,,
+52,extinct_animals,EXTINCT ANIMALS,animals,Animal species that no longer exist,is_a,0.3,14,6,3,5,0,14,9,0.3571,normal_pool_available,,
+283,eyewear,EYEWEAR,fashion,Things worn over the eyes,is_a,0.3,12,8,3,1,0,12,11,0.0833,normal_pool_available,,
+572,fabric_types,FABRIC TYPES,materials,Kinds of cloth used to make things,is_a,0.3,20,13,5,2,0,20,18,0.1,normal_pool_available,,
+162,fabrics,FABRICS,clothing,Materials that clothes are made from,is_a,0.3,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+433,fabrics_at_home,HOME TEXTILES,home,Cloth things used around the house,is_a,0.3,17,9,6,2,0,17,15,0.1176,normal_pool_available,,
+87,face_parts,FACE PARTS,body,Parts of the human face,part_of,0.12,20,18,2,0,0,20,20,0.0,normal_pool_available,,
+733,facial_expressions,FACIAL EXPRESSIONS,people,Expressions people make with their face,does_action,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+1028,factory_words,FACTORY WORDS,trades,Things found in a factory,found_in,0.35,14,4,9,0,1,13,13,0.0,normal_pool_available,,
+639,fairy_tale_things,TALE OBJECTS,mythology,Objects that appear in classic fairy tales,found_in,0.25,14,7,6,1,0,14,13,0.0714,normal_pool_available,,
+583,fairy_tales,FAIRY TALES,media,Classic fairy tales children know,is_a,0.3,15,10,1,4,0,15,11,0.2667,normal_pool_available,,
+725,family_members,FAMILY MEMBERS,people,Words for members of a family,is_a,0.12,25,22,3,0,0,25,25,0.0,normal_pool_available,,
+736,famous_americans,FAMOUS AMERICANS,people,Americans widely known from history,is_a,0.3,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+83,famous_artworks,FAMOUS ARTWORKS,art,Artworks most people can name,is_a,0.4,11,9,1,1,0,11,10,0.0909,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+138,famous_brands,FAMOUS BRANDS,business,Brand names most Americans recognize,is_a,0.3,18,9,8,1,0,18,17,0.0556,normal_pool_available,,
+481,famous_bridges,FAMOUS BRIDGES,landmarks,Famous bridges around the world,is_a,0.4,12,9,0,3,0,12,9,0.25,normal_pool_available,,
+759,famous_buildings,FAMOUS BUILDINGS,places,Famous buildings around the world,is_a,0.35,14,11,1,2,0,14,12,0.1429,normal_pool_available,,
+258,famous_composers,COMPOSERS,entertainment,Famous classical composers,is_a,0.4,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+480,famous_job_titles,LEADERSHIP TITLES,jobs,Titles held by people in charge of an organization,is_a,0.35,16,11,5,0,0,16,16,0.0,normal_pool_available,,
+360,famous_landmarks,FAMOUS LANDMARKS,geography,World landmarks most people can recognize,is_a,0.3,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+589,famous_movies,FAMOUS MOVIES,media,Films most Americans have heard of,is_a,0.3,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+483,famous_museums,FAMOUS MUSEUMS,landmarks,Famous museums around the world,is_a,0.45,12,10,0,2,0,12,10,0.1667,normal_pool_available,,
+595,famous_musicians,MUSIC LEGENDS,media,Musicians widely known across generations,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+489,famous_ships_planes,FAMOUS AIRCRAFT,landmarks,Famous aircraft from history,is_a,0.45,10,8,1,1,0,10,9,0.1,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+938,famous_stadiums,FAMOUS STADIUMS,sports_world,Famous sports stadiums and arenas,is_a,0.45,12,12,0,0,0,12,12,0.0,normal_pool_available,,
+484,famous_streets,FAMOUS STREETS,landmarks,Famous streets and avenues,is_a,0.45,12,11,0,1,0,12,11,0.0833,normal_pool_available,,
+482,famous_towers,FAMOUS TOWERS,landmarks,Famous towers around the world,is_a,0.4,12,10,0,2,0,12,10,0.1667,normal_pool_available,,
+490,famous_trains,FAMOUS TRAINS,landmarks,Famous trains and railway lines,is_a,0.5,10,8,0,2,0,10,8,0.2,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+952,fan_things,FAN THINGS,sports_world,Things sports fans bring or wear to a game,found_in,0.35,14,4,9,1,0,14,13,0.0714,normal_pool_available,,
+253,fantasy_creatures,MYTHICAL CREATURES,entertainment,Creatures from myth and legend,is_a,0.3,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+26,farm_animals,FARM ANIMALS,animals,Animals commonly kept on an ordinary farm,is_a,0.1,20,11,9,0,0,20,20,0.0,normal_pool_available,,
+51,farm_bird_words,POULTRY,animals,Birds raised for meat or eggs on a farm,is_a,0.35,12,11,0,1,0,12,11,0.0833,normal_pool_available,,
+270,farm_buildings,FARM BUILDINGS,farming,Buildings and structures on a farm,is_a,0.3,15,7,6,2,0,15,13,0.1333,normal_pool_available,,
+459,farm_jobs,FARM JOBS,jobs,Jobs held by people who work on farms and with animals,is_a,0.3,14,5,8,1,0,14,13,0.0714,normal_pool_available,,
+260,farm_machines,FARM MACHINES,farming,Machines used on a modern farm,is_a,0.3,15,6,5,4,0,15,11,0.2667,normal_pool_available,,
+910,farm_poultry_breeds,CHICKEN BREEDS,species,Breeds of chicken raised on farms,is_a,0.45,10,0,0,10,0,10,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+271,farm_products,FARM PRODUCTS,farming,Things a farm produces to sell,is_a,0.3,16,2,14,0,0,16,16,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+284,fashion_accessories,FASHION ACCESSORIES,fashion,Items added to complete a look,is_a,0.3,16,8,6,2,0,16,14,0.125,normal_pool_available,,
+289,fashion_show,FASHION SHOW,fashion,Things found at a fashion show,found_in,0.4,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+280,fashion_styles,FASHION STYLES,fashion,Named styles of dressing,is_a,0.4,14,9,5,0,0,14,14,0.0,normal_pool_available,,
+110,fast_food_chains,FAST FOOD,brands,Fast food restaurant chains in America,is_a,0.25,16,10,2,4,0,16,12,0.25,normal_pool_available,,
+322,fast_food_items,DRIVE THRU,food,Items ordered at an American fast food counter,is_a,0.2,20,16,3,1,0,20,19,0.05,normal_pool_available,,
+809,fast_things,FAST THINGS,properties,Things known for moving very fast,has_property,0.35,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+996,fasteners,FASTENERS,tools,Small parts used to hold things together,is_a,0.3,18,6,12,0,0,18,18,0.0,normal_pool_available,,
+732,feelings,FEELINGS,people,Words naming human emotions,is_a,0.25,25,17,8,0,0,25,25,0.0,normal_pool_available,,
+1079,fermented_foods,PICKLED FOODS,world_food,Foods preserved by pickling or fermenting,is_a,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+181,festivals,WORLD FESTIVALS,culture,Festivals celebrated around the world,is_a,0.4,13,9,0,4,0,13,9,0.3077,normal_pool_available,,
+231,field_trip_places,FIELD TRIPS,education,Places classes visit on a field trip,found_in,0.3,15,5,10,0,0,15,15,0.0,normal_pool_available,,
+960,file_types,FILE WORDS,technology,Words for computer files and documents,is_a,0.35,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+102,fingers_and_toes,DIGITS,body,Names for individual fingers and toes,is_a,0.35,10,7,2,1,0,10,9,0.1,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+599,first_aid,FIRST AID,medicine,Things kept in a first aid kit,used_in,0.25,17,10,7,0,0,17,17,0.0,normal_pool_available,,
+862,first_aid_actions,AID ACTIONS,skills,Actions taken when giving first aid,does_action,0.35,14,3,10,1,0,14,13,0.0714,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+709,fish_species,FISH,ocean,Kinds of fish an average person can name,is_a,0.25,25,22,2,1,0,25,24,0.04,normal_pool_available,,
+403,fishing_hobby,FISHING TRIP,hobbies,Things taken on a fishing trip,used_in,0.3,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+934,fishing_things,FISHING THINGS,sports,Things used to catch fish,used_in,0.3,18,11,5,2,0,18,16,0.1111,normal_pool_available,,
+183,flags_and_symbols,NATIONAL SYMBOLS,culture,Things used as symbols of a country,is_a,0.4,15,2,13,0,0,15,15,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+663,flower_parts,FLOWER PARTS,nature,Parts of a flowering plant,part_of,0.35,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+662,flowers,FLOWERS,nature,Kinds of flowers commonly sold or grown in gardens,is_a,0.15,25,22,0,3,0,25,22,0.12,normal_pool_available,,
+558,flowers_more,MORE FLOWERS,lists,Flowers beyond the most common garden ones,is_a,0.4,20,10,0,10,0,20,10,0.5,normal_pool_available,,
+31,flying_animals,FLYING ANIMALS,animals,Animals that can fly under their own power,has_property,0.2,26,20,6,0,0,26,26,0.0,normal_pool_available,,
+919,football_words,FOOTBALL WORDS,sports,Words used to describe plays and roles in American football,found_in,0.3,20,15,5,0,0,20,20,0.0,normal_pool_available,,
+157,footwear,FOOTWEAR,clothing,Things worn on the feet,is_a,0.15,20,14,2,4,0,20,16,0.2,normal_pool_available,,
+691,forest_types,KINDS OF FOREST,nature_more,Kinds of forest and woodland,is_a,0.4,12,0,4,8,0,12,4,0.6667,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+164,formal_wear,FORMAL WEAR,clothing,Clothing worn to a formal occasion,is_a,0.3,14,8,4,2,0,14,12,0.1429,normal_pool_available,,
+635,fortune_telling,FORTUNE TELLING,mythology,Things used to tell fortunes,used_in,0.4,13,0,8,5,0,13,8,0.3846,usable_with_constraints,P2,NO_APPROVED_WORDS
+440,french_cooking_terms,FRENCH COOKING,jargon,French words used in professional cooking,is_a,0.45,14,0,0,12,2,12,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1063,french_dishes,FRENCH DISHES,world_food,Dishes from French cuisine,is_a,0.35,18,6,4,8,0,18,10,0.4444,normal_pool_available,,
+653,french_names,FRENCH NAMES,names_world,First names common in France,is_a,0.4,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+209,frequency_words,FREQUENCY WORDS,descriptive,Words describing how often something happens,is_a,0.4,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+900,frogs_and_toads,FROGS AND TOADS,species,Kinds of frog and toad,is_a,0.4,10,0,2,8,0,10,2,0.8,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+331,frozen_foods,FROZEN FOODS,food,Foods normally bought from the freezer aisle,found_in,0.3,18,8,9,1,0,18,17,0.0556,normal_pool_available,,
+774,fruit_trees,FRUIT TREES,plants,Trees grown for their edible fruit,is_a,0.3,18,17,1,0,0,18,18,0.0,normal_pool_available,,
+290,fruits,FRUITS,food,Common edible fruits familiar to an average American adult,is_a,0.1,26,24,2,0,0,26,26,0.0,normal_pool_available,,
+204,fullness_words,FULLNESS WORDS,descriptive,Words describing how full something is,is_a,0.4,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+415,furniture,FURNITURE,home,Movable household furniture,is_a,0.12,25,18,6,1,0,25,24,0.04,normal_pool_available,,
+959,gadgets,GADGETS,technology,Small electronic devices people own,is_a,0.25,18,7,11,0,0,18,18,0.0,normal_pool_available,,
+596,game_shows,GAME SHOWS,media,Things found on a television game show,found_in,0.4,15,6,9,0,0,15,15,0.0,normal_pool_available,,
+22,garden_actions,GARDEN ACTIONS,actions,Actions done while gardening,does_action,0.35,15,7,8,0,0,15,15,0.0,normal_pool_available,,
+707,garden_bugs,GARDEN BUGS,nature_species,Small creatures found in a garden,found_in,0.4,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+776,garden_flowers_spring,SPRING FLOWERS,plants,Flowers that bloom in spring,found_in,0.35,14,11,0,3,0,14,11,0.2143,normal_pool_available,,
+777,garden_flowers_summer,SUMMER FLOWERS,plants,Flowers that bloom in summer,found_in,0.35,14,10,1,3,0,14,11,0.2143,normal_pool_available,,
+673,garden_plants,GARDEN PLANTS,nature,Plants people grow in a home garden,found_in,0.25,20,9,10,1,0,20,19,0.05,normal_pool_available,,
+990,garden_tools,GARDEN TOOLS,tools,Tools used for gardening and yard work,used_in,0.25,20,9,6,5,0,20,15,0.25,normal_pool_available,,
+400,gardening_hobby,GARDEN HOBBY,hobbies,Things a hobby gardener uses,used_in,0.3,16,6,9,1,0,16,15,0.0625,normal_pool_available,,
+787,gardening_words,GARDENING WORDS,plants,Words used when growing a garden,found_in,0.3,18,9,9,0,0,18,18,0.0,normal_pool_available,,
+1044,gas_station_things,GAS STATION,transport,Things found at an American gas station,found_in,0.3,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+563,gem_cuts,GEM CUTS,lists,Words used to describe cut and set gemstones,found_in,0.45,14,0,3,11,0,14,3,0.7857,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+670,gemstones,GEMSTONES,nature,Precious or semi-precious stones used in jewelry,is_a,0.25,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+1067,german_dishes,GERMAN DISHES,world_food,Dishes from German cuisine,is_a,0.35,14,4,5,5,0,14,9,0.3571,normal_pool_available,,
+654,german_names,GERMAN NAMES,names_world,First names common in Germany,is_a,0.4,16,16,0,0,0,16,16,0.0,normal_pool_available,,
+727,girls_names,GIRLS NAMES,people,Common first names given to girls in the United States,is_a,0.2,25,21,4,0,0,25,25,0.0,normal_pool_available,,
+15,giving_and_taking,GIVING AND TAKING,actions,Verbs about transferring something to or from someone,does_action,0.35,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+923,golf_words,GOLF WORDS,sports,Words used to describe play and equipment in golf,found_in,0.3,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+544,government_branches,GOVERNMENT WORDS,law,Words for the parts and workings of government,found_in,0.35,18,11,7,0,0,18,18,0.0,normal_pool_available,,
+470,government_jobs,GOVERNMENT JOBS,jobs,Jobs held by people who work for a government,is_a,0.3,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+217,grades_and_marks,GRADING WORDS,education,Words used to grade and evaluate students,found_in,0.3,18,15,3,0,0,18,18,0.0,normal_pool_available,,
+298,grains_and_beans,GRAINS AND BEANS,food,"Grains, beans and other dried staples cooked as food",is_a,0.3,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+1050,grape_varieties,GRAPE VARIETIES,varieties,Varieties of grape used for wine and eating,is_a,0.4,13,9,0,4,0,13,9,0.3077,normal_pool_available,,
+784,grasses,GRASSES,plants,Kinds of grass and grain plants,is_a,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+749,great_lakes_and_us_water,US WATERS,places,Famous lakes and rivers in the United States,is_a,0.4,15,8,6,1,0,15,14,0.0667,normal_pool_available,,
+1064,greek_dishes,GREEK DISHES,world_food,Dishes from Greek cuisine,is_a,0.35,15,3,3,8,1,14,6,0.5714,hard_only_or_manual_review,P1,FEWER_THAN_4_APPROVED | MAJORITY_HARD_ONLY
+625,greek_gods,GREEK GODS,mythology,Gods and goddesses of Greek mythology,is_a,0.3,15,9,3,3,0,15,12,0.2,normal_pool_available,,
+628,greek_heroes,MYTHOLOGICAL HEROES,mythology,Heroes of classical mythology,is_a,0.35,12,11,1,0,0,12,12,0.0,normal_pool_available,,
+177,greek_letters,GREEK LETTERS,culture,Letters of the Greek alphabet,is_a,0.35,24,21,1,2,0,24,22,0.0833,normal_pool_available,,
+791,green_things,GREEN THINGS,properties,Everyday things that are typically green in color,has_property,0.3,20,0,20,0,0,20,20,0.0,usable_with_constraints,P2,NO_APPROVED_WORDS
+531,greetings_and_farewells,GREETINGS,language,Words and phrases used to greet or say goodbye,is_a,0.25,15,11,4,0,0,15,15,0.0,normal_pool_available,,
+730,groups_of_people,GROUPS OF PEOPLE,people,Words for gatherings of people,is_a,0.3,20,15,5,0,0,20,20,0.0,normal_pool_available,,
+228,gym_class_things,GYM CLASS,education,Things used in a school gym class,found_in,0.25,16,5,11,0,0,16,16,0.0,normal_pool_available,,
+917,gym_equipment,GYM EQUIPMENT,sports,Equipment used for exercise in a fitness gym,used_in,0.25,19,13,4,2,0,19,17,0.1053,normal_pool_available,,
+942,gymnastics_events,GYMNASTICS EVENTS,sports_world,Events and moves in gymnastics,is_a,0.4,14,3,9,2,0,14,12,0.1429,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+92,hair_words,HAIR WORDS,body,Words for hairstyles and things done to hair,found_in,0.3,20,9,7,4,0,20,16,0.2,normal_pool_available,,
+277,hairstyles,HAIRSTYLES,fashion,Ways of styling hair,is_a,0.3,18,11,3,4,0,18,14,0.2222,normal_pool_available,,
+982,halloween_things,HALLOWEEN THINGS,time,Things associated with Halloween,found_in,0.2,20,11,9,0,0,20,20,0.0,normal_pool_available,,
+6,hand_actions,HAND ACTIONS,actions,Actions performed with the hands,does_action,0.3,20,5,15,0,0,20,20,0.0,normal_pool_available,,
+89,hand_parts,HAND PARTS,body,Parts of the human hand,part_of,0.3,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+989,hand_tools,HAND TOOLS,tools,Tools held in the hand and used for building or repair work,is_a,0.15,25,16,8,1,0,25,24,0.04,normal_pool_available,,
+719,harbor_things,HARBOR THINGS,ocean,Things found in a harbor or marina,found_in,0.3,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+799,hard_things,HARD THINGS,properties,Things that feel hard and solid to the touch,has_property,0.35,18,0,17,1,0,18,17,0.0556,usable_with_constraints,P2,NO_APPROVED_WORDS
+263,harvest_words,HARVEST WORDS,farming,Words used at harvest time,found_in,0.35,15,11,2,2,0,15,13,0.1333,normal_pool_available,,
+160,hats,HATS,clothing,Things worn on the head,is_a,0.25,18,15,3,0,0,18,18,0.0,normal_pool_available,,
+828,heaven_and_afterlife,AFTERLIFE WORDS,religion,Words about what religions say comes after death,is_a,0.4,13,0,11,2,0,13,11,0.1538,usable_with_constraints,P2,NO_APPROVED_WORDS
+800,heavy_things,HEAVY THINGS,properties,Things that are hard to lift because of their weight,has_property,0.35,16,0,10,6,0,16,10,0.375,usable_with_constraints,P2,NO_APPROVED_WORDS
+1046,heavy_trucks,TRUCKS,transport,Kinds of truck used to move goods and materials,is_a,0.3,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+769,herbs,COOKING HERBS,plants,Leafy plants grown to flavor food,is_a,0.3,15,9,2,4,0,15,11,0.2667,normal_pool_available,,
+767,high_places,HIGH PLACES,places,Places high above the ground,has_property,0.35,15,0,12,3,0,15,12,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+397,hiking_words,HIKING WORDS,hobbies,Things involved in hiking a trail,found_in,0.3,16,7,8,1,0,16,15,0.0625,normal_pool_available,,
+383,historic_documents,HISTORIC DOCUMENTS,history,Famous documents from history,is_a,0.35,8,8,0,0,0,8,8,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+473,historic_jobs,BYGONE JOBS,jobs,Jobs that were common in the past but are rare today,is_a,0.4,15,0,0,15,0,15,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+392,historic_ships,FAMOUS SHIPS,history,Ships famous from history,is_a,0.4,11,7,3,1,0,11,10,0.0909,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+987,historical_eras,HISTORICAL ERAS,time,Named periods of human history,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+411,hobby_verbs,HOBBY ACTIVITIES,hobbies,Activities people do as a hobby,is_a,0.3,20,4,15,1,0,20,19,0.05,normal_pool_available,,
+921,hockey_words,HOCKEY WORDS,sports,Words used to describe plays and gear in ice hockey,found_in,0.35,18,9,7,2,0,18,16,0.1111,normal_pool_available,,
+977,holidays,HOLIDAYS,time,Holidays widely celebrated in the United States,is_a,0.2,20,17,1,2,0,20,18,0.1,normal_pool_available,,
+964,home_electronics,HOME ELECTRONICS,technology,Electronic devices used in a home,is_a,0.25,15,8,6,1,0,15,14,0.0667,normal_pool_available,,
+424,home_rooms,HOUSE ROOMS,home,Rooms and spaces inside an ordinary house,part_of,0.15,20,11,8,1,0,20,19,0.05,normal_pool_available,,
+1057,honey_and_syrups,SYRUPS AND SWEETENERS,varieties,Sweet syrups and sweeteners used in food,is_a,0.4,13,12,1,0,0,13,13,0.0,normal_pool_available,,
+894,horse_breeds,HORSE BREEDS,species,Breeds of horse,is_a,0.4,14,5,3,6,0,14,8,0.4286,normal_pool_available,,
+43,horse_words,HORSE WORDS,animals,Words for kinds of horses and horse gear,found_in,0.35,20,16,3,1,0,20,19,0.05,normal_pool_available,,
+603,hospital_departments,HOSPITAL DEPARTMENTS,medicine,Departments and units inside a hospital,part_of,0.35,15,11,4,0,0,15,15,0.0,normal_pool_available,,
+98,hospital_things,HOSPITAL THINGS,body,Things and places found in a hospital,found_in,0.25,18,8,10,0,0,18,18,0.0,normal_pool_available,,
+315,hot_drinks,HOT DRINKS,food,Drinks normally served hot,is_a,0.15,18,15,2,1,0,18,17,0.0556,normal_pool_available,,
+370,hot_places,HOT PLACES,geography,Places that are typically hot,has_property,0.35,15,0,14,1,0,15,14,0.0667,usable_with_constraints,P2,NO_APPROVED_WORDS
+796,hot_things,HOT THINGS,properties,Things that are hot by their physical nature,has_property,0.3,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+114,hotel_chains,HOTEL CHAINS,brands,Major hotel chains,is_a,0.4,12,11,0,1,0,12,11,0.0833,normal_pool_available,,
+1043,hotel_words,HOTEL WORDS,transport,Things and roles found at a hotel,found_in,0.25,18,11,5,2,0,18,16,0.1111,normal_pool_available,,
+768,houseplants,HOUSEPLANTS,plants,Plants commonly kept indoors in pots,is_a,0.3,18,10,5,3,0,18,15,0.1667,normal_pool_available,,
+614,hygiene,HYGIENE THINGS,medicine,Things used to keep the body clean,used_in,0.25,16,8,8,0,0,16,16,0.0,normal_pool_available,,
+320,ice_cream_flavors,ICE CREAM,food,Flavors of ice cream sold in American shops,is_a,0.25,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+95,illnesses,ILLNESSES,body,Common illnesses an average person can name,is_a,0.25,18,12,5,1,0,18,17,0.0556,normal_pool_available,,
+1065,indian_dishes,INDIAN DISHES,world_food,Dishes from Indian cuisine,is_a,0.35,16,8,0,8,0,16,8,0.5,normal_pool_available,,
+389,industrial_revolution,INDUSTRIAL AGE,history,Things associated with the industrial revolution,found_in,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+648,initials_and_titles,NAME PARTS,names,Parts that make up a person full name,part_of,0.4,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+604,injuries,INJURIES,medicine,Kinds of physical injury,is_a,0.25,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+29,insects,INSECTS,animals,Insects and other small bugs an average person recognizes,is_a,0.15,25,20,2,3,0,25,22,0.12,normal_pool_available,,
+259,instruments_in_an_orchestra,ORCHESTRA SECTIONS,entertainment,Sections and roles in a symphony orchestra,part_of,0.4,12,0,6,5,1,11,6,0.4545,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE
+257,instruments_you_strum,THINGS WITH STRINGS,entertainment,Objects that have strings as an essential part,has_property,0.4,15,0,13,2,0,15,13,0.1333,usable_with_constraints,P2,NO_APPROVED_WORDS
+579,insulating_materials,INSULATING MATERIALS,materials,Materials used to keep heat or sound in or out,used_in,0.45,13,0,8,5,0,13,8,0.3846,usable_with_constraints,P2,NO_APPROVED_WORDS
+142,insurance_and_legal,CONTRACT WORDS,business,Words used in contracts and agreements,found_in,0.4,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+88,internal_organs,INTERNAL ORGANS,body,Organs inside the human body,part_of,0.25,20,13,7,0,0,20,20,0.0,normal_pool_available,,
+956,internet_words,INTERNET WORDS,technology,Words used about the internet,found_in,0.25,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+842,inventions,INVENTIONS,science,Famous inventions that changed everyday life,is_a,0.25,18,6,12,0,0,18,18,0.0,normal_pool_available,,
+739,inventors,INVENTORS,people,Famous inventors,is_a,0.35,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+651,irish_names,IRISH NAMES,names_world,First names of Irish origin,is_a,0.4,16,16,0,0,0,16,16,0.0,normal_pool_available,,
+265,irrigation,IRRIGATION THINGS,farming,Things used to water crops,used_in,0.4,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+1082,island_nations,ISLAND NATIONS,world_more,Countries made up of islands,is_a,0.45,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+368,islands,ISLANDS,geography,Well known islands around the world,is_a,0.35,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+324,italian_dishes,ITALIAN DISHES,food,Dishes from Italian cuisine widely eaten in the United States,is_a,0.3,20,11,0,9,0,20,11,0.45,normal_pool_available,,
+652,italian_names,ITALIAN NAMES,names_world,First names common in Italy,is_a,0.4,16,16,0,0,0,16,16,0.0,normal_pool_available,,
+1066,japanese_dishes,JAPANESE DISHES,world_food,Dishes from Japanese cuisine,is_a,0.3,16,7,1,8,0,16,8,0.5,normal_pool_available,,
+655,japanese_names,JAPANESE NAMES,names_world,First names common in Japan,is_a,0.45,15,12,0,3,0,15,12,0.2,normal_pool_available,,
+59,jellyfish_and_soft,SOFT CREATURES,animals_more,Soft bodied sea creatures without bones,is_a,0.45,11,0,4,7,0,11,4,0.6364,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+159,jewelry,JEWELRY,clothing,Decorative items worn on the body as jewelry,is_a,0.2,18,8,10,0,0,18,18,0.0,normal_pool_available,,
+85,jewelry_making,JEWELRY SUPPLIES,art,Things used to make jewelry,used_in,0.4,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+288,jewelry_stones,JEWELRY STONES,fashion,Stones set into jewelry,is_a,0.35,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+134,job_hunting,JOB HUNTING,business,Words used when looking for a job,found_in,0.35,16,12,4,0,0,16,16,0.0,normal_pool_available,,
+475,jobs_that_wear_uniforms,UNIFORMED JOBS,jobs,Jobs where a uniform is normally worn to work,has_property,0.35,16,0,10,6,0,16,10,0.375,usable_with_constraints,P2,NO_APPROVED_WORDS
+471,jobs_with_animals,JOBS WITH ANIMALS,jobs,Jobs held by people who work with animals,is_a,0.3,15,9,4,2,0,15,13,0.1333,normal_pool_available,,
+476,jobs_with_tools,JOBS WITH TOOLS,jobs,Jobs where hand tools are used every day,has_property,0.35,15,0,6,9,0,15,6,0.6,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+16,joining_actions,JOINING ACTIONS,actions,Actions that join two things together,does_action,0.35,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+861,juggling_words,JUGGLING WORDS,skills,Words used in juggling,found_in,0.5,13,0,9,4,0,13,9,0.3077,usable_with_constraints,P2,NO_APPROVED_WORDS
+35,jungle_animals,JUNGLE ANIMALS,animals,Animals that live in tropical jungles and rainforests,found_in,0.2,20,7,11,2,0,20,18,0.1,normal_pool_available,,
+175,kids_clothing,KIDS CLOTHING,clothing,Clothing made especially for babies and children,is_a,0.3,12,4,4,4,0,12,8,0.3333,normal_pool_available,,
+760,kinds_of_buildings,KINDS OF BUILDINGS,places,Kinds of building found in towns and cities,is_a,0.2,25,10,15,0,0,25,25,0.0,normal_pool_available,,
+419,kitchen_appliances,KITCHEN APPLIANCES,home,Electric machines used in a kitchen,found_in,0.2,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+448,kitchen_brigade,KITCHEN SLANG,jargon,Terms used in a restaurant kitchen,found_in,0.45,14,0,1,13,0,14,1,0.9286,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1001,kitchen_gadgets,KITCHEN GADGETS,tools,Small specialized gadgets used in a kitchen,is_a,0.3,16,7,4,4,1,15,11,0.2667,normal_pool_available,,
+455,kitchen_jobs,KITCHEN JOBS,jobs,Jobs held by people who work in a restaurant kitchen or food service,is_a,0.3,18,13,3,2,0,18,16,0.1111,normal_pool_available,,
+868,kitchen_skills,KITCHEN SKILLS,skills,Practical skills used in cooking,is_a,0.35,14,6,2,6,0,14,8,0.4286,normal_pool_available,,
+872,kitchen_sounds,KITCHEN SOUNDS,sounds,Sounds heard in a kitchen,does_action,0.45,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+413,kitchen_tools,KITCHEN TOOLS,home,Handheld tools and utensils used to prepare food in a kitchen,used_in,0.15,26,19,6,1,0,26,25,0.0385,normal_pool_available,,
+376,knights_and_armor,KNIGHT THINGS,history,Things a medieval knight used or wore,found_in,0.3,16,9,5,2,0,16,14,0.125,normal_pool_available,,
+395,knitting_words,KNITTING WORDS,hobbies,Things used in knitting and crochet,found_in,0.4,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+854,knots,KNOTS,skills,Named knots tied in rope,is_a,0.45,13,0,0,13,0,13,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+843,lab_actions,SCIENCE ACTIONS,science,Things a scientist does in an experiment,does_action,0.35,16,8,8,0,0,16,16,0.0,normal_pool_available,,
+833,lab_equipment,LAB EQUIPMENT,science,Equipment found in a school science laboratory,found_in,0.35,20,10,8,2,0,20,18,0.1,normal_pool_available,,
+355,landforms,LANDFORMS,geography,Natural features of the land surface,is_a,0.3,25,14,11,0,0,25,25,0.0,normal_pool_available,,
+1024,landscaping_words,LANDSCAPING WORDS,trades,Things a landscaper works with,found_in,0.35,15,6,9,0,0,15,15,0.0,normal_pool_available,,
+535,languages,LANGUAGES,language,Languages spoken around the world,is_a,0.25,20,19,1,0,0,20,20,0.0,normal_pool_available,,
+354,latin_american_countries,LATIN AMERICA,geography,Countries of Central and South America,is_a,0.3,18,18,0,0,0,18,18,0.0,normal_pool_available,,
+178,latin_phrases,LATIN PHRASES,culture,Latin phrases used in everyday English,is_a,0.45,15,0,0,15,0,15,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+172,laundry_care,LAUNDRY CARE,clothing,Things done to clothes to keep them clean and neat,does_action,0.35,14,5,9,0,0,14,14,0.0,normal_pool_available,,
+423,laundry_things,LAUNDRY THINGS,home,Things used to wash and dry clothes,used_in,0.25,16,12,3,1,0,16,15,0.0625,normal_pool_available,,
+464,law_jobs,LAW JOBS,jobs,Jobs held by people who work in the legal system,is_a,0.3,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+786,leaf_shapes,LEAF WORDS,plants,Words describing leaves and how they grow,found_in,0.45,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+296,leafy_greens,LEAFY GREENS,food,Vegetables eaten for their leaves,is_a,0.3,12,8,2,2,0,12,10,0.1667,normal_pool_available,,
+221,learning_actions,LEARNING ACTIONS,education,Things students do while learning,does_action,0.3,16,7,9,0,0,16,16,0.0,normal_pool_available,,
+542,legal_documents,LEGAL DOCUMENTS,law,Documents used in legal matters,is_a,0.35,16,10,6,0,0,16,16,0.0,normal_pool_available,,
+444,legal_terms,COURT TERMS,jargon,Terms used in legal proceedings,is_a,0.45,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+631,legendary_places,LEGENDARY PLACES,mythology,Places known only from myth and legend,is_a,0.4,12,10,2,0,0,12,12,0.0,normal_pool_available,,
+1054,lettuce_and_greens,SALAD GREENS,varieties,Varieties of lettuce and salad green,is_a,0.4,13,4,4,3,2,11,8,0.2727,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+220,library_words,LIBRARY WORDS,education,Things and rules found in a library,found_in,0.3,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+731,life_stages,STAGES OF LIFE,people,Words for the stages of a human life,is_a,0.25,15,12,2,1,0,15,14,0.0667,normal_pool_available,,
+680,light_sources,LIGHT SOURCES,nature,Things that give off light,does_action,0.3,20,14,4,2,0,20,18,0.1,normal_pool_available,,
+801,light_things,LIGHT THINGS,properties,Things that weigh almost nothing,has_property,0.35,16,0,11,5,0,16,11,0.3125,usable_with_constraints,P2,NO_APPROVED_WORDS
+432,lighting,LIGHTING,home,Devices that light a home,is_a,0.25,16,12,1,3,0,16,13,0.1875,normal_pool_available,,
+576,liquids,LIQUIDS,materials,Common liquids found around a home,is_a,0.25,20,3,17,0,0,20,20,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+269,livestock,LIVESTOCK,farming,Animals raised for food or farm work,is_a,0.25,17,11,6,0,0,17,17,0.0,normal_pool_available,,
+418,living_room_things,LIVING ROOM,home,Objects normally found in a living room,found_in,0.2,20,5,15,0,0,20,20,0.0,normal_pool_available,,
+906,lizards,LIZARDS,species,Kinds of lizard,is_a,0.35,11,8,0,3,0,11,8,0.2727,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+1022,locksmith_words,LOCKS & KEYS,trades,Things involved with locks and keys,found_in,0.4,15,11,3,1,0,15,14,0.0667,normal_pool_available,,
+816,long_thin_things,THIN THINGS,properties,Everyday things that are long and thin,has_property,0.35,16,0,11,5,0,16,11,0.3125,usable_with_constraints,P2,NO_APPROVED_WORDS
+877,loud_noises,LOUD NOISES,sounds,Words for very loud noises,is_a,0.35,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+802,loud_things,LOUD THINGS,properties,Things that make a loud noise,has_property,0.35,16,0,14,2,0,16,14,0.125,usable_with_constraints,P2,NO_APPROVED_WORDS
+870,machine_sounds,MACHINE SOUNDS,sounds,Sounds that machines make,does_action,0.4,16,0,8,8,0,16,8,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+594,magazines,MAGAZINE TYPES,media,Kinds of magazine sold at a newsstand,is_a,0.35,15,0,15,0,0,15,15,0.0,usable_with_constraints,P2,NO_APPROVED_WORDS
+630,magic_creatures,MAGICAL BEINGS,mythology,Magical beings from folklore,is_a,0.25,16,11,5,0,0,16,16,0.0,normal_pool_available,,
+632,magic_objects,MAGIC OBJECTS,mythology,Objects with magical powers in stories,is_a,0.3,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+412,magic_tricks,MAGIC PROPS,hobbies,Props used in performing magic tricks,used_in,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+249,magic_words,MAGIC SHOW,entertainment,Things used in a stage magic performance,found_in,0.35,18,4,14,0,0,18,18,0.0,normal_pool_available,,
+845,magnets_and_forces,FORCES,science,Physical forces studied in science class,is_a,0.4,13,0,11,2,0,13,11,0.1538,usable_with_constraints,P2,NO_APPROVED_WORDS
+141,mail_words,MAIL WORDS,business,Things involved in sending mail,found_in,0.3,16,14,2,0,0,16,16,0.0,normal_pool_available,,
+275,makeup,MAKEUP,fashion,Cosmetics applied to the face,is_a,0.3,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+191,manners,MANNERS WORDS,culture,Words used when teaching good manners,is_a,0.35,14,5,9,0,0,14,14,0.0,normal_pool_available,,
+358,map_words,MAP WORDS,geography,Words used to read and describe a map,found_in,0.3,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+56,marsupials,MARSUPIALS,animals_more,Animals that carry young in a pouch,is_a,0.4,10,7,1,1,1,9,8,0.1111,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+926,martial_arts,MARTIAL ARTS,sports,Fighting sports and self defense disciplines,is_a,0.3,14,10,2,2,0,14,12,0.1429,normal_pool_available,,
+1017,masonry_words,MASONRY WORDS,trades,Things a mason works with,found_in,0.45,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+836,math_operations,MATH OPERATIONS,science,Operations performed on numbers,does_action,0.25,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+835,math_words,MATH WORDS,science,Words used in school mathematics,found_in,0.3,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+971,measurement_devices,MEASURING DEVICES,technology,Devices that measure and display a reading,is_a,0.35,14,3,7,4,0,14,10,0.2857,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+994,measuring_tools,MEASURING TOOLS,tools,"Tools used to measure size, weight or amount",used_in,0.3,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+311,meats,MEATS,food,Kinds of meat sold at an American butcher counter,is_a,0.2,25,18,7,0,0,25,25,0.0,normal_pool_available,,
+467,media_jobs,MEDIA JOBS,jobs,Jobs held by people who produce news and broadcasts,is_a,0.3,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+454,medical_jobs,MEDICAL JOBS,jobs,Jobs held by people who treat patients or work in healthcare,is_a,0.2,20,15,4,1,0,20,19,0.05,normal_pool_available,,
+443,medical_procedures,MEDICAL PROCEDURES,jargon,Procedures performed by doctors,is_a,0.4,16,11,5,0,0,16,16,0.0,normal_pool_available,,
+602,medical_specialties,MEDICAL SPECIALTIES,medicine,Branches of medical practice,is_a,0.4,15,12,1,2,0,15,13,0.1333,normal_pool_available,,
+598,medical_tools,MEDICAL TOOLS,medicine,Instruments a doctor or nurse uses,used_in,0.3,20,9,9,1,1,19,18,0.0526,normal_pool_available,,
+97,medicine_cabinet,MEDICINE CABINET,body,Things kept in a home medicine cabinet,found_in,0.25,16,9,5,2,0,16,14,0.125,normal_pool_available,,
+600,medicine_forms,FORMS OF MEDICINE,medicine,Forms in which medicine is taken,is_a,0.35,15,6,7,2,0,15,13,0.1333,normal_pool_available,,
+1060,melons_and_squash,MELONS & SQUASH,varieties,Varieties of melon and squash,is_a,0.35,13,5,5,2,1,12,10,0.1667,normal_pool_available,,
+832,metals,METALS,science,Metals and metal alloys used in everyday objects,is_a,0.25,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+323,mexican_dishes,MEXICAN DISHES,food,Dishes from Mexican cuisine widely eaten in the United States,is_a,0.3,20,6,3,10,1,19,9,0.5263,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+849,microscope_things,TINY THINGS,science,Things too small to see with the naked eye,has_property,0.4,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+757,middle_east_places,MIDDLE EAST,places,Countries and cities of the Middle East,is_a,0.4,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+1069,middle_eastern_dishes,MIDDLE EASTERN,world_food,Dishes from Middle Eastern cuisine,is_a,0.35,14,6,0,5,3,11,6,0.4545,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+150,midwest_cities,MIDWEST CITIES,cities,Cities in the American Midwest,is_a,0.35,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+546,military_branches,MILITARY BRANCHES,law,Branches of the armed forces,is_a,0.3,12,11,1,0,0,12,12,0.0,normal_pool_available,,
+469,military_ranks,MILITARY RANKS,jobs,Ranks held by members of the armed forces,is_a,0.35,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+547,military_things,MILITARY EQUIPMENT,law,Equipment used by the armed forces,used_in,0.3,19,6,13,0,0,19,19,0.0,normal_pool_available,,
+548,military_words,MILITARY WORDS,law,Words used in military life,found_in,0.35,16,10,5,1,0,16,15,0.0625,normal_pool_available,,
+573,minerals,MINERALS,materials,Minerals found in the earth,is_a,0.4,14,5,4,5,0,14,9,0.3571,normal_pool_available,,
+1062,mint_and_herbs_varieties,HERB VARIETIES,varieties,Varieties of mint and other kitchen herbs,is_a,0.45,13,0,7,6,0,13,7,0.4615,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+401,model_building,MODEL KITS,hobbies,Things used to build scale models,used_in,0.4,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+829,monastery_life,MONASTERY THINGS,religion,Things found in a monastery,found_in,0.45,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+21,money_actions,MONEY ACTIONS,actions,Actions people do with money,does_action,0.3,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+128,money_words,MONEY WORDS,business,"Everyday English words for money, payments and personal finance",is_a,0.25,27,26,1,0,0,27,27,0.0,normal_pool_available,,
+903,monkeys_and_apes,MONKEYS AND APES,species,Kinds of monkey and ape,is_a,0.3,14,8,0,6,0,14,8,0.4286,normal_pool_available,,
+633,monsters,SCARY CREATURES,mythology,Frightening creatures from stories and folklore,is_a,0.25,15,11,4,0,0,15,15,0.0,normal_pool_available,,
+974,months,MONTHS,time,Months of the Gregorian calendar year,is_a,0.1,11,11,0,0,0,11,11,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+883,moons,MOONS,space,Named moons of the solar system,is_a,0.45,14,7,1,6,0,14,8,0.4286,normal_pool_available,,
+705,mosses_and_lichens,MOSS & LICHEN,nature_species,Small plants that grow on rocks and bark,is_a,0.5,10,0,3,3,4,6,3,0.5,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE
+362,mountain_ranges,MOUNTAIN RANGES,geography,Major mountain ranges of the world,is_a,0.35,12,9,1,2,0,12,10,0.1667,normal_pool_available,,
+684,mountain_things,MOUNTAIN THINGS,nature,Things found on or around a mountain,found_in,0.3,20,7,12,1,0,20,19,0.05,normal_pool_available,,
+241,movie_genres,MOVIE GENRES,entertainment,Categories used to classify films,is_a,0.25,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+590,movie_roles,FILM CREW,media,Jobs in the crew of a film production,is_a,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+242,movie_words,FILM MAKING,entertainment,Words used in making and showing films,found_in,0.3,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+106,muscles,MUSCLES,body,Muscles an average person can name,is_a,0.4,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+75,museum_words,MUSEUM WORDS,art,Things found in an art museum,found_in,0.3,16,11,4,1,0,16,15,0.0625,normal_pool_available,,
+785,mushroom_types,MUSHROOM TYPES,plants,Kinds of edible and wild mushrooms,is_a,0.4,12,0,0,11,1,11,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+675,mushrooms_and_fungi,FUNGI,nature,Mushrooms and other fungi,is_a,0.4,12,0,5,7,0,12,5,0.5833,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+229,music_class_things,MUSIC CLASS,education,Things used in a school music class,found_in,0.3,14,6,6,2,0,14,12,0.1429,normal_pool_available,,
+237,music_genres,MUSIC GENRES,entertainment,Styles used to classify music,is_a,0.25,20,19,1,0,0,20,20,0.0,normal_pool_available,,
+408,music_practice,MUSIC PRACTICE,hobbies,Things used when practicing an instrument,used_in,0.35,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+439,music_tempo_terms,TEMPO TERMS,jargon,Italian words used to mark tempo in music,is_a,0.45,16,0,0,15,1,15,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+236,music_words,MUSIC WORDS,entertainment,Words used to describe how a piece of music is written or performed,found_in,0.3,25,15,10,0,0,25,25,0.0,normal_pool_available,,
+232,musical_instruments,MUSICAL INSTRUMENTS,entertainment,Instruments played to produce music,is_a,0.15,25,22,2,1,0,25,24,0.04,normal_pool_available,,
+875,musical_sounds,MUSIC SOUNDS,sounds,Words for the sound a musical instrument makes,is_a,0.4,14,6,6,2,0,14,12,0.1429,normal_pool_available,,
+629,mythical_monsters,MYTHICAL MONSTERS,mythology,Monsters from myth and legend,is_a,0.3,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+278,nail_words,NAIL CARE,fashion,Things used for manicures and nail care,found_in,0.4,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+367,national_parks,PARK WORDS,geography,Things found in a national park or campground,found_in,0.3,18,12,6,0,0,18,18,0.0,normal_pool_available,,
+690,national_parks_us,NATIONAL PARKS,nature_more,American national parks,is_a,0.35,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+747,nationalities,NATIONALITIES,people,Words for people from a particular country,is_a,0.3,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+676,natural_disasters,NATURAL DISASTERS,nature,Destructive natural events,is_a,0.3,16,10,5,1,0,16,15,0.0625,normal_pool_available,,
+642,nature_names,NATURE NAMES,names,First names taken from nature words,is_a,0.35,18,7,11,0,0,18,18,0.0,normal_pool_available,,
+873,nature_sounds,NATURE SOUNDS,sounds,Sounds heard outdoors in nature,does_action,0.4,15,0,10,5,0,15,10,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+659,nature_surnames,SURNAMES FROM TRADES,names_world,Family names that come from old trades,is_a,0.4,18,9,9,0,0,18,18,0.0,normal_pool_available,,
+451,nautical_ranks,SHIP CREW,jargon,Roles in the crew of a ship,is_a,0.45,12,0,4,8,0,12,4,0.6667,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+721,navigation_tools,NAVIGATION TOOLS,ocean,Tools used to find the way at sea,used_in,0.35,14,4,8,2,0,14,12,0.1429,normal_pool_available,,
+985,new_year_things,NEW YEAR,time,Things associated with New Year celebrations,found_in,0.3,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+592,newspaper_parts,NEWSPAPER PARTS,media,Sections and parts of a newspaper,part_of,0.35,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+728,nicknames,NICKNAMES,people,Short familiar forms of common first names,is_a,0.35,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+647,nicknames_for_names,NAME SHORTENINGS,names,Short forms people use instead of a full first name,is_a,0.4,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+478,night_shift_jobs,NIGHT SHIFT,jobs,Jobs commonly worked overnight,has_property,0.4,14,0,3,11,0,14,3,0.7857,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+695,night_sky_things,NIGHT SKY,nature_more,Things visible in the night sky,found_in,0.3,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+34,nocturnal_animals,NOCTURNAL ANIMALS,animals,Animals that are active at night and rest during the day,has_property,0.35,21,0,20,1,0,21,20,0.0476,usable_with_constraints,P2,NO_APPROVED_WORDS
+205,noise_adjectives,VOLUME WORDS,descriptive,Words describing how loud something is,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+627,norse_gods,NORSE GODS,mythology,Gods of Norse mythology,is_a,0.35,12,5,1,5,1,11,6,0.4545,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+584,nursery_rhymes,NURSERY RHYMES,media,Nursery rhymes American children learn,is_a,0.35,12,9,0,3,0,12,9,0.25,normal_pool_available,,
+612,nutrition_words,NUTRITION WORDS,medicine,Words used to talk about diet and nutrition,found_in,0.35,16,12,4,0,0,16,16,0.0,normal_pool_available,,
+297,nuts_and_seeds,NUTS AND SEEDS,food,Edible nuts and seeds sold as food,is_a,0.25,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+1080,nuts_world,SNACK NUTS,world_food,Nuts sold as snacks,is_a,0.35,12,11,0,1,0,12,11,0.0833,normal_pool_available,,
+28,ocean_animals,OCEAN ANIMALS,animals,Animals that live in the ocean,is_a,0.15,25,19,6,0,0,25,25,0.0,normal_pool_available,,
+723,ocean_products,SEA HARVEST,ocean,Useful things people harvest from the sea,is_a,0.4,13,0,10,3,0,13,10,0.2308,usable_with_constraints,P2,NO_APPROVED_WORDS
+716,ocean_zones,SHORE FEATURES,ocean,Features of the ocean and its shoreline,is_a,0.35,18,12,3,3,0,18,15,0.1667,normal_pool_available,,
+758,oceania_places,OCEANIA PLACES,places,Countries and islands of Oceania,is_a,0.45,12,12,0,0,0,12,12,0.0,normal_pool_available,,
+462,office_jobs,OFFICE JOBS,jobs,Jobs held by people who work in an office,is_a,0.25,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+970,office_machines,OFFICE MACHINES,technology,Machines used in an office,is_a,0.3,14,11,2,1,0,14,13,0.0714,normal_pool_available,,
+991,office_supplies,OFFICE SUPPLIES,tools,Small items kept in an office desk and used for paperwork,found_in,0.15,25,13,11,1,0,25,24,0.04,normal_pool_available,,
+133,office_words,OFFICE WORDS,business,Things and routines found in an office workplace,found_in,0.25,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+643,old_fashioned_names,VINTAGE NAMES,names,First names that sound old fashioned today,is_a,0.4,18,18,0,0,0,18,18,0.0,normal_pool_available,,
+385,old_professions,HISTORIC TRADES,history,Trades that were common in past centuries,is_a,0.4,15,0,0,15,0,15,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1058,olive_types,OLIVE TYPES,varieties,Varieties of olive and olive oil,is_a,0.45,12,0,4,7,1,11,4,0.6364,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+916,olympic_sports,OLYMPIC SPORTS,sports,Sports contested at the modern Olympic Games,is_a,0.25,25,13,11,1,0,25,24,0.04,normal_pool_available,,
+869,onomatopoeia,SOUND WORDS,sounds,Words that imitate the sound they name,is_a,0.35,25,16,9,0,0,25,25,0.0,normal_pool_available,,
+17,opening_actions,OPENING ACTIONS,actions,Actions that open or uncover something,does_action,0.35,14,8,2,4,0,14,10,0.2857,normal_pool_available,,
+190,opposites,OPPOSITES,culture,Words commonly taught as opposites,is_a,0.3,25,9,16,0,0,25,25,0.0,normal_pool_available,,
+266,orchard_words,ORCHARD WORDS,farming,Things found in a fruit orchard,found_in,0.35,14,5,8,1,0,14,13,0.0714,normal_pool_available,,
+210,order_words,ORDER WORDS,descriptive,Words describing position in a sequence,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+908,owls,OWLS,species,Kinds of owl,is_a,0.4,10,10,0,0,0,10,10,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+67,pack_animals,WORK ANIMALS,animals_more,Animals used to carry loads or do work,is_a,0.4,13,7,6,0,0,13,13,0.0,normal_pool_available,,
+126,paint_and_home,HARDWARE BRANDS,brands,Brands sold at a hardware store,is_a,0.45,12,5,1,6,0,12,6,0.5,hard_only_or_manual_review,P1,
+73,paint_types,KINDS OF PAINT,art,Kinds of paint used by artists and decorators,is_a,0.35,12,6,4,2,0,12,10,0.1667,normal_pool_available,,
+998,painting_supplies,PAINTING SUPPLIES,tools,Things used to paint a wall or a picture,used_in,0.3,16,10,6,0,0,16,16,0.0,normal_pool_available,,
+1016,painting_trade,HOUSE PAINTING,trades,Things a house painter uses,found_in,0.35,14,5,8,1,0,14,13,0.0714,normal_pool_available,,
+332,pantry_staples,PANTRY STAPLES,food,Basic foods kept in a kitchen pantry for a long time,found_in,0.3,20,7,13,0,0,20,20,0.0,normal_pool_available,,
+223,paper_types,KINDS OF PAPER,education,Kinds of paper used at school and home,is_a,0.3,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+1047,parking_words,PARKING WORDS,transport,Words used about parking a car,found_in,0.35,16,8,7,1,0,16,15,0.0625,normal_pool_available,,
+61,parrots_and_exotic_birds,EXOTIC BIRDS,animals_more,Colorful birds kept as pets or seen in zoos,is_a,0.4,13,2,3,8,0,13,5,0.6154,hard_only_or_manual_review,P1,FEWER_THAN_4_APPROVED | MAJORITY_HARD_ONLY
+1036,parts_of_a_bike,BICYCLE PARTS,transport,Physical parts of a bicycle,part_of,0.3,18,9,8,1,0,18,17,0.0556,normal_pool_available,,
+425,parts_of_a_house,HOUSE PARTS,home,Structural parts of a house,part_of,0.2,20,13,6,1,0,20,19,0.05,normal_pool_available,,
+529,parts_of_speech,PARTS OF SPEECH,language,Grammatical categories of English words,is_a,0.35,12,8,1,3,0,12,9,0.25,normal_pool_available,,
+103,parts_of_the_eye,EYE PARTS,body,Parts of the human eye,part_of,0.4,12,0,9,3,0,12,9,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+248,party_things,PARTY THINGS,entertainment,Things found at a birthday party,found_in,0.2,20,6,14,0,0,20,20,0.0,normal_pool_available,,
+986,past_and_future,TIME WORDS,time,Words that place something in time,is_a,0.3,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+339,pasta_dishes,PASTA DISHES,food_more,Named pasta dishes,is_a,0.3,12,6,1,4,1,11,7,0.3636,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+310,pasta_shapes,PASTA SHAPES,food,Shapes of pasta sold in American stores,is_a,0.35,18,6,2,9,1,17,8,0.5294,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+281,patterns,PATTERNS,fashion,Patterns printed on cloth,is_a,0.3,15,10,2,3,0,15,12,0.2,normal_pool_available,,
+744,people_at_a_wedding,WEDDING PEOPLE,people,People with a role at a wedding,found_in,0.3,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+745,people_in_a_story,STORY CHARACTERS,people,Character roles found in stories,is_a,0.3,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+479,people_who_help,HELPING PROFESSIONS,jobs,Jobs whose main purpose is helping other people directly,is_a,0.35,14,11,3,0,0,14,14,0.0,normal_pool_available,,
+1052,pepper_varieties,PEPPER VARIETIES,varieties,Varieties of pepper used in cooking,is_a,0.35,13,6,3,3,1,12,9,0.25,normal_pool_available,,
+235,percussion,PERCUSSION INSTRUMENTS,entertainment,Musical instruments played by striking or shaking,is_a,0.3,14,6,2,6,0,14,8,0.4286,normal_pool_available,,
+279,perfume_words,FRAGRANCE WORDS,fashion,Words used to describe perfumes and scents,found_in,0.4,15,0,12,3,0,15,12,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+743,personality_words,PERSONALITY WORDS,people,Words describing a person character,is_a,0.35,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+272,pest_control,CROP PESTS,farming,Creatures that damage crops,is_a,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+53,pests,PESTS,animals,Animals treated as household or garden pests,is_a,0.35,20,11,6,3,0,20,17,0.15,normal_pool_available,,
+645,pet_names,PET NAMES,names,Names people commonly give to pets,is_a,0.3,20,9,11,0,0,20,20,0.0,normal_pool_available,,
+436,pet_supplies,PET SUPPLIES,home,Things bought to keep a pet at home,used_in,0.3,18,7,11,0,0,18,18,0.0,normal_pool_available,,
+30,pets,PETS,animals,Animals commonly kept as household pets in the United States,is_a,0.12,20,10,9,1,0,20,19,0.05,normal_pool_available,,
+957,phone_words,PHONE WORDS,technology,Things and features of a mobile phone,found_in,0.25,18,12,6,0,0,18,18,0.0,normal_pool_available,,
+406,photography_hobby,PHOTOGRAPHY GEAR,hobbies,Gear a hobby photographer uses,used_in,0.3,14,6,7,1,0,14,13,0.0714,normal_pool_available,,
+78,photography_styles,PHOTO SUBJECTS,art,Kinds of pictures a photographer takes,is_a,0.35,13,10,3,0,0,13,13,0.0,normal_pool_available,,
+449,photography_terms,CAMERA SETTINGS,jargon,Settings and controls on a camera,found_in,0.45,13,0,4,9,0,13,4,0.6923,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+963,photography_words,PHOTOGRAPHY WORDS,technology,Words used when taking photographs,found_in,0.3,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+299,pie_ingredients,PIE INGREDIENTS,food,Ingredients commonly used in pie fillings or pie preparation,used_in,0.25,25,15,10,0,0,25,25,0.0,normal_pool_available,,
+334,pie_types,PIE TYPES,food_more,Kinds of pie,is_a,0.3,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+708,pine_and_cones,CONIFER WORDS,nature_species,Words about pine trees and their cones,found_in,0.5,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+378,pirate_words,PIRATE WORDS,history,Things and words associated with pirates,found_in,0.25,20,6,12,2,0,20,18,0.1,normal_pool_available,,
+858,pizza_styles,PIZZA STYLES,skills,Regional styles of pizza,is_a,0.4,12,6,3,3,0,12,9,0.25,normal_pool_available,,
+303,pizza_toppings,PIZZA TOPPINGS,food,Ingredients commonly put on top of a pizza,used_in,0.2,25,12,12,1,0,25,24,0.04,normal_pool_available,,
+649,place_names_as_names,PLACE NAMES,names,First names that are also place names,is_a,0.45,16,0,2,14,0,16,2,0.875,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+819,places_of_worship,PLACES OF WORSHIP,religion,Buildings where people gather to worship,is_a,0.3,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+764,places_to_eat,PLACES TO EAT,places,Places where people go to eat a meal,is_a,0.2,16,12,4,0,0,16,16,0.0,normal_pool_available,,
+765,places_with_animals,PLACES WITH ANIMALS,places,Places where animals are kept or seen,found_in,0.3,16,8,7,1,0,16,15,0.0625,normal_pool_available,,
+763,places_you_sleep,SLEEPING PLACES,places,Places where people sleep away from home,found_in,0.3,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+372,places_you_wait,WAITING PLACES,geography,Places where people commonly stand in line,found_in,0.35,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+831,planets,PLANETS,science,Planets of our solar system,is_a,0.2,9,9,0,0,0,9,9,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+780,plant_parts,PLANT PARTS,plants,Parts of a growing plant,part_of,0.25,16,11,4,1,0,16,15,0.0625,normal_pool_available,,
+187,playground_games,PLAYGROUND GAMES,culture,Games children play at recess,is_a,0.3,14,9,3,2,0,14,12,0.1429,normal_pool_available,,
+1011,plumbing_words,PLUMBING WORDS,trades,Things a plumber works with,found_in,0.35,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+781,poisonous_plants,POISONOUS PLANTS,plants,Plants that are dangerous to touch or eat,has_property,0.4,12,0,0,12,0,12,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+855,poker_hands,POKER HANDS,skills,Hands that can be dealt in poker,is_a,0.4,10,7,3,0,0,10,10,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+541,police_things,POLICE THINGS,law,Equipment and things used by police,used_in,0.25,16,10,6,0,0,16,16,0.0,normal_pool_available,,
+533,polite_words,POLITE WORDS,language,Words used to be polite in English,is_a,0.3,12,9,3,0,0,12,12,0.0,normal_pool_available,,
+50,pond_animals,POND ANIMALS,animals,Animals that live in or around a freshwater pond,found_in,0.3,18,6,12,0,0,18,18,0.0,normal_pool_available,,
+911,pond_fish,FRESHWATER FISH,species,Fish that live in lakes and rivers,is_a,0.35,15,11,0,4,0,15,11,0.2667,normal_pool_available,,
+338,potato_dishes,POTATO DISHES,food_more,Ways potatoes are cooked and served,is_a,0.3,14,10,0,4,0,14,10,0.2857,normal_pool_available,,
+1051,potato_varieties,POTATO VARIETIES,varieties,Varieties of potato sold in stores,is_a,0.4,12,4,5,3,0,12,9,0.25,normal_pool_available,,
+76,pottery_words,POTTERY WORDS,art,Things used in making pottery,found_in,0.4,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+577,powders,POWDERS,materials,Common substances that come as a powder,is_a,0.4,15,0,12,3,0,15,12,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+965,power_and_batteries,POWER WORDS,technology,Words about supplying power to devices,found_in,0.3,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+993,power_tools,POWER TOOLS,tools,Tools driven by electricity or a motor,is_a,0.25,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+827,prayer_words,PRAYER WORDS,religion,Words used in prayer and worship,found_in,0.4,15,11,3,1,0,15,14,0.0667,normal_pool_available,,
+574,precious_materials,PRECIOUS MATERIALS,materials,Rare and valuable materials,is_a,0.35,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+610,pregnancy_words,BIRTH WORDS,medicine,Words used about pregnancy and childbirth,found_in,0.4,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+453,printing_and_type,TYPOGRAPHY WORDS,jargon,Words used to describe printed type,found_in,0.5,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1019,printing_words,PRINTING WORDS,trades,Things used in printing,found_in,0.4,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+543,prison_words,PRISON WORDS,law,Things and words associated with prison,found_in,0.35,16,10,5,1,0,16,15,0.0625,normal_pool_available,,
+961,programming_words,PROGRAMMING WORDS,technology,Words used when writing computer programs,found_in,0.4,18,0,11,7,0,18,11,0.3889,usable_with_constraints,P2,NO_APPROVED_WORDS
+528,punctuation,PUNCTUATION MARKS,language,Marks used to punctuate written English,is_a,0.3,15,12,2,1,0,15,14,0.0667,normal_pool_available,,
+551,punishments,PENALTIES,law,Penalties handed down for breaking rules,is_a,0.4,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+398,puzzle_types,PUZZLES,hobbies,Kinds of puzzle people solve for fun,is_a,0.3,14,9,0,5,0,14,9,0.3571,normal_pool_available,,
+200,quantity_words,QUANTITY WORDS,descriptive,Words describing how much of something there is,is_a,0.35,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+532,question_words,QUESTION WORDS,language,Words that begin a question in English,is_a,0.3,10,10,0,0,0,10,10,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+25,quiet_actions,SILENT ACTIONS,actions,Actions that make almost no noise,does_action,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+373,quiet_places,QUIET PLACES,geography,Places where people are expected to stay quiet,has_property,0.35,12,0,7,5,0,12,7,0.4167,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+878,quiet_sounds,QUIET SOUNDS,sounds,Words for very soft sounds,is_a,0.4,13,0,6,7,0,13,6,0.5385,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+803,quiet_things,QUIET THINGS,properties,Things that make almost no sound,has_property,0.4,14,0,13,1,0,14,13,0.0714,usable_with_constraints,P2,NO_APPROVED_WORDS
+927,racing_sports,RACING SPORTS,sports,Sports where competitors race to finish first,is_a,0.3,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+944,racing_words,MOTOR RACING,sports_world,Words used in motor racing,found_in,0.35,14,7,7,0,0,14,14,0.0,normal_pool_available,,
+593,radio_words,RADIO WORDS,media,Things and roles in radio broadcasting,found_in,0.35,15,8,6,1,0,15,14,0.0667,normal_pool_available,,
+274,ranch_words,RANCH WORDS,farming,Things found on a cattle ranch,found_in,0.35,15,8,6,1,0,15,14,0.0667,normal_pool_available,,
+254,reading_material,READING MATTER,entertainment,Things people read,is_a,0.25,20,10,10,0,0,20,20,0.0,normal_pool_available,,
+224,reading_words,READING WORDS,education,Words used when reading and studying text,found_in,0.35,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+575,recycled_materials,RECYCLABLE MATERIALS,materials,Materials that can be recycled,has_property,0.35,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+789,red_things,RED THINGS,properties,Everyday things that are typically red in color,has_property,0.3,20,0,18,2,0,20,18,0.1,usable_with_constraints,P2,NO_APPROVED_WORDS
+735,relationships,RELATIONSHIP WORDS,people,Words for how people are connected to each other,is_a,0.3,17,14,3,0,0,17,17,0.0,normal_pool_available,,
+821,religious_books,SACRED TEXTS,religion,Sacred books of world religions,is_a,0.35,13,11,0,2,0,13,11,0.1538,normal_pool_available,,
+823,religious_holidays,RELIGIOUS HOLIDAYS,religion,Holidays with religious origins,is_a,0.3,16,12,1,3,0,16,13,0.1875,normal_pool_available,,
+820,religious_leaders,RELIGIOUS LEADERS,religion,Titles of religious leaders,is_a,0.3,16,14,2,0,0,16,16,0.0,normal_pool_available,,
+825,religious_symbols,RELIGIOUS SYMBOLS,religion,Symbols associated with religions,is_a,0.35,15,4,9,2,0,15,13,0.1333,normal_pool_available,,
+472,repair_jobs,REPAIR JOBS,jobs,Jobs held by people who fix broken things,is_a,0.3,14,11,2,1,0,14,13,0.0714,normal_pool_available,,
+38,reptiles,REPTILES,animals,Cold-blooded scaly animals classed as reptiles,is_a,0.25,18,13,2,3,0,18,15,0.1667,normal_pool_available,,
+152,resort_towns,RESORT DESTINATIONS,cities,Places people travel to for vacation,is_a,0.4,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+140,restaurant_words,RESTAURANT WORDS,business,Things and roles found at a restaurant,found_in,0.25,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+111,retail_stores,RETAIL STORES,brands,Large retail store chains in America,is_a,0.3,16,13,1,2,0,16,14,0.125,normal_pool_available,,
+1055,rice_types,RICE TYPES,varieties,Kinds of rice sold in stores,is_a,0.4,13,6,4,3,0,13,10,0.2308,normal_pool_available,,
+545,rights_and_freedoms,RIGHTS,law,Legal rights and freedoms people have,is_a,0.4,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+669,river_features,RIVER FEATURES,nature,Parts and features of a river described in everyday English,part_of,0.35,20,0,12,8,0,20,12,0.4,usable_with_constraints,P2,NO_APPROVED_WORDS
+363,rivers,RIVERS,geography,Major rivers of the world,is_a,0.3,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+1037,road_things,ROAD THINGS,transport,Things you see on or beside a road,found_in,0.25,20,13,5,2,0,20,18,0.1,normal_pool_available,,
+967,robot_words,ROBOT WORDS,technology,Words used when talking about robots,found_in,0.4,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+852,rock_cycle_words,GEOLOGY WORDS,science,Words used to describe the earth and its rocks,found_in,0.4,16,0,11,5,0,16,11,0.3125,usable_with_constraints,P2,NO_APPROVED_WORDS
+693,rock_formations,ROCK FORMATIONS,nature_more,Natural rock shapes and formations,is_a,0.4,14,7,7,0,0,14,14,0.0,normal_pool_available,,
+890,rocket_parts,ROCKET PARTS,space,Parts of a rocket,part_of,0.4,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+671,rocks_and_minerals,ROCKS AND MINERALS,nature,Common rocks and minerals from the ground,is_a,0.3,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+909,rodent_species,RODENT SPECIES,species,Particular kinds of rodent,is_a,0.4,13,9,0,4,0,13,9,0.3077,normal_pool_available,,
+40,rodents,RODENTS,animals,Small gnawing mammals classed as rodents,is_a,0.3,16,13,1,2,0,16,14,0.125,normal_pool_available,,
+626,roman_gods,ROMAN GODS,mythology,Gods and goddesses of Roman mythology,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+381,roman_things,ANCIENT ROME,history,Things associated with ancient Rome,found_in,0.3,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+1018,roofing_words,ROOFING WORDS,trades,Things used in roofing a house,found_in,0.45,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+761,rooms_in_public_buildings,PUBLIC ROOMS,places,Rooms found in public buildings,part_of,0.35,15,6,9,0,0,15,15,0.0,normal_pool_available,,
+295,root_vegetables,ROOT VEGETABLES,food,Vegetables eaten for the part that grows underground,is_a,0.3,13,9,4,0,0,13,13,0.0,normal_pool_available,,
+788,round_things,ROUND THINGS,properties,Everyday objects whose normal shape is round or circular,has_property,0.3,26,0,24,2,0,26,24,0.0769,usable_with_constraints,P2,NO_APPROVED_WORDS
+646,royal_names,ROYAL NAMES,names,First names traditionally used by kings and queens,is_a,0.4,16,11,5,0,0,16,16,0.0,normal_pool_available,,
+386,royalty,ROYAL WORDS,history,Titles and things belonging to royalty,is_a,0.25,20,16,4,0,0,20,20,0.0,normal_pool_available,,
+656,russian_names,RUSSIAN NAMES,names_world,First names common in Russia,is_a,0.45,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+1000,safety_gear,SAFETY GEAR,tools,Equipment worn to stay safe while working,used_in,0.3,14,6,7,1,0,14,13,0.0714,normal_pool_available,,
+550,safety_signs,SAFETY WORDS,law,Words seen on warning and safety signs,is_a,0.35,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+442,sailing_terms,SAILING TERMS,jargon,Terms used when sailing a boat,found_in,0.45,14,0,2,12,0,14,2,0.8571,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1041,sailing_words,SAILING WORDS,transport,Words used aboard a sailing boat,found_in,0.4,18,0,12,6,0,18,12,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+305,salad_ingredients,SALAD INGREDIENTS,food,Ingredients tossed into an ordinary green salad,used_in,0.25,25,15,8,2,0,25,23,0.08,normal_pool_available,,
+337,salads,SALADS,food_more,Named kinds of salad,is_a,0.3,14,11,2,1,0,14,13,0.0714,normal_pool_available,,
+706,saltwater_fish,SALTWATER FISH,nature_species,Fish that live in salt water,is_a,0.4,15,9,0,6,0,15,9,0.4,normal_pool_available,,
+344,sandwich_breads,SANDWICH BREADS,food_more,Breads used to make a sandwich,is_a,0.35,14,9,2,3,0,14,11,0.2143,normal_pool_available,,
+304,sandwich_fillings,SANDWICH FILLINGS,food,Things commonly put inside a sandwich,used_in,0.25,25,14,10,1,0,25,24,0.04,normal_pool_available,,
+335,sandwich_types,SANDWICH TYPES,food_more,Named kinds of sandwich,is_a,0.3,14,8,3,2,1,13,11,0.1538,normal_pool_available,,
+1072,sauces,SAUCES,world_food,Sauces used in cooking,is_a,0.3,18,9,6,3,0,18,15,0.1667,normal_pool_available,,
+657,scandinavian_names,SCANDINAVIAN NAMES,names_world,First names common in Scandinavia,is_a,0.45,15,10,1,4,0,15,11,0.2667,normal_pool_available,,
+874,scary_sounds,SCARY SOUNDS,sounds,Sounds that make people uneasy,does_action,0.45,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+24,school_actions,SCHOOL ACTIONS,actions,Actions done at school,does_action,0.3,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+216,school_events,SCHOOL EVENTS,education,Events that happen during a school year,is_a,0.3,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+456,school_jobs,SCHOOL JOBS,jobs,Jobs held by adults who work at a school,is_a,0.25,18,12,6,0,0,18,18,0.0,normal_pool_available,,
+230,school_people,SCHOOL PEOPLE,education,People you meet at a school,is_a,0.25,16,12,4,0,0,16,16,0.0,normal_pool_available,,
+215,school_places,SCHOOL PLACES,education,Rooms and places inside a school,part_of,0.2,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+213,school_subjects,SCHOOL SUBJECTS,education,Subjects taught in an American school,is_a,0.15,25,11,14,0,0,25,25,0.0,normal_pool_available,,
+212,school_supplies,SCHOOL SUPPLIES,education,Items a student brings to school in a backpack,used_in,0.15,25,16,9,0,0,25,25,0.0,normal_pool_available,,
+892,science_fiction_space,SCI FI,space,Words used in space science fiction,found_in,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+841,science_fields,BRANCHES OF SCIENCE,science,Fields of scientific study,is_a,0.3,15,14,1,0,0,15,15,0.0,normal_pool_available,,
+463,science_jobs,SCIENCE JOBS,jobs,Jobs held by people who do scientific work,is_a,0.3,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+740,scientists,FAMOUS SCIENTISTS,people,Famous scientists from history,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+966,screens,THINGS WITH SCREENS,technology,Everyday devices that have a screen,has_property,0.3,16,0,11,5,0,16,11,0.3125,usable_with_constraints,P2,NO_APPROVED_WORDS
+84,sculpture_materials,SCULPTURE MATERIALS,art,Materials sculptors carve or cast,made_of,0.35,14,5,8,1,0,14,13,0.0714,normal_pool_available,,
+460,sea_jobs,SEA JOBS,jobs,Jobs held by people who work on the water,is_a,0.35,14,8,1,5,0,14,9,0.3571,normal_pool_available,,
+711,sea_mammals,SEA MAMMALS,ocean,Mammals that live in the sea,is_a,0.3,14,10,2,2,0,14,12,0.1429,normal_pool_available,,
+724,sea_myths,SEA LEGENDS,ocean,Creatures and stories from sea legend,found_in,0.4,11,0,3,8,0,11,3,0.7273,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+683,sea_shore_things,BEACH THINGS,nature,Things you find on an ocean beach,found_in,0.2,20,14,5,1,0,20,19,0.05,normal_pool_available,,
+720,sea_weather,SEA CONDITIONS,ocean,Words describing conditions at sea,is_a,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+717,seabirds,SEABIRDS,ocean,Birds that live along the coast or at sea,is_a,0.35,14,8,0,5,1,13,8,0.3846,normal_pool_available,,
+312,seafood,SEAFOOD,food,Fish and shellfish eaten as food,is_a,0.25,25,21,3,1,0,25,24,0.04,normal_pool_available,,
+58,seals_and_walruses,SEAL FAMILY,animals_more,Kinds of seal and sea lion,is_a,0.45,9,0,2,7,0,9,2,0.7778,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+752,seas_and_oceans,SEAS,places,Named seas of the world,is_a,0.35,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+978,seasons,SEASONS,time,The four seasons of the year,is_a,0.15,5,5,0,0,0,5,5,0.0,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+672,seasons_and_nature,SEASONAL WORDS,nature,Words describing the changing seasons outdoors,found_in,0.3,18,7,10,1,0,18,17,0.0556,normal_pool_available,,
+698,seasons_fall,FALL THINGS,nature_more,Things associated with autumn,found_in,0.25,14,7,5,2,0,14,12,0.1429,normal_pool_available,,
+696,seasons_spring,SPRING THINGS,nature_more,Things associated with spring,found_in,0.3,16,6,10,0,0,16,16,0.0,normal_pool_available,,
+697,seasons_summer,SUMMER THINGS,nature_more,Things associated with summer,found_in,0.25,16,8,8,0,0,16,16,0.0,normal_pool_available,,
+699,seasons_winter,WINTER THINGS,nature_more,Things associated with winter,found_in,0.25,15,11,4,0,0,15,15,0.0,normal_pool_available,,
+969,security_tech,SECURITY DEVICES,technology,Devices used to keep property secure,is_a,0.35,14,3,9,2,0,14,12,0.1429,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+779,seeds_and_bulbs,SEEDS AND BULBS,plants,Plant parts you put in the ground to grow a new plant,is_a,0.35,14,5,6,3,0,14,11,0.2143,normal_pool_available,,
+864,self_defense_moves,SELF DEFENSE,skills,Basic self defense moves,is_a,0.45,12,0,8,4,0,12,8,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+91,senses_and_perception,THE SENSES,body,Ways the human body senses the world,is_a,0.3,12,2,10,0,0,12,12,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+431,sewing_and_repair,HOME REPAIR,home,Small supplies used for fixing things around the house,used_in,0.3,18,2,15,1,0,18,17,0.0556,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+286,sewing_patterns,GARMENT DETAILS,fashion,Details sewn into a garment design,part_of,0.4,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+992,sewing_supplies,SEWING SUPPLIES,tools,Items used for sewing and mending clothes,used_in,0.3,18,9,8,1,0,18,17,0.0556,normal_pool_available,,
+171,sewing_words,SEWING WORDS,clothing,Words used when sewing or altering clothes,found_in,0.35,16,9,5,2,0,16,14,0.125,normal_pool_available,,
+586,shakespeare_plays,SHAKESPEARE PLAYS,media,Plays written by Shakespeare,is_a,0.4,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+199,shape_adjectives,SHAPE ADJECTIVES,descriptive,Words describing the shape of an object,is_a,0.35,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+834,shapes,SHAPES,science,Geometric shapes taught in school,is_a,0.15,20,13,6,1,0,20,19,0.05,normal_pool_available,,
+712,sharks_and_rays,SHARKS AND RAYS,ocean,Kinds of shark and ray,is_a,0.35,12,10,0,2,0,12,10,0.1667,normal_pool_available,,
+710,shellfish,SHELLFISH,ocean,Sea animals with a shell that people eat,is_a,0.3,14,11,2,1,0,14,13,0.0714,normal_pool_available,,
+713,shells,SEASHELLS,ocean,Kinds of seashell found on a beach,is_a,0.4,13,0,6,7,0,13,6,0.5385,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+804,shiny_things,SHINY THINGS,properties,Things that reflect light and look shiny,has_property,0.35,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+176,shoe_parts,SHOE PARTS,clothing,Parts of a shoe,part_of,0.35,14,8,4,2,0,14,12,0.1429,normal_pool_available,,
+285,shoe_styles,SHOE STYLES,fashion,Styles of shoe,is_a,0.3,16,9,4,2,1,15,13,0.1333,normal_pool_available,,
+136,shopping_words,SHOPPING WORDS,business,Words used while shopping in a store,found_in,0.25,18,10,8,0,0,18,18,0.0,normal_pool_available,,
+644,short_names,SHORT NAMES,names,First names with only one syllable,has_property,0.4,20,0,10,10,0,20,10,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+778,shrubs,SHRUBS AND BUSHES,plants,Woody plants smaller than a tree,is_a,0.4,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+973,signals_and_codes,SIGNALS AND CODES,technology,Systems used to send coded messages,is_a,0.4,11,0,2,9,0,11,2,0.8182,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+421,silverware,SILVERWARE,home,Eating utensils laid out at a table setting,is_a,0.2,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+947,skateboarding,SKATEBOARDING WORDS,sports_world,Words used in skateboarding,found_in,0.4,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+945,skiing_words,SKIING WORDS,sports_world,Words used on a ski slope,found_in,0.35,14,6,6,2,0,14,12,0.1429,normal_pool_available,,
+611,sleep_and_rest,SLEEP WORDS,medicine,Words about sleep and its problems,found_in,0.35,15,12,1,2,0,15,13,0.1333,normal_pool_available,,
+11,sleeping_actions,SLEEP ACTIONS,actions,Things a person does while sleeping or falling asleep,does_action,0.35,13,9,3,1,0,13,12,0.0769,normal_pool_available,,
+165,sleepwear,SLEEPWEAR,clothing,Clothing worn to bed,is_a,0.25,10,7,1,2,0,10,8,0.2,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+810,slow_things,SLOW THINGS,properties,Things known for moving very slowly,has_property,0.35,12,0,9,3,0,12,9,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+193,smell_words,SMELL WORDS,descriptive,Words describing how something smells,is_a,0.4,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+811,smelly_things,SMELLY THINGS,properties,Things with a very strong smell,has_property,0.4,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+122,snack_brands,SNACK BRANDS,brands,Brands of packaged snacks,is_a,0.35,14,9,0,4,1,13,9,0.3077,normal_pool_available,,
+321,snack_foods,SNACK FOODS,food,Packaged foods eaten between meals,is_a,0.2,19,11,8,0,0,19,19,0.0,normal_pool_available,,
+899,snakes,SNAKES,species,Kinds of snake,is_a,0.3,14,11,1,2,0,14,12,0.1429,normal_pool_available,,
+920,soccer_words,SOCCER WORDS,sports,Words used to describe plays and roles in soccer,found_in,0.3,18,11,7,0,0,18,18,0.0,normal_pool_available,,
+958,social_media_words,SOCIAL MEDIA,technology,Words used on social media,found_in,0.3,18,5,13,0,0,18,18,0.0,normal_pool_available,,
+107,soda_brands,SODA BRANDS,brands,Soft drink brands sold in the United States,is_a,0.3,14,9,1,4,0,14,10,0.2857,normal_pool_available,,
+798,soft_things,SOFT THINGS,properties,Things that feel soft to the touch,has_property,0.35,18,0,17,1,0,18,17,0.0556,usable_with_constraints,P2,NO_APPROVED_WORDS
+264,soil_words,SOIL WORDS,farming,Words used to describe soil and its care,found_in,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+887,solar_system_words,SOLAR SYSTEM,space,Words describing the solar system,found_in,0.35,14,12,1,1,0,14,13,0.0714,normal_pool_available,,
+896,songbirds,SONGBIRDS,species,Small singing birds found in yards and woods,is_a,0.4,17,13,1,3,0,17,14,0.1765,normal_pool_available,,
+968,sound_devices,SOUND DEVICES,technology,Devices that record or play sound,is_a,0.3,14,11,0,3,0,14,11,0.2143,normal_pool_available,,
+306,soup_ingredients,SOUP INGREDIENTS,food,Ingredients commonly simmered into a pot of soup,used_in,0.3,25,11,14,0,0,25,25,0.0,normal_pool_available,,
+1071,soups,SOUPS AND STEWS,world_food,Kinds of soup and stew,is_a,0.25,20,12,2,6,0,20,14,0.3,normal_pool_available,,
+147,south_american_cities,LATIN CITIES,cities,Well known cities in South America,is_a,0.4,14,12,0,2,0,14,12,0.1429,normal_pool_available,,
+151,southern_cities,SOUTHERN CITIES,cities,Cities in the American South,is_a,0.3,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+1070,southern_dishes,SOUTHERN FOOD,world_food,Dishes from the American South,is_a,0.3,16,9,6,1,0,16,15,0.0625,normal_pool_available,,
+885,space_agencies_and_places,SPACE PLACES,space,Places and organizations connected with space flight,is_a,0.45,11,9,0,2,0,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+891,space_measurements,SPACE MEASUREMENTS,space,Units used to measure distance and time in space,is_a,0.45,11,0,7,4,0,11,7,0.3636,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE
+830,space_objects,SPACE OBJECTS,science,Objects found in outer space,is_a,0.2,20,17,2,1,0,20,19,0.05,normal_pool_available,,
+889,space_phenomena,SPACE PHENOMENA,space,Events and phenomena seen in space,is_a,0.4,12,8,3,1,0,12,11,0.0833,normal_pool_available,,
+1040,space_travel,SPACE TRAVEL,transport,Things involved in traveling into space,found_in,0.3,18,14,3,1,0,18,17,0.0556,normal_pool_available,,
+884,spacecraft,SPACECRAFT,space,Famous spacecraft and space missions,is_a,0.4,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+1068,spanish_dishes,SPANISH DISHES,world_food,Dishes from Spanish cuisine,is_a,0.35,14,6,2,5,1,13,8,0.3846,normal_pool_available,,
+650,spanish_names,SPANISH NAMES,names_world,First names common in Spanish speaking countries,is_a,0.35,20,20,0,0,0,20,20,0.0,normal_pool_available,,
+207,speed_adjectives,SPEED WORDS,descriptive,Words describing how fast something moves,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+988,speed_of_time,QUICK WORDS,time,Words meaning that something happens without delay,is_a,0.4,12,0,9,3,0,12,9,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+314,spices_and_herbs,SPICES AND HERBS,food,Plant-based seasonings used to flavor food,is_a,0.3,25,21,2,2,0,25,23,0.08,normal_pool_available,,
+907,spiders_and_crawlers,SPIDERS AND CRAWLERS,species,Small many-legged creatures that are not insects,is_a,0.35,12,9,0,2,1,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+18,sports_actions,SPORTS ACTIONS,actions,Actions done while playing sports,does_action,0.3,18,7,11,0,0,18,18,0.0,normal_pool_available,,
+932,sports_balls,BALLS,sports,Balls used in different sports,is_a,0.25,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+120,sports_brands,SPORTS BRANDS,brands,Brands of sports equipment,is_a,0.4,12,7,3,2,0,12,10,0.1667,normal_pool_available,,
+933,sports_gear_worn,PROTECTIVE GEAR,sports,Gear athletes wear to protect the body,used_in,0.3,14,5,8,1,0,14,13,0.0714,normal_pool_available,,
+951,sports_injuries,SPORTS INJURIES,sports_world,Injuries common in sports,is_a,0.35,13,12,1,0,0,13,13,0.0,normal_pool_available,,
+477,sports_jobs,SPORTS JOBS,jobs,Jobs held by people who work in professional sports,is_a,0.3,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+939,sports_leagues,SPORTS LEAGUES,sports_world,Professional sports leagues and competitions,is_a,0.4,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+937,sports_legends,SPORTS LEGENDS,sports_world,Athletes remembered across generations,is_a,0.35,15,11,2,2,0,15,13,0.1333,normal_pool_available,,
+929,sports_officials,SPORTS OFFICIALS,sports,People who enforce the rules of a sport,is_a,0.35,10,3,6,1,0,10,9,0.1,usable_with_constraints,P2,FEWER_THAN_4_APPROVED | THIN_LT_12_PLAYABLE
+930,sports_scoring,SCORING WORDS,sports,Words used for scoring and results in sports,found_in,0.35,20,14,6,0,0,20,20,0.0,normal_pool_available,,
+486,sports_teams,TEAM NAMES,landmarks,Names of long standing American sports teams,is_a,0.35,18,17,1,0,0,18,18,0.0,normal_pool_available,,
+928,sports_venues,SPORTS VENUES,sports,Places built for playing or watching sports,is_a,0.3,18,6,12,0,0,18,18,0.0,normal_pool_available,,
+49,spotted_and_striped,STRIPED ANIMALS,animals,Animals whose coat has clear stripes,has_property,0.4,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+549,spy_words,SPY WORDS,law,Things associated with spies and espionage,found_in,0.4,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+815,square_things,SQUARE THINGS,properties,Everyday things shaped like a square,has_property,0.35,13,0,7,6,0,13,7,0.4615,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+143,startup_words,STARTUP WORDS,business,Words used when starting a new company,found_in,0.4,14,0,1,13,0,14,1,0.9286,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+748,state_capitals,STATE CAPITALS,places,Capital cities of American states,is_a,0.35,25,20,5,0,0,25,25,0.0,normal_pool_available,,
+837,states_of_matter,STATES OF MATTER,science,Physical states matter can take,is_a,0.3,12,3,9,0,0,12,12,0.0,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+794,sticky_things,STICKY THINGS,properties,Substances that stick to whatever they touch,has_property,0.35,18,0,17,1,0,18,17,0.0556,usable_with_constraints,P2,NO_APPROVED_WORDS
+437,storage_containers,CONTAINERS,home,Things made to store or carry other things,is_a,0.25,20,11,9,0,0,20,20,0.0,normal_pool_available,,
+465,store_jobs,STORE JOBS,jobs,Jobs held by people who work in shops and stores,is_a,0.25,16,8,4,4,0,16,12,0.25,normal_pool_available,,
+131,store_types,KINDS OF STORES,business,Kinds of shops found in a town or mall,is_a,0.2,20,15,5,0,0,20,20,0.0,normal_pool_available,,
+665,storms,STORMS,nature,Kinds of violent weather events,is_a,0.3,15,13,1,1,0,15,14,0.0667,normal_pool_available,,
+252,storybook_characters,TALE CHARACTERS,entertainment,Characters that appear in classic fairy tales,is_a,0.25,20,10,10,0,0,20,20,0.0,normal_pool_available,,
+1076,street_food,STREET FOOD,world_food,Foods sold from street carts and stands,is_a,0.3,16,9,4,3,0,16,13,0.1875,normal_pool_available,,
+762,streets_and_roads,KINDS OF ROADS,places,Kinds of road and pathway,is_a,0.3,18,17,0,1,0,18,17,0.0556,normal_pool_available,,
+202,strength_words,STRENGTH WORDS,descriptive,Words describing strength,is_a,0.35,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+233,string_instruments,STRING INSTRUMENTS,entertainment,Musical instruments played by plucking or bowing strings,is_a,0.3,14,11,1,2,0,14,12,0.1429,normal_pool_available,,
+814,striped_things,STRIPED THINGS,properties,Things that normally have stripes,has_property,0.4,13,0,8,5,0,13,8,0.3846,usable_with_constraints,P2,NO_APPROVED_WORDS
+580,superheroes,SUPERHEROES,media,Comic book superheroes most people can name,is_a,0.25,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+189,superstition_numbers,NUMBER WORDS,culture,Words for numbers and counting,is_a,0.3,24,19,5,0,0,24,24,0.0,normal_pool_available,,
+637,superstitions,SUPERSTITION THINGS,mythology,Objects tied to common superstitions,found_in,0.4,13,0,3,10,0,13,3,0.7692,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+863,survival_skills,SURVIVAL SKILLS,skills,Skills used to survive outdoors,is_a,0.4,12,10,1,1,0,12,11,0.0833,normal_pool_available,,
+865,swimming_skills,SWIMMING SKILLS,skills,Skills learned in swimming lessons,is_a,0.35,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+941,swimming_strokes,SWIM STROKES,sports_world,Strokes and events in competitive swimming,is_a,0.35,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+167,swimwear,SWIMWEAR,clothing,Clothing worn for swimming,is_a,0.25,11,11,0,0,0,11,11,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+96,symptoms,SYMPTOMS,body,Signs that a person feels unwell,is_a,0.3,16,13,3,0,0,16,16,0.0,normal_pool_available,,
+1021,tailor_words,TAILOR SHOP,trades,Things a tailor uses,found_in,0.4,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+192,taste_words,TASTE WORDS,descriptive,Words describing how food tastes,is_a,0.3,20,12,8,0,0,20,20,0.0,normal_pool_available,,
+915,team_sports,TEAM SPORTS,sports,Sports played by two opposing teams,is_a,0.15,18,16,1,1,0,18,17,0.0556,normal_pool_available,,
+1075,teas,TEAS,world_food,Kinds of tea,is_a,0.3,16,10,4,2,0,16,14,0.125,normal_pool_available,,
+127,tech_companies,TECH COMPANIES,business,Well-known technology companies or consumer technology brands,is_a,0.25,21,11,10,0,0,21,21,0.0,normal_pool_available,,
+888,telescope_words,TELESCOPE WORDS,space,Parts and words used with a telescope,found_in,0.4,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+206,temperature_feel,TOUCH WORDS,descriptive,Words describing how something feels to touch,is_a,0.35,16,0,15,1,0,16,15,0.0625,usable_with_constraints,P2,NO_APPROVED_WORDS
+851,temperature_words,TEMPERATURE WORDS,science,Words describing how hot or cold something is,is_a,0.3,16,16,0,0,0,16,16,0.0,normal_pool_available,,
+922,tennis_words,TENNIS WORDS,sports,Words used to describe play and scoring in tennis,found_in,0.3,18,11,6,1,0,18,17,0.0556,normal_pool_available,,
+225,testing_words,TEST WORDS,education,Words for kinds of test questions and formats,found_in,0.35,12,8,4,0,0,12,12,0.0,normal_pool_available,,
+81,textures,TEXTURES,art,Words describing how a surface feels,is_a,0.4,15,0,10,5,0,15,10,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+327,thanksgiving_foods,THANKSGIVING FOODS,food,Foods traditionally served at an American Thanksgiving dinner,found_in,0.3,20,13,7,0,0,20,20,0.0,normal_pool_available,,
+79,theater_arts,PERFORMING ARTS,art,Arts performed in front of an audience,is_a,0.3,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+447,theater_stage_terms,STAGE TERMS,jargon,Terms used backstage in a theater,found_in,0.4,14,7,6,1,0,14,13,0.0714,normal_pool_available,,
+243,theater_words,THEATER WORDS,entertainment,Words for the parts and people of a live theater production,found_in,0.3,20,17,2,1,0,20,19,0.05,normal_pool_available,,
+488,theme_parks,THEME PARKS,landmarks,Well known theme parks,is_a,0.4,11,10,0,1,0,11,10,0.0909,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+609,therapy_words,THERAPY WORDS,medicine,Words used in physical and mental therapy,found_in,0.4,14,0,13,1,0,14,13,0.0714,usable_with_constraints,P2,NO_APPROVED_WORDS
+422,things_in_a_garage,GARAGE THINGS,home,Things stored in an ordinary home garage,found_in,0.25,20,5,15,0,0,20,20,0.0,normal_pool_available,,
+621,things_in_a_glove_box,GLOVE BOX,misc,Things kept in a car glove compartment,found_in,0.4,13,0,3,10,0,13,3,0.7692,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+438,things_in_a_junk_drawer,JUNK DRAWER,home,Small odds and ends that pile up in a kitchen drawer,found_in,0.35,18,0,9,9,0,18,9,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+617,things_in_a_purse,PURSE THINGS,misc,Things carried in a purse,found_in,0.3,15,3,11,1,0,15,14,0.0667,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+620,things_in_a_toolbox,TOOLBOX THINGS,misc,Things kept in a household toolbox,found_in,0.3,14,9,5,0,0,14,14,0.0,normal_pool_available,,
+615,things_in_a_wallet,WALLET THINGS,misc,Things people keep in a wallet,found_in,0.3,14,6,8,0,0,14,14,0.0,normal_pool_available,,
+677,things_in_the_forest,FOREST THINGS,nature,Things you find walking through a forest,found_in,0.25,20,10,9,1,0,20,19,0.05,normal_pool_available,,
+850,things_in_the_sky_science,ASTRONOMY WORDS,science,Words used by astronomers,found_in,0.35,16,15,1,0,0,16,16,0.0,normal_pool_available,,
+566,things_made_of_glass,GLASS THINGS,materials,Everyday things normally made of glass,made_of,0.3,15,0,12,3,0,15,12,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+570,things_made_of_leather,LEATHER THINGS,materials,Everyday things normally made of leather,made_of,0.35,14,0,12,2,0,14,12,0.1429,usable_with_constraints,P2,NO_APPROVED_WORDS
+567,things_made_of_metal,METAL THINGS,materials,Everyday things normally made of metal,made_of,0.3,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+568,things_made_of_paper,PAPER THINGS,materials,Everyday things normally made of paper,made_of,0.3,16,0,14,2,0,16,14,0.125,usable_with_constraints,P2,NO_APPROVED_WORDS
+569,things_made_of_plastic,PLASTIC THINGS,materials,Everyday things normally made of plastic,made_of,0.35,16,0,11,5,0,16,11,0.3125,usable_with_constraints,P2,NO_APPROVED_WORDS
+571,things_made_of_rubber,RUBBER THINGS,materials,Everyday things normally made of rubber,made_of,0.35,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+565,things_made_of_wood,WOODEN THINGS,materials,Everyday things normally made of wood,made_of,0.3,18,0,13,5,0,18,13,0.2778,usable_with_constraints,P2,NO_APPROVED_WORDS
+1010,things_measured_in_inches,MEASURING UNITS,tools,"Units used to measure length, weight or volume",is_a,0.35,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+366,things_on_a_farm,FARM THINGS,geography,Things found on a working farm,found_in,0.2,20,15,5,0,0,20,20,0.0,normal_pool_available,,
+616,things_on_a_keychain,KEYCHAIN THINGS,misc,Things hanging from a keychain,found_in,0.4,13,0,1,12,0,13,1,0.9231,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+426,things_on_a_wall,WALL THINGS,home,Things hung or mounted on an interior wall,found_in,0.3,20,6,13,1,0,20,19,0.05,normal_pool_available,,
+813,things_that_are_sharp,POINTED THINGS,properties,Things that come to a sharp point,has_property,0.35,16,0,15,1,0,16,15,0.0625,usable_with_constraints,P2,NO_APPROVED_WORDS
+808,things_that_break,FRAGILE THINGS,properties,Things that break easily when dropped,has_property,0.35,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+578,things_that_burn,FUELS,materials,Materials burned to produce heat or power,is_a,0.35,14,10,4,0,0,14,14,0.0,normal_pool_available,,
+1048,things_that_carry_people,PEOPLE MOVERS,transport,Things built to carry a person from one place to another,does_action,0.35,18,0,9,9,0,18,9,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+619,things_that_come_in_pairs,PAIRED THINGS,misc,Things that normally come in twos,has_property,0.35,16,0,9,7,0,16,9,0.4375,usable_with_constraints,P2,NO_APPROVED_WORDS
+1006,things_that_cut,SHARP THINGS,tools,Everyday things with a sharp edge or point,has_property,0.35,18,0,15,3,0,18,15,0.1667,usable_with_constraints,P2,NO_APPROVED_WORDS
+806,things_that_float,FLOATING THINGS,properties,Things that float on water,has_property,0.35,17,0,12,5,0,17,12,0.2941,usable_with_constraints,P2,NO_APPROVED_WORDS
+681,things_that_grow,GROWING THINGS,nature,Living things that grow larger over time,has_property,0.35,18,0,12,6,0,18,12,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+101,things_that_grow_on_you,BODY GROWTHS,body,Things that grow naturally on the human body,has_property,0.35,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+624,things_that_have_a_face,FACED THINGS,misc,Objects described as having a face,has_property,0.4,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+430,things_that_hold_water,WATER HOLDERS,home,Containers and objects built to hold water,has_property,0.35,18,0,17,1,0,18,17,0.0556,usable_with_constraints,P2,NO_APPROVED_WORDS
+105,things_that_hurt,PAINFUL THINGS,body,Everyday things that cause physical pain,has_property,0.4,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+330,things_that_melt,MELTING THINGS,food,Everyday things that melt when they get warm,has_property,0.35,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+429,things_that_open,OPENING THINGS,home,Everyday objects that open and close,has_property,0.35,20,0,15,5,0,20,15,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+428,things_that_plug_in,PLUGGED IN,home,Household devices powered by plugging into an outlet,has_property,0.3,20,0,15,5,0,20,15,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+623,things_that_ring,RINGING THINGS,misc,Things that ring or chime,does_action,0.35,12,0,8,4,0,12,8,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+817,things_that_shrink,SHRINKING THINGS,properties,Things that get smaller over time or with heat,has_property,0.45,13,0,9,4,0,13,9,0.3077,usable_with_constraints,P2,NO_APPROVED_WORDS
+1005,things_that_spin,SPINNING THINGS,tools,Everyday things that spin or rotate,has_property,0.35,18,0,10,8,0,18,10,0.4444,usable_with_constraints,P2,NO_APPROVED_WORDS
+1007,things_that_stick_out,HAMMERED THINGS,tools,Things a hammer is normally used on,does_action,0.4,13,0,9,4,0,13,9,0.3077,usable_with_constraints,P2,NO_APPROVED_WORDS
+807,things_that_stretch,STRETCHY THINGS,properties,Things that stretch when pulled,has_property,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+427,things_with_buttons,THINGS WITH BUTTONS,home,Everyday objects operated by pressing buttons,has_property,0.35,18,0,11,7,0,18,11,0.3889,usable_with_constraints,P2,NO_APPROVED_WORDS
+1004,things_with_handles,THINGS WITH HANDLES,tools,Everyday objects gripped by a handle,has_property,0.35,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+812,things_with_holes,THINGS WITH HOLES,properties,Everyday things that have holes in them,has_property,0.35,16,0,7,9,0,16,7,0.5625,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+174,things_with_pockets,THINGS WITH POCKETS,clothing,Clothes and bags that have pockets,has_property,0.35,14,0,13,1,0,14,13,0.0714,usable_with_constraints,P2,NO_APPROVED_WORDS
+972,things_with_screens_history,OLD TECHNOLOGY,technology,Technology that has mostly been replaced,is_a,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+667,things_with_seeds,THINGS WITH SEEDS,nature,Common objects or foods that naturally contain seeds,has_property,0.35,25,0,24,1,0,25,24,0.04,usable_with_constraints,P2,NO_APPROVED_WORDS
+1030,things_with_wheels,THINGS WITH WHEELS,transport,Everyday objects that have wheels as a normal part of their design,has_property,0.25,25,0,20,5,0,25,20,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+173,things_worn_on_hands,HAND WEAR,clothing,Things worn on the hands,has_property,0.3,12,0,8,4,0,12,8,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+168,things_you_button,BUTTONED THINGS,clothing,Clothes and objects fastened with buttons,has_property,0.4,14,0,13,1,0,14,13,0.0714,usable_with_constraints,P2,NO_APPROVED_WORDS
+622,things_you_recycle,TRASH ITEMS,misc,Things commonly thrown out or recycled,is_a,0.35,14,0,13,1,0,14,13,0.0714,usable_with_constraints,P2,NO_APPROVED_WORDS
+329,things_you_spread,SPREADS,food,Foods that are spread with a knife onto bread or toast,does_action,0.35,16,0,13,3,0,16,13,0.1875,usable_with_constraints,P2,NO_APPROVED_WORDS
+169,things_you_tie,TIED THINGS,clothing,Things fastened by tying a knot or bow,does_action,0.35,14,0,10,4,0,14,10,0.2857,usable_with_constraints,P2,NO_APPROVED_WORDS
+14,thinking_actions,THINKING ACTIONS,actions,Verbs for mental activity,does_action,0.35,16,9,7,0,0,16,16,0.0,normal_pool_available,,
+700,tide_and_moon,MOON PHASES,nature_more,Phases and states of the moon,is_a,0.4,12,9,1,2,0,12,10,0.1667,normal_pool_available,,
+393,time_capsule_things,BYGONE THINGS,history,Everyday objects that are no longer commonly used,has_property,0.4,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+979,time_units,UNITS OF TIME,time,Units used to measure time,is_a,0.2,16,14,2,0,0,16,16,0.0,normal_pool_available,,
+729,titles_of_address,TITLES,people,Titles put before a person name,is_a,0.3,18,8,10,0,0,18,18,0.0,normal_pool_available,,
+1053,tomato_varieties,TOMATO VARIETIES,varieties,Varieties of tomato,is_a,0.4,12,5,4,3,0,12,9,0.25,normal_pool_available,,
+116,tool_brands,TOOL BRANDS,brands,Brands of hand and power tools,is_a,0.45,12,5,2,5,0,12,7,0.4167,hard_only_or_manual_review,P1,
+340,toppings_and_garnish,GARNISHES,food_more,Things added on top of a finished dish,is_a,0.35,15,5,8,2,0,15,13,0.1333,normal_pool_available,,
+356,town_places,TOWN PLACES,geography,Public buildings and places found in an ordinary American town,found_in,0.15,25,8,17,0,0,25,25,0.0,normal_pool_available,,
+117,toy_brands,TOY BRANDS,brands,Well known toy brands,is_a,0.35,14,10,1,3,0,14,11,0.2143,normal_pool_available,,
+246,toys,TOYS,entertainment,Things children play with,is_a,0.2,20,9,11,0,0,20,20,0.0,normal_pool_available,,
+940,track_events,TRACK EVENTS,sports_world,Events contested in track and field,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+184,traditional_clothing,TRADITIONAL CLOTHING,culture,Traditional garments from world cultures,is_a,0.4,15,2,5,8,0,15,7,0.5333,hard_only_or_manual_review,P1,FEWER_THAN_4_APPROVED | MAJORITY_HARD_ONLY
+1038,traffic_signs,TRAFFIC SIGNS,transport,Signs that direct drivers on the road,is_a,0.3,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+1039,train_words,TRAIN WORDS,transport,"Words for the parts, places and roles of railway travel",found_in,0.3,18,14,3,1,0,18,17,0.0556,normal_pool_available,,
+953,training_words,TRAINING WORDS,sports_world,Words used in athletic training,found_in,0.35,14,3,10,1,0,14,13,0.0714,usable_with_constraints,P2,FEWER_THAN_4_APPROVED
+805,transparent_things,CLEAR THINGS,properties,Things you can see through,has_property,0.35,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+466,transport_jobs,TRANSPORT JOBS,jobs,"Jobs held by people who drive, fly or pilot for a living",is_a,0.25,14,9,4,1,0,14,13,0.0714,normal_pool_available,,
+384,transportation_history,HISTORIC TRANSPORT,history,Ways people traveled before cars,is_a,0.35,15,9,6,0,0,15,15,0.0,normal_pool_available,,
+434,trash_and_recycling,TRASH THINGS,home,Things related to household garbage and recycling,found_in,0.35,16,12,3,1,0,16,15,0.0625,normal_pool_available,,
+1042,travel_documents,TRAVEL THINGS,transport,Things a traveler packs or carries on a trip,used_in,0.25,18,14,4,0,0,18,18,0.0,normal_pool_available,,
+661,tree_parts,TREE PARTS,nature,Physical parts of a living tree,part_of,0.25,20,13,7,0,0,20,20,0.0,normal_pool_available,,
+660,trees,TREES,nature,Kinds of trees an average American can name,is_a,0.2,25,24,1,0,0,25,25,0.0,normal_pool_available,,
+559,trees_more,MORE TREES,lists,Trees beyond the most common ones,is_a,0.4,20,12,2,6,0,20,14,0.3,normal_pool_available,,
+1088,tropical_birds,TROPICAL BIRDS,world_more,Colorful birds of tropical regions,is_a,0.4,13,6,1,6,0,13,7,0.4615,hard_only_or_manual_review,P1,
+1089,tropical_flowers,TROPICAL FLOWERS,world_more,Flowers that grow in tropical places,is_a,0.4,12,6,0,6,0,12,6,0.5,hard_only_or_manual_review,P1,
+294,tropical_fruits,TROPICAL FRUITS,food,Fruits that grow in tropical climates and are sold in American stores,is_a,0.3,12,8,2,2,0,12,10,0.1667,normal_pool_available,,
+782,tropical_plants,TROPICAL PLANTS,plants,Plants that grow in tropical climates,found_in,0.35,14,5,7,2,0,14,12,0.1429,normal_pool_available,,
+64,turtles_and_tortoises,TURTLES,animals_more,Kinds of turtle and tortoise,is_a,0.4,10,7,0,3,0,10,7,0.3,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+588,tv_genres,TV GENRES,media,Kinds of television program,is_a,0.3,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+251,tv_words,TELEVISION WORDS,entertainment,Words used about television programs,found_in,0.3,18,13,5,0,0,18,18,0.0,normal_pool_available,,
+867,typing_and_office_skills,OFFICE SKILLS,skills,Practical skills useful in an office job,is_a,0.4,12,10,2,0,0,12,12,0.0,normal_pool_available,,
+766,underground_places,UNDERGROUND PLACES,places,Places that are below ground level,found_in,0.35,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+682,underground_things,UNDERGROUND THINGS,nature,Things found under the surface of the ground,found_in,0.35,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+658,unisex_names,UNISEX NAMES,names_world,First names given to both boys and girls,is_a,0.4,16,14,2,0,0,16,16,0.0,normal_pool_available,,
+485,universities,UNIVERSITIES,landmarks,Well known universities,is_a,0.4,15,13,2,0,0,15,15,0.0,normal_pool_available,,
+361,us_cities,US CITIES,geography,Large cities in the United States,is_a,0.25,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+750,us_landmarks,US LANDMARKS,places,Famous landmarks in the United States,is_a,0.3,15,12,3,0,0,15,15,0.0,normal_pool_available,,
+737,us_presidents,US PRESIDENTS,people,Presidents of the United States,is_a,0.3,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+349,us_states,US STATES,geography,States of the United States of America,is_a,0.2,25,25,0,0,0,25,25,0.0,normal_pool_available,,
+554,us_states_more,MORE STATES,lists,States of the United States not in the shorter list,is_a,0.3,25,20,5,0,0,25,25,0.0,normal_pool_available,,
+203,value_words,PRICE WORDS,descriptive,Words describing how much something costs,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+291,vegetables,VEGETABLES,food,Common edible vegetables sold in an ordinary American grocery store,is_a,0.12,25,21,4,0,0,25,25,0.0,normal_pool_available,,
+1029,vehicles,VEHICLES,transport,Machines built to carry people or goods from place to place,is_a,0.1,25,16,9,0,0,25,25,0.0,normal_pool_available,,
+618,vending_machine_items,VENDING MACHINE,misc,Things sold from a vending machine,found_in,0.35,13,6,7,0,0,13,13,0.0,normal_pool_available,,
+188,video_game_classics,RETRO GAMES,culture,Video games known across generations,is_a,0.35,15,10,2,3,0,15,12,0.2,normal_pool_available,,
+247,video_game_words,GAMING WORDS,entertainment,Words used when playing video games,found_in,0.3,18,14,3,1,0,18,17,0.0556,normal_pool_available,,
+409,video_gaming,GAMING SETUP,hobbies,Things in a video gaming setup,used_in,0.3,14,7,6,1,0,14,13,0.0714,normal_pool_available,,
+772,vines,VINES AND CLIMBERS,plants,Plants that climb or trail along a surface,is_a,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+267,vineyard_words,VINEYARD WORDS,farming,Things found in a vineyard,found_in,0.4,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+608,vision_words,VISION WORDS,medicine,Words used about eyesight and glasses,found_in,0.35,15,7,4,4,0,15,11,0.2667,normal_pool_available,,
+601,vitamins_and_minerals,VITAMINS AND MINERALS,medicine,Nutrients the body needs in small amounts,is_a,0.35,15,9,4,2,0,15,13,0.1333,normal_pool_available,,
+560,vitamins_letters,ALPHABET AND SYMBOLS,lists,Symbols and marks used in writing and math,is_a,0.35,16,6,6,4,0,16,12,0.25,normal_pool_available,,
+879,voice_sounds,VOICE SOUNDS,sounds,Sounds a human voice makes without words,does_action,0.35,16,8,8,0,0,16,16,0.0,normal_pool_available,,
+686,volcanoes,VOLCANOES,nature_more,Famous volcanoes,is_a,0.4,12,5,0,7,0,12,5,0.5833,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+63,wading_birds,WADING BIRDS,animals_more,Birds with long legs that wade in shallow water,is_a,0.4,12,6,1,5,0,12,7,0.4167,hard_only_or_manual_review,P1,
+287,wardrobe_care,WARDROBE CARE,fashion,Things used to store and care for clothes,used_in,0.4,13,8,4,1,0,13,12,0.0769,normal_pool_available,,
+1027,warehouse_words,WAREHOUSE WORDS,trades,Things found in a warehouse,found_in,0.35,14,4,10,0,0,14,14,0.0,normal_pool_available,,
+382,wars,FAMOUS WARS,history,Wars widely known from history,is_a,0.3,10,9,1,0,0,10,10,0.0,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+124,watch_and_luxury,LUXURY BRANDS,brands,Well known luxury brands,is_a,0.4,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+10,water_actions,WATER ACTIONS,actions,Actions done in or with water,does_action,0.35,18,17,1,0,0,18,18,0.0,normal_pool_available,,
+783,water_plants,WATER PLANTS,plants,Plants that grow in or on water,found_in,0.35,13,8,2,3,0,13,10,0.2308,normal_pool_available,,
+871,water_sounds,WATER SOUNDS,sounds,Sounds that water makes,does_action,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+924,water_sports,WATER SPORTS,sports,Sports played in or on the water,is_a,0.25,15,11,1,3,0,15,12,0.2,normal_pool_available,,
+679,water_states,FORMS OF WATER,nature,Forms water takes in nature,is_a,0.3,18,0,18,0,0,18,18,0.0,usable_with_constraints,P2,NO_APPROVED_WORDS
+687,waterfalls,WATERFALLS,nature_more,Famous waterfalls,is_a,0.4,10,4,1,4,1,9,5,0.4444,hard_only_or_manual_review,P1,THIN_LT_12_PLAYABLE
+62,waterfowl,WATERFOWL,animals_more,Birds that swim on lakes and ponds,is_a,0.35,14,9,1,4,0,14,10,0.2857,normal_pool_available,,
+5,ways_of_laughing,WAYS OF LAUGHING,actions,Verbs for different kinds of laughing,does_action,0.4,11,0,7,4,0,11,7,0.3636,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE
+3,ways_of_looking,WAYS OF LOOKING,actions,Verbs describing a way of looking at something,does_action,0.35,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+2,ways_of_moving,WAYS OF MOVING,actions,Verbs describing a way a person moves their body from place to place,does_action,0.25,26,18,7,1,0,26,25,0.0385,normal_pool_available,,
+4,ways_of_speaking,WAYS OF SPEAKING,actions,Verbs describing a way of saying something aloud,does_action,0.3,18,15,3,0,0,18,18,0.0,normal_pool_available,,
+377,weapons_of_the_past,OLD WEAPONS,history,Weapons used before modern firearms,is_a,0.3,16,14,1,1,0,16,15,0.0625,normal_pool_available,,
+19,weather_actions,WEATHER ACTIONS,actions,Verbs describing what weather does,does_action,0.35,15,10,5,0,0,15,15,0.0,normal_pool_available,,
+194,weather_adjectives,WEATHER ADJECTIVES,descriptive,Words describing the weather outside,is_a,0.3,18,16,2,0,0,18,18,0.0,normal_pool_available,,
+450,weather_forecast_terms,FORECAST TERMS,jargon,Terms used in a weather forecast,found_in,0.4,14,6,7,1,0,14,13,0.0714,normal_pool_available,,
+562,weather_instruments,WEATHER INSTRUMENTS,lists,Instruments used to measure the weather,used_in,0.45,12,3,4,5,0,12,7,0.4167,hard_only_or_manual_review,P1,FEWER_THAN_4_APPROVED
+838,weather_science,WEATHER SCIENCE,science,Scientific words used to describe weather,found_in,0.35,14,8,4,2,0,14,12,0.1429,normal_pool_available,,
+664,weather_words,WEATHER WORDS,nature,Words describing weather conditions or events in the sky,is_a,0.15,25,21,4,0,0,25,25,0.0,normal_pool_available,,
+984,wedding_things,WEDDING THINGS,time,Things associated with a wedding,found_in,0.25,20,17,3,0,0,20,20,0.0,normal_pool_available,,
+770,weeds,WEEDS,plants,Unwanted plants that grow in lawns and gardens,is_a,0.35,14,7,1,6,0,14,8,0.4286,normal_pool_available,,
+1014,welding_words,WELDING WORDS,trades,Things used in welding metal,found_in,0.45,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+201,wetness_words,WETNESS WORDS,descriptive,Words describing how wet something is,is_a,0.35,14,12,2,0,0,14,14,0.0,normal_pool_available,,
+905,whale_types,WHALE TYPES,species,Kinds of whale,is_a,0.4,12,9,0,3,0,12,9,0.25,normal_pool_available,,
+722,whaling_and_fishing,FISHING FLEET,ocean,Things used in commercial fishing,found_in,0.4,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+792,white_things,WHITE THINGS,properties,Everyday things that are typically white in color,has_property,0.3,20,0,20,0,0,20,20,0.0,usable_with_constraints,P2,NO_APPROVED_WORDS
+41,wild_cats,WILD CATS,animals,Wild members of the cat family,is_a,0.25,13,10,0,3,0,13,10,0.2308,normal_pool_available,,
+66,wild_cats_small,SMALL CATS,animals_more,Smaller members of the wild cat family,is_a,0.45,10,0,0,9,1,9,0,1.0,blocked_for_normal_levels,P0,NO_NORMAL_WORDS | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+904,wild_dogs,WILD DOGS,species,Wild members of the dog family,is_a,0.35,11,8,1,2,0,11,9,0.1818,usable_with_constraints,P2,THIN_LT_12_PLAYABLE
+674,wild_plants,WILD PLANTS,nature,Plants that grow wild in fields and woods,is_a,0.35,18,0,9,9,0,18,9,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+379,wild_west,WILD WEST,history,Things associated with the American Old West,found_in,0.25,20,15,5,0,0,20,20,0.0,normal_pool_available,,
+704,wildflowers,WILDFLOWERS,nature_species,Flowers that grow wild in fields and roadsides,is_a,0.4,14,6,0,8,0,14,6,0.5714,hard_only_or_manual_review,P1,MAJORITY_HARD_ONLY
+234,wind_instruments,WIND INSTRUMENTS,entertainment,Musical instruments played by blowing air,is_a,0.3,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+702,wind_words,WIND WORDS,nature_more,Words for kinds and strengths of wind,is_a,0.35,14,9,1,4,0,14,10,0.2857,normal_pool_available,,
+1073,wines_and_drinks,WINE & BEER,world_food,Kinds of wine and beer,is_a,0.35,17,13,2,2,0,17,15,0.1176,normal_pool_available,,
+158,winter_clothing,WINTER CLOTHING,clothing,Clothing worn specifically to stay warm in cold weather,used_in,0.2,18,11,5,2,0,18,16,0.1111,normal_pool_available,,
+925,winter_sports,WINTER SPORTS,sports,Sports played on snow or ice,is_a,0.25,14,11,0,3,0,14,11,0.2143,normal_pool_available,,
+638,wizards_and_spells,WIZARD WORDS,mythology,Things belonging to a wizard in stories,found_in,0.35,14,5,9,0,0,14,14,0.0,normal_pool_available,,
+538,word_fast,FAST WORDS,language,English words that mean moving quickly,is_a,0.35,14,14,0,0,0,14,14,0.0,normal_pool_available,,
+536,word_size,BIG WORDS,language,English words that mean large in size,is_a,0.35,15,15,0,0,0,15,15,0.0,normal_pool_available,,
+537,word_small,SMALL WORDS,language,English words that mean small in size,is_a,0.35,14,13,1,0,0,14,14,0.0,normal_pool_available,,
+527,words_after_air,AIR ___,language,Words that form a familiar English compound when placed after the word air,phrase_after,0.4,18,0,5,13,0,18,5,0.7222,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+525,words_after_back,BACK ___,language,Words that form a familiar English compound when placed after the word back,phrase_after,0.45,18,0,14,4,0,18,14,0.2222,usable_with_constraints,P2,NO_APPROVED_WORDS
+517,words_after_book,WORDS AFTER BOOK,language,Words that form a familiar English compound when placed after the word book,phrase_after,0.45,14,0,11,3,0,14,11,0.2143,usable_with_constraints,P2,NO_APPROVED_WORDS
+495,words_after_fire,FIRE ___,language,Words that form a familiar English compound when placed after the word fire,phrase_after,0.45,19,0,13,6,0,19,13,0.3158,usable_with_constraints,P2,NO_APPROVED_WORDS
+523,words_after_foot,FOOT ___,language,Words that form a familiar English compound when placed after the word foot,phrase_after,0.45,15,0,11,4,0,15,11,0.2667,usable_with_constraints,P2,NO_APPROVED_WORDS
+524,words_after_hand,HAND ___,language,Words that form a familiar English compound when placed after the word hand,phrase_after,0.45,17,0,9,8,0,17,9,0.4706,usable_with_constraints,P2,NO_APPROVED_WORDS
+522,words_after_head,HEAD ___,language,Words that form a familiar English compound when placed after the word head,phrase_after,0.45,16,0,5,11,0,16,5,0.6875,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+516,words_after_horse,HORSE ___,language,Words that form a familiar English compound when placed after the word horse,phrase_after,0.45,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+515,words_after_rain,RAIN ___,language,Words that form a familiar English compound when placed after the word rain,phrase_after,0.4,14,0,9,5,0,14,9,0.3571,usable_with_constraints,P2,NO_APPROVED_WORDS
+513,words_after_snow,SNOW ___,language,Words that form a familiar English compound when placed after the word snow,phrase_after,0.4,18,0,10,8,0,18,10,0.4444,usable_with_constraints,P2,NO_APPROVED_WORDS
+514,words_after_sun,SUN ___,language,Words that form a familiar English compound when placed after the word sun,phrase_after,0.4,20,0,17,3,0,20,17,0.15,usable_with_constraints,P2,NO_APPROVED_WORDS
+500,words_after_water,WATER ___,language,Words that form a familiar English compound when placed after the word water,phrase_after,0.45,18,0,9,9,0,18,9,0.5,usable_with_constraints,P2,NO_APPROVED_WORDS
+508,words_before_bag,___ BAG,language,Words that form a familiar English compound when placed before the word bag,phrase_before,0.4,18,0,7,11,0,18,7,0.6111,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+494,words_before_ball,___ BALL,language,Words that form a familiar English compound when placed before the word ball,phrase_before,0.4,20,0,11,9,0,20,11,0.45,usable_with_constraints,P2,NO_APPROVED_WORDS
+520,words_before_berry,___ BERRY,language,Words that form a familiar berry name when placed before the word berry,phrase_before,0.4,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+521,words_before_bird,___ BIRD,language,Words that form a familiar English compound when placed before the word bird,phrase_before,0.4,14,0,8,6,0,14,8,0.4286,usable_with_constraints,P2,NO_APPROVED_WORDS
+507,words_before_board,___ BOARD,language,Words that form a familiar English compound when placed before the word board,phrase_before,0.45,20,0,16,4,0,20,16,0.2,usable_with_constraints,P2,NO_APPROVED_WORDS
+499,words_before_book,___ BOOK,language,Words that form a familiar English compound when placed before the word book,phrase_before,0.45,20,0,18,2,0,20,18,0.1,usable_with_constraints,P2,NO_APPROVED_WORDS
+496,words_before_box,___ BOX,language,Words that form a familiar English compound when placed before the word box,phrase_before,0.4,18,0,12,6,0,18,12,0.3333,usable_with_constraints,P2,NO_APPROVED_WORDS
+506,words_before_cake,___ CAKE,language,Words that form a familiar English compound when placed before the word cake,phrase_before,0.4,18,0,16,2,0,18,16,0.1111,usable_with_constraints,P2,NO_APPROVED_WORDS
+501,words_before_fish,___ FISH,language,Words that form a familiar English compound when placed before the word fish,phrase_before,0.45,18,0,10,8,0,18,10,0.4444,usable_with_constraints,P2,NO_APPROVED_WORDS
+504,words_before_ground,___ GROUND,language,Words that form a familiar English compound when placed before the word ground,phrase_before,0.45,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+498,words_before_house,___ HOUSE,language,Words that form a familiar English compound when placed before the word house,phrase_before,0.45,20,0,15,5,0,20,15,0.25,usable_with_constraints,P2,NO_APPROVED_WORDS
+497,words_before_light,___ LIGHT,language,Words that form a familiar English compound when placed before the word light,phrase_before,0.4,20,0,17,3,0,20,17,0.15,usable_with_constraints,P2,NO_APPROVED_WORDS
+510,words_before_line,___ LINE,language,Words that form a familiar English compound when placed before the word line,phrase_before,0.45,20,0,17,3,0,20,17,0.15,usable_with_constraints,P2,NO_APPROVED_WORDS
+502,words_before_man,___ MAN,language,Words that form a familiar English compound when placed before the word man,phrase_before,0.4,20,0,14,6,0,20,14,0.3,usable_with_constraints,P2,NO_APPROVED_WORDS
+519,words_before_master,___ MASTER,language,Words that form a familiar English compound when placed before the word master,phrase_before,0.5,14,0,6,8,0,14,6,0.5714,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+509,words_before_paper,___ PAPER,language,Words that form a familiar English compound when placed before the word paper,phrase_before,0.45,16,0,10,6,0,16,10,0.375,usable_with_constraints,P2,NO_APPROVED_WORDS
+526,words_before_proof,___ PROOF,language,Words that form a familiar English compound when placed before the word proof,phrase_before,0.45,14,0,7,7,0,14,7,0.5,hard_only_or_manual_review,P1,NO_APPROVED_WORDS
+512,words_before_room,___ ROOM,language,Words that form a familiar English phrase when placed before the word room,phrase_before,0.4,18,0,15,3,0,18,15,0.1667,usable_with_constraints,P2,NO_APPROVED_WORDS
+493,words_before_sauce,___ SAUCE,language,Words that form a familiar English expression when placed before the word sauce,phrase_before,0.45,15,0,13,2,0,15,13,0.1333,usable_with_constraints,P2,NO_APPROVED_WORDS
+505,words_before_side,___ SIDE,language,Words that form a familiar English compound when placed before the word side,phrase_before,0.45,18,0,14,4,0,18,14,0.2222,usable_with_constraints,P2,NO_APPROVED_WORDS
+511,words_before_stone,___ STONE,language,Words that form a familiar English compound when placed before the word stone,phrase_before,0.5,16,0,7,9,0,16,7,0.5625,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+518,words_before_time,___ TIME,language,Words that form a familiar English phrase when placed before the word time,phrase_before,0.4,20,0,17,3,0,20,17,0.15,usable_with_constraints,P2,NO_APPROVED_WORDS
+503,words_before_work,___ WORK,language,Words that form a familiar English compound when placed before the word work,phrase_before,0.45,18,0,13,5,0,18,13,0.2778,usable_with_constraints,P2,NO_APPROVED_WORDS
+166,work_uniforms,UNIFORMS,clothing,Outfits worn as a required uniform for work or school,is_a,0.3,14,6,6,2,0,14,12,0.1429,normal_pool_available,,
+999,workshop_things,WORKSHOP THINGS,tools,Things found in a home workshop,found_in,0.3,18,9,8,1,0,18,17,0.0556,normal_pool_available,,
+1077,world_breads,WORLD BREADS,world_food,Breads from cuisines around the world,is_a,0.35,16,7,1,8,0,16,8,0.5,normal_pool_available,,
+1084,world_breakfasts,WORLD BREAKFAST,world_more,Breakfast foods eaten in other countries,is_a,0.45,14,0,4,10,0,14,4,0.7143,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+350,world_capitals,WORLD CAPITALS,geography,Capital cities of countries around the world,is_a,0.3,25,19,6,0,0,25,25,0.0,normal_pool_available,,
+751,world_cities,WORLD CITIES,places,Large well known cities around the world,is_a,0.3,25,24,1,0,0,25,25,0.0,normal_pool_available,,
+182,world_currencies_more,MORE CURRENCIES,culture,Currencies used in particular countries,is_a,0.45,18,10,1,7,0,18,11,0.3889,normal_pool_available,,
+180,world_dances,WORLD DANCES,culture,Traditional dances from around the world,is_a,0.4,15,10,1,4,0,15,11,0.2667,normal_pool_available,,
+1086,world_deserts_and_seas,WORLD REGIONS,world_more,Named regions of the world,is_a,0.45,15,11,4,0,0,15,15,0.0,normal_pool_available,,
+185,world_hats,WORLD HATS,culture,Traditional headwear from world cultures,is_a,0.45,12,0,3,7,2,10,3,0.7,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+1087,world_hats_and_dress,TRADITIONAL FOOTWEAR,world_more,Traditional shoes from world cultures,is_a,0.5,10,0,2,6,2,8,2,0.75,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+491,world_heritage,ANCIENT SITES,landmarks,Famous ancient sites people visit,is_a,0.45,12,9,0,3,0,12,9,0.25,normal_pool_available,,
+179,world_instruments,WORLD INSTRUMENTS,culture,Musical instruments from cultures around the world,is_a,0.4,15,1,2,11,1,14,3,0.7857,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | FEWER_THAN_4_APPROVED | MAJORITY_HARD_ONLY
+688,world_lakes,LAKES,nature_more,Well known lakes of the world,is_a,0.4,14,8,4,2,0,14,12,0.1429,normal_pool_available,,
+1091,world_markets,MARKET WORDS,world_more,Things found at an open air market,found_in,0.35,15,4,11,0,0,15,15,0.0,normal_pool_available,,
+753,world_mountains,FAMOUS MOUNTAINS,places,Famous individual mountains,is_a,0.4,14,10,0,4,0,14,10,0.2857,normal_pool_available,,
+818,world_religions,WORLD RELIGIONS,religion,Major religions of the world,is_a,0.3,12,7,1,4,0,12,8,0.3333,normal_pool_available,,
+754,world_rivers,WORLD RIVERS,places,Major rivers outside the United States,is_a,0.35,16,16,0,0,0,16,16,0.0,normal_pool_available,,
+1085,world_soups,WORLD SOUPS,world_more,Soups from cuisines around the world,is_a,0.4,14,6,1,6,1,13,7,0.4615,hard_only_or_manual_review,P1,
+1083,world_sports,WORLD SPORTS,world_more,Sports popular outside the United States,is_a,0.4,14,10,1,2,1,13,11,0.1538,normal_pool_available,,
+1090,world_teas_and_drinks,TRADITIONAL DRINKS,world_more,Traditional drinks from world cultures,is_a,0.45,15,0,6,9,0,15,6,0.6,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+1092,world_transport,WORLD TRANSPORT,world_more,Ways people get around in other countries,is_a,0.4,14,5,6,3,0,14,11,0.2143,normal_pool_available,,
+60,worms_and_crawlers,WORMS,animals_more,Kinds of worm,is_a,0.4,11,0,3,7,1,10,3,0.7,blocked_for_normal_levels,P0,CANNOT_BUILD_NORMAL_QUARTET | NO_APPROVED_WORDS | THIN_LT_12_PLAYABLE | MAJORITY_HARD_ONLY
+950,wrestling_words,WRESTLING WORDS,sports_world,Words used in wrestling,found_in,0.4,13,5,7,1,0,13,12,0.0769,normal_pool_available,,
+222,writing_tools,WRITING TOOLS,education,Tools used to write or draw,is_a,0.25,15,7,8,0,0,15,15,0.0,normal_pool_available,,
+530,writing_words,WRITING WORDS,language,Words for the parts and marks of written text,found_in,0.3,21,14,7,0,0,21,21,0.0,normal_pool_available,,
+790,yellow_things,YELLOW THINGS,properties,Everyday things that are typically yellow in color,has_property,0.3,20,0,18,2,0,20,18,0.1,usable_with_constraints,P2,NO_APPROVED_WORDS
+857,yoga_poses,YOGA POSES,skills,Named poses used in yoga,is_a,0.45,14,0,5,9,0,14,5,0.6429,hard_only_or_manual_review,P1,NO_APPROVED_WORDS | MAJORITY_HARD_ONLY
+636,zodiac_signs,ZODIAC SIGNS,mythology,Signs of the astrological zodiac,is_a,0.35,12,11,1,0,0,12,12,0.0,normal_pool_available,,
+48,zoo_animals,ZOO ANIMALS,animals,Animals commonly seen at an American zoo,found_in,0.15,20,9,11,0,0,20,20,0.0,normal_pool_available,,
+492,zoos_and_aquariums,FAMOUS ZOOS,landmarks,Well known zoos and aquariums,is_a,0.5,10,9,0,1,0,10,9,0.1,usable_with_constraints,P2,THIN_LT_12_PLAYABLE

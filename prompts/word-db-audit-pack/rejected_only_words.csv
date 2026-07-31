@@ -1,0 +1,61 @@
+﻿word,normalized,familiarity_score,rejected_membership_count,categories,recommended_action
+F150,f150,0.097,1,car_models:CAR MODELS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+mudpuppy,mudpuppy,0.144,1,amphibians_and_bugs:AMPHIBIANS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+mukluk,mukluk,0.144,1,world_hats_and_dress:TRADITIONAL FOOTWEAR,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+chiffonade,chiffonade,0.146,1,french_cooking_terms:FRENCH COOKING,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+marionberry,marionberry,0.146,1,berry_varieties:BERRY VARIETIES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+caecilian,caecilian,0.147,1,amphibians_and_bugs:AMPHIBIANS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+fattoush,fattoush,0.147,1,middle_eastern_dishes:MIDDLE EASTERN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+casaba,casaba,0.149,1,melons_and_squash:MELONS & SQUASH,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+taramasalata,taramasalata,0.149,1,greek_dishes:GREEK DISHES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+numbat,numbat,0.153,1,marsupials:MARSUPIALS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+degu,degu,0.154,1,exotic_pets:EXOTIC PETS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+shishito,shishito,0.154,1,pepper_varieties:PEPPER VARIETIES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+muffuletta,muffuletta,0.156,1,sandwich_types:SANDWICH TYPES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+shoat,shoat,0.157,1,baby_animal_words_more:YOUNG ANIMALS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+frigatebird,frigatebird,0.159,1,seabirds:SEABIRDS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+ritardando,ritardando,0.159,1,music_tempo_terms:TEMPO TERMS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+mesclun,mesclun,0.16,1,lettuce_and_greens:SALAD GREENS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+panpipe,panpipe,0.16,1,world_instruments:WORLD INSTRUMENTS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+bloodworm,bloodworm,0.163,1,worms_and_crawlers:WORMS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+mulligatawny,mulligatawny,0.163,1,world_soups:WORLD SOUPS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+sepak takraw,sepak takraw,0.163,1,world_sports:WORLD SPORTS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+castelvetrano,castelvetrano,0.166,1,olive_types:OLIVE TYPES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+timpanist,timpanist,0.166,1,instruments_in_an_orchestra:ORCHESTRA SECTIONS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+hornwort,hornwort,0.167,1,mosses_and_lichens:MOSS & LICHEN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+timeclock,timeclock,0.167,1,factory_words:FACTORY WORDS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+crustose,crustose,0.169,1,mosses_and_lichens:MOSS & LICHEN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+meeple,meeple,0.169,1,board_game_pieces:GAME PIECES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+cremini,cremini,0.17,1,mushroom_types:MUSHROOM TYPES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+ushanka,ushanka,0.17,1,world_hats:WORLD HATS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+foliose,foliose,0.173,1,mosses_and_lichens:MOSS & LICHEN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+frisee,frisee,0.173,1,lettuce_and_greens:SALAD GREENS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+treefrog,treefrog,0.173,1,amphibians_and_bugs:AMPHIBIANS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+zester,zester,0.173,1,kitchen_gadgets:KITCHEN GADGETS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+bresaola,bresaola,0.174,1,cured_meats:CURED MEATS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+margay,margay,0.176,1,wild_cats_small:SMALL CATS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+patatas bravas,patatas bravas,0.177,1,spanish_dishes:SPANISH DISHES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+cacio e pepe,cacio e pepe,0.179,1,pasta_dishes:PASTA DISHES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+cutman,cutman,0.179,1,boxing_words:BOXING WORDS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+poult,poult,0.179,1,baby_animal_words_more:YOUNG ANIMALS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+Gullfoss,gullfoss,0.18,1,waterfalls:WATERFALLS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+capicola,capicola,0.181,1,cured_meats:CURED MEATS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+leveret,leveret,0.181,1,baby_animal_words_more:YOUNG ANIMALS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+rotini,rotini,0.181,1,pasta_shapes:PASTA SHAPES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+parcheesi,parcheesi,0.183,1,board_games:BOARD GAMES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+OHare,ohare,0.184,1,airports_and_ports:TRANSPORT HUBS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+espadrille,espadrille,0.187,2,shoe_styles:SHOE STYLES | world_hats_and_dress:TRADITIONAL FOOTWEAR,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+Triscuit,triscuit,0.189,1,snack_brands:SNACK BRANDS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+labneh,labneh,0.189,1,middle_eastern_dishes:MIDDLE EASTERN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+Talenti,talenti,0.19,1,candy_bar_flavors:DAIRY BRANDS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+harvestman,harvestman,0.191,1,spiders_and_crawlers:SPIDERS AND CRAWLERS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+kufi,kufi,0.193,1,world_hats:WORLD HATS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+Idun,idun,0.194,1,norse_gods:NORSE GODS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+affogato,affogato,0.194,1,coffee_drinks:COFFEE DRINKS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+ankylosaurus,ankylosaurus,0.194,1,dinosaurs:DINOSAURS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+otoscope,otoscope,0.194,1,medical_tools:MEDICAL TOOLS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+flambe,flambe,0.196,1,french_cooking_terms:FRENCH COOKING,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+liverwort,liverwort,0.196,1,mosses_and_lichens:MOSS & LICHEN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+elver,elver,0.197,1,baby_animal_words_more:YOUNG ANIMALS,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+baba ganoush,baba ganoush,0.199,1,middle_eastern_dishes:MIDDLE EASTERN,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.
+chile relleno,chile relleno,0.199,1,mexican_dishes:MEXICAN DISHES,Not playable anywhere. Keep as rejected candidate or mark word inactive; exclude from headline playable vocabulary count.

@@ -1,0 +1,106 @@
+﻿word,char_count,token_count,familiarity_score,memberships,severity,recommended_action
+Declaration of Independence,27,3,0.569,historic_documents:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Emancipation Proclamation,25,2,0.436,historic_documents:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Girl with a Pearl Earring,25,5,0.434,famous_artworks:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+spaghetti and meatballs,23,3,0.439,pasta_dishes:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Jack and the Beanstalk,22,4,0.351,fairy_tales:hard_only,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Mary Had a Little Lamb,22,5,0.563,nursery_rhymes:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+air traffic controller,22,3,0.576,night_shift_jobs:hard_only,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Industrial Revolution,21,2,0.619,historical_eras:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Madison Square Garden,21,3,0.571,famous_stadiums:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+synchronized swimming,21,2,0.454,water_sports:approved,P1,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Beauty and the Beast,20,4,0.594,fairy_tales:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Hickory Dickory Dock,20,3,0.229,nursery_rhymes:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Kennedy Space Center,20,3,0.599,space_agencies_and_places:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Treaty of Versailles,20,3,0.463,historic_documents:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+green bean casserole,20,3,0.431,thanksgiving_foods:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+switchboard operator,20,2,0.4,historic_jobs:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Baa Baa Black Sheep,19,4,0.373,nursery_rhymes:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Dubai International,19,2,0.58,airports_and_ports:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Taming of the Shrew,19,4,0.361,shakespeare_plays:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Valley of the Kings,19,4,0.606,world_heritage:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+appliance repairman,19,2,0.36,repair_jobs:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+father of the bride,19,4,0.579,people_at_a_wedding:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Gettysburg Address,18,2,0.447,historic_documents:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Great Expectations,18,2,0.631,classic_novels:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Jet Propulsion Lab,18,3,0.48,space_agencies_and_places:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Louisville Slugger,18,2,0.399,sports_brands:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Merchant of Venice,18,3,0.529,shakespeare_plays:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Spirit of St Louis,18,4,0.631,famous_ships_planes:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Sydney Opera House,18,3,0.581,famous_buildings:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+chutes and ladders,18,3,0.37,board_games:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+construction paper,18,2,0.674,art_class_things:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+credit card reader,18,3,0.599,gas_station_things:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+herbes de provence,18,3,0.247,chili_and_spice_blends:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+overhead projector,18,2,0.47,things_with_screens_history:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+philly cheesesteak,18,2,0.319,sandwich_types:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+refrigerated truck,18,2,0.441,heavy_trucks:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+telegraph operator,18,2,0.547,historic_jobs:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+water purification,18,2,0.47,survival_skills:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Buckingham Palace,17,2,0.496,famous_buildings:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Charles de Gaulle,17,3,0.43,airports_and_ports:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Fruit of the Loom,17,4,0.474,clothing_brands:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Hansel and Gretel,17,3,0.343,fairy_tales:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Hundred Years War,17,3,0.66,wars:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Itsy Bitsy Spider,17,3,0.279,nursery_rhymes:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Knotts Berry Farm,17,3,0.317,theme_parks:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Revolutionary War,17,2,0.593,wars:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Rocky Mountaineer,17,2,0.391,famous_trains:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Statue of Liberty,17,3,0.557,famous_landmarks:approved | us_landmarks:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Three Little Pigs,17,3,0.569,fairy_tales:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Universal Studios,17,2,0.564,theme_parks:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Wuthering Heights,17,2,0.36,classic_novels:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+astronomical unit,17,2,0.497,space_measurements:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+chicago deep dish,17,3,0.581,pizza_styles:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+community service,17,2,0.73,punishments:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+cookies and cream,17,3,0.571,ice_cream_flavors:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+exclamation point,17,2,0.441,punctuation:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+fill in the blank,17,4,0.574,testing_words:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+gingerbread house,17,2,0.433,fairy_tale_things:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+indian paintbrush,17,2,0.374,wildflowers:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+italian seasoning,17,2,0.466,chili_and_spice_blends:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+poultry seasoning,17,2,0.441,chili_and_spice_blends:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+rhinoceros beetle,17,2,0.396,beetles:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+search and rescue,17,3,0.623,emergency_services:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+table of contents,17,3,0.589,reading_words:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Black and Decker,16,3,0.489,tool_brands:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Call of the Wild,16,4,0.674,classic_novels:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Georgia Aquarium,16,2,0.501,zoos_and_aquariums:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Golden Delicious,16,2,0.596,apple_varieties:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Great Depression,16,2,0.649,historical_eras:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Huckleberry Finn,16,2,0.386,classic_novels:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Independence Day,16,2,0.651,holidays:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Johnny Appleseed,16,2,0.321,american_legends:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Papua New Guinea,16,3,0.476,oceania_places:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Roaring Twenties,16,2,0.456,historical_eras:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Romeo and Juliet,16,3,0.477,shakespeare_plays:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Sherwin Williams,16,2,0.384,paint_and_home:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Sunset Boulevard,16,2,0.506,famous_streets:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Three Blind Mice,16,3,0.564,nursery_rhymes:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+Wheel of Fortune,16,3,0.584,classic_tv_shows:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+anesthesiologist,16,1,0.374,medical_jobs:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+answering phones,16,2,0.56,typing_and_office_skills:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+bird of paradise,16,3,0.576,tropical_birds:approved | tropical_flowers:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+black eyed susan,16,3,0.539,wildflowers:approved | garden_flowers_summer:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+brussels sprouts,16,2,0.451,thanksgiving_foods:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+cafeteria worker,16,2,0.486,school_people:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+capture the flag,16,3,0.599,playground_games:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+casting director,16,2,0.587,movie_roles:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+chicken sandwich,16,2,0.573,fast_food_items:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+chocolate square,16,2,0.619,candy_shapes:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+computer science,16,2,0.677,school_subjects:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+costume designer,16,2,0.569,movie_roles:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+flight attendant,16,2,0.511,transport_jobs:approved | jobs_that_wear_uniforms:alternative,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+four leaf clover,16,3,0.471,superstitions:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+marine biologist,16,2,0.474,jobs_with_animals:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+mozzarella stick,16,2,0.441,fast_food_items:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+parallel parking,16,2,0.58,driving_skills:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+physical therapy,16,2,0.626,hospital_departments:alternative,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+principal office,16,2,0.639,school_places:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+queen annes lace,16,3,0.31,wildflowers:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+rhode island red,16,3,0.536,farm_poultry_breeds:hard_only,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+shelter building,16,2,0.601,survival_skills:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+three point turn,16,3,0.719,driving_skills:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+tightrope walker,16,2,0.387,circus_and_fair_jobs:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+ultimate frisbee,16,2,0.421,team_sports:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
+windshield fluid,16,2,0.479,gas_station_things:approved,P2,Test in the real bubble/card UI; add short_display_text or disallow where it cannot fit.
