@@ -219,8 +219,9 @@ let boardScale=1;
    категория = одинаковый результат выражения (×, −, +, /, √, ²) */
 /* КАЖДАЯ категория = ровно 4 слова, шар лопается ТОЛЬКО на 4 (как в референсе).
    На старте на поле лежат части первых 7 категорий: 4-3-3-3-2-2-2 слов (19 пузырей);
-   недостающие слова + 5 целых категорий = ОБЩАЯ ПЕРЕМЕШАННАЯ очередь. Поле постоянно
-   пополняется СЛУЧАЙНЫМИ словами до 19 пузырей (иначе возможен тупик: одни шары без пар).
+   недостающие слова + 5 целых категорий = ОБЩАЯ ПЕРЕМЕШАННАЯ очередь. Досыпка приходит
+   рывком после сбора категории: 4 шара, если категория улетела, и 3, если она осталась
+   мета-словом (референс). Вне ритма досыпка приходит только как страховка от тупика.
    Контент = декки Word Solitaire (Solitaire Balance.xlsx → лист Decks text). */
 const DEFAULT_TARGETS=[
  {v:'SEASONS',   ex:['SPRING','AUTUMN','SUMMER','WINTER']},
@@ -295,7 +296,7 @@ const MOD=new URLSearchParams(location.search).get('mod')||'none';
 /* пузырь в руке: поле замирает целиком, чтобы структура не пересобиралась
    и освободившееся место не занималось досыпкой до финального решения */
 let held=false;
-let chainY=null,chainNeed=0,chainDown=true,halfPairs=0,fieldNow=19,MOVES_MAX=48;
+let chainY=null,chainNeed=0,chainDown=true,halfPairs=0,MOVES_MAX=48;
 
 let bubbles=[],queue=[],moves=0,done=0,over=false,praiseI=0,pendingPops=0;
 let boosts={plus:2,hint:2,mag:2};
@@ -441,22 +442,25 @@ function legalMove(){
   return false;
 }
 function rescueIfStuck(){
-  if(over||pendingPops>0) return;
-  if(queue.length&&bubbles.length<fieldNow) return;      /* досыпка ещё придёт */
+  if(over||pendingPops>0||pendingSpawn>0) return;        /* пачка ещё в пути */
   if(legalMove()) return;
   if(!chainDown){ breakChain('ЦЕПЬ СНЯТА: ХОДА НЕ БЫЛО'); return; }
   const blocked=bubbles.filter(b=>b.ice>0||b.hid>0);
   if(blocked.length){
     blocked.forEach(b=>{ b.ice=0; b.hid=0; paint(b); place(b); });
     toastText('ЛЁД РАСТАЯЛ САМ',true);
+    return;
   }
+  /* пар на поле не осталось, а очередь есть: досыпка приходит вне ритма, иначе
+     игрок стоял бы с ходами в руках и без единого легального мерджа */
+  if(queue.length){ spawnBatch(4); toastText('ДОСЫПКА ВНЕ РИТМА',true); }
 }
 
 /* ===== инициализация уровня ===== */
 function init(){
   bubbles.forEach(b=>b.el.remove()); bubbles=[];
   board.querySelectorAll('.part,.conf').forEach(e=>e.remove());
-  done=0; over=false; pendingPops=0; held=false; drag=null; clearMarks();
+  done=0; over=false; pendingPops=0; pendingSpawn=0; held=false; drag=null; clearMarks();
   chainY=null; chainNeed=0; chainDown=true; halfPairs=0;
   chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
@@ -470,7 +474,6 @@ function init(){
   for(let i=start.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[start[i],start[j]]=[start[j],start[i]];}
   for(let i=queue.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]];}
   if(MOD==='halves') halfPairs=splitHalves(start);
-  fieldNow=FIELD_TARGET+halfPairs;
   start.forEach((it,i)=>
     makeBubble(it.v,it.e, 46+Math.random()*(W-92), H-66-Math.floor(i/5)*80-Math.random()*30,
                it.half?{half:it.half}:null));
@@ -556,12 +559,22 @@ function physStep(dt,settle){
 }
 function still(b){ b.px=b.x; b.py=b.y; } /* обнулить скорость после ручного перемещения */
 
-/* ===== постоянная досыпка: поле держит FIELD_TARGET пузырей, слова случайные ===== */
-let lastSpawn=0;
+/* ===== досыпка как в референсе: рывком после сбора категории ================
+   Категория улетела — приходят 4 шара. Если она осталась на поле мета-словом
+   первого порядка (цепочка PLANETS → SPACE), приходят 3: один шар поле уже
+   получило. Постоянной досыпки по одному нет — в референсе поле пополняется
+   именно рывком, и на этом держится ритм уровня. Арифметика сама себя
+   уравновешивает: сколько слов ушло, столько и пришло. */
+let pendingSpawn=0,lastSpawn=0;
+/* больше, чем осталось в очереди, ждать нечего: иначе счётчик копился бы навсегда
+   и глушил страховку от тупика, которая ждёт, пока пачка долетит */
+function spawnBatch(n){ pendingSpawn=Math.min(pendingSpawn+n,queue.length); }
 function trySpawn(ts){
-  if(over||held||!queue.length||bubbles.length>=fieldNow) return;
-  if(ts-lastSpawn<420) return;
+  if(!queue.length) pendingSpawn=0;
+  if(over||held||pendingSpawn<=0) return;
+  if(ts-lastSpawn<150) return;   /* каскадом: четвёрка читается одним рывком */
   lastSpawn=ts;
+  pendingSpawn--;
   const it=queue.shift();
   makeBubble(it.v,it.e, 56+Math.random()*(W-112), -44);
 }
@@ -695,6 +708,7 @@ function popGroup(a){
   setTimeout(()=>{
     bubbles=bubbles.filter(x=>x!==a); a.el.remove();
     done++; pendingPops--;
+    spawnBatch(4);            /* четвёрка ушла с поля — четвёрка и приходит */
     updHud(); afterCategory();
     checkEnd();
   },300);
@@ -708,6 +722,7 @@ function metaTransform(a,meta){
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   a.popping=false;
   done++; pendingPops--;
+  spawnBatch(3);              /* один шар поле уже получило: имя категории */
   updHud(); afterCategory();
   checkEnd();
 }
