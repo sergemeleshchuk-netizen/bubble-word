@@ -56,7 +56,7 @@ wheel, fan, top, propeller, drill, washing machine, record, carousel, turbine, g
 things_that_cut | SHARP THINGS | has_property | 0.35 | 0.7 | C | Everyday things with a sharp edge or point | $W has a sharp edge or point
 knife, needle, scissors, razor, nail, thorn, glass shard, blade, tack, arrow, saw, spear, hook, pin, dart, sword, splinter, ice pick
 
-things_that_stick_out | HAMMERED THINGS | does_action | 0.4 | 0.65 | C | Things a hammer is normally used on | $W is something you hammer
+things_that_stick_out | HAMMERED THINGS | used_in | 0.4 | 0.65 | C | Things a hammer is normally used on | $W is something you hammer
 nail, tack, stake, peg, dent, chisel, spike, rivet, wedge, post, bolt, tent stake, horseshoe
 
 boxes_and_cases | TOOL STORAGE | is_a | 0.35 | 0.72 | A | Things used to store and carry tools | $W is used to store or carry tools

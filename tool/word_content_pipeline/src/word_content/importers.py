@@ -172,8 +172,27 @@ def sense_from_map(
         word_id=word_id,
         sense_key=mapping.sense_key,
         definition=definition,
-        part_of_speech=part_of_speech,
+        part_of_speech=mapping.part_of_speech or part_of_speech,
+        display_text=mapping.display_text,
+        is_proper_noun=mapping.is_proper_noun,
     )
+
+
+# Типы связей, которые работают с написанием слова, а не с его значением.
+SURFACE_RELATIONS = ("phrase_before", "phrase_after", "wordplay")
+
+
+def derive_sense_mode(relation_type: str, sense_id: int | None) -> str:
+    """Как связь обращается со словом, если источник не сказал этого явно.
+
+    `starboard` не происходит от звезды — там участвует написание
+    (`surface_form`). А `moonlight` именно от луны — там значение работает
+    и должно быть указано (`compound`). Разница видна по тому, нашлось ли
+    для связи значение.
+    """
+    if relation_type not in SURFACE_RELATIONS:
+        return "lexical"
+    return "compound" if sense_id is not None else "surface_form"
 
 
 def apply_membership(
@@ -232,6 +251,7 @@ def apply_membership(
         conn,
         word_id=word_id,
         sense_id=sense_id,
+        sense_mode=item.sense_mode or derive_sense_mode(item.relation_type, sense_id),
         category_id=int(category["id"]),
         relation_type=item.relation_type,
         reason=item.reason,

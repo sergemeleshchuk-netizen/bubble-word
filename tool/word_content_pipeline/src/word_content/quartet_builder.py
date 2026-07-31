@@ -22,7 +22,7 @@ from dataclasses import dataclass
 from itertools import combinations
 
 from .readiness import NORMAL_READY, NORMAL_STATUSES, QUARTET_SIZE
-from .solver import category_pools, quartet_is_unique
+from .solver import category_pools, quartet_locally_unique
 
 # Сколько четвёрок пытаться собрать на категорию: больше редко нужно, а перебор
 # сочетаний растёт быстро
@@ -100,7 +100,7 @@ def build(
                 break
             if used & set(group):
                 continue
-            result = quartet_is_unique(conn, category_key, list(group), pools=pools)
+            result = quartet_locally_unique(conn, category_key, list(group), pools=pools)
             if not result.unique:
                 continue
             found += 1
@@ -132,8 +132,8 @@ def to_rows(built: list[BuiltQuartet]) -> list[dict[str, object]]:
             "quartet_key": item.quartet_key,
             "category_key": item.category_key,
             "tier": item.tier,
-            "review_state": "auto_validated",
-            "solver_state": "unique",
+            "validation_state": "auto_validated",
+            "local_check": "local_unique",
             # None, а не "": эти же строки идут и в валидацию QuartetInput, а пустая
             # строка не парсится как число — четвёрка молча уезжала в «пропущено».
             # В CSV None всё равно печатается пустой ячейкой (csv.DictWriter).

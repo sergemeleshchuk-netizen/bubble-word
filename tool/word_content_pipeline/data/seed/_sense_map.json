@@ -18,10 +18,66 @@
     "у них sense_id остаётся пустым, и это проверяется отдельно в integrity checks."
   ],
   "senses": {
+    "bell": {
+      "bell_object": {
+        "definition": "A hollow metal object that rings when it is struck",
+        "part_of_speech": "noun"
+      },
+      "bell_person": {
+        "definition": "Alexander Graham Bell, the inventor of the telephone",
+        "part_of_speech": "proper_noun",
+        "display": "Bell",
+        "is_proper_noun": true
+      },
+      "bell_pepper": {
+        "definition": "The sweet bell-shaped pepper eaten as a vegetable",
+        "part_of_speech": "noun"
+      }
+    },
+    "bill": {
+      "bill_charge": {
+        "definition": "To send someone a demand for payment",
+        "part_of_speech": "verb"
+      }
+    },
+    "button": {
+      "button_fasten": {
+        "definition": "To fasten a garment by pushing buttons through holes",
+        "part_of_speech": "verb"
+      }
+    },
+    "charger": {
+      "charger_device": {
+        "definition": "A device that supplies power to recharge a battery",
+        "part_of_speech": "noun"
+      },
+      "charger_car": {
+        "definition": "The Dodge Charger, an American muscle car",
+        "part_of_speech": "proper_noun",
+        "display": "Charger",
+        "is_proper_noun": true
+      }
+    },
     "club": {
       "club_sandwich": {
         "definition": "A tall sandwich made with three slices of bread",
         "part_of_speech": "noun"
+      }
+    },
+    "cricket": {
+      "cricket_insect": {
+        "definition": "A small jumping insect that chirps at night",
+        "part_of_speech": "noun"
+      },
+      "cricket_sport": {
+        "definition": "The bat-and-ball team sport played with wickets",
+        "part_of_speech": "noun"
+      }
+    },
+    "drill": {
+      "drill_bore": {
+        "definition": "To make a hole in something with a drill",
+        "part_of_speech": "verb"
       }
     },
     "heart": {
@@ -30,10 +86,90 @@
         "part_of_speech": "noun"
       }
     },
+    "iris": {
+      "iris_flower": {
+        "definition": "A garden flower with showy petals and sword-shaped leaves",
+        "part_of_speech": "noun"
+      },
+      "iris_eye": {
+        "definition": "The coloured ring of the eye around the pupil",
+        "part_of_speech": "noun"
+      }
+    },
+    "iron": {
+      "iron_press": {
+        "definition": "To press clothes flat with a hot iron",
+        "part_of_speech": "verb"
+      }
+    },
+    "jasmine": {
+      "jasmine_flower": {
+        "definition": "A climbing shrub with small fragrant white flowers",
+        "part_of_speech": "noun"
+      },
+      "jasmine_disney": {
+        "definition": "Princess Jasmine from the Disney film Aladdin",
+        "part_of_speech": "proper_noun",
+        "display": "Jasmine",
+        "is_proper_noun": true
+      },
+      "jasmine_rice": {
+        "definition": "The long-grain aromatic rice grown in Thailand",
+        "part_of_speech": "noun"
+      },
+      "jasmine_tea": {
+        "definition": "Green tea scented with jasmine blossom",
+        "part_of_speech": "noun"
+      },
+      "jasmine_name": {
+        "definition": "Jasmine as a girl's given name taken from the flower",
+        "part_of_speech": "proper_noun",
+        "display": "Jasmine",
+        "is_proper_noun": true
+      }
+    },
     "key": {
       "key_legend": {
         "definition": "The panel that explains the symbols on a map",
         "part_of_speech": "noun"
+      }
+    },
+    "life": {
+      "life_game": {
+        "definition": "The Game of Life, an American board game",
+        "part_of_speech": "proper_noun",
+        "display": "Life",
+        "is_proper_noun": true
+      },
+      "life_cereal": {
+        "definition": "Life, an American breakfast cereal brand",
+        "part_of_speech": "proper_noun",
+        "display": "Life",
+        "is_proper_noun": true
+      }
+    },
+    "link": {
+      "link_connect": {
+        "definition": "To join two things so that they are connected",
+        "part_of_speech": "verb"
+      }
+    },
+    "monitor": {
+      "monitor_watch": {
+        "definition": "To watch a condition closely over a period of time",
+        "part_of_speech": "verb"
+      }
+    },
+    "nail": {
+      "nail_fasten": {
+        "definition": "To fasten something in place with nails",
+        "part_of_speech": "verb"
+      }
+    },
+    "note": {
+      "note_write": {
+        "definition": "To write something down in order to remember it",
+        "part_of_speech": "verb"
       }
     },
     "pitch": {
@@ -44,6 +180,10 @@
       "pitch_present": {
         "definition": "A short presentation made to sell an idea",
         "part_of_speech": "noun"
+      },
+      "pitch_throw_verb": {
+        "definition": "To throw the ball to the batter in baseball",
+        "part_of_speech": "verb"
       }
     },
     "plate": {
@@ -60,6 +200,12 @@
         "part_of_speech": "noun"
       }
     },
+    "rest": {
+      "rest_relax": {
+        "definition": "To stop activity in order to relax or recover",
+        "part_of_speech": "verb"
+      }
+    },
     "ring": {
       "ring_sound": {
         "definition": "The sound a bell or a phone makes",
@@ -71,6 +217,22 @@
       },
       "ring_circle": {
         "definition": "A circular band or ring shaped object",
+        "part_of_speech": "noun"
+      }
+    },
+    "rose": {
+      "rose_flower": {
+        "definition": "A garden flower with thorny stems, grown for its scent",
+        "part_of_speech": "noun"
+      },
+      "rose_name": {
+        "definition": "Rose as a woman's given name taken from the flower",
+        "part_of_speech": "proper_noun",
+        "display": "Rose",
+        "is_proper_noun": true
+      },
+      "rose_wine": {
+        "definition": "Rose wine, a pink wine made from red grapes",
         "part_of_speech": "noun"
       }
     },
@@ -86,6 +248,34 @@
       "scale_grow": {
         "definition": "To grow a business to a much larger size",
         "part_of_speech": "verb"
+      }
+    },
+    "score": {
+      "score_goal": {
+        "definition": "To win a point or a goal in a game",
+        "part_of_speech": "verb"
+      }
+    },
+    "siren": {
+      "siren_device": {
+        "definition": "A device that makes a loud rising warning sound",
+        "part_of_speech": "noun"
+      },
+      "siren_myth": {
+        "definition": "A sea creature of Greek myth whose song lured sailors",
+        "part_of_speech": "noun"
+      }
+    },
+    "spirit": {
+      "spirit_soul": {
+        "definition": "The non-physical part of a person, the soul",
+        "part_of_speech": "noun"
+      },
+      "spirit_airline": {
+        "definition": "Spirit Airlines, an American low-cost carrier",
+        "part_of_speech": "proper_noun",
+        "display": "Spirit",
+        "is_proper_noun": true
       }
     },
     "spring": {
@@ -119,6 +309,37 @@
       "halloween_things": "bat_animal",
       "things_made_of_wood": "bat_equipment"
     },
+    "bell": {
+      "bell_and_alarm": "bell_object",
+      "boxing_words": "bell_object",
+      "church_things": "bell_object",
+      "city_sounds": "bell_object",
+      "classroom_things": "bell_object",
+      "inventors": "bell_person",
+      "loud_things": "bell_object",
+      "monastery_life": "bell_object",
+      "music_class_things": "bell_object",
+      "parts_of_a_bike": "bell_object",
+      "pepper_varieties": "bell_pepper",
+      "things_made_of_metal": "bell_object",
+      "things_that_ring": "bell_object"
+    },
+    "bill": {
+      "money_actions": "bill_charge"
+    },
+    "button": {
+      "joining_actions": "button_fasten"
+    },
+    "charger": {
+      "car_models": "charger_car",
+      "computer_parts": "charger_device",
+      "phone_words": "charger_device",
+      "power_and_batteries": "charger_device",
+      "things_in_a_glove_box": "charger_device",
+      "things_in_a_purse": "charger_device",
+      "things_that_plug_in": "charger_device",
+      "travel_documents": "charger_device"
+    },
     "club": {
       "juggling_words": "club_stick",
       "sandwich_types": {
@@ -132,6 +353,13 @@
       "high_places": "crane_machine",
       "wading_birds": "crane_bird"
     },
+    "cricket": {
+      "garden_bugs": "cricket_insect",
+      "insects": "cricket_insect",
+      "nocturnal_animals": "cricket_insect",
+      "team_sports": "cricket_sport",
+      "world_sports": "cricket_sport"
+    },
     "diamond": {
       "hard_things": "diamond_gem",
       "jewelry_stones": "diamond_gem",
@@ -139,11 +367,32 @@
       "shiny_things": "diamond_gem",
       "sports_venues": "diamond_field"
     },
+    "drill": {
+      "building_actions": "drill_bore"
+    },
     "heart": {
       "shapes": {
         "sense": "heart_shape",
         "review_status": "approved"
       }
+    },
+    "iris": {
+      "face_parts": "iris_eye",
+      "flowers": "iris_flower",
+      "garden_flowers_spring": "iris_flower",
+      "parts_of_the_eye": "iris_eye"
+    },
+    "iron": {
+      "laundry_care": "iron_press"
+    },
+    "jasmine": {
+      "disney_characters": "jasmine_disney",
+      "flowers": "jasmine_flower",
+      "nature_names": "jasmine_name",
+      "rice_types": "jasmine_rice",
+      "teas": "jasmine_tea",
+      "tropical_flowers": "jasmine_flower",
+      "vines": "jasmine_flower"
     },
     "key": {
       "collecting_hobbies": "key_lock",
@@ -165,6 +414,30 @@
         "review_status": "approved"
       }
     },
+    "life": {
+      "board_games": "life_game",
+      "cereal_brands": "life_cereal"
+    },
+    "link": {
+      "joining_actions": "link_connect"
+    },
+    "monitor": {
+      "first_aid_actions": "monitor_watch"
+    },
+    "moon": {
+      "cloud_and_sky": "moon_space",
+      "deep_space": "moon_space",
+      "light_sources": "moon_space",
+      "night_sky_things": "moon_space",
+      "solar_system_words": "moon_space",
+      "words_before_stone": "moon_space"
+    },
+    "nail": {
+      "building_actions": "nail_fasten"
+    },
+    "note": {
+      "learning_actions": "note_write"
+    },
     "orange": {
       "citrus_fruits": "orange_fruit",
       "fruit_trees": "orange_fruit"
@@ -181,7 +454,7 @@
         "sense": "pitch_field",
         "review_status": "alternative"
       },
-      "sports_actions": "pitch_throw",
+      "sports_actions": "pitch_throw_verb",
       "sports_venues": {
         "sense": "pitch_field",
         "review_status": "alternative"
@@ -206,6 +479,9 @@
         "sense": "plate_tectonic",
         "review_status": "alternative"
       }
+    },
+    "rest": {
+      "sleeping_actions": "rest_relax"
     },
     "ring": {
       "bell_and_alarm": {
@@ -260,6 +536,18 @@
       "things_worn_on_hands": "ring_jewelry",
       "wedding_things": "ring_jewelry"
     },
+    "rose": {
+      "flags_and_symbols": "rose_flower",
+      "flowers": "rose_flower",
+      "garden_flowers_summer": "rose_flower",
+      "garden_plants": "rose_flower",
+      "nature_names": "rose_name",
+      "perfume_words": "rose_flower",
+      "red_things": "rose_flower",
+      "short_names": "rose_name",
+      "shrubs": "rose_flower",
+      "wines_and_drinks": "rose_wine"
+    },
     "scale": {
       "animal_coverings": {
         "sense": "scale_skin",
@@ -285,6 +573,23 @@
       },
       "world_markets": "scale_weigh",
       "map_legend": "scale_ratio"
+    },
+    "score": {
+      "sports_actions": "score_goal"
+    },
+    "siren": {
+      "bell_and_alarm": "siren_device",
+      "city_sounds": "siren_device",
+      "emergency_words": "siren_device",
+      "loud_things": "siren_device",
+      "mythical_monsters": "siren_myth",
+      "police_things": "siren_device",
+      "sea_myths": "siren_myth",
+      "security_tech": "siren_device"
+    },
+    "spirit": {
+      "airlines": "spirit_airline",
+      "heaven_and_afterlife": "spirit_soul"
     },
     "spring": {
       "seasons": "spring_season",

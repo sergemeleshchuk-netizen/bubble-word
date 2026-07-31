@@ -16,7 +16,17 @@ from pydantic import ValidationError
 
 from . import baseline
 from . import candidate_generation as gen
-from . import conflicts, integrity, quartet_builder, readiness, sense_gaps, solver
+from . import (
+    conflicts,
+    integrity,
+    level_solver,
+    migrations,
+    quartet_builder,
+    readiness,
+    sense_gaps,
+    solver,
+    structured,
+)
 from .blocklist import Blocklist
 from .blocklist import default_path as default_blocklist_path
 from .db import init_db, open_existing, utc_now
@@ -873,32 +883,74 @@ def cmd_build_quartets(
 def cmd_solve_level(
     db: DbOption,
     words: Annotated[
-        str, typer.Option("--words", help="Слова уровня через запятую (кратно четырём)")
+        str,
+        typer.Option(
+            "--words",
+            help="Слова уровня через запятую. Значение через решётку: bank#bank_river",
+        ),
     ],
-    normal_only: Annotated[
-        bool,
-        typer.Option("--normal-only", help="Считать пулы без hard_only (обычный уровень)"),
+    timeout_ms: Annotated[
+        int, typer.Option("--timeout-ms", help="Бюджет времени solver'а")
+    ] = level_solver.DEFAULT_TIMEOUT_MS,
+    explain: Annotated[
+        bool, typer.Option("--explain", help="Показать параметры запуска и хеш входа")
     ] = False,
 ) -> None:
-    """Проверяет уровень: принимает только при единственном корректном разбиении."""
+    """Exact-cover проверка полного уровня. Принимает только при solution_count == 1."""
     conn = _open(db)
     try:
-        pools = solver.normal_pools(conn) if normal_only else solver.category_pools(conn)
-        word_list = [w.strip() for w in words.split(",") if w.strip()]
-        result = solver.solve(word_list, pools)
+        tokens = level_solver.parse_tokens(words)
+        index = level_solver.load_memberships(conn)
+        structures = structured.load(conn)
+        result = level_solver.solve_level(tokens, index, structures, timeout_ms=timeout_ms)
     finally:
         conn.close()
 
-    typer.echo(f"Слов: {len(word_list)} | разбиений найдено: {result.solution_count}")
-    for index, solution in enumerate(result.solutions, start=1):
-        typer.echo(f"\nРазбиение {index}:")
-        for category_key, group in solution:
+    typer.echo(
+        f"Слов: {len(tokens)} | исход: {result.outcome} | "
+        f"разбиений: {result.solution_count} | {result.duration_ms} мс"
+    )
+    for number, solution in enumerate(result.solutions, start=1):
+        typer.echo(f"\nРазбиение {number}:")
+        for category_key, group in sorted(solution):
             typer.echo(f"  {category_key}: {', '.join(group)}")
+    if explain:
+        typer.echo(f"\nsolver: {result.solver_version}")
+        typer.echo(f"input_hash: {result.input_hash}")
+        typer.echo(f"параметры: {json.dumps(result.parameters, ensure_ascii=False)}")
+        typer.echo(f"узлов перебора: {result.nodes_visited}")
+
     if result.unique:
         typer.secho(f"\nОК: {result.reason}", fg=typer.colors.GREEN)
     else:
         typer.secho(f"\nОтклонён: {result.reason}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=1)
+
+
+@app.command("migrate-content-schema")
+def cmd_migrate_content_schema(
+    db: DbOption,
+    dry_run: Annotated[
+        bool, typer.Option("--dry-run", help="Показать шаги, ничего не применяя")
+    ] = False,
+) -> None:
+    """Докатывает недостающие шаги схемы. Повторный запуск ничего не делает."""
+    conn = _open(db)
+    try:
+        version = migrations.current_version(conn)
+        applied = migrations.migrate(conn, dry_run=dry_run)
+        after = migrations.current_version(conn)
+    finally:
+        conn.close()
+
+    if not applied:
+        typer.secho(f"Схема актуальна: версия {version}", fg=typer.colors.GREEN)
+        return
+    for migration, changes in applied:
+        typer.echo(f"{migration.version:03d} {migration.name}: {migration.description}")
+        for change in changes:
+            typer.echo(f"    {change}")
+    typer.echo(f"\nВерсия схемы: {version} -> {after}")
 
 
 @app.command("sense-gaps")

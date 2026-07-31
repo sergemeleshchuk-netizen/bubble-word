@@ -236,7 +236,8 @@ def build(conn: sqlite3.Connection) -> dict:
     for r in conn.execute(
         "select q.id, q.category_id, q.tier, qw.word_id, qw.slot from quartets q "
         "join quartet_words qw on qw.quartet_id = q.id "
-        "where q.review_state <> 'rejected' and q.solver_state = 'unique' "
+        "where q.validation_state NOT IN ('invalid', 'disabled') "
+        "and q.local_check = 'local_unique' "
         "order by q.id, qw.slot"
     ):
         entry = quartet_rows.setdefault(r["id"], {"cat": cat_index.get(r["category_id"]),
@@ -335,14 +336,21 @@ def resolve_db(explicit: str | None) -> Path | None:
     return DB if DB.exists() else None
 
 
+# Минимальная версия схемы, в которой есть слои readiness и конфликтов категорий.
+# Проверяем «не ниже», а не «ровно»: жёсткое равенство ломало снимок на каждой
+# миграции пайплайна, хотя нужные снимку таблицы никуда не девались.
+MIN_SCHEMA_VERSION = 2
+
+
 def check_audited(conn: sqlite3.Connection, path: Path) -> None:
-    """База обязана быть версии 2: до аудита слоёв readiness и конфликтов нет."""
-    version = conn.execute(
+    """База должна быть не старше версии 2: до неё слоёв readiness и конфликтов нет."""
+    row = conn.execute(
         "select value from schema_meta where key='schema_version'").fetchone()
-    if version is None or version[0] != "2":
+    version = int(row[0]) if row and str(row[0]).isdigit() else 0
+    if version < MIN_SCHEMA_VERSION:
         raise SystemExit(
             f"ОШИБКА: база {path} не аудированной версии (schema_version="
-            f"{version[0] if version else 'нет'}, нужна 2).\n"
+            f"{row[0] if row else 'нет'}, нужна {MIN_SCHEMA_VERSION} и выше).\n"
             "Пересоберите базу: bash ../word_content_pipeline/scripts/rebuild_all.sh"
         )
 

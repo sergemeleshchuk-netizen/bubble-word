@@ -57,7 +57,15 @@ def _add_missing_columns(conn: sqlite3.Connection) -> list[str]:
 
 
 def init_db(db_path: Path | str) -> Path:
-    """Создаёт файл базы и все таблицы. Повторный запуск безопасен."""
+    """Создаёт файл базы, все таблицы и докатывает миграции. Повторный запуск безопасен.
+
+    Порядок важен: `schema.sql` создаёт скелет версии 2, дальше пронумерованные
+    шаги из `migrations.py` доводят его до текущей версии. Так у чистой сборки
+    и у существующей базы получается ровно одна и та же схема — иначе снимок,
+    собранный с нуля, тихо отличался бы от рабочей базы.
+    """
+    from .migrations import BASE_VERSION, migrate  # локальный импорт: migrations импортирует db
+
     path = Path(db_path)
     schema_sql = SCHEMA_PATH.read_text(encoding="utf-8")
     conn = connect(path)
@@ -65,6 +73,9 @@ def init_db(db_path: Path | str) -> Path:
         with conn:
             conn.executescript(schema_sql)
             _add_missing_columns(conn)
+            if int(conn.execute("PRAGMA user_version").fetchone()[0]) == 0:
+                conn.execute(f"PRAGMA user_version = {BASE_VERSION}")
+        migrate(conn)
     finally:
         conn.close()
     return path

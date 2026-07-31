@@ -112,7 +112,7 @@
 - правило: Actions done while playing sports
 - тип связи: `does_action`, базовая сложность 0.3
 - слов: 18
-- ~dunk (dunk_basketball), ~score (score_points), +catch, +dive, +dribble, +kick, +pass, +pitch (pitch_throw), +punt, +serve, +shoot, +spike, +sprint, +swing, +tackle, +throw, +volley, !block (block_stop)
+- ~dunk (dunk_basketball), ~score (score_points), +catch, +dive, +dribble, +kick, +pass, +pitch (pitch_throw_verb), +punt, +serve, +shoot, +spike, +sprint, +swing, +tackle, +throw, +volley, !block (block_stop)
 
 ### THINKING ACTIONS  `thinking_actions`
 - правило: Verbs for mental activity
@@ -157,79 +157,133 @@
 - +blow, +clear, +drizzle, +flood, +freeze, +gust, +hail, +melt, +pour, +rain, +shine, +sleet, +snow, +thaw, +thunder
 
 
-## Тема: cities
+## Тема: brands
 
-### AFRICAN CITIES  `african_cities`
-- правило: Well known cities in Africa
+### AIRLINES  `airlines`
+- правило: Major passenger airlines
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~delta (delta_airline), +Air France, +Alaska, +American, +British Airways, +Emirates, +Frontier, +JetBlue, +KLM, +Lufthansa, +Qantas, +Southwest, +United, !Spirit (spirit_airline)
+
+### APPLIANCE BRANDS  `appliance_brands`
+- правило: Brands of home appliance
 - тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- ~Amana, ~Electrolux, ~Frigidaire, ~KitchenAid, ~Maytag, +Bosch, +Dyson, +GE, +Hoover, +Kenmore, +LG, +Samsung, +Whirlpool
+
+### BANK BRANDS  `bank_brands`
+- правило: Major American retail banks
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 12
+- +Ally, +Capital One, +Chase, +Citibank, +Fifth Third, +PNC, +Regions Bank, +TD Bank, +US Bank, +Wells Fargo, ?Truist, !KeyBank
+
+### ELECTRONICS BRANDS  `camera_and_electronics`
+- правило: Brands of consumer electronics
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~JVC, ~Sanyo, +Bose, +Canon, +Fujifilm, +Kodak, +Nikon, +Panasonic, +Philips, +Pioneer, +Polaroid, +Sharp, +Sony, +Toshiba
+
+### CANDY BRANDS  `candy_brands`
+- правило: Candy brands sold in American stores
+- тип связи: `is_a`, базовая сложность 0.3
 - слов: 16
-- ~Luanda, +Accra, +Addis Ababa, +Alexandria, +Cairo, +Cape Town, +Casablanca, +Dakar, +Durban, +Kampala, +Khartoum, +Lagos, +Marrakech, +Nairobi, +Pretoria, +Tunis
+- ~Airheads, ~Butterfinger, ~Reeses, ~Twix, ~Twizzlers, ~Whoppers, +Almond Joy, +Hershey, +Jolly Rancher, +Kitkat, +Milky Way, +Nerds, +Skittles, +Snickers, +Starburst, +Tootsie Roll
 
-### TRANSPORT HUBS  `airports_and_ports`
-- правило: Famous airports and transport hubs
+### CAR MODELS  `car_models`
+- правило: Well known car model names
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 16
+- +Accord, +beetle, +Camaro, +Camry, +Charger (charger_car), +Civic, +Corvette, +Explorer, +impala, +Jeep Wrangler, +Mustang, +Prius, +Ranger, +Silverado, +Tahoe, xF150
+
+### CEREAL BRANDS  `cereal_brands`
+- правило: Breakfast cereal brands sold in America
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~Chex, ~Froot Loops, ~Rice Krispies, ~Trix, ~Wheaties, +Cheerios, +Cocoa Puffs, +Corn Flakes, +Frosted Flakes, +Grape Nuts, +Lucky Charms, +Raisin Bran, +Special K, !Life (life_cereal)
+
+### CLOTHING BRANDS  `clothing_brands`
+- правило: Well known clothing and shoe brands
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 15
+- +Adidas, +Champion, +Converse, +Fruit of the Loom, +Gap, +Hanes, +Lacoste, +Levi, +New Balance, +Nike, +puma, +Reebok, +Timberland, +Vans, +Wrangler
+
+### COFFEE BRANDS  `coffee_brands`
+- правило: Coffee brands and coffee shops
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- +caribou, +Community, +Dunkin, +Keurig, +Maxwell House, +Starbucks, +Tim Hortons, ?Yuban, !Folgers, !Lavazza, !Nescafe, !Peets
+
+### FAST FOOD  `fast_food_chains`
+- правило: Fast food restaurant chains in America
+- тип связи: `is_a`, базовая сложность 0.25
+- слов: 16
+- ~Arbys, ~Popeyes, ~Wendys, ~Whataburger, +Burger King, +Chipotle, +Dairy Queen, +Dominos, +Five Guys, +KFC, +McDonalds, +Panera, +Pizza Hut, +Sonic, +Subway, +Taco Bell
+
+### FROZEN TREATS  `frozen_treat_brands`
+- правило: Brands and products sold in the American ice cream aisle
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 11
+- ~Drumstick, +Ben and Jerry, +Blue Bell, +Klondike, +Magnum, +Popsicle, ?Dreyers, ?Edys, !Breyers, !Haagen Dazs, xTalenti
+
+### HOTEL CHAINS  `hotel_chains`
+- правило: Major hotel chains
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~Ramada, +Best Western, +Days Inn, +Four Seasons, +Hilton, +Holiday Inn, +Hyatt, +Marriott, +Motel 6, +Radisson, +Sheraton, +Westin
+
+### HARDWARE BRANDS  `paint_and_home`
+- правило: Brands sold at a hardware store
 - тип связи: `is_a`, базовая сложность 0.45
 - слов: 12
-- +Charles de Gaulle, +Dubai International, +Gatwick, +Grand Central, +Heathrow, +JFK, +LAX, +Penn Station, +Union Station, !Narita, !Schiphol, xOHare
+- +Ace, +Gorilla Glue, +Scotch, +Sherwin Williams, +Weber, ?WD40, !Behr, !Duracell, !Elmers, !Energizer, !Rustoleum, !Valspar
 
-### EAST COAST  `american_east_cities`
-- правило: Cities on the American East Coast
+### PAYMENT BRANDS  `payment_brands`
+- правило: Card networks and payment apps used in America
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~Venmo, +Amex, +Apple Pay, +Cash App, +Discover, +Google Pay, +Mastercard, +PayPal, +Square, +Stripe, +Visa, !Zelle
+
+### RETAIL STORES  `retail_stores`
+- правило: Large retail store chains in America
 - тип связи: `is_a`, базовая сложность 0.3
-- слов: 15
-- +Albany, +Baltimore, +Boston, +buffalo, +Charleston, +Hartford, +Jacksonville, +Newark, +Norfolk, +Philadelphia, +Portland, +Providence, +Richmond, +Savannah, +Wilmington
+- слов: 16
+- ~Kohls, ~Macys, +Aldi, +Best Buy, +Costco, +Dollar General, +Home Depot, +Kroger, +Lowes, +Nordstrom, +Publix, +Safeway, +Sears, +Staples, +Target, +Walmart
 
-### WEST COAST  `american_west_cities`
-- правило: Cities on the American West Coast
+### SNACK BRANDS  `snack_brands`
+- правило: Brands of packaged snacks
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~Fritos, ~Keebler, ~Nabisco, ~Tostitos, +Cheetos, +Chips Ahoy, +Doritos, +goldfish, +Lays, +Oreo, +Pringles, +Ritz, +Wheat Thins, xTriscuit
+
+### SODA BRANDS  `soda_brands`
+- правило: Soft drink brands sold in the United States
 - тип связи: `is_a`, базовая сложность 0.3
 - слов: 14
-- +Anaheim, +Berkeley, +Eugene, +Fresno, +Long Beach, +Oakland, +Portland, +Sacramento, +San Diego, +San Jose, +Santa Monica, +Seattle, +Spokane, +Tacoma
+- ~7up, ~Faygo, ~Schweppes, ~Sunkist, +Canada Dry, +Coke, +crush, +Dr Pepper, +Fanta, +Mountain Dew, +Pepsi, +Sprite, +Squirt, ?Barqs
 
-### ASIAN CITIES  `asian_cities`
-- правило: Well known cities in Asia
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 20
-- +Busan, +Chengdu, +Chennai, +Colombo, +Delhi, +Hanoi, +Hyderabad, +Jakarta, +Karachi, +Kathmandu, +Kolkata, +Kyoto, +Lahore, +Manila, +Mumbai, +Osaka, +Saigon, +Shanghai, +Taipei, +Xian
-
-### MORE CAPITALS  `capital_cities_more`
-- правило: Capital cities less commonly named
+### SPORTS BRANDS  `sports_brands`
+- правило: Brands of sports equipment
 - тип связи: `is_a`, базовая сложность 0.4
-- слов: 18
-- +Ankara, +Bern, +Brasilia, +Brussels, +Bucharest, +Canberra, +Copenhagen, +Islamabad, +Nairobi, +Reykjavik, +Riga, +Riyadh, +Sofia, +Stockholm, +Tallinn, +Vilnius, +Wellington, +Zagreb
+- слов: 12
+- ~Schwinn, ~Titleist, +Bauer, +Callaway, +Easton, +Franklin, +Louisville Slugger, +Prince, +Rawlings, +Spalding, +Wilson, !head (head_brand)
 
-### CITY NICKNAMES  `city_nicknames`
-- правило: Nicknames given to famous cities
+### TOOL BRANDS  `tool_brands`
+- правило: Brands of hand and power tools
 - тип связи: `is_a`, базовая сложность 0.45
 - слов: 12
-- +Big Apple, +Big Easy, +City of Angels, +Emerald City, +Mile High City, +Motor City, +Music City, +Queen City, +Sin City, +Steel City, +Windy City, !Beantown
+- +Black and Decker, +Bosch, +Craftsman, +husky, +Milwaukee, +Snap On, +Stanley, !DeWalt, !Hilti, !Makita, !Ryobi, !Skil
 
-### EUROPEAN CITIES  `european_cities`
-- правило: Well known cities in Europe
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 25
-- +Antwerp, +Barcelona, +Bergen, +Bruges, +Cologne, +Edinburgh, +Florence, +Geneva, +Hamburg, +Krakow, +Liverpool, +Lyon, +Manchester, +Marseille, +Milan, +Munich, +Naples, +Porto, +Rotterdam, +Salzburg, +Seville, +Turin, +Valencia, +Venice, +Zurich
-
-### MIDWEST CITIES  `midwest_cities`
-- правило: Cities in the American Midwest
+### TOY BRANDS  `toy_brands`
+- правило: Well known toy brands
 - тип связи: `is_a`, базовая сложность 0.35
-- слов: 15
-- +Chicago, +Cincinnati, +Cleveland, +Columbus, +Des Moines, +Detroit, +Duluth, +Indianapolis, +Kansas City, +Milwaukee, +Minneapolis, +Omaha, +St Louis, +Toledo, +Wichita
+- слов: 14
+- ~Crayola, ~Little Tikes, ~Tonka, +Barbie, +Etch a Sketch, +Fisher Price, +Hasbro, +Hot Wheels, +Lego, +Lincoln Logs, +Mattel, +Nerf, +Play Doh, +Slinky
 
-### RESORT DESTINATIONS  `resort_towns`
-- правило: Places people travel to for vacation
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 15
-- +Aspen, +Bali, +Cabo, +Cancun, +Ibiza, +Key West, +Lake Tahoe, +Maldives, +Maui, +Monaco, +Myrtle Beach, +Napa, +Palm Springs, +Santorini, +Vail
-
-### LATIN CITIES  `south_american_cities`
-- правило: Well known cities in South America
+### LUXURY BRANDS  `watch_and_luxury`
+- правило: Well known luxury brands
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~Asuncion, ~Cusco, +Bogota, +Brasilia, +Buenos Aires, +Caracas, +Cartagena, +La Paz, +Medellin, +Montevideo, +Quito, +Rio de Janeiro, +Santiago, +Sao Paulo
-
-### SOUTHERN CITIES  `southern_cities`
-- правило: Cities in the American South
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 15
-- +Atlanta, +Austin, +Birmingham, +Charlotte, +Dallas, +Houston, +Little Rock, +Louisville, +Memphis, +Miami, +mobile, +Nashville, +New Orleans, +Raleigh, +Tampa
+- +Armani, +Burberry, +Cartier, +Chanel, +Dior, +Ferrari, +Gucci, +Hermes, +Lamborghini, +Omega, +Prada, +Rolex, +Tiffany, +Versace
 
 
 ## Тема: education
@@ -250,7 +304,7 @@
 - правило: Things found in a school classroom
 - тип связи: `found_in`, базовая сложность 0.2
 - слов: 20
-- +alphabet, +bell, +bookshelf, +calendar, +chair, +chalk (chalk_stick), +chalkboard, +clock, +cubby, +desk, +easel, +flag, +globe, +hall pass, +locker, +map, +poster, +projector, +textbook, +whiteboard
+- ~bell (bell_object), +alphabet, +bookshelf, +calendar, +chair, +chalk (chalk_stick), +chalkboard, +clock, +cubby, +desk, +easel, +flag, +globe, +hall pass, +locker, +map, +poster, +projector, +textbook, +whiteboard
 
 ### COLLEGE WORDS  `college_words`
 - правило: Words used about university education
@@ -304,7 +358,7 @@
 - правило: Things used in a school music class
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 14
-- ~maraca, ~stand (stand_holder), ~xylophone, +bell, +choir, +conductor, +drum, +metronome, +piano, +recorder, +riser, +sheet music, +tambourine, +triangle
+- ~bell (bell_object), ~maraca, ~stand (stand_holder), ~xylophone, +choir, +conductor, +drum, +metronome, +piano, +recorder, +riser, +sheet music, +tambourine, +triangle
 
 ### KINDS OF PAPER  `paper_types`
 - правило: Kinds of paper used at school and home
@@ -403,7 +457,7 @@
 - правило: Games played on a printed board with pieces
 - тип связи: `is_a`, базовая сложность 0.25
 - слов: 18
-- ~mancala, +backgammon, +battleship, +candy land, +checkers, +chess, +chutes and ladders, +clue, +dominoes, +Life, +monopoly, +othello, +risk, +scrabble, +sorry, +trivial pursuit, +trouble, xparcheesi
+- ~Life (life_game), ~mancala, +backgammon, +battleship, +candy land, +checkers, +chess, +chutes and ladders, +clue, +dominoes, +monopoly, +othello, +risk, +scrabble, +sorry, +trivial pursuit, +trouble, xparcheesi
 
 ### CARD GAMES  `card_games`
 - правило: Games played with a deck of cards
@@ -598,6 +652,111 @@
 - +bagpipes, +bassoon, +clarinet, +flute, +french horn, +harmonica, +oboe, +piccolo, +recorder, +saxophone, +trombone, +trumpet, +tuba, +whistle
 
 
+## Тема: food_more
+
+### BAKE OFF  `bake_off`
+- правило: A step or topping used in competitive baking
+- тип связи: `used_in`, базовая сложность 0.55
+- слов: 5
+- +dough, +fondant, +icing, +piping, +proofing
+
+### CEREAL TYPES  `breakfast_cereals_types`
+- правило: Kinds of breakfast cereal by form
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- +bran, +clusters, +flakes, +granola, +loops, +muesli, +oatmeal, +porridge, +puffs, +shredded wheat, +squares, !crisped rice
+
+### CANDY TYPES  `candy_shapes`
+- правило: Forms candy is sold in
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 14
+- ~bar (bar_block), ~brittle (brittle_candy), ~stick (stick_candy), +chew, +chocolate square, +cluster, +drop, +gummy, +hard candy, +jelly, +lollipop, +mint (mint_candy), +ribbon, !ball (ball_sphere)
+
+### CHEESE DISHES  `cheese_dishes`
+- правило: Dishes built around cheese
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~gratin, ~quesadilla, +cheese board, +cheesecake, +fondue, +grilled cheese, +lasagna, +mac and cheese, +nachos, +pizza, +queso, !raclette
+
+### COOKIE TYPES  `cookie_types`
+- правило: Kinds of cookie baked at home or sold in stores
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 14
+- ~biscotti, ~macaroon, ~snickerdoodle, ~thumbprint, +chocolate chip, +fortune cookie, +gingerbread, +molasses, +oatmeal, +peanut butter, +sandwich cookie, +shortbread, +sugar, +wafer
+
+### COOKING METHODS  `cooking_methods`
+- правило: Methods used to cook food
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 18
+- ~braise, ~saute, +bake, +barbecue, +blanch, +boil, +broil, +deep fry, +fry (fry_cook), +grill, +poach, +roast, +sear, +simmer, +slow cook, +smoke, +steam, +stir fry
+
+### CUTS OF MEAT  `cuts_of_meat`
+- правило: Cuts of meat sold by a butcher
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 15
+- ~ribeye, ~shoulder (shoulder_meat), +brisket, +chuck, +flank, +loin, +rib, +rump, +shank, +short rib, +sirloin, +T-bone, +tenderloin, !porterhouse, !round (round_meat)
+
+### DESSERT TOPPINGS  `dessert_toppings`
+- правило: Things put on top of desserts
+- тип связи: `used_in`, базовая сложность 0.35
+- слов: 14
+- +caramel, +cherry, +chocolate sauce, +coconut, +frosting, +fruit, +glaze, +hot fudge, +marshmallow, +nuts, +powdered sugar, +sprinkles, +syrup, +whipped cream
+
+### DRINK MIXERS  `drink_mixers`
+- правило: Things mixed into drinks
+- тип связи: `used_in`, базовая сложность 0.4
+- слов: 14
+- ~cream (cream_dairy), +bitters, +cola, +cranberry, +ginger ale, +ice, +juice, +lemonade, +lime, +mint (mint_herb), +soda water, +sour mix, +syrup, +tonic
+
+### BRUNCH DISHES  `egg_and_dairy_dishes`
+- правило: Dishes served at brunch
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~frittata, ~parfait, +bagel and lox, +casserole, +crepe, +eggs benedict, +french toast, +hash, +mimosa, +omelet, +quiche, +scone, +strata, +waffle
+
+### PASTA DISHES  `pasta_dishes`
+- правило: Named pasta dishes
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 13
+- ~baked ziti, ~carbonara, ~primavera, ~puttanesca, +alfredo, +bolognese, +lasagna, +mac and cheese, +marinara, +pesto, +pesto pasta, +spaghetti and meatballs, xcacio e pepe
+
+### PIE TYPES  `pie_types`
+- правило: Kinds of pie
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 15
+- +apple (apple_fruit), +banana cream, +blueberry, +cherry, +chess, +chicken pot, +custard, +key lime, +lemon meringue, +mince, +peach, +pecan, +pumpkin, +rhubarb, +shepherds
+
+### POTATO DISHES  `potato_dishes`
+- правило: Ways potatoes are cooked and served
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 14
+- ~au gratin, ~croquette, ~tater tots, +baked, +chips, +fried, +hash browns, +home fries, +mashed, +potato salad, +scalloped, +twice baked, +wedges, !latke
+
+### SALADS  `salads`
+- правило: Named kinds of salad
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 14
+- ~caprese, +caesar, +chef salad, +cobb, +coleslaw, +egg salad, +fruit salad, +garden, +greek, +macaroni salad, +pasta salad, +potato salad, +spinach salad, +waldorf
+
+### SANDWICH BREADS  `sandwich_breads`
+- правило: Breads used to make a sandwich
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~ciabatta, ~focaccia, ~hoagie roll, ~white (white_food), +bagel, +brioche bun, +croissant, +english muffin, +pita, +roll (roll_bread), +rye, +sourdough, +texas toast, +wheat
+
+### SANDWICH TYPES  `sandwich_types`
+- правило: Named kinds of sandwich
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 14
+- ~hoagie, ~philly cheesesteak, +blt, +club (club_sandwich), +grilled cheese, +hero, +monte cristo, +panini, +patty melt, +po boy, +reuben, +sloppy joe, +wrap, xmuffuletta
+
+### GARNISHES  `toppings_and_garnish`
+- правило: Things added on top of a finished dish
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 15
+- ~croutons, ~scallion, +bacon bits, +cheese, +cherry, +chives, +lemon wedge, +mint leaf, +olive, +paprika, +parsley, +powdered sugar, +sesame, +sprinkles, +whipped cream
+
+
 ## Тема: geography
 
 ### AFRICAN COUNTRIES  `african_countries`
@@ -781,105 +940,6 @@
 - +Amsterdam, +Athens, +Bangkok, +Beijing, +Berlin, +Budapest, +Cairo, +Dublin, +Havana, +Helsinki, +Lima, +Lisbon, +London, +Madrid, +Moscow, +Nairobi, +Oslo, +Ottawa, +Paris, +Prague, +Rome, +Seoul, +Tokyo, +Vienna, +Warsaw
 
 
-## Тема: jargon
-
-### ACCOUNTING WORDS  `accounting_words`
-- правило: Words used in bookkeeping and accounting
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~asset, ~audit, ~balance, ~credit, ~debit, ~depreciation, ~expense, ~invoice, ~ledger, ~liability, ~payroll, ~receipt, ~revenue, ~statement
-
-### ARCHITECTURE WORDS  `architecture_words`
-- правило: Words used to describe buildings and their design
-- тип связи: `found_in`, базовая сложность 0.4
-- слов: 16
-- ~balcony (balcony_house), +arch (arch_structure), +atrium, +blueprint, +buttress, +column, +cornice, +dome, +facade, +foundation (foundation_building), +gable, +mezzanine, +portico, +spire, +terrace, +vault
-
-### AVIATION WORDS  `aviation_words`
-- правило: Words used by pilots and air crew
-- тип связи: `found_in`, базовая сложность 0.4
-- слов: 18
-- ~stall (stall_engine), +altitude, +autopilot, +call sign, +cockpit, +cruise, +flaps, +hangar, +landing gear, +radar, +rudder, +runway, +taxi, +throttle, +tower, +turbulence, +wingspan, +yaw
-
-### BARISTA WORDS  `barista_words`
-- правило: A term a barista uses making coffee
-- тип связи: `used_in`, базовая сложность 0.6
-- слов: 4
-- ~crema, ~frothing, +brewing, +decaf
-
-### FORENSICS WORDS  `detective_procedures`
-- правило: Words used in forensic investigation
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~autopsy, ~ballistics, ~cast (cast_mold), ~dna, ~dusting, ~evidence bag, ~fingerprint, ~lab, ~sample, ~swab, ~tape, ~toxicology, ~trace, !spatter
-
-### FRENCH COOKING  `french_cooking_terms`
-- правило: French words used in professional cooking
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 14
-- ~roux, !au gratin, !blanch, !bouquet garni, !braise, !consomme, !deglaze, !julienne, !mise en place, !puree, !saute, !souffle, xchiffonade, xflambe
-
-### KITCHEN SLANG  `kitchen_brigade`
-- правило: Terms used in a restaurant kitchen
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~comp, ~expo, ~fire, ~garnish, ~order up, ~pass, ~plating, ~prep, ~station (station_kitchen), ~walk in, !line (line_kitchen), !mise, !sous vide, !ticket (ticket_order)
-
-### COURT TERMS  `legal_terms`
-- правило: Terms used in legal proceedings
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 14
-- ~acquittal, ~appeal, ~arraignment, ~deposition, ~hearing, ~indictment, ~injunction, ~motion, ~objection, ~plea, ~recess, ~settlement, ~testimony, ~verdict
-
-### MEDICAL PROCEDURES  `medical_procedures`
-- правило: Procedures performed by doctors
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 16
-- +anesthesia, +biopsy, +cast (cast_medical), +checkup, +dialysis, +injection, +scan, +screening, +stitches, +surgery, +therapy, +transfusion, +transplant, +ultrasound, +vaccination, +X-ray
-
-### TEMPO TERMS  `music_tempo_terms`
-- правило: Italian words used to mark tempo in music
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 16
-- ~forte, ~grave, ~largo, ~piano, !accelerando, !adagio, !allegro, !andante, !crescendo, !legato, !lento, !moderato, !presto, !staccato, !vivace, xritardando
-
-### SHIP CREW  `nautical_ranks`
-- правило: Roles in the crew of a ship
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 12
-- ~captain, ~engineer, ~first mate, ~lookout, ~navigator, ~quartermaster, ~steward, !boatswain, !cook (cook_person), !deckhand, !helmsman, !purser
-
-### CAMERA SETTINGS  `photography_terms`
-- правило: Settings and controls on a camera
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 13
-- ~aperture, ~depth of field, ~exposure, ~flash, ~focus (focus_lens), ~iso, ~shutter speed, ~timer, ~tripod mount, ~white balance, ~Zoom, !metering, !viewfinder
-
-### TYPOGRAPHY WORDS  `printing_and_type`
-- правило: Words used to describe printed type
-- тип связи: `found_in`, базовая сложность 0.5
-- слов: 14
-- ~bold (bold_type), ~caps, ~column, ~font, ~italic, ~justify, ~leading, ~margin, ~point size, ~serif, ~typeface, ~underline, !kerning, !lowercase
-
-### SAILING TERMS  `sailing_terms`
-- правило: Terms used when sailing a boat
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~boom, ~draft (draft_boat), ~heel, ~sheet (sheet_sail), !capsize, !cleat, !halyard, !jibe, !leeward, !luff, !mooring, !spinnaker, !tack (tack_sail), !windward
-
-### STAGE TERMS  `theater_stage_terms`
-- правило: Terms used backstage in a theater
-- тип связи: `found_in`, базовая сложность 0.4
-- слов: 14
-- +blocking, +call time, +catwalk, +cue, +dimmer, +dress rehearsal, +flat, +gel, +green room, +prop table, +set piece, +wings, !apron (apron_stage), !strike (strike_theater)
-
-### FORECAST TERMS  `weather_forecast_terms`
-- правило: Terms used in a weather forecast
-- тип связи: `found_in`, базовая сложность 0.4
-- слов: 14
-- +advisory, +chance of rain, +dew point, +forecast, +front, +heat index, +high, +low, +precipitation, +pressure, +visibility, +warning, +wind chill, !watch (watch_warning)
-
-
 ## Тема: law
 
 ### COURTROOM  `courtroom`
@@ -958,7 +1018,7 @@
 - правило: Equipment and things used by police
 - тип связи: `used_in`, базовая сложность 0.25
 - слов: 17
-- +badge, +baton, +cruiser, +dispatch, +flashlight, +handcuffs, +holster, +k9, +officer, +patrol, +radio, +siren, +ticket (ticket_fine), +uniform, +vest, +warrant, +whistle
+- +badge, +baton, +cruiser, +dispatch, +flashlight, +handcuffs, +holster, +k9, +officer, +patrol, +radio, +siren (siren_device), +ticket (ticket_fine), +uniform, +vest, +warrant, +whistle
 
 ### PRISON WORDS  `prison_words`
 - правило: Things and words associated with prison
@@ -991,700 +1051,436 @@
 - ~mole (mole_spy), +agent, +alias, +bug, +cipher, +code, +decoder, +disguise, +dossier, +informant, +microfilm, +mission, +safe house, +surveillance, +tail
 
 
-## Тема: lists
+## Тема: names_world
 
-### BIBLE BOOKS  `bible_books`
-- правило: Books of the Bible
+### FRENCH NAMES  `french_names`
+- правило: First names common in France
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 16
+- +Amelie, +Antoine, +Camille, +Celine, +Chloe, +Claire, +Henri, +Jean, +Juliette, +Louis, +Marie, +Michel, +Nicolas, +Philippe, +Pierre, +Sophie
+
+### GERMAN NAMES  `german_names`
+- правило: First names common in Germany
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 16
+- +Anna, +Dieter, +Erika, +Frieda, +Fritz, +Greta, +Hans, +Heidi, +Helga, +Ingrid, +Karl, +Klaus, +Otto, +Ursula, +Werner, +Wolfgang
+
+### IRISH NAMES  `irish_names`
+- правило: First names of Irish origin
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 16
+- +Aidan, +Brendan, +Bridget, +Ciara, +Colleen, +Declan, +Erin, +Fiona, +Kathleen, +Kelly, +Liam, +Maureen, +Patrick, +Ronan, +Sean, +Siobhan
+
+### ITALIAN NAMES  `italian_names`
+- правило: First names common in Italy
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 16
+- +Alessandro, +Chiara, +Elena, +Enzo, +Francesca, +Giovanni, +Giulia, +Luca, +Marco, +Marta, +Matteo, +Paolo, +Rosa, +Sofia, +Stefano, +Valentina
+
+### JAPANESE NAMES  `japanese_names`
+- правило: First names common in Japan
 - тип связи: `is_a`, базовая сложность 0.45
-- слов: 24
-- +Acts, +Corinthians, +Daniel, +Deuteronomy, +Ecclesiastes, +Exodus, +Genesis, +Isaiah, +Jeremiah, +John, +Jonah, +Joshua, +Judges, +Kings, +Leviticus, +Luke, +mark, +Matthew, +Numbers, +Proverbs, +Psalms, +Revelation, +Romans, +Ruth
+- слов: 15
+- +Aiko, +Hana, +Hiroshi, +Kenji, +Mei, +Ren, +Rin, +Sakura, +Sora, +Takashi, +Yuki, +Yuna, !Daichi, !Haruto, !Kaito
 
-### WATER FEATURES  `body_of_water_types`
-- правило: Kinds of water feature made by people
+### SURNAMES FROM TRADES  `nature_surnames`
+- правило: Family names that come from old trades
 - тип связи: `is_a`, базовая сложность 0.4
-- слов: 14
-- +aqueduct, +bird bath, +canal, +cistern, +dam, +drain, +fountain, +moat, +pond, +pool, +reservoir, +sprinkler, +waterway, +well
+- слов: 18
+- +Archer, +baker, +Brewer, +carpenter, +chandler, +cooper, +farmer, +Fisher, +Hunter, +mason, +miller, +potter, +Sawyer, +shepherd, +Smith, +Taylor, +Turner, +weaver
 
-### MORE BREEDS  `dog_breeds_more`
-- правило: Dog breeds beyond the most common ones
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 20
-- ~akita, ~schnauzer, ~whippet, +bloodhound, +chow chow, +dalmatian, +newfoundland, +papillon, +pointer, +pomeranian, +setter, +shih tzu, !basenji, !bichon, !borzoi, !malamute, !saluki, !samoyed, !vizsla, !weimaraner
-
-### MORE ELEMENTS  `elements_more`
-- правило: Chemical elements beyond the most familiar ones
+### RUSSIAN NAMES  `russian_names`
+- правило: First names common in Russia
 - тип связи: `is_a`, базовая сложность 0.45
-- слов: 22
-- +aluminum, +arsenic, +beryllium, +boron, +chromium, +cobalt, +fluorine, +iodine, +krypton, +lithium, +manganese, +nickel, +phosphorus, +platinum, +plutonium, +radium, +radon, +silicon, +silver, +titanium, +xenon, !bromine
+- слов: 15
+- +Alexei, +Anastasia, +Boris, +Dmitri, +Irina, +Ivan, +Katya, +Mikhail, +Natasha, +Nikolai, +Olga, +Sergei, +Svetlana, +Tatiana, +Vladimir
 
-### MORE FLOWERS  `flowers_more`
-- правило: Flowers beyond the most common garden ones
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 20
-- ~gardenia, +anemone, +aster, +camellia, +chrysanthemum, +narcissus, +pansy, +snapdragon, +sweet pea, +wisteria, +yarrow, !amaryllis, !cornflower, !delphinium, !foxglove, !freesia, !gladiolus, !larkspur, !lupine, !ranunculus
+### SCANDINAVIAN NAMES  `scandinavian_names`
+- правило: First names common in Scandinavia
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 15
+- +Astrid, +Bjorn, +Elsa, +Erik, +Ingrid, +Lars, +Magnus, +Nils, +Odin, +Sven, +Thor, !Freja, !Linnea, !Sigrid, !Solveig
 
-### GEM CUTS  `gem_cuts`
-- правило: Words used to describe cut and set gemstones
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~brilliant, ~carat, ~clarity, ~cut, ~emerald cut, ~facet, ~polish (polish_verb), ~princess cut, ~setting, ~Solitaire, !band (band_ring), !bezel, !cabochon, !prong
-
-### MORE TREES  `trees_more`
-- правило: Trees beyond the most common ones
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 20
-- ~ginkgo, +alder, +banyan, +cottonwood, +eucalyptus, +hawthorn, +hemlock, +larch, +linden, +locust, +mulberry, +olive, +persimmon, +sequoia, +sycamore, !baobab, !catalpa, !pawpaw, !sumac, !tamarack
-
-### MORE STATES  `us_states_more`
-- правило: States of the United States not in the shorter list
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 25
-- +Arkansas, +Connecticut, +Illinois, +Kansas, +Kentucky, +Louisiana, +Maryland, +Massachusetts, +Minnesota, +Mississippi, +Missouri, +Nevada, +New Hampshire, +New Mexico, +North Dakota, +Oklahoma, +Oregon, +Pennsylvania, +Rhode Island, +South Dakota, +Tennessee, +Utah, +Washington, +West Virginia, +Wisconsin
-
-### ALPHABET AND SYMBOLS  `vitamins_letters`
-- правило: Symbols and marks used in writing and math
+### SPANISH NAMES  `spanish_names`
+- правило: First names common in Spanish speaking countries
 - тип связи: `is_a`, базовая сложность 0.35
+- слов: 20
+- +Ana, +Antonio, +Carlos, +Carmen, +Diego, +Elena, +Isabel, +Javier, +Jose, +Lucia, +Luis, +Manuel, +Maria, +Miguel, +Pablo, +Pilar, +Ricardo, +Rosa, +Sofia, +Teresa
+
+### UNISEX NAMES  `unisex_names`
+- правило: First names given to both boys and girls
+- тип связи: `is_a`, базовая сложность 0.4
 - слов: 16
-- ~ampersand, ~backslash, ~caret, ~tilde, +arrow, +asterisk, +at sign, +bullet, +dollar sign, +equals, +hashtag, +minus, +percent, +plus, !degree (degree_angle), !pipe (pipe_symbol)
-
-### WEATHER INSTRUMENTS  `weather_instruments`
-- правило: Instruments used to measure the weather
-- тип связи: `used_in`, базовая сложность 0.45
-- слов: 12
-- +barometer, +radar, +rain gauge, +satellite, +thermometer, +weather balloon, +weather vane, !anemometer, !hygrometer, !seismograph, !sundial, !windsock
+- +Alex, +Avery, +Bailey, +Casey, +Charlie, +Dakota, +Jamie, +Jordan, +Morgan, +Quinn, +Reese, +Riley, +Rowan, +Sam, +Skyler, +Taylor
 
 
-## Тема: nature_species
+## Тема: nature
 
-### BEETLES  `beetles`
-- правило: Kinds of beetle
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 12
-- ~carpet beetle, ~click beetle, ~dung beetle, ~firefly, ~june bug, ~ladybug, ~scarab, ~stag beetle, ~water beetle, !boll weevil, !rhinoceros beetle, !weevil
-
-### BUTTERFLY LIFE  `butterfly_life`
-- правило: A stage or thing in the life of a butterfly
-- тип связи: `associated_with`, базовая сложность 0.55
-- слов: 5
-- ~milkweed, +caterpillar, +chrysalis, +cocoon, +monarch
-
-### FROG POND  `frog_pond`
-- правило: A word belonging to frogs and their pond
-- тип связи: `associated_with`, базовая сложность 0.55
-- слов: 4
-- ~bullfrog, ~croak, +amphibious, +tadpole
-
-### GARDEN BUGS  `garden_bugs`
-- правило: Small creatures found in a garden
+### DIRT THINGS  `animal_tracks_and_signs`
+- правило: Marks and things you see in bare dirt
 - тип связи: `found_in`, базовая сложность 0.4
+- слов: 15
+- ~ant, ~dust, ~footprint, ~gravel, ~hole, ~mud, ~pebble, ~puddle, ~root, ~seed, ~stone, ~tire mark, ~track, ~twig, ~worm
+
+### BODIES OF WATER  `bodies_of_water`
+- правило: Natural or man-made bodies of water on the surface of the earth
+- тип связи: `is_a`, базовая сложность 0.2
+- слов: 25
+- ~spring (spring_water), +bay, +brook, +canal, +creek, +delta (delta_river), +estuary, +fjord, +gulf, +harbor, +inlet, +lagoon, +lake, +marsh, +ocean, +pond, +pool, +reservoir, +river, +sea, +strait, +stream, +swamp, +waterfall, !sound (sound_water)
+
+### SKY WORDS  `cloud_and_sky`
+- правило: Things you can see in the sky
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 20
+- +aurora, +balloon, +bird, +cloud, +comet, +eclipse, +fog, +haze, +helicopter, +kite (kite_toy), +lightning, +meteor, +moon (moon_space), +plane (plane_aircraft), +rainbow, +satellite, +smoke, +star (star_space), +sun, +sunset
+
+### DESERT THINGS  `desert_things`
+- правило: Things found in a hot desert
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 18
+- +cactus, +camel, +canyon, +coyote, +drought, +dune, +heat, +lizard, +mirage, +oasis, +rattlesnake, +sagebrush, +sand, +scorpion, +snake, +tumbleweed, +vulture, !rock (rock_stone)
+
+### FIRE AND SMOKE  `fire_and_smoke`
+- правило: Something given off by or belonging to a burning fire
+- тип связи: `associated_with`, базовая сложность 0.3
+- слов: 7
+- +ash, +blaze, +ember, +flame, +smoke, +spark, +torch
+
+### FLOWER PARTS  `flower_parts`
+- правило: Parts of a flowering plant
+- тип связи: `part_of`, базовая сложность 0.35
+- слов: 15
+- ~pistil, ~sepal, +blossom, +bud, +bulb, +leaf, +nectar, +petal, +pollen, +root, +seed, +stalk, +stamen, +stem, +thorn
+
+### FLOWERS  `flowers`
+- правило: Kinds of flowers commonly sold or grown in gardens
+- тип связи: `is_a`, базовая сложность 0.15
+- слов: 27
+- ~begonia, ~petunia, ~zinnia, +aster, +azalea, +buttercup, +carnation, +daffodil, +dahlia, +Daisy, +geranium, +hyacinth, +iris (iris_flower), +Jasmine (jasmine_flower), +lavender (lavender_plant), +lilac, +Lily, +magnolia, +marigold, +orchid, +peony, +poppy, +rose (rose_flower), +sunflower, +tulip, +Violet, +wildflowers
+
+### GARDEN PLANTS  `garden_plants`
+- правило: Plants people grow in a home garden
+- тип связи: `found_in`, базовая сложность 0.25
+- слов: 20
+- ~hosta, ~lavender (lavender_plant), ~rose (rose_flower), +basil, +bean, +carrot, +cucumber, +Fern, +Ivy, +lettuce, +marigold, +mint (mint_herb), +pepper, +pumpkin, +squash (squash_vegetable), +strawberry, +sunflower, +tomato, +tulip, +zucchini
+
+### GEMSTONES  `gemstones`
+- правило: Precious or semi-precious stones used in jewelry
+- тип связи: `is_a`, базовая сложность 0.25
+- слов: 20
+- +agate, +amethyst, +aquamarine, +coral, +diamond (diamond_gem), +emerald, +garnet, +jade, +lapis, +moonstone, +obsidian, +onyx, +opal, +pearl, +peridot, +quartz, +ruby, +sapphire, +topaz, +turquoise
+
+### IN THE JUNGLE  `in_the_jungle`
+- правило: Something found in a tropical jungle
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 6
+- ~toucan, +canopy, +Fern, +jaguar, +mushroom, +vine
+
+### LANDSCAPE  `landscape_features`
+- правило: A natural feature seen in an open landscape
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 7
+- +cliff, +cloud, +hill, +meadow, +sky, +soil, +valley
+
+### LIGHT SOURCES  `light_sources`
+- правило: Things that give off light
+- тип связи: `does_action`, базовая сложность 0.3
+- слов: 20
+- ~glowstick, ~moon (moon_space), ~streetlight, +bulb, +campfire, +candle, +fire, +firefly, +flashlight, +headlight, +lamp, +lantern, +laser, +lightning, +match, +neon, +screen (screen_display), +star (star_space), +sun, +torch
+
+### MOUNTAIN THINGS  `mountain_things`
+- правило: Things found on or around a mountain
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 20
+- ~cabin (cabin_house), ~timberline, +avalanche, +boulder, +cave, +cliff, +eagle, +Echo, +glacier, +goat, +peak, +pine, +ridge, +ski lift, +slope, +snow, +stream, +summit, +trail, +valley
+
+### FUNGI  `mushrooms_and_fungi`
+- правило: Mushrooms and other fungi
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~button mushroom, ~mildew, ~mold (mold_fungus), ~mushroom, ~toadstool, ~truffle, ~yeast, !chanterelle, !morel, !portobello, !puffball, !shiitake
+
+### NATURAL DISASTERS  `natural_disasters`
+- правило: Destructive natural events
+- тип связи: `is_a`, базовая сложность 0.3
 - слов: 16
-- ~aphid, ~roly poly, +ant, +bee, +beetle, +caterpillar, +centipede, +cricket, +earthworm, +earwig, +grub, +ladybug, +praying mantis, +slug, +snail, +spider
+- ~mudslide, +avalanche, +blizzard, +cyclone, +drought, +earthquake, +eruption, +famine, +flood, +hurricane, +landslide, +sinkhole, +tornado, +tsunami, +volcano, +wildfire
 
-### MOSS & LICHEN  `mosses_and_lichens`
-- правило: Small plants that grow on rocks and bark
+### NATURAL WONDERS  `natural_wonders`
+- правило: A large natural landform or body of water
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 7
+- +canyon, +desert, +glacier, +island, +mountains, +ocean, +volcano
+
+### RIVER FEATURES  `river_features`
+- правило: Parts and features of a river described in everyday English
+- тип связи: `part_of`, базовая сложность 0.35
+- слов: 20
+- ~basin, ~bed, ~bend, ~channel, ~current (current_water), ~delta (delta_river), ~eddy, ~ford (ford_river), ~gorge, ~rapids, ~shore, ~source, ~tributary, ~waterfall, +bank (bank_river), +mouth (mouth_river), !floodplain, !headwater, !levee, !sandbar
+
+### ROCKS AND MINERALS  `rocks_and_minerals`
+- правило: Common rocks and minerals from the ground
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 20
+- ~chalk (chalk_rock), +basalt, +boulder, +clay, +coal, +flint, +granite, +gravel, +gypsum, +iron ore, +limestone, +marble (marble_stone), +obsidian, +pebble, +pumice, +quartz, +salt, +sandstone, +shale, +slate
+
+### BEACH THINGS  `sea_shore_things`
+- правило: Things you find on an ocean beach
+- тип связи: `found_in`, базовая сложность 0.2
+- слов: 21
+- ~sandcastle, ~seashell, +boardwalk, +cooler, +crab, +driftwood, +dune, +gull, +jellyfish, +pebble, +sand, +seaweed, +shell, +starfish, +sunscreen, +surfboard, +tide, +towel, +umbrella, +wave (wave_water), !kite (kite_toy)
+
+### SEASONAL WORDS  `seasons_and_nature`
+- правило: Words describing the changing seasons outdoors
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 18
+- ~molt, +bloom, +blossom, +bud, +equinox, +foliage, +frost, +harvest, +hibernate, +migrate, +ripen, +shed, +snowfall, +solstice, +sprout, +sunrise, +thaw, +wither
+
+### STORMS  `storms`
+- правило: Kinds of violent weather events
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 15
+- ~hailstorm, +blizzard, +cyclone, +downpour, +dust storm, +gale, +hurricane, +ice storm, +monsoon, +squall, +Tempest, +thunderstorm, +tornado, +typhoon, +whirlwind
+
+### FOREST THINGS  `things_in_the_forest`
+- правило: Things you find walking through a forest
+- тип связи: `found_in`, базовая сложность 0.25
+- слов: 20
+- ~pinecone, +acorn, +bark (bark_tree), +branch (branch_tree), +campsite, +clearing, +deer, +Fern, +fox, +leaf, +log, +moss, +mushroom, +owl, +squirrel, +stream, +stump, +trail, +tree, +undergrowth
+
+### GROWING THINGS  `things_that_grow`
+- правило: Living things that grow larger over time
+- тип связи: `has_property`, базовая сложность 0.35
+- слов: 18
+- ~bud, ~crop, ~crystal, ~flower, ~grass, ~leaf, ~moss, ~mushroom, ~plant (plant_growth), ~root, ~sapling, ~seedling, ~vine, ~weed, +child, +hair, +tree, !nail (nail_body)
+
+### THINGS WITH SEEDS  `things_with_seeds`
+- правило: Common objects or foods that naturally contain seeds
+- тип связи: `has_property`, базовая сложность 0.35
+- слов: 25
+- ~avocado, ~bean, ~cherry, ~corn, ~cucumber, ~fig, ~grape, ~kiwi, ~melon, ~orange (orange_fruit), ~peach, ~pear, ~pepper, ~plum, ~pomegranate, ~poppy, ~pumpkin, ~sesame, ~squash (squash_vegetable), ~strawberry, ~sunflower, ~tomato, ~watermelon, +apple (apple_fruit), !pinecone
+
+### TREE PARTS  `tree_parts`
+- правило: Physical parts of a living tree
+- тип связи: `part_of`, базовая сложность 0.25
+- слов: 20
+- ~needle (needle_pine), +acorn, +bark (bark_tree), +bough, +branch (branch_tree), +bud, +cone, +knot, +leaf, +limb, +pulp, +root, +sap, +seed, +shoot, +stump, +trunk (trunk_tree), +twig, !crown (crown_tree), !ring (ring_tree)
+
+### TREES  `trees`
+- правило: Kinds of trees an average American can name
+- тип связи: `is_a`, базовая сложность 0.2
+- слов: 25
+- ~apple (apple_fruit), +ash, +Aspen, +beech, +birch, +cedar, +cherry, +chestnut, +cypress, +dogwood, +elm, +fir, +hickory, +juniper, +magnolia, +maple, +oak, +palm (palm_tree), +pine, +poplar, +redwood, +spruce, +sycamore, +walnut, +Willow
+
+### TYPES OF SOIL  `types_of_soil`
+- правило: A type of soil or ground classed by what it is made of
 - тип связи: `is_a`, базовая сложность 0.5
-- слов: 10
-- ~algae, ~fungus, ~moss, !lichen, !reindeer moss, !sphagnum, xcrustose, xfoliose, xhornwort, xliverwort
+- слов: 6
+- +chalk (chalk_rock), +clay, +loam, +peat, +sand, +silt
 
-### CONIFER WORDS  `pine_and_cones`
-- правило: Words about pine trees and their cones
-- тип связи: `found_in`, базовая сложность 0.5
+### UNDERGROUND THINGS  `underground_things`
+- правило: Things found under the surface of the ground
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 18
+- ~ant nest, ~aquifer, ~bulb, ~burrow, ~cave, ~coal, ~fossil, ~mole (mole_animal), ~ore, ~pipe (pipe_tube), ~root, ~seed, ~sewer, ~Subway, ~treasure, ~tunnel, ~worm, +mine
+
+### FORMS OF WATER  `water_states`
+- правило: Forms water takes in nature
+- тип связи: `is_a`, базовая сложность 0.3
+- слов: 19
+- ~dew, ~drizzle, ~fog, ~frost, ~glacier, ~hail, ~humidity, ~icicle, ~mist, ~puddle, ~sleet, ~slush, ~vapor, +cloud, +ice, +liquid, +rain, +snow, +steam
+
+### WEATHER REPORT  `weather_report`
+- правило: What a weather report names or predicts
+- тип связи: `associated_with`, базовая сложность 0.5
+- слов: 7
+- ~directions, ~seasons, +forecast, +humidity, +radar, +storms, xmonths
+
+### WEATHER WORDS  `weather_words`
+- правило: Words describing weather conditions or events in the sky
+- тип связи: `is_a`, базовая сложность 0.15
+- слов: 26
+- +blizzard, +breeze, +cloud, +downpour, +drizzle, +flurry, +fog, +frost, +gale, +hail, +heat wave, +humidity, +hurricane, +lightning, +mist, +rain, +shower, +sleet, +snow, +storm, +sun, +sunshine, +thaw, +thunder, +tornado, +wind
+
+### WILD PLANTS  `wild_plants`
+- правило: Plants that grow wild in fields and woods
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 18
+- ~bracken, ~bramble, ~clover, ~dandelion, ~Fern, ~Ivy, ~lichen, ~moss, ~nettle, ~reed, ~thistle, ~vine, ~weed, !cattail, !goldenrod, !milkweed, !ragweed, !sedge
+
+
+## Тема: sounds
+
+### ALARM SOUNDS  `bell_and_alarm`
+- правило: Sounds made by alarms and signals
+- тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~bark (bark_tree), ~cluster, ~cone, ~evergreen, ~fir, ~needle (needle_pine), ~resin, ~sap, ~scent, ~seed, ~spruce, ~timber, !bough, !pitch (pitch_tar)
+- ~alert, ~beep, ~bell (bell_object), ~blare, ~buzz, ~chime, ~ding, ~gong, ~horn (horn_sound), ~siren (siren_device), ~tone, ~whistle, +ring (ring_sound), !klaxon
 
-### SALTWATER FISH  `saltwater_fish`
-- правило: Fish that live in salt water
+### CITY SOUNDS  `city_sounds`
+- правило: Sounds heard on a city street
+- тип связи: `does_action`, базовая сложность 0.4
+- слов: 14
+- ~alarm, ~bell (bell_object), ~brakes, ~chatter, ~footsteps, ~honk, ~jackhammer, ~rumble, ~screech, ~shout, ~siren (siren_device), ~whistle, +engine, +traffic
+
+### KITCHEN SOUNDS  `kitchen_sounds`
+- правило: Sounds heard in a kitchen
+- тип связи: `does_action`, базовая сложность 0.45
+- слов: 14
+- ~boil, ~bubble, ~chop, ~clatter, ~clink, ~crunch (crunch_sound), ~ding, ~grind, ~hiss, ~pop (pop_sound), ~sizzle, ~slam, ~whisk, !whir
+
+### LOUD NOISES  `loud_noises`
+- правило: Words for very loud noises
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~blare, ~clash, ~explosion, ~roar, ~rumble, ~screech, ~shatter, ~slam, ~thunder, ~wail, +bang, +blast, +boom, +crash
+
+### MACHINE SOUNDS  `machine_sounds`
+- правило: Sounds that machines make
+- тип связи: `does_action`, базовая сложность 0.4
+- слов: 16
+- ~beep, ~buzz, ~chug, ~clank, ~ding, ~grind, ~hum, ~purr, ~rattle (rattle_sound), ~rev, ~roar, ~screech, ~sputter, ~whine, +click, !whir
+
+### MUSIC SOUNDS  `musical_sounds`
+- правило: Words for the sound a musical instrument makes
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 14
+- ~blare, ~ring (ring_sound), +boom, +chime, +clang, +hum, +jingle, +riff, +strum, +thump, +toot, +trill, +twang, !drumroll
+
+### NATURE SOUNDS  `nature_sounds`
+- правило: Sounds heard outdoors in nature
+- тип связи: `does_action`, базовая сложность 0.4
+- слов: 15
+- ~buzz, ~chirp, ~crackle, ~croak, ~crunch (crunch_sound), ~hoot, ~howl, ~hum, ~patter, ~roar, ~rustle, ~splash, ~thunder, ~whisper, ~whistle
+
+### SOUND WORDS  `onomatopoeia`
+- правило: Words that imitate the sound they name
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 25
+- ~drip (drip_water), +bang, +beep, +boom, +buzz, +clang, +click, +crackle, +crash, +hiss, +jingle, +ping, +plop, +pop (pop_sound), +ring (ring_sound), +rumble, +sizzle, +snap, +splash, +squeak, +thud, +whack, +whoosh, +zap, !tick (tick_sound)
+
+### QUIET SOUNDS  `quiet_sounds`
+- правило: Words for very soft sounds
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- ~breath, ~creak, ~hum, ~murmur, ~patter, ~purr, ~rustle, ~sigh, ~tinkle, ~whisper, !drip (drip_water), !shuffle (shuffle_walk), !tick (tick_sound)
+
+### SCARY SOUNDS  `scary_sounds`
+- правило: Sounds that make people uneasy
+- тип связи: `does_action`, базовая сложность 0.45
+- слов: 14
+- ~creak, ~groan, ~growl, ~howl, ~moan, ~rattle (rattle_sound), ~scratch, ~scream, ~shriek, ~snap, ~thud, ~wail, ~whisper, !footstep
+
+### VOICE SOUNDS  `voice_sounds`
+- правило: Sounds a human voice makes without words
+- тип связи: `does_action`, базовая сложность 0.35
+- слов: 16
+- +cough, +cry, +gasp, +giggle, +groan, +grunt, +hum, +laugh, +moan, +scream, +shout, +sigh, +snort, +sob, +whistle, +yawn
+
+### WATER SOUNDS  `water_sounds`
+- правило: Sounds that water makes
+- тип связи: `does_action`, базовая сложность 0.4
+- слов: 14
+- ~babble, ~drip (drip_water), ~hiss, ~lap (lap_water), ~patter, ~plop, ~ripple, ~roar, ~splash, ~spray, ~trickle, ~whoosh, !gurgle, !slosh
+
+
+## Тема: space
+
+### ASTRONAUT GEAR  `astronaut_gear`
+- правило: Equipment an astronaut uses
+- тип связи: `used_in`, базовая сложность 0.35
+- слов: 13
+- ~spacesuit, +backpack, +boot (boot_shoe), +camera, +checklist, +communicator, +glove, +helmet, +jetpack, +oxygen tank, +tether, +tool belt, +visor
+
+### STARS  `bright_stars`
+- правило: Individual stars people can name
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 17
+- +Capella, +Castor, +constellations, +Polaris, +Sirius, +sun, +Vega, !Aldebaran, !Altair, !Antares, !Arcturus, !Betelgeuse, !Deneb, !Pollux, !Procyon, !Rigel, !Spica
+
+### CONSTELLATIONS  `constellations`
+- правило: Constellations in the night sky
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 15
-- ~hake, ~mahi mahi, ~pompano, ~tarpon, +bonito, +cod, +grouper, +mackerel, +sea bass, +snapper, +sole (sole_fish), +tuna, +wahoo, !amberjack, !bluefish
+- ~Cassiopeia, +Andromeda, +Big Dipper, +Crux, +Cygnus, +Draco, +Hercules, +Little Dipper, +Lyra, +Orion, +pegasus, +Perseus, +Ursa Major, +Ursa Minor, !Centaurus
 
-### WILDFLOWERS  `wildflowers`
-- правило: Flowers that grow wild in fields and roadsides
-- тип связи: `is_a`, базовая сложность 0.4
+### DEEP COSMOS  `deep_cosmos`
+- правило: An object or measure of the far cosmos
+- тип связи: `found_in`, базовая сложность 0.7
+- слов: 5
+- ~quasar, ~stargazer, +exoplanet, +lightyear, +pulsar
+
+### DEEP SPACE  `deep_space`
+- правило: An object seen in deep space beyond the earth
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 7
+- +asteroid, +comets, +galaxy, +meteor, +moon (moon_space), +nebula, +stars
+
+### MOONS  `moons`
+- правило: Named moons of the solar system
+- тип связи: `is_a`, базовая сложность 0.45
 - слов: 14
-- ~chicory, ~milkweed, ~trillium, +aster, +black eyed susan, +columbine, +indian paintbrush, +primrose, +wild rose, !bloodroot, !bluebonnet, !coneflower, !goldenrod, !queen annes lace
+- +Europa, +Ganymede, +Io, +Luna, +Miranda, +Rhea, +Titan, +triton, !Callisto, !Charon, !Deimos, !Enceladus, !Iapetus, !Phobos
 
+### ROCKET PARTS  `rocket_parts`
+- правило: Parts of a rocket
+- тип связи: `part_of`, базовая сложность 0.4
+- слов: 12
+- +booster, +capsule, +engine, +fin, +fuel tank, +heat shield, +launch pad, +nose cone, +nozzle, +payload, +stage, +thruster
 
-## Тема: plants
+### SCI FI  `science_fiction_space`
+- правило: Words used in space science fiction
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 14
+- ~Alien, ~android, ~colony, ~cyborg, ~galaxy, ~hyperdrive, ~laser, ~mothership, ~ray gun, ~starship, ~teleport, ~warp, ~wormhole, +force field
 
-### CACTUS AND SUCCULENTS  `cactus_and_succulents`
-- правило: Desert plants that store water in thick leaves or stems
+### SOLAR SYSTEM  `solar_system_words`
+- правило: Words describing the solar system
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 14
+- ~kuiper belt, ~ring (ring_circle), +asteroid belt, +comet, +corona, +dwarf planet, +eclipse, +gravity, +meteor, +moon (moon_space), +orbit, +planet, +solar wind, +sun
+
+### SPACE PLACES  `space_agencies_and_places`
+- правило: Places and organizations connected with space flight
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 11
+- +Cape Canaveral, +Houston, +ISS, +Jet Propulsion Lab, +Kennedy Space Center, +launch pad, +Mission Control, +NASA, +observatory, !Baikonur, !Roscosmos
+
+### SPACE MEASUREMENTS  `space_measurements`
+- правило: Units used to measure distance and time in space
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 11
+- ~astronomical unit, ~gravity, ~kilometer, ~light year, ~magnitude, ~mile, ~orbit, ~revolution, ~rotation, !degree (degree_angle), !parsec
+
+### SPACE PHENOMENA  `space_phenomena`
+- правило: Events and phenomena seen in space
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 12
-- ~agave, ~aloe, ~barrel cactus, ~cactus, ~hens and chicks, ~jade, ~prickly pear, ~yucca, !cholla, !echeveria, !saguaro, !sedum
+- ~quasar, +aurora, +big bang, +black hole, +comet tail, +eclipse, +gravity well, +meteor shower, +nebula, +solar flare, +sunspot, +supernova
 
-### FARM CROPS  `crops`
-- правило: Plants grown on farms for food or material
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 18
-- +alfalfa, +barley, +canola, +corn, +cotton, +flax, +hay, +millet, +oat, +peanut, +potato, +rice, +rye, +sorghum, +soybean, +sugarcane, +sunflower, +wheat
+### SPACE STATION  `space_station`
+- правило: A part of a space station or a task done aboard it
+- тип связи: `found_in`, базовая сложность 0.6
+- слов: 5
+- ~spacewalk, +airlock, +cosmonaut, +docking, +module
 
-### EVERGREEN TREES  `evergreens`
-- правило: Trees that keep their leaves or needles all year
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 14
-- +cedar, +cypress, +fir, +hemlock, +holly, +juniper, +laurel, +magnolia, +pine, +redwood, +sequoia, +spruce, +yew, !arborvitae
+### SPACECRAFT  `spacecraft`
+- правило: Famous spacecraft and space missions
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 15
+- +Apollo, +Atlantis, +Cassini, +Challenger, +Columbia, +Curiosity, +Discovery, +Galileo, +Hubble, +Juno, +Pioneer, +Soyuz, +Sputnik, +Viking, +Voyager
 
-### FRUIT TREES  `fruit_trees`
-- правило: Trees grown for their edible fruit
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 18
-- +almond, +apple (apple_fruit), +apricot, +avocado, +banana, +cherry, +coconut, +fig, +lemon, +lime, +mango, +olive, +orange (orange_fruit), +peach, +pear, +pecan, +plum, +walnut
-
-### GARDEN CENTER  `garden_center`
-- правило: What a garden center sells or what you buy there
+### STARGAZING  `stargazing`
+- правило: What you look at or name when you look up on a clear night
 - тип связи: `associated_with`, базовая сложность 0.4
 - слов: 7
-- +flowers, +houseplants, +seedling, +soil, +trees, +trowel, !weeds
+- ~comet, ~eclipse, ~telescope, +constellations, +moons, +planets, +stars
 
-### SPRING FLOWERS  `garden_flowers_spring`
-- правило: Flowers that bloom in spring
-- тип связи: `found_in`, базовая сложность 0.35
+### TELESCOPE WORDS  `telescope_words`
+- правило: Parts and words used with a telescope
+- тип связи: `found_in`, базовая сложность 0.4
 - слов: 14
-- ~crocus, ~snowdrop, +azalea, +bluebell, +cherry blossom, +daffodil, +hyacinth, +iris, +lilac, +magnolia, +pansy, +primrose, +tulip, !forsythia
-
-### SUMMER FLOWERS  `garden_flowers_summer`
-- правило: Flowers that bloom in summer
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 14
-- ~hydrangea, ~petunia, +black eyed susan, +cosmos, +dahlia, +Daisy, +geranium, +lavender (lavender_plant), +Lily, +marigold, +rose, +snapdragon, +sunflower, !zinnia
-
-### GARDEN IN BLOOM  `garden_in_bloom`
-- правило: A word belonging to a garden in bloom
-- тип связи: `associated_with`, базовая сложность 0.35
-- слов: 7
-- +bloom, +blossom, +bud, +flower, +garden, +petal, +pollen
-
-### GARDENING WORDS  `gardening_words`
-- правило: Words used when growing a garden
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 18
-- +bed, +compost, +fertilizer, +greenhouse, +harvest, +hose, +mulch, +pot, +prune, +row, +seed, +shade, +soil, +sprout, +sunlight, +trellis, +water, +weed
-
-### GRASSES  `grasses`
-- правило: Kinds of grass and grain plants
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 14
-- ~bamboo, ~barley, ~Bermuda, ~bluegrass, ~corn, ~oat, ~reed, ~rice, ~rye, ~sugarcane, ~wheat, !crabgrass, !fescue, !ryegrass
-
-### COOKING HERBS  `herbs`
-- правило: Leafy plants grown to flavor food
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 15
-- ~chive, ~lavender (lavender_plant), ~lemongrass, ~marjoram, ~tarragon, +basil, +bay, +cilantro, +dill, +mint (mint_herb), +oregano, +parsley, +rosemary, +sage (sage_herb), +thyme
-
-### HOUSEPLANTS  `houseplants`
-- правило: Plants commonly kept indoors in pots
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 18
-- ~begonia, ~palm (palm_tree), ~philodendron, +aloe, +bamboo, +cactus, +Fern, +geranium, +Ivy, +jade, +orchid, +peace lily, +rubber plant, +snake plant, +spider plant, +succulent, +Violet, !pothos
-
-### KINDS OF PLANTS  `kinds_of_plants`
-- правило: A broad kind of plant that grows from the ground
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 7
-- +Bush, +flower, +grass, +Ivy, +moss, +shrub, +tree
-
-### LEAF WORDS  `leaf_shapes`
-- правило: Words describing leaves and how they grow
-- тип связи: `found_in`, базовая сложность 0.45
-- слов: 14
-- ~blade, ~bud, ~canopy, ~deciduous, ~evergreen, ~foliage, ~lobe, ~needle (needle_pine), ~sprout, ~stalk, ~stem, ~vein, !broadleaf, !frond
-
-### MUSHROOM TYPES  `mushroom_types`
-- правило: Kinds of edible and wild mushrooms
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- ~morel, ~oyster, ~portobello, ~truffle, !button (button_mushroom), !chanterelle, !enoki, !porcini, !puffball, !shiitake, !toadstool, xcremini
-
-### PLANT PARTS  `plant_parts`
-- правило: Parts of a growing plant
-- тип связи: `part_of`, базовая сложность 0.25
-- слов: 16
-- ~bark (bark_tree), ~tendril, +bud, +flower, +fruit, +leaf, +node, +petal, +pollen, +root, +seed, +sprout, +stalk, +stem, +thorn, +vine
-
-### POISONOUS PLANTS  `poisonous_plants`
-- правило: Plants that are dangerous to touch or eat
-- тип связи: `has_property`, базовая сложность 0.4
-- слов: 12
-- ~castor bean, ~hemlock, ~holly berry, ~mistletoe, ~nightshade, ~poison ivy, ~poison oak, ~yew, !foxglove, !monkshood, !oleander, !sumac
-
-### SEEDS AND BULBS  `seeds_and_bulbs`
-- правило: Plant parts you put in the ground to grow a new plant
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 14
-- ~rhizome, ~sapling, +acorn, +bulb, +clove, +cutting, +kernel, +pit, +seed, +seedling, +spore, +sprout, +tuber, !corm
-
-### SHRUBS AND BUSHES  `shrubs`
-- правило: Woody plants smaller than a tree
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 14
-- ~azalea, ~hedge, ~holly, ~hydrangea, ~juniper, ~lilac, ~rhododendron, +rose, !barberry, !boxwood, !forsythia, !privet, !spirea, !viburnum
-
-### TROPICAL PLANTS  `tropical_plants`
-- правило: Plants that grow in tropical climates
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 14
-- ~palm (palm_tree), +bamboo, +banana, +banyan, +cocoa, +coffee, +Fern, +hibiscus, +mangrove, +orchid, +papaya, +rubber tree, !bromeliad, !plumeria
-
-### VINES AND CLIMBERS  `vines`
-- правило: Plants that climb or trail along a surface
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 14
-- ~bean, ~clematis, ~cucumber, ~grape, ~honeysuckle, ~hops, ~Ivy, ~Jasmine, ~morning glory, ~passion flower, ~pea, ~pumpkin, ~wisteria, !kudzu
-
-### WATER PLANTS  `water_plants`
-- правило: Plants that grow in or on water
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 13
-- +algae, +kelp, +lily pad, +lotus, +moss, +papyrus, +reed, +seaweed, +water lily, +watercress, !cattail, !duckweed, !eelgrass
-
-### WEEDS  `weeds`
-- правило: Unwanted plants that grow in lawns and gardens
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 14
-- ~ragweed, +clover, +dandelion, +Ivy, +moss, +nettle, +plantain, +poison ivy, +thistle, !bindweed, !chickweed, !crabgrass, !foxtail, !purslane
-
-
-## Тема: skills
-
-### CARD TRICKS  `card_tricks`
-- правило: Terms used in performing card tricks
-- тип связи: `found_in`, базовая сложность 0.5
-- слов: 12
-- ~control, ~cut, ~double lift, ~false shuffle, ~flourish, ~force, ~pass, ~reveal, ~spread, !palm (palm_hand), !shuffle (shuffle_cards), !sleight
-
-### COCKTAILS  `cocktails`
-- правило: Named mixed drinks
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 17
-- ~daiquiri, ~negroni, ~pina colada, +bloody mary, +cosmopolitan, +mai tai, +manhattan, +margarita, +martini, +mimosa, +mojito, +moscow mule, +old fashioned, +sangria, +tom collins, +whiskey sour, xteas
-
-### DANCE MOVES  `dance_moves`
-- правило: Named dance moves
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 15
-- ~moonwalk, ~shuffle (shuffle_dance), +dip, +floss, +hustle, +jump, +kick, +robot, +slide, +spin, +split, +tap (tap_dance), +turn, +twist, !wave (wave_dance)
-
-### DRIVING SKILLS  `driving_skills`
-- правило: Skills tested on a driving exam
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 11
-- +backing up, +hill start, +lane change, +merging, +mirror check, +parallel parking, +signaling, +stopping, +three point turn, +u turn, +yielding
-
-### AID ACTIONS  `first_aid_actions`
-- правило: Actions taken when giving first aid
-- тип связи: `does_action`, базовая сложность 0.35
-- слов: 14
-- ~immobilize, ~monitor (monitor_medical), +bandage, +call, +check pulse, +compress, +cool, +cover, +CPR, +disinfect, +elevate, +ice, +rinse, +splint
-
-### JUGGLING WORDS  `juggling_words`
-- правило: Words used in juggling
-- тип связи: `found_in`, базовая сложность 0.5
-- слов: 13
-- ~ball (ball_sphere), ~cascade, ~catch, ~club (club_stick), ~drop, ~flash, ~pattern, ~scarf, ~shower, ~throw, ~toss, !diabolo, !ring (ring_circle)
-
-### KITCHEN SKILLS  `kitchen_skills`
-- правило: Practical skills used in cooking
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 14
-- ~basting, ~filleting, ~garnishing, ~kneading, ~whisking, +chopping, +folding, +measuring, +plating, +seasoning, +sharpening, +tempering, +timing, !portioning
-
-### KNOT TYING  `knot_tying`
-- правило: A named knot or a way rope behaves
-- тип связи: `associated_with`, базовая сложность 0.6
-- слов: 5
-- ~overhand, +hitch, +lasso, +slipknot, +tangle
-
-### KNOTS  `knots`
-- правило: Named knots tied in rope
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 13
-- ~clove hitch, ~figure eight, ~fisherman knot, ~granny knot, ~half hitch, ~sheet bend, ~slip knot, ~square knot, ~taut line, ~timber hitch, ~trucker hitch, !bowline, !overhand
-
-### PIZZA STYLES  `pizza_styles`
-- правило: Regional styles of pizza
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- ~flatbread, +California, +chicago deep dish, +Detroit, +neapolitan, +new york, +sicilian, +stuffed crust, +tavern, +thin crust, !calzone, !focaccia
-
-### POKER HANDS  `poker_hands`
-- правило: Hands that can be dealt in poker
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 10
-- +flush, +four of a kind, +full house, +high card, +pair, +royal flush, +straight, +straight flush, +three of a kind, +two pair
-
-### SELF DEFENSE  `self_defense_moves`
-- правило: Basic self defense moves
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 12
-- ~elbow, ~escape, ~grab release, ~kick, ~knee, ~palm strike, ~roll (roll_turn), ~stance, ~stomp, ~strike (strike_hit), ~throw, !block (block_stop)
-
-### SURVIVAL SKILLS  `survival_skills`
-- правило: Skills used to survive outdoors
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- ~orienteering, +fire starting, +first aid, +fishing, +foraging, +knot tying, +navigation, +shelter building, +signaling, +tracking, +trapping, +water purification
-
-### SWIMMING SKILLS  `swimming_skills`
-- правило: Skills learned in swimming lessons
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 12
-- ~stroke (stroke_swim), +backstroke, +bobbing, +breathing, +diving, +floating, +gliding, +jumping, +kicking, +rescue, +treading, +turning
-
-### OFFICE SKILLS  `typing_and_office_skills`
-- правило: Practical skills useful in an office job
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- +answering phones, +budgeting, +data entry, +emailing, +filing, +note taking, +organizing, +presenting, +proofreading, +scheduling, +spreadsheets, +typing
-
-### WEAVING  `weaving`
-- правило: A tool, worker or product of weaving cloth
-- тип связи: `used_in`, базовая сложность 0.6
-- слов: 5
-- +loom, +spindle, +tapestry, +warp, +weaver
-
-### YOGA POSES  `yoga_poses`
-- правило: Named poses used in yoga
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 14
-- ~boat, ~child, ~cobra, ~crow, ~downward dog, ~half moon, ~lotus, ~mountain, ~pigeon, ~plank, ~tree, ~triangle, ~warrior, !bridge (bridge_move)
-
-
-## Тема: species
-
-### ANIMAL CLASSES  `animal_classes`
-- правило: One of the broad classes animals are sorted into
-- тип связи: `member_of_set`, базовая сложность 0.35
-- слов: 6
-- +amphibian, +bird, +fish, +insect, +mammal, +reptile
-
-### BEARS  `bears_and_big_animals`
-- правило: Kinds of bear
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 10
-- ~spectacled bear, +black bear, +brown bear, +grizzly, +koala, +kodiak, +panda, +polar, +sloth bear, +sun bear
-
-### BIRD WATCHING  `bird_watching`
-- правило: What a birdwatcher looks for and looks through
-- тип связи: `associated_with`, базовая сложность 0.6
-- слов: 7
-- +binoculars, +feeder, +nest, +owls, +seabirds, +songbirds, +waterfowl
-
-### BIRDS OF PREY  `birds_of_prey`
-- правило: Birds that hunt other animals
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 13
-- ~goshawk, ~kestrel, +buzzard, +condor, +eagle, +falcon, +harrier, +hawk, +kite (kite_bird), +merlin, +osprey, +owl, +vulture
-
-### BUTTERFLIES AND MOTHS  `butterflies_and_moths`
-- правило: Kinds of butterfly and moth
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- +admiral, +buckeye, +cabbage white, +luna moth, +monarch, +painted lady, +skipper, +sphinx moth, +spongy moth, +viceroy, !fritillary, !swallowtail
-
-### CAT BREEDS  `cat_breeds`
-- правило: Breeds of domestic cat
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 15
-- ~abyssinian, ~ragdoll, +bengal, +bombay, +burmese, +calico, +himalayan, +maine coon, +manx, +persian, +russian blue, +siamese, +tabby, !birman, !sphynx
-
-### FARM BREEDS  `cattle_and_farm_breeds`
-- правило: Breeds of cattle, sheep and pigs raised on farms
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 13
-- ~angus, ~berkshire, ~dorset, ~guernsey, ~hereford, ~jersey, ~suffolk, !brahman, !duroc, !holstein, !longhorn, !merino, !shorthorn
-
-### DEER FAMILY  `deer_family`
-- правило: Animals of the deer family
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 14
-- +antelope, +buck, +caribou, +deer, +doe, +elk, +fawn, +gazelle, +impala, +moose, +reindeer, +roe deer, +stag, !muntjac
-
-### PREHISTORIC ANIMALS  `extinct_and_prehistoric`
-- правило: Animals that lived in prehistoric times
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 12
-- ~ammonite, ~megalodon, ~pterosaur, ~trilobite, +cave bear, +dire wolf, +dodo, +giant sloth, +mammoth, +mastodon, +saber tooth, ?glyptodon
-
-### CHICKEN BREEDS  `farm_poultry_breeds`
-- правило: Breeds of chicken raised on farms
-- тип связи: `is_a`, базовая сложность 0.45
-- слов: 10
-- ~plymouth rock, ~rhode island red, ~sussex, ?australorp, !bantam, !brahma, !leghorn, !orpington, !silkie, !wyandotte
-
-### FROGS AND TOADS  `frogs_and_toads`
-- правило: Kinds of frog and toad
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 10
-- ~bullfrog, ~cane toad, ~green frog, ~leopard frog, ~poison dart, ~toad, ~tree frog, ~wood frog, !pickerel frog, !spring peeper
-
-### HORSE BREEDS  `horse_breeds`
-- правило: Breeds of horse
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 14
-- ~andalusian, ~clydesdale, +Arabian, +Morgan, +Mustang, +paint, +pinto, +quarter horse, +shetland, +thoroughbred, !appaloosa, !friesian, !palomino, !percheron
-
-### LIZARDS  `lizards`
-- правило: Kinds of lizard
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 11
-- ~skink, +bearded dragon, +chameleon, +gecko, +gila monster, +horned lizard, +iguana, +komodo dragon, +salamander, !anole, !monitor (monitor_lizard)
-
-### MONKEYS AND APES  `monkeys_and_apes`
-- правило: Kinds of monkey and ape
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 14
-- ~bonobo, ~capuchin, ~macaque, ~mandrill, ~marmoset, ~tamarin, +baboon, +chimpanzee, +gibbon, +gorilla, +howler, +lemur, +orangutan, +spider monkey
-
-### OWLS  `owls`
-- правило: Kinds of owl
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 10
-- +barn owl, +barred owl, +burrowing owl, +elf owl, +great horned, +long eared, +screech owl, +snowy owl, +spotted owl, +tawny owl
-
-### FRESHWATER FISH  `pond_fish`
-- правило: Fish that live in lakes and rivers
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 15
-- ~bluegill, ~crappie, ~muskie, ~sunfish, +bass (bass_fish), +carp, +catfish, +gar, +koi, +minnow, +perch, +pike, +sturgeon, +trout, +walleye
-
-### RODENT SPECIES  `rodent_species`
-- правило: Particular kinds of rodent
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 13
-- +chipmunk, +field mouse, +flying squirrel, +gray squirrel, +groundhog, +house mouse, +porcupine, +prairie dog, +vole, !capybara, !dormouse, !jerboa, !lemming
-
-### SNAKES  `snakes`
-- правило: Kinds of snake
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 14
-- ~copperhead, ~sidewinder, +adder, +anaconda, +boa, +cobra, +coral snake, +garter, +king snake, +mamba, +python, +rattlesnake, +viper, ?bullsnake
-
-### SONGBIRDS  `songbirds`
-- правило: Small singing birds found in yards and woods
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 17
-- ~oriole, +bluebird, +canary, +cardinal (cardinal_bird), +chickadee, +finch, +lark, +mockingbird, +robin, +sparrow, +starling, +swallow (swallow_bird), +thrush, +warbler, +wren, !junco, !nuthatch
-
-### SPIDERS AND CRAWLERS  `spiders_and_crawlers`
-- правило: Small many-legged creatures that are not insects
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 12
-- ~millipede, +Black Widow, +brown recluse, +centipede, +mite, +scorpion, +spider, +tarantula, +tick (tick_bug), +wolf spider, !daddy longlegs, xharvestman
-
-### WHALE TYPES  `whale_types`
-- правило: Kinds of whale
-- тип связи: `is_a`, базовая сложность 0.4
-- слов: 12
-- ~minke, ~narwhal, +beluga, +blue whale, +fin whale, +gray whale, +humpback, +orca, +pilot whale, +right whale, +sperm whale, !bowhead
-
-### WILD DOGS  `wild_dogs`
-- правило: Wild members of the dog family
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 11
-- ~fennec, ~maned wolf, +arctic fox, +coyote, +dingo, +fox, +gray wolf, +hyena, +jackal, +red fox, +wolf
-
-
-## Тема: sports
-
-### AT THE GYM  `at_the_gym`
-- правило: A machine, weight or person found in a gym
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 7
-- +barbell, +bench (bench_seat), +dumbbell, +squat, +trainer, +treadmill, +weights
-
-### AT THE POOL  `at_the_pool`
-- правило: Something you find at a swimming pool
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 7
-- +cap, +dive, +flippers, +goggles, +lane, +pool, +swimsuit
-
-### BASEBALL EQUIPMENT  `baseball_equipment`
-- правило: Physical equipment used to play a game of baseball
-- тип связи: `used_in`, базовая сложность 0.25
-- слов: 15
-- ~ball (ball_sphere), +base, +bat (bat_equipment), +batting glove, +cap, +chest protector, +cleats, +glove, +helmet, +mask, +mitt, +pine tar, +plate (plate_base), +rosin bag, +shin guard
-
-### BASEBALL WORDS  `baseball_words`
-- правило: Words used to describe plays, places or roles in a baseball game
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 28
-- ~diamond (diamond_field), +batter, +bullpen, +bunt, +catcher, +curveball, +double play, +dugout, +error, +fastball, +foul, +grand slam, +home run, +infield, +inning, +lineup, +mound (mound_baseball), +outfield, +pitch (pitch_throw), +pitcher (pitcher_baseball), +shortstop, +slider, +steal, +strike (strike_baseball), +triple, +umpire, +walk, !single (single_baseball)
-
-### BASKETBALL WORDS  `basketball_words`
-- правило: Words used to describe plays and roles in basketball
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 20
-- ~court (court_sport), ~guard (guard_sport), +assist, +backboard, +buzzer, +center, +dribble, +dunk (dunk_basketball), +forward, +foul, +free throw, +hoop, +jump ball, +layup, +rebound, +three pointer, +timeout, +travel, !block (block_stop), !screen (screen_basketball)
-
-### BILLIARDS  `billiards`
-- правило: A term belonging to billiards and snooker
-- тип связи: `used_in`, базовая сложность 0.6
-- слов: 4
-- +chalked, +felt, +potting, +snooker
-
-### GAMES OF SKILL  `board_and_card_games`
-- правило: Competitive indoor games of skill
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 14
-- ~backgammon, ~bridge (bridge_card), ~cornhole, ~foosball, ~shuffleboard, +air hockey, +billiards, +bowling, +checkers, +chess, +darts, +dominoes, +poker, +table tennis
-
-### BOXING GYM  `boxing_gym`
-- правило: A term or piece of kit used in boxing training
-- тип связи: `used_in`, базовая сложность 0.55
-- слов: 5
-- ~mouthguard, +clinch, +southpaw, +spar, +sparring
-
-### OUTDOOR ACTIVITIES  `camping_and_outdoors`
-- правило: Recreational activities done outdoors
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 18
-- ~birdwatching, ~geocaching, ~picnicking, +backpacking, +biking, +camping, +canoeing, +climbing, +fishing, +hiking, +hunting, +kayaking, +rafting, +running, +sailing, +skiing, +snorkeling, +surfing
-
-### CLIMBING WALL  `climbing_wall`
-- правило: A term or piece of kit used in climbing
-- тип связи: `used_in`, базовая сложность 0.6
-- слов: 5
-- ~belay, ~carabiner, ~rappel, +ascent, +foothold
-
-### CYCLING WORDS  `cycling_words`
-- правило: Words used about riding and racing bicycles
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 16
-- +brake, +cadence, +chain, +drafting, +gear, +handlebar, +helmet, +jersey, +pedal, +peloton, +saddle, +spoke, +sprint, +tire, +tour, +trail
-
-### DARTS WORDS  `darts_words`
-- правило: A term or piece of equipment used in darts
-- тип связи: `used_in`, базовая сложность 0.45
-- слов: 6
-- +board (board_game), +bullseye, +flight, +score (score_points), +Target, +throw
-
-### FISHING THINGS  `fishing_things`
-- правило: Things used to catch fish
-- тип связи: `used_in`, базовая сложность 0.3
-- слов: 18
-- ~bobber, ~fly (fly_lure), ~waders, +bait, +boat, +cooler, +hook (hook_fishing), +line (line_cord), +lure, +net, +pole, +reel (reel_fishing), +rod, +sinker, +spear, +tackle box, +trap, +worm
-
-### FOOTBALL WORDS  `football_words`
-- правило: Words used to describe plays and roles in American football
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 20
-- ~sack (sack_football), +blitz, +down, +end zone, +field goal, +fumble, +helmet, +huddle, +interception, +kickoff, +lineman, +punt, +quarterback, +receiver, +referee, +safety, +snap, +tackle, +touchdown, +yard line
-
-### GOLF WORDS  `golf_words`
-- правило: Words used to describe play and equipment in golf
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 21
-- ~bunker (bunker_golf), ~green (green_golf), ~iron (iron_golf), +birdie, +bogey, +caddie, +caddy, +club (club_stick), +course, +driver, +eagle, +fairway, +flag, +hole, +hole in one, +par, +putter, +rough, +sand trap, +tee, +wedge
-
-### GYM EQUIPMENT  `gym_equipment`
-- правило: Equipment used for exercise in a fitness gym
-- тип связи: `used_in`, базовая сложность 0.25
-- слов: 19
-- ~kettlebell, +barbell, +dumbbell, +elliptical, +foam roller, +jump rope, +mat, +medicine ball, +pull up bar, +punching bag, +resistance band, +rope, +rowing machine, +stair climber, +stationary bike, +treadmill, +weights, !bench (bench_seat), !club (club_stick)
-
-### HOCKEY WORDS  `hockey_words`
-- правило: Words used to describe plays and gear in ice hockey
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 18
-- ~zamboni, +blue line, +crease, +faceoff, +goalie, +helmet, +icing, +net, +pad, +penalty box, +period, +power play, +puck, +rink, +skate, +stick (stick_hockey), !check (check_hockey), !slapshot
-
-### MARATHON DAY  `marathon_day`
-- правило: A word belonging to running a long distance race
-- тип связи: `associated_with`, базовая сложность 0.55
-- слов: 4
-- +finisher, +jog, +pacer, +stamina
-
-### MARTIAL ARTS  `martial_arts`
-- правило: Fighting sports and self defense disciplines
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 14
-- ~capoeira, ~kendo, +aikido, +boxing, +fencing, +judo, +jujitsu, +karate, +kickboxing, +kung fu, +muay thai, +sumo, +taekwondo, +wrestling
-
-### OLYMPIC SPORTS  `olympic_sports`
-- правило: Sports contested at the modern Olympic Games
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 25
-- ~bobsled, +archery, +badminton, +biathlon, +boxing, +canoeing, +curling, +diving, +fencing, +gymnastics, +hurdles, +javelin, +judo, +luge, +marathon, +rowing, +sailing, +shot put, +skating, +skiing, +swimming, +taekwondo, +triathlon, +weightlifting, +wrestling
-
-### RACING SPORTS  `racing_sports`
-- правило: Sports where competitors race to finish first
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 15
-- +cross country, +cycling, +dog sled racing, +drag racing, +horse racing, +hurdles, +marathon, +motocross, +relay, +rowing, +sailing, +speed skating, +sprint, +swimming, +triathlon
-
-### SKATE PARK  `skate_park`
-- правило: A ramp or piece of kit found at a skate park
-- тип связи: `found_in`, базовая сложность 0.6
-- слов: 6
-- ~griptape, ~halfpipe, ~longboard, ~skatepark, +kicker, +vert
-
-### SOCCER WORDS  `soccer_words`
-- правило: Words used to describe plays and roles in soccer
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 18
-- ~pitch (pitch_field), +assist, +corner kick, +defender, +dribble, +free kick, +goal, +goalkeeper, +header, +midfielder, +net, +offside, +penalty, +red card, +striker, +throw in, +whistle, +yellow card
-
-### BALLS  `sports_balls`
-- правило: Balls used in different sports
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 14
-- +baseball, +basketball, +beach ball, +bowling ball, +cricket ball, +football, +golf ball, +medicine ball, +ping pong ball, +rugby ball, +soccer ball, +softball, +tennis ball, +volleyball
-
-### PROTECTIVE GEAR  `sports_gear_worn`
-- правило: Gear athletes wear to protect the body
-- тип связи: `used_in`, базовая сложность 0.3
-- слов: 14
-- ~mouthguard, +brace, +chest protector, +cup, +elbow pad, +glove, +goggles, +harness, +helmet, +knee pad, +mask, +pad, +shin guard, +wrist guard
-
-### SPORTS OFFICIALS  `sports_officials`
-- правило: People who enforce the rules of a sport
-- тип связи: `is_a`, базовая сложность 0.35
-- слов: 10
-- ~timekeeper, +judge, +linesman, +marshal, +official, +referee, +scorer, +starter, +steward, +umpire
-
-### SCORING WORDS  `sports_scoring`
-- правило: Words used for scoring and results in sports
-- тип связи: `found_in`, базовая сложность 0.35
-- слов: 20
-- ~lead (lead_front), ~point (point_score), +championship, +comeback, +draw, +goal, +loss, +medal, +overtime, +playoff, +ranking, +record, +score (score_points), +shutout, +standing, +streak, +title, +trophy, +win, !tie (tie_score)
-
-### SPORTS VENUES  `sports_venues`
-- правило: Places built for playing or watching sports
-- тип связи: `is_a`, базовая сложность 0.3
-- слов: 18
-- ~diamond (diamond_field), ~pitch (pitch_field), ~ring (ring_arena), +alley, +arena, +ballpark, +course, +dojo, +dome, +field, +gym, +pool, +racetrack, +rink, +stadium, +track, +velodrome, !court (court_sport)
-
-### TEAM SPORTS  `team_sports`
-- правило: Sports played by two opposing teams
-- тип связи: `is_a`, базовая сложность 0.15
-- слов: 18
-- +baseball, +basketball, +cricket, +dodgeball, +field hockey, +football, +handball, +hockey, +kickball, +lacrosse, +netball, +polo, +rugby, +soccer, +softball, +ultimate frisbee, +volleyball, +water polo
-
-### TENNIS WORDS  `tennis_words`
-- правило: Words used to describe play and scoring in tennis
-- тип связи: `found_in`, базовая сложность 0.3
-- слов: 18
-- ~tiebreak, +Ace, +backhand, +baseline, +court (court_sport), +deuce, +fault, +forehand, +lob, +love, +match point, +net, +racket, +rally, +serve, +set (set_tennis), +umpire, +volley
-
-### WATER SPORTS  `water_sports`
-- правило: Sports played in or on the water
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 15
-- ~paddleboarding, ~wakeboarding, ~windsurfing, +canoeing, +diving, +kayaking, +rafting, +rowing, +sailing, +snorkeling, +surfing, +swimming, +synchronized swimming, +water polo, +water skiing
-
-### WINTER FUN  `winter_fun`
-- правило: Something you play with or wear for fun in the snow
-- тип связи: `used_in`, базовая сложность 0.3
-- слов: 6
-- ~icicle, +mittens, +skates, +skis, +sled, +snowman
-
-### WINTER SPORTS  `winter_sports`
-- правило: Sports played on snow or ice
-- тип связи: `is_a`, базовая сложность 0.25
-- слов: 16
-- ~bobsled, ~snowshoeing, ~tobogganing, +biathlon, +curling, +figure skating, +hockey, +ice climbing, +luge, +skating, +skiing, +sled, +sledding, +snowboard, +snowboarding, +speed skating
+- ~aperture, ~dome, ~eyepiece, ~filter, ~finder, ~focus (focus_lens), ~lens, ~magnification, ~mirror, ~mount, ~observatory, ~reflector, ~refractor, ~tripod
 
 
 ## Тема: time
@@ -1792,6 +1588,147 @@
 - +aisle, +altar, +best man, +bouquet, +bride, +bridesmaid, +cake, +ceremony, +dress, +garter, +groom (groom_wedding), +honeymoon, +invitation, +reception, +rice, +ring (ring_jewelry), +tuxedo, +veil, +vows, !toast (toast_salute)
 
 
+## Тема: trades
+
+### AUTO REPAIR  `auto_repair`
+- правило: Things a mechanic works with
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 17
+- ~oil (oil_motor), +alternator, +battery, +belt, +brake pad, +coolant, +diagnostic, +filter, +gasket, +hose, +jack (jack_tool), +lift, +radiator, +spark plug, +tire iron, +transmission, +wrench
+
+### BAKERY WORDS  `baker_words`
+- правило: Things found in a bakery
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 15
+- +apron (apron_garment), +cooling rack, +display case, +dough, +flour, +icing, +mixer, +oven, +pastry bag, +rack, +timer, +tongs, +tray, !proofer, !scale (scale_weigh)
+
+### BARBERSHOP  `barbershop`
+- правило: A person or product found in a barbershop
+- тип связи: `found_in`, базовая сложность 0.5
+- слов: 4
+- ~pomade, +aftershave, +barber, +clippers
+
+### BARBERSHOP WORDS  `barbershop_words`
+- правило: Things found in a barbershop
+- тип связи: `found_in`, базовая сложность 0.3
+- слов: 14
+- +apron (apron_garment), +brush, +cape, +chair, +clippers, +comb, +mirror, +pole, +powder, +razor, +scissors, +shaving cream, +towel, +trimmer
+
+### BLACKSMITH  `blacksmith`
+- правило: A tool, place or step of working metal by hand
+- тип связи: `used_in`, базовая сложность 0.6
+- слов: 6
+- +anvil, +bellows, +forge, +horseshoe, +quench, +smithy
+
+### BUTCHER SHOP  `butcher_words`
+- правило: Things found in a butcher shop
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 18
+- ~block (block_cube), ~cutlet, +apron (apron_garment), +brisket, +cleaver, +cut, +freezer, +grinder, +mince, +rack, +sausage, +saw, +sirloin, +tenderloin, +twine, +wrap, !case (case_box), !scale (scale_weigh)
+
+### CARPENTER  `carpenter`
+- правило: A material, tool or joint used working wood
+- тип связи: `used_in`, базовая сложность 0.55
+- слов: 5
+- ~dovetail, +lathe, +plywood, +sander, +sawdust
+
+### CARPENTRY WORDS  `carpentry_words`
+- правило: Things a carpenter works with
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 18
+- ~beam (beam_wood), ~dovetail, ~joist, ~miter, ~plane (plane_tool), +chisel, +groove, +level, +lumber, +molding, +nail gun, +plywood, +rafter, +shim, +Square, +stud, +veneer, !sawhorse
+
+### JANITORIAL WORDS  `cleaning_trade`
+- правило: Things a janitor uses at work
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 15
+- ~squeegee, ~wax (wax_polish), +broom, +bucket, +buffer, +cart, +disinfectant, +dustpan, +gloves, +keys, +mop, +sign, +trash bag, +uniform, +vacuum
+
+### ELECTRICAL WORDS  `electrical_words`
+- правило: Things an electrician works with
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 16
+- +amp, +breaker, +cable, +conduit, +fuse, +ground, +insulation, +junction box, +outlet, +panel, +socket (socket_electric), +switch, +terminal, +transformer, +voltage, +wire
+
+### FACTORY WORDS  `factory_words`
+- правило: Things found in a factory
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 14
+- ~shift (shift_work), +assembly line, +conveyor, +crate, +foreman, +machine, +quality control, +robot, +safety goggles, +uniform, +whistle, !mold (mold_form), !press (press_machine), xtimeclock
+
+### LANDSCAPING WORDS  `landscaping_words`
+- правило: Things a landscaper works with
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 15
+- +blower, +edger, +fertilizer, +gravel, +hedge, +mower, +mulch, +planter, +seed, +shears, +sod, +sprinkler, +stake, +trimmer, +wheelbarrow
+
+### LOCKS & KEYS  `locksmith_words`
+- правило: Things involved with locks and keys
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 15
+- +bolt, +chain, +combination, +cylinder, +hinge, +key (key_lock), +keyhole, +keypad, +latch, +lock, +master key, +padlock, +safe, +tumbler, !deadbolt
+
+### LUMBER CAMP  `lumber_camp`
+- правило: A person, tool or product of felling trees
+- тип связи: `found_in`, базовая сложность 0.55
+- слов: 6
+- +chainsaw, +flannel, +logger, +sawmill, +stump, +timber
+
+### MASONRY WORDS  `masonry_words`
+- правило: Things a mason works with
+- тип связи: `found_in`, базовая сложность 0.45
+- слов: 14
+- ~block (block_cube), ~brick, ~cement, ~chisel, ~grout, ~joint, ~level, ~mortar, ~scaffold, ~stone, ~trowel, ~wheelbarrow, !hod, !plumb line
+
+### HOUSE PAINTING  `painting_trade`
+- правило: Things a house painter uses
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 14
+- ~caulk, +brush, +drop cloth, +extension pole, +ladder, +primer, +putty, +roller, +sandpaper, +scraper, +sprayer, +stir stick, +tape, +tray
+
+### PLUMBER VISIT  `plumber_visit`
+- правило: Something a plumber works with or on
+- тип связи: `used_in`, базовая сложность 0.55
+- слов: 4
+- ~unclog, +pipeline, +plunger, +sewer
+
+### PLUMBING WORDS  `plumbing_words`
+- правило: Things a plumber works with
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 18
+- ~spigot, +coupling, +drain, +elbow, +faucet, +fitting, +flange, +gasket, +pipe (pipe_tube), +plunger, +sewer, +sink (sink_basin), +snake, +solder, +trap, +valve, +washer, +wrench
+
+### PRINTING WORDS  `printing_words`
+- правило: Things used in printing
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 14
+- ~binding, ~cartridge, ~font, ~ink, ~paper, ~press (press_machine), ~proof, ~registration, ~roller, ~screen (screen_print), ~stencil, ~toner, ~type, !plate (plate_printing)
+
+### ROOFING WORDS  `roofing_words`
+- правило: Things used in roofing a house
+- тип связи: `found_in`, базовая сложность 0.45
+- слов: 14
+- ~drip edge, ~felt, ~flashing, ~gutter, ~harness, ~ladder, ~nail gun, ~ridge, ~shingle, ~tar, ~tile, ~valley, ~vent, !underlayment
+
+### TAILOR SHOP  `tailor_words`
+- правило: Things a tailor uses
+- тип связи: `found_in`, базовая сложность 0.4
+- слов: 17
+- ~chalk (chalk_tailor), ~pinstripe, +bobbin, +cufflinks, +hem, +iron (iron_appliance), +machine, +mannequin, +needle (needle_sewing), +pattern, +pin (pin_fastener), +seam ripper, +seamstress, +shears, +tape measure, +thimble, +thread
+
+### WAREHOUSE WORDS  `warehouse_words`
+- правило: Things found in a warehouse
+- тип связи: `found_in`, базовая сложность 0.35
+- слов: 14
+- +aisle, +box, +conveyor, +crate, +dock, +forklift, +hand truck, +inventory, +label, +pallet, +ramp, +scanner, +shelf (shelf_furniture), +tape gun
+
+### WELDING WORDS  `welding_words`
+- правило: Things used in welding metal
+- тип связи: `found_in`, базовая сложность 0.45
+- слов: 14
+- ~arc, ~bead, ~clamp, ~filler, ~flux, ~gas, ~helmet, ~rod, ~slag, ~spark, ~tack (tack_pin), ~torch, !apron (apron_garment), !tip (tip_point)
+
+
 ## Тема: transport
 
 ### AIRCRAFT  `aircraft`
@@ -1864,7 +1801,7 @@
 - правило: Physical parts of a bicycle
 - тип связи: `part_of`, базовая сложность 0.3
 - слов: 18
-- ~kickstand, +basket, +bell, +brake, +chain, +crank, +fork, +frame, +gear, +handlebar, +pedal, +reflector, +rim, +saddle, +seat, +spoke, +tire, +wheel
+- ~kickstand, +basket, +brake, +chain, +crank, +fork, +frame, +gear, +handlebar, +pedal, +reflector, +rim, +saddle, +seat, +spoke, +tire, +wheel, !bell (bell_object)
 
 ### ROAD THINGS  `road_things`
 - правило: Things you see on or beside a road
@@ -1912,11 +1849,98 @@
 - правило: Things a traveler packs or carries on a trip
 - тип связи: `used_in`, базовая сложность 0.25
 - слов: 18
-- +adapter, +backpack, +boarding pass, +camera, +Charger, +currency, +guidebook, +insurance, +itinerary, +map, +neck pillow, +passport, +suitcase, +sunglasses, +ticket (ticket_admission), +toiletries, +Visa, +wallet
+- +adapter, +backpack, +boarding pass, +camera, +Charger (charger_device), +currency, +guidebook, +insurance, +itinerary, +map, +neck pillow, +passport, +suitcase, +sunglasses, +ticket (ticket_admission), +toiletries, +Visa, +wallet
 
 ### VEHICLES  `vehicles`
 - правило: Machines built to carry people or goods from place to place
 - тип связи: `is_a`, базовая сложность 0.1
 - слов: 28
 - ~plane (plane_aircraft), +aircraft, +ambulance, +bicycle, +bike, +boat, +bus, +canoe, +car, +ferry, +helicopter, +Jeep, +limousine, +minivan, +moped, +motorcycle, +scooter, +sled, +Subway, +taxi, +tractor, +train, +tram, +trolley, +truck, +trucks, +van, +wagon
+
+
+## Тема: varieties
+
+### APPLE VARIETIES  `apple_varieties`
+- правило: Varieties of apple sold in stores
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- +Cortland, +empire, +Envy, +Fuji, +Gala, +Golden Delicious, +Granny Smith, +Jonathan, +McIntosh, +Pink Lady, +Red Delicious, +Rome, !Braeburn, !Honeycrisp
+
+### BEAN TYPES  `bean_types`
+- правило: Kinds of bean used in cooking
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 14
+- ~fava, ~garbanzo, ~mung, +black, +black eyed pea, +butter bean, +great northern, +kidney, +Lima, +navy, +pinto, +string, !adzuki, !cannellini
+
+### BERRY VARIETIES  `berry_varieties`
+- правило: Varieties of berry sold fresh or frozen
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 12
+- ~elderberry, +blackberry, +blueberry, +cranberry, +currant, +gooseberry, +raspberry, +strawberry, !boysenberry, !cloudberry, !loganberry, xmarionberry
+
+### SPICE BLENDS  `chili_and_spice_blends`
+- правило: Mixtures of spices sold as one seasoning
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 14
+- +cajun, +chili powder, +curry powder, +five spice, +italian seasoning, +jerk, +old bay, +poultry seasoning, +pumpkin spice, +ranch mix, +taco seasoning, !garam masala, !herbes de provence, !za'atar
+
+### GRAPE VARIETIES  `grape_varieties`
+- правило: Varieties of grape used for wine and eating
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- ~Syrah, +Cabernet, +Chardonnay, +Concord, +Merlot, +Muscat, +Pinot Noir, +Riesling, +Sauvignon, +Thompson, !Malbec, !Sangiovese, !Zinfandel
+
+### SYRUPS AND SWEETENERS  `honey_and_syrups`
+- правило: Sweet syrups and sweeteners used in food
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- +agave, +brown sugar, +cane sugar, +caramel, +corn syrup, +date syrup, +honey, +maple syrup, +molasses, +powdered sugar, +sorghum, +stevia, +treacle
+
+### SALAD GREENS  `lettuce_and_greens`
+- правило: Varieties of lettuce and salad green
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- ~arugula, +butter, +endive, +green leaf, +iceberg, +red leaf, +romaine, +spinach, +watercress, !escarole, !radicchio, xfrisee, xmesclun
+
+### MELONS & SQUASH  `melons_and_squash`
+- правило: Varieties of melon and squash
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 13
+- +acorn, +butternut, +cantaloupe, +honeydew, +hubbard, +pumpkin, +spaghetti, +watermelon, +zucchini, ?crookneck, !delicata, !kabocha, xcasaba
+
+### HERB VARIETIES  `mint_and_herbs_varieties`
+- правило: Varieties of mint and other kitchen herbs
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 13
+- ~basil, ~chervil, ~cilantro, ~curly parsley, ~dill, ~italian parsley, ~lemon balm, ~oregano, ~peppermint, ~spearmint, ~thai basil, !marjoram, !sorrel
+
+### OLIVE TYPES  `olive_types`
+- правило: Varieties of olive and olive oil
+- тип связи: `is_a`, базовая сложность 0.45
+- слов: 12
+- ~black, ~extra virgin, ~light (light_mild), ~pitted, ~spanish, ~stuffed, ~virgin, !green (green_unripe), !kalamata, !manzanilla, !nicoise, xcastelvetrano
+
+### PEPPER VARIETIES  `pepper_varieties`
+- правило: Varieties of pepper used in cooking
+- тип связи: `is_a`, базовая сложность 0.35
+- слов: 13
+- ~habanero, ~pimento, +Anaheim, +banana, +cayenne, +Chipotle, +ghost, +jalapeno, +scotch bonnet, +serrano, !bell (bell_pepper), !poblano, xshishito
+
+### POTATO VARIETIES  `potato_varieties`
+- правило: Varieties of potato sold in stores
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~russet, ~white (white_food), +baby, +idaho (idaho_potato), +new potato, +purple, +red, +sweet potato, +yam, +yukon gold, !fingerling, !kennebec
+
+### RICE TYPES  `rice_types`
+- правило: Kinds of rice sold in stores
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 13
+- +black, +Brown, +Jasmine (jasmine_rice), +long grain, +red, +short grain, +sticky, +sushi, +white (white_food), +wild, !arborio, !basmati, !parboiled
+
+### TOMATO VARIETIES  `tomato_varieties`
+- правило: Varieties of tomato
+- тип связи: `is_a`, базовая сложность 0.4
+- слов: 12
+- ~campari, ~green (green_unripe), +cherry, +grape, +heirloom, +plum, +roma, +sun dried, +vine, +yellow, !beefsteak, !san marzano
 

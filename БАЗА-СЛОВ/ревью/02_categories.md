@@ -112,7 +112,7 @@
 - правило: Actions done while playing sports
 - тип связи: `does_action`, базовая сложность 0.3
 - слов: 18
-- ~dunk (dunk_basketball), ~score (score_points), +catch, +dive, +dribble, +kick, +pass, +pitch (pitch_throw), +punt, +serve, +shoot, +spike, +sprint, +swing, +tackle, +throw, +volley, !block (block_stop)
+- ~dunk (dunk_basketball), ~score (score_points), +catch, +dive, +dribble, +kick, +pass, +pitch (pitch_throw_verb), +punt, +serve, +shoot, +spike, +sprint, +swing, +tackle, +throw, +volley, !block (block_stop)
 
 ### THINKING ACTIONS  `thinking_actions`
 - правило: Verbs for mental activity
@@ -295,7 +295,7 @@
 - правило: Insects and other small bugs an average person recognizes
 - тип связи: `is_a`, базовая сложность 0.15
 - слов: 25
-- ~aphid, ~gnat, ~silkworm, +ant, +bee, +beetle, +butterfly, +caterpillar, +centipede, +cricket, +dragonfly, +firefly, +flea, +fly (fly_insect), +grasshopper, +hornet, +ladybug, +locust, +mosquito, +moth, +roach, +spider, +termite, +tick (tick_bug), +wasp
+- ~aphid, ~gnat, ~silkworm, +ant, +bee, +beetle, +butterfly, +caterpillar, +centipede, +cricket (cricket_insect), +dragonfly, +firefly, +flea, +fly (fly_insect), +grasshopper, +hornet, +ladybug, +locust, +mosquito, +moth, +roach, +spider, +termite, +tick (tick_bug), +wasp
 
 ### JUNGLE ANIMALS  `jungle_animals`
 - правило: Animals that live in tropical jungles and rainforests
@@ -307,7 +307,7 @@
 - правило: Animals that are active at night and rest during the day
 - тип связи: `has_property`, базовая сложность 0.35
 - слов: 21
-- ~armadillo, ~badger, ~bat (bat_animal), ~beaver, ~cougar, ~coyote, ~cricket, ~firefly, ~fox, ~hamster, ~hedgehog, ~leopard, ~mole (mole_animal), ~moth, ~mouse (mouse_animal), ~opossum, ~owl, ~porcupine, ~raccoon, ~skunk, ~wolf
+- ~armadillo, ~badger, ~bat (bat_animal), ~beaver, ~cougar, ~coyote, ~cricket (cricket_insect), ~firefly, ~fox, ~hamster, ~hedgehog, ~leopard, ~mole (mole_animal), ~moth, ~mouse (mouse_animal), ~opossum, ~owl, ~porcupine, ~raccoon, ~skunk, ~wolf
 
 ### OCEAN ANIMALS  `ocean_animals`
 - правило: Animals that live in the ocean
@@ -640,7 +640,7 @@
 - правило: Parts of the human face
 - тип связи: `part_of`, базовая сложность 0.12
 - слов: 20
-- +brow, +cheek, +chin, +dimple, +ear, +eye, +eyebrow, +eyelash, +eyelid, +forehead, +freckle, +iris, +jaw, +lash, +lip, +mouth (mouth_face), +nose, +nostril, +pupil, +temple (temple_head)
+- +brow, +cheek, +chin, +dimple, +ear, +eye, +eyebrow, +eyelash, +eyelid, +forehead, +freckle, +iris (iris_eye), +jaw, +lash, +lip, +mouth (mouth_face), +nose, +nostril, +pupil, +temple (temple_head)
 
 ### DIGITS  `fingers_and_toes`
 - правило: Names for individual fingers and toes
@@ -700,7 +700,7 @@
 - правило: Parts of the human eye
 - тип связи: `part_of`, базовая сложность 0.4
 - слов: 12
-- ~brow, ~cornea, ~eyelid, ~iris, ~lash, ~lens, ~optic nerve, ~pupil, ~retina, ~socket (socket_eye), ~tear duct, !white (white_color)
+- ~brow, ~cornea, ~eyelid, ~iris (iris_eye), ~lash, ~lens, ~optic nerve, ~pupil, ~retina, ~socket (socket_eye), ~tear duct, !white (white_color)
 
 ### THE SENSES  `senses_and_perception`
 - правило: Ways the human body senses the world
@@ -733,7 +733,7 @@
 - правило: Major passenger airlines
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 14
-- ~delta (delta_airline), +Air France, +Alaska, +American, +British Airways, +Emirates, +Frontier, +JetBlue, +KLM, +Lufthansa, +Qantas, +Southwest, +Spirit, +United
+- ~delta (delta_airline), +Air France, +Alaska, +American, +British Airways, +Emirates, +Frontier, +JetBlue, +KLM, +Lufthansa, +Qantas, +Southwest, +United, !Spirit (spirit_airline)
 
 ### APPLIANCE BRANDS  `appliance_brands`
 - правило: Brands of home appliance
@@ -763,13 +763,13 @@
 - правило: Well known car model names
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 16
-- +Accord, +beetle, +Camaro, +Camry, +Charger, +Civic, +Corvette, +Explorer, +impala, +Jeep Wrangler, +Mustang, +Prius, +Ranger, +Silverado, +Tahoe, xF150
+- +Accord, +beetle, +Camaro, +Camry, +Charger (charger_car), +Civic, +Corvette, +Explorer, +impala, +Jeep Wrangler, +Mustang, +Prius, +Ranger, +Silverado, +Tahoe, xF150
 
 ### CEREAL BRANDS  `cereal_brands`
 - правило: Breakfast cereal brands sold in America
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 14
-- ~Chex, ~Froot Loops, ~Rice Krispies, ~Trix, ~Wheaties, +Cheerios, +Cocoa Puffs, +Corn Flakes, +Frosted Flakes, +Grape Nuts, +Life, +Lucky Charms, +Raisin Bran, +Special K
+- ~Chex, ~Froot Loops, ~Rice Krispies, ~Trix, ~Wheaties, +Cheerios, +Cocoa Puffs, +Corn Flakes, +Frosted Flakes, +Grape Nuts, +Lucky Charms, +Raisin Bran, +Special K, !Life (life_cereal)
 
 ### CLOTHING BRANDS  `clothing_brands`
 - правило: Well known clothing and shoe brands
@@ -1237,7 +1237,7 @@
 - правило: Things used as symbols of a country
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 15
-- ~star (star_shape), +anthem, +bear, +crescent, +dragon, +eagle, +flag, +kangaroo, +lion, +maple leaf, +rose, +shamrock, +thistle, +tulip, !crown (crown_royal)
+- ~rose (rose_flower), ~star (star_shape), +anthem, +bear, +crescent, +dragon, +eagle, +flag, +kangaroo, +lion, +maple leaf, +shamrock, +thistle, +tulip, !crown (crown_royal)
 
 ### GREEK LETTERS  `greek_letters`
 - правило: Letters of the Greek alphabet
@@ -1489,7 +1489,7 @@
 - правило: Things found in a school classroom
 - тип связи: `found_in`, базовая сложность 0.2
 - слов: 20
-- +alphabet, +bell, +bookshelf, +calendar, +chair, +chalk (chalk_stick), +chalkboard, +clock, +cubby, +desk, +easel, +flag, +globe, +hall pass, +locker, +map, +poster, +projector, +textbook, +whiteboard
+- ~bell (bell_object), +alphabet, +bookshelf, +calendar, +chair, +chalk (chalk_stick), +chalkboard, +clock, +cubby, +desk, +easel, +flag, +globe, +hall pass, +locker, +map, +poster, +projector, +textbook, +whiteboard
 
 ### COLLEGE WORDS  `college_words`
 - правило: Words used about university education
@@ -1543,7 +1543,7 @@
 - правило: Things used in a school music class
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 14
-- ~maraca, ~stand (stand_holder), ~xylophone, +bell, +choir, +conductor, +drum, +metronome, +piano, +recorder, +riser, +sheet music, +tambourine, +triangle
+- ~bell (bell_object), ~maraca, ~stand (stand_holder), ~xylophone, +choir, +conductor, +drum, +metronome, +piano, +recorder, +riser, +sheet music, +tambourine, +triangle
 
 ### KINDS OF PAPER  `paper_types`
 - правило: Kinds of paper used at school and home
@@ -1642,7 +1642,7 @@
 - правило: Games played on a printed board with pieces
 - тип связи: `is_a`, базовая сложность 0.25
 - слов: 18
-- ~mancala, +backgammon, +battleship, +candy land, +checkers, +chess, +chutes and ladders, +clue, +dominoes, +Life, +monopoly, +othello, +risk, +scrabble, +sorry, +trivial pursuit, +trouble, xparcheesi
+- ~Life (life_game), ~mancala, +backgammon, +battleship, +candy land, +checkers, +chess, +chutes and ladders, +clue, +dominoes, +monopoly, +othello, +risk, +scrabble, +sorry, +trivial pursuit, +trouble, xparcheesi
 
 ### CARD GAMES  `card_games`
 - правило: Games played with a deck of cards
@@ -2032,7 +2032,7 @@
 - правило: Words used to describe perfumes and scents
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 15
-- ~amber, ~citrus, ~Cologne, ~floral, ~fresh (fresh_scent), ~lavender (lavender_plant), ~mist, ~musk, ~sandalwood, ~spicy, ~vanilla, ~woody, +rose, +sweet, !note (note_scent)
+- ~amber, ~citrus, ~Cologne, ~floral, ~fresh (fresh_scent), ~lavender (lavender_plant), ~mist, ~musk, ~rose (rose_flower), ~sandalwood, ~spicy, ~vanilla, ~woody, +sweet, !note (note_scent)
 
 ### SELF CARE  `self_care`
 - правило: A way people look after their appearance and body
@@ -3178,7 +3178,7 @@
 - правило: Household devices powered by plugging into an outlet
 - тип связи: `has_property`, базовая сложность 0.3
 - слов: 20
-- ~blender, ~Charger, ~fan (fan_device), ~freezer, ~hairdryer, ~heater, ~iron (iron_appliance), ~kettle, ~lamp, ~lampshade, ~microwave, ~printer, ~toaster, +clock, +computer, +radio, +speaker, +television, +vacuum, !drill (drill_tool)
+- ~blender, ~fan (fan_device), ~freezer, ~hairdryer, ~heater, ~iron (iron_appliance), ~kettle, ~lamp, ~lampshade, ~microwave, ~printer, ~toaster, +clock, +computer, +radio, +speaker, +television, +vacuum, !Charger (charger_device), !drill (drill_tool)
 
 ### THINGS WITH BUTTONS  `things_with_buttons`
 - правило: Everyday objects operated by pressing buttons
@@ -3808,7 +3808,7 @@
 - правило: Words that form a familiar English compound when placed before the word stone
 - тип связи: `phrase_before`, базовая сложность 0.5
 - слов: 16
-- ~birth, ~brim, ~corner, ~curb, ~grave, ~rolling, ~tomb, !flag, !gall, !hail, !key, !lime, !mile, !moon, !sand, !stepping
+- ~birth, ~brim, ~corner, ~curb, ~grave, ~rolling, ~tomb, !flag, !gall, !hail, !key, !lime, !mile, !moon (moon_space), !sand, !stepping
 
 ### ___ TIME  `words_before_time`
 - правило: Words that form a familiar English phrase when placed before the word time
@@ -3907,7 +3907,7 @@
 - правило: Equipment and things used by police
 - тип связи: `used_in`, базовая сложность 0.25
 - слов: 17
-- +badge, +baton, +cruiser, +dispatch, +flashlight, +handcuffs, +holster, +k9, +officer, +patrol, +radio, +siren, +ticket (ticket_fine), +uniform, +vest, +warrant, +whistle
+- +badge, +baton, +cruiser, +dispatch, +flashlight, +handcuffs, +holster, +k9, +officer, +patrol, +radio, +siren (siren_device), +ticket (ticket_fine), +uniform, +vest, +warrant, +whistle
 
 ### PRISON WORDS  `prison_words`
 - правило: Things and words associated with prison
@@ -4075,7 +4075,7 @@
 - правило: Everyday things normally made of metal
 - тип связи: `made_of`, базовая сложность 0.3
 - слов: 18
-- ~anchor, ~armor, ~faucet, ~hinge, ~kettle, ~key (key_lock), ~ladder, ~nail (nail_metal), ~pipe (pipe_tube), ~spoon, ~wrench, +bell, +can, +chain, +coin, +safe, +sword, +wire
+- ~anchor, ~armor, ~bell (bell_object), ~faucet, ~hinge, ~kettle, ~key (key_lock), ~ladder, ~nail (nail_metal), ~pipe (pipe_tube), ~spoon, ~wrench, +can, +chain, +coin, +safe, +sword, +wire
 
 ### PAPER THINGS  `things_made_of_paper`
 - правило: Everyday things normally made of paper
@@ -4144,7 +4144,7 @@
 - правило: Characters from Disney animated films
 - тип связи: `is_a`, базовая сложность 0.25
 - слов: 20
-- ~Tinkerbell, +Aladdin, +Anna, +Ariel, +Bambi, +Belle, +buzz, +Cinderella, +Dumbo, +Elsa, +Jasmine, +Moana, +Mulan, +Nemo, +Peter Pan, +Pinocchio, +Pocahontas, +Rapunzel, +Simba, +Snow White
+- ~Tinkerbell, +Aladdin, +Anna, +Ariel, +Bambi, +Belle, +buzz, +Cinderella, +Dumbo, +Elsa, +Jasmine (jasmine_disney), +Moana, +Mulan, +Nemo, +Peter Pan, +Pinocchio, +Pocahontas, +Rapunzel, +Simba, +Snow White
 
 ### FAIRY TALES  `fairy_tales`
 - правило: Classic fairy tales children know
@@ -4303,7 +4303,7 @@
 - правило: Words used during a medical emergency
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 15
-- +ambulance, +code, +CPR, +defibrillator, +dispatcher, +evacuation, +hotline, +oxygen, +paramedic, +rescue, +response, +siren, +stretcher, +trauma, +triage
+- +ambulance, +code, +CPR, +defibrillator, +dispatcher, +evacuation, +hotline, +oxygen, +paramedic, +rescue, +response, +siren (siren_device), +stretcher, +trauma, +triage
 
 ### FEELING SICK  `feeling_sick`
 - правило: A symptom or minor illness a person complains of
@@ -4432,13 +4432,13 @@
 - правило: Things kept in a car glove compartment
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 13
-- ~Charger, ~flashlight, ~ice scraper, ~manual, ~napkins, ~registration, ~sunglasses, ~tire gauge, ~tissues, +insurance, +map, !gum (gum_candy), !pen (pen_writing)
+- ~flashlight, ~ice scraper, ~manual, ~napkins, ~registration, ~sunglasses, ~tire gauge, ~tissues, +insurance, +map, !Charger (charger_device), !gum (gum_candy), !pen (pen_writing)
 
 ### PURSE THINGS  `things_in_a_purse`
 - правило: Things carried in a purse
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 15
-- ~hairbrush, +Charger, +hand sanitizer, +keys, +lipstick, +mirror, +pen (pen_writing), +phone, +planner, +receipt, +snack, +sunglasses, +tissue (tissue_paper), +wallet, !gum (gum_candy)
+- ~hairbrush, +Charger (charger_device), +hand sanitizer, +keys, +lipstick, +mirror, +pen (pen_writing), +phone, +planner, +receipt, +snack, +sunglasses, +tissue (tissue_paper), +wallet, !gum (gum_candy)
 
 ### TOOLBOX THINGS  `things_in_a_toolbox`
 - правило: Things kept in a household toolbox
@@ -4474,7 +4474,7 @@
 - правило: Things that ring or chime
 - тип связи: `does_action`, базовая сложность 0.35
 - слов: 12
-- ~alarm, ~bicycle bell, ~buzzer, ~cash register, ~chime, ~church bell, ~clock, ~dinner bell, ~doorbell, ~timer, +bell, +phone
+- ~alarm, ~bell (bell_object), ~bicycle bell, ~buzzer, ~cash register, ~chime, ~church bell, ~clock, ~dinner bell, ~doorbell, ~timer, +phone
 
 ### TRASH ITEMS  `things_you_recycle`
 - правило: Things commonly thrown out or recycled
@@ -4555,7 +4555,7 @@
 - правило: Monsters from myth and legend
 - тип связи: `is_a`, базовая сложность 0.3
 - слов: 14
-- ~basilisk, ~manticore, +banshee, +cerberus, +chimera, +cyclops, +gorgon, +harpy, +hydra, +kraken, +medusa, +minotaur, +siren, +sphinx
+- ~basilisk, ~manticore, +banshee, +cerberus, +chimera, +cyclops, +gorgon, +harpy, +hydra, +kraken, +medusa, +minotaur, +sphinx, !siren (siren_myth)
 
 ### NORSE GODS  `norse_gods`
 - правило: Gods of Norse mythology
@@ -4624,7 +4624,7 @@
 - правило: First names taken from nature words
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 18
-- ~sage (sage_name), +amber, +Aspen, +Autumn, +Daisy, +Fern, +Hazel, +Heather, +Ivy, +Jasmine, +Lily, +rain, +river, +rose, +sky, +summer, +Violet, +Willow
+- ~sage (sage_name), +amber, +Aspen, +Autumn, +Daisy, +Fern, +Hazel, +Heather, +Ivy, +Jasmine (jasmine_name), +Lily, +rain, +river, +rose (rose_name), +sky, +summer, +Violet, +Willow
 
 ### NAME SHORTENINGS  `nicknames_for_names`
 - правило: Short forms people use instead of a full first name
@@ -4660,7 +4660,7 @@
 - правило: First names with only one syllable
 - тип связи: `has_property`, базовая сложность 0.4
 - слов: 20
-- ~Ann, ~Blake, ~Bruce, ~Claire, ~dean, ~Grace, ~jack (jack_name), ~Jane, ~Joyce, ~Kate, ~Luke, +Faith, +George, +Hope, +James, +John, +mark, +Paul, +rose, +Scott
+- ~Ann, ~Blake, ~Bruce, ~Claire, ~dean, ~Grace, ~jack (jack_name), ~Jane, ~Joyce, ~Kate, ~Luke, +Faith, +George, +Hope, +James, +John, +mark, +Paul, +Scott, !rose (rose_name)
 
 
 ## Тема: names_world
@@ -4744,7 +4744,7 @@
 - правило: Things you can see in the sky
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 20
-- +aurora, +balloon, +bird, +cloud, +comet, +eclipse, +fog, +haze, +helicopter, +kite (kite_toy), +lightning, +meteor, +moon, +plane (plane_aircraft), +rainbow, +satellite, +smoke, +star (star_space), +sun, +sunset
+- +aurora, +balloon, +bird, +cloud, +comet, +eclipse, +fog, +haze, +helicopter, +kite (kite_toy), +lightning, +meteor, +moon (moon_space), +plane (plane_aircraft), +rainbow, +satellite, +smoke, +star (star_space), +sun, +sunset
 
 ### DESERT THINGS  `desert_things`
 - правило: Things found in a hot desert
@@ -4768,13 +4768,13 @@
 - правило: Kinds of flowers commonly sold or grown in gardens
 - тип связи: `is_a`, базовая сложность 0.15
 - слов: 27
-- ~begonia, ~petunia, ~zinnia, +aster, +azalea, +buttercup, +carnation, +daffodil, +dahlia, +Daisy, +geranium, +hyacinth, +iris, +Jasmine, +lavender (lavender_plant), +lilac, +Lily, +magnolia, +marigold, +orchid, +peony, +poppy, +rose, +sunflower, +tulip, +Violet, +wildflowers
+- ~begonia, ~petunia, ~zinnia, +aster, +azalea, +buttercup, +carnation, +daffodil, +dahlia, +Daisy, +geranium, +hyacinth, +iris (iris_flower), +Jasmine (jasmine_flower), +lavender (lavender_plant), +lilac, +Lily, +magnolia, +marigold, +orchid, +peony, +poppy, +rose (rose_flower), +sunflower, +tulip, +Violet, +wildflowers
 
 ### GARDEN PLANTS  `garden_plants`
 - правило: Plants people grow in a home garden
 - тип связи: `found_in`, базовая сложность 0.25
 - слов: 20
-- ~hosta, ~lavender (lavender_plant), +basil, +bean, +carrot, +cucumber, +Fern, +Ivy, +lettuce, +marigold, +mint (mint_herb), +pepper, +pumpkin, +rose, +squash (squash_vegetable), +strawberry, +sunflower, +tomato, +tulip, +zucchini
+- ~hosta, ~lavender (lavender_plant), ~rose (rose_flower), +basil, +bean, +carrot, +cucumber, +Fern, +Ivy, +lettuce, +marigold, +mint (mint_herb), +pepper, +pumpkin, +squash (squash_vegetable), +strawberry, +sunflower, +tomato, +tulip, +zucchini
 
 ### GEMSTONES  `gemstones`
 - правило: Precious or semi-precious stones used in jewelry
@@ -4798,7 +4798,7 @@
 - правило: Things that give off light
 - тип связи: `does_action`, базовая сложность 0.3
 - слов: 20
-- ~glowstick, ~streetlight, +bulb, +campfire, +candle, +fire, +firefly, +flashlight, +headlight, +lamp, +lantern, +laser, +lightning, +match, +moon, +neon, +screen (screen_display), +star (star_space), +sun, +torch
+- ~glowstick, ~moon (moon_space), ~streetlight, +bulb, +campfire, +candle, +fire, +firefly, +flashlight, +headlight, +lamp, +lantern, +laser, +lightning, +match, +neon, +screen (screen_display), +star (star_space), +sun, +torch
 
 ### MOUNTAIN THINGS  `mountain_things`
 - правило: Things found on or around a mountain
@@ -4975,7 +4975,7 @@
 - правило: Things visible in the night sky
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 14
-- ~plane (plane_aircraft), +aurora, +cloud, +comet, +constellation, +eclipse, +galaxy, +meteor, +Milky Way, +moon, +planet, +satellite, +shooting star, +star (star_space)
+- ~plane (plane_aircraft), +aurora, +cloud, +comet, +constellation, +eclipse, +galaxy, +meteor, +Milky Way, +moon (moon_space), +planet, +satellite, +shooting star, +star (star_space)
 
 ### RAINFOREST  `rainforest`
 - правило: A plant, animal or layer of the rainforest
@@ -5074,7 +5074,7 @@
 - правило: Small creatures found in a garden
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 16
-- ~aphid, ~roly poly, +ant, +bee, +beetle, +caterpillar, +centipede, +cricket, +earthworm, +earwig, +grub, +ladybug, +praying mantis, +slug, +snail, +spider
+- ~aphid, ~roly poly, +ant, +bee, +beetle, +caterpillar, +centipede, +cricket (cricket_insect), +earthworm, +earwig, +grub, +ladybug, +praying mantis, +slug, +snail, +spider
 
 ### MOSS & LICHEN  `mosses_and_lichens`
 - правило: Small plants that grow on rocks and bark
@@ -5173,7 +5173,7 @@
 - правило: Creatures and stories from sea legend
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 11
-- ~davy jones, ~flying dutchman, ~ghost ship, ~kraken, ~leviathan, ~mermaid, ~sea monster, ~sea serpent, ~siren, ~triton, ~Whirlpool
+- ~davy jones, ~flying dutchman, ~ghost ship, ~kraken, ~leviathan, ~mermaid, ~sea monster, ~sea serpent, ~siren (siren_myth), ~triton, ~Whirlpool
 
 ### SEA CONDITIONS  `sea_weather`
 - правило: Words describing conditions at sea
@@ -5320,7 +5320,7 @@
 - правило: Famous inventors
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 14
-- ~ford (ford_person), +bell, +diesel, +Edison, +Franklin, +Goodyear, +Gutenberg, +Marconi, +Morse, +Tesla, +Watt, +Whitney, +Wright, !Daguerre
+- ~ford (ford_person), +diesel, +Edison, +Franklin, +Goodyear, +Gutenberg, +Marconi, +Morse, +Tesla, +Watt, +Whitney, +Wright, !bell (bell_person), !Daguerre
 
 ### STAGES OF LIFE  `life_stages`
 - правило: Words for the stages of a human life
@@ -5584,13 +5584,13 @@
 - правило: Flowers that bloom in spring
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 14
-- ~crocus, ~snowdrop, +azalea, +bluebell, +cherry blossom, +daffodil, +hyacinth, +iris, +lilac, +magnolia, +pansy, +primrose, +tulip, !forsythia
+- ~crocus, ~snowdrop, +azalea, +bluebell, +cherry blossom, +daffodil, +hyacinth, +iris (iris_flower), +lilac, +magnolia, +pansy, +primrose, +tulip, !forsythia
 
 ### SUMMER FLOWERS  `garden_flowers_summer`
 - правило: Flowers that bloom in summer
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 14
-- ~hydrangea, ~petunia, +black eyed susan, +cosmos, +dahlia, +Daisy, +geranium, +lavender (lavender_plant), +Lily, +marigold, +rose, +snapdragon, +sunflower, !zinnia
+- ~hydrangea, ~petunia, +black eyed susan, +cosmos, +dahlia, +Daisy, +geranium, +lavender (lavender_plant), +Lily, +marigold, +rose (rose_flower), +snapdragon, +sunflower, !zinnia
 
 ### GARDEN IN BLOOM  `garden_in_bloom`
 - правило: A word belonging to a garden in bloom
@@ -5662,7 +5662,7 @@
 - правило: Woody plants smaller than a tree
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~azalea, ~hedge, ~holly, ~hydrangea, ~juniper, ~lilac, ~rhododendron, +rose, !barberry, !boxwood, !forsythia, !privet, !spirea, !viburnum
+- ~azalea, ~hedge, ~holly, ~hydrangea, ~juniper, ~lilac, ~rhododendron, ~rose (rose_flower), !barberry, !boxwood, !forsythia, !privet, !spirea, !viburnum
 
 ### TROPICAL PLANTS  `tropical_plants`
 - правило: Plants that grow in tropical climates
@@ -5674,7 +5674,7 @@
 - правило: Plants that climb or trail along a surface
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~bean, ~clematis, ~cucumber, ~grape, ~honeysuckle, ~hops, ~Ivy, ~Jasmine, ~morning glory, ~passion flower, ~pea, ~pumpkin, ~wisteria, !kudzu
+- ~bean, ~clematis, ~cucumber, ~grape, ~honeysuckle, ~hops, ~Ivy, ~morning glory, ~passion flower, ~pea, ~pumpkin, ~wisteria, !Jasmine (jasmine_flower), !kudzu
 
 ### WATER PLANTS  `water_plants`
 - правило: Plants that grow in or on water
@@ -5755,7 +5755,7 @@
 - правило: Things that make a loud noise
 - тип связи: `has_property`, базовая сложность 0.35
 - слов: 16
-- ~alarm, ~bell, ~chainsaw, ~drum, ~explosion, ~firework, ~gunshot, ~horn (horn_sound), ~jackhammer, ~jet, ~motorcycle, ~siren, ~speaker, ~thunder, ~whistle, +crowd
+- ~alarm, ~bell (bell_object), ~chainsaw, ~drum, ~explosion, ~firework, ~gunshot, ~horn (horn_sound), ~jackhammer, ~jet, ~motorcycle, ~siren (siren_device), ~speaker, ~thunder, ~whistle, +crowd
 
 ### QUIET THINGS  `quiet_things`
 - правило: Things that make almost no sound
@@ -5767,7 +5767,7 @@
 - правило: Everyday things that are typically red in color
 - тип связи: `has_property`, базовая сложность 0.3
 - слов: 20
-- ~apple (apple_fruit), ~barn, ~beet, ~brick, ~cardinal (cardinal_bird), ~cherry, ~chili (chili_pepper), ~fire truck, ~flame, ~ketchup, ~lipstick, ~lobster, ~radish, ~ruby, ~strawberry, ~tomato, ~valentine, +blood, +rose, +stop sign
+- ~apple (apple_fruit), ~barn, ~beet, ~brick, ~cardinal (cardinal_bird), ~cherry, ~chili (chili_pepper), ~fire truck, ~flame, ~ketchup, ~lipstick, ~lobster, ~radish, ~rose (rose_flower), ~ruby, ~strawberry, ~tomato, ~valentine, +blood, +stop sign
 
 ### ROUND THINGS  `round_things`
 - правило: Everyday objects whose normal shape is round or circular
@@ -5890,19 +5890,19 @@
 - правило: Things found inside a church
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 18
-- ~hymnal, +aisle, +altar, +bell, +candle, +chalice, +choir, +cross, +font, +icon, +incense, +offering plate, +organ (organ_music), +pew, +pulpit, +robe, +stained glass, +steeple
+- ~bell (bell_object), ~hymnal, +aisle, +altar, +candle, +chalice, +choir, +cross, +font, +icon, +incense, +offering plate, +organ (organ_music), +pew, +pulpit, +robe, +stained glass, +steeple
 
 ### AFTERLIFE WORDS  `heaven_and_afterlife`
 - правило: Words about what religions say comes after death
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 13
-- ~ancestor, ~angel, ~eternity, ~heaven, ~immortality, ~judgment, ~nirvana, ~paradise, ~reincarnation, ~resurrection, ~salvation, +soul, +Spirit
+- ~ancestor, ~angel, ~eternity, ~heaven, ~immortality, ~judgment, ~nirvana, ~paradise, ~reincarnation, ~resurrection, ~salvation, ~Spirit (spirit_soul), +soul
 
 ### MONASTERY THINGS  `monastery_life`
 - правило: Things found in a monastery
 - тип связи: `found_in`, базовая сложность 0.45
 - слов: 14
-- ~abbot, ~bell, ~chapel, ~cloister, ~courtyard, ~garden, ~library, ~manuscript, ~robe, ~silence, ~vow, !cell (cell_room), !refectory, !scriptorium
+- ~abbot, ~bell (bell_object), ~chapel, ~cloister, ~courtyard, ~garden, ~library, ~manuscript, ~robe, ~silence, ~vow, !cell (cell_room), !refectory, !scriptorium
 
 ### PLACES OF WORSHIP  `places_of_worship`
 - правило: Buildings where people gather to worship
@@ -6241,13 +6241,13 @@
 - правило: Sounds made by alarms and signals
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~alert, ~beep, ~bell, ~blare, ~buzz, ~chime, ~ding, ~gong, ~horn (horn_sound), ~siren, ~tone, ~whistle, +ring (ring_sound), !klaxon
+- ~alert, ~beep, ~bell (bell_object), ~blare, ~buzz, ~chime, ~ding, ~gong, ~horn (horn_sound), ~siren (siren_device), ~tone, ~whistle, +ring (ring_sound), !klaxon
 
 ### CITY SOUNDS  `city_sounds`
 - правило: Sounds heard on a city street
 - тип связи: `does_action`, базовая сложность 0.4
 - слов: 14
-- ~alarm, ~bell, ~brakes, ~chatter, ~footsteps, ~honk, ~jackhammer, ~rumble, ~screech, ~shout, ~siren, ~whistle, +engine, +traffic
+- ~alarm, ~bell (bell_object), ~brakes, ~chatter, ~footsteps, ~honk, ~jackhammer, ~rumble, ~screech, ~shout, ~siren (siren_device), ~whistle, +engine, +traffic
 
 ### KITCHEN SOUNDS  `kitchen_sounds`
 - правило: Sounds heard in a kitchen
@@ -6340,7 +6340,7 @@
 - правило: An object seen in deep space beyond the earth
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 7
-- +asteroid, +comets, +galaxy, +meteor, +moon, +nebula, +stars
+- +asteroid, +comets, +galaxy, +meteor, +moon (moon_space), +nebula, +stars
 
 ### MOONS  `moons`
 - правило: Named moons of the solar system
@@ -6364,7 +6364,7 @@
 - правило: Words describing the solar system
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 14
-- ~kuiper belt, ~ring (ring_circle), +asteroid belt, +comet, +corona, +dwarf planet, +eclipse, +gravity, +meteor, +moon, +orbit, +planet, +solar wind, +sun
+- ~kuiper belt, ~ring (ring_circle), +asteroid belt, +comet, +corona, +dwarf planet, +eclipse, +gravity, +meteor, +moon (moon_space), +orbit, +planet, +solar wind, +sun
 
 ### SPACE PLACES  `space_agencies_and_places`
 - правило: Places and organizations connected with space flight
@@ -6718,7 +6718,7 @@
 - правило: Sports played by two opposing teams
 - тип связи: `is_a`, базовая сложность 0.15
 - слов: 18
-- +baseball, +basketball, +cricket, +dodgeball, +field hockey, +football, +handball, +hockey, +kickball, +lacrosse, +netball, +polo, +rugby, +soccer, +softball, +ultimate frisbee, +volleyball, +water polo
+- +baseball, +basketball, +cricket (cricket_sport), +dodgeball, +field hockey, +football, +handball, +hockey, +kickball, +lacrosse, +netball, +polo, +rugby, +soccer, +softball, +ultimate frisbee, +volleyball, +water polo
 
 ### TENNIS WORDS  `tennis_words`
 - правило: Words used to describe play and scoring in tennis
@@ -6769,7 +6769,7 @@
 - правило: Words used in a boxing match
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 16
-- ~hook (hook_boxing), ~round (round_stage), +bell, +belt, +bout, +clinch, +corner, +decision, +glove, +jab, +knockout, +referee, +ring (ring_arena), +southpaw, +uppercut, xcutman
+- ~bell (bell_object), ~hook (hook_boxing), ~round (round_stage), +belt, +bout, +clinch, +corner, +decision, +glove, +jab, +knockout, +referee, +ring (ring_arena), +southpaw, +uppercut, xcutman
 
 ### HORSE RIDING  `equestrian_words`
 - правило: Words used in horse riding sports
@@ -6880,7 +6880,7 @@
 - правило: Physical parts of a personal computer
 - тип связи: `part_of`, базовая сложность 0.25
 - слов: 20
-- ~touchpad, +battery, +cable, +Charger, +fan (fan_device), +graphics card, +hard drive, +keyboard (keyboard_computer), +memory, +monitor (monitor_screen), +motherboard, +mouse (mouse_computer), +port, +power supply, +processor, +screen (screen_display), +speaker, +tower, +webcam, !case (case_box)
+- ~touchpad, +battery, +cable, +Charger (charger_device), +fan (fan_device), +graphics card, +hard drive, +keyboard (keyboard_computer), +memory, +monitor (monitor_screen), +motherboard, +mouse (mouse_computer), +port, +power supply, +processor, +screen (screen_display), +speaker, +tower, +webcam, !case (case_box)
 
 ### EMAIL WORDS  `email_words`
 - правило: Parts and actions of an email message
@@ -6928,7 +6928,7 @@
 - правило: Things and features of a mobile phone
 - тип связи: `found_in`, базовая сложность 0.25
 - слов: 18
-- +alarm, +app, +battery, +camera, +Charger, +contact, +headphones, +hotspot, +keypad, +notification, +ringtone, +screen (screen_display), +signal, +sim card, +speaker, +text, +voicemail, !case (case_box)
+- +alarm, +app, +battery, +camera, +Charger (charger_device), +contact, +headphones, +hotspot, +keypad, +notification, +ringtone, +screen (screen_display), +signal, +sim card, +speaker, +text, +voicemail, !case (case_box)
 
 ### PHOTOGRAPHY WORDS  `photography_words`
 - правило: Words used when taking photographs
@@ -6940,7 +6940,7 @@
 - правило: Words about supplying power to devices
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 16
-- +adapter, +battery, +cable, +Charger, +cord, +extension, +fuse, +generator, +outlet, +plug, +power strip, +socket (socket_electric), +solar panel, +switch, +voltage, +Watt
+- +adapter, +battery, +cable, +Charger (charger_device), +cord, +extension, +fuse, +generator, +outlet, +plug, +power strip, +socket (socket_electric), +solar panel, +switch, +voltage, +Watt
 
 ### PROGRAMMING WORDS  `programming_words`
 - правило: Words used when writing computer programs
@@ -6964,7 +6964,7 @@
 - правило: Devices used to keep property secure
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 14
-- ~deadbolt, ~floodlight, +alarm, +badge, +buzzer, +camera, +fence, +keypad, +lock, +monitor (monitor_screen), +motion detector, +safe, +sensor, +siren
+- ~deadbolt, ~floodlight, ~siren (siren_device), +alarm, +badge, +buzzer, +camera, +fence, +keypad, +lock, +monitor (monitor_screen), +motion detector, +safe, +sensor
 
 ### SIGNALS AND CODES  `signals_and_codes`
 - правило: Systems used to send coded messages
@@ -7238,7 +7238,7 @@
 
 ### HAMMERED THINGS  `things_that_stick_out`
 - правило: Things a hammer is normally used on
-- тип связи: `does_action`, базовая сложность 0.4
+- тип связи: `used_in`, базовая сложность 0.4
 - слов: 13
 - ~bolt, ~chisel, ~dent, ~horseshoe, ~nail (nail_metal), ~Peg, ~rivet, ~spike, ~stake, ~tack (tack_pin), ~tent stake, ~wedge, !post (post_pole)
 
@@ -7480,7 +7480,7 @@
 - правило: Physical parts of a bicycle
 - тип связи: `part_of`, базовая сложность 0.3
 - слов: 18
-- ~kickstand, +basket, +bell, +brake, +chain, +crank, +fork, +frame, +gear, +handlebar, +pedal, +reflector, +rim, +saddle, +seat, +spoke, +tire, +wheel
+- ~kickstand, +basket, +brake, +chain, +crank, +fork, +frame, +gear, +handlebar, +pedal, +reflector, +rim, +saddle, +seat, +spoke, +tire, +wheel, !bell (bell_object)
 
 ### ROAD THINGS  `road_things`
 - правило: Things you see on or beside a road
@@ -7528,7 +7528,7 @@
 - правило: Things a traveler packs or carries on a trip
 - тип связи: `used_in`, базовая сложность 0.25
 - слов: 18
-- +adapter, +backpack, +boarding pass, +camera, +Charger, +currency, +guidebook, +insurance, +itinerary, +map, +neck pillow, +passport, +suitcase, +sunglasses, +ticket (ticket_admission), +toiletries, +Visa, +wallet
+- +adapter, +backpack, +boarding pass, +camera, +Charger (charger_device), +currency, +guidebook, +insurance, +itinerary, +map, +neck pillow, +passport, +suitcase, +sunglasses, +ticket (ticket_admission), +toiletries, +Visa, +wallet
 
 ### VEHICLES  `vehicles`
 - правило: Machines built to carry people or goods from place to place
@@ -7603,7 +7603,7 @@
 - правило: Varieties of pepper used in cooking
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 13
-- ~habanero, ~pimento, +Anaheim, +banana, +bell, +cayenne, +Chipotle, +ghost, +jalapeno, +scotch bonnet, +serrano, !poblano, xshishito
+- ~habanero, ~pimento, +Anaheim, +banana, +cayenne, +Chipotle, +ghost, +jalapeno, +scotch bonnet, +serrano, !bell (bell_pepper), !poblano, xshishito
 
 ### POTATO VARIETIES  `potato_varieties`
 - правило: Varieties of potato sold in stores
@@ -7615,7 +7615,7 @@
 - правило: Kinds of rice sold in stores
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 13
-- +black, +Brown, +Jasmine, +long grain, +red, +short grain, +sticky, +sushi, +white (white_food), +wild, !arborio, !basmati, !parboiled
+- +black, +Brown, +Jasmine (jasmine_rice), +long grain, +red, +short grain, +sticky, +sushi, +white (white_food), +wild, !arborio, !basmati, !parboiled
 
 ### TOMATO VARIETIES  `tomato_varieties`
 - правило: Varieties of tomato
@@ -7726,13 +7726,13 @@
 - правило: Kinds of tea
 - тип связи: `is_a`, базовая сложность 0.3
 - слов: 16
-- ~ginger (ginger_spice), ~oolong, ~rooibos, ~white (white_food), +black, +chai, +chamomile, +darjeeling, +earl grey, +green (green_unripe), +herbal, +hibiscus, +Jasmine, +lemon, +matcha, +mint (mint_herb)
+- ~ginger (ginger_spice), ~oolong, ~rooibos, ~white (white_food), +black, +chai, +chamomile, +darjeeling, +earl grey, +green (green_unripe), +herbal, +hibiscus, +Jasmine (jasmine_tea), +lemon, +matcha, +mint (mint_herb)
 
 ### WINE & BEER  `wines_and_drinks`
 - правило: Kinds of wine and beer
 - тип связи: `is_a`, базовая сложность 0.35
 - слов: 17
-- ~pilsner, ~Zinfandel, +ale, +Cabernet, +champagne, +Chardonnay, +cider, +ipa, +lager, +Merlot, +pinot, +porter, +prosecco, +Riesling, +rose, +sangria, +stout
+- ~pilsner, ~Zinfandel, +ale, +Cabernet, +champagne, +Chardonnay, +cider, +ipa, +lager, +Merlot, +pinot, +porter, +prosecco, +Riesling, +sangria, +stout, !rose (rose_wine)
 
 ### WORLD BREADS  `world_breads`
 - правило: Breads from cuisines around the world
@@ -7783,7 +7783,7 @@
 - правило: Flowers that grow in tropical places
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 12
-- +bird of paradise, +ginger flower, +hibiscus, +Jasmine, +lotus, +orchid, !anthurium, !bougainvillea, !frangipani, !heliconia, !plumeria, !protea
+- +bird of paradise, +ginger flower, +hibiscus, +Jasmine (jasmine_flower), +lotus, +orchid, !anthurium, !bougainvillea, !frangipani, !heliconia, !plumeria, !protea
 
 ### WORLD BREAKFAST  `world_breakfasts`
 - правило: Breakfast foods eaten in other countries
@@ -7819,7 +7819,7 @@
 - правило: Sports popular outside the United States
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~kabaddi, +badminton, +bandy, +cricket, +curling, +futsal, +handball, +hurling, +netball, +rugby, +sumo, +table tennis, !pelota, xsepak takraw
+- ~kabaddi, +badminton, +bandy, +cricket (cricket_sport), +curling, +futsal, +handball, +hurling, +netball, +rugby, +sumo, +table tennis, !pelota, xsepak takraw
 
 ### TRADITIONAL DRINKS  `world_teas_and_drinks`
 - правило: Traditional drinks from world cultures

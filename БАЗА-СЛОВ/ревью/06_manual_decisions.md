@@ -35,7 +35,7 @@
 | kangaroo | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | SWOW: оценка 0.007, доля от лучшей категории слова 0.01; абсолютная заметность 0.71 поднимает до approved |
 | lion | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | SWOW: оценка 0.045, доля от лучшей категории слова 0.19; абсолютная заметность 0.77 поднимает до approved |
 | maple leaf | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | SWOW: оценка 0.017, доля от лучшей категории слова 1.00; абсолютная заметность 0.72 поднимает до approved |
-| rose | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | SWOW: оценка 0.183, доля от лучшей категории слова 0.32; абсолютная заметность 0.81 поднимает до approved |
+| rose | NATIONAL SYMBOLS (`flags_and_symbols`) | alternative | SWOW: оценка 0.183, доля от лучшей категории слова 0.32 |
 | shamrock | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | SWOW: оценка 0.012, доля от лучшей категории слова 0.02; абсолютная заметность 0.65 поднимает до approved |
 | star | NATIONAL SYMBOLS (`flags_and_symbols`) | alternative | SWOW: оценка 0.025, доля от лучшей категории слова 0.08 |
 | thistle | NATIONAL SYMBOLS (`flags_and_symbols`) | approved | нет данных SWOW: сохранена ручная разметка |

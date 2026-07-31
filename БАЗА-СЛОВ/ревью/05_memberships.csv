@@ -281,7 +281,7 @@ dive,dive,0.589,,,sports_actions,does_action,approved,unreviewed,0.242,0.97,0.8,
 dribble,dribble,0.437,,,sports_actions,does_action,approved,unreviewed,0.285,0.97,0.8,,Dribble is done while playing sports
 kick,kick,0.674,,,sports_actions,does_action,approved,unreviewed,0.217,0.97,0.8,,Kick is done while playing sports
 pass,pass,0.721,,,sports_actions,does_action,approved,unreviewed,0.21,0.97,0.8,,Pass is done while playing sports
-pitch,pitch,0.633,pitch_throw,A throw of the ball by the pitcher in baseball,sports_actions,does_action,approved,unreviewed,0.229,0.97,0.8,,Pitch is done while playing sports
+pitch,pitch,0.633,pitch_throw_verb,To throw the ball to the batter in baseball,sports_actions,does_action,approved,unreviewed,0.229,0.97,0.8,,Pitch is done while playing sports
 punt,punt,0.497,,,sports_actions,does_action,approved,unreviewed,0.268,0.97,0.8,,Punt is done while playing sports
 serve,serve,0.693,,,sports_actions,does_action,approved,unreviewed,0.212,0.97,0.8,,Serve is done while playing sports
 shoot,shoot,0.676,,,sports_actions,does_action,approved,unreviewed,0.217,0.97,0.8,,Shoot is done while playing sports
@@ -789,7 +789,7 @@ beetle,beetle,0.504,,,insects,is_a,approved,unreviewed,0.167,0.97,0.88,,Beetle i
 butterfly,butterfly,0.561,,,insects,is_a,approved,unreviewed,0.151,0.97,0.88,,Butterfly is a common bug
 caterpillar,caterpillar,0.483,,,insects,is_a,approved,unreviewed,0.173,0.97,0.88,,Caterpillar is a common bug
 centipede,centipede,0.399,,,insects,is_a,approved,disputed,0.197,0.97,0.88,,Centipede is a common bug
-cricket,cricket,0.627,,,insects,is_a,approved,unreviewed,0.132,0.97,0.88,,Cricket is a common bug
+cricket,cricket,0.627,cricket_insect,A small jumping insect that chirps at night,insects,is_a,approved,unreviewed,0.132,0.97,0.88,,Cricket is a common bug
 dragonfly,dragonfly,0.433,,,insects,is_a,approved,unreviewed,0.187,0.97,0.88,,Dragonfly is a common bug
 firefly,firefly,0.447,,,insects,is_a,approved,unreviewed,0.183,0.97,0.88,,Firefly is a common bug
 flea,flea,0.489,,,insects,is_a,approved,unreviewed,0.171,0.97,0.88,,Flea is a common bug
@@ -831,7 +831,7 @@ bat,bat,0.614,bat_animal,A small flying mammal active at night,nocturnal_animals
 beaver,beaver,0.516,,,nocturnal_animals,has_property,alternative,unreviewed,0.333,0.97,0.65,,Beaver is active at night and rests during the day
 cougar,cougar,0.483,,,nocturnal_animals,has_property,alternative,unreviewed,0.342,0.97,0.65,,Cougar is active at night and rests during the day
 coyote,coyote,0.48,,,nocturnal_animals,has_property,alternative,unreviewed,0.343,0.97,0.65,,Coyote is active at night and rests during the day
-cricket,cricket,0.627,,,nocturnal_animals,has_property,alternative,unreviewed,0.301,0.97,0.65,,Cricket is active at night and rests during the day
+cricket,cricket,0.627,cricket_insect,A small jumping insect that chirps at night,nocturnal_animals,has_property,alternative,unreviewed,0.301,0.97,0.65,,Cricket is active at night and rests during the day
 firefly,firefly,0.447,,,nocturnal_animals,has_property,alternative,unreviewed,0.352,0.97,0.65,,Firefly is active at night and rests during the day
 fox,fox,0.666,,,nocturnal_animals,has_property,alternative,unreviewed,0.29,0.97,0.65,,Fox is active at night and rests during the day
 hamster,hamster,0.473,,,nocturnal_animals,has_property,alternative,unreviewed,0.345,0.97,0.65,,Hamster is active at night and rests during the day
@@ -1588,7 +1588,7 @@ eyelash,eyelash,0.406,,,face_parts,part_of,approved,unreviewed,0.168,0.97,0.92,,
 eyelid,eyelid,0.43,,,face_parts,part_of,approved,unreviewed,0.161,0.97,0.92,,Eyelid is a part of the human face
 forehead,forehead,0.553,,,face_parts,part_of,approved,unreviewed,0.126,0.97,0.92,,Forehead is a part of the human face
 freckle,freckle,0.337,,,face_parts,part_of,approved,unreviewed,0.188,0.97,0.92,"[""obscure""]",Freckle is a part of the human face
-iris,iris,0.537,,,face_parts,part_of,approved,unreviewed,0.131,0.97,0.92,,Iris is a part of the human face
+iris,iris,0.537,iris_eye,The coloured ring of the eye around the pupil,face_parts,part_of,approved,unreviewed,0.131,0.97,0.92,,Iris is a part of the human face
 jaw,jaw,0.569,,,face_parts,part_of,approved,unreviewed,0.121,0.97,0.92,,Jaw is a part of the human face
 lash,lash,0.483,,,face_parts,part_of,approved,unreviewed,0.146,0.97,0.92,,Lash is a part of the human face
 lip,lip,0.59,,,face_parts,part_of,approved,unreviewed,0.115,0.97,0.92,,Lip is a part of the human face
@@ -1738,7 +1738,7 @@ wings,wings,0.634,,,parts_of_a_bird,part_of,approved,unreviewed,0.275,0.95,0.75,
 brow,brow,0.507,,,parts_of_the_eye,part_of,alternative,unreviewed,0.36,0.97,0.65,,Brow is a part of the human eye
 cornea,cornea,0.419,,,parts_of_the_eye,part_of,alternative,unreviewed,0.385,0.97,0.65,,Cornea is a part of the human eye
 eyelid,eyelid,0.43,,,parts_of_the_eye,part_of,alternative,unreviewed,0.382,0.97,0.65,,Eyelid is a part of the human eye
-iris,iris,0.537,,,parts_of_the_eye,part_of,alternative,unreviewed,0.352,0.97,0.65,,Iris is a part of the human eye
+iris,iris,0.537,iris_eye,The coloured ring of the eye around the pupil,parts_of_the_eye,part_of,alternative,unreviewed,0.352,0.97,0.65,,Iris is a part of the human eye
 lash,lash,0.483,,,parts_of_the_eye,part_of,alternative,unreviewed,0.367,0.97,0.65,,Lash is a part of the human eye
 lens,lens,0.596,,,parts_of_the_eye,part_of,alternative,unreviewed,0.335,0.97,0.65,,Lens is a part of the human eye
 optic nerve,optic nerve,0.506,,,parts_of_the_eye,part_of,alternative,unreviewed,0.36,0.97,0.65,"[""multiword""]",Optic nerve is a part of the human eye
@@ -1816,8 +1816,8 @@ KLM,klm,0.387,,,airlines,is_a,approved,unreviewed,0.33,0.97,0.78,"[""proper_noun
 Lufthansa,lufthansa,0.407,,,airlines,is_a,approved,unreviewed,0.325,0.97,0.78,"[""proper_noun"", ""trademark""]",Lufthansa is a major passenger airline
 Qantas,qantas,0.409,,,airlines,is_a,approved,unreviewed,0.324,0.97,0.78,"[""proper_noun"", ""trademark""]",Qantas is a major passenger airline
 Southwest,southwest,0.586,,,airlines,is_a,approved,unreviewed,0.274,0.97,0.78,"[""proper_noun"", ""trademark""]",Southwest is a major passenger airline
-Spirit,spirit,0.684,,,airlines,is_a,approved,unreviewed,0.246,0.97,0.78,"[""proper_noun"", ""trademark""]",Spirit is a major passenger airline
 United,united,0.781,,,airlines,is_a,approved,unreviewed,0.241,0.97,0.78,"[""proper_noun"", ""trademark""]",United is a major passenger airline
+Spirit,spirit,0.684,spirit_airline,"Spirit Airlines, an American low-cost carrier",airlines,is_a,hard_only,unreviewed,0.246,0.97,0.78,"[""proper_noun"", ""trademark""]",Spirit is a major passenger airline
 Amana,amana,0.32,,,appliance_brands,is_a,alternative,unreviewed,0.399,0.97,0.7,"[""proper_noun"", ""obscure"", ""trademark""]",Amana is a home appliance brand
 Electrolux,electrolux,0.341,,,appliance_brands,is_a,alternative,unreviewed,0.393,0.97,0.7,"[""proper_noun"", ""obscure"", ""trademark""]",Electrolux is a home appliance brand
 Frigidaire,frigidaire,0.319,,,appliance_brands,is_a,alternative,unreviewed,0.399,0.97,0.7,"[""proper_noun"", ""obscure"", ""trademark""]",Frigidaire is a home appliance brand
@@ -1877,7 +1877,7 @@ Accord,accord,0.544,,,car_models,is_a,approved,unreviewed,0.295,0.97,0.75,"[""pr
 beetle,beetle,0.504,,,car_models,is_a,approved,unreviewed,0.306,0.97,0.75,"[""proper_noun"", ""trademark""]",Beetle is a well known car model
 Camaro,camaro,0.441,,,car_models,is_a,approved,unreviewed,0.324,0.97,0.75,"[""proper_noun"", ""trademark""]",Camaro is a well known car model
 Camry,camry,0.424,,,car_models,is_a,approved,unreviewed,0.329,0.97,0.75,"[""proper_noun"", ""trademark""]",Camry is a well known car model
-Charger,charger,0.52,,,car_models,is_a,approved,unreviewed,0.301,0.97,0.75,"[""proper_noun"", ""trademark""]",Charger is a well known car model
+Charger,charger,0.52,charger_car,"The Dodge Charger, an American muscle car",car_models,is_a,approved,unreviewed,0.301,0.97,0.75,"[""proper_noun"", ""trademark""]",Charger is a well known car model
 Civic,civic,0.571,,,car_models,is_a,approved,unreviewed,0.287,0.97,0.75,"[""proper_noun"", ""trademark""]",Civic is a well known car model
 Corvette,corvette,0.476,,,car_models,is_a,approved,unreviewed,0.314,0.97,0.75,"[""proper_noun"", ""trademark""]",Corvette is a well known car model
 Explorer,explorer,0.55,,,car_models,is_a,approved,unreviewed,0.293,0.97,0.75,"[""proper_noun"", ""trademark""]",Explorer is a well known car model
@@ -1899,10 +1899,10 @@ Cocoa Puffs,cocoa puffs,0.424,,,cereal_brands,is_a,approved,unreviewed,0.32,0.97
 Corn Flakes,corn flakes,0.474,,,cereal_brands,is_a,approved,unreviewed,0.306,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Corn Flakes is an American breakfast cereal brand
 Frosted Flakes,frosted flakes,0.41,,,cereal_brands,is_a,approved,unreviewed,0.324,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Frosted Flakes is an American breakfast cereal brand
 Grape Nuts,grape nuts,0.514,,,cereal_brands,is_a,approved,unreviewed,0.294,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Grape Nuts is an American breakfast cereal brand
-Life,life,0.841,,,cereal_brands,is_a,approved,unreviewed,0.241,0.97,0.78,"[""proper_noun"", ""trademark""]",Life is an American breakfast cereal brand
 Lucky Charms,lucky charms,0.501,,,cereal_brands,is_a,approved,unreviewed,0.298,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Lucky Charms is an American breakfast cereal brand
 Raisin Bran,raisin bran,0.404,,,cereal_brands,is_a,approved,unreviewed,0.326,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Raisin Bran is an American breakfast cereal brand
 Special K,special k,0.681,,,cereal_brands,is_a,approved,unreviewed,0.246,0.97,0.78,"[""multiword"", ""proper_noun"", ""trademark""]",Special K is an American breakfast cereal brand
+Life,life,0.841,life_cereal,"Life, an American breakfast cereal brand",cereal_brands,is_a,hard_only,unreviewed,0.241,0.97,0.78,"[""proper_noun"", ""trademark""]",Life is an American breakfast cereal brand
 Adidas,adidas,0.51,,,clothing_brands,is_a,approved,unreviewed,0.264,0.97,0.8,"[""proper_noun"", ""trademark""]",Adidas is a well known clothing brand
 Champion,champion,0.66,,,clothing_brands,is_a,approved,unreviewed,0.221,0.97,0.8,"[""proper_noun"", ""trademark""]",Champion is a well known clothing brand
 Converse,converse,0.497,,,clothing_brands,is_a,approved,unreviewed,0.268,0.97,0.8,"[""proper_noun"", ""trademark""]",Converse is a well known clothing brand
@@ -3006,6 +3006,7 @@ Oktoberfest,oktoberfest,0.397,,,festivals,is_a,approved,unreviewed,0.377,0.97,0.
 Hogmanay,hogmanay,0.277,,,festivals,is_a,hard_only,unreviewed,0.411,0.97,0.7,"[""proper_noun"", ""obscure"", ""culturally_specific""]",Hogmanay is a festival celebrated somewhere in the world
 Obon,obon,0.224,,,festivals,is_a,hard_only,unreviewed,0.426,0.97,0.7,"[""proper_noun"", ""obscure"", ""culturally_specific""]",Obon is a festival celebrated somewhere in the world
 Songkran,songkran,0.286,,,festivals,is_a,hard_only,unreviewed,0.408,0.97,0.7,"[""proper_noun"", ""obscure"", ""culturally_specific""]",Songkran is a festival celebrated somewhere in the world
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",flags_and_symbols,is_a,alternative,disputed,0.293,0.97,0.7,"[""culturally_specific""]",Rose is used as a symbol of a country
 star,star,0.741,star_shape,A shape with five or more points around a center,flags_and_symbols,is_a,alternative,disputed,0.29,0.97,0.7,"[""culturally_specific""]",Star is used as a symbol of a country
 anthem,anthem,0.559,,,flags_and_symbols,is_a,approved,disputed,0.33,0.97,0.7,"[""culturally_specific""]",Anthem is used as a symbol of a country
 bear,bear,0.673,,,flags_and_symbols,is_a,approved,disputed,0.298,0.97,0.7,"[""culturally_specific""]",Bear is used as a symbol of a country
@@ -3016,7 +3017,6 @@ flag,flag,0.654,,,flags_and_symbols,is_a,approved,disputed,0.303,0.97,0.7,"[""cu
 kangaroo,kangaroo,0.5,,,flags_and_symbols,is_a,approved,disputed,0.347,0.97,0.7,"[""culturally_specific""]",Kangaroo is used as a symbol of a country
 lion,lion,0.607,,,flags_and_symbols,is_a,approved,disputed,0.317,0.97,0.7,"[""culturally_specific""]",Lion is used as a symbol of a country
 maple leaf,maple leaf,0.529,,,flags_and_symbols,is_a,approved,disputed,0.339,0.97,0.7,"[""multiword"", ""culturally_specific""]",Maple leaf is used as a symbol of a country
-rose,rose,0.689,,,flags_and_symbols,is_a,approved,disputed,0.293,0.97,0.7,"[""culturally_specific""]",Rose is used as a symbol of a country
 shamrock,shamrock,0.41,,,flags_and_symbols,is_a,approved,disputed,0.373,0.97,0.7,"[""culturally_specific""]",Shamrock is used as a symbol of a country
 thistle,thistle,0.463,,,flags_and_symbols,is_a,approved,disputed,0.358,0.97,0.7,"[""culturally_specific""]",Thistle is used as a symbol of a country
 tulip,tulip,0.454,,,flags_and_symbols,is_a,approved,disputed,0.36,0.97,0.7,"[""culturally_specific""]",Tulip is used as a symbol of a country
@@ -3601,8 +3601,8 @@ shapes,shapes,0.57,,,art_class_things,found_in,approved,unreviewed,,0.92,0.68,,D
 sketchbook,sketchbook,0.397,,,art_class_things,found_in,approved,unreviewed,0.257,0.97,0.85,,Sketchbook is used in a school art class
 smock,smock,0.367,,,art_class_things,found_in,approved,unreviewed,0.265,0.97,0.85,,Smock is used in a school art class
 stencil,stencil,0.406,,,art_class_things,found_in,approved,unreviewed,0.254,0.97,0.85,,Stencil is used in a school art class
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,classroom_things,found_in,alternative,unreviewed,0.149,0.97,0.88,,Bell is found in a school classroom
 alphabet,alphabet,0.529,,,classroom_things,found_in,approved,unreviewed,0.185,0.97,0.88,,Alphabet is found in a school classroom
-bell,bell,0.656,,,classroom_things,found_in,approved,unreviewed,0.149,0.97,0.88,,Bell is found in a school classroom
 bookshelf,bookshelf,0.417,,,classroom_things,found_in,approved,unreviewed,0.217,0.97,0.88,,Bookshelf is found in a school classroom
 calendar,calendar,0.614,,,classroom_things,found_in,approved,unreviewed,0.161,0.97,0.88,,Calendar is found in a school classroom
 chair,chair,0.67,,,classroom_things,found_in,approved,unreviewed,0.145,0.97,0.88,,Chair is found in a school classroom
@@ -3742,10 +3742,10 @@ silence,silence,0.637,,,library_words,found_in,approved,unreviewed,0.228,0.97,0.
 stack,stack,0.579,stack_shelves,The rows of shelves holding a library collection,library_words,found_in,approved,unreviewed,0.245,0.97,0.8,,Stack is found in a library
 study room,study room,0.717,,,library_words,found_in,approved,unreviewed,0.21,0.97,0.8,"[""multiword""]",Study room is found in a library
 card,card,0.72,card_plastic,A plastic card that identifies or pays,library_words,found_in,hard_only,unreviewed,0.21,0.97,0.8,,Card is found in a library
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,music_class_things,found_in,alternative,unreviewed,0.223,0.97,0.8,,Bell is used in a school music class
 maraca,maraca,0.236,,,music_class_things,found_in,alternative,unreviewed,0.343,0.97,0.8,"[""obscure""]",Maraca is used in a school music class
 stand,stand,0.734,stand_holder,A frame that holds something upright,music_class_things,found_in,alternative,unreviewed,0.21,0.97,0.8,,Stand is used in a school music class
 xylophone,xylophone,0.339,,,music_class_things,found_in,alternative,unreviewed,0.313,0.97,0.8,"[""obscure""]",Xylophone is used in a school music class
-bell,bell,0.656,,,music_class_things,found_in,approved,unreviewed,0.223,0.97,0.8,,Bell is used in a school music class
 choir,choir,0.554,,,music_class_things,found_in,approved,unreviewed,0.252,0.97,0.8,,Choir is used in a school music class
 conductor,conductor,0.543,,,music_class_things,found_in,approved,unreviewed,0.255,0.97,0.8,,Conductor is used in a school music class
 drum,drum,0.587,,,music_class_things,found_in,approved,unreviewed,0.242,0.97,0.8,,Drum is used in a school music class
@@ -3970,6 +3970,7 @@ pirouette,pirouette,0.311,,,ballet_class,found_in,alternative,unreviewed,0.575,0
 barre,barre,0.44,,,ballet_class,found_in,approved,unreviewed,0.45,0.95,0.7,,barre belongs to a ballet class
 leotard,leotard,0.363,,,ballet_class,found_in,approved,unreviewed,0.525,0.95,0.55,,leotard belongs to a ballet class
 recital,recital,0.469,,,ballet_class,found_in,approved,unreviewed,0.45,0.95,0.7,,recital belongs to a ballet class
+Life,life,0.841,life_game,"The Game of Life, an American board game",board_games,is_a,alternative,unreviewed,0.17,0.97,0.85,,Life is a game played on a board
 mancala,mancala,0.23,,,board_games,is_a,alternative,unreviewed,0.304,0.97,0.85,"[""obscure""]",Mancala is a game played on a board
 backgammon,backgammon,0.35,,,board_games,is_a,approved,unreviewed,0.27,0.97,0.85,"[""obscure""]",Backgammon is a game played on a board
 battleship,battleship,0.45,,,board_games,is_a,approved,unreviewed,0.241,0.97,0.85,,Battleship is a game played on a board
@@ -3979,7 +3980,6 @@ chess,chess,0.563,,,board_games,is_a,approved,unreviewed,0.209,0.97,0.85,,Chess 
 chutes and ladders,chutes and ladders,0.37,,,board_games,is_a,approved,unreviewed,0.264,0.97,0.85,"[""multiword""]",Chutes and ladders is a game played on a board
 clue,clue,0.597,,,board_games,is_a,approved,unreviewed,0.199,0.97,0.85,,Clue is a game played on a board
 dominoes,dominoes,0.404,,,board_games,is_a,approved,unreviewed,0.3,0.95,0.65,,dominoes fits the category rule: Games played on a printed board with pieces
-Life,life,0.841,,,board_games,is_a,approved,unreviewed,0.17,0.97,0.85,,Life is a game played on a board
 monopoly,monopoly,0.549,,,board_games,is_a,approved,unreviewed,0.213,0.97,0.85,,Monopoly is a game played on a board
 othello,othello,0.427,,,board_games,is_a,approved,unreviewed,0.248,0.97,0.85,,Othello is a game played on a board
 risk,risk,0.721,,,board_games,is_a,approved,unreviewed,0.17,0.97,0.85,,Risk is a game played on a board
@@ -4911,11 +4911,11 @@ fresh,fresh,0.69,fresh_scent,Clean and light smelling,perfume_words,found_in,alt
 lavender,lavender,0.491,lavender_plant,A fragrant purple flowering herb,perfume_words,found_in,alternative,unreviewed,0.356,0.97,0.68,,Lavender is used to describe a scent
 mist,mist,0.524,,,perfume_words,found_in,alternative,unreviewed,0.346,0.97,0.68,,Mist is used to describe a scent
 musk,musk,0.499,,,perfume_words,found_in,alternative,unreviewed,0.353,0.97,0.68,,Musk is used to describe a scent
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",perfume_words,found_in,alternative,unreviewed,0.299,0.97,0.68,,Rose is used to describe a scent
 sandalwood,sandalwood,0.387,,,perfume_words,found_in,alternative,unreviewed,0.385,0.97,0.68,,Sandalwood is used to describe a scent
 spicy,spicy,0.543,,,perfume_words,found_in,alternative,unreviewed,0.341,0.97,0.68,,Spicy is used to describe a scent
 vanilla,vanilla,0.549,,,perfume_words,found_in,alternative,unreviewed,0.339,0.97,0.68,,Vanilla is used to describe a scent
 woody,woody,0.546,,,perfume_words,found_in,alternative,unreviewed,0.34,0.97,0.68,,Woody is used to describe a scent
-rose,rose,0.689,,,perfume_words,found_in,approved,unreviewed,0.299,0.97,0.68,,Rose is used to describe a scent
 sweet,sweet,0.701,,,perfume_words,found_in,approved,unreviewed,0.296,0.97,0.68,,Sweet is used to describe a scent
 note,note,0.72,note_scent,One distinguishable smell within a perfume,perfume_words,found_in,hard_only,unreviewed,0.296,0.97,0.68,,Note is used to describe a scent
 haircare,haircare,0.307,,,self_care,associated_with,alternative,unreviewed,0.5,0.9,0.4,,haircare belongs to looking after yourself
@@ -7799,7 +7799,6 @@ box,box,0.72,,,things_that_open,has_property,approved,unreviewed,0.265,0.97,0.7,
 door,door,0.726,,,things_that_open,has_property,approved,unreviewed,0.265,0.97,0.7,,Door opens and closes
 window,window,0.686,,,things_that_open,has_property,approved,unreviewed,0.269,0.97,0.7,,Window opens and closes
 blender,blender,0.49,,,things_that_plug_in,has_property,alternative,unreviewed,0.276,0.97,0.78,,Blender is powered by plugging into an outlet
-Charger,charger,0.52,,,things_that_plug_in,has_property,alternative,unreviewed,0.267,0.97,0.78,,Charger is powered by plugging into an outlet
 fan,fan,0.703,fan_device,A machine with spinning blades that moves air,things_that_plug_in,has_property,alternative,unreviewed,0.216,0.97,0.78,,Fan is powered by plugging into an outlet
 freezer,freezer,0.523,,,things_that_plug_in,has_property,alternative,unreviewed,0.267,0.97,0.78,,Freezer is powered by plugging into an outlet
 hairdryer,hairdryer,0.347,,,things_that_plug_in,has_property,alternative,unreviewed,0.317,0.97,0.78,"[""obscure""]",Hairdryer is powered by plugging into an outlet
@@ -7817,6 +7816,7 @@ radio,radio,0.716,,,things_that_plug_in,has_property,approved,unreviewed,0.216,0
 speaker,speaker,0.641,,,things_that_plug_in,has_property,approved,unreviewed,0.233,0.97,0.78,,Speaker is powered by plugging into an outlet
 television,television,0.684,,,things_that_plug_in,has_property,approved,unreviewed,0.221,0.97,0.78,,Television is powered by plugging into an outlet
 vacuum,vacuum,0.584,,,things_that_plug_in,has_property,approved,unreviewed,0.249,0.97,0.78,,Vacuum is powered by plugging into an outlet
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,things_that_plug_in,has_property,hard_only,unreviewed,0.267,0.97,0.78,,Charger is powered by plugging into an outlet
 drill,drill,0.584,drill_tool,A tool that bores holes by spinning a bit,things_that_plug_in,has_property,hard_only,unreviewed,0.249,0.97,0.78,,Drill is powered by plugging into an outlet
 alarm clock,alarm clock,0.579,,,things_with_buttons,has_property,alternative,unreviewed,0.3,0.97,0.7,"[""multiword""]",Alarm clock is operated by pressing buttons
 blender,blender,0.49,,,things_with_buttons,has_property,alternative,unreviewed,0.325,0.97,0.7,,Blender is operated by pressing buttons
@@ -9365,7 +9365,7 @@ hail,hail,0.56,,,words_before_stone,phrase_before,hard_only,unreviewed,0.425,0.9
 key,key,0.731,,,words_before_stone,phrase_before,hard_only,unreviewed,0.385,0.97,0.55,,"key forms the familiar compound ""key stone"""
 lime,lime,0.551,,,words_before_stone,phrase_before,hard_only,unreviewed,0.428,0.97,0.55,,"lime forms the familiar compound ""lime stone"""
 mile,mile,0.656,,,words_before_stone,phrase_before,hard_only,unreviewed,0.398,0.97,0.55,,"mile forms the familiar compound ""mile stone"""
-moon,moon,0.671,,,words_before_stone,phrase_before,hard_only,unreviewed,0.393,0.97,0.55,,"moon forms the familiar compound ""moon stone"""
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,words_before_stone,phrase_before,hard_only,unreviewed,0.393,0.97,0.55,,"moon forms the familiar compound ""moon stone"""
 sand,sand,0.634,,,words_before_stone,phrase_before,hard_only,unreviewed,0.404,0.97,0.55,,"sand forms the familiar compound ""sand stone"""
 stepping,stepping,0.569,,,words_before_stone,phrase_before,hard_only,unreviewed,0.422,0.97,0.55,,"stepping forms the familiar compound ""stepping stone"""
 bed,bed,0.724,,,words_before_time,phrase_before,alternative,unreviewed,0.305,0.97,0.65,,"bed forms the familiar phrase ""bed time"""
@@ -9605,7 +9605,7 @@ k9,k9,0.401,,,police_things,used_in,approved,unreviewed,0.255,0.97,0.85,,K9 is u
 officer,officer,0.719,,,police_things,used_in,approved,unreviewed,0.25,0.95,0.75,,officer fits the category rule: Equipment and things used by police
 patrol,patrol,0.591,,,police_things,used_in,approved,unreviewed,0.201,0.97,0.85,,Patrol is used by police
 radio,radio,0.716,,,police_things,used_in,approved,unreviewed,0.17,0.97,0.85,,Radio is used by police
-siren,siren,0.494,,,police_things,used_in,approved,unreviewed,0.229,0.97,0.85,,Siren is used by police
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,police_things,used_in,approved,unreviewed,0.229,0.97,0.85,,Siren is used by police
 ticket,ticket,0.659,ticket_fine,A written notice of a fine for breaking a traffic rule,police_things,used_in,approved,unreviewed,0.182,0.97,0.85,,Ticket is used by police
 uniform,uniform,0.619,,,police_things,used_in,approved,unreviewed,0.193,0.97,0.85,,Uniform is used by police
 vest,vest,0.533,,,police_things,used_in,approved,unreviewed,0.218,0.97,0.85,,Vest is used by police
@@ -10044,6 +10044,7 @@ belt,belt,0.631,,,things_made_of_leather,made_of,approved,unreviewed,0.27,0.97,0
 jacket,jacket,0.617,,,things_made_of_leather,made_of,approved,unreviewed,0.274,0.97,0.75,,Jacket is normally made of leather
 anchor,anchor,0.574,,,things_made_of_metal,made_of,alternative,unreviewed,0.252,0.97,0.78,,Anchor is normally made of metal
 armor,armor,0.567,,,things_made_of_metal,made_of,alternative,unreviewed,0.254,0.97,0.78,,Armor is normally made of metal
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,things_made_of_metal,made_of,alternative,unreviewed,0.229,0.97,0.78,,Bell is normally made of metal
 faucet,faucet,0.439,,,things_made_of_metal,made_of,alternative,unreviewed,0.291,0.97,0.78,,Faucet is normally made of metal
 hinge,hinge,0.474,,,things_made_of_metal,made_of,alternative,unreviewed,0.281,0.97,0.78,,Hinge is normally made of metal
 kettle,kettle,0.506,,,things_made_of_metal,made_of,alternative,unreviewed,0.271,0.97,0.78,,Kettle is normally made of metal
@@ -10053,7 +10054,6 @@ nail,nail,0.601,nail_metal,A thin pointed metal pin hammered into wood,things_ma
 pipe,pipe,0.607,pipe_tube,A tube that carries water or gas,things_made_of_metal,made_of,alternative,unreviewed,0.243,0.97,0.78,,Pipe is normally made of metal
 spoon,spoon,0.554,,,things_made_of_metal,made_of,alternative,unreviewed,0.258,0.97,0.78,,Spoon is normally made of metal
 wrench,wrench,0.481,,,things_made_of_metal,made_of,alternative,unreviewed,0.279,0.97,0.78,,Wrench is normally made of metal
-bell,bell,0.656,,,things_made_of_metal,made_of,approved,unreviewed,0.229,0.97,0.78,,Bell is normally made of metal
 can,can,0.923,,,things_made_of_metal,made_of,approved,unreviewed,0.216,0.97,0.78,,Can is normally made of metal
 chain,chain,0.664,,,things_made_of_metal,made_of,approved,unreviewed,0.226,0.97,0.78,,Chain is normally made of metal
 coin,coin,0.599,,,things_made_of_metal,made_of,approved,unreviewed,0.245,0.97,0.78,,Coin is normally made of metal
@@ -10225,7 +10225,7 @@ buzz,buzz,0.579,,,disney_characters,is_a,approved,unreviewed,0.205,0.97,0.85,"["
 Cinderella,cinderella,0.493,,,disney_characters,is_a,approved,unreviewed,0.229,0.97,0.85,"[""proper_noun""]",Cinderella is a Disney character
 Dumbo,dumbo,0.39,,,disney_characters,is_a,approved,unreviewed,0.259,0.97,0.85,"[""proper_noun""]",Dumbo is a Disney character
 Elsa,elsa,0.49,,,disney_characters,is_a,approved,unreviewed,0.23,0.97,0.85,"[""proper_noun""]",Elsa is a Disney character
-Jasmine,jasmine,0.516,,,disney_characters,is_a,approved,unreviewed,0.223,0.97,0.85,"[""proper_noun""]",Jasmine is a Disney character
+Jasmine,jasmine,0.516,jasmine_disney,Princess Jasmine from the Disney film Aladdin,disney_characters,is_a,approved,unreviewed,0.223,0.97,0.85,"[""proper_noun""]",Jasmine is a Disney character
 Moana,moana,0.394,,,disney_characters,is_a,approved,unreviewed,0.257,0.97,0.85,"[""proper_noun""]",Moana is a Disney character
 Mulan,mulan,0.401,,,disney_characters,is_a,approved,unreviewed,0.255,0.97,0.85,"[""proper_noun""]",Mulan is a Disney character
 Nemo,nemo,0.453,,,disney_characters,is_a,approved,unreviewed,0.241,0.97,0.85,"[""proper_noun""]",Nemo is a Disney character
@@ -10530,7 +10530,7 @@ oxygen,oxygen,0.607,,,emergency_words,found_in,approved,unreviewed,0.237,0.97,0.
 paramedic,paramedic,0.456,,,emergency_words,found_in,approved,unreviewed,0.28,0.97,0.8,,Paramedic is used during a medical emergency
 rescue,rescue,0.64,,,emergency_words,found_in,approved,unreviewed,0.227,0.97,0.8,,Rescue is used during a medical emergency
 response,response,0.719,,,emergency_words,found_in,approved,unreviewed,0.21,0.97,0.8,,Response is used during a medical emergency
-siren,siren,0.494,,,emergency_words,found_in,approved,unreviewed,0.269,0.97,0.8,,Siren is used during a medical emergency
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,emergency_words,found_in,approved,unreviewed,0.269,0.97,0.8,,Siren is used during a medical emergency
 stretcher,stretcher,0.461,,,emergency_words,found_in,approved,unreviewed,0.278,0.97,0.8,,Stretcher is used during a medical emergency
 trauma,trauma,0.591,,,emergency_words,found_in,approved,unreviewed,0.241,0.97,0.8,,Trauma is used during a medical emergency
 triage,triage,0.413,,,emergency_words,found_in,approved,unreviewed,0.292,0.97,0.8,,Triage is used during a medical emergency
@@ -10786,7 +10786,6 @@ diet,diet,0.653,,,wellness,is_a,approved,unreviewed,0.3,0.95,0.85,,diet is a wel
 hydration,hydration,0.454,,,wellness,is_a,approved,unreviewed,0.325,0.95,0.8,,hydration is a wellness practice
 meditation,meditation,0.564,,,wellness,is_a,approved,unreviewed,0.325,0.95,0.8,,meditation is a wellness practice
 yoga,yoga,0.6,,,wellness,is_a,approved,unreviewed,0.325,0.95,0.8,,yoga is a wellness practice
-Charger,charger,0.52,,,things_in_a_glove_box,found_in,alternative,unreviewed,0.341,0.97,0.7,,Charger is kept in a car glove compartment
 flashlight,flashlight,0.494,,,things_in_a_glove_box,found_in,alternative,unreviewed,0.349,0.97,0.7,,Flashlight is kept in a car glove compartment
 ice scraper,ice scraper,0.394,,,things_in_a_glove_box,found_in,alternative,unreviewed,0.377,0.97,0.7,"[""multiword""]",Ice scraper is kept in a car glove compartment
 manual,manual,0.617,,,things_in_a_glove_box,found_in,alternative,unreviewed,0.314,0.97,0.7,,Manual is kept in a car glove compartment
@@ -10797,10 +10796,11 @@ tire gauge,tire gauge,0.531,,,things_in_a_glove_box,found_in,alternative,unrevie
 tissues,tissues,0.547,,,things_in_a_glove_box,found_in,alternative,unreviewed,0.334,0.97,0.7,,Tissues is kept in a car glove compartment
 insurance,insurance,0.706,,,things_in_a_glove_box,found_in,approved,unreviewed,0.29,0.97,0.7,,Insurance is kept in a car glove compartment
 map,map,0.68,,,things_in_a_glove_box,found_in,approved,unreviewed,0.296,0.97,0.7,,Map is kept in a car glove compartment
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,things_in_a_glove_box,found_in,hard_only,unreviewed,0.341,0.97,0.7,,Charger is kept in a car glove compartment
 gum,gum,0.563,gum_candy,A sweet soft substance that is chewed,things_in_a_glove_box,found_in,hard_only,unreviewed,0.329,0.97,0.7,,Gum is kept in a car glove compartment
 pen,pen,0.626,pen_writing,A handheld tool that writes with ink,things_in_a_glove_box,found_in,hard_only,unreviewed,0.311,0.97,0.7,,Pen is kept in a car glove compartment
 hairbrush,hairbrush,0.336,,,things_in_a_purse,found_in,alternative,unreviewed,0.314,0.97,0.8,"[""obscure""]",Hairbrush is carried in a purse
-Charger,charger,0.52,,,things_in_a_purse,found_in,approved,unreviewed,0.261,0.97,0.8,,Charger is carried in a purse
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,things_in_a_purse,found_in,approved,unreviewed,0.261,0.97,0.8,,Charger is carried in a purse
 hand sanitizer,hand sanitizer,0.386,,,things_in_a_purse,found_in,approved,unreviewed,0.3,0.97,0.8,"[""multiword""]",Hand sanitizer is carried in a purse
 keys,keys,0.627,,,things_in_a_purse,found_in,approved,unreviewed,0.231,0.97,0.8,,Keys is carried in a purse
 lipstick,lipstick,0.527,,,things_in_a_purse,found_in,approved,unreviewed,0.259,0.97,0.8,,Lipstick is carried in a purse
@@ -10886,6 +10886,7 @@ snowman,snowman,0.451,,,things_that_have_a_face,has_property,alternative,unrevie
 watch,watch,0.763,watch_object,A small clock worn on the wrist,things_that_have_a_face,has_property,alternative,unreviewed,0.305,0.97,0.65,,Watch is described as having a face
 dice,dice,0.537,dice_game,The small numbered cubes thrown in games,things_that_have_a_face,has_property,hard_only,unreviewed,0.352,0.97,0.65,,Dice is described as having a face
 alarm,alarm,0.611,,,things_that_ring,does_action,alternative,unreviewed,0.284,0.97,0.72,,Alarm rings or chimes
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,things_that_ring,does_action,alternative,unreviewed,0.272,0.97,0.72,,Bell rings or chimes
 bicycle bell,bicycle bell,0.554,,,things_that_ring,does_action,alternative,unreviewed,0.301,0.97,0.72,"[""multiword""]",Bicycle bell rings or chimes
 buzzer,buzzer,0.486,,,things_that_ring,does_action,alternative,unreviewed,0.32,0.97,0.72,,Buzzer rings or chimes
 cash register,cash register,0.631,,,things_that_ring,does_action,alternative,unreviewed,0.279,0.97,0.72,"[""multiword""]",Cash register rings or chimes
@@ -10895,7 +10896,6 @@ clock,clock,0.633,,,things_that_ring,does_action,alternative,unreviewed,0.278,0.
 dinner bell,dinner bell,0.624,,,things_that_ring,does_action,alternative,unreviewed,0.281,0.97,0.72,"[""multiword""]",Dinner bell rings or chimes
 doorbell,doorbell,0.436,,,things_that_ring,does_action,alternative,unreviewed,0.334,0.97,0.72,,Doorbell rings or chimes
 timer,timer,0.526,,,things_that_ring,does_action,alternative,unreviewed,0.309,0.97,0.72,,Timer rings or chimes
-bell,bell,0.656,,,things_that_ring,does_action,approved,unreviewed,0.272,0.97,0.72,,Bell rings or chimes
 phone,phone,0.757,,,things_that_ring,does_action,approved,unreviewed,0.259,0.97,0.72,,Phone rings or chimes
 carton,carton,0.456,,,things_you_recycle,is_a,alternative,unreviewed,0.32,0.97,0.75,,Carton is commonly thrown out or recycled
 envelope,envelope,0.551,,,things_you_recycle,is_a,alternative,unreviewed,0.293,0.97,0.75,,Envelope is commonly thrown out or recycled
@@ -11063,8 +11063,8 @@ hydra,hydra,0.473,,,mythical_monsters,is_a,approved,unreviewed,0.275,0.97,0.8,,H
 kraken,kraken,0.407,,,mythical_monsters,is_a,approved,unreviewed,0.294,0.97,0.8,,Kraken is a monster from myth or legend
 medusa,medusa,0.443,,,mythical_monsters,is_a,approved,unreviewed,0.283,0.97,0.8,,Medusa is a monster from myth or legend
 minotaur,minotaur,0.394,,,mythical_monsters,is_a,approved,unreviewed,0.297,0.97,0.8,,Minotaur is a monster from myth or legend
-siren,siren,0.494,,,mythical_monsters,is_a,approved,unreviewed,0.269,0.97,0.8,,Siren is a monster from myth or legend
 sphinx,sphinx,0.429,,,mythical_monsters,is_a,approved,unreviewed,0.287,0.97,0.8,,Sphinx is a monster from myth or legend
+siren,siren,0.494,siren_myth,A sea creature of Greek myth whose song lured sailors,mythical_monsters,is_a,hard_only,unreviewed,0.269,0.97,0.8,,Siren is a monster from myth or legend
 Balder,balder,0.316,,,norse_gods,is_a,alternative,unreviewed,0.36,0.97,0.75,"[""proper_noun"", ""obscure""]",Balder is a god of Norse mythology
 Frigg,frigg,0.279,,,norse_gods,is_a,alternative,unreviewed,0.37,0.97,0.75,"[""proper_noun"", ""obscure""]",Frigg is a god of Norse mythology
 Heimdall,heimdall,0.299,,,norse_gods,is_a,alternative,unreviewed,0.365,0.97,0.75,"[""proper_noun"", ""obscure""]",Heimdall is a god of Norse mythology
@@ -11206,11 +11206,11 @@ Fern,fern,0.467,,,nature_names,is_a,approved,unreviewed,0.317,0.97,0.75,"[""prop
 Hazel,hazel,0.506,,,nature_names,is_a,approved,unreviewed,0.305,0.97,0.75,"[""proper_noun""]",Hazel is a first name taken from nature
 Heather,heather,0.553,,,nature_names,is_a,approved,unreviewed,0.292,0.97,0.75,"[""proper_noun""]",Heather is a first name taken from nature
 Ivy,ivy,0.547,,,nature_names,is_a,approved,unreviewed,0.294,0.97,0.75,"[""proper_noun""]",Ivy is a first name taken from nature
-Jasmine,jasmine,0.516,,,nature_names,is_a,approved,unreviewed,0.303,0.97,0.75,"[""proper_noun""]",Jasmine is a first name taken from nature
+Jasmine,jasmine,0.516,jasmine_name,Jasmine as a girl's given name taken from the flower,nature_names,is_a,approved,unreviewed,0.303,0.97,0.75,"[""proper_noun""]",Jasmine is a first name taken from nature
 Lily,lily,0.564,,,nature_names,is_a,approved,unreviewed,0.289,0.97,0.75,"[""proper_noun""]",Lily is a first name taken from nature
 rain,rain,0.673,,,nature_names,is_a,approved,unreviewed,0.258,0.97,0.75,"[""proper_noun""]",Rain is a first name taken from nature
 river,river,0.719,,,nature_names,is_a,approved,unreviewed,0.25,0.97,0.75,"[""proper_noun""]",River is a first name taken from nature
-rose,rose,0.689,,,nature_names,is_a,approved,unreviewed,0.253,0.97,0.75,"[""proper_noun""]",Rose is a first name taken from nature
+rose,rose,0.689,rose_name,Rose as a woman's given name taken from the flower,nature_names,is_a,approved,unreviewed,0.253,0.97,0.75,"[""proper_noun""]",Rose is a first name taken from nature
 sky,sky,0.674,,,nature_names,is_a,approved,unreviewed,0.257,0.97,0.75,"[""proper_noun""]",Sky is a first name taken from nature
 summer,summer,0.747,,,nature_names,is_a,approved,unreviewed,0.25,0.97,0.75,"[""proper_noun""]",Summer is a first name taken from nature
 Violet,violet,0.549,,,nature_names,is_a,approved,unreviewed,0.293,0.97,0.75,"[""proper_noun""]",Violet is a first name taken from nature
@@ -11321,8 +11321,8 @@ James,james,0.73,,,short_names,has_property,approved,unreviewed,0.29,0.97,0.7,"[
 John,john,0.769,,,short_names,has_property,approved,unreviewed,0.29,0.97,0.7,"[""proper_noun""]",John is a one syllable first name
 mark,mark,0.721,,,short_names,has_property,approved,unreviewed,0.29,0.97,0.7,"[""proper_noun""]",Mark is a one syllable first name
 Paul,paul,0.719,,,short_names,has_property,approved,unreviewed,0.29,0.97,0.7,"[""proper_noun""]",Paul is a one syllable first name
-rose,rose,0.689,,,short_names,has_property,approved,unreviewed,0.293,0.97,0.7,"[""proper_noun""]",Rose is a one syllable first name
 Scott,scott,0.674,,,short_names,has_property,approved,unreviewed,0.297,0.97,0.7,"[""proper_noun""]",Scott is a one syllable first name
+rose,rose,0.689,rose_name,Rose as a woman's given name taken from the flower,short_names,has_property,hard_only,unreviewed,0.293,0.97,0.7,"[""proper_noun""]",Rose is a one syllable first name
 Amelie,amelie,0.361,,,french_names,is_a,approved,unreviewed,0.387,0.97,0.7,"[""proper_noun"", ""culturally_specific""]",Amelie is a common French first name
 Antoine,antoine,0.484,,,french_names,is_a,approved,unreviewed,0.352,0.97,0.7,"[""proper_noun"", ""culturally_specific""]",Antoine is a common French first name
 Camille,camille,0.474,,,french_names,is_a,approved,unreviewed,0.355,0.97,0.7,"[""proper_noun"", ""culturally_specific""]",Camille is a common French first name
@@ -11538,7 +11538,7 @@ helicopter,helicopter,0.59,,,cloud_and_sky,found_in,approved,unreviewed,0.247,0.
 kite,kite,0.507,kite_toy,A light frame flown on a string in the wind,cloud_and_sky,found_in,approved,unreviewed,0.271,0.97,0.78,,Kite can be seen in the sky
 lightning,lightning,0.603,,,cloud_and_sky,found_in,approved,unreviewed,0.244,0.97,0.78,,Lightning can be seen in the sky
 meteor,meteor,0.507,,,cloud_and_sky,found_in,approved,unreviewed,0.271,0.97,0.78,,Meteor can be seen in the sky
-moon,moon,0.671,,,cloud_and_sky,found_in,approved,unreviewed,0.224,0.97,0.78,,Moon can be seen in the sky
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,cloud_and_sky,found_in,approved,unreviewed,0.224,0.97,0.78,,Moon can be seen in the sky
 plane,plane,0.674,plane_aircraft,A flying machine with fixed wings,cloud_and_sky,found_in,approved,unreviewed,0.223,0.97,0.78,,Plane can be seen in the sky
 rainbow,rainbow,0.581,,,cloud_and_sky,found_in,approved,unreviewed,0.25,0.97,0.78,,Rainbow can be seen in the sky
 satellite,satellite,0.619,,,cloud_and_sky,found_in,approved,unreviewed,0.239,0.97,0.78,,Satellite can be seen in the sky
@@ -11598,8 +11598,8 @@ dahlia,dahlia,0.409,,,flowers,is_a,approved,unreviewed,0.194,0.97,0.88,,Dahlia i
 Daisy,daisy,0.54,,,flowers,is_a,approved,unreviewed,0.157,0.97,0.88,,Daisy is a kind of flower
 geranium,geranium,0.37,,,flowers,is_a,approved,unreviewed,0.205,0.97,0.88,,Geranium is a kind of flower
 hyacinth,hyacinth,0.39,,,flowers,is_a,approved,unreviewed,0.2,0.97,0.88,,Hyacinth is a kind of flower
-iris,iris,0.537,,,flowers,is_a,approved,unreviewed,0.158,0.97,0.88,,Iris is a kind of flower
-Jasmine,jasmine,0.516,,,flowers,is_a,approved,unreviewed,0.164,0.97,0.88,,Jasmine is a kind of flower
+iris,iris,0.537,iris_flower,A garden flower with showy petals and sword-shaped leaves,flowers,is_a,approved,unreviewed,0.158,0.97,0.88,,Iris is a kind of flower
+Jasmine,jasmine,0.516,jasmine_flower,A climbing shrub with small fragrant white flowers,flowers,is_a,approved,unreviewed,0.164,0.97,0.88,,Jasmine is a kind of flower
 lavender,lavender,0.491,lavender_plant,A fragrant purple flowering herb,flowers,is_a,approved,unreviewed,0.171,0.97,0.88,,Lavender is a kind of flower
 lilac,lilac,0.444,,,flowers,is_a,approved,unreviewed,0.184,0.97,0.88,,Lilac is a kind of flower
 Lily,lily,0.564,,,flowers,is_a,approved,unreviewed,0.15,0.97,0.88,,Lily is a kind of flower
@@ -11608,13 +11608,14 @@ marigold,marigold,0.393,,,flowers,is_a,approved,unreviewed,0.199,0.97,0.88,,Mari
 orchid,orchid,0.471,,,flowers,is_a,approved,unreviewed,0.176,0.97,0.88,,Orchid is a kind of flower
 peony,peony,0.367,,,flowers,is_a,approved,unreviewed,0.206,0.97,0.88,,Peony is a kind of flower
 poppy,poppy,0.513,,,flowers,is_a,approved,unreviewed,0.164,0.97,0.88,,Poppy is a kind of flower
-rose,rose,0.689,,,flowers,is_a,approved,unreviewed,0.114,0.97,0.88,,Rose is a kind of flower
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",flowers,is_a,approved,unreviewed,0.114,0.97,0.88,,Rose is a kind of flower
 sunflower,sunflower,0.48,,,flowers,is_a,approved,unreviewed,0.174,0.97,0.88,,Sunflower is a kind of flower
 tulip,tulip,0.454,,,flowers,is_a,approved,unreviewed,0.181,0.97,0.88,,Tulip is a kind of flower
 Violet,violet,0.549,,,flowers,is_a,approved,unreviewed,0.154,0.97,0.88,,Violet is a kind of flower
 wildflowers,wildflowers,0.399,,,flowers,is_a,approved,unreviewed,,0.98,0.86,,Wildflowers are flowers
 hosta,hosta,0.249,,,garden_plants,found_in,alternative,unreviewed,0.314,0.97,0.8,"[""obscure""]",Hosta is grown in a home garden
 lavender,lavender,0.491,lavender_plant,A fragrant purple flowering herb,garden_plants,found_in,alternative,unreviewed,0.245,0.97,0.8,,Lavender is grown in a home garden
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",garden_plants,found_in,alternative,unreviewed,0.188,0.97,0.8,,Rose is grown in a home garden
 basil,basil,0.521,,,garden_plants,found_in,approved,unreviewed,0.236,0.97,0.8,,Basil is grown in a home garden
 bean,bean,0.569,,,garden_plants,found_in,approved,unreviewed,0.222,0.97,0.8,,Bean is grown in a home garden
 carrot,carrot,0.517,,,garden_plants,found_in,approved,unreviewed,0.237,0.97,0.8,,Carrot is grown in a home garden
@@ -11626,7 +11627,6 @@ marigold,marigold,0.393,,,garden_plants,found_in,approved,unreviewed,0.273,0.97,
 mint,mint,0.56,mint_herb,A green leafy herb with a cool sharp taste,garden_plants,found_in,approved,unreviewed,0.225,0.97,0.8,,Mint is grown in a home garden
 pepper,pepper,0.591,,,garden_plants,found_in,approved,unreviewed,0.216,0.97,0.8,,Pepper is grown in a home garden
 pumpkin,pumpkin,0.547,,,garden_plants,found_in,approved,unreviewed,0.229,0.97,0.8,,Pumpkin is grown in a home garden
-rose,rose,0.689,,,garden_plants,found_in,approved,unreviewed,0.188,0.97,0.8,,Rose is grown in a home garden
 squash,squash,0.519,squash_vegetable,A thick skinned vegetable such as a pumpkin,garden_plants,found_in,approved,unreviewed,0.237,0.97,0.8,,Squash is grown in a home garden
 strawberry,strawberry,0.531,,,garden_plants,found_in,approved,unreviewed,0.233,0.97,0.8,,Strawberry is grown in a home garden
 sunflower,sunflower,0.48,,,garden_plants,found_in,approved,unreviewed,0.248,0.97,0.8,,Sunflower is grown in a home garden
@@ -11667,6 +11667,7 @@ sky,sky,0.674,,,landscape_features,found_in,approved,unreviewed,0.275,0.95,0.75,
 soil,soil,0.631,,,landscape_features,found_in,approved,unreviewed,0.3,0.95,0.7,,soil is a feature of a natural landscape
 valley,valley,0.674,,,landscape_features,found_in,approved,unreviewed,0.275,0.95,0.75,,valley is a feature of a natural landscape
 glowstick,glowstick,0.219,,,light_sources,does_action,alternative,unreviewed,0.347,0.97,0.8,"[""obscure""]",Glowstick gives off light
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,light_sources,does_action,alternative,unreviewed,0.218,0.97,0.8,,Moon gives off light
 streetlight,streetlight,0.336,,,light_sources,does_action,alternative,unreviewed,0.314,0.97,0.8,"[""obscure""]",Streetlight gives off light
 bulb,bulb,0.523,,,light_sources,does_action,approved,unreviewed,0.261,0.97,0.8,,Bulb gives off light
 campfire,campfire,0.443,,,light_sources,does_action,approved,unreviewed,0.283,0.97,0.8,,Campfire gives off light
@@ -11680,7 +11681,6 @@ lantern,lantern,0.516,,,light_sources,does_action,approved,unreviewed,0.263,0.97
 laser,laser,0.6,,,light_sources,does_action,approved,unreviewed,0.239,0.97,0.8,,Laser gives off light
 lightning,lightning,0.603,,,light_sources,does_action,approved,unreviewed,0.238,0.97,0.8,,Lightning gives off light
 match,match,0.733,,,light_sources,does_action,approved,unreviewed,0.21,0.97,0.8,,Match gives off light
-moon,moon,0.671,,,light_sources,does_action,approved,unreviewed,0.218,0.97,0.8,,Moon gives off light
 neon,neon,0.52,,,light_sources,does_action,approved,unreviewed,0.261,0.97,0.8,,Neon gives off light
 screen,screen,0.693,screen_display,The flat surface of a device that shows a picture,light_sources,does_action,approved,unreviewed,0.212,0.97,0.8,,Screen gives off light
 star,star,0.741,star_space,A burning ball of gas seen as a point of light in the night sky,light_sources,does_action,approved,unreviewed,0.21,0.97,0.8,,Star gives off light
@@ -12133,7 +12133,7 @@ eclipse,eclipse,0.544,,,night_sky_things,found_in,approved,unreviewed,0.249,0.97
 galaxy,galaxy,0.611,,,night_sky_things,found_in,approved,unreviewed,0.229,0.97,0.82,,Galaxy is visible in the night sky
 meteor,meteor,0.507,,,night_sky_things,found_in,approved,unreviewed,0.259,0.97,0.82,,Meteor is visible in the night sky
 Milky Way,milky way,0.5,,,night_sky_things,found_in,approved,unreviewed,0.261,0.97,0.82,"[""multiword""]",Milky way is visible in the night sky
-moon,moon,0.671,,,night_sky_things,found_in,approved,unreviewed,0.212,0.97,0.82,,Moon is visible in the night sky
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,night_sky_things,found_in,approved,unreviewed,0.212,0.97,0.82,,Moon is visible in the night sky
 planet,planet,0.669,,,night_sky_things,found_in,approved,unreviewed,0.213,0.97,0.82,,Planet is visible in the night sky
 satellite,satellite,0.619,,,night_sky_things,found_in,approved,unreviewed,0.227,0.97,0.82,,Satellite is visible in the night sky
 shooting star,shooting star,0.663,,,night_sky_things,found_in,approved,unreviewed,0.215,0.97,0.82,"[""multiword""]",Shooting star is visible in the night sky
@@ -12314,7 +12314,7 @@ bee,bee,0.584,,,garden_bugs,found_in,approved,unreviewed,0.323,0.97,0.7,,Bee is 
 beetle,beetle,0.504,,,garden_bugs,found_in,approved,unreviewed,0.346,0.97,0.7,,Beetle is found in a garden
 caterpillar,caterpillar,0.483,,,garden_bugs,found_in,approved,unreviewed,0.352,0.97,0.7,,Caterpillar is found in a garden
 centipede,centipede,0.399,,,garden_bugs,found_in,approved,unreviewed,0.376,0.97,0.7,,Centipede is found in a garden
-cricket,cricket,0.627,,,garden_bugs,found_in,approved,unreviewed,0.311,0.97,0.7,,Cricket is found in a garden
+cricket,cricket,0.627,cricket_insect,A small jumping insect that chirps at night,garden_bugs,found_in,approved,unreviewed,0.311,0.97,0.7,,Cricket is found in a garden
 earthworm,earthworm,0.346,,,garden_bugs,found_in,approved,unreviewed,0.391,0.97,0.7,"[""obscure""]",Earthworm is found in a garden
 earwig,earwig,0.296,,,garden_bugs,found_in,approved,unreviewed,0.405,0.97,0.7,"[""obscure""]",Earwig is found in a garden
 grub,grub,0.446,,,garden_bugs,found_in,approved,unreviewed,0.363,0.97,0.7,,Grub is found in a garden
@@ -12539,7 +12539,7 @@ leviathan,leviathan,0.441,,,sea_myths,found_in,alternative,unreviewed,0.37,0.97,
 mermaid,mermaid,0.496,,,sea_myths,found_in,alternative,unreviewed,0.354,0.97,0.68,,Mermaid comes from sea legend
 sea monster,sea monster,0.627,,,sea_myths,found_in,alternative,unreviewed,0.317,0.97,0.68,"[""multiword""]",Sea monster comes from sea legend
 sea serpent,sea serpent,0.493,,,sea_myths,found_in,alternative,unreviewed,0.355,0.97,0.68,"[""multiword""]",Sea serpent comes from sea legend
-siren,siren,0.494,,,sea_myths,found_in,alternative,unreviewed,0.355,0.97,0.68,,Siren comes from sea legend
+siren,siren,0.494,siren_myth,A sea creature of Greek myth whose song lured sailors,sea_myths,found_in,alternative,unreviewed,0.355,0.97,0.68,,Siren comes from sea legend
 triton,triton,0.421,,,sea_myths,found_in,alternative,unreviewed,0.376,0.97,0.68,,Triton comes from sea legend
 Whirlpool,whirlpool,0.427,,,sea_myths,found_in,alternative,unreviewed,0.374,0.97,0.68,,Whirlpool comes from sea legend
 breaker,breaker,0.514,,,sea_weather,is_a,alternative,unreviewed,0.349,0.97,0.68,,Breaker describes a condition at sea
@@ -12879,7 +12879,6 @@ explorers,explorers,0.487,,,hall_of_fame,found_in,approved,unreviewed,,0.85,0.5,
 inventors,inventors,0.46,,,hall_of_fame,found_in,approved,unreviewed,,0.88,0.56,,Inventors have their own hall of fame
 plaque,plaque,0.527,,,hall_of_fame,found_in,approved,unreviewed,,0.92,0.76,,A plaque carries the name
 ford,ford,0.643,ford_person,"Henry Ford, who built the first mass produced car",inventors,is_a,alternative,unreviewed,0.266,0.97,0.75,"[""proper_noun""]",Ford is a famous inventor
-bell,bell,0.656,,,inventors,is_a,approved,unreviewed,0.263,0.97,0.75,"[""proper_noun""]",Bell is a famous inventor
 diesel,diesel,0.579,,,inventors,is_a,approved,unreviewed,0.285,0.97,0.75,"[""proper_noun""]",Diesel is a famous inventor
 Edison,edison,0.51,,,inventors,is_a,approved,unreviewed,0.304,0.97,0.75,"[""proper_noun""]",Edison is a famous inventor
 Franklin,franklin,0.601,,,inventors,is_a,approved,unreviewed,0.278,0.97,0.75,"[""proper_noun""]",Franklin is a famous inventor
@@ -12891,6 +12890,7 @@ Tesla,tesla,0.539,,,inventors,is_a,approved,unreviewed,0.296,0.97,0.75,"[""prope
 Watt,watt,0.527,,,inventors,is_a,approved,unreviewed,0.299,0.97,0.75,"[""proper_noun""]",Watt is a famous inventor
 Whitney,whitney,0.531,,,inventors,is_a,approved,unreviewed,0.298,0.97,0.75,"[""proper_noun""]",Whitney is a famous inventor
 Wright,wright,0.6,,,inventors,is_a,approved,unreviewed,0.279,0.97,0.75,"[""proper_noun""]",Wright is a famous inventor
+bell,bell,0.656,bell_person,"Alexander Graham Bell, the inventor of the telephone",inventors,is_a,hard_only,unreviewed,0.263,0.97,0.75,"[""proper_noun""]",Bell is a famous inventor
 Daguerre,daguerre,0.256,,,inventors,is_a,hard_only,unreviewed,0.377,0.97,0.75,"[""proper_noun"", ""obscure""]",Daguerre is a famous inventor
 preschooler,preschooler,0.304,,,life_stages,is_a,alternative,unreviewed,0.283,0.97,0.85,"[""obscure""]",Preschooler is a stage of human life
 adolescent,adolescent,0.511,,,life_stages,is_a,approved,unreviewed,0.224,0.97,0.85,,Adolescent is a stage of human life
@@ -13515,7 +13515,7 @@ bluebell,bluebell,0.361,,,garden_flowers_spring,found_in,approved,unreviewed,0.3
 cherry blossom,cherry blossom,0.501,,,garden_flowers_spring,found_in,approved,unreviewed,0.316,0.97,0.72,"[""multiword""]",Cherry blossom blooms in spring
 daffodil,daffodil,0.366,,,garden_flowers_spring,found_in,approved,unreviewed,0.354,0.97,0.72,,Daffodil blooms in spring
 hyacinth,hyacinth,0.39,,,garden_flowers_spring,found_in,approved,unreviewed,0.348,0.97,0.72,,Hyacinth blooms in spring
-iris,iris,0.537,,,garden_flowers_spring,found_in,approved,unreviewed,0.306,0.97,0.72,,Iris blooms in spring
+iris,iris,0.537,iris_flower,A garden flower with showy petals and sword-shaped leaves,garden_flowers_spring,found_in,approved,unreviewed,0.306,0.97,0.72,,Iris blooms in spring
 lilac,lilac,0.444,,,garden_flowers_spring,found_in,approved,unreviewed,0.332,0.97,0.72,,Lilac blooms in spring
 magnolia,magnolia,0.459,,,garden_flowers_spring,found_in,approved,unreviewed,0.328,0.97,0.72,,Magnolia blooms in spring
 pansy,pansy,0.396,,,garden_flowers_spring,found_in,approved,unreviewed,0.346,0.97,0.72,,Pansy blooms in spring
@@ -13532,7 +13532,7 @@ geranium,geranium,0.37,,,garden_flowers_summer,found_in,approved,unreviewed,0.35
 lavender,lavender,0.491,lavender_plant,A fragrant purple flowering herb,garden_flowers_summer,found_in,approved,unreviewed,0.319,0.97,0.72,,Lavender blooms in summer
 Lily,lily,0.564,,,garden_flowers_summer,found_in,approved,unreviewed,0.298,0.97,0.72,,Lily blooms in summer
 marigold,marigold,0.393,,,garden_flowers_summer,found_in,approved,unreviewed,0.347,0.97,0.72,,Marigold blooms in summer
-rose,rose,0.689,,,garden_flowers_summer,found_in,approved,unreviewed,0.262,0.97,0.72,,Rose blooms in summer
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",garden_flowers_summer,found_in,approved,unreviewed,0.262,0.97,0.72,,Rose blooms in summer
 snapdragon,snapdragon,0.386,,,garden_flowers_summer,found_in,approved,unreviewed,0.349,0.97,0.72,,Snapdragon blooms in summer
 sunflower,sunflower,0.48,,,garden_flowers_summer,found_in,approved,unreviewed,0.322,0.97,0.72,,Sunflower blooms in summer
 zinnia,zinnia,0.289,,,garden_flowers_summer,found_in,hard_only,unreviewed,0.376,0.97,0.72,"[""obscure""]",Zinnia blooms in summer
@@ -13690,7 +13690,7 @@ hydrangea,hydrangea,0.339,,,shrubs,is_a,alternative,unreviewed,0.399,0.97,0.68,"
 juniper,juniper,0.45,,,shrubs,is_a,alternative,unreviewed,0.367,0.97,0.68,,Juniper is a woody plant smaller than a tree
 lilac,lilac,0.444,,,shrubs,is_a,alternative,unreviewed,0.369,0.97,0.68,,Lilac is a woody plant smaller than a tree
 rhododendron,rhododendron,0.36,,,shrubs,is_a,alternative,unreviewed,0.393,0.97,0.68,,Rhododendron is a woody plant smaller than a tree
-rose,rose,0.689,,,shrubs,is_a,approved,unreviewed,0.299,0.97,0.68,,Rose is a woody plant smaller than a tree
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",shrubs,is_a,alternative,unreviewed,0.299,0.97,0.68,,Rose is a woody plant smaller than a tree
 barberry,barberry,0.264,,,shrubs,is_a,hard_only,unreviewed,0.421,0.97,0.68,"[""obscure""]",Barberry is a woody plant smaller than a tree
 boxwood,boxwood,0.323,,,shrubs,is_a,hard_only,unreviewed,0.404,0.97,0.68,"[""obscure""]",Boxwood is a woody plant smaller than a tree
 forsythia,forsythia,0.279,,,shrubs,is_a,hard_only,unreviewed,0.416,0.97,0.68,"[""obscure""]",Forsythia is a woody plant smaller than a tree
@@ -13718,12 +13718,12 @@ grape,grape,0.529,,,vines,is_a,alternative,unreviewed,0.345,0.97,0.68,,Grape is 
 honeysuckle,honeysuckle,0.381,,,vines,is_a,alternative,unreviewed,0.387,0.97,0.68,,Honeysuckle is a plant that climbs or trails
 hops,hops,0.48,,,vines,is_a,alternative,unreviewed,0.359,0.97,0.68,,Hops is a plant that climbs or trails
 Ivy,ivy,0.547,,,vines,is_a,alternative,unreviewed,0.34,0.97,0.68,,Ivy is a plant that climbs or trails
-Jasmine,jasmine,0.516,,,vines,is_a,alternative,unreviewed,0.349,0.97,0.68,,Jasmine is a plant that climbs or trails
 morning glory,morning glory,0.617,,,vines,is_a,alternative,unreviewed,0.32,0.97,0.68,"[""multiword""]",Morning glory is a plant that climbs or trails
 passion flower,passion flower,0.59,,,vines,is_a,alternative,unreviewed,0.327,0.97,0.68,"[""multiword""]",Passion flower is a plant that climbs or trails
 pea,pea,0.506,,,vines,is_a,alternative,unreviewed,0.351,0.97,0.68,,Pea is a plant that climbs or trails
 pumpkin,pumpkin,0.547,,,vines,is_a,alternative,unreviewed,0.34,0.97,0.68,,Pumpkin is a plant that climbs or trails
 wisteria,wisteria,0.367,,,vines,is_a,alternative,unreviewed,0.391,0.97,0.68,,Wisteria is a plant that climbs or trails
+Jasmine,jasmine,0.516,jasmine_flower,A climbing shrub with small fragrant white flowers,vines,is_a,hard_only,unreviewed,0.349,0.97,0.68,,Jasmine is a plant that climbs or trails
 kudzu,kudzu,0.304,,,vines,is_a,hard_only,unreviewed,0.409,0.97,0.68,"[""obscure""]",Kudzu is a plant that climbs or trails
 algae,algae,0.506,,,water_plants,found_in,approved,unreviewed,0.314,0.97,0.72,,Algae grows in or on water
 kelp,kelp,0.41,,,water_plants,found_in,approved,unreviewed,0.342,0.97,0.72,,Kelp grows in or on water
@@ -13932,7 +13932,7 @@ worm,worm,0.539,,,long_thin_things,has_property,alternative,unreviewed,0.311,0.9
 hair,hair,0.726,,,long_thin_things,has_property,approved,unreviewed,0.265,0.97,0.7,,Hair is long and thin
 straw,straw,0.57,straw_tube,A thin tube for drinking,long_thin_things,has_property,hard_only,unreviewed,0.302,0.97,0.7,,Straw is long and thin
 alarm,alarm,0.611,,,loud_things,has_property,alternative,unreviewed,0.29,0.97,0.7,,Alarm makes a loud noise
-bell,bell,0.656,,,loud_things,has_property,alternative,unreviewed,0.278,0.97,0.7,,Bell makes a loud noise
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,loud_things,has_property,alternative,unreviewed,0.278,0.97,0.7,,Bell makes a loud noise
 chainsaw,chainsaw,0.457,,,loud_things,has_property,alternative,unreviewed,0.334,0.97,0.7,,Chainsaw makes a loud noise
 drum,drum,0.587,,,loud_things,has_property,alternative,unreviewed,0.297,0.97,0.7,,Drum makes a loud noise
 explosion,explosion,0.603,,,loud_things,has_property,alternative,unreviewed,0.293,0.97,0.7,,Explosion makes a loud noise
@@ -13942,7 +13942,7 @@ horn,horn,0.591,horn_sound,A device that makes a loud warning sound,loud_things,
 jackhammer,jackhammer,0.333,,,loud_things,has_property,alternative,unreviewed,0.37,0.97,0.7,"[""obscure""]",Jackhammer makes a loud noise
 jet,jet,0.613,,,loud_things,has_property,alternative,unreviewed,0.29,0.97,0.7,,Jet makes a loud noise
 motorcycle,motorcycle,0.581,,,loud_things,has_property,alternative,unreviewed,0.299,0.97,0.7,,Motorcycle makes a loud noise
-siren,siren,0.494,,,loud_things,has_property,alternative,unreviewed,0.324,0.97,0.7,,Siren makes a loud noise
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,loud_things,has_property,alternative,unreviewed,0.324,0.97,0.7,,Siren makes a loud noise
 speaker,speaker,0.641,,,loud_things,has_property,alternative,unreviewed,0.282,0.97,0.7,,Speaker makes a loud noise
 thunder,thunder,0.591,,,loud_things,has_property,alternative,unreviewed,0.296,0.97,0.7,,Thunder makes a loud noise
 whistle,whistle,0.554,,,loud_things,has_property,alternative,unreviewed,0.307,0.97,0.7,,Whistle makes a loud noise
@@ -13974,12 +13974,12 @@ ketchup,ketchup,0.494,,,red_things,has_property,alternative,unreviewed,0.299,0.9
 lipstick,lipstick,0.527,,,red_things,has_property,alternative,unreviewed,0.289,0.97,0.7,,Lipstick is typically red in color
 lobster,lobster,0.521,,,red_things,has_property,alternative,unreviewed,0.291,0.97,0.7,,Lobster is typically red in color
 radish,radish,0.397,,,red_things,has_property,alternative,unreviewed,0.327,0.97,0.7,,Radish is typically red in color
+rose,rose,0.689,rose_flower,"A garden flower with thorny stems, grown for its scent",red_things,has_property,alternative,unreviewed,0.243,0.97,0.7,,Rose is typically red in color
 ruby,ruby,0.569,,,red_things,has_property,alternative,unreviewed,0.277,0.97,0.7,,Ruby is typically red in color
 strawberry,strawberry,0.531,,,red_things,has_property,alternative,unreviewed,0.288,0.97,0.7,,Strawberry is typically red in color
 tomato,tomato,0.55,,,red_things,has_property,alternative,unreviewed,0.283,0.97,0.7,,Tomato is typically red in color
 valentine,valentine,0.539,,,red_things,has_property,alternative,unreviewed,0.286,0.97,0.7,,Valentine is typically red in color
 blood,blood,0.729,,,red_things,has_property,approved,unreviewed,0.24,0.97,0.7,,Blood is typically red in color
-rose,rose,0.689,,,red_things,has_property,approved,unreviewed,0.243,0.97,0.7,,Rose is typically red in color
 stop sign,stop sign,0.707,,,red_things,has_property,approved,unreviewed,0.24,0.97,0.7,"[""multiword""]",Stop sign is typically red in color
 apple,apple,0.68,apple_fruit,The round edible fruit of an apple tree,round_things,has_property,alternative,unreviewed,0.246,0.92,0.75,,An apple is round in shape
 bagel,bagel,0.454,,,round_things,has_property,alternative,unreviewed,0.31,0.97,0.7,,Bagel is normally round in shape
@@ -14290,10 +14290,10 @@ procession,procession,0.51,,,ceremonies,is_a,approved,unreviewed,0.304,0.97,0.75
 sermon,sermon,0.513,,,ceremonies,is_a,approved,unreviewed,0.303,0.97,0.75,"[""culturally_specific""]",Sermon is a religious ceremony
 vigil,vigil,0.463,,,ceremonies,is_a,approved,unreviewed,0.318,0.97,0.75,"[""culturally_specific""]",Vigil is a religious ceremony
 wedding,wedding,0.69,,,ceremonies,is_a,approved,unreviewed,0.253,0.97,0.75,"[""culturally_specific""]",Wedding is a religious ceremony
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,church_things,found_in,alternative,unreviewed,0.223,0.97,0.8,"[""culturally_specific""]",Bell is found inside a church
 hymnal,hymnal,0.333,,,church_things,found_in,alternative,unreviewed,0.315,0.97,0.8,"[""obscure"", ""culturally_specific""]",Hymnal is found inside a church
 aisle,aisle,0.531,,,church_things,found_in,approved,unreviewed,0.258,0.97,0.8,"[""culturally_specific""]",Aisle is found inside a church
 altar,altar,0.543,,,church_things,found_in,approved,unreviewed,0.255,0.97,0.8,"[""culturally_specific""]",Altar is found inside a church
-bell,bell,0.656,,,church_things,found_in,approved,unreviewed,0.223,0.97,0.8,"[""culturally_specific""]",Bell is found inside a church
 candle,candle,0.554,,,church_things,found_in,approved,unreviewed,0.252,0.97,0.8,"[""culturally_specific""]",Candle is found inside a church
 chalice,chalice,0.429,,,church_things,found_in,approved,unreviewed,0.287,0.97,0.8,"[""culturally_specific""]",Chalice is found inside a church
 choir,choir,0.554,,,church_things,found_in,approved,unreviewed,0.252,0.97,0.8,"[""culturally_specific""]",Choir is found inside a church
@@ -14319,10 +14319,10 @@ paradise,paradise,0.594,,,heaven_and_afterlife,is_a,alternative,unreviewed,0.32,
 reincarnation,reincarnation,0.45,,,heaven_and_afterlife,is_a,alternative,unreviewed,0.361,0.97,0.7,"[""culturally_specific""]",Reincarnation is a word about the afterlife
 resurrection,resurrection,0.537,,,heaven_and_afterlife,is_a,alternative,unreviewed,0.337,0.97,0.7,"[""culturally_specific""]",Resurrection is a word about the afterlife
 salvation,salvation,0.564,,,heaven_and_afterlife,is_a,alternative,unreviewed,0.329,0.97,0.7,"[""culturally_specific""]",Salvation is a word about the afterlife
+Spirit,spirit,0.684,spirit_soul,"The non-physical part of a person, the soul",heaven_and_afterlife,is_a,alternative,unreviewed,0.295,0.97,0.7,"[""culturally_specific""]",Spirit is a word about the afterlife
 soul,soul,0.687,,,heaven_and_afterlife,is_a,approved,unreviewed,0.294,0.97,0.7,"[""culturally_specific""]",Soul is a word about the afterlife
-Spirit,spirit,0.684,,,heaven_and_afterlife,is_a,approved,unreviewed,0.295,0.97,0.7,"[""culturally_specific""]",Spirit is a word about the afterlife
 abbot,abbot,0.49,,,monastery_life,found_in,alternative,unreviewed,0.399,0.97,0.62,"[""culturally_specific""]",Abbot is found in a monastery
-bell,bell,0.656,,,monastery_life,found_in,alternative,unreviewed,0.352,0.97,0.62,"[""culturally_specific""]",Bell is found in a monastery
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,monastery_life,found_in,alternative,unreviewed,0.352,0.97,0.62,"[""culturally_specific""]",Bell is found in a monastery
 chapel,chapel,0.576,,,monastery_life,found_in,alternative,unreviewed,0.374,0.97,0.62,"[""culturally_specific""]",Chapel is found in a monastery
 cloister,cloister,0.393,,,monastery_life,found_in,alternative,unreviewed,0.427,0.97,0.62,"[""culturally_specific""]",Cloister is found in a monastery
 courtyard,courtyard,0.521,,,monastery_life,found_in,alternative,unreviewed,0.39,0.97,0.62,"[""culturally_specific""]",Courtyard is found in a monastery
@@ -15069,20 +15069,20 @@ warrior,warrior,0.594,,,yoga_poses,is_a,alternative,unreviewed,0.369,0.97,0.62,,
 bridge,bridge,0.681,bridge_move,A move in which the body arches backward,yoga_poses,is_a,hard_only,unreviewed,0.344,0.97,0.25,,Bridge is a yoga pose
 alert,alert,0.619,,,bell_and_alarm,is_a,alternative,unreviewed,0.313,0.97,0.7,,Alert is a sound made by an alarm or signal
 beep,beep,0.493,,,bell_and_alarm,is_a,alternative,unreviewed,0.349,0.97,0.7,,Beep is a sound made by an alarm or signal
-bell,bell,0.656,,,bell_and_alarm,is_a,alternative,unreviewed,0.303,0.97,0.7,,Bell is a sound made by an alarm or signal
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,bell_and_alarm,is_a,alternative,unreviewed,0.303,0.97,0.7,,Bell is a sound made by an alarm or signal
 blare,blare,0.341,,,bell_and_alarm,is_a,alternative,unreviewed,0.393,0.97,0.7,"[""obscure""]",Blare is a sound made by an alarm or signal
 buzz,buzz,0.579,,,bell_and_alarm,is_a,alternative,unreviewed,0.325,0.97,0.7,,Buzz is a sound made by an alarm or signal
 chime,chime,0.449,,,bell_and_alarm,is_a,alternative,unreviewed,0.362,0.97,0.7,,Chime is a sound made by an alarm or signal
 ding,ding,0.519,,,bell_and_alarm,is_a,alternative,unreviewed,0.342,0.97,0.7,,Ding is a sound made by an alarm or signal
 gong,gong,0.493,,,bell_and_alarm,is_a,alternative,unreviewed,0.349,0.97,0.7,,Gong is a sound made by an alarm or signal
 horn,horn,0.591,horn_sound,A device that makes a loud warning sound,bell_and_alarm,is_a,alternative,unreviewed,0.321,0.97,0.7,,Horn is a sound made by an alarm or signal
-siren,siren,0.494,,,bell_and_alarm,is_a,alternative,unreviewed,0.349,0.97,0.7,,Siren is a sound made by an alarm or signal
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,bell_and_alarm,is_a,alternative,unreviewed,0.349,0.97,0.7,,Siren is a sound made by an alarm or signal
 tone,tone,0.641,,,bell_and_alarm,is_a,alternative,unreviewed,0.307,0.97,0.7,,Tone is a sound made by an alarm or signal
 whistle,whistle,0.554,,,bell_and_alarm,is_a,alternative,unreviewed,0.332,0.97,0.7,,Whistle is a sound made by an alarm or signal
 ring,ring,0.687,ring_sound,The sound a bell or a phone makes,bell_and_alarm,is_a,approved,unreviewed,0.294,0.97,0.7,,Ring is a sound made by an alarm or signal
 klaxon,klaxon,0.297,,,bell_and_alarm,is_a,hard_only,unreviewed,0.405,0.97,0.7,"[""obscure""]",Klaxon is a sound made by an alarm or signal
 alarm,alarm,0.611,,,city_sounds,does_action,alternative,unreviewed,0.315,0.97,0.7,,Alarm is a sound heard on a city street
-bell,bell,0.656,,,city_sounds,does_action,alternative,unreviewed,0.303,0.97,0.7,,Bell is a sound heard on a city street
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,city_sounds,does_action,alternative,unreviewed,0.303,0.97,0.7,,Bell is a sound heard on a city street
 brakes,brakes,0.557,,,city_sounds,does_action,alternative,unreviewed,0.331,0.97,0.7,,Brakes is a sound heard on a city street
 chatter,chatter,0.483,,,city_sounds,does_action,alternative,unreviewed,0.352,0.97,0.7,,Chatter is a sound heard on a city street
 footsteps,footsteps,0.527,,,city_sounds,does_action,alternative,unreviewed,0.339,0.97,0.7,,Footsteps is a sound heard on a city street
@@ -15091,7 +15091,7 @@ jackhammer,jackhammer,0.333,,,city_sounds,does_action,alternative,unreviewed,0.3
 rumble,rumble,0.49,,,city_sounds,does_action,alternative,unreviewed,0.35,0.97,0.7,,Rumble is a sound heard on a city street
 screech,screech,0.411,,,city_sounds,does_action,alternative,unreviewed,0.373,0.97,0.7,,Screech is a sound heard on a city street
 shout,shout,0.58,,,city_sounds,does_action,alternative,unreviewed,0.324,0.97,0.7,,Shout is a sound heard on a city street
-siren,siren,0.494,,,city_sounds,does_action,alternative,unreviewed,0.349,0.97,0.7,,Siren is a sound heard on a city street
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,city_sounds,does_action,alternative,unreviewed,0.349,0.97,0.7,,Siren is a sound heard on a city street
 whistle,whistle,0.554,,,city_sounds,does_action,alternative,unreviewed,0.332,0.97,0.7,,Whistle is a sound heard on a city street
 engine,engine,0.691,,,city_sounds,does_action,approved,unreviewed,0.293,0.97,0.7,,Engine is a sound heard on a city street
 traffic,traffic,0.693,,,city_sounds,does_action,approved,unreviewed,0.292,0.97,0.7,,Traffic is a sound heard on a city street
@@ -15304,7 +15304,7 @@ asteroid,asteroid,0.509,,,deep_space,found_in,approved,unreviewed,0.325,0.95,0.7
 comets,comets,0.456,,,deep_space,found_in,approved,unreviewed,0.325,0.95,0.7,,comets is an object found in deep space
 galaxy,galaxy,0.611,,,deep_space,found_in,approved,unreviewed,0.325,0.95,0.7,,galaxy is an object found in deep space
 meteor,meteor,0.507,,,deep_space,found_in,approved,unreviewed,0.325,0.95,0.7,,meteor is an object found in deep space
-moon,moon,0.671,,,deep_space,found_in,approved,unreviewed,0.3,0.95,0.75,,moon is an object found in deep space
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,deep_space,found_in,approved,unreviewed,0.3,0.95,0.75,,moon is an object found in deep space
 nebula,nebula,0.461,,,deep_space,found_in,approved,unreviewed,0.325,0.95,0.7,,nebula is an object found in deep space
 stars,stars,0.694,,,deep_space,found_in,approved,unreviewed,0.3,0.95,0.75,,stars is an object found in deep space
 Europa,europa,0.514,,,moons,is_a,approved,unreviewed,0.383,0.97,0.65,"[""proper_noun""]",Europa is a moon in the solar system
@@ -15356,7 +15356,7 @@ dwarf planet,dwarf planet,0.529,,,solar_system_words,found_in,approved,unreviewe
 eclipse,eclipse,0.544,,,solar_system_words,found_in,approved,unreviewed,0.295,0.97,0.75,,Eclipse describes something in the solar system
 gravity,gravity,0.601,,,solar_system_words,found_in,approved,unreviewed,0.278,0.97,0.75,,Gravity describes something in the solar system
 meteor,meteor,0.507,,,solar_system_words,found_in,approved,unreviewed,0.305,0.97,0.75,,Meteor describes something in the solar system
-moon,moon,0.671,,,solar_system_words,found_in,approved,unreviewed,0.258,0.97,0.75,,Moon describes something in the solar system
+moon,moon,0.671,moon_space,The natural satellite that orbits the earth,solar_system_words,found_in,approved,unreviewed,0.258,0.97,0.75,,Moon describes something in the solar system
 orbit,orbit,0.576,,,solar_system_words,found_in,approved,unreviewed,0.285,0.97,0.75,,Orbit describes something in the solar system
 planet,planet,0.669,,,solar_system_words,found_in,approved,unreviewed,0.259,0.97,0.75,,Planet describes something in the solar system
 solar wind,solar wind,0.623,,,solar_system_words,found_in,approved,unreviewed,0.272,0.97,0.75,"[""multiword""]",Solar wind describes something in the solar system
@@ -16102,7 +16102,7 @@ velodrome,velodrome,0.373,,,sports_venues,is_a,approved,unreviewed,0.303,0.97,0.
 court,court,0.773,court_sport,The marked playing area for tennis or basketball,sports_venues,is_a,hard_only,unreviewed,0.21,0.97,0.8,,Court is a place built for playing or watching sports
 baseball,baseball,0.649,,,team_sports,is_a,approved,unreviewed,0.114,0.97,0.92,,Baseball is played by two opposing teams
 basketball,basketball,0.651,,,team_sports,is_a,approved,unreviewed,0.113,0.97,0.92,,Basketball is played by two opposing teams
-cricket,cricket,0.627,,,team_sports,is_a,approved,unreviewed,0.12,0.97,0.92,,Cricket is played by two opposing teams
+cricket,cricket,0.627,cricket_sport,The bat-and-ball team sport played with wickets,team_sports,is_a,approved,unreviewed,0.12,0.97,0.92,,Cricket is played by two opposing teams
 dodgeball,dodgeball,0.38,,,team_sports,is_a,approved,unreviewed,0.19,0.97,0.92,,Dodgeball is played by two opposing teams
 field hockey,field hockey,0.623,,,team_sports,is_a,approved,unreviewed,0.121,0.97,0.92,"[""multiword""]",Field hockey is played by two opposing teams
 football,football,0.73,,,team_sports,is_a,approved,unreviewed,0.099,0.97,0.92,,Football is played by two opposing teams
@@ -16210,9 +16210,9 @@ score sheet,score sheet,0.609,,,bowling_words,found_in,approved,unreviewed,0.267
 spare,spare,0.611,,,bowling_words,found_in,approved,unreviewed,0.266,0.97,0.78,,Spare is used in bowling
 split,split,0.664,,,bowling_words,found_in,approved,unreviewed,0.251,0.97,0.78,,Split is used in bowling
 turkey,turkey,0.651,turkey_bowling,Three strikes in a row in bowling,bowling_words,found_in,hard_only,unreviewed,0.255,0.97,0.78,,Turkey is used in bowling
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,boxing_words,found_in,alternative,unreviewed,0.263,0.97,0.75,,Bell is used in a boxing match
 hook,hook,0.624,hook_boxing,A short curved punch thrown from the side,boxing_words,found_in,alternative,unreviewed,0.272,0.97,0.5,,Hook is used in a boxing match
 round,round,0.734,round_stage,One stage of a contest,boxing_words,found_in,alternative,unreviewed,0.25,0.97,0.75,,Round is used in a boxing match
-bell,bell,0.656,,,boxing_words,found_in,approved,unreviewed,0.263,0.97,0.75,,Bell is used in a boxing match
 belt,belt,0.631,,,boxing_words,found_in,approved,unreviewed,0.27,0.97,0.75,,Belt is used in a boxing match
 bout,bout,0.579,,,boxing_words,found_in,approved,unreviewed,0.285,0.97,0.75,,Bout is used in a boxing match
 clinch,clinch,0.47,,,boxing_words,found_in,approved,unreviewed,0.316,0.97,0.75,,Clinch is used in a boxing match
@@ -16450,7 +16450,7 @@ Zoom,zoom,0.547,,,computer_actions,does_action,approved,unreviewed,0.214,0.97,0.
 touchpad,touchpad,0.356,,,computer_parts,part_of,alternative,unreviewed,0.268,0.97,0.85,"[""obscure""]",Touchpad is a physical part of a computer
 battery,battery,0.646,,,computer_parts,part_of,approved,unreviewed,0.185,0.97,0.85,,Battery is a physical part of a computer
 cable,cable,0.649,,,computer_parts,part_of,approved,unreviewed,0.185,0.97,0.85,,Cable is a physical part of a computer
-Charger,charger,0.52,,,computer_parts,part_of,approved,unreviewed,0.221,0.97,0.85,,Charger is a physical part of a computer
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,computer_parts,part_of,approved,unreviewed,0.221,0.97,0.85,,Charger is a physical part of a computer
 fan,fan,0.703,fan_device,A machine with spinning blades that moves air,computer_parts,part_of,approved,unreviewed,0.17,0.97,0.85,,Fan is a physical part of a computer
 graphics card,graphics card,0.59,,,computer_parts,part_of,approved,unreviewed,0.201,0.97,0.85,"[""multiword""]",Graphics card is a physical part of a computer
 hard drive,hard drive,0.711,,,computer_parts,part_of,approved,unreviewed,0.17,0.97,0.85,"[""multiword""]",Hard drive is a physical part of a computer
@@ -16584,7 +16584,7 @@ alarm,alarm,0.611,,,phone_words,found_in,approved,unreviewed,0.195,0.97,0.85,,Al
 app,app,0.694,,,phone_words,found_in,approved,unreviewed,0.172,0.97,0.85,,App is a feature or part of a mobile phone
 battery,battery,0.646,,,phone_words,found_in,approved,unreviewed,0.185,0.97,0.85,,Battery is a feature or part of a mobile phone
 camera,camera,0.696,,,phone_words,found_in,approved,unreviewed,0.171,0.97,0.85,,Camera is a feature or part of a mobile phone
-Charger,charger,0.52,,,phone_words,found_in,approved,unreviewed,0.221,0.97,0.85,,Charger is a feature or part of a mobile phone
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,phone_words,found_in,approved,unreviewed,0.221,0.97,0.85,,Charger is a feature or part of a mobile phone
 contact,contact,0.713,,,phone_words,found_in,approved,unreviewed,0.17,0.97,0.85,,Contact is a feature or part of a mobile phone
 headphones,headphones,0.554,,,phone_words,found_in,approved,unreviewed,0.212,0.97,0.85,,Headphones is a feature or part of a mobile phone
 hotspot,hotspot,0.453,,,phone_words,found_in,approved,unreviewed,0.241,0.97,0.85,,Hotspot is a feature or part of a mobile phone
@@ -16619,7 +16619,7 @@ Zoom,zoom,0.547,,,photography_words,found_in,approved,unreviewed,0.26,0.97,0.78,
 adapter,adapter,0.514,,,power_and_batteries,found_in,approved,unreviewed,0.269,0.97,0.78,,Adapter has to do with supplying power
 battery,battery,0.646,,,power_and_batteries,found_in,approved,unreviewed,0.231,0.97,0.78,,Battery has to do with supplying power
 cable,cable,0.649,,,power_and_batteries,found_in,approved,unreviewed,0.231,0.97,0.78,,Cable has to do with supplying power
-Charger,charger,0.52,,,power_and_batteries,found_in,approved,unreviewed,0.267,0.97,0.78,,Charger has to do with supplying power
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,power_and_batteries,found_in,approved,unreviewed,0.267,0.97,0.78,,Charger has to do with supplying power
 cord,cord,0.569,,,power_and_batteries,found_in,approved,unreviewed,0.253,0.97,0.78,,Cord has to do with supplying power
 extension,extension,0.637,,,power_and_batteries,found_in,approved,unreviewed,0.234,0.97,0.78,,Extension has to do with supplying power
 fuse,fuse,0.517,,,power_and_batteries,found_in,approved,unreviewed,0.268,0.97,0.78,,Fuse has to do with supplying power
@@ -16683,6 +16683,7 @@ tablet,tablet,0.579,,,screens,has_property,approved,unreviewed,0.245,0.97,0.8,,T
 television,television,0.684,,,screens,has_property,approved,unreviewed,0.215,0.97,0.8,,Television has a screen
 deadbolt,deadbolt,0.306,,,security_tech,is_a,alternative,unreviewed,0.363,0.97,0.75,"[""obscure""]",Deadbolt is used to keep property secure
 floodlight,floodlight,0.303,,,security_tech,is_a,alternative,unreviewed,0.363,0.97,0.75,"[""obscure""]",Floodlight is used to keep property secure
+siren,siren,0.494,siren_device,A device that makes a loud rising warning sound,security_tech,is_a,alternative,unreviewed,0.309,0.97,0.75,,Siren is used to keep property secure
 alarm,alarm,0.611,,,security_tech,is_a,approved,unreviewed,0.275,0.97,0.75,,Alarm is used to keep property secure
 badge,badge,0.574,,,security_tech,is_a,approved,unreviewed,0.286,0.97,0.75,,Badge is used to keep property secure
 buzzer,buzzer,0.486,,,security_tech,is_a,approved,unreviewed,0.311,0.97,0.75,,Buzzer is used to keep property secure
@@ -16694,7 +16695,6 @@ monitor,monitor,0.624,monitor_screen,A screen that displays a computer picture,s
 motion detector,motion detector,0.523,,,security_tech,is_a,approved,unreviewed,0.301,0.97,0.75,"[""multiword""]",Motion detector is used to keep property secure
 safe,safe,0.724,,,security_tech,is_a,approved,unreviewed,0.25,0.97,0.75,,Safe is used to keep property secure
 sensor,sensor,0.56,,,security_tech,is_a,approved,unreviewed,0.29,0.97,0.75,,Sensor is used to keep property secure
-siren,siren,0.494,,,security_tech,is_a,approved,unreviewed,0.309,0.97,0.75,,Siren is used to keep property secure
 barcode,barcode,0.413,,,signals_and_codes,is_a,alternative,unreviewed,0.378,0.97,0.68,,Barcode is a system for sending coded messages
 beacon,beacon,0.534,,,signals_and_codes,is_a,alternative,unreviewed,0.343,0.97,0.68,,Beacon is a system for sending coded messages
 braille,braille,0.43,,,signals_and_codes,is_a,alternative,unreviewed,0.373,0.97,0.68,,Braille is a system for sending coded messages
@@ -17362,19 +17362,19 @@ wheel,wheel,0.643,,,things_that_spin,has_property,alternative,unreviewed,0.281,0
 windmill,windmill,0.451,,,things_that_spin,has_property,alternative,unreviewed,0.336,0.97,0.7,,Windmill spins or rotates
 record,record,0.744,,,things_that_spin,has_property,approved,unreviewed,0.265,0.97,0.7,,Record spins or rotates
 drill,drill,0.584,drill_tool,A tool that bores holes by spinning a bit,things_that_spin,has_property,hard_only,unreviewed,0.298,0.97,0.7,,Drill spins or rotates
-bolt,bolt,0.577,,,things_that_stick_out,does_action,alternative,unreviewed,0.34,0.97,0.65,,Bolt is something you hammer
-chisel,chisel,0.423,,,things_that_stick_out,does_action,alternative,unreviewed,0.384,0.97,0.65,,Chisel is something you hammer
-dent,dent,0.524,,,things_that_stick_out,does_action,alternative,unreviewed,0.355,0.97,0.65,,Dent is something you hammer
-horseshoe,horseshoe,0.451,,,things_that_stick_out,does_action,alternative,unreviewed,0.376,0.97,0.65,,Horseshoe is something you hammer
-nail,nail,0.601,nail_metal,A thin pointed metal pin hammered into wood,things_that_stick_out,does_action,alternative,unreviewed,0.333,0.97,0.65,,Nail is something you hammer
-Peg,peg,0.499,,,things_that_stick_out,does_action,alternative,unreviewed,0.362,0.97,0.65,,Peg is something you hammer
-rivet,rivet,0.384,,,things_that_stick_out,does_action,alternative,unreviewed,0.395,0.97,0.65,,Rivet is something you hammer
-spike,spike,0.566,,,things_that_stick_out,does_action,alternative,unreviewed,0.343,0.97,0.65,,Spike is something you hammer
-stake,stake,0.593,,,things_that_stick_out,does_action,alternative,unreviewed,0.336,0.97,0.65,,Stake is something you hammer
-tack,tack,0.481,tack_pin,A short nail with a broad flat head,things_that_stick_out,does_action,alternative,unreviewed,0.368,0.97,0.65,,Tack is something you hammer
-tent stake,tent stake,0.543,,,things_that_stick_out,does_action,alternative,unreviewed,0.35,0.97,0.65,"[""multiword""]",Tent stake is something you hammer
-wedge,wedge,0.517,,,things_that_stick_out,does_action,alternative,unreviewed,0.357,0.97,0.65,,Wedge is something you hammer
-post,post,0.776,post_pole,An upright pole set in the ground,things_that_stick_out,does_action,hard_only,unreviewed,0.305,0.97,0.65,,Post is something you hammer
+bolt,bolt,0.577,,,things_that_stick_out,used_in,alternative,unreviewed,0.34,0.97,0.65,,Bolt is something you hammer
+chisel,chisel,0.423,,,things_that_stick_out,used_in,alternative,unreviewed,0.384,0.97,0.65,,Chisel is something you hammer
+dent,dent,0.524,,,things_that_stick_out,used_in,alternative,unreviewed,0.355,0.97,0.65,,Dent is something you hammer
+horseshoe,horseshoe,0.451,,,things_that_stick_out,used_in,alternative,unreviewed,0.376,0.97,0.65,,Horseshoe is something you hammer
+nail,nail,0.601,nail_metal,A thin pointed metal pin hammered into wood,things_that_stick_out,used_in,alternative,unreviewed,0.333,0.97,0.65,,Nail is something you hammer
+Peg,peg,0.499,,,things_that_stick_out,used_in,alternative,unreviewed,0.362,0.97,0.65,,Peg is something you hammer
+rivet,rivet,0.384,,,things_that_stick_out,used_in,alternative,unreviewed,0.395,0.97,0.65,,Rivet is something you hammer
+spike,spike,0.566,,,things_that_stick_out,used_in,alternative,unreviewed,0.343,0.97,0.65,,Spike is something you hammer
+stake,stake,0.593,,,things_that_stick_out,used_in,alternative,unreviewed,0.336,0.97,0.65,,Stake is something you hammer
+tack,tack,0.481,tack_pin,A short nail with a broad flat head,things_that_stick_out,used_in,alternative,unreviewed,0.368,0.97,0.65,,Tack is something you hammer
+tent stake,tent stake,0.543,,,things_that_stick_out,used_in,alternative,unreviewed,0.35,0.97,0.65,"[""multiword""]",Tent stake is something you hammer
+wedge,wedge,0.517,,,things_that_stick_out,used_in,alternative,unreviewed,0.357,0.97,0.65,,Wedge is something you hammer
+post,post,0.776,post_pole,An upright pole set in the ground,things_that_stick_out,used_in,hard_only,unreviewed,0.305,0.97,0.65,,Post is something you hammer
 axe,axe,0.541,,,things_with_handles,has_property,alternative,unreviewed,0.31,0.97,0.7,,Axe is gripped by a handle
 basket,basket,0.581,,,things_with_handles,has_property,alternative,unreviewed,0.299,0.97,0.7,,Basket is gripped by a handle
 briefcase,briefcase,0.441,,,things_with_handles,has_property,alternative,unreviewed,0.339,0.97,0.7,,Briefcase is gripped by a handle
@@ -17922,7 +17922,6 @@ valet,valet,0.453,,,parking_words,found_in,approved,unreviewed,0.336,0.97,0.7,,V
 boot,boot,0.599,boot_clamp,A clamp locked onto a wheel so a car cannot be driven,parking_words,found_in,hard_only,unreviewed,0.294,0.97,0.25,,Boot is used when talking about parking a car
 kickstand,kickstand,0.321,,,parts_of_a_bike,part_of,alternative,unreviewed,0.324,0.97,0.78,"[""obscure""]",Kickstand is a part of a bicycle
 basket,basket,0.581,,,parts_of_a_bike,part_of,approved,unreviewed,0.25,0.97,0.78,,Basket is a part of a bicycle
-bell,bell,0.656,,,parts_of_a_bike,part_of,approved,unreviewed,0.229,0.97,0.78,,Bell is a part of a bicycle
 brake,brake,0.564,,,parts_of_a_bike,part_of,approved,unreviewed,0.255,0.97,0.78,,Brake is a part of a bicycle
 chain,chain,0.664,,,parts_of_a_bike,part_of,approved,unreviewed,0.226,0.97,0.78,,Chain is a part of a bicycle
 crank,crank,0.516,,,parts_of_a_bike,part_of,approved,unreviewed,0.269,0.97,0.78,,Crank is a part of a bicycle
@@ -17938,6 +17937,7 @@ seat,seat,0.689,,,parts_of_a_bike,part_of,approved,unreviewed,0.219,0.97,0.78,,S
 spoke,spoke,0.659,,,parts_of_a_bike,part_of,approved,unreviewed,0.228,0.97,0.78,,Spoke is a part of a bicycle
 tire,tire,0.574,,,parts_of_a_bike,part_of,approved,unreviewed,0.252,0.97,0.78,,Tire is a part of a bicycle
 wheel,wheel,0.643,,,parts_of_a_bike,part_of,approved,unreviewed,0.232,0.97,0.78,,Wheel is a part of a bicycle
+bell,bell,0.656,bell_object,A hollow metal object that rings when it is struck,parts_of_a_bike,part_of,hard_only,unreviewed,0.229,0.97,0.78,,Bell is a part of a bicycle
 guardrail,guardrail,0.35,,,road_things,found_in,alternative,unreviewed,0.279,0.97,0.82,"[""obscure""]",Guardrail is seen on or beside a road
 shoulder,shoulder,0.643,shoulder_road,The strip beside a road where cars can stop,road_things,found_in,alternative,unreviewed,0.195,0.97,0.82,,Shoulder is seen on or beside a road
 streetlight,streetlight,0.336,,,road_things,found_in,alternative,unreviewed,0.283,0.97,0.82,"[""obscure""]",Streetlight is seen on or beside a road
@@ -18074,7 +18074,7 @@ adapter,adapter,0.514,,,travel_documents,used_in,approved,unreviewed,0.232,0.97,
 backpack,backpack,0.54,,,travel_documents,used_in,approved,unreviewed,0.225,0.97,0.82,,Backpack is carried by a traveler on a trip
 boarding pass,boarding pass,0.561,,,travel_documents,used_in,approved,unreviewed,0.219,0.97,0.82,"[""multiword""]",Boarding pass is carried by a traveler on a trip
 camera,camera,0.696,,,travel_documents,used_in,approved,unreviewed,0.18,0.97,0.82,,Camera is carried by a traveler on a trip
-Charger,charger,0.52,,,travel_documents,used_in,approved,unreviewed,0.23,0.97,0.82,,Charger is carried by a traveler on a trip
+Charger,charger,0.52,charger_device,A device that supplies power to recharge a battery,travel_documents,used_in,approved,unreviewed,0.23,0.97,0.82,,Charger is carried by a traveler on a trip
 currency,currency,0.624,,,travel_documents,used_in,approved,unreviewed,0.201,0.97,0.82,,Currency is carried by a traveler on a trip
 guidebook,guidebook,0.421,,,travel_documents,used_in,approved,unreviewed,0.259,0.97,0.82,,Guidebook is carried by a traveler on a trip
 insurance,insurance,0.706,,,travel_documents,used_in,approved,unreviewed,0.179,0.97,0.82,,Insurance is carried by a traveler on a trip
@@ -18251,13 +18251,13 @@ habanero,habanero,0.339,,,pepper_varieties,is_a,alternative,unreviewed,0.353,0.9
 pimento,pimento,0.314,,,pepper_varieties,is_a,alternative,unreviewed,0.36,0.97,0.75,"[""obscure""]",Pimento is a variety of pepper
 Anaheim,anaheim,0.494,,,pepper_varieties,is_a,approved,unreviewed,0.309,0.97,0.75,,Anaheim is a variety of pepper
 banana,banana,0.571,,,pepper_varieties,is_a,approved,unreviewed,0.287,0.97,0.75,,Banana is a variety of pepper
-bell,bell,0.656,,,pepper_varieties,is_a,approved,unreviewed,0.263,0.97,0.75,,Bell is a variety of pepper
 cayenne,cayenne,0.421,,,pepper_varieties,is_a,approved,unreviewed,0.33,0.97,0.75,,Cayenne is a variety of pepper
 Chipotle,chipotle,0.447,,,pepper_varieties,is_a,approved,unreviewed,0.322,0.97,0.75,,Chipotle is a variety of pepper
 ghost,ghost,0.631,,,pepper_varieties,is_a,approved,unreviewed,0.27,0.97,0.75,,Ghost is a variety of pepper
 jalapeno,jalapeno,0.366,,,pepper_varieties,is_a,approved,unreviewed,0.345,0.97,0.75,,Jalapeno is a variety of pepper
 scotch bonnet,scotch bonnet,0.456,,,pepper_varieties,is_a,approved,unreviewed,0.32,0.97,0.75,"[""multiword""]",Scotch bonnet is a variety of pepper
 serrano,serrano,0.403,,,pepper_varieties,is_a,approved,unreviewed,0.335,0.97,0.75,,Serrano is a variety of pepper
+bell,bell,0.656,bell_pepper,The sweet bell-shaped pepper eaten as a vegetable,pepper_varieties,is_a,hard_only,unreviewed,0.263,0.97,0.75,,Bell is a variety of pepper
 poblano,poblano,0.259,,,pepper_varieties,is_a,hard_only,unreviewed,0.376,0.97,0.75,"[""obscure""]",Poblano is a variety of pepper
 shishito,shishito,0.154,,,pepper_varieties,is_a,rejected,unreviewed,0.406,0.97,0.75,"[""obscure""]",Shishito is a variety of pepper
 russet,russet,0.35,,,potato_varieties,is_a,alternative,unreviewed,0.396,0.97,0.68,"[""obscure""]",Russet is a variety of potato
@@ -18274,7 +18274,7 @@ fingerling,fingerling,0.274,,,potato_varieties,is_a,hard_only,unreviewed,0.418,0
 kennebec,kennebec,0.331,,,potato_varieties,is_a,hard_only,unreviewed,0.401,0.97,0.68,"[""obscure""]",Kennebec is a variety of potato
 black,black,0.78,,,rice_types,is_a,approved,unreviewed,0.296,0.97,0.68,,Black is a kind of rice
 Brown,brown,0.716,,,rice_types,is_a,approved,unreviewed,0.296,0.97,0.68,,Brown is a kind of rice
-Jasmine,jasmine,0.516,,,rice_types,is_a,approved,unreviewed,0.349,0.97,0.68,,Jasmine is a kind of rice
+Jasmine,jasmine,0.516,jasmine_rice,The long-grain aromatic rice grown in Thailand,rice_types,is_a,approved,unreviewed,0.349,0.97,0.68,,Jasmine is a kind of rice
 long grain,long grain,0.596,,,rice_types,is_a,approved,unreviewed,0.326,0.97,0.68,"[""multiword""]",Long grain is a kind of rice
 red,red,0.76,,,rice_types,is_a,approved,unreviewed,0.296,0.97,0.68,,Red is a kind of rice
 short grain,short grain,0.593,,,rice_types,is_a,approved,unreviewed,0.327,0.97,0.68,"[""multiword""]",Short grain is a kind of rice
@@ -18550,7 +18550,7 @@ earl grey,earl grey,0.571,,,teas,is_a,approved,unreviewed,0.247,0.97,0.8,"[""mul
 green,green,0.733,green_unripe,"Not yet ripe, said of fruit and vegetables",teas,is_a,approved,unreviewed,0.21,0.97,0.8,"[""culturally_specific""]",Green is a kind of tea
 herbal,herbal,0.48,,,teas,is_a,approved,unreviewed,0.273,0.97,0.8,"[""culturally_specific""]",Herbal is a kind of tea
 hibiscus,hibiscus,0.394,,,teas,is_a,approved,unreviewed,0.297,0.97,0.8,"[""culturally_specific""]",Hibiscus is a kind of tea
-Jasmine,jasmine,0.516,,,teas,is_a,approved,unreviewed,0.263,0.97,0.8,"[""culturally_specific""]",Jasmine is a kind of tea
+Jasmine,jasmine,0.516,jasmine_tea,Green tea scented with jasmine blossom,teas,is_a,approved,unreviewed,0.263,0.97,0.8,"[""culturally_specific""]",Jasmine is a kind of tea
 lemon,lemon,0.586,,,teas,is_a,approved,unreviewed,0.243,0.97,0.8,"[""culturally_specific""]",Lemon is a kind of tea
 matcha,matcha,0.381,,,teas,is_a,approved,unreviewed,0.301,0.97,0.8,"[""culturally_specific""]",Matcha is a kind of tea
 mint,mint,0.56,mint_herb,A green leafy herb with a cool sharp taste,teas,is_a,approved,unreviewed,0.25,0.97,0.8,"[""culturally_specific""]",Mint is a kind of tea
@@ -18568,9 +18568,9 @@ pinot,pinot,0.441,,,wines_and_drinks,is_a,approved,unreviewed,0.324,0.97,0.75,"[
 porter,porter,0.569,,,wines_and_drinks,is_a,approved,unreviewed,0.287,0.97,0.75,"[""culturally_specific""]",Porter is a kind of wine or beer
 prosecco,prosecco,0.383,,,wines_and_drinks,is_a,approved,unreviewed,0.341,0.97,0.75,"[""culturally_specific""]",Prosecco is a kind of wine or beer
 Riesling,riesling,0.367,,,wines_and_drinks,is_a,approved,unreviewed,0.345,0.97,0.75,"[""culturally_specific""]",Riesling is a kind of wine or beer
-rose,rose,0.689,,,wines_and_drinks,is_a,approved,unreviewed,0.253,0.97,0.75,"[""culturally_specific""]",Rose is a kind of wine or beer
 sangria,sangria,0.359,,,wines_and_drinks,is_a,approved,unreviewed,0.347,0.97,0.75,"[""culturally_specific""]",Sangria is a kind of wine or beer
 stout,stout,0.493,,,wines_and_drinks,is_a,approved,unreviewed,0.309,0.97,0.75,"[""culturally_specific""]",Stout is a kind of wine or beer
+rose,rose,0.689,rose_wine,"Rose wine, a pink wine made from red grapes",wines_and_drinks,is_a,hard_only,unreviewed,0.253,0.97,0.75,"[""culturally_specific""]",Rose is a kind of wine or beer
 challah,challah,0.293,,,world_breads,is_a,alternative,unreviewed,0.366,0.97,0.75,"[""obscure"", ""culturally_specific""]",Challah is a bread from a world cuisine
 ciabatta,ciabatta,0.287,,,world_breads,is_a,alternative,unreviewed,0.368,0.97,0.75,"[""obscure"", ""culturally_specific""]",Ciabatta is a bread from a world cuisine
 focaccia,focaccia,0.296,,,world_breads,is_a,alternative,unreviewed,0.365,0.97,0.75,"[""obscure"", ""culturally_specific""]",Focaccia is a bread from a world cuisine
@@ -18654,7 +18654,7 @@ sunbird,sunbird,0.254,,,tropical_birds,is_a,hard_only,unreviewed,0.423,0.97,0.68
 bird of paradise,bird of paradise,0.576,,,tropical_flowers,is_a,approved,unreviewed,0.331,0.97,0.68,"[""multiword"", ""culturally_specific""]",Bird of paradise is a tropical flower
 ginger flower,ginger flower,0.544,,,tropical_flowers,is_a,approved,unreviewed,0.341,0.97,0.68,"[""multiword"", ""culturally_specific""]",Ginger flower is a tropical flower
 hibiscus,hibiscus,0.394,,,tropical_flowers,is_a,approved,unreviewed,0.383,0.97,0.68,"[""culturally_specific""]",Hibiscus is a tropical flower
-Jasmine,jasmine,0.516,,,tropical_flowers,is_a,approved,unreviewed,0.349,0.97,0.68,"[""culturally_specific""]",Jasmine is a tropical flower
+Jasmine,jasmine,0.516,jasmine_flower,A climbing shrub with small fragrant white flowers,tropical_flowers,is_a,approved,unreviewed,0.349,0.97,0.68,"[""culturally_specific""]",Jasmine is a tropical flower
 lotus,lotus,0.517,,,tropical_flowers,is_a,approved,unreviewed,0.348,0.97,0.68,"[""culturally_specific""]",Lotus is a tropical flower
 orchid,orchid,0.471,,,tropical_flowers,is_a,approved,unreviewed,0.361,0.97,0.68,"[""culturally_specific""]",Orchid is a tropical flower
 anthurium,anthurium,0.206,,,tropical_flowers,is_a,hard_only,unreviewed,0.437,0.97,0.68,"[""obscure"", ""culturally_specific""]",Anthurium is a tropical flower
@@ -18734,7 +18734,7 @@ mulligatawny,mulligatawny,0.163,,,world_soups,is_a,rejected,unreviewed,0.449,0.9
 kabaddi,kabaddi,0.333,,,world_sports,is_a,alternative,unreviewed,0.395,0.97,0.7,"[""obscure"", ""culturally_specific""]",Kabaddi is a sport popular outside the United States
 badminton,badminton,0.469,,,world_sports,is_a,approved,unreviewed,0.356,0.97,0.7,"[""culturally_specific""]",Badminton is a sport popular outside the United States
 bandy,bandy,0.364,,,world_sports,is_a,approved,unreviewed,0.386,0.97,0.7,"[""culturally_specific""]",Bandy is a sport popular outside the United States
-cricket,cricket,0.627,,,world_sports,is_a,approved,unreviewed,0.311,0.97,0.7,"[""culturally_specific""]",Cricket is a sport popular outside the United States
+cricket,cricket,0.627,cricket_sport,The bat-and-ball team sport played with wickets,world_sports,is_a,approved,unreviewed,0.311,0.97,0.7,"[""culturally_specific""]",Cricket is a sport popular outside the United States
 curling,curling,0.501,,,world_sports,is_a,approved,unreviewed,0.347,0.97,0.7,"[""culturally_specific""]",Curling is a sport popular outside the United States
 futsal,futsal,0.387,,,world_sports,is_a,approved,unreviewed,0.379,0.97,0.7,"[""culturally_specific""]",Futsal is a sport popular outside the United States
 handball,handball,0.444,,,world_sports,is_a,approved,unreviewed,0.363,0.97,0.7,"[""culturally_specific""]",Handball is a sport popular outside the United States

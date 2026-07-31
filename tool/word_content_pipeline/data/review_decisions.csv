@@ -1394,7 +1394,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,punt,punt,,sports_actions,approved,approved,unreviewed,0.268,нет данных SWOW: сохранена ручная разметка
 ,volley,volley,,sports_actions,approved,approved,unreviewed,0.278,нет данных SWOW: сохранена ручная разметка
 ,spike,spike,,sports_actions,approved,approved,unreviewed,0.248,"SWOW: оценка 0.038, доля от лучшей категории слова 0.13; абсолютная заметность 0.80 поднимает до approved"
-,pitch,pitch,pitch_throw,sports_actions,approved,approved,unreviewed,0.229,"SWOW: оценка 0.253, доля от лучшей категории слова 0.66"
+,pitch,pitch,pitch_throw_verb,sports_actions,approved,approved,unreviewed,0.229,"SWOW: оценка 0.253, доля от лучшей категории слова 0.66"
 ,rain,rain,,weather_actions,approved,approved,unreviewed,0.258,"SWOW: оценка 0.177, доля от лучшей категории слова 0.69"
 ,snow,snow,,weather_actions,approved,approved,unreviewed,0.26,"SWOW: оценка 0.226, доля от лучшей категории слова 0.51; абсолютная заметность 0.83 поднимает до approved"
 ,hail,hail,,weather_actions,approved,approved,unreviewed,0.29,"SWOW: оценка 0.608, доля от лучшей категории слова 0.98"
@@ -1559,7 +1559,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,moth,moth,,insects,approved,approved,unreviewed,0.168,"SWOW: оценка 0.476, доля от лучшей категории слова 1.00"
 ,butterfly,butterfly,,insects,approved,approved,unreviewed,0.151,"SWOW: оценка 0.240, доля от лучшей категории слова 1.00"
 ,wasp,wasp,,insects,approved,approved,unreviewed,0.174,"SWOW: оценка 0.257, доля от лучшей категории слова 1.00"
-,cricket,cricket,,insects,approved,approved,unreviewed,0.132,"SWOW: оценка 0.420, доля от лучшей категории слова 0.88"
+,cricket,cricket,cricket_insect,insects,approved,approved,unreviewed,0.132,"SWOW: оценка 0.420, доля от лучшей категории слова 0.88"
 ,grasshopper,grasshopper,,insects,approved,approved,unreviewed,0.187,"SWOW: оценка 0.562, доля от лучшей категории слова 1.00"
 ,ladybug,ladybug,,insects,approved,approved,unreviewed,0.202,"SWOW: оценка 0.372, доля от лучшей категории слова 1.00"
 ,mosquito,mosquito,,insects,approved,approved,unreviewed,0.164,"SWOW: оценка 0.348, доля от лучшей категории слова 1.00"
@@ -1675,7 +1675,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,wolf,wolf,,nocturnal_animals,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.213, доля от лучшей категории слова 0.42"
 ,cougar,cougar,,nocturnal_animals,candidate,alternative,unreviewed,0.342,"SWOW: оценка 0.255, доля от лучшей категории слова 0.35; категория неочевидная"
 ,hamster,hamster,,nocturnal_animals,candidate,alternative,unreviewed,0.345,"SWOW: оценка 0.195, доля от лучшей категории слова 0.46"
-,cricket,cricket,,nocturnal_animals,candidate,alternative,unreviewed,0.301,"SWOW: оценка 0.101, доля от лучшей категории слова 0.21"
+,cricket,cricket,cricket_insect,nocturnal_animals,candidate,alternative,unreviewed,0.301,"SWOW: оценка 0.101, доля от лучшей категории слова 0.21"
 ,beaver,beaver,,nocturnal_animals,candidate,alternative,unreviewed,0.333,"SWOW: оценка 0.189, доля от лучшей категории слова 1.00; категория неочевидная"
 ,armadillo,armadillo,,nocturnal_animals,candidate,alternative,unreviewed,0.37,"нет данных SWOW: абсолютная заметность 0.61 (очевидность 0.65, знакомость 0.39)"
 ,porcupine,porcupine,,nocturnal_animals,candidate,alternative,unreviewed,0.363,"SWOW: оценка 0.409, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -2433,7 +2433,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,jaw,jaw,,face_parts,approved,approved,unreviewed,0.121,"SWOW: оценка 0.151, доля от лучшей категории слова 0.91"
 ,dimple,dimple,,face_parts,approved,approved,unreviewed,0.173,"SWOW: оценка 0.183, доля от лучшей категории слова 1.00"
 ,nostril,nostril,,face_parts,approved,approved,unreviewed,0.171,"SWOW: оценка 0.129, доля от лучшей категории слова 1.00"
-,iris,iris,,face_parts,approved,approved,unreviewed,0.131,"SWOW: оценка 0.407, доля от лучшей категории слова 0.58"
+,iris,iris,iris_eye,face_parts,approved,approved,unreviewed,0.131,"SWOW: оценка 0.407, доля от лучшей категории слова 0.58"
 ,pupil,pupil,,face_parts,approved,approved,unreviewed,0.129,"SWOW: оценка 0.309, доля от лучшей категории слова 0.60"
 ,freckle,freckle,,face_parts,candidate,approved,unreviewed,0.188,"SWOW: оценка 0.328, доля от лучшей категории слова 1.00"
 ,brow,brow,,face_parts,approved,approved,unreviewed,0.139,"SWOW: оценка 0.543, доля от лучшей категории слова 0.73"
@@ -2665,7 +2665,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,toe,toe,,fingers_and_toes,approved,approved,unreviewed,0.284,"SWOW: оценка 0.169, доля от лучшей категории слова 0.54; абсолютная заметность 0.78 поднимает до approved"
 ,digit,digit,,fingers_and_toes,approved,approved,unreviewed,0.296,"SWOW: оценка 0.537, доля от лучшей категории слова 1.00"
 ,pupil,pupil,,parts_of_the_eye,candidate,alternative,unreviewed,0.35,"SWOW: оценка 0.517, доля от лучшей категории слова 1.00; категория неочевидная"
-,iris,iris,,parts_of_the_eye,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.697, доля от лучшей категории слова 1.00; категория неочевидная"
+,iris,iris,iris_eye,parts_of_the_eye,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.697, доля от лучшей категории слова 1.00; категория неочевидная"
 ,lens,lens,,parts_of_the_eye,candidate,alternative,unreviewed,0.335,"SWOW: оценка 0.287, доля от лучшей категории слова 0.71; категория неочевидная"
 ,cornea,cornea,,parts_of_the_eye,candidate,alternative,unreviewed,0.385,"SWOW: оценка 0.039, доля от лучшей категории слова 1.00"
 ,retina,retina,,parts_of_the_eye,candidate,alternative,unreviewed,0.366,"SWOW: оценка 0.831, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -2755,7 +2755,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Chex,chex,,cereal_brands,candidate,alternative,unreviewed,0.353,"нет данных SWOW: абсолютная заметность 0.64 (очевидность 0.78, знакомость 0.31)"
 ,Grape Nuts,grape nuts,,cereal_brands,approved,approved,unreviewed,0.294,нет данных SWOW: сохранена ручная разметка
 ,Cocoa Puffs,cocoa puffs,,cereal_brands,approved,approved,unreviewed,0.32,нет данных SWOW: сохранена ручная разметка
-,Life,life,,cereal_brands,approved,approved,unreviewed,0.241,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.87 поднимает до approved"
+,Life,life,life_cereal,cereal_brands,approved,hard_only,unreviewed,0.241,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,McDonalds,mcdonalds,,fast_food_chains,approved,approved,unreviewed,0.232,нет данных SWOW: сохранена ручная разметка
 ,Burger King,burger king,,fast_food_chains,approved,approved,unreviewed,0.205,нет данных SWOW: сохранена ручная разметка
 ,Wendys,wendys,,fast_food_chains,candidate,alternative,unreviewed,0.289,"нет данных SWOW: абсолютная заметность 0.67 (очевидность 0.85, знакомость 0.28)"
@@ -2810,7 +2810,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Lufthansa,lufthansa,,airlines,approved,approved,unreviewed,0.325,нет данных SWOW: сохранена ручная разметка
 ,Emirates,emirates,,airlines,approved,approved,unreviewed,0.289,нет данных SWOW: сохранена ручная разметка
 ,Alaska,alaska,,airlines,approved,approved,unreviewed,0.27,"SWOW: оценка 0.006, доля от лучшей категории слова 0.02; абсолютная заметность 0.81 поднимает до approved"
-,Spirit,spirit,,airlines,approved,approved,unreviewed,0.246,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.86 поднимает до approved"
+,Spirit,spirit,spirit_airline,airlines,approved,hard_only,unreviewed,0.246,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,Frontier,frontier,,airlines,approved,approved,unreviewed,0.279,"SWOW: оценка 0.007, доля от лучшей категории слова 1.00; абсолютная заметность 0.79 поднимает до approved"
 ,Qantas,qantas,,airlines,approved,approved,unreviewed,0.324,нет данных SWOW: сохранена ручная разметка
 ,Air France,air france,,airlines,approved,approved,unreviewed,0.245,нет данных SWOW: сохранена ручная разметка
@@ -2878,7 +2878,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Silverado,silverado,,car_models,approved,approved,unreviewed,0.339,нет данных SWOW: сохранена ручная разметка
 ,Prius,prius,,car_models,approved,approved,unreviewed,0.325,нет данных SWOW: сохранена ручная разметка
 ,Impala,impala,,car_models,approved,approved,unreviewed,0.325,нет данных SWOW: сохранена ручная разметка
-,Charger,charger,,car_models,approved,approved,unreviewed,0.301,нет данных SWOW: сохранена ручная разметка
+,Charger,charger,charger_car,car_models,approved,approved,unreviewed,0.301,нет данных SWOW: сохранена ручная разметка
 ,Explorer,explorer,,car_models,approved,approved,unreviewed,0.293,"SWOW: оценка 0.007, доля от лучшей категории слова 1.00; абсолютная заметность 0.76 поднимает до approved"
 ,Tahoe,tahoe,,car_models,approved,approved,unreviewed,0.319,нет данных SWOW: сохранена ручная разметка
 ,Camaro,camaro,,car_models,approved,approved,unreviewed,0.324,нет данных SWOW: сохранена ручная разметка
@@ -3859,7 +3859,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,anthem,anthem,,flags_and_symbols,approved,approved,disputed,0.33,"SWOW: оценка 0.045, доля от лучшей категории слова 1.00; абсолютная заметность 0.74 поднимает до approved"
 ,eagle,eagle,,flags_and_symbols,approved,approved,disputed,0.321,"SWOW: оценка 0.021, доля от лучшей категории слова 0.03; абсолютная заметность 0.76 поднимает до approved"
 ,maple leaf,maple leaf,,flags_and_symbols,approved,approved,disputed,0.339,"SWOW: оценка 0.017, доля от лучшей категории слова 1.00; абсолютная заметность 0.72 поднимает до approved"
-,rose,rose,,flags_and_symbols,approved,approved,disputed,0.293,"SWOW: оценка 0.183, доля от лучшей категории слова 0.32; абсолютная заметность 0.81 поднимает до approved"
+,rose,rose,rose_flower,flags_and_symbols,approved,alternative,disputed,0.293,"SWOW: оценка 0.183, доля от лучшей категории слова 0.32"
 ,shamrock,shamrock,,flags_and_symbols,approved,approved,disputed,0.373,"SWOW: оценка 0.012, доля от лучшей категории слова 0.02; абсолютная заметность 0.65 поднимает до approved"
 ,kangaroo,kangaroo,,flags_and_symbols,approved,approved,disputed,0.347,"SWOW: оценка 0.007, доля от лучшей категории слова 0.01; абсолютная заметность 0.71 поднимает до approved"
 ,dragon,dragon,,flags_and_symbols,approved,approved,disputed,0.31,"SWOW: оценка 0.030, доля от лучшей категории слова 0.19; абсолютная заметность 0.78 поднимает до approved"
@@ -4351,7 +4351,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,alphabet,alphabet,,classroom_things,approved,approved,unreviewed,0.185,"SWOW: оценка 0.041, доля от лучшей категории слова 0.61; абсолютная заметность 0.83 поднимает до approved"
 ,map,map,,classroom_things,approved,approved,unreviewed,0.142,"SWOW: оценка 0.060, доля от лучшей категории слова 0.54; абсолютная заметность 0.92 поднимает до approved"
 ,cubby,cubby,,classroom_things,approved,approved,unreviewed,0.232,нет данных SWOW: сохранена ручная разметка
-,bell,bell,,classroom_things,approved,approved,unreviewed,0.149,"SWOW: оценка 0.034, доля от лучшей категории слова 0.08; абсолютная заметность 0.90 поднимает до approved"
+,bell,bell,bell_object,classroom_things,approved,alternative,unreviewed,0.149,"SWOW: оценка 0.034, доля от лучшей категории слова 0.08"
 ,textbook,textbook,,classroom_things,approved,approved,unreviewed,0.182,"SWOW: оценка 0.398, доля от лучшей категории слова 1.00"
 ,easel,easel,,classroom_things,approved,approved,unreviewed,0.227,"SWOW: оценка 0.045, доля от лучшей категории слова 0.09; абсолютная заметность 0.75 поднимает до approved"
 ,hall pass,hall pass,,classroom_things,approved,approved,unreviewed,0.146,нет данных SWOW: сохранена ручная разметка
@@ -4569,7 +4569,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,maraca,maraca,,music_class_things,candidate,alternative,unreviewed,0.343,"нет данных SWOW: абсолютная заметность 0.61 (очевидность 0.80, знакомость 0.24)"
 ,conductor,conductor,,music_class_things,approved,approved,unreviewed,0.255,"SWOW: оценка 0.102, доля от лучшей категории слова 0.14; абсолютная заметность 0.79 поднимает до approved"
 ,riser,riser,,music_class_things,approved,approved,unreviewed,0.293,нет данных SWOW: сохранена ручная разметка
-,bell,bell,,music_class_things,approved,approved,unreviewed,0.223,"SWOW: оценка 0.037, доля от лучшей категории слова 0.09; абсолютная заметность 0.85 поднимает до approved"
+,bell,bell,bell_object,music_class_things,approved,alternative,unreviewed,0.223,"SWOW: оценка 0.037, доля от лучшей категории слова 0.09"
 ,student,student,,school_people,approved,approved,unreviewed,0.17,"SWOW: оценка 0.393, доля от лучшей категории слова 1.00"
 ,teacher,teacher,,school_people,approved,approved,unreviewed,0.171,"SWOW: оценка 0.160, доля от лучшей категории слова 1.00"
 ,principal,principal,,school_people,approved,approved,unreviewed,0.185,"SWOW: оценка 0.334, доля от лучшей категории слова 1.00"
@@ -4710,7 +4710,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,battleship,battleship,,board_games,approved,approved,unreviewed,0.241,нет данных SWOW: сохранена ручная разметка
 ,sorry,sorry,,board_games,approved,approved,unreviewed,0.17,"SWOW: оценка 0.024, доля от лучшей категории слова 0.25; абсолютная заметность 0.91 поднимает до approved"
 ,trouble,trouble,,board_games,approved,approved,unreviewed,0.175,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00; абсолютная заметность 0.90 поднимает до approved"
-,life,life,,board_games,approved,approved,unreviewed,0.17,"SWOW: оценка 0.031, доля от лучшей категории слова 0.46; абсолютная заметность 0.91 поднимает до approved"
+,life,life,life_game,board_games,approved,alternative,unreviewed,0.17,"SWOW: оценка 0.031, доля от лучшей категории слова 0.46"
 ,candy land,candy land,,board_games,approved,approved,unreviewed,0.197,нет данных SWOW: сохранена ручная разметка
 ,chutes and ladders,chutes and ladders,,board_games,approved,approved,unreviewed,0.264,нет данных SWOW: сохранена ручная разметка
 ,othello,othello,,board_games,approved,approved,unreviewed,0.248,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.75 поднимает до approved"
@@ -5327,7 +5327,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,woody,woody,,perfume_words,candidate,alternative,unreviewed,0.34,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
 ,sweet,sweet,,perfume_words,candidate,approved,unreviewed,0.296,"SWOW: оценка 0.038, доля от лучшей категории слова 0.17; абсолютная заметность 0.81 поднимает до approved"
 ,vanilla,vanilla,,perfume_words,candidate,alternative,unreviewed,0.339,"SWOW: оценка 0.047, доля от лучшей категории слова 0.24"
-,rose,rose,,perfume_words,candidate,approved,unreviewed,0.299,"SWOW: оценка 0.199, доля от лучшей категории слова 0.35; абсолютная заметность 0.80 поднимает до approved"
+,rose,rose,rose_flower,perfume_words,candidate,alternative,unreviewed,0.299,"SWOW: оценка 0.199, доля от лучшей категории слова 0.35"
 ,sandalwood,sandalwood,,perfume_words,candidate,alternative,unreviewed,0.385,"нет данных SWOW: абсолютная заметность 0.63 (очевидность 0.68, знакомость 0.39)"
 ,amber,amber,,perfume_words,candidate,alternative,unreviewed,0.334,"SWOW: оценка 0.085, доля от лучшей категории слова 0.37"
 ,cologne,cologne,,perfume_words,candidate,alternative,unreviewed,0.35,"SWOW: оценка 0.303, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -7766,7 +7766,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,computer,computer,,things_that_plug_in,candidate,approved,unreviewed,0.216,"SWOW: оценка 0.033, доля от лучшей категории слова 0.34; абсолютная заметность 0.87 поднимает до approved"
 ,vacuum,vacuum,,things_that_plug_in,candidate,approved,unreviewed,0.249,"SWOW: оценка 0.012, доля от лучшей категории слова 0.05; абсолютная заметность 0.80 поднимает до approved"
 ,blender,blender,,things_that_plug_in,candidate,alternative,unreviewed,0.276,"SWOW: оценка 0.053, доля от лучшей категории слова 0.28"
-,charger,charger,,things_that_plug_in,candidate,alternative,unreviewed,0.267,"нет данных SWOW: абсолютная заметность 0.77 (очевидность 0.78, знакомость 0.52)"
+,charger,charger,charger_device,things_that_plug_in,candidate,hard_only,unreviewed,0.267,"нет данных SWOW: абсолютная заметность 0.77 (очевидность 0.78, знакомость 0.52)"
 ,printer,printer,,things_that_plug_in,candidate,alternative,unreviewed,0.256,"SWOW: оценка 0.008, доля от лучшей категории слова 0.02; абсолютная заметность 0.79 поднимает до alternative"
 ,heater,heater,,things_that_plug_in,candidate,alternative,unreviewed,0.271,"SWOW: оценка 0.159, доля от лучшей категории слова 1.00; категория неочевидная"
 ,hairdryer,hairdryer,,things_that_plug_in,candidate,alternative,unreviewed,0.317,"SWOW: оценка 0.173, доля от лучшей категории слова 0.71; категория неочевидная"
@@ -8976,7 +8976,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,birth,birth,,words_before_stone,candidate,alternative,unreviewed,0.39,"SWOW: оценка 0.092, доля от лучшей категории слова 1.00; категория неочевидная"
 ,gall,gall,,words_before_stone,candidate,hard_only,unreviewed,0.45,"нет данных SWOW: абсолютная заметность 0.60 (очевидность 0.55, знакомость 0.47)"
 ,flag,flag,,words_before_stone,candidate,hard_only,unreviewed,0.398,"SWOW: оценка 0.003, доля от лучшей категории слова 0.03"
-,moon,moon,,words_before_stone,candidate,hard_only,unreviewed,0.393,"SWOW: оценка 0.016, доля от лучшей категории слова 0.05"
+,moon,moon,moon_space,words_before_stone,candidate,hard_only,unreviewed,0.393,"SWOW: оценка 0.016, доля от лучшей категории слова 0.05"
 ,tomb,tomb,,words_before_stone,candidate,alternative,unreviewed,0.426,"SWOW: оценка 0.201, доля от лучшей категории слова 0.77; категория неочевидная"
 ,stepping,stepping,,words_before_stone,candidate,hard_only,unreviewed,0.422,"нет данных SWOW: абсолютная заметность 0.66 (очевидность 0.55, знакомость 0.57)"
 ,rolling,rolling,,words_before_stone,candidate,alternative,unreviewed,0.402,"SWOW: оценка 0.075, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -9388,7 +9388,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,poaching,poaching,,crimes,approved,approved,unreviewed,0.275,нет данных SWOW: сохранена ручная разметка
 ,badge,badge,,police_things,approved,approved,unreviewed,0.206,"SWOW: оценка 0.403, доля от лучшей категории слова 1.00"
 ,handcuffs,handcuffs,,police_things,approved,approved,unreviewed,0.239,"SWOW: оценка 0.615, доля от лучшей категории слова 1.00"
-,siren,siren,,police_things,approved,approved,unreviewed,0.229,"SWOW: оценка 0.317, доля от лучшей категории слова 1.00"
+,siren,siren,siren_device,police_things,approved,approved,unreviewed,0.229,"SWOW: оценка 0.317, доля от лучшей категории слова 1.00"
 ,radio,radio,,police_things,approved,approved,unreviewed,0.17,"SWOW: оценка 0.029, доля от лучшей категории слова 0.08; абсолютная заметность 0.91 поднимает до approved"
 ,uniform,uniform,,police_things,approved,approved,unreviewed,0.193,"SWOW: оценка 0.351, доля от лучшей категории слова 1.00"
 ,cruiser,cruiser,,police_things,approved,approved,unreviewed,0.226,нет данных SWOW: сохранена ручная разметка
@@ -9811,7 +9811,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,wire,wire,,things_made_of_metal,candidate,approved,unreviewed,0.235,"SWOW: оценка 0.107, доля от лучшей категории слова 0.36; абсолютная заметность 0.83 поднимает до approved"
 ,faucet,faucet,,things_made_of_metal,candidate,alternative,unreviewed,0.291,"SWOW: оценка 0.084, доля от лучшей категории слова 0.24"
 ,hinge,hinge,,things_made_of_metal,candidate,alternative,unreviewed,0.281,"SWOW: оценка 0.093, доля от лучшей категории слова 0.39"
-,bell,bell,,things_made_of_metal,candidate,approved,unreviewed,0.229,"SWOW: оценка 0.044, доля от лучшей категории слова 0.11; абсолютная заметность 0.84 поднимает до approved"
+,bell,bell,bell_object,things_made_of_metal,candidate,alternative,unreviewed,0.229,"SWOW: оценка 0.044, доля от лучшей категории слова 0.11"
 ,armor,armor,,things_made_of_metal,candidate,alternative,unreviewed,0.254,"SWOW: оценка 0.119, доля от лучшей категории слова 0.35"
 ,kettle,kettle,,things_made_of_metal,candidate,alternative,unreviewed,0.271,"SWOW: оценка 0.037, доля от лучшей категории слова 0.21"
 ,safe,safe,,things_made_of_metal,candidate,approved,unreviewed,0.216,"SWOW: оценка 0.058, доля от лучшей категории слова 0.53; абсолютная заметность 0.87 поднимает до approved"
@@ -10018,7 +10018,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Belle,belle,,disney_characters,approved,approved,unreviewed,0.215,"SWOW: оценка 0.080, доля от лучшей категории слова 1.00"
 ,Simba,simba,,disney_characters,approved,approved,unreviewed,0.25,нет данных SWOW: сохранена ручная разметка
 ,Aladdin,aladdin,,disney_characters,approved,approved,unreviewed,0.241,нет данных SWOW: сохранена ручная разметка
-,Jasmine,jasmine,,disney_characters,approved,approved,unreviewed,0.223,нет данных SWOW: сохранена ручная разметка
+,Jasmine,jasmine,jasmine_disney,disney_characters,approved,approved,unreviewed,0.223,нет данных SWOW: сохранена ручная разметка
 ,Mulan,mulan,,disney_characters,approved,approved,unreviewed,0.255,нет данных SWOW: сохранена ручная разметка
 ,Pocahontas,pocahontas,,disney_characters,approved,approved,unreviewed,0.25,нет данных SWOW: сохранена ручная разметка
 ,Dumbo,dumbo,,disney_characters,approved,approved,unreviewed,0.259,нет данных SWOW: сохранена ручная разметка
@@ -10480,7 +10480,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,organic,organic,,nutrition_words,approved,approved,unreviewed,0.27,"SWOW: оценка 0.410, доля от лучшей категории слова 1.00"
 ,whole grain,whole grain,,nutrition_words,approved,approved,unreviewed,0.28,нет данных SWOW: сохранена ручная разметка
 ,ambulance,ambulance,,emergency_words,approved,approved,unreviewed,0.244,"SWOW: оценка 0.241, доля от лучшей категории слова 1.00"
-,siren,siren,,emergency_words,approved,approved,unreviewed,0.269,"SWOW: оценка 0.262, доля от лучшей категории слова 0.83"
+,siren,siren,siren_device,emergency_words,approved,approved,unreviewed,0.269,"SWOW: оценка 0.262, доля от лучшей категории слова 0.83"
 ,stretcher,stretcher,,emergency_words,approved,approved,unreviewed,0.278,нет данных SWOW: сохранена ручная разметка
 ,CPR,cpr,,emergency_words,approved,approved,unreviewed,0.27,"SWOW: оценка 0.023, доля от лучшей категории слова 0.55; абсолютная заметность 0.76 поднимает до approved"
 ,oxygen,oxygen,,emergency_words,approved,approved,unreviewed,0.237,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00; абсолютная заметность 0.83 поднимает до approved"
@@ -10542,7 +10542,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,receipt,receipt,,things_in_a_purse,approved,approved,unreviewed,0.25,"SWOW: оценка 0.253, доля от лучшей категории слова 0.52"
 ,planner,planner,,things_in_a_purse,approved,approved,unreviewed,0.266,"SWOW: оценка 0.004, доля от лучшей категории слова 0.08; абсолютная заметность 0.77 поднимает до approved"
 ,snack,snack,,things_in_a_purse,approved,approved,unreviewed,0.251,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.80 поднимает до approved"
-,charger,charger,,things_in_a_purse,approved,approved,unreviewed,0.261,нет данных SWOW: сохранена ручная разметка
+,charger,charger,charger_device,things_in_a_purse,approved,approved,unreviewed,0.261,нет данных SWOW: сохранена ручная разметка
 ,chips,chips,,vending_machine_items,approved,approved,unreviewed,0.269,"SWOW: оценка 0.114, доля от лучшей категории слова 0.39; абсолютная заметность 0.81 поднимает до approved"
 ,candy bar,candy bar,,vending_machine_items,approved,approved,unreviewed,0.27,"SWOW: оценка 0.245, доля от лучшей категории слова 1.00"
 ,soda,soda,,vending_machine_items,approved,approved,unreviewed,0.276,"SWOW: оценка 0.061, доля от лучшей категории слова 0.27; абсолютная заметность 0.80 поднимает до approved"
@@ -10592,7 +10592,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,flashlight,flashlight,,things_in_a_glove_box,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.040, доля от лучшей категории слова 0.11"
 ,sunglasses,sunglasses,,things_in_a_glove_box,candidate,alternative,unreviewed,0.338,"SWOW: оценка 0.042, доля от лучшей категории слова 0.37"
 ,map,map,,things_in_a_glove_box,candidate,approved,unreviewed,0.296,"SWOW: оценка 0.006, доля от лучшей категории слова 0.06; абсолютная заметность 0.81 поднимает до approved"
-,charger,charger,,things_in_a_glove_box,candidate,alternative,unreviewed,0.341,"нет данных SWOW: абсолютная заметность 0.72 (очевидность 0.70, знакомость 0.52)"
+,charger,charger,charger_device,things_in_a_glove_box,candidate,hard_only,unreviewed,0.341,"нет данных SWOW: абсолютная заметность 0.72 (очевидность 0.70, знакомость 0.52)"
 ,ice scraper,ice scraper,,things_in_a_glove_box,candidate,alternative,unreviewed,0.377,"нет данных SWOW: абсолютная заметность 0.65 (очевидность 0.70, знакомость 0.39)"
 ,tissues,tissues,,things_in_a_glove_box,candidate,alternative,unreviewed,0.334,"нет данных SWOW: абсолютная заметность 0.73 (очевидность 0.70, знакомость 0.55)"
 ,wrapper,wrapper,,things_you_recycle,candidate,alternative,unreviewed,0.321,"нет данных SWOW: абсолютная заметность 0.71 (очевидность 0.75, знакомость 0.45)"
@@ -10609,7 +10609,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,core,core,,things_you_recycle,candidate,approved,unreviewed,0.257,"SWOW: оценка 0.026, доля от лучшей категории слова 0.34; абсолютная заметность 0.84 поднимает до approved"
 ,packaging,packaging,,things_you_recycle,candidate,alternative,unreviewed,0.288,"SWOW: оценка 0.250, доля от лучшей категории слова 1.00; категория неочевидная"
 ,phone,phone,,things_that_ring,candidate,approved,unreviewed,0.259,"SWOW: оценка 0.110, доля от лучшей категории слова 1.00"
-,bell,bell,,things_that_ring,candidate,approved,unreviewed,0.272,"SWOW: оценка 0.413, доля от лучшей категории слова 1.00"
+,bell,bell,bell_object,things_that_ring,candidate,alternative,unreviewed,0.272,"SWOW: оценка 0.413, доля от лучшей категории слова 1.00; категория неочевидная"
 ,alarm,alarm,,things_that_ring,candidate,alternative,unreviewed,0.284,"SWOW: оценка 0.335, доля от лучшей категории слова 0.74; категория неочевидная"
 ,doorbell,doorbell,,things_that_ring,candidate,alternative,unreviewed,0.334,"SWOW: оценка 0.394, доля от лучшей категории слова 1.00; категория неочевидная"
 ,timer,timer,,things_that_ring,candidate,alternative,unreviewed,0.309,"SWOW: оценка 0.203, доля от лучшей категории слова 0.41"
@@ -10693,7 +10693,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,kraken,kraken,,mythical_monsters,approved,approved,unreviewed,0.294,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.71 поднимает до approved"
 ,cerberus,cerberus,,mythical_monsters,approved,approved,unreviewed,0.297,нет данных SWOW: сохранена ручная разметка
 ,harpy,harpy,,mythical_monsters,approved,approved,unreviewed,0.308,нет данных SWOW: сохранена ручная разметка
-,siren,siren,,mythical_monsters,approved,approved,unreviewed,0.269,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00; абсолютная заметность 0.76 поднимает до approved"
+,siren,siren,siren_myth,mythical_monsters,approved,hard_only,unreviewed,0.269,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00"
 ,gorgon,gorgon,,mythical_monsters,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
 ,basilisk,basilisk,,mythical_monsters,candidate,alternative,unreviewed,0.311,"нет данных SWOW: абсолютная заметность 0.68 (очевидность 0.80, знакомость 0.35)"
 ,manticore,manticore,,mythical_monsters,candidate,alternative,unreviewed,0.318,"нет данных SWOW: абсолютная заметность 0.66 (очевидность 0.80, знакомость 0.32)"
@@ -10873,7 +10873,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Elijah,elijah,,biblical_names,approved,approved,unreviewed,0.305,нет данных SWOW: сохранена ручная разметка
 ,Isaiah,isaiah,,biblical_names,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
 ,Naomi,naomi,,biblical_names,approved,approved,unreviewed,0.301,нет данных SWOW: сохранена ручная разметка
-,Rose,rose,,nature_names,approved,approved,unreviewed,0.253,"SWOW: оценка 0.338, доля от лучшей категории слова 0.60"
+,Rose,rose,rose_name,nature_names,approved,approved,unreviewed,0.253,"SWOW: оценка 0.338, доля от лучшей категории слова 0.60"
 ,Lily,lily,,nature_names,approved,approved,unreviewed,0.289,"SWOW: оценка 0.475, доля от лучшей категории слова 0.56"
 ,Ivy,ivy,,nature_names,approved,approved,unreviewed,0.294,"SWOW: оценка 0.154, доля от лучшей категории слова 0.43; абсолютная заметность 0.76 поднимает до approved"
 ,Daisy,daisy,,nature_names,approved,approved,unreviewed,0.296,"SWOW: оценка 0.480, доля от лучшей категории слова 0.55"
@@ -10883,7 +10883,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Autumn,autumn,,nature_names,approved,approved,unreviewed,0.276,"SWOW: оценка 0.059, доля от лучшей категории слова 0.19; абсолютная заметность 0.80 поднимает до approved"
 ,Summer,summer,,nature_names,approved,approved,unreviewed,0.25,"SWOW: оценка 0.056, доля от лучшей категории слова 0.21; абсолютная заметность 0.85 поднимает до approved"
 ,Sky,sky,,nature_names,approved,approved,unreviewed,0.257,"SWOW: оценка 0.050, доля от лучшей категории слова 0.53; абсолютная заметность 0.84 поднимает до approved"
-,Jasmine,jasmine,,nature_names,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
+,Jasmine,jasmine,jasmine_name,nature_names,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
 ,Violet,violet,,nature_names,approved,approved,unreviewed,0.293,"SWOW: оценка 0.429, доля от лучшей категории слова 0.63"
 ,Fern,fern,,nature_names,approved,approved,unreviewed,0.317,"SWOW: оценка 0.223, доля от лучшей категории слова 0.40; абсолютная заметность 0.72 поднимает до approved"
 ,Heather,heather,,nature_names,approved,approved,unreviewed,0.292,"SWOW: оценка 0.437, доля от лучшей категории слова 1.00"
@@ -10925,7 +10925,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Hope,hope,,short_names,candidate,approved,unreviewed,0.29,"SWOW: оценка 0.039, доля от лучшей категории слова 1.00; абсолютная заметность 0.82 поднимает до approved"
 ,Joyce,joyce,,short_names,candidate,alternative,unreviewed,0.333,"SWOW: оценка 0.109, доля от лучшей категории слова 1.00; категория неочевидная"
 ,Luke,luke,,short_names,candidate,alternative,unreviewed,0.308,"нет данных SWOW: абсолютная заметность 0.78 (очевидность 0.70, знакомость 0.64)"
-,Rose,rose,,short_names,candidate,approved,unreviewed,0.293,"SWOW: оценка 0.018, доля от лучшей категории слова 0.03; абсолютная заметность 0.81 поднимает до approved"
+,Rose,rose,rose_name,short_names,candidate,hard_only,unreviewed,0.293,"SWOW: оценка 0.018, доля от лучшей категории слова 0.03"
 ,Scott,scott,,short_names,candidate,approved,unreviewed,0.297,"нет данных SWOW: абсолютная заметность 0.81 (очевидность 0.70, знакомость 0.67)"
 ,Buddy,buddy,,pet_names,approved,approved,unreviewed,0.23,"SWOW: оценка 0.028, доля от лучшей категории слова 1.00; абсолютная заметность 0.84 поднимает до approved"
 ,Max,max,,pet_names,approved,approved,unreviewed,0.22,"SWOW: оценка 0.014, доля от лучшей категории слова 1.00; абсолютная заметность 0.86 поднимает до approved"
@@ -11208,7 +11208,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,shoot,shoot,,tree_parts,approved,approved,unreviewed,0.177,"SWOW: оценка 0.005, доля от лучшей категории слова 0.57; абсолютная заметность 0.90 поднимает до approved"
 ,acorn,acorn,,tree_parts,approved,approved,unreviewed,0.244,"SWOW: оценка 0.482, доля от лучшей категории слова 1.00"
 ,pulp,pulp,,tree_parts,approved,approved,unreviewed,0.22,"SWOW: оценка 0.061, доля от лучшей категории слова 1.00"
-,rose,rose,,flowers,approved,approved,unreviewed,0.114,"SWOW: оценка 0.565, доля от лучшей категории слова 1.00"
+,rose,rose,rose_flower,flowers,approved,approved,unreviewed,0.114,"SWOW: оценка 0.565, доля от лучшей категории слова 1.00"
 ,tulip,tulip,,flowers,approved,approved,unreviewed,0.181,"SWOW: оценка 0.855, доля от лучшей категории слова 1.00"
 ,daisy,daisy,,flowers,approved,approved,unreviewed,0.157,"SWOW: оценка 0.870, доля от лучшей категории слова 1.00"
 ,lily,lily,,flowers,approved,approved,unreviewed,0.15,"SWOW: оценка 0.850, доля от лучшей категории слова 1.00"
@@ -11217,12 +11217,12 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,violet,violet,,flowers,approved,approved,unreviewed,0.154,"SWOW: оценка 0.679, доля от лучшей категории слова 1.00"
 ,carnation,carnation,,flowers,approved,approved,unreviewed,0.201,нет данных SWOW: сохранена ручная разметка
 ,daffodil,daffodil,,flowers,approved,approved,unreviewed,0.206,"SWOW: оценка 0.820, доля от лучшей категории слова 1.00"
-,iris,iris,,flowers,approved,approved,unreviewed,0.158,"SWOW: оценка 0.521, доля от лучшей категории слова 0.75"
+,iris,iris,iris_flower,flowers,approved,approved,unreviewed,0.158,"SWOW: оценка 0.521, доля от лучшей категории слова 0.75"
 ,poppy,poppy,,flowers,approved,approved,unreviewed,0.164,"SWOW: оценка 0.613, доля от лучшей категории слова 1.00"
 ,marigold,marigold,,flowers,approved,approved,unreviewed,0.199,нет данных SWOW: сохранена ручная разметка
 ,peony,peony,,flowers,approved,approved,unreviewed,0.206,нет данных SWOW: сохранена ручная разметка
 ,lilac,lilac,,flowers,approved,approved,unreviewed,0.184,"SWOW: оценка 0.830, доля от лучшей категории слова 1.00"
-,jasmine,jasmine,,flowers,approved,approved,unreviewed,0.164,нет данных SWOW: сохранена ручная разметка
+,jasmine,jasmine,jasmine_flower,flowers,approved,approved,unreviewed,0.164,нет данных SWOW: сохранена ручная разметка
 ,dahlia,dahlia,,flowers,approved,approved,unreviewed,0.194,нет данных SWOW: сохранена ручная разметка
 ,petunia,petunia,,flowers,candidate,alternative,unreviewed,0.21,"нет данных SWOW: абсолютная заметность 0.73 (очевидность 0.88, знакомость 0.35)"
 ,hyacinth,hyacinth,,flowers,approved,approved,unreviewed,0.2,нет данных SWOW: сохранена ручная разметка
@@ -11289,7 +11289,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,tempest,tempest,,storms,approved,approved,unreviewed,0.276,нет данных SWOW: сохранена ручная разметка
 ,cloud,cloud,,cloud_and_sky,approved,approved,unreviewed,0.234,"SWOW: оценка 0.321, доля от лучшей категории слова 0.90"
 ,sun,sun,,cloud_and_sky,approved,approved,unreviewed,0.216,"SWOW: оценка 0.214, доля от лучшей категории слова 0.87"
-,moon,moon,,cloud_and_sky,approved,approved,unreviewed,0.224,"SWOW: оценка 0.250, доля от лучшей категории слова 0.81"
+,moon,moon,moon_space,cloud_and_sky,approved,approved,unreviewed,0.224,"SWOW: оценка 0.250, доля от лучшей категории слова 0.81"
 ,star,star,star_space,cloud_and_sky,approved,approved,unreviewed,0.216,"SWOW: оценка 0.298, доля от лучшей категории слова 1.00"
 ,rainbow,rainbow,,cloud_and_sky,approved,approved,unreviewed,0.25,"SWOW: оценка 0.095, доля от лучшей категории слова 1.00"
 ,lightning,lightning,,cloud_and_sky,approved,approved,unreviewed,0.244,"SWOW: оценка 0.055, доля от лучшей категории слова 0.31; абсолютная заметность 0.81 поднимает до approved"
@@ -11420,7 +11420,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,bud,bud,,seasons_and_nature,approved,approved,unreviewed,0.258,"SWOW: оценка 0.441, доля от лучшей категории слова 0.59"
 ,molt,molt,,seasons_and_nature,candidate,alternative,unreviewed,0.328,"нет данных SWOW: абсолютная заметность 0.64 (очевидность 0.75, знакомость 0.34)"
 ,tomato,tomato,,garden_plants,approved,approved,unreviewed,0.228,"SWOW: оценка 0.237, доля от лучшей категории слова 0.36; абсолютная заметность 0.79 поднимает до approved"
-,rose,rose,,garden_plants,approved,approved,unreviewed,0.188,"SWOW: оценка 0.234, доля от лучшей категории слова 0.41; абсолютная заметность 0.87 поднимает до approved"
+,rose,rose,rose_flower,garden_plants,approved,alternative,unreviewed,0.188,"SWOW: оценка 0.234, доля от лучшей категории слова 0.41"
 ,basil,basil,,garden_plants,approved,approved,unreviewed,0.236,"SWOW: оценка 0.216, доля от лучшей категории слова 0.28; абсолютная заметность 0.78 поднимает до approved"
 ,lettuce,lettuce,,garden_plants,approved,approved,unreviewed,0.24,"SWOW: оценка 0.395, доля от лучшей категории слова 0.59"
 ,cucumber,cucumber,,garden_plants,approved,approved,unreviewed,0.246,"SWOW: оценка 0.517, доля от лучшей категории слова 0.78"
@@ -11541,7 +11541,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,candle,candle,,light_sources,approved,approved,unreviewed,0.252,"SWOW: оценка 0.435, доля от лучшей категории слова 1.00"
 ,flashlight,flashlight,,light_sources,approved,approved,unreviewed,0.269,"SWOW: оценка 0.381, доля от лучшей категории слова 1.00"
 ,fire,fire,,light_sources,approved,approved,unreviewed,0.21,"SWOW: оценка 0.100, доля от лучшей категории слова 0.40; абсолютная заметность 0.88 поднимает до approved"
-,moon,moon,,light_sources,approved,approved,unreviewed,0.218,"SWOW: оценка 0.084, доля от лучшей категории слова 0.27; абсолютная заметность 0.86 поднимает до approved"
+,moon,moon,moon_space,light_sources,approved,alternative,unreviewed,0.218,"SWOW: оценка 0.084, доля от лучшей категории слова 0.27"
 ,lantern,lantern,,light_sources,approved,approved,unreviewed,0.263,"SWOW: оценка 0.766, доля от лучшей категории слова 1.00"
 ,bulb,bulb,,light_sources,approved,approved,unreviewed,0.261,"SWOW: оценка 0.728, доля от лучшей категории слова 1.00"
 ,torch,torch,,light_sources,approved,approved,unreviewed,0.257,"SWOW: оценка 0.574, доля от лучшей категории слова 1.00"
@@ -11750,7 +11750,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,cavern,cavern,,cave_things,approved,approved,unreviewed,0.364,"SWOW: оценка 0.335, доля от лучшей категории слова 1.00"
 ,moss,moss,,cave_things,approved,approved,unreviewed,0.331,"SWOW: оценка 0.017, доля от лучшей категории слова 0.02; абсолютная заметность 0.74 поднимает до approved"
 ,fossil,fossil,,cave_things,approved,approved,unreviewed,0.327,"SWOW: оценка 0.018, доля от лучшей категории слова 0.09; абсолютная заметность 0.75 поднимает до approved"
-,moon,moon,,night_sky_things,approved,approved,unreviewed,0.212,"SWOW: оценка 0.310, доля от лучшей категории слова 1.00"
+,moon,moon,moon_space,night_sky_things,approved,approved,unreviewed,0.212,"SWOW: оценка 0.310, доля от лучшей категории слова 1.00"
 ,star,star,star_space,night_sky_things,approved,approved,unreviewed,0.204,"SWOW: оценка 0.298, доля от лучшей категории слова 1.00"
 ,planet,planet,,night_sky_things,approved,approved,unreviewed,0.213,"SWOW: оценка 0.130, доля от лучшей категории слова 0.57"
 ,comet,comet,,night_sky_things,approved,approved,unreviewed,0.255,"SWOW: оценка 0.559, доля от лучшей категории слова 0.84"
@@ -11917,7 +11917,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,bee,bee,,garden_bugs,approved,approved,unreviewed,0.323,"SWOW: оценка 0.085, доля от лучшей категории слова 0.48; абсолютная заметность 0.75 поднимает до approved"
 ,ant,ant,,garden_bugs,approved,approved,unreviewed,0.333,"SWOW: оценка 0.535, доля от лучшей категории слова 0.93"
 ,roly poly,roly poly,,garden_bugs,candidate,alternative,unreviewed,0.394,"нет данных SWOW: абсолютная заметность 0.61 (очевидность 0.70, знакомость 0.34)"
-,cricket,cricket,,garden_bugs,approved,approved,unreviewed,0.311,"SWOW: оценка 0.369, доля от лучшей категории слова 0.77"
+,cricket,cricket,cricket_insect,garden_bugs,approved,approved,unreviewed,0.311,"SWOW: оценка 0.369, доля от лучшей категории слова 0.77"
 ,grub,grub,,garden_bugs,approved,approved,unreviewed,0.363,"SWOW: оценка 0.217, доля от лучшей категории слова 1.00"
 ,centipede,centipede,,garden_bugs,approved,approved,unreviewed,0.376,"SWOW: оценка 0.570, доля от лучшей категории слова 1.00"
 ,praying mantis,praying mantis,,garden_bugs,approved,approved,unreviewed,0.365,"SWOW: оценка 0.450, доля от лучшей категории слова 1.00"
@@ -12146,7 +12146,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,ambergris,ambergris,,ocean_products,candidate,hard_only,unreviewed,0.408,"нет данных SWOW: абсолютная заметность 0.58 (очевидность 0.68, знакомость 0.31)"
 ,mermaid,mermaid,,sea_myths,candidate,alternative,unreviewed,0.354,"SWOW: оценка 0.145, доля от лучшей категории слова 1.00; категория неочевидная"
 ,kraken,kraken,,sea_myths,candidate,alternative,unreviewed,0.38,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.64 поднимает до alternative"
-,siren,siren,,sea_myths,candidate,alternative,unreviewed,0.355,"SWOW: оценка 0.024, доля от лучшей категории слова 0.08"
+,siren,siren,siren_myth,sea_myths,candidate,alternative,unreviewed,0.355,"SWOW: оценка 0.024, доля от лучшей категории слова 0.08"
 ,sea serpent,sea serpent,,sea_myths,candidate,alternative,unreviewed,0.355,"нет данных SWOW: абсолютная заметность 0.69 (очевидность 0.68, знакомость 0.49)"
 ,leviathan,leviathan,,sea_myths,candidate,alternative,unreviewed,0.37,"нет данных SWOW: абсолютная заметность 0.66 (очевидность 0.68, знакомость 0.44)"
 ,ghost ship,ghost ship,,sea_myths,candidate,alternative,unreviewed,0.321,"нет данных SWOW: абсолютная заметность 0.76 (очевидность 0.68, знакомость 0.61)"
@@ -12414,7 +12414,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Cabot,cabot,,explorers,approved,approved,unreviewed,0.327,нет данных SWOW: сохранена ручная разметка
 ,Balboa,balboa,,explorers,approved,approved,unreviewed,0.33,нет данных SWOW: сохранена ручная разметка
 ,Edison,edison,,inventors,approved,approved,unreviewed,0.304,"SWOW: оценка 0.232, доля от лучшей категории слова 1.00"
-,Bell,bell,,inventors,approved,approved,unreviewed,0.263,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.82 поднимает до approved"
+,Bell,bell,bell_person,inventors,approved,hard_only,unreviewed,0.263,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,Tesla,tesla,,inventors,approved,approved,unreviewed,0.296,"SWOW: оценка 0.119, доля от лучшей категории слова 1.00"
 ,Gutenberg,gutenberg,,inventors,approved,approved,unreviewed,0.341,нет данных SWOW: сохранена ручная разметка
 ,Wright,wright,,inventors,approved,approved,unreviewed,0.279,нет данных SWOW: сохранена ручная разметка
@@ -12930,7 +12930,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,bean,bean,,vines,candidate,alternative,unreviewed,0.333,"SWOW: оценка 0.241, доля от лучшей категории слова 1.00; категория неочевидная"
 ,cucumber,cucumber,,vines,candidate,alternative,unreviewed,0.357,"SWOW: оценка 0.342, доля от лучшей категории слова 0.52; категория неочевидная"
 ,pumpkin,pumpkin,,vines,candidate,alternative,unreviewed,0.34,"SWOW: оценка 0.031, доля от лучшей категории слова 0.08"
-,jasmine,jasmine,,vines,candidate,alternative,unreviewed,0.349,"нет данных SWOW: абсолютная заметность 0.70 (очевидность 0.68, знакомость 0.52)"
+,jasmine,jasmine,jasmine_flower,vines,candidate,hard_only,unreviewed,0.349,"нет данных SWOW: абсолютная заметность 0.70 (очевидность 0.68, знакомость 0.52)"
 ,kudzu,kudzu,,vines,candidate,hard_only,unreviewed,0.409,"нет данных SWOW: абсолютная заметность 0.58 (очевидность 0.68, знакомость 0.30)"
 ,hops,hops,,vines,candidate,alternative,unreviewed,0.359,"нет данных SWOW: абсолютная заметность 0.68 (очевидность 0.68, знакомость 0.48)"
 ,passion flower,passion flower,,vines,candidate,alternative,unreviewed,0.327,"нет данных SWOW: абсолютная заметность 0.75 (очевидность 0.68, знакомость 0.59)"
@@ -12996,9 +12996,9 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,bluebell,bluebell,,garden_flowers_spring,approved,approved,unreviewed,0.356,нет данных SWOW: сохранена ручная разметка
 ,forsythia,forsythia,,garden_flowers_spring,candidate,hard_only,unreviewed,0.379,"нет данных SWOW: абсолютная заметность 0.59 (очевидность 0.72, знакомость 0.28)"
 ,snowdrop,snowdrop,,garden_flowers_spring,candidate,alternative,unreviewed,0.368,"нет данных SWOW: абсолютная заметность 0.61 (очевидность 0.72, знакомость 0.32)"
-,iris,iris,,garden_flowers_spring,approved,approved,unreviewed,0.306,"SWOW: оценка 0.459, доля от лучшей категории слова 0.66"
+,iris,iris,iris_flower,garden_flowers_spring,approved,approved,unreviewed,0.306,"SWOW: оценка 0.459, доля от лучшей категории слова 0.66"
 ,azalea,azalea,,garden_flowers_spring,approved,approved,unreviewed,0.334,нет данных SWOW: сохранена ручная разметка
-,rose,rose,,garden_flowers_summer,approved,approved,unreviewed,0.262,"SWOW: оценка 0.494, доля от лучшей категории слова 0.87"
+,rose,rose,rose_flower,garden_flowers_summer,approved,approved,unreviewed,0.262,"SWOW: оценка 0.494, доля от лучшей категории слова 0.87"
 ,sunflower,sunflower,,garden_flowers_summer,approved,approved,unreviewed,0.322,"SWOW: оценка 0.156, доля от лучшей категории слова 0.23; абсолютная заметность 0.71 поднимает до approved"
 ,daisy,daisy,,garden_flowers_summer,approved,approved,unreviewed,0.305,"SWOW: оценка 0.745, доля от лучшей категории слова 0.86"
 ,zinnia,zinnia,,garden_flowers_summer,candidate,hard_only,unreviewed,0.376,"нет данных SWOW: абсолютная заметность 0.60 (очевидность 0.72, знакомость 0.29)"
@@ -13011,7 +13011,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,black eyed susan,black eyed susan,,garden_flowers_summer,approved,approved,unreviewed,0.305,нет данных SWOW: сохранена ручная разметка
 ,cosmos,cosmos,,garden_flowers_summer,approved,approved,unreviewed,0.316,нет данных SWOW: сохранена ручная разметка
 ,snapdragon,snapdragon,,garden_flowers_summer,approved,approved,unreviewed,0.349,нет данных SWOW: сохранена ручная разметка
-,rose,rose,,shrubs,candidate,approved,unreviewed,0.299,"SWOW: оценка 0.212, доля от лучшей категории слова 0.37; абсолютная заметность 0.80 поднимает до approved"
+,rose,rose,rose_flower,shrubs,candidate,alternative,unreviewed,0.299,"SWOW: оценка 0.212, доля от лучшей категории слова 0.37"
 ,hedge,hedge,,shrubs,candidate,alternative,unreviewed,0.343,"SWOW: оценка 0.116, доля от лучшей категории слова 0.87; категория неочевидная"
 ,azalea,azalea,,shrubs,candidate,alternative,unreviewed,0.371,"нет данных SWOW: абсолютная заметность 0.66 (очевидность 0.68, знакомость 0.44)"
 ,boxwood,boxwood,,shrubs,candidate,hard_only,unreviewed,0.404,"нет данных SWOW: абсолютная заметность 0.59 (очевидность 0.68, знакомость 0.32)"
@@ -13178,7 +13178,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,strawberry,strawberry,,red_things,candidate,alternative,unreviewed,0.288,"SWOW: оценка 0.455, доля от лучшей категории слова 0.72; категория неочевидная"
 ,fire truck,fire truck,,red_things,candidate,alternative,unreviewed,0.254,"нет данных SWOW: абсолютная заметность 0.79 (очевидность 0.70, знакомость 0.65)"
 ,tomato,tomato,,red_things,candidate,alternative,unreviewed,0.283,"SWOW: оценка 0.657, доля от лучшей категории слова 1.00; категория неочевидная"
-,rose,rose,,red_things,candidate,approved,unreviewed,0.243,"SWOW: оценка 0.369, доля от лучшей категории слова 0.65"
+,rose,rose,rose_flower,red_things,candidate,alternative,unreviewed,0.243,"SWOW: оценка 0.369, доля от лучшей категории слова 0.65; категория неочевидная"
 ,ketchup,ketchup,,red_things,candidate,alternative,unreviewed,0.299,"SWOW: оценка 0.303, доля от лучшей категории слова 1.00; категория неочевидная"
 ,radish,radish,,red_things,candidate,alternative,unreviewed,0.327,"SWOW: оценка 0.672, доля от лучшей категории слова 1.00; категория неочевидная"
 ,valentine,valentine,,red_things,candidate,alternative,unreviewed,0.286,"SWOW: оценка 0.158, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13392,7 +13392,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,petal,petal,,light_things,candidate,alternative,unreviewed,0.347,"SWOW: оценка 0.044, доля от лучшей категории слова 0.06"
 ,thread,thread,,light_things,candidate,alternative,unreviewed,0.29,"SWOW: оценка 0.017, доля от лучшей категории слова 0.03; абсолютная заметность 0.77 поднимает до alternative"
 ,thunder,thunder,,loud_things,candidate,alternative,unreviewed,0.296,"SWOW: оценка 0.111, доля от лучшей категории слова 0.47"
-,siren,siren,,loud_things,candidate,alternative,unreviewed,0.324,"SWOW: оценка 0.243, доля от лучшей категории слова 0.77; категория неочевидная"
+,siren,siren,siren_device,loud_things,candidate,alternative,unreviewed,0.324,"SWOW: оценка 0.243, доля от лучшей категории слова 0.77; категория неочевидная"
 ,drum,drum,,loud_things,candidate,alternative,unreviewed,0.297,"SWOW: оценка 0.097, доля от лучшей категории слова 0.53"
 ,jackhammer,jackhammer,,loud_things,candidate,alternative,unreviewed,0.37,"SWOW: оценка 0.318, доля от лучшей категории слова 1.00; категория неочевидная"
 ,alarm,alarm,,loud_things,candidate,alternative,unreviewed,0.29,"SWOW: оценка 0.193, доля от лучшей категории слова 0.43"
@@ -13403,7 +13403,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,crowd,crowd,,loud_things,candidate,approved,unreviewed,0.273,"SWOW: оценка 0.061, доля от лучшей категории слова 0.18; абсолютная заметность 0.80 поднимает до approved"
 ,chainsaw,chainsaw,,loud_things,candidate,alternative,unreviewed,0.334,"SWOW: оценка 0.103, доля от лучшей категории слова 0.49"
 ,gunshot,gunshot,,loud_things,candidate,alternative,unreviewed,0.322,"нет данных SWOW: абсолютная заметность 0.71 (очевидность 0.70, знакомость 0.50)"
-,bell,bell,,loud_things,candidate,alternative,unreviewed,0.278,"SWOW: оценка 0.035, доля от лучшей категории слова 0.09"
+,bell,bell,bell_object,loud_things,candidate,alternative,unreviewed,0.278,"SWOW: оценка 0.035, доля от лучшей категории слова 0.09"
 ,speaker,speaker,,loud_things,candidate,alternative,unreviewed,0.282,"SWOW: оценка 0.158, доля от лучшей категории слова 0.48"
 ,motorcycle,motorcycle,,loud_things,candidate,alternative,unreviewed,0.299,"SWOW: оценка 0.052, доля от лучшей категории слова 0.22"
 ,whisper,whisper,,quiet_things,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.252, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13664,7 +13664,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,hymnal,hymnal,,church_things,candidate,alternative,unreviewed,0.315,"нет данных SWOW: абсолютная заметность 0.67 (очевидность 0.80, знакомость 0.33)"
 ,font,font,,church_things,approved,approved,unreviewed,0.255,"SWOW: оценка 0.012, доля от лучшей категории слова 0.10; абсолютная заметность 0.79 поднимает до approved"
 ,stained glass,stained glass,,church_things,approved,approved,unreviewed,0.257,нет данных SWOW: сохранена ручная разметка
-,bell,bell,,church_things,approved,approved,unreviewed,0.223,"SWOW: оценка 0.108, доля от лучшей категории слова 0.26; абсолютная заметность 0.85 поднимает до approved"
+,bell,bell,bell_object,church_things,approved,alternative,unreviewed,0.223,"SWOW: оценка 0.108, доля от лучшей категории слова 0.26"
 ,aisle,aisle,,church_things,approved,approved,unreviewed,0.258,"SWOW: оценка 0.452, доля от лучшей категории слова 0.77"
 ,chalice,chalice,,church_things,approved,approved,unreviewed,0.287,нет данных SWOW: сохранена ручная разметка
 ,robe,robe,,church_things,approved,approved,unreviewed,0.266,"SWOW: оценка 0.074, доля от лучшей категории слова 0.40; абсолютная заметность 0.77 поднимает до approved"
@@ -13753,7 +13753,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,heaven,heaven,,heaven_and_afterlife,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.101, доля от лучшей категории слова 1.00; категория неочевидная"
 ,paradise,paradise,,heaven_and_afterlife,candidate,alternative,unreviewed,0.32,"SWOW: оценка 0.251, доля от лучшей категории слова 1.00; категория неочевидная"
 ,soul,soul,,heaven_and_afterlife,candidate,approved,unreviewed,0.294,"SWOW: оценка 0.141, доля от лучшей категории слова 0.47; абсолютная заметность 0.81 поднимает до approved"
-,spirit,spirit,,heaven_and_afterlife,candidate,approved,unreviewed,0.295,"SWOW: оценка 0.033, доля от лучшей категории слова 1.00; абсолютная заметность 0.81 поднимает до approved"
+,spirit,spirit,spirit_soul,heaven_and_afterlife,candidate,alternative,unreviewed,0.295,"SWOW: оценка 0.033, доля от лучшей категории слова 1.00"
 ,eternity,eternity,,heaven_and_afterlife,candidate,alternative,unreviewed,0.335,"SWOW: оценка 0.085, доля от лучшей категории слова 1.00; категория неочевидная"
 ,resurrection,resurrection,,heaven_and_afterlife,candidate,alternative,unreviewed,0.337,"SWOW: оценка 0.205, доля от лучшей категории слова 1.00; категория неочевидная"
 ,reincarnation,reincarnation,,heaven_and_afterlife,candidate,alternative,unreviewed,0.361,"SWOW: оценка 0.214, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13765,7 +13765,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,salvation,salvation,,heaven_and_afterlife,candidate,alternative,unreviewed,0.329,"SWOW: оценка 0.245, доля от лучшей категории слова 1.00; категория неочевидная"
 ,cloister,cloister,,monastery_life,candidate,alternative,unreviewed,0.427,"SWOW: оценка 0.186, доля от лучшей категории слова 1.00; категория неочевидная"
 ,robe,robe,,monastery_life,candidate,alternative,unreviewed,0.395,"SWOW: оценка 0.047, доля от лучшей категории слова 0.26"
-,bell,bell,,monastery_life,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.059, доля от лучшей категории слова 0.14"
+,bell,bell,bell_object,monastery_life,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.059, доля от лучшей категории слова 0.14"
 ,garden,garden,,monastery_life,candidate,alternative,unreviewed,0.344,"SWOW: оценка 0.011, доля от лучшей категории слова 0.75; абсолютная заметность 0.76 поднимает до alternative"
 ,library,library,,monastery_life,candidate,alternative,unreviewed,0.341,"SWOW: оценка 0.112, доля от лучшей категории слова 1.00; категория неочевидная"
 ,scriptorium,scriptorium,,monastery_life,candidate,hard_only,unreviewed,0.468,"нет данных SWOW: абсолютная заметность 0.51 (очевидность 0.62, знакомость 0.25)"
@@ -14420,7 +14420,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,riff,riff,,musical_sounds,approved,approved,unreviewed,0.351,нет данных SWOW: сохранена ручная разметка
 ,drumroll,drumroll,,musical_sounds,candidate,hard_only,unreviewed,0.4,"нет данных SWOW: абсолютная заметность 0.60 (очевидность 0.70, знакомость 0.31)"
 ,honk,honk,,city_sounds,candidate,alternative,unreviewed,0.37,"SWOW: оценка 0.207, доля от лучшей категории слова 0.50"
-,siren,siren,,city_sounds,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.233, доля от лучшей категории слова 0.74; категория неочевидная"
+,siren,siren,siren_device,city_sounds,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.233, доля от лучшей категории слова 0.74; категория неочевидная"
 ,chatter,chatter,,city_sounds,candidate,alternative,unreviewed,0.352,"SWOW: оценка 0.105, доля от лучшей категории слова 0.66; категория неочевидная"
 ,rumble,rumble,,city_sounds,candidate,alternative,unreviewed,0.35,"SWOW: оценка 0.075, доля от лучшей категории слова 0.52"
 ,screech,screech,,city_sounds,candidate,alternative,unreviewed,0.373,"SWOW: оценка 0.281, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -14428,7 +14428,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,footsteps,footsteps,,city_sounds,candidate,alternative,unreviewed,0.339,"нет данных SWOW: абсолютная заметность 0.72 (очевидность 0.70, знакомость 0.53)"
 ,engine,engine,,city_sounds,candidate,approved,unreviewed,0.293,"SWOW: оценка 0.152, доля от лучшей категории слова 0.31; абсолютная заметность 0.81 поднимает до approved"
 ,whistle,whistle,,city_sounds,candidate,alternative,unreviewed,0.332,"SWOW: оценка 0.181, доля от лучшей категории слова 0.84; категория неочевидная"
-,bell,bell,,city_sounds,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.032, доля от лучшей категории слова 0.08"
+,bell,bell,bell_object,city_sounds,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.032, доля от лучшей категории слова 0.08"
 ,shout,shout,,city_sounds,candidate,alternative,unreviewed,0.324,"SWOW: оценка 0.275, доля от лучшей категории слова 0.67; категория неочевидная"
 ,brakes,brakes,,city_sounds,candidate,alternative,unreviewed,0.331,"SWOW: оценка 0.008, доля от лучшей категории слова 1.00; абсолютная заметность 0.74 поднимает до alternative"
 ,traffic,traffic,,city_sounds,candidate,approved,unreviewed,0.292,"SWOW: оценка 0.057, доля от лучшей категории слова 0.46; абсолютная заметность 0.82 поднимает до approved"
@@ -14476,10 +14476,10 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,ring,ring,ring_sound,bell_and_alarm,approved,approved,unreviewed,0.294,ручная разметка значения (SWOW не различает это значение)
 ,buzz,buzz,,bell_and_alarm,candidate,alternative,unreviewed,0.325,"SWOW: оценка 0.068, доля от лучшей категории слова 0.89; категория неочевидная"
 ,beep,beep,,bell_and_alarm,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.211, доля от лучшей категории слова 1.00; категория неочевидная"
-,siren,siren,,bell_and_alarm,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.111, доля от лучшей категории слова 0.35"
+,siren,siren,siren_device,bell_and_alarm,candidate,alternative,unreviewed,0.349,"SWOW: оценка 0.111, доля от лучшей категории слова 0.35"
 ,chime,chime,,bell_and_alarm,candidate,alternative,unreviewed,0.362,"SWOW: оценка 0.503, доля от лучшей категории слова 1.00; категория неочевидная"
 ,ding,ding,,bell_and_alarm,candidate,alternative,unreviewed,0.342,"SWOW: оценка 0.319, доля от лучшей категории слова 1.00; категория неочевидная"
-,bell,bell,,bell_and_alarm,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.160, доля от лучшей категории слова 0.39"
+,bell,bell,bell_object,bell_and_alarm,candidate,alternative,unreviewed,0.303,"SWOW: оценка 0.160, доля от лучшей категории слова 0.39"
 ,whistle,whistle,,bell_and_alarm,candidate,alternative,unreviewed,0.332,"SWOW: оценка 0.198, доля от лучшей категории слова 0.92; категория неочевидная"
 ,klaxon,klaxon,,bell_and_alarm,candidate,hard_only,unreviewed,0.405,"нет данных SWOW: абсолютная заметность 0.59 (очевидность 0.70, знакомость 0.30)"
 ,alert,alert,,bell_and_alarm,candidate,alternative,unreviewed,0.313,"SWOW: оценка 0.062, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -14571,7 +14571,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,orbit,orbit,,solar_system_words,approved,approved,unreviewed,0.285,"SWOW: оценка 0.492, доля от лучшей категории слова 0.83"
 ,sun,sun,,solar_system_words,approved,approved,unreviewed,0.25,"SWOW: оценка 0.213, доля от лучшей категории слова 0.86"
 ,planet,planet,,solar_system_words,approved,approved,unreviewed,0.259,"SWOW: оценка 0.227, доля от лучшей категории слова 1.00"
-,moon,moon,,solar_system_words,approved,approved,unreviewed,0.258,"SWOW: оценка 0.308, доля от лучшей категории слова 0.99"
+,moon,moon,moon_space,solar_system_words,approved,approved,unreviewed,0.258,"SWOW: оценка 0.308, доля от лучшей категории слова 0.99"
 ,asteroid belt,asteroid belt,,solar_system_words,approved,approved,unreviewed,0.307,нет данных SWOW: сохранена ручная разметка
 ,comet,comet,,solar_system_words,approved,approved,unreviewed,0.301,"SWOW: оценка 0.323, доля от лучшей категории слова 0.49"
 ,meteor,meteor,,solar_system_words,approved,approved,unreviewed,0.305,"SWOW: оценка 0.280, доля от лучшей категории слова 0.52"
@@ -14929,7 +14929,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,football,football,,team_sports,approved,approved,unreviewed,0.099,"SWOW: оценка 0.294, доля от лучшей категории слова 1.00"
 ,volleyball,volleyball,,team_sports,approved,approved,unreviewed,0.142,"SWOW: оценка 0.417, доля от лучшей категории слова 1.00"
 ,rugby,rugby,,team_sports,approved,approved,unreviewed,0.119,"SWOW: оценка 0.568, доля от лучшей категории слова 1.00"
-,cricket,cricket,,team_sports,approved,approved,unreviewed,0.12,"SWOW: оценка 0.479, доля от лучшей категории слова 1.00"
+,cricket,cricket,cricket_sport,team_sports,approved,approved,unreviewed,0.12,"SWOW: оценка 0.479, доля от лучшей категории слова 1.00"
 ,lacrosse,lacrosse,,team_sports,approved,approved,unreviewed,0.16,нет данных SWOW: сохранена ручная разметка
 ,handball,handball,,team_sports,approved,approved,unreviewed,0.172,"SWOW: оценка 0.666, доля от лучшей категории слова 1.00"
 ,water polo,water polo,,team_sports,approved,approved,unreviewed,0.146,нет данных SWOW: сохранена ручная разметка
@@ -15355,7 +15355,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,jab,jab,,boxing_words,approved,approved,unreviewed,0.313,"SWOW: оценка 0.023, доля от лучшей категории слова 1.00; абсолютная заметность 0.72 поднимает до approved"
 ,uppercut,uppercut,,boxing_words,approved,approved,unreviewed,0.343,нет данных SWOW: сохранена ручная разметка
 ,ring,ring,ring_arena,boxing_words,approved,approved,unreviewed,0.254,ручная разметка значения (SWOW не различает это значение)
-,bell,bell,,boxing_words,approved,approved,unreviewed,0.263,"SWOW: оценка 0.039, доля от лучшей категории слова 0.09; абсолютная заметность 0.82 поднимает до approved"
+,bell,bell,bell_object,boxing_words,approved,alternative,unreviewed,0.263,"SWOW: оценка 0.039, доля от лучшей категории слова 0.09"
 ,corner,corner,,boxing_words,approved,approved,unreviewed,0.256,"SWOW: оценка 0.015, доля от лучшей категории слова 0.12; абсолютная заметность 0.84 поднимает до approved"
 ,glove,glove,,boxing_words,approved,approved,unreviewed,0.298,"SWOW: оценка 0.021, доля от лучшей категории слова 0.17; абсолютная заметность 0.75 поднимает до approved"
 ,knockout,knockout,,boxing_words,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
@@ -15502,7 +15502,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,power supply,power supply,,computer_parts,approved,approved,unreviewed,0.177,нет данных SWOW: сохранена ручная разметка
 ,touchpad,touchpad,,computer_parts,candidate,alternative,unreviewed,0.268,"нет данных SWOW: абсолютная заметность 0.71 (очевидность 0.85, знакомость 0.36)"
 ,battery,battery,,computer_parts,approved,approved,unreviewed,0.185,"SWOW: оценка 0.035, доля от лучшей категории слова 0.10; абсолютная заметность 0.88 поднимает до approved"
-,charger,charger,,computer_parts,approved,approved,unreviewed,0.221,нет данных SWOW: сохранена ручная разметка
+,charger,charger,charger_device,computer_parts,approved,approved,unreviewed,0.221,нет данных SWOW: сохранена ручная разметка
 ,click,click,,computer_actions,approved,approved,unreviewed,0.173,"SWOW: оценка 0.152, доля от лучшей категории слова 0.73"
 ,type,type,,computer_actions,approved,approved,unreviewed,0.17,"SWOW: оценка 0.124, доля от лучшей категории слова 1.00"
 ,copy,copy,,computer_actions,approved,approved,unreviewed,0.175,"SWOW: оценка 0.032, доля от лучшей категории слова 1.00; абсолютная заметность 0.90 поднимает до approved"
@@ -15542,7 +15542,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,url,url,,internet_words,approved,approved,unreviewed,0.213,"SWOW: оценка 0.094, доля от лучшей категории слова 1.00"
 ,network,network,,internet_words,approved,approved,unreviewed,0.17,"SWOW: оценка 0.573, доля от лучшей категории слова 1.00"
 ,app,app,,phone_words,approved,approved,unreviewed,0.172,"SWOW: оценка 0.174, доля от лучшей категории слова 1.00"
-,charger,charger,,phone_words,approved,approved,unreviewed,0.221,нет данных SWOW: сохранена ручная разметка
+,charger,charger,charger_device,phone_words,approved,approved,unreviewed,0.221,нет данных SWOW: сохранена ручная разметка
 ,ringtone,ringtone,,phone_words,approved,approved,unreviewed,0.248,нет данных SWOW: сохранена ручная разметка
 ,contact,contact,,phone_words,approved,approved,unreviewed,0.17,"SWOW: оценка 0.146, доля от лучшей категории слова 1.00"
 ,text,text,,phone_words,approved,approved,unreviewed,0.17,"SWOW: оценка 0.154, доля от лучшей категории слова 0.63"
@@ -15666,7 +15666,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,doorbell,doorbell,,home_electronics,approved,approved,unreviewed,0.245,"SWOW: оценка 0.031, доля от лучшей категории слова 0.08; абсолютная заметность 0.76 поднимает до approved"
 ,smart speaker,smart speaker,,home_electronics,approved,approved,unreviewed,0.193,нет данных SWOW: сохранена ручная разметка
 ,battery,battery,,power_and_batteries,approved,approved,unreviewed,0.231,"SWOW: оценка 0.240, доля от лучшей категории слова 0.67"
-,charger,charger,,power_and_batteries,approved,approved,unreviewed,0.267,нет данных SWOW: сохранена ручная разметка
+,charger,charger,charger_device,power_and_batteries,approved,approved,unreviewed,0.267,нет данных SWOW: сохранена ручная разметка
 ,outlet,outlet,,power_and_batteries,approved,approved,unreviewed,0.253,"SWOW: оценка 0.369, доля от лучшей категории слова 1.00"
 ,cord,cord,,power_and_batteries,approved,approved,unreviewed,0.253,"SWOW: оценка 0.233, доля от лучшей категории слова 1.00"
 ,plug,plug,,power_and_batteries,approved,approved,unreviewed,0.247,"SWOW: оценка 0.251, доля от лучшей категории слова 0.94"
@@ -15730,7 +15730,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,safe,safe,,security_tech,approved,approved,unreviewed,0.25,"SWOW: оценка 0.072, доля от лучшей категории слова 0.66"
 ,motion detector,motion detector,,security_tech,approved,approved,unreviewed,0.301,нет данных SWOW: сохранена ручная разметка
 ,floodlight,floodlight,,security_tech,candidate,alternative,unreviewed,0.363,"нет данных SWOW: абсолютная заметность 0.62 (очевидность 0.75, знакомость 0.30)"
-,siren,siren,,security_tech,approved,approved,unreviewed,0.309,"SWOW: оценка 0.166, доля от лучшей категории слова 0.52; абсолютная заметность 0.73 поднимает до approved"
+,siren,siren,siren_device,security_tech,approved,alternative,unreviewed,0.309,"SWOW: оценка 0.166, доля от лучшей категории слова 0.52"
 ,badge,badge,,security_tech,approved,approved,unreviewed,0.286,"SWOW: оценка 0.069, доля от лучшей категории слова 0.17; абсолютная заметность 0.78 поднимает до approved"
 ,fence,fence,,security_tech,approved,approved,unreviewed,0.278,"SWOW: оценка 0.003, доля от лучшей категории слова 0.04; абсолютная заметность 0.79 поднимает до approved"
 ,deadbolt,deadbolt,,security_tech,candidate,alternative,unreviewed,0.363,"нет данных SWOW: абсолютная заметность 0.62 (очевидность 0.75, знакомость 0.31)"
@@ -16745,7 +16745,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,kickstand,kickstand,,parts_of_a_bike,candidate,alternative,unreviewed,0.324,"нет данных SWOW: абсолютная заметность 0.65 (очевидность 0.78, знакомость 0.32)"
 ,fork,fork,,parts_of_a_bike,approved,approved,unreviewed,0.251,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.80 поднимает до approved"
 ,basket,basket,,parts_of_a_bike,approved,approved,unreviewed,0.25,"SWOW: оценка 0.006, доля от лучшей категории слова 0.04; абсолютная заметность 0.80 поднимает до approved"
-,bell,bell,,parts_of_a_bike,approved,approved,unreviewed,0.229,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00; абсолютная заметность 0.84 поднимает до approved"
+,bell,bell,bell_object,parts_of_a_bike,approved,hard_only,unreviewed,0.229,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00"
 ,reflector,reflector,,parts_of_a_bike,approved,approved,unreviewed,0.293,нет данных SWOW: сохранена ручная разметка
 ,rim,rim,,parts_of_a_bike,approved,approved,unreviewed,0.259,"SWOW: оценка 0.110, доля от лучшей категории слова 1.00"
 ,crank,crank,,parts_of_a_bike,approved,approved,unreviewed,0.269,нет данных SWOW: сохранена ручная разметка
@@ -16836,7 +16836,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,map,map,,travel_documents,approved,approved,unreviewed,0.185,"SWOW: оценка 0.038, доля от лучшей категории слова 0.34; абсолютная заметность 0.88 поднимает до approved"
 ,camera,camera,,travel_documents,approved,approved,unreviewed,0.18,"SWOW: оценка 0.020, доля от лучшей категории слова 0.20; абсолютная заметность 0.89 поднимает до approved"
 ,backpack,backpack,,travel_documents,approved,approved,unreviewed,0.225,"SWOW: оценка 0.128, доля от лучшей категории слова 0.86"
-,charger,charger,,travel_documents,approved,approved,unreviewed,0.23,нет данных SWOW: сохранена ручная разметка
+,charger,charger,charger_device,travel_documents,approved,approved,unreviewed,0.23,нет данных SWOW: сохранена ручная разметка
 ,wallet,wallet,,travel_documents,approved,approved,unreviewed,0.21,"SWOW: оценка 0.308, доля от лучшей категории слова 0.38"
 ,guidebook,guidebook,,travel_documents,approved,approved,unreviewed,0.259,нет данных SWOW: сохранена ручная разметка
 ,sunglasses,sunglasses,,travel_documents,approved,approved,unreviewed,0.227,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01; абсолютная заметность 0.80 поднимает до approved"
@@ -16973,7 +16973,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,baby,baby,,potato_varieties,approved,approved,unreviewed,0.296,"SWOW: оценка 0.013, доля от лучшей категории слова 0.08; абсолютная заметность 0.81 поднимает до approved"
 ,kennebec,kennebec,,potato_varieties,candidate,hard_only,unreviewed,0.401,"нет данных SWOW: абсолютная заметность 0.60 (очевидность 0.68, знакомость 0.33)"
 ,yam,yam,,potato_varieties,approved,approved,unreviewed,0.372,"SWOW: оценка 0.109, доля от лучшей категории слова 0.62"
-,bell,bell,,pepper_varieties,approved,approved,unreviewed,0.263,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.82 поднимает до approved"
+,bell,bell,bell_pepper,pepper_varieties,approved,hard_only,unreviewed,0.263,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,jalapeno,jalapeno,,pepper_varieties,approved,approved,unreviewed,0.345,нет данных SWOW: сохранена ручная разметка
 ,habanero,habanero,,pepper_varieties,candidate,alternative,unreviewed,0.353,"нет данных SWOW: абсолютная заметность 0.64 (очевидность 0.75, знакомость 0.34)"
 ,cayenne,cayenne,,pepper_varieties,approved,approved,unreviewed,0.33,нет данных SWOW: сохранена ручная разметка
@@ -17011,7 +17011,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,red leaf,red leaf,,lettuce_and_greens,approved,approved,unreviewed,0.325,нет данных SWOW: сохранена ручная разметка
 ,green leaf,green leaf,,lettuce_and_greens,approved,approved,unreviewed,0.326,нет данных SWOW: сохранена ручная разметка
 ,brown,brown,,rice_types,approved,approved,unreviewed,0.296,"SWOW: оценка 0.135, доля от лучшей категории слова 0.56"
-,jasmine,jasmine,,rice_types,approved,approved,unreviewed,0.349,нет данных SWOW: сохранена ручная разметка
+,jasmine,jasmine,jasmine_rice,rice_types,approved,approved,unreviewed,0.349,нет данных SWOW: сохранена ручная разметка
 ,basmati,basmati,,rice_types,candidate,hard_only,unreviewed,0.406,"нет данных SWOW: абсолютная заметность 0.59 (очевидность 0.68, знакомость 0.32)"
 ,wild,wild,,rice_types,approved,approved,unreviewed,0.3,"SWOW: оценка 0.009, доля от лучшей категории слова 1.00; абсолютная заметность 0.80 поднимает до approved"
 ,arborio,arborio,,rice_types,candidate,hard_only,unreviewed,0.433,"нет данных SWOW: абсолютная заметность 0.53 (очевидность 0.68, знакомость 0.22)"
@@ -17276,7 +17276,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,cabernet,cabernet,,wines_and_drinks,approved,approved,unreviewed,0.333,нет данных SWOW: сохранена ручная разметка
 ,pinot,pinot,,wines_and_drinks,approved,approved,unreviewed,0.324,нет данных SWOW: сохранена ручная разметка
 ,riesling,riesling,,wines_and_drinks,approved,approved,unreviewed,0.345,нет данных SWOW: сохранена ручная разметка
-,rose,rose,,wines_and_drinks,approved,approved,unreviewed,0.253,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; абсолютная заметность 0.84 поднимает до approved"
+,rose,rose,rose_wine,wines_and_drinks,approved,hard_only,unreviewed,0.253,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,champagne,champagne,,wines_and_drinks,approved,approved,unreviewed,0.291,"SWOW: оценка 0.039, доля от лучшей категории слова 0.48; абсолютная заметность 0.77 поднимает до approved"
 ,lager,lager,,wines_and_drinks,approved,approved,unreviewed,0.321,"SWOW: оценка 0.616, доля от лучшей категории слова 1.00"
 ,ale,ale,,wines_and_drinks,approved,approved,unreviewed,0.3,"SWOW: оценка 0.621, доля от лучшей категории слова 1.00"
@@ -17307,7 +17307,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,chamomile,chamomile,,teas,approved,approved,unreviewed,0.303,нет данных SWOW: сохранена ручная разметка
 ,herbal,herbal,,teas,approved,approved,unreviewed,0.273,"SWOW: оценка 0.193, доля от лучшей категории слова 1.00"
 ,earl grey,earl grey,,teas,approved,approved,unreviewed,0.247,нет данных SWOW: сохранена ручная разметка
-,jasmine,jasmine,,teas,approved,approved,unreviewed,0.263,нет данных SWOW: сохранена ручная разметка
+,jasmine,jasmine,jasmine_tea,teas,approved,approved,unreviewed,0.263,нет данных SWOW: сохранена ручная разметка
 ,rooibos,rooibos,,teas,candidate,alternative,unreviewed,0.333,"нет данных SWOW: абсолютная заметность 0.63 (очевидность 0.80, знакомость 0.27)"
 ,matcha,matcha,,teas,approved,approved,unreviewed,0.301,нет данных SWOW: сохранена ручная разметка
 ,hibiscus,hibiscus,,teas,approved,approved,unreviewed,0.297,нет данных SWOW: сохранена ручная разметка
@@ -17420,7 +17420,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,Bahrain,bahrain,,island_nations,approved,approved,unreviewed,0.383,нет данных SWOW: сохранена ручная разметка
 ,Seychelles,seychelles,,island_nations,approved,approved,unreviewed,0.411,нет данных SWOW: сохранена ручная разметка
 ,Mauritius,mauritius,,island_nations,approved,approved,unreviewed,0.399,нет данных SWOW: сохранена ручная разметка
-,cricket,cricket,,world_sports,approved,approved,unreviewed,0.311,"SWOW: оценка 0.303, доля от лучшей категории слова 0.63"
+,cricket,cricket,cricket_sport,world_sports,approved,approved,unreviewed,0.311,"SWOW: оценка 0.303, доля от лучшей категории слова 0.63"
 ,rugby,rugby,,world_sports,approved,approved,unreviewed,0.31,"SWOW: оценка 0.333, доля от лучшей категории слова 0.59"
 ,badminton,badminton,,world_sports,approved,approved,unreviewed,0.356,"SWOW: оценка 0.212, доля от лучшей категории слова 1.00"
 ,table tennis,table tennis,,world_sports,approved,approved,unreviewed,0.316,нет данных SWOW: сохранена ручная разметка
@@ -17508,7 +17508,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,sem
 ,frangipani,frangipani,,tropical_flowers,candidate,hard_only,unreviewed,0.419,"нет данных SWOW: абсолютная заметность 0.56 (очевидность 0.68, знакомость 0.27)"
 ,anthurium,anthurium,,tropical_flowers,candidate,hard_only,unreviewed,0.437,"нет данных SWOW: абсолютная заметность 0.53 (очевидность 0.68, знакомость 0.21)"
 ,heliconia,heliconia,,tropical_flowers,candidate,hard_only,unreviewed,0.437,"нет данных SWOW: абсолютная заметность 0.53 (очевидность 0.68, знакомость 0.21)"
-,jasmine,jasmine,,tropical_flowers,approved,approved,unreviewed,0.349,нет данных SWOW: сохранена ручная разметка
+,jasmine,jasmine,jasmine_flower,tropical_flowers,approved,approved,unreviewed,0.349,нет данных SWOW: сохранена ручная разметка
 ,lotus,lotus,,tropical_flowers,approved,approved,unreviewed,0.348,нет данных SWOW: сохранена ручная разметка
 ,ginger flower,ginger flower,,tropical_flowers,approved,approved,unreviewed,0.341,нет данных SWOW: сохранена ручная разметка
 ,protea,protea,,tropical_flowers,candidate,hard_only,unreviewed,0.418,"нет данных SWOW: абсолютная заметность 0.56 (очевидность 0.68, знакомость 0.27)"

@@ -1005,7 +1005,7 @@
 {"category_key": "things_with_handles", "label": "THINGS WITH HANDLES", "rule": "Everyday objects gripped by a handle", "relation_type": "has_property", "theme": "tools", "base_difficulty": 0.35}
 {"category_key": "things_that_spin", "label": "SPINNING THINGS", "rule": "Everyday things that spin or rotate", "relation_type": "has_property", "theme": "tools", "base_difficulty": 0.35}
 {"category_key": "things_that_cut", "label": "SHARP THINGS", "rule": "Everyday things with a sharp edge or point", "relation_type": "has_property", "theme": "tools", "base_difficulty": 0.35}
-{"category_key": "things_that_stick_out", "label": "HAMMERED THINGS", "rule": "Things a hammer is normally used on", "relation_type": "does_action", "theme": "tools", "base_difficulty": 0.4}
+{"category_key": "things_that_stick_out", "label": "HAMMERED THINGS", "rule": "Things a hammer is normally used on", "relation_type": "used_in", "theme": "tools", "base_difficulty": 0.4}
 {"category_key": "boxes_and_cases", "label": "TOOL STORAGE", "rule": "Things used to store and carry tools", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.35}
 {"category_key": "blades", "label": "BLADES", "rule": "Parts of tools that do the cutting", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.35}
 {"category_key": "things_measured_in_inches", "label": "MEASURING UNITS", "rule": "Units used to measure length, weight or volume", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.35}

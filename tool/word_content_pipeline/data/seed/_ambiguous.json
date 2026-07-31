@@ -2798,7 +2798,7 @@
     {
       "word": "nail",
       "category_key": "things_that_stick_out",
-      "relation_type": "does_action",
+      "relation_type": "used_in",
       "reason": "Nail is something you hammer",
       "fit_score": 0.97,
       "obviousness_score": 0.65,
@@ -8453,7 +8453,7 @@
     {
       "word": "tack",
       "category_key": "things_that_stick_out",
-      "relation_type": "does_action",
+      "relation_type": "used_in",
       "reason": "Tack is something you hammer",
       "fit_score": 0.97,
       "obviousness_score": 0.65,
@@ -13874,7 +13874,7 @@
     {
       "word": "post",
       "category_key": "things_that_stick_out",
-      "relation_type": "does_action",
+      "relation_type": "used_in",
       "reason": "Post is something you hammer",
       "fit_score": 0.97,
       "obviousness_score": 0.65,

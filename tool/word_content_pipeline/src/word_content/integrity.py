@@ -84,11 +84,16 @@ def check_familiarity_gate(conn: sqlite3.Connection) -> CheckResult:
 
 
 def check_sense_assignment(conn: sqlite3.Connection) -> CheckResult:
-    """P0: у слова с двумя и более значениями каждая связь знает своё значение."""
-    placeholders = ",".join("?" for _ in WORDPLAY_RELATIONS)
+    """P0: у слова с двумя и более значениями каждая связь знает своё значение.
+
+    Исключение — связи, которые работают с написанием слова, а не с его смыслом.
+    Раньше они опознавались по типу связи, теперь по `sense_mode`: тип связи
+    отвечает на вопрос «как слово относится к категории», а не «нужно ли здесь
+    значение», и на этом список исключений расползался.
+    """
     rows = list(
         conn.execute(
-            f"""
+            """
             SELECT w.text AS word, c.category_key AS category_key,
                    (SELECT COUNT(*) FROM word_senses s WHERE s.word_id = w.id) AS senses
               FROM memberships m
@@ -96,11 +101,10 @@ def check_sense_assignment(conn: sqlite3.Connection) -> CheckResult:
               JOIN categories c ON c.id = m.category_id
              WHERE m.sense_id IS NULL
                AND m.review_status <> 'rejected'
-               AND m.relation_type NOT IN ({placeholders})
+               AND m.sense_mode = 'lexical'
                AND senses > 1
              ORDER BY w.normalized, c.category_key
-            """,
-            WORDPLAY_RELATIONS,
+            """
         )
     )
     return CheckResult(
@@ -117,20 +121,18 @@ def check_sense_assignment(conn: sqlite3.Connection) -> CheckResult:
 
 def check_wordplay_sense_exemption(conn: sqlite3.Connection) -> CheckResult:
     """Информационная: сколько связей пользуется исключением для игры слов."""
-    placeholders = ",".join("?" for _ in WORDPLAY_RELATIONS)
     rows = list(
         conn.execute(
-            f"""
+            """
             SELECT w.text AS word, c.category_key AS category_key
               FROM memberships m
               JOIN words w      ON w.id = m.word_id
               JOIN categories c ON c.id = m.category_id
              WHERE m.sense_id IS NULL
-               AND m.relation_type IN ({placeholders})
+               AND m.sense_mode = 'surface_form'
                AND (SELECT COUNT(*) FROM word_senses s WHERE s.word_id = w.id) > 1
              ORDER BY w.normalized
-            """,
-            WORDPLAY_RELATIONS,
+            """
         )
     )
     return CheckResult(
@@ -206,25 +208,166 @@ def check_semantic_incorrect_not_playable(conn: sqlite3.Connection) -> CheckResu
     )
 
 
-def check_quartets_unique(conn: sqlite3.Connection) -> CheckResult:
+def check_quartets_local_check(conn: sqlite3.Connection) -> CheckResult:
     rows = list(
         conn.execute(
             """
             SELECT q.quartet_key AS quartet_key, c.category_key AS category_key,
-                   q.solver_state AS solver_state
+                   q.local_check AS local_check
               FROM quartets q JOIN categories c ON c.id = q.category_id
-             WHERE q.review_state <> 'rejected' AND q.solver_state <> 'unique'
+             WHERE q.validation_state NOT IN ('invalid', 'disabled')
+               AND q.local_check <> 'local_unique'
             """
         )
     )
     return CheckResult(
-        name="quartets_unique",
-        question="Все действующие четвёрки прошли solver единственности",
+        name="quartets_local_check",
+        question="Все действующие четвёрки прошли локальную проверку",
         severity="blocker",
         count=len(rows),
         examples=_examples(
-            rows, lambda r: f"{r['quartet_key']} ({r['category_key']}): {r['solver_state']}"
+            rows, lambda r: f"{r['quartet_key']} ({r['category_key']}): {r['local_check']}"
         ),
+    )
+
+
+def check_surface_mode_has_no_sense(conn: sqlite3.Connection) -> CheckResult:
+    """P0: `surface_form` заявляет «значение здесь не при чём» — значит его и не должно быть.
+
+    Если у такой связи стоит sense_id, база утверждает две противоположные вещи
+    одновременно. Для составных, которые смысл всё-таки наследуют
+    (`moon -> ___LIGHT`), есть отдельный режим `compound`.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, c.category_key AS category_key, s.sense_key AS sense_key
+              FROM memberships m
+              JOIN words w      ON w.id = m.word_id
+              JOIN categories c ON c.id = m.category_id
+              JOIN word_senses s ON s.id = m.sense_id
+             WHERE m.sense_mode = 'surface_form'
+             ORDER BY w.normalized
+            """
+        )
+    )
+    return CheckResult(
+        name="surface_mode_has_no_sense",
+        question="Связи «про написание» не тащат за собой значение слова",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['word']} -> {r['category_key']} (значение {r['sense_key']})"
+        ),
+    )
+
+
+def check_sense_belongs_to_word(conn: sqlite3.Connection) -> CheckResult:
+    """P0: значение связи должно принадлежать слову этой связи.
+
+    Проверяется и для связей, и для слов четвёрок: перепутанный sense_id
+    ловится только так — внешний ключ на word_senses про это ничего не знает.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT 'membership' AS kind, w.text AS word, s.sense_key AS sense_key
+              FROM memberships m
+              JOIN words w ON w.id = m.word_id
+              JOIN word_senses s ON s.id = m.sense_id
+             WHERE s.word_id <> m.word_id
+            UNION ALL
+            SELECT 'quartet', w.text, s.sense_key
+              FROM quartet_words qw
+              JOIN words w ON w.id = qw.word_id
+              JOIN word_senses s ON s.id = qw.sense_id
+             WHERE s.word_id <> qw.word_id
+            """
+        )
+    )
+    return CheckResult(
+        name="sense_belongs_to_word",
+        question="Значение принадлежит своему слову",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['kind']}: {r['word']} -> {r['sense_key']}"),
+    )
+
+
+def check_action_relation_pos(conn: sqlite3.Connection) -> CheckResult:
+    """P0: связь-действие ссылается на существительное, хотя у слова есть глагол.
+
+    `drill -> BUILDING ACTIONS` про то, что человек сверлит, а не про предмет
+    в ящике с инструментами. Пока связь указывает на `drill_tool`, база
+    утверждает второе.
+
+    Проверка намеренно узкая: она срабатывает только когда у слова уже
+    заведено глагольное значение. Категорий вида «предметы, которые издают
+    звук» (`bell -> CITY SOUNDS`) она не трогает — там существительное верно.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, c.category_key AS category_key,
+                   s.sense_key AS sense_key,
+                   (SELECT GROUP_CONCAT(v.sense_key, ', ') FROM word_senses v
+                     WHERE v.word_id = w.id AND v.part_of_speech = 'verb') AS verb_senses
+              FROM memberships m
+              JOIN words w      ON w.id = m.word_id
+              JOIN categories c ON c.id = m.category_id
+              JOIN word_senses s ON s.id = m.sense_id
+             WHERE m.relation_type = 'does_action'
+               AND m.sense_mode = 'lexical'
+               AND m.review_status <> 'rejected'
+               AND s.part_of_speech = 'noun'
+               AND EXISTS (SELECT 1 FROM word_senses v
+                            WHERE v.word_id = w.id AND v.part_of_speech = 'verb')
+             ORDER BY w.normalized, c.category_key
+            """
+        )
+    )
+    return CheckResult(
+        name="action_relation_pos",
+        question="Связи «действие» не ссылаются на предмет вместо действия",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows,
+            lambda r: f"{r['word']} -> {r['category_key']}: {r['sense_key']} "
+                      f"(есть глагольные: {r['verb_senses']})",
+        ),
+        note="Значение связи задаётся в data/seed/_sense_map.json.",
+    )
+
+
+def check_display_collision(conn: sqlite3.Connection) -> CheckResult:
+    """Два значения одного слова с одинаковой надписью на пузыре.
+
+    `Rose` (имя) и `rose` (цветок) обязаны выглядеть по-разному, иначе в одном
+    уровне окажутся два одинаковых пузыря с разными правильными ответами.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, COUNT(*) AS n,
+                   GROUP_CONCAT(s.sense_key, ', ') AS senses
+              FROM word_senses s
+              JOIN words w ON w.id = s.word_id
+             WHERE s.is_proper_noun = 1
+             GROUP BY s.word_id, LOWER(COALESCE(s.display_text, w.text))
+            HAVING COUNT(*) > 1
+               AND COUNT(DISTINCT COALESCE(s.display_text, w.text)) = 1
+             ORDER BY w.normalized
+            """
+        )
+    )
+    return CheckResult(
+        name="display_collision",
+        question="Значения-имена собственные с неразличимой надписью",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['word']}: {r['senses']}"),
+        note="Надпись задаётся полем display в data/seed/_sense_map.json.",
     )
 
 
@@ -326,14 +469,18 @@ CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
     check_sqlite_integrity,
     check_familiarity_gate,
     check_sense_assignment,
+    check_sense_belongs_to_word,
+    check_surface_mode_has_no_sense,
     check_readiness_derived,
     check_normal_quartet_capability,
     check_semantic_incorrect_not_playable,
     check_conflicts_present,
     check_quartet_size,
-    check_quartets_unique,
+    check_quartets_local_check,
     check_risk_flags_reviewed,
     check_schema_version,
+    check_action_relation_pos,
+    check_display_collision,
     check_wordplay_sense_exemption,
     check_candidate_queue,
 )

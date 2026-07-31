@@ -760,7 +760,7 @@
 - правило: Characters from Disney animated films
 - тип связи: `is_a`, базовая сложность 0.25
 - слов: 20
-- ~Tinkerbell, +Aladdin, +Anna, +Ariel, +Bambi, +Belle, +buzz, +Cinderella, +Dumbo, +Elsa, +Jasmine, +Moana, +Mulan, +Nemo, +Peter Pan, +Pinocchio, +Pocahontas, +Rapunzel, +Simba, +Snow White
+- ~Tinkerbell, +Aladdin, +Anna, +Ariel, +Bambi, +Belle, +buzz, +Cinderella, +Dumbo, +Elsa, +Jasmine (jasmine_disney), +Moana, +Mulan, +Nemo, +Peter Pan, +Pinocchio, +Pocahontas, +Rapunzel, +Simba, +Snow White
 
 ### FAIRY TALES  `fairy_tales`
 - правило: Classic fairy tales children know
@@ -919,7 +919,7 @@
 - правило: Words used during a medical emergency
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 15
-- +ambulance, +code, +CPR, +defibrillator, +dispatcher, +evacuation, +hotline, +oxygen, +paramedic, +rescue, +response, +siren, +stretcher, +trauma, +triage
+- +ambulance, +code, +CPR, +defibrillator, +dispatcher, +evacuation, +hotline, +oxygen, +paramedic, +rescue, +response, +siren (siren_device), +stretcher, +trauma, +triage
 
 ### FEELING SICK  `feeling_sick`
 - правило: A symptom or minor illness a person complains of
@@ -1048,13 +1048,13 @@
 - правило: Things kept in a car glove compartment
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 13
-- ~Charger, ~flashlight, ~ice scraper, ~manual, ~napkins, ~registration, ~sunglasses, ~tire gauge, ~tissues, +insurance, +map, !gum (gum_candy), !pen (pen_writing)
+- ~flashlight, ~ice scraper, ~manual, ~napkins, ~registration, ~sunglasses, ~tire gauge, ~tissues, +insurance, +map, !Charger (charger_device), !gum (gum_candy), !pen (pen_writing)
 
 ### PURSE THINGS  `things_in_a_purse`
 - правило: Things carried in a purse
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 15
-- ~hairbrush, +Charger, +hand sanitizer, +keys, +lipstick, +mirror, +pen (pen_writing), +phone, +planner, +receipt, +snack, +sunglasses, +tissue (tissue_paper), +wallet, !gum (gum_candy)
+- ~hairbrush, +Charger (charger_device), +hand sanitizer, +keys, +lipstick, +mirror, +pen (pen_writing), +phone, +planner, +receipt, +snack, +sunglasses, +tissue (tissue_paper), +wallet, !gum (gum_candy)
 
 ### TOOLBOX THINGS  `things_in_a_toolbox`
 - правило: Things kept in a household toolbox
@@ -1090,7 +1090,7 @@
 - правило: Things that ring or chime
 - тип связи: `does_action`, базовая сложность 0.35
 - слов: 12
-- ~alarm, ~bicycle bell, ~buzzer, ~cash register, ~chime, ~church bell, ~clock, ~dinner bell, ~doorbell, ~timer, +bell, +phone
+- ~alarm, ~bell (bell_object), ~bicycle bell, ~buzzer, ~cash register, ~chime, ~church bell, ~clock, ~dinner bell, ~doorbell, ~timer, +phone
 
 ### TRASH ITEMS  `things_you_recycle`
 - правило: Things commonly thrown out or recycled
@@ -1171,7 +1171,7 @@
 - правило: Monsters from myth and legend
 - тип связи: `is_a`, базовая сложность 0.3
 - слов: 14
-- ~basilisk, ~manticore, +banshee, +cerberus, +chimera, +cyclops, +gorgon, +harpy, +hydra, +kraken, +medusa, +minotaur, +siren, +sphinx
+- ~basilisk, ~manticore, +banshee, +cerberus, +chimera, +cyclops, +gorgon, +harpy, +hydra, +kraken, +medusa, +minotaur, +sphinx, !siren (siren_myth)
 
 ### NORSE GODS  `norse_gods`
 - правило: Gods of Norse mythology
@@ -1288,7 +1288,7 @@
 - правило: Creatures and stories from sea legend
 - тип связи: `found_in`, базовая сложность 0.4
 - слов: 11
-- ~davy jones, ~flying dutchman, ~ghost ship, ~kraken, ~leviathan, ~mermaid, ~sea monster, ~sea serpent, ~siren, ~triton, ~Whirlpool
+- ~davy jones, ~flying dutchman, ~ghost ship, ~kraken, ~leviathan, ~mermaid, ~sea monster, ~sea serpent, ~siren (siren_myth), ~triton, ~Whirlpool
 
 ### SEA CONDITIONS  `sea_weather`
 - правило: Words describing conditions at sea
@@ -1411,7 +1411,7 @@
 - правило: Things that make a loud noise
 - тип связи: `has_property`, базовая сложность 0.35
 - слов: 16
-- ~alarm, ~bell, ~chainsaw, ~drum, ~explosion, ~firework, ~gunshot, ~horn (horn_sound), ~jackhammer, ~jet, ~motorcycle, ~siren, ~speaker, ~thunder, ~whistle, +crowd
+- ~alarm, ~bell (bell_object), ~chainsaw, ~drum, ~explosion, ~firework, ~gunshot, ~horn (horn_sound), ~jackhammer, ~jet, ~motorcycle, ~siren (siren_device), ~speaker, ~thunder, ~whistle, +crowd
 
 ### QUIET THINGS  `quiet_things`
 - правило: Things that make almost no sound
@@ -1423,7 +1423,7 @@
 - правило: Everyday things that are typically red in color
 - тип связи: `has_property`, базовая сложность 0.3
 - слов: 20
-- ~apple (apple_fruit), ~barn, ~beet, ~brick, ~cardinal (cardinal_bird), ~cherry, ~chili (chili_pepper), ~fire truck, ~flame, ~ketchup, ~lipstick, ~lobster, ~radish, ~ruby, ~strawberry, ~tomato, ~valentine, +blood, +rose, +stop sign
+- ~apple (apple_fruit), ~barn, ~beet, ~brick, ~cardinal (cardinal_bird), ~cherry, ~chili (chili_pepper), ~fire truck, ~flame, ~ketchup, ~lipstick, ~lobster, ~radish, ~rose (rose_flower), ~ruby, ~strawberry, ~tomato, ~valentine, +blood, +stop sign
 
 ### ROUND THINGS  `round_things`
 - правило: Everyday objects whose normal shape is round or circular
@@ -1546,19 +1546,19 @@
 - правило: Things found inside a church
 - тип связи: `found_in`, базовая сложность 0.3
 - слов: 18
-- ~hymnal, +aisle, +altar, +bell, +candle, +chalice, +choir, +cross, +font, +icon, +incense, +offering plate, +organ (organ_music), +pew, +pulpit, +robe, +stained glass, +steeple
+- ~bell (bell_object), ~hymnal, +aisle, +altar, +candle, +chalice, +choir, +cross, +font, +icon, +incense, +offering plate, +organ (organ_music), +pew, +pulpit, +robe, +stained glass, +steeple
 
 ### AFTERLIFE WORDS  `heaven_and_afterlife`
 - правило: Words about what religions say comes after death
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 13
-- ~ancestor, ~angel, ~eternity, ~heaven, ~immortality, ~judgment, ~nirvana, ~paradise, ~reincarnation, ~resurrection, ~salvation, +soul, +Spirit
+- ~ancestor, ~angel, ~eternity, ~heaven, ~immortality, ~judgment, ~nirvana, ~paradise, ~reincarnation, ~resurrection, ~salvation, ~Spirit (spirit_soul), +soul
 
 ### MONASTERY THINGS  `monastery_life`
 - правило: Things found in a monastery
 - тип связи: `found_in`, базовая сложность 0.45
 - слов: 14
-- ~abbot, ~bell, ~chapel, ~cloister, ~courtyard, ~garden, ~library, ~manuscript, ~robe, ~silence, ~vow, !cell (cell_room), !refectory, !scriptorium
+- ~abbot, ~bell (bell_object), ~chapel, ~cloister, ~courtyard, ~garden, ~library, ~manuscript, ~robe, ~silence, ~vow, !cell (cell_room), !refectory, !scriptorium
 
 ### PLACES OF WORSHIP  `places_of_worship`
 - правило: Buildings where people gather to worship
@@ -1627,7 +1627,7 @@
 - правило: Words used in a boxing match
 - тип связи: `found_in`, базовая сложность 0.35
 - слов: 16
-- ~hook (hook_boxing), ~round (round_stage), +bell, +belt, +bout, +clinch, +corner, +decision, +glove, +jab, +knockout, +referee, +ring (ring_arena), +southpaw, +uppercut, xcutman
+- ~bell (bell_object), ~hook (hook_boxing), ~round (round_stage), +belt, +bout, +clinch, +corner, +decision, +glove, +jab, +knockout, +referee, +ring (ring_arena), +southpaw, +uppercut, xcutman
 
 ### HORSE RIDING  `equestrian_words`
 - правило: Words used in horse riding sports
@@ -1856,7 +1856,7 @@
 
 ### HAMMERED THINGS  `things_that_stick_out`
 - правило: Things a hammer is normally used on
-- тип связи: `does_action`, базовая сложность 0.4
+- тип связи: `used_in`, базовая сложность 0.4
 - слов: 13
 - ~bolt, ~chisel, ~dent, ~horseshoe, ~nail (nail_metal), ~Peg, ~rivet, ~spike, ~stake, ~tack (tack_pin), ~tent stake, ~wedge, !post (post_pole)
 
@@ -1927,7 +1927,7 @@
 - правило: Flowers that grow in tropical places
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 12
-- +bird of paradise, +ginger flower, +hibiscus, +Jasmine, +lotus, +orchid, !anthurium, !bougainvillea, !frangipani, !heliconia, !plumeria, !protea
+- +bird of paradise, +ginger flower, +hibiscus, +Jasmine (jasmine_flower), +lotus, +orchid, !anthurium, !bougainvillea, !frangipani, !heliconia, !plumeria, !protea
 
 ### WORLD BREAKFAST  `world_breakfasts`
 - правило: Breakfast foods eaten in other countries
@@ -1963,7 +1963,7 @@
 - правило: Sports popular outside the United States
 - тип связи: `is_a`, базовая сложность 0.4
 - слов: 14
-- ~kabaddi, +badminton, +bandy, +cricket, +curling, +futsal, +handball, +hurling, +netball, +rugby, +sumo, +table tennis, !pelota, xsepak takraw
+- ~kabaddi, +badminton, +bandy, +cricket (cricket_sport), +curling, +futsal, +handball, +hurling, +netball, +rugby, +sumo, +table tennis, !pelota, xsepak takraw
 
 ### TRADITIONAL DRINKS  `world_teas_and_drinks`
 - правило: Traditional drinks from world cultures

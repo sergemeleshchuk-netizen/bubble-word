@@ -39,6 +39,11 @@ def default_path() -> Path | None:
 class SenseAssignment:
     sense_key: str
     definition: str | None
+    # Надпись на пузыре для этого значения: `Rose` (имя) против `rose` (цветок).
+    # Пусто — значит написание слова от значения не зависит.
+    display_text: str | None = None
+    is_proper_noun: bool = False
+    part_of_speech: str | None = None
 
 
 class SenseMap:
@@ -77,7 +82,17 @@ class SenseMap:
         if not sense_key:
             return None
         entry = self._senses.get(normalize_word(word), {}).get(sense_key) or {}
-        return SenseAssignment(sense_key=sense_key, definition=entry.get("definition"))
+        return SenseAssignment(
+            sense_key=sense_key,
+            definition=entry.get("definition"),
+            display_text=entry.get("display"),
+            is_proper_noun=bool(entry.get("is_proper_noun")),
+            part_of_speech=entry.get("part_of_speech"),
+        )
+
+    def senses_for(self, word: str) -> dict[str, dict]:
+        """Все объявленные значения слова: нужно для проверки полноты карты."""
+        return dict(self._senses.get(normalize_word(word), {}))
 
 
 @lru_cache(maxsize=1)

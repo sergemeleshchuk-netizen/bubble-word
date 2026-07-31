@@ -148,20 +148,30 @@ CREATE TABLE IF NOT EXISTS category_pair_groups (
     UNIQUE (category_id, group_key, word_id)
 );
 
--- Проверенная игровая четвёрка: ровно четыре слова одной категории, у которых
--- проверена единственность разбиения. База хранит пулы, уровни собираются отсюда.
+-- Игровая четвёрка: ровно четыре слова одной категории. База хранит пулы,
+-- уровни собираются отсюда — четыре случайных слова из пула в уровень не идут.
+--
+-- Ручного статуса здесь нет намеренно. Человек принимает собранный уровень
+-- целиком (level_instances.status), а не отдельную четвёрку.
 CREATE TABLE IF NOT EXISTS quartets (
     id            INTEGER PRIMARY KEY,
     category_id   INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
     quartet_key   TEXT    NOT NULL UNIQUE,
     tier          TEXT    NOT NULL CHECK (tier IN ('normal', 'hard')),
-    -- auto_validated — прошла solver, человек не смотрел
-    -- human_approved — подтверждена человеком
-    -- rejected       — забракована
-    review_state  TEXT    NOT NULL DEFAULT 'auto_validated'
-                          CHECK (review_state IN ('auto_validated', 'human_approved', 'rejected')),
-    solver_state  TEXT    NOT NULL DEFAULT 'unchecked'
-                          CHECK (solver_state IN ('unchecked', 'unique', 'ambiguous')),
+    -- Результат машинных валидаторов, не мнение человека.
+    --   proposed       — предложена генератором, валидаторы не отработали
+    --   auto_validated — все проверки пройдены
+    --   warning        — пригодна, но с замечанием
+    --   invalid        — машинная проверка провалена
+    --   disabled       — выключена точечным feedback из отклонённого уровня
+    validation_state TEXT NOT NULL DEFAULT 'proposed'
+                          CHECK (validation_state IN
+                                 ('proposed', 'auto_validated', 'warning', 'invalid', 'disabled')),
+    -- Локальная проверка: не лежит ли четвёрка целиком в чужом пуле.
+    -- Единственность УРОВНЯ этим не доказывается: она в level_instances.solution_count.
+    local_check   TEXT    NOT NULL DEFAULT 'unchecked'
+                          CHECK (local_check IN
+                                 ('unchecked', 'local_unique', 'local_ambiguous')),
     difficulty    REAL    NULL,
     note          TEXT    NULL,
     created_at    TEXT    NOT NULL,
@@ -201,5 +211,6 @@ CREATE TABLE IF NOT EXISTS generation_runs (
     created_at         TEXT NOT NULL
 );
 
--- Версия схемы: меняется при любом изменении структуры таблиц.
-PRAGMA user_version = 2;
+-- Номер версии здесь не ставится: это скелет, а не итоговая схема. Версию
+-- ведут пронумерованные шаги в migrations.py — init-db создаёт скелет
+-- и сразу докатывает недостающие шаги до текущей версии.

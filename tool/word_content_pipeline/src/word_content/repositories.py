@@ -178,24 +178,43 @@ def upsert_sense(
     sense_key: str,
     definition: str,
     part_of_speech: str | None = None,
+    display_text: str | None = None,
+    is_proper_noun: bool = False,
 ) -> int:
-    """Возвращает id значения слова. Ключ — word_id + sense_key."""
+    """Возвращает id значения слова. Ключ — word_id + sense_key.
+
+    `display_text` — надпись на пузыре именно для этого значения. `Rose` (имя) и
+    `rose` (цветок) — одна строка в words, но разные надписи на экране, и решает
+    это значение, а не слово.
+    """
     row = conn.execute(
-        "SELECT id, definition FROM word_senses WHERE word_id = ? AND sense_key = ?",
+        "SELECT id, definition, display_text, is_proper_noun FROM word_senses "
+        "WHERE word_id = ? AND sense_key = ?",
         (word_id, sense_key),
     ).fetchone()
     if row is None:
         cur = conn.execute(
             """
-            INSERT INTO word_senses (word_id, sense_key, definition, part_of_speech, created_at)
-            VALUES (?, ?, ?, ?, ?)
+            INSERT INTO word_senses
+                (word_id, sense_key, definition, part_of_speech, display_text,
+                 is_proper_noun, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             """,
-            (word_id, sense_key, definition, part_of_speech, utc_now()),
+            (word_id, sense_key, definition, part_of_speech, display_text,
+             int(is_proper_noun), utc_now()),
         )
         return int(cur.lastrowid)
-    if definition and definition != row["definition"]:
+
+    new_definition = definition or row["definition"]
+    new_display = display_text or row["display_text"]
+    new_proper = int(bool(row["is_proper_noun"]) or is_proper_noun)
+    if (new_definition, new_display, new_proper) != (
+        row["definition"], row["display_text"], row["is_proper_noun"]
+    ):
         conn.execute(
-            "UPDATE word_senses SET definition = ? WHERE id = ?", (definition, row["id"])
+            "UPDATE word_senses SET definition = ?, display_text = ?, is_proper_noun = ? "
+            "WHERE id = ?",
+            (new_definition, new_display, new_proper, row["id"]),
         )
     return int(row["id"])
 
@@ -237,6 +256,7 @@ def upsert_membership(
     gameplay_difficulty: float | None = None,
     risk_flags: list[str] | None = None,
     review_comment: str | None = None,
+    sense_mode: str = "lexical",
     overwrite_review_status: bool = False,
 ) -> UpsertResult:
     """Создаёт связь или обновляет существующую.
@@ -261,8 +281,9 @@ def upsert_membership(
             INSERT INTO memberships
                 (word_id, sense_id, category_id, relation_type, reason, fit_score,
                  obviousness_score, source, review_status, semantic_status,
-                 gameplay_difficulty, review_comment, risk_flags, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 gameplay_difficulty, review_comment, risk_flags, sense_mode,
+                 created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 word_id,
@@ -278,6 +299,7 @@ def upsert_membership(
                 gameplay_difficulty,
                 review_comment,
                 flags_json,
+                sense_mode,
                 now,
                 now,
             ),
@@ -299,7 +321,7 @@ def upsert_membership(
                review_status = ?, semantic_status = ?,
                gameplay_difficulty = COALESCE(?, gameplay_difficulty),
                review_comment = COALESCE(?, review_comment),
-               risk_flags = COALESCE(?, risk_flags), updated_at = ?
+               risk_flags = COALESCE(?, risk_flags), sense_mode = ?, updated_at = ?
          WHERE id = ?
         """,
         (
@@ -312,6 +334,7 @@ def upsert_membership(
             gameplay_difficulty,
             review_comment,
             flags_json,
+            sense_mode,
             now,
             row["id"],
         ),
@@ -674,7 +697,7 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
         cur = conn.execute(
             """
             INSERT INTO quartets
-                (category_id, quartet_key, tier, review_state, solver_state,
+                (category_id, quartet_key, tier, validation_state, local_check,
                  difficulty, note, created_at, updated_at)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
@@ -682,8 +705,8 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
                 int(category["id"]),
                 item.quartet_key,
                 item.tier,
-                item.review_state,
-                item.solver_state,
+                item.validation_state,
+                item.local_check,
                 item.difficulty,
                 item.note,
                 now,
@@ -697,15 +720,15 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
         conn.execute(
             """
             UPDATE quartets
-               SET category_id = ?, tier = ?, review_state = ?, solver_state = ?,
+               SET category_id = ?, tier = ?, validation_state = ?, local_check = ?,
                    difficulty = ?, note = ?, updated_at = ?
              WHERE id = ?
             """,
             (
                 int(category["id"]),
                 item.tier,
-                item.review_state,
-                item.solver_state,
+                item.validation_state,
+                item.local_check,
                 item.difficulty,
                 item.note,
                 now,

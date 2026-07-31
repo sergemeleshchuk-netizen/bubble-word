@@ -1,6 +1,6 @@
 # Разведённые значения многозначных слов
 
-Слов: **222**. Одно написание — разные значения, каждое со своими
+Слов: **231**. Одно написание — разные значения, каждое со своими
 категориями. Это главный источник ловушек в игре.
 
 Знаки статуса: `+` approved, `~` alternative, `!` hard_only, `x` rejected.
@@ -90,6 +90,14 @@
   - +facial_expressions
 - **beam_wood** — A long thick piece of timber or steel
   - ~carpentry_words, ~parts_of_a_house
+
+## BELL
+- **bell_object** — A hollow metal object that rings when it is struck
+  - !parts_of_a_bike, ~bell_and_alarm, ~boxing_words, ~church_things, ~city_sounds, ~classroom_things, ~loud_things, ~monastery_life, ~music_class_things, ~things_made_of_metal, ~things_that_ring
+- **bell_pepper** — The sweet bell-shaped pepper eaten as a vegetable
+  - !pepper_varieties
+- **bell_person** — Alexander Graham Bell, the inventor of the telephone
+  - !inventors
 
 ## BENCH
 - **bench_court** — The seat and office of a judge
@@ -275,6 +283,12 @@
 - **chalk_tailor** — The marking chalk a tailor uses on cloth
   - ~tailor_words
 
+## CHARGER
+- **charger_car** — The Dodge Charger, an American muscle car
+  - +car_models
+- **charger_device** — A device that supplies power to recharge a battery
+  - !things_in_a_glove_box, !things_that_plug_in, +computer_parts, +phone_words, +power_and_batteries, +things_in_a_purse, +travel_documents
+
 ## CHECK
 - **check_chess** — A move that threatens the king
   - ~chess_words
@@ -352,6 +366,12 @@
   - +baking_ingredients, +dairy_products, +dairy_words, +pie_ingredients, ~drink_mixers, ~soup_ingredients
 - **cream_ointment** — A soft medicine rubbed onto the skin
   - +facial_care, ~medicine_forms
+
+## CRICKET
+- **cricket_insect** — A small jumping insect that chirps at night
+  - +garden_bugs, +insects, ~nocturnal_animals
+- **cricket_sport** — The bat-and-ball team sport played with wickets
+  - +team_sports, +world_sports
 
 ## CROWN
 - **crown_dental** — A cap fitted over a damaged tooth
@@ -639,6 +659,12 @@
 - **idaho_state** — A state in the northwestern United States
   - +us_states
 
+## IRIS
+- **iris_eye** — The coloured ring of the eye around the pupil
+  - +face_parts, ~parts_of_the_eye
+- **iris_flower** — A garden flower with showy petals and sword-shaped leaves
+  - +flowers, +garden_flowers_spring
+
 ## IRON
 - **iron_appliance** — A heated flat tool pressed over clothes to smooth them
   - +laundry_care, +laundry_things, +tailor_words, +wardrobe_care, ~hot_things, ~things_that_plug_in
@@ -658,6 +684,18 @@
   - ~boys_names, ~short_names
 - **jack_tool** — The device that lifts a car off the ground
   - +auto_repair, ~things_in_a_garage
+
+## JASMINE
+- **jasmine_disney** — Princess Jasmine from the Disney film Aladdin
+  - +disney_characters
+- **jasmine_flower** — A climbing shrub with small fragrant white flowers
+  - !vines, +flowers, +tropical_flowers
+- **jasmine_name** — Jasmine as a girl's given name taken from the flower
+  - +nature_names
+- **jasmine_rice** — The long-grain aromatic rice grown in Thailand
+  - +rice_types
+- **jasmine_tea** — Green tea scented with jasmine blossom
+  - +teas
 
 ## KEY
 - **key_legend** — The panel that explains the symbols on a map
@@ -704,6 +742,12 @@
   - +alphabet_and_numbers, +writing_words
 - **letter_mail** — A written message sent to someone by mail
   - +mail_words, +reading_material
+
+## LIFE
+- **life_cereal** — Life, an American breakfast cereal brand
+  - !cereal_brands
+- **life_game** — The Game of Life, an American board game
+  - ~board_games
 
 ## LIGHT
 - **light_bright** — The brightness that lets you see
@@ -795,7 +839,7 @@
 
 ## MOON
 - **moon_space** — The natural satellite that orbits the earth
-  - +space_objects, ~round_things, ~words_before_light
+  - !words_before_stone, +cloud_and_sky, +deep_space, +night_sky_things, +solar_system_words, +space_objects, ~light_sources, ~round_things, ~words_before_light
 
 ## MOUND
 - **mound_baseball** — The raised circle a pitcher throws from
@@ -929,7 +973,9 @@
 - **pitch_tar** — A thick sticky black substance made from tar
   - !pine_and_cones, !sticky_things
 - **pitch_throw** — A throw of the ball by the pitcher in baseball
-  - +baseball_words, +sports_actions
+  - +baseball_words
+- **pitch_throw_verb** — To throw the ball to the batter in baseball
+  - +sports_actions
 
 ## PITCHER
 - **pitcher_baseball** — The player who throws the ball to the batter
@@ -1097,6 +1143,14 @@
 - **roll_turn** — To turn over and over
   - !carrying_actions, ~self_defense_moves
 
+## ROSE
+- **rose_flower** — A garden flower with thorny stems, grown for its scent
+  - +flowers, +garden_flowers_summer, ~flags_and_symbols, ~garden_plants, ~perfume_words, ~red_things, ~shrubs
+- **rose_name** — Rose as a woman's given name taken from the flower
+  - !short_names, +nature_names
+- **rose_wine** — Rose wine, a pink wine made from red grapes
+  - !wines_and_drinks
+
 ## ROUND
 - **round_math** — To change a number to the nearest whole one
   - ~math_operations
@@ -1251,6 +1305,12 @@
 - **sink_verb** — To go down below the surface of water
   - +water_actions
 
+## SIREN
+- **siren_device** — A device that makes a loud rising warning sound
+  - +emergency_words, +police_things, ~bell_and_alarm, ~city_sounds, ~loud_things, ~security_tech
+- **siren_myth** — A sea creature of Greek myth whose song lured sailors
+  - !mythical_monsters, ~sea_myths
+
 ## SOCKET
 - **socket_electric** — The wall fitting a plug goes into
   - +electrical_words, +electricity_words, +power_and_batteries
@@ -1294,6 +1354,12 @@
   - ~school_actions
 - **spell_magic** — A set of words that works magic
   - +wizards_and_spells
+
+## SPIRIT
+- **spirit_airline** — Spirit Airlines, an American low-cost carrier
+  - !airlines
+- **spirit_soul** — The non-physical part of a person, the soul
+  - ~heaven_and_afterlife
 
 ## SPONGE
 - **sponge_animal** — A simple sea animal with a soft porous body

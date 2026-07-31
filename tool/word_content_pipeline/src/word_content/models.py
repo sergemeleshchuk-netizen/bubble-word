@@ -110,6 +110,9 @@ class MembershipCandidateInput(BaseModel):
     is_proper_noun: bool = False
     sense_key: str | None = None
     sense_definition: str | None = None
+    # Как связь обращается со словом. Пусто — выводится из типа связи при импорте
+    # (см. importers.derive_sense_mode); задаётся явно там, где вывод неверен.
+    sense_mode: Literal["lexical", "surface_form", "compound", "phrase_pattern"] | None = None
     category_key: str
     relation_type: str = Field(min_length=1)
     reason: str = Field(min_length=1)
@@ -253,8 +256,14 @@ class QuartetInput(BaseModel):
     quartet_key: str = Field(min_length=1)
     category_key: str
     tier: Literal["normal", "hard"] = "normal"
-    review_state: Literal["auto_validated", "human_approved", "rejected"] = "auto_validated"
-    solver_state: Literal["unchecked", "unique", "ambiguous"] = "unchecked"
+    # Состояние машинных валидаторов. `human_approved` здесь нет намеренно:
+    # человек принимает собранный уровень, а не отдельную четвёрку.
+    validation_state: Literal[
+        "proposed", "auto_validated", "warning", "invalid", "disabled"
+    ] = "proposed"
+    # Локальная проверка: не лежит ли четвёрка целиком в чужом пуле. Единственность
+    # уровня этим не доказывается — она живёт в level_instances.solution_count.
+    local_check: Literal["unchecked", "local_unique", "local_ambiguous"] = "unchecked"
     difficulty: Score | None = None
     note: str | None = None
     # четыре слова через "|", по желанию с значением: "ring#ring_arena"

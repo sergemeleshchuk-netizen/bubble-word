@@ -296,16 +296,16 @@ def test_solver_rejects_duplicate_and_wrong_size():
     assert "не делится" in solver.solve(["spring", "fall", "winter"], pools).reason
 
 
-def test_quartet_is_unique_detects_second_owner(seeded):
+def test_quartet_locally_unique_detects_second_owner(seeded):
     pools = _pools(
         gemstones=["diamond", "ruby", "opal", "topaz"],
         jewelry_stones=["diamond", "ruby", "opal", "topaz", "jade"],
     )
-    good = solver.quartet_is_unique(
+    good = solver.quartet_locally_unique(
         seeded, "jewelry_stones", ["diamond", "ruby", "opal", "jade"], pools=pools
     )
     assert good.unique
-    bad = solver.quartet_is_unique(
+    bad = solver.quartet_locally_unique(
         seeded, "gemstones", ["diamond", "ruby", "opal", "topaz"], pools=pools
     )
     assert not bad.unique
@@ -405,6 +405,6 @@ def test_run_all_returns_every_check(seeded):
     names = {result.name for result in results}
     assert "familiarity_gate" in names
     assert "sense_assignment" in names
-    assert "quartets_unique" in names
+    assert "quartets_local_check" in names
     # без derive-conflicts слой конфликтов пуст, и это блокирующая проверка
     assert not integrity.check_conflicts_present(seeded).ok

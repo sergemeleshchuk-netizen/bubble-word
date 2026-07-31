@@ -841,6 +841,7 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | SELF DEFENSE (`self_defense_moves`) | 0 | constrained |
 | GARMENT DETAILS (`sewing_patterns`) | 0 | constrained |
 | SEASHELLS (`shells`) | 0 | constrained |
+| SHRUBS AND BUSHES (`shrubs`) | 0 | constrained |
 | SIGNALS AND CODES (`signals_and_codes`) | 0 | constrained |
 | SKATEBOARDING WORDS (`skateboarding`) | 0 | constrained |
 | SMELLY THINGS (`smelly_things`) | 0 | constrained |
@@ -923,21 +924,23 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | KINDS OF FOREST (`forest_types`) | 1 | constrained |
 | FULLNESS WORDS (`fullness_words`) | 1 | constrained |
 | HANDYMAN (`handyman`) | 1 | constrained |
+| AFTERLIFE WORDS (`heaven_and_afterlife`) | 1 | constrained |
 | IRRIGATION THINGS (`irrigation`) | 1 | constrained |
 | THIN THINGS (`long_thin_things`) | 1 | constrained |
 | LOUD THINGS (`loud_things`) | 1 | constrained |
 | MACHINE SOUNDS (`machine_sounds`) | 1 | constrained |
 | MODEL KITS (`model_building`) | 1 | constrained |
 | SEA HARVEST (`ocean_products`) | 1 | constrained |
+| FRAGRANCE WORDS (`perfume_words`) | 1 | constrained |
 | POWDERS (`powders`) | 1 | constrained |
 | ROBOT WORDS (`robot_words`) | 1 | constrained |
 | ROUND THINGS (`round_things`) | 1 | constrained |
 | SCI FI (`science_fiction_space`) | 1 | constrained |
-| SHRUBS AND BUSHES (`shrubs`) | 1 | constrained |
 | SLOW THINGS (`slow_things`) | 1 | constrained |
 | SMELL WORDS (`smell_words`) | 1 | constrained |
 | SUPERSTITION THINGS (`superstitions`) | 1 | constrained |
 | JUNK DRAWER (`things_in_a_junk_drawer`) | 1 | constrained |
+| RINGING THINGS (`things_that_ring`) | 1 | constrained |
 | SPINNING THINGS (`things_that_spin`) | 1 | constrained |
 | STRETCHY THINGS (`things_that_stretch`) | 1 | constrained |
 | THINGS WITH HANDLES (`things_with_handles`) | 1 | constrained |
@@ -954,14 +957,13 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | FAST THINGS (`fast_things`) | 2 | constrained |
 | FORTUNE TELLING (`fortune_telling`) | 2 | constrained |
 | FROG POND (`frog_pond`) | 2 | constrained |
-| AFTERLIFE WORDS (`heaven_and_afterlife`) | 2 | constrained |
 | HEAVY THINGS (`heavy_things`) | 2 | constrained |
 | HIGH PLACES (`high_places`) | 2 | constrained |
 | LIGHT THINGS (`light_things`) | 2 | constrained |
 | MAGIC PROPS (`magic_tricks`) | 2 | constrained |
 | NAIL SALON (`nail_salon`) | 2 | blocked |
-| FRAGRANCE WORDS (`perfume_words`) | 2 | constrained |
 | PIRATE COVE (`pirate_cove`) | 2 | constrained |
+| RED THINGS (`red_things`) | 2 | constrained |
 | RIVER FEATURES (`river_features`) | 2 | constrained |
 | SKATE PARK (`skate_park`) | 2 | constrained |
 | SQUARE THINGS (`square_things`) | 2 | constrained |
@@ -971,7 +973,6 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | KEYCHAIN THINGS (`things_on_a_keychain`) | 2 | constrained |
 | SHARP THINGS (`things_that_cut`) | 2 | constrained |
 | BODY GROWTHS (`things_that_grow_on_you`) | 2 | constrained |
-| RINGING THINGS (`things_that_ring`) | 2 | constrained |
 | WHALE WATCH (`whale_watch`) | 2 | constrained |
 | ANTIQUE SHOP (`antique_shop`) | 3 | constrained |
 | ARCTIC TREK (`arctic_trek`) | 3 | constrained |
@@ -989,7 +990,6 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | MUSEUM HALL (`museum_hall`) | 3 | constrained |
 | PLUMBER VISIT (`plumber_visit`) | 3 | constrained |
 | RAINFOREST (`rainforest`) | 3 | constrained |
-| RED THINGS (`red_things`) | 3 | constrained |
 | TEA CEREMONY (`tea_ceremony`) | 3 | constrained |
 | FRAGILE THINGS (`things_that_break`) | 3 | constrained |
 | FLOATING THINGS (`things_that_float`) | 3 | constrained |

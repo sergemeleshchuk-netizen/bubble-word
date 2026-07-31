@@ -747,8 +747,8 @@ def write_readiness_and_conflicts(conn: sqlite3.Connection) -> None:
     quartets = list(
         conn.execute(
             """
-            SELECT q.review_state st, q.solver_state ss, COUNT(*) n
-              FROM quartets q GROUP BY q.review_state, q.solver_state
+            SELECT q.validation_state st, q.local_check ss, COUNT(*) n
+              FROM quartets q GROUP BY q.validation_state, q.local_check
             """
         )
     )
@@ -830,7 +830,7 @@ def write_readiness_and_conflicts(conn: sqlite3.Connection) -> None:
         "База хранит пулы, игре нужны решения. Четвёрка попадает сюда, только если",
         "solver подтвердил: этих четырёх слов нет целиком ни в одной другой категории.",
         "",
-        "| review_state | solver_state | четвёрок |",
+        "| validation_state | local_check | четвёрок |",
         "|---|---|---|",
     ]
     for r in quartets:
@@ -850,7 +850,7 @@ def write_quartets_csv(conn: sqlite3.Connection) -> None:
         conn.execute(
             """
             SELECT q.quartet_key, c.category_key, c.label, c.rule, q.tier,
-                   q.review_state, q.solver_state, q.difficulty,
+                   q.validation_state, q.local_check, q.difficulty,
                    GROUP_CONCAT(w.text, ' | ') words
               FROM quartets q
               JOIN categories c    ON c.id = q.category_id
@@ -865,12 +865,12 @@ def write_quartets_csv(conn: sqlite3.Connection) -> None:
         writer = csv.writer(handle)
         writer.writerow(
             ["quartet_key", "category_key", "label", "rule", "tier",
-             "review_state", "solver_state", "difficulty", "words"]
+             "validation_state", "local_check", "difficulty", "words"]
         )
         for r in rows:
             writer.writerow(
                 [r["quartet_key"], r["category_key"], r["label"], r["rule"], r["tier"],
-                 r["review_state"], r["solver_state"],
+                 r["validation_state"], r["local_check"],
                  r["difficulty"] if r["difficulty"] is not None else "", r["words"]]
             )
 
