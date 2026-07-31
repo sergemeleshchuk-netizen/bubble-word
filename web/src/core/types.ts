@@ -249,10 +249,21 @@ export interface SolutionCount {
 }
 
 export interface DifficultyBreakdown {
+  /** откалибровано на 199 референсных уровнях */
   base: Record<string, number>;
+  /**
+   * объявленные продуктовые веса: референс их НЕ идентифицирует.
+   * Мета-связи, глубина и быстрые победы живут здесь, а не в base —
+   * см. docs/SCORING.md §7. Граница между измеренным и решённым видна
+   * в разбивке и в интерфейсе.
+   */
+  declared: Record<string, number>;
+  /** двусмысленность: эмпирика решателя и смежность категорий */
   semantic: Record<string, number>;
+  /** модификаторы и теснота лимита ходов */
   mechanical: Record<string, number>;
   baseTotal: number;
+  declaredTotal: number;
   semanticTotal: number;
   mechanicalTotal: number;
   value: number;

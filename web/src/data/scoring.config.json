@@ -1,24 +1,18 @@
 {
-  "scoring_version": "d-0.1-uncalibrated",
-  "calibrated": false,
-  "note": "Стартовые веса до калибровки. scripts/calibrate_difficulty.py перезаписывает секцию base по 199 референсным уровням и добавляет отчёт о качестве. Секции semantic и mechanical по референсу калибровать нельзя: этих признаков в выгрузке нет (SPEC_AUDIT §3).",
+  "scoring_version": "d-1.0-calibrated",
+  "calibrated": true,
+  "note": "Веса base откалиброваны scripts/calibrate_difficulty.py на 199 референсных уровнях. Секция declared — объявленные продуктовые веса: референс их НЕ идентифицирует (см. not_identified_by_reference и docs/SCORING.md §7). Секции semantic и mechanical по референсу калибровать нечем: этих признаков в выгрузке ответов нет вообще (SPEC_AUDIT §3).",
   "difficulty": {
     "base": {
-      "intercept": 1.0,
-      "start_bubbles": 0.09,
-      "rare_words": 0.12,
-      "very_rare_words": 0.15,
-      "meta_links": 0.18,
-      "meta_depth": 0.35,
-      "quickwin_categories": -0.15
+      "intercept": 0.0227,
+      "start_bubbles": 0.0909,
+      "rare_words": 0.0947,
+      "very_rare_words": 0.1552
     },
     "base_constraints": {
       "start_bubbles": "non_negative",
       "rare_words": "non_negative",
-      "very_rare_words": "non_negative",
-      "meta_links": "non_negative",
-      "meta_depth": "non_negative",
-      "quickwin_categories": "non_positive"
+      "very_rare_words": "non_negative"
     },
     "semantic": {
       "confirmed_trap": 0.6,
@@ -32,12 +26,39 @@
       "chain": 0.5,
       "half_pair": 0.4,
       "modifier_max": 1.5,
-      "move_tightness": 1.2
+      "move_tightness": 0.9
     },
     "headroom": {
       "note": "Референс занимает 1-8, чтобы новым механикам осталось место 8.5-10",
       "reference_ceiling": 8.0
-    }
+    },
+    "declared": {
+      "meta_link": 0.22,
+      "meta_link_max": 1.4,
+      "meta_depth_beyond_1": 0.55,
+      "quickwin_relief": -0.1,
+      "quickwin_relief_max": -0.6
+    },
+    "not_identified_by_reference": [
+      {
+        "feature": "meta_links",
+        "unconstrained_weight": -0.2774,
+        "constrained_weight": 0.0,
+        "correlation_with_level": -0.247
+      },
+      {
+        "feature": "meta_depth",
+        "unconstrained_weight": 0.2726,
+        "constrained_weight": 0.0,
+        "correlation_with_level": -0.055
+      },
+      {
+        "feature": "quickwin_categories",
+        "unconstrained_weight": -0.0812,
+        "constrained_weight": -0.0,
+        "correlation_with_level": 0.288
+      }
+    ]
   },
   "interest": {
     "scoring_version": "i-0.1-uncalibrated",
@@ -48,5 +69,43 @@
       "freshness": 1.0
     },
     "composite_max": 2.5
+  },
+  "calibration": {
+    "dataset": "199 референсных уровней Bubble Word Jam",
+    "target": "номер уровня, линейно отображённый в 1.0..8.0",
+    "method": "МНК с ограничениями на знак весов (scipy lsq_linear)",
+    "metrics": [
+      {
+        "set": "вся выборка, без ограничений",
+        "pearson": 0.685,
+        "spearman": 0.681,
+        "mae_levels": 34.7
+      },
+      {
+        "set": "вся выборка, с ограничениями",
+        "pearson": 0.685,
+        "spearman": 0.681,
+        "mae_levels": 34.7
+      },
+      {
+        "set": "holdout 161-199 (обучение 1-160)",
+        "pearson": -0.142,
+        "spearman": -0.117,
+        "mae_levels": 11.5
+      }
+    ],
+    "phase_separation": {
+      "phase1_mean_D": 3.62,
+      "phase2_mean_D": 5.84,
+      "gap": 2.22
+    },
+    "reference_D_distribution": {
+      "min": 1.84,
+      "max": 8.57,
+      "mean": 4.5,
+      "p10": 2.93,
+      "p90": 6.6
+    },
+    "caveat": "Номер уровня — слабый ordinal proxy дизайнерской прогрессии, а не измеренная сложность. Реальный эталон появится из телеметрии игроков."
   }
 }

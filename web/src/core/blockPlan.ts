@@ -162,8 +162,11 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
     const trapTarget = role === 'recovery' ? 0
       : role === 'peak' ? 2 : role === 'spike' ? 2 : 1;
 
+    // Модификатор — акцент, а не фон: цепи ставятся только на пики. Когда они
+    // стояли на каждом уровне роста, верх шкалы сложности схлопывался (четыре
+    // уровня подряд упирались в 9.5-10) и терялась разрешающая способность.
     const chainCount = config.allowedModifiers.includes('chains')
-      ? (role === 'peak' ? 2 : role === 'spike' ? 1 : role === 'growth' ? 1 : 0)
+      ? (role === 'peak' ? 2 : role === 'spike' ? 1 : 0)
       : 0;
 
     plans.push({

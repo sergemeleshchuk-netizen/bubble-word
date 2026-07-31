@@ -24,10 +24,14 @@ export interface ScoringConfig {
   calibrated: boolean;
   difficulty: {
     base: Record<string, number>;
+    /** объявленные продуктовые веса: референс их не идентифицирует */
+    declared: Record<string, number>;
     semantic: Record<string, number>;
     mechanical: Record<string, number>;
     headroom: { reference_ceiling: number };
+    not_identified_by_reference?: unknown[];
   };
+  calibration?: unknown;
   interest: { scoring_version: string; weights: Record<string, number>; composite_max: number };
 }
 
@@ -62,15 +66,18 @@ export function baseFeaturesOf(spec: LevelSpec): BaseFeatures {
   };
 }
 
+/**
+ * Откалиброванная часть. Здесь ТОЛЬКО те признаки, чей вклад данные референса
+ * реально идентифицируют: объём и редкость. Мета-связи, глубина и быстрые
+ * победы сюда не входят — их вес по референсу измерить нельзя
+ * (docs/SCORING.md §7), поэтому они живут в `declared`.
+ */
 export function difficultyBase(features: BaseFeatures, config: ScoringConfig): number {
   const w = config.difficulty.base;
   return (w.intercept ?? 0)
-    + w.start_bubbles * features.startBubbles
-    + w.rare_words * features.rareWords
-    + w.very_rare_words * features.veryRareWords
-    + w.meta_links * features.metaLinks
-    + w.meta_depth * features.metaDepth
-    + w.quickwin_categories * features.quickwinCategories;
+    + (w.start_bubbles ?? 0) * features.startBubbles
+    + (w.rare_words ?? 0) * features.rareWords
+    + (w.very_rare_words ?? 0) * features.veryRareWords;
 }
 
 export interface SemanticEvidence {
@@ -91,27 +98,42 @@ export function computeDifficulty(
   const w = config.difficulty;
   const explanation: string[] = [];
 
-  // ---------------- base ----------------
+  // ---------------- base: откалибровано на 199 уровнях ----------------
   const base: Record<string, number> = {
-    'объём (пузырей на старте)': w.base.start_bubbles * features.startBubbles,
-    'редкие слова (zipf < 3)': w.base.rare_words * features.rareWords,
-    'очень редкие (zipf < 2)': w.base.very_rare_words * features.veryRareWords,
-    'мета-связи': w.base.meta_links * features.metaLinks,
-    'глубина мета': w.base.meta_depth * features.metaDepth,
-    'категории быстрой победы': w.base.quickwin_categories * features.quickwinCategories,
+    'объём (пузырей на старте)': (w.base.start_bubbles ?? 0) * features.startBubbles,
+    'редкие слова (zipf < 3)': (w.base.rare_words ?? 0) * features.rareWords,
+    'очень редкие (zipf < 2)': (w.base.very_rare_words ?? 0) * features.veryRareWords,
   };
   const baseTotal = (w.base.intercept ?? 0)
     + Object.values(base).reduce((a, b) => a + b, 0);
 
   explanation.push(`${features.startBubbles} пузырей на старте `
     + `при ${spec.categories.length} категориях`);
-  if (features.metaLinks > 0) {
-    explanation.push(`${features.metaLinks} мета-связей, максимальная глубина ${features.metaDepth}`
-      + (features.metaDepth >= 3 ? ' — глубины 3 в референсе нет ни разу' : ''));
-  }
   explanation.push(`${features.rareWords} редких слов, из них ${features.veryRareWords} очень редких`);
-  explanation.push(`${features.quickwinCategories} категорий быстрой победы снижают оценку: `
-    + 'дверь остаётся открытой');
+
+  // ---------------- declared: объявлено, НЕ откалибровано ----------------
+  const d = w.declared ?? {};
+  const metaScore = Math.min(d.meta_link_max ?? 1.4,
+    (d.meta_link ?? 0) * features.metaLinks);
+  const depthScore = (d.meta_depth_beyond_1 ?? 0) * Math.max(0, features.metaDepth - 1);
+  const quickwinScore = Math.max(d.quickwin_relief_max ?? -0.6,
+    (d.quickwin_relief ?? 0) * features.quickwinCategories);
+  const declared: Record<string, number> = {
+    'мета-связи (объявлено)': metaScore,
+    'глубина мета сверх 1 (объявлено)': depthScore,
+    'быстрые победы (объявлено)': quickwinScore,
+  };
+  const declaredTotal = Object.values(declared).reduce((a, b) => a + b, 0);
+
+  if (features.metaLinks > 0) {
+    explanation.push(`${features.metaLinks} мета-связей, максимальная глубина `
+      + `${features.metaDepth}`
+      + (features.metaDepth >= 3 ? ' — глубины 3 в референсе нет ни разу' : '')
+      + '. Вес объявлен, а не откалиброван: по референсу вклад мета не '
+      + 'идентифицируется (см. SCORING §7)');
+  }
+  explanation.push(`${features.quickwinCategories} категорий быстрой победы снижают `
+    + 'оценку на объявленную величину: дверь остаётся открытой');
 
   // ---------------- semantic ----------------
   // ловушка засчитывается, если она настоящая и тихая: связь есть, но неочевидна
@@ -168,14 +190,15 @@ export function computeDifficulty(
     + `(K = ${spec.board.moveLimitK})`);
 
   // ---------------- итог ----------------
-  let value = baseTotal + semanticTotal + mechanicalTotal;
+  let value = baseTotal + declaredTotal + semanticTotal + mechanicalTotal;
   if (solutions && solutions.count !== 1) {
     // сложность нерешаемого или двусмысленного уровня не имеет смысла
     explanation.unshift(solutions.count === 0
       ? 'уровень нерешаем: оценка не выставляется'
       : 'уровень двусмыслен: две полные раскладки, оценка не выставляется');
     return {
-      base, semantic, mechanical, baseTotal, semanticTotal, mechanicalTotal,
+      base, declared, semantic, mechanical,
+      baseTotal, declaredTotal, semanticTotal, mechanicalTotal,
       value: 0, explanation, scoringVersion: config.scoring_version,
     };
   }
@@ -183,7 +206,8 @@ export function computeDifficulty(
   value = Math.max(1, Math.min(10, Math.round(value * 2) / 2));   // шаг 0.5
 
   return {
-    base, semantic, mechanical, baseTotal, semanticTotal, mechanicalTotal,
+    base, declared, semantic, mechanical,
+    baseTotal, declaredTotal, semanticTotal, mechanicalTotal,
     value, explanation, scoringVersion: config.scoring_version,
   };
 }

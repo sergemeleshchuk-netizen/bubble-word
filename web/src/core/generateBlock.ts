@@ -240,9 +240,18 @@ export function toPipelineJson(level: GeneratedLevel, block: BlockResult): unkno
     scoring: {
       difficulty: level.difficulty.value,
       difficulty_breakdown: {
-        base: level.difficulty.base,
+        // порядок корзин важен: сначала то, что откалибровано по данным,
+        // потом то, что объявлено продуктовым решением
+        base_calibrated: level.difficulty.base,
+        declared_not_calibrated: level.difficulty.declared,
         semantic: level.difficulty.semantic,
         mechanical: level.difficulty.mechanical,
+        totals: {
+          base: level.difficulty.baseTotal,
+          declared: level.difficulty.declaredTotal,
+          semantic: level.difficulty.semanticTotal,
+          mechanical: level.difficulty.mechanicalTotal,
+        },
       },
       difficulty_explanation: level.difficulty.explanation,
       interest: level.interest.value,
