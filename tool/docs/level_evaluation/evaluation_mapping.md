@@ -381,14 +381,15 @@ Reason codes §18 — тоже есть: девять кодов в `level_revie
 | Phase | Содержание | Предусловие |
 |---|---|---|
 | 0 | этот документ + baseline + реестр версий | — (**выполнено**) |
-| 1 | gates → `PASS/WARNING/FAIL`, D/F/R/C + компоненты, version fields, unit tests | завершение текущей основной задачи |
+| 1 | gates → `PASS/WARNING/FAIL`, D/F/R/C + компоненты, version fields, unit tests | — |
 | 2 | structural metrics §8, confidence penalty за approximation | Phase 1 |
 | 3 | blind export + схема ответа + валидация | Phase 1 |
 | 4 | review pack §19, `D_human/F_human/R_human`, accepted → regression fixture | Phase 1-3 |
 | 5 | интеграция генератора, профили §20, mechanic freshness | **только после того, как тесты базовой модели проходят** |
-| 6 | калибровка, before/after report | появление accepted-уровней |
+| 6 | калибровка, before/after report | приёмка уровней генератора |
 
-Ограничение по Phase 6 из baseline: принятых уровней сейчас ноль, поэтому
-calibration dataset собирается из четырёх существующих эталонов
-(`levels/etalon/e1-e3`, `levels/demo/journey-d7`) с их целевыми D, а человеческие
-F и R для них ещё не выставлены.
+Ограничение по Phase 6: приёмка базы отменена решением продакта (31.07),
+принятых уровней ноль и не появится оттуда. Calibration dataset собирается из
+четырёх существующих эталонов (`levels/etalon/e1-e3`, `levels/demo/journey-d7`)
+с их целевыми D — человеческие F и R для них ещё не выставлены — и далее из
+приёмки уровней, собранных генератором.

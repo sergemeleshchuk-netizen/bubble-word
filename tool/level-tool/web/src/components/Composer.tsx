@@ -13,6 +13,59 @@ import { startBubbles } from '../core/levelMath.ts';
 import {
   configForRange, decadeLabel, profileForRange, visibleShareMin,
 } from '../core/decadeProfiles.ts';
+import {
+  parseCount, parseNumberList, parseOptionalList, parseRange,
+} from '../core/fieldParse.ts';
+
+/**
+ * Поле ввода с черновиком.
+ *
+ * Раньше поля этого экрана были полностью управляемыми: показывалось значение,
+ * пересобранное из конфига. Пока набранное не разбиралось, конфиг не менялся —
+ * и React возвращал в поле прежний текст прямо во время набора. Практическое
+ * следствие: коридор «7–9» нельзя было стереть, чтобы ввести «10–14». Стираешь
+ * дефис — «7–9» тут же встаёт обратно, и в поле остаются куски прежнего
+ * значения. У числовых полей было своё: `Number('')` даёт 0, поэтому очистить
+ * поле не получалось вовсе — вместо пустого оставался ноль.
+ *
+ * Здесь набранное живёт в локальном черновике, пока поле в фокусе, и уходит
+ * в конфиг только когда разобралось. На выходе из поля черновик отбрасывается
+ * и снова показывается каноническое значение конфига: поле не может остаться
+ * с текстом, которого в конфиге нет.
+ */
+function DraftField({ label, hint, value, commit, numeric }: {
+  label: string;
+  hint?: string;
+  /** каноническое значение конфига — то, что видно, когда поле не редактируют */
+  value: string;
+  /** true — принято в конфиг; false — пока не разобралось */
+  commit: (raw: string) => boolean;
+  numeric?: boolean;
+}) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const [pending, setPending] = useState(false);
+
+  return (
+    <label className="field">
+      <span className="lbl">{label}</span>
+      <input
+        type="text"
+        inputMode={numeric ? 'numeric' : undefined}
+        value={draft ?? value}
+        className={pending ? 'pending' : undefined}
+        onChange={(e) => {
+          setDraft(e.target.value);
+          setPending(!commit(e.target.value));
+        }}
+        onFocus={(e) => e.currentTarget.select()}
+        onBlur={() => { setDraft(null); setPending(false); }}
+      />
+      <span className="small muted">
+        {pending ? 'значение ещё не принято' : hint ?? ''}
+      </span>
+    </label>
+  );
+}
 
 const ROLE_LABEL: Record<string, string> = {
   entry: 'вход', growth: 'рост', recovery: 'передышка',
@@ -149,7 +202,6 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
   const decade = profileForRange(config.levelRange);
 
   const patch = (p: Partial<BlockConfig>) => onChange({ ...config, ...p });
-  const nums = (v: string) => v.split(/[^0-9]+/).filter(Boolean).map(Number);
 
   const interpret = () => setParsed(parseIntent(text));
   const applyParsed = () => {
@@ -287,76 +339,102 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
       <div className="panel">
         <h2>Параметры</h2>
         <div className="grid c3">
-          <label className="field">
-            <span className="lbl">диапазон уровней</span>
-            <input type="text" value={config.levelRange.join('–')}
-              onChange={(e) => {
-                const v = nums(e.target.value);
-                /**
-                 * Смена диапазона пересобирает ВЕСЬ профиль из таблицы декад,
-                 * а не только два числа. Именно на этом мы получили блок 1-10
-                 * с контентом уровней ~150: диапазон поменяли, а коридор
-                 * категорий, редкость и модификаторы остались от пресета 201-210.
-                 */
-                if (v.length === 2) onChange(configForRange([v[0], v[1]], config.seed));
-              }} />
-          </label>
-          <label className="field">
-            <span className="lbl">коридор по категориям</span>
-            <input type="text" value={config.categoryCorridor.join('–')}
-              onChange={(e) => {
-                const v = nums(e.target.value);
-                if (v.length === 2) patch({ categoryCorridor: [v[0], v[1]] });
-              }} />
-          </label>
-          <label className="field">
-            <span className="lbl">редких слов на уровень</span>
-            <input type="text" value={config.rarityRange.join('–')}
-              onChange={(e) => {
-                const v = nums(e.target.value);
-                if (v.length === 2) patch({ rarityRange: [v[0], v[1]] });
-              }} />
-          </label>
-          <label className="field">
-            <span className="lbl">позиции спайков</span>
-            <input type="text" value={config.spikePositions.join(', ')}
-              onChange={(e) => patch({ spikePositions: nums(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">позиции передышек</span>
-            <input type="text" value={config.recoveryPositions.join(', ')}
-              onChange={(e) => patch({ recoveryPositions: nums(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">максимальная глубина мета</span>
-            <input type="number" min={0} max={4} value={config.maxMetaDepth}
-              onChange={(e) => patch({ maxMetaDepth: Number(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">план по категориям (10 чисел)</span>
-            <input type="text" value={(config.categoryPlan ?? []).join(', ')}
-              onChange={(e) => patch({ categoryPlan: nums(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">план по мета-связям</span>
-            <input type="text" value={(config.metaPlan ?? []).join(', ')}
-              onChange={(e) => patch({ metaPlan: nums(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">seed генерации</span>
-            <input type="text" value={config.seed}
-              onChange={(e) => patch({ seed: e.target.value })} />
-          </label>
-          <label className="field">
-            <span className="lbl">окно свежести слов</span>
-            <input type="number" value={config.wordFreshnessWindow}
-              onChange={(e) => patch({ wordFreshnessWindow: Number(e.target.value) })} />
-          </label>
-          <label className="field">
-            <span className="lbl">окно свежести категорий</span>
-            <input type="number" value={config.categoryFreshnessWindow}
-              onChange={(e) => patch({ categoryFreshnessWindow: Number(e.target.value) })} />
-          </label>
+          <DraftField
+            label="диапазон уровней"
+            hint="меняет весь профиль декады"
+            value={config.levelRange.join('–')}
+            commit={(raw) => {
+              const range = parseRange(raw, 1);
+              if (!range) return false;
+              /**
+               * Смена диапазона пересобирает ВЕСЬ профиль из таблицы декад,
+               * а не только два числа. Именно на этом мы получили блок 1-10
+               * с контентом уровней ~150: диапазон поменяли, а коридор
+               * категорий, редкость и модификаторы остались от пресета 201-210.
+               */
+              onChange(configForRange(range, config.seed));
+              return true;
+            }} />
+          <DraftField
+            label="коридор по категориям"
+            value={config.categoryCorridor.join('–')}
+            commit={(raw) => {
+              const range = parseRange(raw, 1);
+              if (!range) return false;
+              patch({ categoryCorridor: range });
+              return true;
+            }} />
+          <DraftField
+            label="редких слов на уровень"
+            value={config.rarityRange.join('–')}
+            commit={(raw) => {
+              const range = parseRange(raw, 0);
+              if (!range) return false;
+              patch({ rarityRange: range });
+              return true;
+            }} />
+          <DraftField
+            label="позиции спайков"
+            hint="через запятую"
+            value={config.spikePositions.join(', ')}
+            commit={(raw) => { patch({ spikePositions: parseNumberList(raw) }); return true; }} />
+          <DraftField
+            label="позиции передышек"
+            hint="через запятую"
+            value={config.recoveryPositions.join(', ')}
+            commit={(raw) => { patch({ recoveryPositions: parseNumberList(raw) }); return true; }} />
+          <DraftField
+            label="максимальная глубина мета"
+            hint="0–4"
+            numeric
+            value={String(config.maxMetaDepth)}
+            commit={(raw) => {
+              const value = parseCount(raw, 0, 4);
+              if (value === null) return false;
+              patch({ maxMetaDepth: value });
+              return true;
+            }} />
+          <DraftField
+            label="план по категориям (10 чисел)"
+            hint="пусто — берётся коридор"
+            value={(config.categoryPlan ?? []).join(', ')}
+            commit={(raw) => { patch({ categoryPlan: parseOptionalList(raw) }); return true; }} />
+          <DraftField
+            label="план по мета-связям"
+            hint="пусто — берётся профиль декады"
+            value={(config.metaPlan ?? []).join(', ')}
+            commit={(raw) => { patch({ metaPlan: parseOptionalList(raw) }); return true; }} />
+          <DraftField
+            label="seed генерации"
+            value={config.seed}
+            commit={(raw) => {
+              // пустой seed сделал бы генерацию невоспроизводимой
+              if (!raw.trim()) return false;
+              patch({ seed: raw });
+              return true;
+            }} />
+          <DraftField
+            label="окно свежести слов"
+            hint="уровней"
+            numeric
+            value={String(config.wordFreshnessWindow)}
+            commit={(raw) => {
+              const value = parseCount(raw, 0, 999);
+              if (value === null) return false;
+              patch({ wordFreshnessWindow: value });
+              return true;
+            }} />
+          <DraftField
+            label="окно свежести категорий"
+            hint="уровней"
+            numeric
+            value={String(config.categoryFreshnessWindow)}
+            commit={(raw) => {
+              const value = parseCount(raw, 0, 999);
+              if (value === null) return false;
+              patch({ categoryFreshnessWindow: value });
+              return true;
+            }} />
           <label className="field">
             <span className="lbl">модификаторы</span>
             <select value={config.allowedModifiers.join(',')}

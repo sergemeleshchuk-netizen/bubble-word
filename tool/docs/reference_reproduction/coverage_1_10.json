@@ -1,0 +1,464 @@
+{
+  "max_level": 10,
+  "levels": 10,
+  "categories_total": 95,
+  "category_name_match": {
+    "exact": 29,
+    "morph": 8,
+    "contained": 39,
+    "absent": 19
+  },
+  "concept_present_share": 0.8,
+  "word_coverage": {
+    "found": 374,
+    "total": 380,
+    "share": 0.9842
+  },
+  "membership_coverage": {
+    "found": 188,
+    "total": 380,
+    "share": 0.4947
+  },
+  "per_level": [
+    {
+      "level": 1,
+      "categories": 5,
+      "word_slots": 20,
+      "words_in_base": 20,
+      "links_in_base": 12
+    },
+    {
+      "level": 2,
+      "categories": 8,
+      "word_slots": 32,
+      "words_in_base": 32,
+      "links_in_base": 21
+    },
+    {
+      "level": 3,
+      "categories": 8,
+      "word_slots": 32,
+      "words_in_base": 31,
+      "links_in_base": 20
+    },
+    {
+      "level": 4,
+      "categories": 10,
+      "word_slots": 40,
+      "words_in_base": 40,
+      "links_in_base": 23
+    },
+    {
+      "level": 5,
+      "categories": 11,
+      "word_slots": 44,
+      "words_in_base": 44,
+      "links_in_base": 21
+    },
+    {
+      "level": 6,
+      "categories": 11,
+      "word_slots": 44,
+      "words_in_base": 42,
+      "links_in_base": 18
+    },
+    {
+      "level": 7,
+      "categories": 12,
+      "word_slots": 48,
+      "words_in_base": 45,
+      "links_in_base": 24
+    },
+    {
+      "level": 8,
+      "categories": 12,
+      "word_slots": 48,
+      "words_in_base": 48,
+      "links_in_base": 20
+    },
+    {
+      "level": 9,
+      "categories": 10,
+      "word_slots": 40,
+      "words_in_base": 40,
+      "links_in_base": 17
+    },
+    {
+      "level": 10,
+      "categories": 8,
+      "word_slots": 32,
+      "words_in_base": 32,
+      "links_in_base": 12
+    }
+  ],
+  "absent_concepts": [
+    {
+      "level": 1,
+      "name": "compass"
+    },
+    {
+      "level": 1,
+      "name": "days of the week"
+    },
+    {
+      "level": 4,
+      "name": "clothes"
+    },
+    {
+      "level": 4,
+      "name": "shoes"
+    },
+    {
+      "level": 4,
+      "name": "doctor"
+    },
+    {
+      "level": 5,
+      "name": "beverages"
+    },
+    {
+      "level": 5,
+      "name": "polygons"
+    },
+    {
+      "level": 6,
+      "name": "sea animals"
+    },
+    {
+      "level": 6,
+      "name": "pyramid"
+    },
+    {
+      "level": 7,
+      "name": "length"
+    },
+    {
+      "level": 7,
+      "name": "landmass"
+    },
+    {
+      "level": 7,
+      "name": "water transport"
+    },
+    {
+      "level": 8,
+      "name": "pastry"
+    },
+    {
+      "level": 9,
+      "name": "bulls"
+    },
+    {
+      "level": 9,
+      "name": "tastes"
+    },
+    {
+      "level": 10,
+      "name": "mood"
+    },
+    {
+      "level": 10,
+      "name": "gems"
+    },
+    {
+      "level": 10,
+      "name": "safari animals"
+    },
+    {
+      "level": 10,
+      "name": "weapon"
+    }
+  ],
+  "renamed_concepts": [
+    {
+      "level": 2,
+      "reference": "nature",
+      "ours": "nature_names",
+      "degree": "contained"
+    },
+    {
+      "level": 2,
+      "reference": "dessert",
+      "ours": "desserts",
+      "degree": "morph"
+    },
+    {
+      "level": 2,
+      "reference": "driving",
+      "ours": "driving_actions",
+      "degree": "contained"
+    },
+    {
+      "level": 3,
+      "reference": "food",
+      "ours": "fast_food_chains",
+      "degree": "contained"
+    },
+    {
+      "level": 3,
+      "reference": "school",
+      "ours": "school_actions",
+      "degree": "contained"
+    },
+    {
+      "level": 3,
+      "reference": "music",
+      "ours": "music_class_things",
+      "degree": "contained"
+    },
+    {
+      "level": 4,
+      "reference": "weather",
+      "ours": "weather_actions",
+      "degree": "contained"
+    },
+    {
+      "level": 4,
+      "reference": "jobs",
+      "ours": "medical_jobs",
+      "degree": "contained"
+    },
+    {
+      "level": 4,
+      "reference": "senses",
+      "ours": "senses_and_perception",
+      "degree": "contained"
+    },
+    {
+      "level": 4,
+      "reference": "meals",
+      "ours": "meals_of_the_day",
+      "degree": "contained"
+    },
+    {
+      "level": 4,
+      "reference": "numbers",
+      "ours": "superstition_numbers",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "cat",
+      "ours": "cat_breeds",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "baking",
+      "ours": "baking_ingredients",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "coffee",
+      "ours": "coffee_brands",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "dairy",
+      "ours": "dairy_words",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "nuts",
+      "ours": "nuts_and_seeds",
+      "degree": "contained"
+    },
+    {
+      "level": 5,
+      "reference": "illness",
+      "ours": "illnesses",
+      "degree": "morph"
+    },
+    {
+      "level": 6,
+      "reference": "music",
+      "ours": "music_class_things",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "drinks",
+      "ours": "hot_drinks",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "mountains",
+      "ours": "world_mountains",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "dog",
+      "ours": "dog_breeds",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "face",
+      "ours": "face_parts",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "sleep",
+      "ours": "sleeping_actions",
+      "degree": "contained"
+    },
+    {
+      "level": 6,
+      "reference": "personality",
+      "ours": "personality_words",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "measurements",
+      "ours": "space_measurements",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "weight",
+      "ours": "weight_units",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "temperature",
+      "ours": "temperature_feel",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "space",
+      "ours": "space_objects",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "americas",
+      "ours": "parts_of_the_americas",
+      "degree": "contained"
+    },
+    {
+      "level": 7,
+      "reference": "writing",
+      "ours": "writing_tools",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "organs",
+      "ours": "internal_organs",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "artist",
+      "ours": "artists",
+      "degree": "morph"
+    },
+    {
+      "level": 8,
+      "reference": "family",
+      "ours": "seals_and_walruses",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "species",
+      "ours": "fish_species",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "food",
+      "ours": "fast_food_chains",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "shoe",
+      "ours": "shoe_parts",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "material",
+      "ours": "reading_material",
+      "degree": "contained"
+    },
+    {
+      "level": 8,
+      "reference": "reptile",
+      "ours": "reptiles",
+      "degree": "morph"
+    },
+    {
+      "level": 9,
+      "reference": "forest",
+      "ours": "things_in_the_forest",
+      "degree": "contained"
+    },
+    {
+      "level": 9,
+      "reference": "tree",
+      "ours": "trees",
+      "degree": "morph"
+    },
+    {
+      "level": 9,
+      "reference": "movie genre",
+      "ours": "movie_genres",
+      "degree": "morph"
+    },
+    {
+      "level": 9,
+      "reference": "baby",
+      "ours": "animal_babies",
+      "degree": "contained"
+    },
+    {
+      "level": 9,
+      "reference": "dances",
+      "ours": "world_dances",
+      "degree": "contained"
+    },
+    {
+      "level": 10,
+      "reference": "color",
+      "ours": "colors",
+      "degree": "morph"
+    },
+    {
+      "level": 10,
+      "reference": "calendar",
+      "ours": "calendar_words",
+      "degree": "contained"
+    },
+    {
+      "level": 10,
+      "reference": "meat",
+      "ours": "meats",
+      "degree": "morph"
+    },
+    {
+      "level": 10,
+      "reference": "jobs",
+      "ours": "medical_jobs",
+      "degree": "contained"
+    }
+  ],
+  "missing_words": [
+    "americas",
+    "cheeks",
+    "length",
+    "school subjects",
+    "steps",
+    "weight"
+  ]
+}
