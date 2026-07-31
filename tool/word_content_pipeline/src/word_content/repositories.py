@@ -666,6 +666,14 @@ def replace_pair_groups(
         raise RepositoryError(f"Категория {category_key!r} не найдена")
     category_id = int(category["id"])
     conn.execute("DELETE FROM category_pair_groups WHERE category_id = ?", (category_id,))
+    has_structured = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='structured_relations'"
+    ).fetchone()
+    if has_structured:
+        conn.execute(
+            "DELETE FROM structured_relations WHERE category_id = ? AND structure = 'pairs'",
+            (category_id,),
+        )
 
     now = utc_now()
     missing: list[str] = []
@@ -691,6 +699,19 @@ def replace_pair_groups(
                 """,
                 (category_id, group_key, word_id, slot, now),
             )
+            # Пары пишутся сразу в общий слой с ролями. Иначе чистая пересборка
+            # заполняла только исторический слой, structured_relations оставалась
+            # пустой, и структура категории держалась на одной из двух таблиц —
+            # ровно та ситуация, когда «источников правды два».
+            if has_structured:
+                conn.execute(
+                    """
+                    INSERT OR REPLACE INTO structured_relations
+                        (category_id, structure, group_key, word_id, role, position, created_at)
+                    VALUES (?, 'pairs', ?, ?, ?, ?, ?)
+                    """,
+                    (category_id, group_key, word_id, "a" if slot == 1 else "b", slot, now),
+                )
         written += 1
     return written, missing
 

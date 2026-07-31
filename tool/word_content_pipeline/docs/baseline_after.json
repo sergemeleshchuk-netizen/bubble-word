@@ -54,7 +54,7 @@
   "structured_groups": 13,
   "level_candidates": 5,
   "levels_by_status": {
-    "review_pending": 5
+    "solver_valid": 5
   },
   "levels_solver_valid": 5,
   "levels_ambiguous": 0,
@@ -65,8 +65,8 @@
   "schema_meta": {
     "schema_version": "4",
     "content_version": "2026.07.31",
-    "git_commit": "d82289a046715d7b7c606bf9fb37f872cedd0df3",
-    "built_at": "2026-07-31T19:06:34+00:00",
+    "git_commit": "4762470ffd2d47e9740d62067f5c1db0d454c86c",
+    "built_at": "2026-07-31T19:10:54+00:00",
     "wordfreq_version": "3.1.1",
     "sha256_categories.jsonl": "e2ed2f09277e9e49f4c245bbca4e70199d8421aaf334957758d5d54eb5190edf",
     "sha256_membership_candidates.jsonl": "4217257333f52a186b24a6432f2fec46e38baa0c20addda6e3448afbba3902ae",
