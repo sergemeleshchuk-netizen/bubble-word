@@ -10,23 +10,23 @@
   },
   "categories": [
     {
-      "key": "dishes_and_glassware",
-      "label": "DISHES",
+      "key": "parts_of_a_house",
+      "label": "HOUSE PARTS",
       "words": [
         {
-          "text": "plate",
+          "text": "column",
           "kind": "word"
         },
         {
-          "text": "bottle",
+          "text": "deck",
           "kind": "word"
         },
         {
-          "text": "jar",
+          "text": "stairs",
           "kind": "word"
         },
         {
-          "text": "dish",
+          "text": "ceiling",
           "kind": "word"
         }
       ]
@@ -36,19 +36,19 @@
       "label": "FRUITS",
       "words": [
         {
+          "text": "fig",
+          "kind": "word"
+        },
+        {
           "text": "orange",
           "kind": "word"
         },
         {
+          "text": "banana",
+          "kind": "word"
+        },
+        {
           "text": "cherry",
-          "kind": "word"
-        },
-        {
-          "text": "lemon",
-          "kind": "word"
-        },
-        {
-          "text": "apple",
           "kind": "word"
         }
       ]
@@ -58,19 +58,19 @@
       "label": "FARM ANIMALS",
       "words": [
         {
-          "text": "sheep",
-          "kind": "word"
-        },
-        {
           "text": "bull",
           "kind": "word"
         },
         {
-          "text": "pig",
+          "text": "chicken",
           "kind": "word"
         },
         {
-          "text": "rabbit",
+          "text": "lamb",
+          "kind": "word"
+        },
+        {
+          "text": "sheep",
           "kind": "word"
         }
       ]
@@ -80,7 +80,7 @@
       "label": "MONTHS",
       "words": [
         {
-          "text": "November",
+          "text": "February",
           "kind": "word"
         },
         {
@@ -92,7 +92,7 @@
           "kind": "word"
         },
         {
-          "text": "August",
+          "text": "April",
           "kind": "word"
         }
       ]
@@ -102,19 +102,19 @@
       "label": "WEATHER WORDS",
       "words": [
         {
-          "text": "sunshine",
-          "kind": "word"
-        },
-        {
-          "text": "lightning",
-          "kind": "word"
-        },
-        {
           "text": "thunder",
           "kind": "word"
         },
         {
-          "text": "shower",
+          "text": "sunshine",
+          "kind": "word"
+        },
+        {
+          "text": "hurricane",
+          "kind": "word"
+        },
+        {
+          "text": "storm",
           "kind": "word"
         }
       ]

@@ -14,46 +14,46 @@
     },
     "categories": [
       {
-        "key": "dishes_and_glassware",
-        "label": "DISHES",
-        "rule": "Things you eat and drink from at a table",
+        "key": "parts_of_a_house",
+        "label": "HOUSE PARTS",
+        "rule": "Structural parts of a house",
         "theme": "home",
         "words": [
           {
-            "text": "plate",
+            "text": "column",
             "kind": "word",
-            "zipf": 4.55,
+            "zipf": 4.33,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "part_of",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.88
           },
           {
-            "text": "bottle",
+            "text": "deck",
             "kind": "word",
-            "zipf": 4.57,
+            "zipf": 4.41,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "part_of",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.88
           },
           {
-            "text": "jar",
+            "text": "stairs",
             "kind": "word",
-            "zipf": 3.93,
+            "zipf": 4.14,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "part_of",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.88
           },
           {
-            "text": "dish",
+            "text": "ceiling",
             "kind": "word",
-            "zipf": 4.21,
+            "zipf": 4.18,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "part_of",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.88
           }
         ],
         "metaDepth": 0,
@@ -67,6 +67,15 @@
         "theme": "food",
         "words": [
           {
+            "text": "fig",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.65
+          },
+          {
             "text": "orange",
             "kind": "word",
             "zipf": 4.62,
@@ -76,6 +85,15 @@
             "obviousness": 1
           },
           {
+            "text": "banana",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
             "text": "cherry",
             "kind": "word",
             "zipf": 4.18,
@@ -83,24 +101,6 @@
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.95
-          },
-          {
-            "text": "lemon",
-            "kind": "word",
-            "zipf": 4.1,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "apple",
-            "kind": "word",
-            "zipf": 4.76,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 1,
-            "obviousness": 1
           }
         ],
         "metaDepth": 0,
@@ -114,15 +114,6 @@
         "theme": "animals",
         "words": [
           {
-            "text": "sheep",
-            "kind": "word",
-            "zipf": 4.19,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
             "text": "bull",
             "kind": "word",
             "zipf": 4.34,
@@ -132,18 +123,27 @@
             "obviousness": 0.95
           },
           {
-            "text": "pig",
+            "text": "chicken",
             "kind": "word",
-            "zipf": 4.14,
+            "zipf": 4.63,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.95
           },
           {
-            "text": "rabbit",
+            "text": "lamb",
             "kind": "word",
-            "zipf": 4.05,
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "sheep",
+            "kind": "word",
+            "zipf": 4.19,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -161,9 +161,9 @@
         "theme": "time",
         "words": [
           {
-            "text": "November",
+            "text": "February",
             "kind": "word",
-            "zipf": 5.1,
+            "zipf": 5.03,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -188,9 +188,9 @@
             "obviousness": 0.95
           },
           {
-            "text": "August",
+            "text": "April",
             "kind": "word",
-            "zipf": 5.1,
+            "zipf": 5.19,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -208,24 +208,6 @@
         "theme": "nature",
         "words": [
           {
-            "text": "sunshine",
-            "kind": "word",
-            "zipf": 4.16,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "lightning",
-            "kind": "word",
-            "zipf": 4.22,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
             "text": "thunder",
             "kind": "word",
             "zipf": 4.14,
@@ -235,9 +217,27 @@
             "obviousness": 0.9
           },
           {
-            "text": "shower",
+            "text": "sunshine",
             "kind": "word",
-            "zipf": 4.5,
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "hurricane",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "storm",
+            "kind": "word",
+            "zipf": 4.66,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -258,12 +258,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.124Z",
+    "generated_at": "2026-07-31T14:57:01.073Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "59a0b8e5c60f129d76e4f4486ffd68ce9b29d399a2b00e1fe685c08434467225",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "3585d0fb2ea48f8cbf9384f6ed238b4659906ce542bf9a86519c4fb7058f5938",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -323,16 +323,16 @@
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимита ходов нет (туториал), минимум мерджей 15"
     ],
-    "interest": 5,
+    "interest": 6.5,
     "interest_breakdown": {
-      "clarity": 2.42,
-      "variety": 0.7,
+      "clarity": 2.4,
+      "variety": 1.84,
       "aha": 0,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.42: узнаваемых слов 100%, средняя очевидность связи 0.92",
-      "Variety 0.70: 1 типов связи, 5 тематических сфер, но 100% категорий однотипны",
+      "Clarity 2.40: узнаваемых слов 100%, средняя очевидность связи 0.91",
+      "Variety 1.84: 3 типов связи, 5 тематических сфер, но 60% категорий однотипны",
       "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
       "Freshness 2.05: новых для пакета слов 100%"
     ]
@@ -416,7 +416,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 5: dishes_and_glassware, fruits, farm_animals, months, weather_words"
+        "detail": "категорий быстрой победы 5: parts_of_a_house, fruits, farm_animals, months, weather_words"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -470,7 +470,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.34 (цель декады 4.35), p25 4.16 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.33 (цель декады 4.35), p25 4.14 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",

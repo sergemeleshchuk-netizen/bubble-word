@@ -10,45 +10,45 @@
   },
   "categories": [
     {
-      "key": "ice_cream_flavors",
-      "label": "ICE CREAM",
+      "key": "theater_roles",
+      "label": "THEATER ROLES",
       "words": [
         {
-          "text": "banana",
+          "text": "producer",
           "kind": "word"
         },
         {
-          "text": "mint",
+          "text": "actor",
           "kind": "word"
         },
         {
-          "text": "lemon",
+          "text": "crew",
           "kind": "word"
         },
         {
-          "text": "peach",
+          "text": "dresser",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "bathroom_items",
-      "label": "BATHROOM ITEMS",
+      "key": "classroom_things",
+      "label": "CLASSROOM THINGS",
       "words": [
         {
-          "text": "tissue",
+          "text": "clock",
           "kind": "word"
         },
         {
-          "text": "toilet",
+          "text": "flag",
           "kind": "word"
         },
         {
-          "text": "sink",
+          "text": "globe",
           "kind": "word"
         },
         {
-          "text": "curtain",
+          "text": "bell",
           "kind": "word"
         }
       ]
@@ -70,7 +70,29 @@
           "kind": "word"
         },
         {
-          "text": "shapes",
+          "text": "marker",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sandwich_fillings",
+      "label": "SANDWICH FILLINGS",
+      "words": [
+        {
+          "text": "chicken",
+          "kind": "word"
+        },
+        {
+          "text": "mayo",
+          "kind": "word"
+        },
+        {
+          "text": "mustard",
+          "kind": "word"
+        },
+        {
+          "text": "tuna",
           "kind": "word"
         }
       ]
@@ -80,19 +102,19 @@
       "label": "OUTDOOR ACTIVITIES",
       "words": [
         {
-          "text": "fishing",
-          "kind": "word"
-        },
-        {
           "text": "hunting",
           "kind": "word"
         },
         {
-          "text": "camping",
+          "text": "climbing",
           "kind": "word"
         },
         {
-          "text": "climbing",
+          "text": "fishing",
+          "kind": "word"
+        },
+        {
+          "text": "sailing",
           "kind": "word"
         }
       ]
@@ -102,7 +124,11 @@
       "label": "BUILDING MATERIALS",
       "words": [
         {
-          "text": "concrete",
+          "text": "brick",
+          "kind": "word"
+        },
+        {
+          "text": "timber",
           "kind": "word"
         },
         {
@@ -110,11 +136,7 @@
           "kind": "word"
         },
         {
-          "text": "brick",
-          "kind": "word"
-        },
-        {
-          "text": "aluminum",
+          "text": "steel",
           "kind": "word"
         }
       ]
@@ -124,19 +146,19 @@
       "label": "INJURIES",
       "words": [
         {
-          "text": "burn",
-          "kind": "word"
-        },
-        {
           "text": "strain",
           "kind": "word"
         },
         {
-          "text": "cut",
+          "text": "burn",
           "kind": "word"
         },
         {
           "text": "fracture",
+          "kind": "word"
+        },
+        {
+          "text": "break",
           "kind": "word"
         }
       ]
@@ -146,11 +168,11 @@
       "label": "GARAGE THINGS",
       "words": [
         {
-          "text": "tire",
+          "text": "shelf",
           "kind": "word"
         },
         {
-          "text": "toolbox",
+          "text": "ladder",
           "kind": "word"
         },
         {
@@ -158,73 +180,51 @@
           "kind": "word"
         },
         {
-          "text": "shelf",
+          "text": "wheelbarrow",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "home_rooms",
-      "label": "HOUSE ROOMS",
+      "key": "cleaning_supplies",
+      "label": "CLEANING SUPPLIES",
       "words": [
         {
-          "text": "basement",
+          "text": "polish",
           "kind": "word"
         },
         {
-          "text": "bedroom",
+          "text": "bucket",
           "kind": "word"
         },
         {
-          "text": "garage",
+          "text": "vacuum",
           "kind": "word"
         },
         {
-          "text": "den",
+          "text": "rag",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "taste_words",
-      "label": "TASTE WORDS",
+      "key": "wild_west",
+      "label": "WILD WEST",
       "words": [
         {
-          "text": "bitter",
+          "text": "horses",
           "kind": "word"
         },
         {
-          "text": "sour",
+          "text": "spurs",
           "kind": "word"
         },
         {
-          "text": "mild",
+          "text": "Cowboys",
           "kind": "word"
         },
         {
-          "text": "rich",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "flying_animals",
-      "label": "FLYING ANIMALS",
-      "words": [
-        {
-          "text": "bat",
-          "kind": "word"
-        },
-        {
-          "text": "swan",
-          "kind": "word"
-        },
-        {
-          "text": "goose",
-          "kind": "word"
-        },
-        {
-          "text": "hawk",
+          "text": "wagon",
           "kind": "word"
         }
       ]

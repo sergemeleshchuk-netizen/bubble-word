@@ -1,6 +1,6 @@
 {
-  "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
-  "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+  "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
+  "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
   "generator_version": "gen-1.0",
   "config": {
     "levelRange": [
@@ -79,89 +79,89 @@
       "level_id": 1,
       "role": "tutorial",
       "difficulty": 1.5,
-      "interest": 5,
-      "level_spec_hash": "59a0b8e5c60f129d76e4f4486ffd68ce9b29d399a2b00e1fe685c08434467225",
+      "interest": 6.5,
+      "level_spec_hash": "3585d0fb2ea48f8cbf9384f6ed238b4659906ce542bf9a86519c4fb7058f5938",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 2,
       "role": "growth",
-      "difficulty": 3.5,
+      "difficulty": 4,
       "interest": 6.5,
-      "level_spec_hash": "11814e052bb1ef3961a934f9edd301d55bc5993d3f6494566e1b58bde5f10d24",
+      "level_spec_hash": "d83634a1e935858286a111f04194477247f18c648c2ae36caa4b411955b2c218",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 3,
       "role": "growth",
-      "difficulty": 3.5,
-      "interest": 6,
-      "level_spec_hash": "2ba6fc6036b4aafd7fcd21ec6b21ec8d289a5a81bf93993a4a7aa7ccb5e62663",
+      "difficulty": 2.5,
+      "interest": 6.5,
+      "level_spec_hash": "57462fd10c3a5d5ccda634adb5792f03d1ae95eaf1c73ed2308415314219d1cb",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 4,
       "role": "growth",
-      "difficulty": 4,
+      "difficulty": 3.5,
       "interest": 6,
-      "level_spec_hash": "9ec46e2207958963da96816439a62d15a3949cff39ec3fdb98cf612f7b8cea2d",
+      "level_spec_hash": "a54fbf60f500d97b8981c6a539439ad2d857506d1712be5b9908db2e88926c58",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 5,
       "role": "peak",
-      "difficulty": 6.5,
-      "interest": 8,
-      "level_spec_hash": "398b8f6d63f90eb12fd15d80a669d48c20c4e57cc79d7f0704b11e03090e48df",
+      "difficulty": 7,
+      "interest": 7.5,
+      "level_spec_hash": "7c07cf58e07cdc3e76d5e90dc19e5dc92c27876e6f18c23e930de071cc3ea2ed",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 6,
       "role": "recovery",
-      "difficulty": 2.5,
+      "difficulty": 2,
       "interest": 6.5,
-      "level_spec_hash": "f5a9029134d2ea72eed95e9da15d8af39439cb1f56bcdc3748621afa0859ce44",
+      "level_spec_hash": "fe3792e57df26f60ae72bc65cda72b41b17606566cb228d2bb2d7a5b8287a2df",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 7,
       "role": "growth",
-      "difficulty": 5,
+      "difficulty": 4.5,
       "interest": 7,
-      "level_spec_hash": "9b8eb6f9c03c9a84a1aae701ff1f7b93c7b6b4ecbde4b558ef8ec8dcec1c9ef4",
+      "level_spec_hash": "d42dfc6e16234ceb57bb87ae2da37fa8149cc9c8d869854e498b7dbad3a31c2d",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 8,
       "role": "growth",
-      "difficulty": 4.5,
-      "interest": 6.5,
-      "level_spec_hash": "a287aefbef943e017f4db973a66c6b5605aad42bbc0cf655ccb384a39111f8a4",
+      "difficulty": 3.5,
+      "interest": 7,
+      "level_spec_hash": "ec57ea5b3e1abcbd3749ad6cab4f39425e29a56aa96fea5bf6e36b7878356009",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 9,
       "role": "growth",
-      "difficulty": 5,
-      "interest": 7,
-      "level_spec_hash": "ac6cd37aa1891291802cddec9997a36f7325285e27fab5a25f5000e973bb799f",
+      "difficulty": 6,
+      "interest": 7.5,
+      "level_spec_hash": "597474c14bf0ccc2e22448fc1a37dcdec758acb620d98559f4ab849668c74757",
       "validation_passed": true,
       "solution_count": 1
     },
     {
       "level_id": 10,
       "role": "exit",
-      "difficulty": 3,
+      "difficulty": 2.5,
       "interest": 6.5,
-      "level_spec_hash": "771c74693d78ef178dbb74a489cbd663b017200b2845031c2461fe3fbd449dc3",
+      "level_spec_hash": "0a5d164028cc7e22207dd5ec1ebfc3ebff77227440c652b5df6438d749c5192e",
       "validation_passed": true,
       "solution_count": 1
     }

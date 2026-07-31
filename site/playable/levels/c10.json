@@ -4,13 +4,23 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "internal-organs",
-      "name": "Internal Organs",
+      "id": "symphony",
+      "name": "Symphony",
       "words": [
-        "lung",
-        "kidney",
-        "womb",
-        "colon"
+        "harmony",
+        "orchestra",
+        "finale",
+        "violin"
+      ]
+    },
+    {
+      "id": "baby-things",
+      "name": "Baby Things",
+      "words": [
+        "swing",
+        "formula",
+        "blanket",
+        "bib"
       ]
     },
     {
@@ -18,29 +28,49 @@
       "name": "Meats",
       "words": [
         "beef",
-        "lamb",
         "pork",
-        "liver"
+        "bacon",
+        "roast"
       ]
     },
     {
-      "id": "art-tools",
-      "name": "Art Tools",
+      "id": "art-supplies",
+      "name": "Art Supplies",
       "words": [
-        "pen",
-        "canvas",
-        "roller",
-        "knife"
+        "palette",
+        "ink",
+        "pencil",
+        "ribbon"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "Feelings",
+      "words": [
+        "grateful",
+        "bored",
+        "confused",
+        "shock"
+      ]
+    },
+    {
+      "id": "hospital-things",
+      "name": "Hospital Things",
+      "words": [
+        "ward",
+        "iv",
+        "chart",
+        "wheelchair"
       ]
     },
     {
       "id": "phone-words",
       "name": "Phone Words",
       "words": [
-        "alarm",
         "speaker",
-        "app",
-        "signal"
+        "alarm",
+        "notification",
+        "headphones"
       ]
     },
     {
@@ -49,38 +79,8 @@
       "words": [
         "cow",
         "goat",
-        "sheep",
+        "pig",
         "duck"
-      ]
-    },
-    {
-      "id": "breakfast-foods",
-      "name": "Breakfast Foods",
-      "words": [
-        "egg",
-        "danish",
-        "jam",
-        "toast"
-      ]
-    },
-    {
-      "id": "gym-class-things",
-      "name": "Gym Class",
-      "words": [
-        "uniform",
-        "locker",
-        "whistle",
-        "stopwatch"
-      ]
-    },
-    {
-      "id": "circus-words",
-      "name": "Circus Words",
-      "words": [
-        "elephant",
-        "clown",
-        "tent",
-        "cannon"
       ]
     }
   ],

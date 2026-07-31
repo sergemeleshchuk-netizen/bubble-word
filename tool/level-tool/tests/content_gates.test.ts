@@ -21,25 +21,33 @@ import { validateLevel } from '../web/src/core/validator.ts';
 import { hashQuadruple } from '../web/src/core/generateBlock.ts';
 import type { LevelPlan } from '../web/src/core/types.ts';
 
+// По шесть слов в пуле: генератор требует запас сверх четырёх (см. buildPool —
+// точное покрытие ломается, если у категории ровно четыре играбельных слова).
 const CATEGORIES: Parameters<typeof makeSnapshot>[0] = [
   { key: 'colors', label: 'COLORS', theme: 'properties', words: [
     ['red', 5.0, 'approved'], ['blue', 4.9, 'approved'],
-    ['green', 4.8, 'approved'], ['yellow', 4.5, 'approved']] },
+    ['green', 4.8, 'approved'], ['yellow', 4.5, 'approved'],
+    ['purple', 4.3, 'approved'], ['brown', 4.6, 'approved']] },
   { key: 'gemstones', label: 'GEMSTONES', theme: 'nature', words: [
     ['ruby', 4.0, 'approved'], ['opal', 3.6, 'approved'],
-    ['topaz', 3.4, 'approved'], ['jade', 3.8, 'approved']] },
+    ['topaz', 3.4, 'approved'], ['jade', 3.8, 'approved'],
+    ['agate', 3.2, 'approved'], ['quartz', 3.7, 'approved']] },
   { key: 'birthstones', label: 'BIRTHSTONES', theme: 'nature', words: [
     ['garnet', 3.2, 'approved'], ['pearl', 4.1, 'approved'],
-    ['amethyst', 3.3, 'approved'], ['peridot', 2.9, 'approved']] },
+    ['amethyst', 3.3, 'approved'], ['peridot', 2.9, 'approved'],
+    ['zircon', 3.0, 'approved'], ['citrine', 3.1, 'approved']] },
   { key: 'tools', label: 'TOOLS', theme: 'tools', words: [
     ['hammer', 4.1, 'approved'], ['saw', 4.4, 'approved'],
-    ['drill', 4.0, 'approved'], ['wrench', 3.5, 'approved']] },
+    ['drill', 4.0, 'approved'], ['wrench', 3.5, 'approved'],
+    ['pliers', 3.6, 'approved'], ['chisel', 3.3, 'approved']] },
   { key: 'weather', label: 'WEATHER', theme: 'nature', words: [
     ['rain', 5.1, 'approved'], ['snow', 4.9, 'approved'],
-    ['wind', 4.8, 'approved'], ['fog', 4.0, 'approved']] },
+    ['wind', 4.8, 'approved'], ['fog', 4.0, 'approved'],
+    ['hail', 3.7, 'approved'], ['frost', 3.9, 'approved']] },
   { key: 'opposites', label: 'OPPOSITES', theme: 'language', words: [
     ['hot', 4.9, 'approved'], ['cold', 4.9, 'approved'],
-    ['up', 5.2, 'approved'], ['down', 5.2, 'approved']] },
+    ['up', 5.2, 'approved'], ['down', 5.2, 'approved'],
+    ['fast', 4.7, 'approved'], ['slow', 4.6, 'approved']] },
 ];
 
 function config(seed: string) {

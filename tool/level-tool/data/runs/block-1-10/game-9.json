@@ -10,113 +10,201 @@
   },
   "categories": [
     {
-      "key": "vegetables",
-      "label": "VEGETABLES",
+      "key": "vampire",
+      "label": "VAMPIRE",
       "words": [
         {
-          "text": "bean",
+          "text": "transylvania",
           "kind": "word"
         },
         {
-          "text": "corn",
+          "text": "twilight",
           "kind": "word"
         },
         {
-          "text": "potato",
+          "text": "coffin",
           "kind": "word"
         },
         {
-          "text": "squash",
+          "text": "blood",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "grocery_aisles",
-      "label": "GROCERY AISLES",
+      "key": "halloween",
+      "label": "HALLOWEEN",
       "words": [
         {
-          "text": "vegetables",
+          "text": "vampire",
           "kind": "meta",
-          "meta_child": "vegetables"
+          "meta_child": "vampire"
         },
         {
-          "text": "Frozen",
+          "text": "witch",
           "kind": "word"
         },
         {
-          "text": "fruits",
+          "text": "costume",
           "kind": "word"
         },
         {
-          "text": "dairy",
+          "text": "ghost",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "metals",
-      "label": "METALS",
+      "key": "ceramics",
+      "label": "CERAMICS",
       "words": [
         {
-          "text": "copper",
+          "text": "tile",
           "kind": "word"
         },
         {
-          "text": "brass",
+          "text": "vase",
           "kind": "word"
         },
         {
-          "text": "platinum",
+          "text": "wedge",
           "kind": "word"
         },
         {
-          "text": "bronze",
+          "text": "porcelain",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "jewelry_box",
-      "label": "JEWELRY BOX",
+      "key": "studio_arts",
+      "label": "STUDIO ARTS",
       "words": [
         {
-          "text": "metals",
+          "text": "ceramics",
           "kind": "meta",
-          "meta_child": "metals"
+          "meta_child": "ceramics"
         },
         {
-          "text": "jewelry",
+          "text": "pottery",
           "kind": "word"
         },
         {
-          "text": "velvet",
+          "text": "photography",
           "kind": "word"
         },
         {
-          "text": "gemstones",
+          "text": "sculpture",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "water_actions",
-      "label": "WATER ACTIONS",
+      "key": "draft",
+      "label": "DRAFT",
       "words": [
         {
-          "text": "swim",
+          "text": "wind",
           "kind": "word"
         },
         {
-          "text": "spray",
+          "text": "concept",
           "kind": "word"
         },
         {
-          "text": "flood",
+          "text": "beer",
           "kind": "word"
         },
         {
-          "text": "dive",
+          "text": "writing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "medical_jobs",
+      "label": "MEDICAL JOBS",
+      "words": [
+        {
+          "text": "nurse",
+          "kind": "word"
+        },
+        {
+          "text": "surgeon",
+          "kind": "word"
+        },
+        {
+          "text": "therapist",
+          "kind": "word"
+        },
+        {
+          "text": "psychiatrist",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "winter_clothing",
+      "label": "WINTER CLOTHING",
+      "words": [
+        {
+          "text": "boot",
+          "kind": "word"
+        },
+        {
+          "text": "thermal",
+          "kind": "word"
+        },
+        {
+          "text": "sweater",
+          "kind": "word"
+        },
+        {
+          "text": "scarf",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "cocoa",
+          "kind": "word"
+        },
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "cider",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "candy",
+      "label": "CANDY",
+      "words": [
+        {
+          "text": "sweet",
+          "kind": "word"
+        },
+        {
+          "text": "mint",
+          "kind": "word"
+        },
+        {
+          "text": "fudge",
+          "kind": "word"
+        },
+        {
+          "text": "caramel",
           "kind": "word"
         }
       ]
@@ -126,107 +214,19 @@
       "label": "GARDENING WORDS",
       "words": [
         {
-          "text": "weed",
-          "kind": "word"
-        },
-        {
           "text": "seed",
-          "kind": "word"
-        },
-        {
-          "text": "harvest",
           "kind": "word"
         },
         {
           "text": "soil",
           "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "illnesses",
-      "label": "ILLNESSES",
-      "words": [
+        },
         {
-          "text": "infection",
+          "text": "weed",
           "kind": "word"
         },
         {
-          "text": "diseases",
-          "kind": "word"
-        },
-        {
-          "text": "diabetes",
-          "kind": "word"
-        },
-        {
-          "text": "fever",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "weapons_of_the_past",
-      "label": "OLD WEAPONS",
-      "words": [
-        {
-          "text": "sword",
-          "kind": "word"
-        },
-        {
-          "text": "arrow",
-          "kind": "word"
-        },
-        {
-          "text": "bow",
-          "kind": "word"
-        },
-        {
-          "text": "spear",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "jungle_animals",
-      "label": "JUNGLE ANIMALS",
-      "words": [
-        {
-          "text": "tiger",
-          "kind": "word"
-        },
-        {
-          "text": "snake",
-          "kind": "word"
-        },
-        {
-          "text": "frog",
-          "kind": "word"
-        },
-        {
-          "text": "monkey",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "wild_west",
-      "label": "WILD WEST",
-      "words": [
-        {
-          "text": "boots",
-          "kind": "word"
-        },
-        {
-          "text": "spurs",
-          "kind": "word"
-        },
-        {
-          "text": "marshal",
-          "kind": "word"
-        },
-        {
-          "text": "sheriff",
+          "text": "shade",
           "kind": "word"
         }
       ]

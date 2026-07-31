@@ -14,91 +14,91 @@
     },
     "categories": [
       {
-        "key": "rodents",
-        "label": "RODENTS",
-        "rule": "Small gnawing mammals classed as rodents",
-        "theme": "animals",
+        "key": "hats",
+        "label": "HATS",
+        "rule": "Things worn on the head",
+        "theme": "clothing",
         "words": [
           {
-            "text": "rat",
+            "text": "cap",
             "kind": "word",
-            "zipf": 4.17,
+            "zipf": 4.51,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "chipmunk",
-            "kind": "word",
-            "zipf": 2.74,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "beaver",
-            "kind": "word",
-            "zipf": 3.61,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "squirrel",
-            "kind": "word",
-            "zipf": 3.69,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "pet_store",
-        "isQuickwin": false
-      },
-      {
-        "key": "pet_store",
-        "label": "PET STORE",
-        "rule": "What a pet store sells or keeps in stock",
-        "theme": "animals",
-        "words": [
-          {
-            "text": "rodents",
-            "kind": "meta",
-            "metaChild": "rodents",
-            "zipf": 3.32,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "pets",
-            "kind": "word",
-            "zipf": 4.08,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.98,
             "obviousness": 0.85
           },
           {
-            "text": "cage",
+            "text": "helmet",
             "kind": "word",
-            "zipf": 4.13,
+            "zipf": 4.02,
             "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.88,
-            "obviousness": 0.76
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
           },
           {
-            "text": "birds",
+            "text": "derby",
             "kind": "word",
-            "zipf": 4.6,
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.65
+          },
+          {
+            "text": "panama",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.59
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "costume_party",
+        "isQuickwin": true
+      },
+      {
+        "key": "costume_party",
+        "label": "COSTUME PARTY",
+        "rule": "What you put on or need for a costume party",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "hats",
+            "kind": "meta",
+            "metaChild": "hats",
+            "zipf": 4.01,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "cape",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.92,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mask",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.95,
+            "obviousness": 0.86
+          },
+          {
+            "text": "superheroes",
+            "kind": "word",
+            "zipf": 3.4,
             "frequencyUnknown": false,
             "relation": "found_in",
-            "fit": 0.9,
-            "obviousness": 0.62
+            "fit": 0.92,
+            "obviousness": 0.7
           }
         ],
         "metaDepth": 0,
@@ -106,44 +106,44 @@
         "isQuickwin": false
       },
       {
-        "key": "joining_actions",
-        "label": "JOINING ACTIONS",
-        "rule": "Actions that join two things together",
-        "theme": "actions",
+        "key": "initials_and_titles",
+        "label": "NAME PARTS",
+        "rule": "Parts that make up a person full name",
+        "theme": "names",
         "words": [
           {
-            "text": "tape",
+            "text": "nickname",
             "kind": "word",
-            "zipf": 4.44,
+            "zipf": 3.91,
             "frequencyUnknown": false,
-            "relation": "does_action",
+            "relation": "part_of",
             "fit": 0.97,
             "obviousness": 0.7
           },
           {
-            "text": "clip",
+            "text": "junior",
             "kind": "word",
-            "zipf": 4.26,
+            "zipf": 4.49,
             "frequencyUnknown": false,
-            "relation": "does_action",
+            "relation": "part_of",
             "fit": 0.97,
             "obviousness": 0.7
           },
           {
-            "text": "zip",
+            "text": "initial",
             "kind": "word",
-            "zipf": 3.87,
+            "zipf": 4.72,
             "frequencyUnknown": false,
-            "relation": "does_action",
+            "relation": "part_of",
             "fit": 0.97,
             "obviousness": 0.7
           },
           {
-            "text": "glue",
+            "text": "senior",
             "kind": "word",
-            "zipf": 3.8,
+            "zipf": 4.92,
             "frequencyUnknown": false,
-            "relation": "does_action",
+            "relation": "part_of",
             "fit": 0.97,
             "obviousness": 0.7
           }
@@ -153,38 +153,11 @@
         "isQuickwin": true
       },
       {
-        "key": "sandwich_fillings",
-        "label": "SANDWICH FILLINGS",
-        "rule": "Things commonly put inside a sandwich",
+        "key": "pizza_toppings",
+        "label": "PIZZA TOPPINGS",
+        "rule": "Ingredients commonly put on top of a pizza",
         "theme": "food",
         "words": [
-          {
-            "text": "mayo",
-            "kind": "word",
-            "zipf": 3.72,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "jelly",
-            "kind": "word",
-            "zipf": 3.77,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "tomato",
-            "kind": "word",
-            "zipf": 3.85,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
           {
             "text": "onion",
             "kind": "word",
@@ -192,7 +165,175 @@
             "frequencyUnknown": false,
             "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.8
+            "obviousness": 0.85
+          },
+          {
+            "text": "garlic",
+            "kind": "word",
+            "zipf": 3.92,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "pepper",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "sausage",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "car_parts",
+        "label": "CAR PARTS",
+        "rule": "Physical parts of an ordinary passenger car",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "battery",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "horn",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "trunk",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "gear",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.74
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "flying_animals",
+        "label": "FLYING ANIMALS",
+        "rule": "Animals that can fly under their own power",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "bat",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 1,
+            "obviousness": 0.9
+          },
+          {
+            "text": "hawk",
+            "kind": "word",
+            "zipf": 3.81,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "falcon",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "swan",
+            "kind": "word",
+            "zipf": 3.84,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "town_places",
+        "label": "TOWN PLACES",
+        "rule": "Public buildings and places found in an ordinary American town",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "gym",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "jail",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "clinic",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "stadium",
+            "kind": "word",
+            "zipf": 4.63,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
           }
         ],
         "metaDepth": 0,
@@ -206,9 +347,9 @@
         "theme": "nature",
         "words": [
           {
-            "text": "shell",
+            "text": "wave",
             "kind": "word",
-            "zipf": 4.39,
+            "zipf": 4.62,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -224,6 +365,15 @@
             "obviousness": 0.85
           },
           {
+            "text": "shell",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
             "text": "cooler",
             "kind": "word",
             "zipf": 3.96,
@@ -231,15 +381,6 @@
             "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
-          },
-          {
-            "text": "wave",
-            "kind": "word",
-            "zipf": 4.62,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
           }
         ],
         "metaDepth": 0,
@@ -247,202 +388,61 @@
         "isQuickwin": true
       },
       {
-        "key": "tennis_words",
-        "label": "TENNIS WORDS",
-        "rule": "Words used to describe play and scoring in tennis",
-        "theme": "sports",
+        "key": "makeup",
+        "label": "MAKEUP",
+        "rule": "Cosmetics applied to the face",
+        "theme": "fashion",
         "words": [
           {
-            "text": "rally",
+            "text": "powder",
             "kind": "word",
-            "zipf": 4.34,
+            "zipf": 4.25,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.8
           },
           {
-            "text": "fault",
+            "text": "mirror",
             "kind": "word",
-            "zipf": 4.64,
+            "zipf": 4.47,
             "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.74
           },
           {
-            "text": "Ace",
+            "text": "foundation",
             "kind": "word",
-            "zipf": 4.11,
+            "zipf": 4.81,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.8
           },
           {
-            "text": "net",
+            "text": "bronzer",
             "kind": "word",
-            "zipf": 4.76,
+            "zipf": 2.64,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.8
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "harbor_things",
-        "label": "HARBOR THINGS",
-        "rule": "Things found in a harbor or marina",
-        "theme": "ocean",
-        "words": [
-          {
-            "text": "anchor",
-            "kind": "word",
-            "zipf": 4.02,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "warehouse",
-            "kind": "word",
-            "zipf": 4.08,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "dock",
-            "kind": "word",
-            "zipf": 3.99,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "rope",
-            "kind": "word",
-            "zipf": 4.06,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "bedroom_things",
-        "label": "BEDROOM THINGS",
-        "rule": "Objects normally found in a bedroom",
-        "theme": "home",
-        "words": [
-          {
-            "text": "sheet",
-            "kind": "word",
-            "zipf": 4.4,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "closet",
-            "kind": "word",
-            "zipf": 4.13,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "lamp",
-            "kind": "word",
-            "zipf": 4.05,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "pillow",
-            "kind": "word",
-            "zipf": 3.96,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "rocks_and_minerals",
-        "label": "ROCKS AND MINERALS",
-        "rule": "Common rocks and minerals from the ground",
-        "theme": "nature",
-        "words": [
-          {
-            "text": "coal",
-            "kind": "word",
-            "zipf": 4.49,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "granite",
-            "kind": "word",
-            "zipf": 3.86,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "limestone",
-            "kind": "word",
-            "zipf": 3.75,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "slate",
-            "kind": "word",
-            "zipf": 3.82,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
+        "isQuickwin": false
       }
     ],
     "traps": [
       {
-        "word": "net",
-        "home": "tennis_words",
-        "decoy": "harbor_things",
-        "homeObviousness": 0.78,
+        "word": "mirror",
+        "home": "makeup",
+        "decoy": "car_parts",
+        "homeObviousness": 0.74,
         "decoyFit": 0.97,
-        "decoyObviousness": 0.78
+        "decoyObviousness": 0.88
       }
     ],
     "halves": [],
@@ -453,12 +453,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generated_at": "2026-07-31T14:57:01.075Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "a287aefbef943e017f4db973a66c6b5605aad42bbc0cf655ccb384a39111f8a4",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "ec57ea5b3e1abcbd3749ad6cab4f39425e29a56aa96fea5bf6e36b7878356009",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -482,7 +482,7 @@
     "moveLimitK": 1.35
   },
   "scoring": {
-    "difficulty": 4.5,
+    "difficulty": 3.5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 3.1814999999999998,
@@ -496,7 +496,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.8,
+        "смежность категорий": 0,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -507,7 +507,7 @@
       "totals": {
         "base": 3.2988999999999997,
         "declared": -0.38,
-        "semantic": 0.8,
+        "semantic": 0,
         "mechanical": 0.6428571428571427
       }
     },
@@ -516,22 +516,21 @@
       "1 редких слов, из них 0 очень редких",
       "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
       "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "2 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 37 при минимуме 27 (K = 1.35)"
     ],
-    "interest": 6.5,
+    "interest": 7,
     "interest_breakdown": {
-      "clarity": 2.26,
-      "variety": 2.16,
+      "clarity": 2.29,
+      "variety": 2.5,
       "aha": 0.2,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.26: узнаваемых слов 100%, средняя очевидность связи 0.78",
-      "Variety 2.16: 4 типов связи, 7 тематических сфер, но 56% категорий однотипны",
+      "Clarity 2.29: узнаваемых слов 100%, средняя очевидность связи 0.81",
+      "Variety 2.50: 7 типов связи, 9 тематических сфер",
       "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
-      "Freshness 2.05: новых для пакета слов 97%"
+      "Freshness 2.05: новых для пакета слов 100%"
     ]
   },
   "validation": {
@@ -613,7 +612,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 7: joining_actions, sandwich_fillings, sea_shore_things, tennis_words, harbor_things, bedroom_things, rocks_and_minerals"
+        "detail": "категорий быстрой победы 7: hats, initials_and_titles, pizza_toppings, car_parts, flying_animals, town_places, sea_shore_things"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -667,7 +666,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.06 (цель декады 4.35), p25 3.85 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.25 (цель декады 4.35), p25 3.92 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -685,7 +684,7 @@
         "code": "REPEAT_BUDGET",
         "passed": true,
         "severity": "soft",
-        "detail": "слов из прошлых уровней в другой категории: 1, коридор декады 0-4"
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
       }
     ],
     "issues": [],

@@ -10,68 +10,68 @@
   },
   "categories": [
     {
-      "key": "trees",
-      "label": "TREES",
+      "key": "photography",
+      "label": "PHOTOGRAPHY",
       "words": [
         {
-          "text": "oak",
+          "text": "capture",
           "kind": "word"
         },
         {
-          "text": "ash",
+          "text": "lens",
           "kind": "word"
         },
         {
-          "text": "pine",
+          "text": "exposure",
           "kind": "word"
         },
         {
-          "text": "palm",
+          "text": "lighting",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "garden_center",
-      "label": "GARDEN CENTER",
+      "key": "art",
+      "label": "ART",
       "words": [
         {
-          "text": "trees",
+          "text": "photography",
           "kind": "meta",
-          "meta_child": "trees"
+          "meta_child": "photography"
         },
         {
-          "text": "soil",
+          "text": "portrait",
           "kind": "word"
         },
         {
-          "text": "flowers",
+          "text": "painting",
           "kind": "word"
         },
         {
-          "text": "seedling",
+          "text": "sketch",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "airlines",
-      "label": "AIRLINES",
+      "key": "mollusca",
+      "label": "MOLLUSCA",
       "words": [
         {
-          "text": "Alaska",
+          "text": "oyster",
           "kind": "word"
         },
         {
-          "text": "Frontier",
+          "text": "snail",
           "kind": "word"
         },
         {
-          "text": "Southwest",
+          "text": "octopus",
           "kind": "word"
         },
         {
-          "text": "Spirit",
+          "text": "squid",
           "kind": "word"
         }
       ]
@@ -81,11 +81,7 @@
       "label": "OFFICE SUPPLIES",
       "words": [
         {
-          "text": "pen",
-          "kind": "word"
-        },
-        {
-          "text": "tape",
+          "text": "label",
           "kind": "word"
         },
         {
@@ -93,7 +89,11 @@
           "kind": "word"
         },
         {
-          "text": "label",
+          "text": "tape",
+          "kind": "word"
+        },
+        {
+          "text": "pen",
           "kind": "word"
         }
       ]
@@ -107,15 +107,15 @@
           "kind": "word"
         },
         {
-          "text": "drill",
-          "kind": "word"
-        },
-        {
           "text": "knife",
           "kind": "word"
         },
         {
           "text": "Square",
+          "kind": "word"
+        },
+        {
+          "text": "drill",
           "kind": "word"
         }
       ]
@@ -125,11 +125,11 @@
       "label": "SHAPES",
       "words": [
         {
-          "text": "circle",
+          "text": "cylinder",
           "kind": "word"
         },
         {
-          "text": "triangle",
+          "text": "circle",
           "kind": "word"
         },
         {
@@ -137,7 +137,7 @@
           "kind": "word"
         },
         {
-          "text": "cylinder",
+          "text": "oval",
           "kind": "word"
         }
       ]
@@ -147,10 +147,6 @@
       "label": "FACE PARTS",
       "words": [
         {
-          "text": "ear",
-          "kind": "word"
-        },
-        {
           "text": "temple",
           "kind": "word"
         },
@@ -159,7 +155,11 @@
           "kind": "word"
         },
         {
-          "text": "nose",
+          "text": "ear",
+          "kind": "word"
+        },
+        {
+          "text": "jaw",
           "kind": "word"
         }
       ]
@@ -181,7 +181,7 @@
           "kind": "word"
         },
         {
-          "text": "milk",
+          "text": "kefir",
           "kind": "word"
         }
       ]

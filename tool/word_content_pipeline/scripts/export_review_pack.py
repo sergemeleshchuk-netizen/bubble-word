@@ -931,30 +931,37 @@ tool/word_content_pipeline/data/seed/_semantic_review.csv  семантичес�
 tool/word_content_pipeline/data/seed/_risk_flags.csv    культурные и правовые риски
 tool/word_content_pipeline/data/seed/_category_meta.json   парные категории, запреты
 tool/word_content_pipeline/data/review_decisions.csv    статусы всех связей
+tool/word_content_pipeline/data/runs/*/                 прогоны: кандидаты + решения ревью
 ```
 
 ## Как обновить этот снимок
 
-Из папки `tool/word_content_pipeline`:
+Из папки `tool/word_content_pipeline` — одна команда:
 
 ```bash
-.venv/bin/python scripts/build_seed.py                    # собрать JSONL из data/seed
-.venv/bin/python scripts/swow_status.py                   # проставить статусы связей
-.venv/bin/word-content init-db            --db database/content.sqlite
-.venv/bin/word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
-.venv/bin/word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
-.venv/bin/word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
-.venv/bin/word-content derive-readiness   --db database/content.sqlite
-.venv/bin/word-content derive-conflicts   --db database/content.sqlite --output data/category_conflicts.csv
-.venv/bin/word-content build-quartets     --db database/content.sqlite --output data/quartets.csv
-.venv/bin/word-content stamp-version      --db database/content.sqlite --content-version ГГГГ.ММ.ДД
-.venv/bin/word-content check-integrity    --db database/content.sqlite   # обязательно: ненулевой код = не отдавать
-.venv/bin/python scripts/export_review_pack.py            # обновить эту папку
+bash scripts/rebuild_all.sh
 ```
 
-Последняя команда пересобирает и снимок базы, и папку `ревью/`.
-`check-integrity` — это критерии приёмки из внешнего аудита в виде кода: если он
-падает, снимок отдавать нельзя.
+Она собирает JSONL из `data/seed`, пересчитывает статусы связей по SWOW, создаёт
+базу С НУЛЯ (старая уезжает в `database/backup/`), импортирует seed и все прогоны
+из `data/runs/`, применяет решения ревью, считает `readiness`, запреты на сочетание
+категорий и проверенные четвёрки, ставит версию и прогоняет приёмку.
+
+`check-integrity` в конце — критерии внешнего аудита в виде кода: ненулевой код
+возврата означает, что базу отдавать нельзя.
+
+Почему одной командой, а не списком из десяти. Именно на списке проект уже
+разошёлся: пересборку делали руками, а веб-инструмент читал снимок из другой
+копии пайплайна, оставшейся на состоянии до аудита. Плюс `init-db` старую базу
+не чистит, поэтому сборка «поверх» давала не замену связей, а вторые экземпляры.
+
+После пересборки обновить выгрузки:
+
+```bash
+.venv/bin/python scripts/export_review_pack.py        # эту папку (снимок + ревью/)
+python3 ../scripts/export_base_json.py                # tool/data/categories.json для скиллов
+python3 ../level-tool/scripts/export_snapshot.py      # снимок для веб-инструмента
+```
 
 ## Как посмотреть базу без программиста
 

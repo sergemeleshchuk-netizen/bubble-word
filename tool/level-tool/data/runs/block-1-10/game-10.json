@@ -10,23 +10,45 @@
   },
   "categories": [
     {
-      "key": "internal_organs",
-      "label": "INTERNAL ORGANS",
+      "key": "symphony",
+      "label": "SYMPHONY",
       "words": [
         {
-          "text": "lung",
+          "text": "harmony",
           "kind": "word"
         },
         {
-          "text": "kidney",
+          "text": "orchestra",
           "kind": "word"
         },
         {
-          "text": "womb",
+          "text": "finale",
           "kind": "word"
         },
         {
-          "text": "colon",
+          "text": "violin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baby_things",
+      "label": "BABY THINGS",
+      "words": [
+        {
+          "text": "swing",
+          "kind": "word"
+        },
+        {
+          "text": "formula",
+          "kind": "word"
+        },
+        {
+          "text": "blanket",
+          "kind": "word"
+        },
+        {
+          "text": "bib",
           "kind": "word"
         }
       ]
@@ -40,37 +62,81 @@
           "kind": "word"
         },
         {
-          "text": "lamb",
-          "kind": "word"
-        },
-        {
           "text": "pork",
           "kind": "word"
         },
         {
-          "text": "liver",
+          "text": "bacon",
+          "kind": "word"
+        },
+        {
+          "text": "roast",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "art_tools",
-      "label": "ART TOOLS",
+      "key": "art_supplies",
+      "label": "ART SUPPLIES",
       "words": [
         {
-          "text": "pen",
+          "text": "palette",
           "kind": "word"
         },
         {
-          "text": "canvas",
+          "text": "ink",
           "kind": "word"
         },
         {
-          "text": "roller",
+          "text": "pencil",
           "kind": "word"
         },
         {
-          "text": "knife",
+          "text": "ribbon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "feelings",
+      "label": "FEELINGS",
+      "words": [
+        {
+          "text": "grateful",
+          "kind": "word"
+        },
+        {
+          "text": "bored",
+          "kind": "word"
+        },
+        {
+          "text": "confused",
+          "kind": "word"
+        },
+        {
+          "text": "shock",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hospital_things",
+      "label": "HOSPITAL THINGS",
+      "words": [
+        {
+          "text": "ward",
+          "kind": "word"
+        },
+        {
+          "text": "IV",
+          "kind": "word"
+        },
+        {
+          "text": "chart",
+          "kind": "word"
+        },
+        {
+          "text": "wheelchair",
           "kind": "word"
         }
       ]
@@ -80,19 +146,19 @@
       "label": "PHONE WORDS",
       "words": [
         {
-          "text": "alarm",
-          "kind": "word"
-        },
-        {
           "text": "speaker",
           "kind": "word"
         },
         {
-          "text": "app",
+          "text": "alarm",
           "kind": "word"
         },
         {
-          "text": "signal",
+          "text": "notification",
+          "kind": "word"
+        },
+        {
+          "text": "headphones",
           "kind": "word"
         }
       ]
@@ -110,77 +176,11 @@
           "kind": "word"
         },
         {
-          "text": "sheep",
+          "text": "pig",
           "kind": "word"
         },
         {
           "text": "duck",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "breakfast_foods",
-      "label": "BREAKFAST FOODS",
-      "words": [
-        {
-          "text": "egg",
-          "kind": "word"
-        },
-        {
-          "text": "danish",
-          "kind": "word"
-        },
-        {
-          "text": "jam",
-          "kind": "word"
-        },
-        {
-          "text": "toast",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "gym_class_things",
-      "label": "GYM CLASS",
-      "words": [
-        {
-          "text": "uniform",
-          "kind": "word"
-        },
-        {
-          "text": "locker",
-          "kind": "word"
-        },
-        {
-          "text": "whistle",
-          "kind": "word"
-        },
-        {
-          "text": "stopwatch",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "circus_words",
-      "label": "CIRCUS WORDS",
-      "words": [
-        {
-          "text": "elephant",
-          "kind": "word"
-        },
-        {
-          "text": "clown",
-          "kind": "word"
-        },
-        {
-          "text": "tent",
-          "kind": "word"
-        },
-        {
-          "text": "cannon",
           "kind": "word"
         }
       ]

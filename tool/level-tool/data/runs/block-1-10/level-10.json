@@ -14,51 +14,98 @@
     },
     "categories": [
       {
-        "key": "internal_organs",
-        "label": "INTERNAL ORGANS",
-        "rule": "Organs inside the human body",
-        "theme": "body",
+        "key": "symphony",
+        "label": "SYMPHONY",
+        "rule": "What belongs to the group «Symphony» as used in the original game",
+        "theme": "misc",
         "words": [
           {
-            "text": "lung",
+            "text": "harmony",
             "kind": "word",
-            "zipf": 4.1,
+            "zipf": 4.11,
             "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.65
           },
           {
-            "text": "kidney",
+            "text": "orchestra",
             "kind": "word",
-            "zipf": 4.03,
+            "zipf": 4.01,
             "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.63
           },
           {
-            "text": "womb",
+            "text": "finale",
             "kind": "word",
-            "zipf": 3.63,
+            "zipf": 4.04,
             "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.64
           },
           {
-            "text": "colon",
+            "text": "violin",
             "kind": "word",
-            "zipf": 3.6,
+            "zipf": 3.74,
             "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.56
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
         "isQuickwin": true
+      },
+      {
+        "key": "baby_things",
+        "label": "BABY THINGS",
+        "rule": "Things used to care for a baby",
+        "theme": "home",
+        "words": [
+          {
+            "text": "swing",
+            "kind": "word",
+            "zipf": 4.34,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "formula",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "blanket",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "bib",
+            "kind": "word",
+            "zipf": 2.97,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
       },
       {
         "key": "meats",
@@ -76,15 +123,6 @@
             "obviousness": 0.85
           },
           {
-            "text": "lamb",
-            "kind": "word",
-            "zipf": 4.02,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
             "text": "pork",
             "kind": "word",
             "zipf": 4.03,
@@ -94,9 +132,18 @@
             "obviousness": 0.85
           },
           {
-            "text": "liver",
+            "text": "bacon",
             "kind": "word",
-            "zipf": 4.18,
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "roast",
+            "kind": "word",
+            "zipf": 3.87,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -108,44 +155,138 @@
         "isQuickwin": true
       },
       {
-        "key": "art_tools",
-        "label": "ART TOOLS",
-        "rule": "Tools an artist uses to make art",
-        "theme": "art",
+        "key": "art_supplies",
+        "label": "ART SUPPLIES",
+        "rule": "Materials used to make art or crafts",
+        "theme": "tools",
         "words": [
           {
-            "text": "pen",
+            "text": "palette",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.56
+          },
+          {
+            "text": "ink",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "pencil",
+            "kind": "word",
+            "zipf": 3.95,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "ribbon",
+            "kind": "word",
+            "zipf": 3.81,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "feelings",
+        "label": "FEELINGS",
+        "rule": "Words naming human emotions",
+        "theme": "people",
+        "words": [
+          {
+            "text": "grateful",
+            "kind": "word",
+            "zipf": 4.35,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bored",
+            "kind": "word",
+            "zipf": 4.2,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "confused",
+            "kind": "word",
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "shock",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.74
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "hospital_things",
+        "label": "HOSPITAL THINGS",
+        "rule": "Things and places found in a hospital",
+        "theme": "body",
+        "words": [
+          {
+            "text": "ward",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "IV",
             "kind": "word",
             "zipf": 4.38,
             "frequencyUnknown": false,
-            "relation": "used_in",
+            "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           },
           {
-            "text": "canvas",
+            "text": "chart",
             "kind": "word",
-            "zipf": 3.96,
+            "zipf": 4.47,
             "frequencyUnknown": false,
-            "relation": "used_in",
+            "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           },
           {
-            "text": "roller",
+            "text": "wheelchair",
             "kind": "word",
-            "zipf": 3.99,
+            "zipf": 3.86,
             "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "knife",
-            "kind": "word",
-            "zipf": 4.41,
-            "frequencyUnknown": false,
-            "relation": "used_in",
+            "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           }
@@ -161,15 +302,6 @@
         "theme": "technology",
         "words": [
           {
-            "text": "alarm",
-            "kind": "word",
-            "zipf": 4.28,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
             "text": "speaker",
             "kind": "word",
             "zipf": 4.49,
@@ -179,18 +311,27 @@
             "obviousness": 0.85
           },
           {
-            "text": "app",
+            "text": "alarm",
             "kind": "word",
-            "zipf": 4.86,
+            "zipf": 4.28,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           },
           {
-            "text": "signal",
+            "text": "notification",
             "kind": "word",
-            "zipf": 4.62,
+            "zipf": 3.92,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "headphones",
+            "kind": "word",
+            "zipf": 3.88,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -226,9 +367,9 @@
             "obviousness": 0.85
           },
           {
-            "text": "sheep",
+            "text": "pig",
             "kind": "word",
-            "zipf": 4.19,
+            "zipf": 4.14,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -247,159 +388,9 @@
         "metaDepth": 0,
         "parentKey": null,
         "isQuickwin": true
-      },
-      {
-        "key": "breakfast_foods",
-        "label": "BREAKFAST FOODS",
-        "rule": "Foods typically eaten at breakfast in the United States",
-        "theme": "food",
-        "words": [
-          {
-            "text": "egg",
-            "kind": "word",
-            "zipf": 4.46,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "danish",
-            "kind": "word",
-            "zipf": 3.91,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "jam",
-            "kind": "word",
-            "zipf": 4.17,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "toast",
-            "kind": "word",
-            "zipf": 3.96,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "gym_class_things",
-        "label": "GYM CLASS",
-        "rule": "Things used in a school gym class",
-        "theme": "education",
-        "words": [
-          {
-            "text": "uniform",
-            "kind": "word",
-            "zipf": 4.33,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "locker",
-            "kind": "word",
-            "zipf": 3.95,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "whistle",
-            "kind": "word",
-            "zipf": 3.88,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "stopwatch",
-            "kind": "word",
-            "zipf": 2.59,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "circus_words",
-        "label": "CIRCUS WORDS",
-        "rule": "People, animals and objects you see at a traditional circus",
-        "theme": "entertainment",
-        "words": [
-          {
-            "text": "elephant",
-            "kind": "word",
-            "zipf": 4.08,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "clown",
-            "kind": "word",
-            "zipf": 3.93,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "tent",
-            "kind": "word",
-            "zipf": 4.05,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "cannon",
-            "kind": "word",
-            "zipf": 4.02,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
       }
     ],
-    "traps": [
-      {
-        "word": "liver",
-        "home": "meats",
-        "decoy": "internal_organs",
-        "homeObviousness": 0.85,
-        "decoyFit": 0.97,
-        "decoyObviousness": 0.85
-      }
-    ],
+    "traps": [],
     "halves": [],
     "modifiers": {
       "chains": [],
@@ -408,12 +399,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.127Z",
+    "generated_at": "2026-07-31T14:57:01.076Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "771c74693d78ef178dbb74a489cbd663b017200b2845031c2461fe3fbd449dc3",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "0a5d164028cc7e22207dd5ec1ebfc3ebff77227440c652b5df6438d749c5192e",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -437,7 +428,7 @@
     "moveLimitK": 1.5
   },
   "scoring": {
-    "difficulty": 3,
+    "difficulty": 2.5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 2.9088,
@@ -451,7 +442,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.4,
+        "смежность категорий": 0,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -462,7 +453,7 @@
       "totals": {
         "base": 3.0262,
         "declared": -0.6,
-        "semantic": 0.4,
+        "semantic": 0,
         "mechanical": 0.25714285714285734
       }
     },
@@ -470,22 +461,21 @@
       "32 пузырей на старте при 8 категориях",
       "1 редких слов, из них 0 очень редких",
       "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "1 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 36 при минимуме 24 (K = 1.5)"
     ],
     "interest": 6.5,
     "interest_breakdown": {
-      "clarity": 2.33,
+      "clarity": 2.28,
       "variety": 2.25,
       "aha": 0,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.33: узнаваемых слов 100%, средняя очевидность связи 0.85",
-      "Variety 2.25: 4 типов связи, 7 тематических сфер",
+      "Clarity 2.28: узнаваемых слов 100%, средняя очевидность связи 0.81",
+      "Variety 2.25: 4 типов связи, 8 тематических сфер",
       "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
-      "Freshness 2.05: новых для пакета слов 84%"
+      "Freshness 2.05: новых для пакета слов 91%"
     ]
   },
   "validation": {
@@ -567,7 +557,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 7: internal_organs, meats, art_tools, phone_words, livestock, breakfast_foods, circus_words"
+        "detail": "категорий быстрой победы 7: symphony, meats, art_supplies, feelings, hospital_things, phone_words, livestock"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -621,7 +611,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.08 (цель декады 4.35), p25 3.96 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.14 (цель декады 4.35), p25 3.95 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -637,20 +627,12 @@
       },
       {
         "code": "REPEAT_BUDGET",
-        "passed": false,
+        "passed": true,
         "severity": "soft",
-        "detail": "слов из прошлых уровней в другой категории: 5, коридор декады 0-4"
+        "detail": "слов из прошлых уровней в другой категории: 3, коридор декады 0-4"
       }
     ],
-    "issues": [
-      {
-        "code": "REPEAT_BUDGET",
-        "severity": "soft",
-        "message": "слов из прошлых уровней в другой категории: 5, коридор декады 0-4",
-        "entities": [],
-        "suggestion": "повтор слова в ДРУГОЙ категории — самая сильная растущая ось референса (2.9 слова на уровень в L1-10 против 28 в L171-180)"
-      }
-    ],
+    "issues": [],
     "solution_count": 1,
     "solution_search_exhausted": true,
     "solution_nodes_visited": 33
@@ -661,7 +643,7 @@
         "index": 0,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "8 категорий, 0 мета-связей, 1 редких слов, 1 ловушек",
+        "reason": "8 категорий, 0 мета-связей, 1 редких слов, 0 ловушек",
         "relaxations": []
       }
     ]

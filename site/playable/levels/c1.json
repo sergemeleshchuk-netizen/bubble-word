@@ -4,53 +4,53 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "dishes-and-glassware",
-      "name": "Dishes",
+      "id": "parts-of-a-house",
+      "name": "House Parts",
       "words": [
-        "plate",
-        "bottle",
-        "jar",
-        "dish"
+        "column",
+        "deck",
+        "stairs",
+        "ceiling"
       ]
     },
     {
       "id": "fruits",
       "name": "Fruits",
       "words": [
+        "fig",
         "orange",
-        "cherry",
-        "lemon",
-        "apple"
+        "banana",
+        "cherry"
       ]
     },
     {
       "id": "farm-animals",
       "name": "Farm Animals",
       "words": [
-        "sheep",
         "bull",
-        "pig",
-        "rabbit"
+        "chicken",
+        "lamb",
+        "sheep"
       ]
     },
     {
       "id": "months",
       "name": "Months",
       "words": [
-        "november",
+        "february",
         "october",
         "september",
-        "august"
+        "april"
       ]
     },
     {
       "id": "weather-words",
       "name": "Weather Words",
       "words": [
-        "sunshine",
-        "lightning",
         "thunder",
-        "shower"
+        "sunshine",
+        "hurricane",
+        "storm"
       ]
     }
   ],

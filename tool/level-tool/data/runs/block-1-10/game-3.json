@@ -10,23 +10,45 @@
   },
   "categories": [
     {
-      "key": "storage_containers",
-      "label": "CONTAINERS",
+      "key": "car",
+      "label": "CAR",
       "words": [
         {
-          "text": "bin",
+          "text": "transmission",
           "kind": "word"
         },
         {
-          "text": "barrel",
+          "text": "wheels",
           "kind": "word"
         },
         {
-          "text": "bucket",
+          "text": "Toyota",
           "kind": "word"
         },
         {
-          "text": "chest",
+          "text": "tire",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
+      "words": [
+        {
+          "text": "pan",
+          "kind": "word"
+        },
+        {
+          "text": "plate",
+          "kind": "word"
+        },
+        {
+          "text": "pot",
+          "kind": "word"
+        },
+        {
+          "text": "fork",
           "kind": "word"
         }
       ]
@@ -36,11 +58,11 @@
       "label": "SCHOOL SUPPLIES",
       "words": [
         {
-          "text": "protractor",
+          "text": "glue",
           "kind": "word"
         },
         {
-          "text": "textbook",
+          "text": "ruler",
           "kind": "word"
         },
         {
@@ -48,29 +70,51 @@
           "kind": "word"
         },
         {
-          "text": "folder",
+          "text": "textbook",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "car_parts",
-      "label": "CAR PARTS",
+      "key": "colors",
+      "label": "COLORS",
       "words": [
         {
-          "text": "mirror",
+          "text": "purple",
           "kind": "word"
         },
         {
-          "text": "horn",
+          "text": "gray",
           "kind": "word"
         },
         {
-          "text": "battery",
+          "text": "olive",
           "kind": "word"
         },
         {
-          "text": "brake",
+          "text": "pink",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "desserts",
+      "label": "DESSERTS",
+      "words": [
+        {
+          "text": "candy",
+          "kind": "word"
+        },
+        {
+          "text": "pie",
+          "kind": "word"
+        },
+        {
+          "text": "cake",
+          "kind": "word"
+        },
+        {
+          "text": "cookie",
           "kind": "word"
         }
       ]
@@ -80,19 +124,19 @@
       "label": "FOOTWEAR",
       "words": [
         {
-          "text": "oxford",
-          "kind": "word"
-        },
-        {
           "text": "pump",
           "kind": "word"
         },
         {
-          "text": "boot",
+          "text": "oxford",
           "kind": "word"
         },
         {
-          "text": "flat",
+          "text": "boots",
+          "kind": "word"
+        },
+        {
+          "text": "brogue",
           "kind": "word"
         }
       ]
@@ -102,63 +146,19 @@
       "label": "PETS",
       "words": [
         {
-          "text": "mouse",
-          "kind": "word"
-        },
-        {
           "text": "snake",
           "kind": "word"
         },
         {
+          "text": "mouse",
+          "kind": "word"
+        },
+        {
+          "text": "rabbit",
+          "kind": "word"
+        },
+        {
           "text": "cat",
-          "kind": "word"
-        },
-        {
-          "text": "pony",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "birds",
-      "label": "BIRDS",
-      "words": [
-        {
-          "text": "robin",
-          "kind": "word"
-        },
-        {
-          "text": "duck",
-          "kind": "word"
-        },
-        {
-          "text": "turkey",
-          "kind": "word"
-        },
-        {
-          "text": "eagle",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "vehicles",
-      "label": "VEHICLES",
-      "words": [
-        {
-          "text": "bike",
-          "kind": "word"
-        },
-        {
-          "text": "boat",
-          "kind": "word"
-        },
-        {
-          "text": "trucks",
-          "kind": "word"
-        },
-        {
-          "text": "Subway",
           "kind": "word"
         }
       ]

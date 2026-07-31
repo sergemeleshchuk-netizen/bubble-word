@@ -4,73 +4,73 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "storage-containers",
-      "name": "Containers",
+      "id": "car",
+      "name": "Car",
       "words": [
-        "bin",
-        "barrel",
-        "bucket",
-        "chest"
+        "transmission",
+        "wheels",
+        "toyota",
+        "tire"
+      ]
+    },
+    {
+      "id": "kitchen-tools",
+      "name": "Kitchen Tools",
+      "words": [
+        "pan",
+        "plate",
+        "pot",
+        "fork"
       ]
     },
     {
       "id": "school-supplies",
       "name": "School Supplies",
       "words": [
-        "protractor",
-        "textbook",
+        "glue",
+        "ruler",
         "pencil",
-        "folder"
+        "textbook"
       ]
     },
     {
-      "id": "car-parts",
-      "name": "Car Parts",
+      "id": "colors",
+      "name": "Colors",
       "words": [
-        "mirror",
-        "horn",
-        "battery",
-        "brake"
+        "purple",
+        "gray",
+        "olive",
+        "pink"
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Desserts",
+      "words": [
+        "candy",
+        "pie",
+        "cake",
+        "cookie"
       ]
     },
     {
       "id": "footwear",
       "name": "Footwear",
       "words": [
-        "oxford",
         "pump",
-        "boot",
-        "flat"
+        "oxford",
+        "boots",
+        "brogue"
       ]
     },
     {
       "id": "pets",
       "name": "Pets",
       "words": [
-        "mouse",
         "snake",
-        "cat",
-        "pony"
-      ]
-    },
-    {
-      "id": "birds",
-      "name": "Birds",
-      "words": [
-        "robin",
-        "duck",
-        "turkey",
-        "eagle"
-      ]
-    },
-    {
-      "id": "vehicles",
-      "name": "Vehicles",
-      "words": [
-        "bike",
-        "boat",
-        "trucks",
-        "subway"
+        "mouse",
+        "rabbit",
+        "cat"
       ]
     }
   ],

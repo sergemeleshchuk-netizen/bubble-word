@@ -14,46 +14,46 @@
     },
     "categories": [
       {
-        "key": "ice_cream_flavors",
-        "label": "ICE CREAM",
-        "rule": "Flavors of ice cream sold in American shops",
-        "theme": "food",
+        "key": "theater_roles",
+        "label": "THEATER ROLES",
+        "rule": "What belongs to the group «Theater Roles» as used in the original game",
+        "theme": "misc",
         "words": [
           {
-            "text": "banana",
+            "text": "producer",
             "kind": "word",
-            "zipf": 4,
+            "zipf": 4.44,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.74
+          },
+          {
+            "text": "actor",
+            "kind": "word",
+            "zipf": 4.65,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.79
+          },
+          {
+            "text": "crew",
+            "kind": "word",
+            "zipf": 4.7,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.8
           },
           {
-            "text": "mint",
+            "text": "dresser",
             "kind": "word",
-            "zipf": 3.92,
+            "zipf": 3.36,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "lemon",
-            "kind": "word",
-            "zipf": 4.1,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "peach",
-            "kind": "word",
-            "zipf": 3.77,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.46
           }
         ],
         "metaDepth": 0,
@@ -61,46 +61,46 @@
         "isQuickwin": true
       },
       {
-        "key": "bathroom_items",
-        "label": "BATHROOM ITEMS",
-        "rule": "Objects normally found in a home bathroom",
-        "theme": "home",
+        "key": "classroom_things",
+        "label": "CLASSROOM THINGS",
+        "rule": "Things found in a school classroom",
+        "theme": "education",
         "words": [
           {
-            "text": "tissue",
+            "text": "clock",
             "kind": "word",
-            "zipf": 4.32,
+            "zipf": 4.43,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "toilet",
+            "text": "flag",
             "kind": "word",
-            "zipf": 4.31,
+            "zipf": 4.58,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "sink",
+            "text": "globe",
             "kind": "word",
-            "zipf": 4.21,
+            "zipf": 4.28,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "curtain",
+            "text": "bell",
             "kind": "word",
-            "zipf": 3.86,
+            "zipf": 4.59,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           }
         ],
         "metaDepth": 0,
@@ -141,13 +141,60 @@
             "obviousness": 0.8
           },
           {
-            "text": "shapes",
+            "text": "marker",
             "kind": "word",
-            "zipf": 3.99,
+            "zipf": 3.87,
             "frequencyUnknown": false,
             "relation": "found_in",
-            "fit": 0.92,
-            "obviousness": 0.68
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "sandwich_fillings",
+        "label": "SANDWICH FILLINGS",
+        "rule": "Things commonly put inside a sandwich",
+        "theme": "food",
+        "words": [
+          {
+            "text": "chicken",
+            "kind": "word",
+            "zipf": 4.63,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mayo",
+            "kind": "word",
+            "zipf": 3.72,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mustard",
+            "kind": "word",
+            "zipf": 3.69,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "tuna",
+            "kind": "word",
+            "zipf": 3.64,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
           }
         ],
         "metaDepth": 0,
@@ -161,15 +208,6 @@
         "theme": "sports",
         "words": [
           {
-            "text": "fishing",
-            "kind": "word",
-            "zipf": 4.47,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
             "text": "hunting",
             "kind": "word",
             "zipf": 4.42,
@@ -179,18 +217,27 @@
             "obviousness": 0.85
           },
           {
-            "text": "camping",
+            "text": "climbing",
             "kind": "word",
-            "zipf": 4,
+            "zipf": 4.12,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.85
           },
           {
-            "text": "climbing",
+            "text": "fishing",
             "kind": "word",
-            "zipf": 4.12,
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "sailing",
+            "kind": "word",
+            "zipf": 3.99,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -208,13 +255,22 @@
         "theme": "materials",
         "words": [
           {
-            "text": "concrete",
+            "text": "brick",
             "kind": "word",
-            "zipf": 4.44,
+            "zipf": 4.25,
             "frequencyUnknown": false,
             "relation": "made_of",
             "fit": 0.97,
             "obviousness": 0.85
+          },
+          {
+            "text": "timber",
+            "kind": "word",
+            "zipf": 4.01,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.63
           },
           {
             "text": "vinyl",
@@ -226,18 +282,9 @@
             "obviousness": 0.85
           },
           {
-            "text": "brick",
+            "text": "steel",
             "kind": "word",
-            "zipf": 4.25,
-            "frequencyUnknown": false,
-            "relation": "made_of",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "aluminum",
-            "kind": "word",
-            "zipf": 4.01,
+            "zipf": 4.71,
             "frequencyUnknown": false,
             "relation": "made_of",
             "fit": 0.97,
@@ -255,15 +302,6 @@
         "theme": "medicine",
         "words": [
           {
-            "text": "burn",
-            "kind": "word",
-            "zipf": 4.53,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
             "text": "strain",
             "kind": "word",
             "zipf": 4.15,
@@ -273,9 +311,9 @@
             "obviousness": 0.85
           },
           {
-            "text": "cut",
+            "text": "burn",
             "kind": "word",
-            "zipf": 5.24,
+            "zipf": 4.53,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -285,6 +323,15 @@
             "text": "fracture",
             "kind": "word",
             "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "break",
+            "kind": "word",
+            "zipf": 5.18,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -302,7 +349,7 @@
         "theme": "home",
         "words": [
           {
-            "text": "tire",
+            "text": "shelf",
             "kind": "word",
             "zipf": 4.02,
             "frequencyUnknown": false,
@@ -311,9 +358,9 @@
             "obviousness": 0.8
           },
           {
-            "text": "toolbox",
+            "text": "ladder",
             "kind": "word",
-            "zipf": 2.99,
+            "zipf": 4.03,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -329,9 +376,9 @@
             "obviousness": 0.8
           },
           {
-            "text": "shelf",
+            "text": "wheelbarrow",
             "kind": "word",
-            "zipf": 4.02,
+            "zipf": 2.66,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -343,46 +390,46 @@
         "isQuickwin": false
       },
       {
-        "key": "home_rooms",
-        "label": "HOUSE ROOMS",
-        "rule": "Rooms and spaces inside an ordinary house",
+        "key": "cleaning_supplies",
+        "label": "CLEANING SUPPLIES",
+        "rule": "Tools and products used to clean a house",
         "theme": "home",
         "words": [
           {
-            "text": "basement",
+            "text": "polish",
             "kind": "word",
-            "zipf": 4.18,
+            "zipf": 4.29,
             "frequencyUnknown": false,
-            "relation": "part_of",
+            "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "bedroom",
+            "text": "bucket",
             "kind": "word",
-            "zipf": 4.46,
+            "zipf": 4.07,
             "frequencyUnknown": false,
-            "relation": "part_of",
+            "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "garage",
+            "text": "vacuum",
             "kind": "word",
-            "zipf": 4.25,
+            "zipf": 4.09,
             "frequencyUnknown": false,
-            "relation": "part_of",
+            "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           },
           {
-            "text": "den",
+            "text": "rag",
             "kind": "word",
-            "zipf": 4.01,
+            "zipf": 3.55,
             "frequencyUnknown": false,
-            "relation": "part_of",
+            "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.9
+            "obviousness": 0.88
           }
         ],
         "metaDepth": 0,
@@ -390,91 +437,44 @@
         "isQuickwin": true
       },
       {
-        "key": "taste_words",
-        "label": "TASTE WORDS",
-        "rule": "Words describing how food tastes",
-        "theme": "descriptive",
+        "key": "wild_west",
+        "label": "WILD WEST",
+        "rule": "Things associated with the American Old West",
+        "theme": "history",
         "words": [
           {
-            "text": "bitter",
+            "text": "horses",
             "kind": "word",
-            "zipf": 4.21,
+            "zipf": 4.45,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.74
           },
           {
-            "text": "sour",
+            "text": "spurs",
             "kind": "word",
-            "zipf": 3.88,
+            "zipf": 4,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "mild",
-            "kind": "word",
-            "zipf": 4.11,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "rich",
-            "kind": "word",
-            "zipf": 4.91,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "flying_animals",
-        "label": "FLYING ANIMALS",
-        "rule": "Animals that can fly under their own power",
-        "theme": "animals",
-        "words": [
-          {
-            "text": "bat",
-            "kind": "word",
-            "zipf": 4.3,
-            "frequencyUnknown": false,
-            "relation": "has_property",
-            "fit": 1,
-            "obviousness": 0.9
-          },
-          {
-            "text": "swan",
-            "kind": "word",
-            "zipf": 3.84,
-            "frequencyUnknown": false,
-            "relation": "has_property",
+            "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           },
           {
-            "text": "goose",
+            "text": "Cowboys",
             "kind": "word",
-            "zipf": 3.84,
+            "zipf": 4.03,
             "frequencyUnknown": false,
-            "relation": "has_property",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.63
           },
           {
-            "text": "hawk",
+            "text": "wagon",
             "kind": "word",
-            "zipf": 3.81,
+            "zipf": 3.9,
             "frequencyUnknown": false,
-            "relation": "has_property",
+            "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.85
           }
@@ -502,12 +502,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generated_at": "2026-07-31T14:57:01.075Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "9b8eb6f9c03c9a84a1aae701ff1f7b93c7b6b4ecbde4b558ef8ec8dcec1c9ef4",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "d42dfc6e16234ceb57bb87ae2da37fa8149cc9c8d869854e498b7dbad3a31c2d",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -531,7 +531,7 @@
     "moveLimitK": 1.35
   },
   "scoring": {
-    "difficulty": 5,
+    "difficulty": 4.5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 3.6359999999999997,
@@ -545,7 +545,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 1.2,
+        "смежность категорий": 0.8,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -556,7 +556,7 @@
       "totals": {
         "base": 3.7533999999999996,
         "declared": -0.6,
-        "semantic": 1.2,
+        "semantic": 0.8,
         "mechanical": 0.6428571428571427
       }
     },
@@ -564,19 +564,19 @@
       "40 пузырей на старте при 10 категориях",
       "1 редких слов, из них 0 очень редких",
       "9 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "3 пар категорий из одной тематической сферы",
+      "2 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 41 при минимуме 30 (K = 1.35)"
     ],
     "interest": 7,
     "interest_breakdown": {
-      "clarity": 2.31,
+      "clarity": 2.29,
       "variety": 2.5,
       "aha": 0,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.31: узнаваемых слов 100%, средняя очевидность связи 0.83",
+      "Clarity 2.29: узнаваемых слов 100%, средняя очевидность связи 0.81",
       "Variety 2.50: 5 типов связи, 8 тематических сфер",
       "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
       "Freshness 2.05: новых для пакета слов 98%"
@@ -661,7 +661,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 9: ice_cream_flavors, bathroom_items, art_class_things, camping_and_outdoors, building_materials, injuries, home_rooms, taste_words, flying_animals"
+        "detail": "категорий быстрой победы 9: theater_roles, classroom_things, art_class_things, sandwich_fillings, camping_and_outdoors, building_materials, injuries, cleaning_supplies, wild_west"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -715,7 +715,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.15 (цель декады 4.35), p25 4.00 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.25 (цель декады 4.35), p25 4.00 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",

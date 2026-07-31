@@ -10,89 +10,45 @@
   },
   "categories": [
     {
-      "key": "color_words_advanced",
-      "label": "SHADES OF COLOR",
+      "key": "emergency_services",
+      "label": "EMERGENCY SERVICES",
       "words": [
         {
-          "text": "olive",
+          "text": "ambulance",
           "kind": "word"
         },
         {
-          "text": "amber",
+          "text": "dispatch",
           "kind": "word"
         },
         {
-          "text": "coral",
+          "text": "hospital",
           "kind": "word"
         },
         {
-          "text": "ivory",
+          "text": "Ranger",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "furniture",
-      "label": "FURNITURE",
+      "key": "birds",
+      "label": "BIRDS",
       "words": [
         {
-          "text": "bench",
+          "text": "robin",
           "kind": "word"
         },
         {
-          "text": "couch",
+          "text": "jay",
           "kind": "word"
         },
         {
-          "text": "sofa",
+          "text": "eagle",
           "kind": "word"
         },
         {
-          "text": "wardrobe",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "hot_drinks",
-      "label": "HOT DRINKS",
-      "words": [
-        {
-          "text": "tea",
-          "kind": "word"
-        },
-        {
-          "text": "coffee",
-          "kind": "word"
-        },
-        {
-          "text": "cocoa",
-          "kind": "word"
-        },
-        {
-          "text": "cider",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "classroom_things",
-      "label": "CLASSROOM THINGS",
-      "words": [
-        {
-          "text": "globe",
-          "kind": "word"
-        },
-        {
-          "text": "desk",
-          "kind": "word"
-        },
-        {
-          "text": "map",
-          "kind": "word"
-        },
-        {
-          "text": "chair",
+          "text": "duck",
           "kind": "word"
         }
       ]
@@ -102,19 +58,41 @@
       "label": "JEWELRY",
       "words": [
         {
-          "text": "chain",
-          "kind": "word"
-        },
-        {
           "text": "charm",
           "kind": "word"
         },
         {
-          "text": "ring",
+          "text": "chain",
           "kind": "word"
         },
         {
           "text": "stud",
+          "kind": "word"
+        },
+        {
+          "text": "bracelet",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "breakfast_foods",
+      "label": "BREAKFAST FOODS",
+      "words": [
+        {
+          "text": "ham",
+          "kind": "word"
+        },
+        {
+          "text": "honey",
+          "kind": "word"
+        },
+        {
+          "text": "juice",
+          "kind": "word"
+        },
+        {
+          "text": "bacon",
           "kind": "word"
         }
       ]
@@ -124,85 +102,107 @@
       "label": "TEAM SPORTS",
       "words": [
         {
-          "text": "rugby",
-          "kind": "word"
-        },
-        {
-          "text": "baseball",
-          "kind": "word"
-        },
-        {
           "text": "hockey",
+          "kind": "word"
+        },
+        {
+          "text": "rugby",
           "kind": "word"
         },
         {
           "text": "cricket",
           "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "baby_things",
-      "label": "BABY THINGS",
-      "words": [
-        {
-          "text": "swing",
-          "kind": "word"
         },
         {
-          "text": "formula",
-          "kind": "word"
-        },
-        {
-          "text": "bib",
-          "kind": "word"
-        },
-        {
-          "text": "blanket",
+          "text": "baseball",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "medical_jobs",
-      "label": "MEDICAL JOBS",
+      "key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
       "words": [
         {
-          "text": "nurse",
+          "text": "guitar",
           "kind": "word"
         },
         {
-          "text": "surgeon",
+          "text": "piano",
           "kind": "word"
         },
         {
-          "text": "therapist",
+          "text": "drum",
           "kind": "word"
         },
         {
-          "text": "dentist",
+          "text": "organ",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "pizza_toppings",
-      "label": "PIZZA TOPPINGS",
+      "key": "christmas_things",
+      "label": "CHRISTMAS THINGS",
       "words": [
         {
-          "text": "egg",
+          "text": "carol",
           "kind": "word"
         },
         {
-          "text": "pepper",
+          "text": "tinsel",
           "kind": "word"
         },
         {
-          "text": "chicken",
+          "text": "lights",
           "kind": "word"
         },
         {
-          "text": "ham",
+          "text": "gift",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "body_parts",
+      "label": "BODY PARTS",
+      "words": [
+        {
+          "text": "knee",
+          "kind": "word"
+        },
+        {
+          "text": "fingers",
+          "kind": "word"
+        },
+        {
+          "text": "tongue",
+          "kind": "word"
+        },
+        {
+          "text": "bones",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "bureau",
+          "kind": "word"
+        },
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "couch",
           "kind": "word"
         }
       ]

@@ -4,93 +4,93 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "color-words-advanced",
-      "name": "Shades Of Color",
+      "id": "emergency-services",
+      "name": "Emergency Services",
       "words": [
-        "olive",
-        "amber",
-        "coral",
-        "ivory"
+        "ambulance",
+        "dispatch",
+        "hospital",
+        "ranger"
       ]
     },
     {
-      "id": "furniture",
-      "name": "Furniture",
+      "id": "birds",
+      "name": "Birds",
       "words": [
-        "bench",
-        "couch",
-        "sofa",
-        "wardrobe"
-      ]
-    },
-    {
-      "id": "hot-drinks",
-      "name": "Hot Drinks",
-      "words": [
-        "tea",
-        "coffee",
-        "cocoa",
-        "cider"
-      ]
-    },
-    {
-      "id": "classroom-things",
-      "name": "Classroom Things",
-      "words": [
-        "globe",
-        "desk",
-        "map",
-        "chair"
+        "robin",
+        "jay",
+        "eagle",
+        "duck"
       ]
     },
     {
       "id": "jewelry",
       "name": "Jewelry",
       "words": [
-        "chain",
         "charm",
-        "ring",
-        "stud"
+        "chain",
+        "stud",
+        "bracelet"
+      ]
+    },
+    {
+      "id": "breakfast-foods",
+      "name": "Breakfast Foods",
+      "words": [
+        "ham",
+        "honey",
+        "juice",
+        "bacon"
       ]
     },
     {
       "id": "team-sports",
       "name": "Team Sports",
       "words": [
-        "rugby",
-        "baseball",
         "hockey",
-        "cricket"
+        "rugby",
+        "cricket",
+        "baseball"
       ]
     },
     {
-      "id": "baby-things",
-      "name": "Baby Things",
+      "id": "musical-instruments",
+      "name": "Musical Instruments",
       "words": [
-        "swing",
-        "formula",
-        "bib",
-        "blanket"
+        "guitar",
+        "piano",
+        "drum",
+        "organ"
       ]
     },
     {
-      "id": "medical-jobs",
-      "name": "Medical Jobs",
+      "id": "christmas-things",
+      "name": "Christmas Things",
       "words": [
-        "nurse",
-        "surgeon",
-        "therapist",
-        "dentist"
+        "carol",
+        "tinsel",
+        "lights",
+        "gift"
       ]
     },
     {
-      "id": "pizza-toppings",
-      "name": "Pizza Toppings",
+      "id": "body-parts",
+      "name": "Body Parts",
       "words": [
-        "egg",
-        "pepper",
-        "chicken",
-        "ham"
+        "knee",
+        "fingers",
+        "tongue",
+        "bones"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture",
+      "words": [
+        "desk",
+        "bureau",
+        "bench",
+        "couch"
       ]
     }
   ],

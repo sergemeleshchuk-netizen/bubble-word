@@ -4,93 +4,93 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "rodents",
-      "name": "Rodents",
+      "id": "hats",
+      "name": "Hats",
       "words": [
-        "rat",
-        "chipmunk",
-        "beaver",
-        "squirrel"
+        "cap",
+        "helmet",
+        "derby",
+        "panama"
       ]
     },
     {
-      "id": "pet-store",
-      "name": "Pet Store",
+      "id": "costume-party",
+      "name": "Costume Party",
       "words": [
-        "rodents",
-        "pets",
-        "cage",
-        "birds"
+        "hats",
+        "cape",
+        "mask",
+        "superheroes"
       ]
     },
     {
-      "id": "joining-actions",
-      "name": "Joining Actions",
+      "id": "initials-and-titles",
+      "name": "Name Parts",
       "words": [
-        "tape",
-        "clip",
-        "zip",
-        "glue"
+        "nickname",
+        "junior",
+        "initial",
+        "senior"
       ]
     },
     {
-      "id": "sandwich-fillings",
-      "name": "Sandwich Fillings",
+      "id": "pizza-toppings",
+      "name": "Pizza Toppings",
       "words": [
-        "mayo",
-        "jelly",
-        "tomato",
-        "onion"
+        "onion",
+        "garlic",
+        "pepper",
+        "sausage"
+      ]
+    },
+    {
+      "id": "car-parts",
+      "name": "Car Parts",
+      "words": [
+        "battery",
+        "horn",
+        "trunk",
+        "gear"
+      ]
+    },
+    {
+      "id": "flying-animals",
+      "name": "Flying Animals",
+      "words": [
+        "bat",
+        "hawk",
+        "falcon",
+        "swan"
+      ]
+    },
+    {
+      "id": "town-places",
+      "name": "Town Places",
+      "words": [
+        "gym",
+        "jail",
+        "clinic",
+        "stadium"
       ]
     },
     {
       "id": "sea-shore-things",
       "name": "Beach Things",
       "words": [
-        "shell",
+        "wave",
         "sand",
-        "cooler",
-        "wave"
+        "shell",
+        "cooler"
       ]
     },
     {
-      "id": "tennis-words",
-      "name": "Tennis Words",
+      "id": "makeup",
+      "name": "Makeup",
       "words": [
-        "rally",
-        "fault",
-        "ace",
-        "net"
-      ]
-    },
-    {
-      "id": "harbor-things",
-      "name": "Harbor Things",
-      "words": [
-        "anchor",
-        "warehouse",
-        "dock",
-        "rope"
-      ]
-    },
-    {
-      "id": "bedroom-things",
-      "name": "Bedroom Things",
-      "words": [
-        "sheet",
-        "closet",
-        "lamp",
-        "pillow"
-      ]
-    },
-    {
-      "id": "rocks-and-minerals",
-      "name": "Rocks And Minerals",
-      "words": [
-        "coal",
-        "granite",
-        "limestone",
-        "slate"
+        "powder",
+        "mirror",
+        "foundation",
+        "bronzer"
       ]
     }
   ],

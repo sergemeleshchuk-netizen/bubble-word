@@ -14,46 +14,375 @@
     },
     "categories": [
       {
-        "key": "color_words_advanced",
-        "label": "SHADES OF COLOR",
-        "rule": "Words for particular shades of color",
-        "theme": "art",
+        "key": "emergency_services",
+        "label": "EMERGENCY SERVICES",
+        "rule": "Public services that respond to emergencies",
+        "theme": "law",
         "words": [
           {
-            "text": "olive",
+            "text": "ambulance",
             "kind": "word",
-            "zipf": 4.09,
+            "zipf": 4.06,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "dispatch",
+            "kind": "word",
+            "zipf": 3.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "hospital",
+            "kind": "word",
+            "zipf": 5.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Ranger",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "birds",
+        "label": "BIRDS",
+        "rule": "Bird species an average American can name",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "robin",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "jay",
+            "kind": "word",
+            "zipf": 4.38,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.72
           },
           {
-            "text": "amber",
+            "text": "eagle",
             "kind": "word",
-            "zipf": 3.97,
+            "zipf": 4.13,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "duck",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "jewelry",
+        "label": "JEWELRY",
+        "rule": "Decorative items worn on the body as jewelry",
+        "theme": "clothing",
+        "words": [
+          {
+            "text": "charm",
+            "kind": "word",
+            "zipf": 4.12,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "chain",
+            "kind": "word",
+            "zipf": 4.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "stud",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "bracelet",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "breakfast_foods",
+        "label": "BREAKFAST FOODS",
+        "rule": "Foods typically eaten at breakfast in the United States",
+        "theme": "food",
+        "words": [
+          {
+            "text": "ham",
+            "kind": "word",
+            "zipf": 4.12,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "honey",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.72
           },
           {
-            "text": "coral",
+            "text": "juice",
             "kind": "word",
-            "zipf": 3.86,
+            "zipf": 4.36,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.72
           },
           {
-            "text": "ivory",
+            "text": "bacon",
             "kind": "word",
-            "zipf": 3.85,
+            "zipf": 4.15,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "team_sports",
+        "label": "TEAM SPORTS",
+        "rule": "Sports played by two opposing teams",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "hockey",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "rugby",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cricket",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "baseball",
+            "kind": "word",
+            "zipf": 4.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "musical_instruments",
+        "label": "MUSICAL INSTRUMENTS",
+        "rule": "Instruments played to produce music",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "guitar",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "piano",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "drum",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "organ",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "christmas_things",
+        "label": "CHRISTMAS THINGS",
+        "rule": "Things associated with an American Christmas",
+        "theme": "time",
+        "words": [
+          {
+            "text": "carol",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "tinsel",
+            "kind": "word",
+            "zipf": 2.65,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "lights",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "gift",
+            "kind": "word",
+            "zipf": 4.78,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "body_parts",
+        "label": "BODY PARTS",
+        "rule": "External parts of the human body",
+        "theme": "body",
+        "words": [
+          {
+            "text": "knee",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "fingers",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.75
+          },
+          {
+            "text": "tongue",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.72
+          },
+          {
+            "text": "bones",
+            "kind": "word",
+            "zipf": 4.32,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.71
           }
         ],
         "metaDepth": 0,
@@ -66,6 +395,24 @@
         "rule": "Movable household furniture",
         "theme": "home",
         "words": [
+          {
+            "text": "desk",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "bureau",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.73
+          },
           {
             "text": "bench",
             "kind": "word",
@@ -83,353 +430,6 @@
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.92
-          },
-          {
-            "text": "sofa",
-            "kind": "word",
-            "zipf": 3.81,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          },
-          {
-            "text": "wardrobe",
-            "kind": "word",
-            "zipf": 3.8,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "hot_drinks",
-        "label": "HOT DRINKS",
-        "rule": "Drinks normally served hot",
-        "theme": "food",
-        "words": [
-          {
-            "text": "tea",
-            "kind": "word",
-            "zipf": 4.73,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "coffee",
-            "kind": "word",
-            "zipf": 4.86,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "cocoa",
-            "kind": "word",
-            "zipf": 3.64,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "cider",
-            "kind": "word",
-            "zipf": 3.5,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "classroom_things",
-        "label": "CLASSROOM THINGS",
-        "rule": "Things found in a school classroom",
-        "theme": "education",
-        "words": [
-          {
-            "text": "globe",
-            "kind": "word",
-            "zipf": 4.28,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "desk",
-            "kind": "word",
-            "zipf": 4.43,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "map",
-            "kind": "word",
-            "zipf": 4.76,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "chair",
-            "kind": "word",
-            "zipf": 4.69,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "jewelry",
-        "label": "JEWELRY",
-        "rule": "Decorative items worn on the body as jewelry",
-        "theme": "clothing",
-        "words": [
-          {
-            "text": "chain",
-            "kind": "word",
-            "zipf": 4.65,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "charm",
-            "kind": "word",
-            "zipf": 4.12,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "ring",
-            "kind": "word",
-            "zipf": 4.81,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 1,
-            "obviousness": 0.98
-          },
-          {
-            "text": "stud",
-            "kind": "word",
-            "zipf": 3.74,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "team_sports",
-        "label": "TEAM SPORTS",
-        "rule": "Sports played by two opposing teams",
-        "theme": "sports",
-        "words": [
-          {
-            "text": "rugby",
-            "kind": "word",
-            "zipf": 4.4,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          },
-          {
-            "text": "baseball",
-            "kind": "word",
-            "zipf": 4.54,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          },
-          {
-            "text": "hockey",
-            "kind": "word",
-            "zipf": 4.42,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          },
-          {
-            "text": "cricket",
-            "kind": "word",
-            "zipf": 4.39,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "baby_things",
-        "label": "BABY THINGS",
-        "rule": "Things used to care for a baby",
-        "theme": "home",
-        "words": [
-          {
-            "text": "swing",
-            "kind": "word",
-            "zipf": 4.34,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "formula",
-            "kind": "word",
-            "zipf": 4.45,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "bib",
-            "kind": "word",
-            "zipf": 2.97,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "blanket",
-            "kind": "word",
-            "zipf": 4.07,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.82
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "medical_jobs",
-        "label": "MEDICAL JOBS",
-        "rule": "Jobs held by people who treat patients or work in healthcare",
-        "theme": "jobs",
-        "words": [
-          {
-            "text": "nurse",
-            "kind": "word",
-            "zipf": 4.4,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "surgeon",
-            "kind": "word",
-            "zipf": 4.13,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "therapist",
-            "kind": "word",
-            "zipf": 3.97,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "dentist",
-            "kind": "word",
-            "zipf": 3.86,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "pizza_toppings",
-        "label": "PIZZA TOPPINGS",
-        "rule": "Ingredients commonly put on top of a pizza",
-        "theme": "food",
-        "words": [
-          {
-            "text": "egg",
-            "kind": "word",
-            "zipf": 4.46,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "pepper",
-            "kind": "word",
-            "zipf": 4.14,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "chicken",
-            "kind": "word",
-            "zipf": 4.63,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "ham",
-            "kind": "word",
-            "zipf": 4.12,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
           }
         ],
         "metaDepth": 0,
@@ -437,16 +437,7 @@
         "isQuickwin": true
       }
     ],
-    "traps": [
-      {
-        "word": "olive",
-        "home": "color_words_advanced",
-        "decoy": "pizza_toppings",
-        "homeObviousness": 0.72,
-        "decoyFit": 0.97,
-        "decoyObviousness": 0.85
-      }
-    ],
+    "traps": [],
     "halves": [],
     "modifiers": {
       "chains": [],
@@ -455,12 +446,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generated_at": "2026-07-31T14:57:01.074Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "9ec46e2207958963da96816439a62d15a3949cff39ec3fdb98cf612f7b8cea2d",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "a54fbf60f500d97b8981c6a539439ad2d857506d1712be5b9908db2e88926c58",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -484,7 +475,7 @@
     "moveLimitK": 1.35
   },
   "scoring": {
-    "difficulty": 4,
+    "difficulty": 3.5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 3.2723999999999998,
@@ -498,7 +489,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.8,
+        "смежность категорий": 0,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -509,7 +500,7 @@
       "totals": {
         "base": 3.3897999999999997,
         "declared": -0.6,
-        "semantic": 0.8,
+        "semantic": 0,
         "mechanical": 0.6428571428571427
       }
     },
@@ -517,20 +508,19 @@
       "36 пузырей на старте при 9 категориях",
       "1 редких слов, из них 0 очень редких",
       "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "2 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 37 при минимуме 27 (K = 1.35)"
     ],
     "interest": 6,
     "interest_breakdown": {
       "clarity": 2.35,
-      "variety": 1.73,
+      "variety": 1.38,
       "aha": 0,
       "freshness": 2.05
     },
     "interest_explanation": [
       "Clarity 2.35: узнаваемых слов 100%, средняя очевидность связи 0.87",
-      "Variety 1.73: 3 типов связи, 7 тематических сфер, но 67% категорий однотипны",
+      "Variety 1.38: 3 типов связи, 9 тематических сфер, но 89% категорий однотипны",
       "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
       "Freshness 2.05: новых для пакета слов 100%"
     ]
@@ -614,7 +604,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 8: color_words_advanced, furniture, hot_drinks, classroom_things, jewelry, team_sports, medical_jobs, pizza_toppings"
+        "detail": "категорий быстрой победы 8: emergency_services, birds, jewelry, breakfast_foods, team_sports, musical_instruments, body_parts, furniture"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -668,7 +658,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.28 (цель декады 4.35), p25 3.97 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.33 (цель декады 4.35), p25 4.12 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -700,28 +690,14 @@
         "index": 0,
         "outcome": "rejected",
         "stage": "единственность решения",
-        "reason": "найдено две полные раскладки: слова двоятся между weather_science и furniture",
+        "reason": "найдено две полные раскладки: слова двоятся между snake и furniture",
         "relaxations": []
       },
       {
         "index": 1,
-        "outcome": "rejected",
-        "stage": "единственность решения",
-        "reason": "найдено две полные раскладки: слова двоятся между aircraft и jewelry",
-        "relaxations": []
-      },
-      {
-        "index": 2,
-        "outcome": "rejected",
-        "stage": "единственность решения",
-        "reason": "найдено две полные раскладки: слова двоятся между storms и furniture",
-        "relaxations": []
-      },
-      {
-        "index": 3,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "9 категорий, 0 мета-связей, 1 редких слов, 3 ловушек",
+        "reason": "9 категорий, 0 мета-связей, 1 редких слов, 0 ловушек",
         "relaxations": []
       }
     ]

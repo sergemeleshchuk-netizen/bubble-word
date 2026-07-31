@@ -14,46 +14,93 @@
     },
     "categories": [
       {
-        "key": "girls_names",
-        "label": "GIRLS NAMES",
-        "rule": "Common first names given to girls in the United States",
+        "key": "reading",
+        "label": "READING",
+        "rule": "What belongs to the group «Reading» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "poem",
+            "kind": "word",
+            "zipf": 4.25,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.69
+          },
+          {
+            "text": "magazine",
+            "kind": "word",
+            "zipf": 4.74,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.81
+          },
+          {
+            "text": "index",
+            "kind": "word",
+            "zipf": 4.57,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.77
+          },
+          {
+            "text": "newspaper",
+            "kind": "word",
+            "zipf": 4.6,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.77
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "family_members",
+        "label": "FAMILY MEMBERS",
+        "rule": "Words for members of a family",
         "theme": "people",
         "words": [
           {
-            "text": "Charlotte",
+            "text": "twin",
             "kind": "word",
-            "zipf": 4.22,
+            "zipf": 4.34,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.92
           },
           {
-            "text": "Grace",
+            "text": "cousin",
             "kind": "word",
-            "zipf": 4.56,
+            "zipf": 4.41,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.92
           },
           {
-            "text": "Elizabeth",
+            "text": "grandfather",
             "kind": "word",
-            "zipf": 4.47,
+            "zipf": 4.24,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.92
           },
           {
-            "text": "Rachel",
+            "text": "aunt",
             "kind": "word",
-            "zipf": 4.15,
+            "zipf": 4.16,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.92
           }
         ],
         "metaDepth": 0,
@@ -61,93 +108,187 @@
         "isQuickwin": true
       },
       {
-        "key": "town_places",
-        "label": "TOWN PLACES",
-        "rule": "Public buildings and places found in an ordinary American town",
+        "key": "home_rooms",
+        "label": "HOUSE ROOMS",
+        "rule": "Rooms and spaces inside an ordinary house",
+        "theme": "home",
+        "words": [
+          {
+            "text": "bedroom",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "garage",
+            "kind": "word",
+            "zipf": 4.25,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "den",
+            "kind": "word",
+            "zipf": 4.01,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "closet",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "zoo_animals",
+        "label": "ZOO ANIMALS",
+        "rule": "Animals commonly seen at an American zoo",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "seal",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "monkey",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "tiger",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "bear",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "birthday_things",
+        "label": "BIRTHDAY THINGS",
+        "rule": "Things associated with a birthday celebration",
+        "theme": "time",
+        "words": [
+          {
+            "text": "guest",
+            "kind": "word",
+            "zipf": 4.58,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "hat",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "invitation",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "candle",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "us_states",
+        "label": "US STATES",
+        "rule": "States of the United States of America",
         "theme": "geography",
         "words": [
           {
-            "text": "mall",
-            "kind": "word",
-            "zipf": 4.29,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "stadium",
-            "kind": "word",
-            "zipf": 4.63,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "theater",
-            "kind": "word",
-            "zipf": 4.35,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "pharmacy",
-            "kind": "word",
-            "zipf": 3.87,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.9
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "body_parts",
-        "label": "BODY PARTS",
-        "rule": "External parts of the human body",
-        "theme": "body",
-        "words": [
-          {
-            "text": "knee",
-            "kind": "word",
-            "zipf": 4.33,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "stomach",
-            "kind": "word",
-            "zipf": 4.42,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "finger",
-            "kind": "word",
-            "zipf": 4.48,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "hip",
+            "text": "Georgia",
             "kind": "word",
             "zipf": 4.46,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.95
+            "obviousness": 0.9
+          },
+          {
+            "text": "Oregon",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Iowa",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Alabama",
+            "kind": "word",
+            "zipf": 4.26,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
           }
         ],
         "metaDepth": 0,
@@ -170,15 +311,6 @@
             "obviousness": 0.95
           },
           {
-            "text": "pants",
-            "kind": "word",
-            "zipf": 4.48,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
             "text": "coat",
             "kind": "word",
             "zipf": 4.36,
@@ -188,154 +320,22 @@
             "obviousness": 0.95
           },
           {
-            "text": "skirt",
+            "text": "pants",
             "kind": "word",
-            "zipf": 3.96,
+            "zipf": 4.48,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.95
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "school_places",
-        "label": "SCHOOL PLACES",
-        "rule": "Rooms and places inside a school",
-        "theme": "education",
-        "words": [
-          {
-            "text": "gym",
-            "kind": "word",
-            "zipf": 4.43,
-            "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.88
           },
           {
-            "text": "lab",
+            "text": "gloves",
             "kind": "word",
-            "zipf": 4.42,
+            "zipf": 4.04,
             "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "bathroom",
-            "kind": "word",
-            "zipf": 4.54,
-            "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "classroom",
-            "kind": "word",
-            "zipf": 4.15,
-            "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "party_things",
-        "label": "PARTY THINGS",
-        "rule": "Things found at a birthday party",
-        "theme": "entertainment",
-        "words": [
-          {
-            "text": "candy",
-            "kind": "word",
-            "zipf": 4.29,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "favor",
-            "kind": "word",
-            "zipf": 4.58,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "banner",
-            "kind": "word",
-            "zipf": 4.12,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "invitation",
-            "kind": "word",
-            "zipf": 4.14,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "directions",
-        "label": "DIRECTIONS",
-        "rule": "Words used to give directions",
-        "theme": "geography",
-        "words": [
-          {
-            "text": "beside",
-            "kind": "word",
-            "zipf": 4.19,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "forward",
-            "kind": "word",
-            "zipf": 5.12,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "north",
-            "kind": "word",
-            "zipf": 5.34,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "east",
-            "kind": "word",
-            "zipf": 5.16,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.64
           }
         ],
         "metaDepth": 0,
@@ -345,12 +345,12 @@
     ],
     "traps": [
       {
-        "word": "gym",
-        "home": "school_places",
-        "decoy": "town_places",
-        "homeObviousness": 0.88,
+        "word": "hat",
+        "home": "birthday_things",
+        "decoy": "clothing_items",
+        "homeObviousness": 0.9,
         "decoyFit": 0.97,
-        "decoyObviousness": 0.9
+        "decoyObviousness": 0.95
       }
     ],
     "halves": [],
@@ -361,12 +361,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generated_at": "2026-07-31T14:57:01.075Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
-    "level_spec_hash": "f5a9029134d2ea72eed95e9da15d8af39439cb1f56bcdc3748621afa0859ce44",
-    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
+    "level_spec_hash": "fe3792e57df26f60ae72bc65cda72b41b17606566cb228d2bb2d7a5b8287a2df",
+    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
     "seed": "final-03"
   },
   "plan": {
@@ -390,7 +390,7 @@
     "moveLimitK": 1.6
   },
   "scoring": {
-    "difficulty": 2.5,
+    "difficulty": 2,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 2.5452,
@@ -404,7 +404,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.4,
+        "смежность категорий": 0,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -415,7 +415,7 @@
       "totals": {
         "base": 2.5679,
         "declared": -0.6,
-        "semantic": 0.4,
+        "semantic": 0,
         "mechanical": 0
       }
     },
@@ -423,20 +423,19 @@
       "28 пузырей на старте при 7 категориях",
       "0 редких слов, из них 0 очень редких",
       "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "1 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 34 при минимуме 21 (K = 1.6)"
     ],
     "interest": 6.5,
     "interest_breakdown": {
-      "clarity": 2.39,
-      "variety": 1.89,
+      "clarity": 2.36,
+      "variety": 2.25,
       "aha": 0,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.39: узнаваемых слов 100%, средняя очевидность связи 0.91",
-      "Variety 1.89: 3 типов связи, 6 тематических сфер, но 57% категорий однотипны",
+      "Clarity 2.36: узнаваемых слов 100%, средняя очевидность связи 0.88",
+      "Variety 2.25: 4 типов связи, 7 тематических сфер",
       "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
       "Freshness 2.05: новых для пакета слов 100%"
     ]
@@ -520,7 +519,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 7: girls_names, town_places, body_parts, clothing_items, school_places, party_things, directions"
+        "detail": "категорий быстрой победы 7: reading, family_members, home_rooms, zoo_animals, birthday_things, us_states, clothing_items"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -574,7 +573,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.42 (цель декады 4.35), p25 4.22 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.32 (цель декады 4.35), p25 4.24 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -604,6 +603,13 @@
     "attempts": [
       {
         "index": 0,
+        "outcome": "rejected",
+        "stage": "единственность решения",
+        "reason": "найдено две полные раскладки: слова двоятся между electricity_words и town_places",
+        "relaxations": []
+      },
+      {
+        "index": 1,
         "outcome": "accepted",
         "stage": "готово",
         "reason": "7 категорий, 0 мета-связей, 0 редких слов, 1 ловушек",

@@ -227,6 +227,13 @@ def score(vectors: dict, profiles: dict, word: str, key: str) -> float | None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--memberships", default=str(PIPE / "data" / "membership_candidates.jsonl"))
+    parser.add_argument(
+        "--categories",
+        help="categories.jsonl прогона: метаданные категорий, которых нет в seed. "
+             "Без него у импортированной категории неизвестны очевидность и базовая "
+             "сложность, и политика роняет её пул в hard_only целиком — ровно та "
+             "ошибка, на которую указал аудит.",
+    )
     parser.add_argument("--output", default=str(PIPE / "data" / "review_decisions.csv"))
     parser.add_argument("--preview", action="store_true", help="только показать, не писать файл")
     args = parser.parse_args()
@@ -245,6 +252,20 @@ def main() -> None:
     obvious_category = {s["category_key"]: bool(s.get("approve")) for s in specs}
     category_obviousness = {s["category_key"]: float(s["obviousness"]) for s in specs}
     category_difficulty = {s["category_key"]: float(s["base_difficulty"]) for s in specs}
+
+    # Метаданные категорий прогона. Категории оригинала считаем прозрачными:
+    # это группы живой игры, где игроки их фактически разгадывают. Очевидность
+    # выводится из базовой сложности (проще группа — очевиднее), а не назначается.
+    if args.categories:
+        for line in Path(args.categories).open(encoding="utf-8"):
+            if not line.strip():
+                continue
+            cat = json.loads(line)
+            key = cat["category_key"]
+            difficulty = float(cat.get("base_difficulty") or 0.4)
+            category_difficulty.setdefault(key, difficulty)
+            category_obviousness.setdefault(key, round(max(0.3, 1.0 - difficulty), 2))
+            obvious_category.setdefault(key, True)
     semantic_review = load_semantic_review()
 
     # Слова с разведёнными значениями: у них абсолютный пол не работает, потому что

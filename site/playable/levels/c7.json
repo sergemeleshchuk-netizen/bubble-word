@@ -4,23 +4,23 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "ice-cream-flavors",
-      "name": "Ice Cream",
+      "id": "theater-roles",
+      "name": "Theater Roles",
       "words": [
-        "banana",
-        "mint",
-        "lemon",
-        "peach"
+        "producer",
+        "actor",
+        "crew",
+        "dresser"
       ]
     },
     {
-      "id": "bathroom-items",
-      "name": "Bathroom Items",
+      "id": "classroom-things",
+      "name": "Classroom Things",
       "words": [
-        "tissue",
-        "toilet",
-        "sink",
-        "curtain"
+        "clock",
+        "flag",
+        "globe",
+        "bell"
       ]
     },
     {
@@ -30,77 +30,77 @@
         "patterns",
         "clay",
         "colors",
-        "shapes"
+        "marker"
+      ]
+    },
+    {
+      "id": "sandwich-fillings",
+      "name": "Sandwich Fillings",
+      "words": [
+        "chicken",
+        "mayo",
+        "mustard",
+        "tuna"
       ]
     },
     {
       "id": "camping-and-outdoors",
       "name": "Outdoor Activities",
       "words": [
-        "fishing",
         "hunting",
-        "camping",
-        "climbing"
+        "climbing",
+        "fishing",
+        "sailing"
       ]
     },
     {
       "id": "building-materials",
       "name": "Building Materials",
       "words": [
-        "concrete",
-        "vinyl",
         "brick",
-        "aluminum"
+        "timber",
+        "vinyl",
+        "steel"
       ]
     },
     {
       "id": "injuries",
       "name": "Injuries",
       "words": [
-        "burn",
         "strain",
-        "cut",
-        "fracture"
+        "burn",
+        "fracture",
+        "break"
       ]
     },
     {
       "id": "things-in-a-garage",
       "name": "Garage Things",
       "words": [
-        "tire",
-        "toolbox",
+        "shelf",
+        "ladder",
         "paint",
-        "shelf"
+        "wheelbarrow"
       ]
     },
     {
-      "id": "home-rooms",
-      "name": "House Rooms",
+      "id": "cleaning-supplies",
+      "name": "Cleaning Supplies",
       "words": [
-        "basement",
-        "bedroom",
-        "garage",
-        "den"
+        "polish",
+        "bucket",
+        "vacuum",
+        "rag"
       ]
     },
     {
-      "id": "taste-words",
-      "name": "Taste Words",
+      "id": "wild-west",
+      "name": "Wild West",
       "words": [
-        "bitter",
-        "sour",
-        "mild",
-        "rich"
-      ]
-    },
-    {
-      "id": "flying-animals",
-      "name": "Flying Animals",
-      "words": [
-        "bat",
-        "swan",
-        "goose",
-        "hawk"
+        "horses",
+        "spurs",
+        "cowboys",
+        "wagon"
       ]
     }
   ],
