@@ -17,9 +17,19 @@
 - значений у многозначных слов: **564** (у 222 слов)
 - слов в двух и более категориях: **3466** (35%)
 
-Шесть таблиц: `words` (слова), `word_senses` (значения слов), `categories`
-(категории с правилами), `memberships` (связи слово-категория со статусом),
-`import_runs` и `generation_runs` (журнал: что и откуда загружалось).
+Таблицы:
+
+| таблица | что внутри |
+|---|---|
+| `words` | слова с частотностью |
+| `word_senses` | значения многозначных слов |
+| `categories` | категории с правилом и готовностью (`readiness`) |
+| `memberships` | связи слово-категория: статус, семантика, игровая сложность, риски |
+| `category_conflicts` | пары категорий, которые нельзя ставить в один уровень |
+| `category_pair_groups` | структура парных категорий (OPPOSITES — это пары, а не пул) |
+| `quartets`, `quartet_words` | проверенные игровые четвёрки |
+| `schema_meta` | версия схемы и контента, commit, хеши источников |
+| `import_runs`, `generation_runs` | журнал: что и откуда загружалось |
 
 ## Важно: это снимок, а не рабочая база
 
@@ -33,9 +43,13 @@ tool/word_content_pipeline/database/content.sqlite
 чтобы источником правды были читаемые файлы, а не бинарник. Источник правды:
 
 ```
-tool/word_content_pipeline/data/seed/*.txt        категории и пулы слов
-tool/word_content_pipeline/data/seed/_ambiguous.json   значения многозначных слов
-tool/word_content_pipeline/data/review_decisions.csv   статусы всех связей
+tool/word_content_pipeline/data/seed/*.txt              категории и пулы слов
+tool/word_content_pipeline/data/seed/_ambiguous.json    значения многозначных слов
+tool/word_content_pipeline/data/seed/_sense_map.json    какое значение у какой связи
+tool/word_content_pipeline/data/seed/_semantic_review.csv  семантические решения
+tool/word_content_pipeline/data/seed/_risk_flags.csv    культурные и правовые риски
+tool/word_content_pipeline/data/seed/_category_meta.json   парные категории, запреты
+tool/word_content_pipeline/data/review_decisions.csv    статусы всех связей
 ```
 
 ## Как обновить этот снимок
@@ -44,15 +58,22 @@ tool/word_content_pipeline/data/review_decisions.csv   статусы всех �
 
 ```bash
 .venv/bin/python scripts/build_seed.py                    # собрать JSONL из data/seed
-.venv/bin/python scripts/swow_status.py                   # проставить статусы по SWOW
+.venv/bin/python scripts/swow_status.py                   # проставить статусы связей
 .venv/bin/word-content init-db            --db database/content.sqlite
 .venv/bin/word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
 .venv/bin/word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
 .venv/bin/word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
+.venv/bin/word-content derive-readiness   --db database/content.sqlite
+.venv/bin/word-content derive-conflicts   --db database/content.sqlite --output data/category_conflicts.csv
+.venv/bin/word-content build-quartets     --db database/content.sqlite --output data/quartets.csv
+.venv/bin/word-content stamp-version      --db database/content.sqlite --content-version ГГГГ.ММ.ДД
+.venv/bin/word-content check-integrity    --db database/content.sqlite   # обязательно: ненулевой код = не отдавать
 .venv/bin/python scripts/export_review_pack.py            # обновить эту папку
 ```
 
 Последняя команда пересобирает и снимок базы, и папку `ревью/`.
+`check-integrity` — это критерии приёмки из внешнего аудита в виде кода: если он
+падает, снимок отдавать нельзя.
 
 ## Как посмотреть базу без программиста
 
