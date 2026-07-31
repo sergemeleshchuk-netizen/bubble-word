@@ -13,7 +13,11 @@ HOW TO JUDGE
 4. Check the declared sense: if the reason relies on a different sense than sense_definition, flag it.
 5. Check the scores. fit_score is correctness; obviousness_score is how fast a casual player sees it.
    Overrated obviousness is a common error — correct it downward without changing fit_score.
-6. Use "hard_only" when the membership is correct but too non-obvious for easy levels.
+6. Pick the decision by how a player meets this membership:
+   - "approve"     the sense a player recalls first for this word;
+   - "alternative" correct and recognizable, but not the first sense that comes to mind —
+                   valuable as a trap in normal levels;
+   - "hard_only"   correct, yet a player would never get there unaided — hard levels only.
 7. Use "manual_review" when you genuinely cannot decide from the data given.
 8. Prefer rejecting a doubtful entry over approving it. Do not be generous.
 

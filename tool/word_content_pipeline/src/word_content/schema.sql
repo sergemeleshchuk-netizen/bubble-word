@@ -50,8 +50,14 @@ CREATE TABLE IF NOT EXISTS memberships (
     fit_score         REAL    NOT NULL CHECK (fit_score BETWEEN 0 AND 1),
     obviousness_score REAL    NOT NULL CHECK (obviousness_score BETWEEN 0 AND 1),
     source            TEXT    NOT NULL,
+    -- candidate   — ждёт проверки
+    -- approved    — значение, которое игрок вспоминает первым; годится куда угодно
+    -- alternative — верное и узнаваемое, но не первое значение: материал для ловушек
+    -- hard_only   — верно, но игрок сам не догадается: только сложные уровни
+    -- rejected    — в игру не идёт
     review_status     TEXT    NOT NULL DEFAULT 'candidate'
-                              CHECK (review_status IN ('candidate', 'approved', 'hard_only', 'rejected')),
+                              CHECK (review_status IN
+                                     ('candidate', 'approved', 'alternative', 'hard_only', 'rejected')),
     review_comment    TEXT    NULL,
     risk_flags        TEXT    NULL,
     created_at        TEXT    NOT NULL,

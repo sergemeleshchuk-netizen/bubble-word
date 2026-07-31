@@ -591,7 +591,9 @@ def cmd_generate_word_memberships(
     conn = _open(db)
     try:
         if all_approved_words:
-            word_list = words_with_status(conn, ["approved", "hard_only"], limit=limit)
+            word_list = words_with_status(
+                conn, ["approved", "alternative", "hard_only"], limit=limit
+            )
         elif words:
             word_list = [w.strip() for w in words.split(",") if w.strip()]
             if limit:

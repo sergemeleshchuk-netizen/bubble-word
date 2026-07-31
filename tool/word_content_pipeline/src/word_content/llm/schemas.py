@@ -94,7 +94,9 @@ class AdversarialVerdict(BaseModel):
     model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
 
     membership_id: int
-    recommended_decision: Literal["approve", "hard_only", "reject", "manual_review"]
+    recommended_decision: Literal[
+        "approve", "alternative", "hard_only", "reject", "manual_review"
+    ]
     corrected_fit_score: Score | None = None
     corrected_obviousness_score: Score | None = None
     issues: list[str] = Field(default_factory=list)

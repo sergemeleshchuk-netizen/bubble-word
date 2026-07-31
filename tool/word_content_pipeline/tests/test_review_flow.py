@@ -49,6 +49,37 @@ def test_empty_decision_is_skipped(seeded, tmp_path: Path):
     assert (report.total, report.updated) == (0, 0)
 
 
+def test_alternative_status_is_accepted(seeded, tmp_path: Path):
+    """alternative — верное, но не первое значение: ловушка для обычного уровня."""
+    path = tmp_path / "review.csv"
+    export_review_csv(seeded, path, ["candidate"])
+    rows = _read_csv(path)
+    target = next(r for r in rows if r["category_key"] == "tech_companies")
+    target["decision"] = "alternative"
+    _write_csv(path, rows)
+
+    report = import_review_csv(seeded, path)
+    assert report.rejected == 0
+
+    row = next(
+        r for r in memberships_for_word(seeded, "apple") if r["category_key"] == "tech_companies"
+    )
+    assert row["review_status"] == "alternative"
+
+
+def test_alternative_is_filterable(seeded, tmp_path: Path):
+    """Генератор уровней должен уметь выбрать только ловушки."""
+    seeded.execute(
+        "UPDATE memberships SET review_status = 'alternative' WHERE id = "
+        "(SELECT m.id FROM memberships m JOIN categories c ON c.id = m.category_id "
+        " WHERE c.category_key = 'tech_companies')"
+    )
+    seeded.commit()
+
+    rows = memberships_for_word(seeded, "apple", ["alternative"])
+    assert [r["category_key"] for r in rows] == ["tech_companies"]
+
+
 def test_decision_survives_shifted_membership_id(seeded, tmp_path: Path):
     """id зависит от порядка вставки; решение должно найтись по слову и категории."""
     path = tmp_path / "review.csv"

@@ -16,8 +16,12 @@ from .normalization import (
 
 Score = Annotated[float, Field(ge=0.0, le=1.0)]
 
-REVIEW_STATUSES = ("candidate", "approved", "hard_only", "rejected")
-ReviewStatus = Literal["candidate", "approved", "hard_only", "rejected"]
+# Лестница пригодности связи для уровня:
+#   approved    — значение, которое игрок вспоминает первым (monitor -> COMPUTER PARTS)
+#   alternative — верное и узнаваемое, но не первое (monitor -> HOSPITAL THINGS): ловушка
+#   hard_only   — верно, но сам игрок не догадается (monitor -> LIZARDS)
+REVIEW_STATUSES = ("candidate", "approved", "alternative", "hard_only", "rejected")
+ReviewStatus = Literal["candidate", "approved", "alternative", "hard_only", "rejected"]
 
 RISK_FLAGS = (
     "obscure",
