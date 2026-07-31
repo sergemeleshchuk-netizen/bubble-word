@@ -187,9 +187,51 @@ def build_memberships(specs: list[dict], ambiguous: list[dict]) -> list[dict]:
     return records
 
 
+# Слова-связки не считаются значимыми: "PARTS OF A CAR" — это два слова, а не четыре
+LABEL_CONNECTORS = {
+    "OF", "THE", "A", "AN", "IN", "ON", "AND", "&", "+", "___",
+    "TO", "FOR", "AT", "WITH", "BEFORE", "AFTER", "FROM",
+}
+MAX_LABEL_WORDS = 2
+MAX_LABEL_CONNECTORS = 1  # "___ SAUCE" можно, "PARTS OF A CAR" — уже длинно
+MAX_LABEL_CHARS = 22
+
+
+def significant_words(label: str) -> list[str]:
+    return [w for w in label.split() if w.upper() not in LABEL_CONNECTORS]
+
+
+def connector_count(label: str) -> int:
+    return sum(1 for w in label.split() if w.upper() in LABEL_CONNECTORS)
+
+
 def validate(categories: list[dict], memberships: list[dict], specs: list[dict]) -> list[str]:
-    """Проверки перед записью: дубли, битые ссылки, блок-лист."""
+    """Проверки перед записью: длина названий, дубли, битые ссылки, блок-лист."""
     problems: list[str] = []
+
+    # Название категории показывается игроку на пузыре — оно должно быть коротким
+    seen_labels: dict[str, str] = {}
+    for category in categories:
+        label = category["label"]
+        words = significant_words(label)
+        if len(words) > MAX_LABEL_WORDS:
+            problems.append(
+                f"длинное название {label!r} ({category['category_key']}): "
+                f"{len(words)} значимых слова, разрешено {MAX_LABEL_WORDS}"
+            )
+        if connector_count(label) > MAX_LABEL_CONNECTORS:
+            problems.append(
+                f"название {label!r} ({category['category_key']}): больше одного слова-связки"
+            )
+        if len(label) > MAX_LABEL_CHARS:
+            problems.append(
+                f"название {label!r} ({category['category_key']}) длиннее {MAX_LABEL_CHARS} символов"
+            )
+        if label in seen_labels:
+            problems.append(
+                f"дубль названия {label!r}: {seen_labels[label]} и {category['category_key']}"
+            )
+        seen_labels[label] = category["category_key"]
 
     seen_keys: dict[str, str] = {}
     for spec in specs:

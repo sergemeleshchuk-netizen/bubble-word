@@ -17,13 +17,13 @@ sword, spear, bow, arrow, axe, club, dagger, crossbow, sling, mace, catapult, ja
 pirate_words | PIRATE WORDS | found_in | 0.25 | 0.85 | A | Things and words associated with pirates | $W is associated with pirates
 treasure, map, parrot, plank, ship, cannon, anchor, sword, chest, flag, hook, eyepatch, doubloon, crew, island, rum, compass, mast, spyglass, buccaneer
 
-wild_west | WILD WEST WORDS | found_in | 0.25 | 0.85 | A | Things associated with the American Old West | $W is associated with the American Old West
+wild_west | WILD WEST | found_in | 0.25 | 0.85 | A | Things associated with the American Old West | $W is associated with the American Old West
 cowboy, saloon, sheriff, horse, lasso, spurs, cactus, wagon, revolver, outlaw, ranch, stagecoach, boots, rodeo, gold rush, prairie, marshal, bandit, corral, tumbleweed
 
-egypt_things | ANCIENT EGYPT THINGS | found_in | 0.3 | 0.82 | A | Things associated with ancient Egypt | $W is associated with ancient Egypt
+egypt_things | ANCIENT EGYPT | found_in | 0.3 | 0.82 | A | Things associated with ancient Egypt | $W is associated with ancient Egypt
 pyramid, mummy, pharaoh, sphinx, hieroglyph, tomb, scarab, papyrus, obelisk, Nile, chariot, sarcophagus, temple, scroll, canopic jar
 
-roman_things | ANCIENT ROME THINGS | found_in | 0.3 | 0.78 | A | Things associated with ancient Rome | $W is associated with ancient Rome
+roman_things | ANCIENT ROME | found_in | 0.3 | 0.78 | A | Things associated with ancient Rome | $W is associated with ancient Rome
 colosseum, gladiator, toga, chariot, legion, forum, emperor, aqueduct, senate, arena, centurion, laurel, villa, amphitheater, mosaic
 
 wars | FAMOUS WARS | is_a | 0.3 | 0.8 | AP | Wars widely known from history | $W is a widely known war
@@ -47,17 +47,17 @@ compass, map, sextant, galleon, crew, voyage, colony, trade route, spice, sail, 
 archaeology_words | ARCHAEOLOGY WORDS | found_in | 0.4 | 0.65 | C | Things involved in digging up the past | $W is involved in digging up the past
 dig, artifact, fossil, ruin, excavation, tomb, pottery, bone, site, shard, relic, trowel, layer, carbon dating, skeleton
 
-industrial_revolution | INDUSTRIAL REVOLUTION THINGS | found_in | 0.4 | 0.65 | C | Things associated with the industrial revolution | $W is associated with the industrial revolution
+industrial_revolution | INDUSTRIAL AGE | found_in | 0.4 | 0.65 | C | Things associated with the industrial revolution | $W is associated with the industrial revolution
 factory, steam engine, loom, coal, railroad, mill, smokestack, assembly line, telegraph, canal, foundry, cotton gin, worker, machine
 
-colonial_america | COLONIAL AMERICA THINGS | found_in | 0.4 | 0.65 | C | Things associated with colonial America | $W is associated with colonial America
+colonial_america | COLONIAL AMERICA | found_in | 0.4 | 0.65 | C | Things associated with colonial America | $W is associated with colonial America
 musket, quill, lantern, colony, settler, tavern, churn, pilgrim, bonnet, wagon, tricorn hat, blacksmith, plantation, town crier, spinning wheel
 
-ancient_wonders | WONDERS OF THE WORLD | is_a | 0.4 | 0.68 | AP | Structures known as wonders of the world | $W is known as a wonder of the world
+ancient_wonders | WORLD WONDERS | is_a | 0.4 | 0.68 | AP | Structures known as wonders of the world | $W is known as a wonder of the world
 Great Pyramid, Colossus, Lighthouse, Hanging Gardens, Great Wall, Machu Picchu, Petra, Taj Mahal, Colosseum, Stonehenge, Chichen Itza
 
 historic_ships | FAMOUS SHIPS | is_a | 0.4 | 0.68 | AP | Ships famous from history | $W is a famous ship from history
 Titanic, Mayflower, Santa Maria, Bounty, Victory, Constitution, Ark, Nina, Pinta, Endeavour, Beagle
 
-time_capsule_things | THINGS FROM THE PAST | has_property | 0.4 | 0.65 | C | Everyday objects that are no longer commonly used | $W is no longer commonly used
+time_capsule_things | BYGONE THINGS | has_property | 0.4 | 0.65 | C | Everyday objects that are no longer commonly used | $W is no longer commonly used
 typewriter, quill, oil lamp, butter churn, washboard, icebox, phonograph, telegram, corset, monocle, pocket watch, inkwell, wagon wheel, spinning wheel

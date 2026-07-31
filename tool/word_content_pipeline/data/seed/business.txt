@@ -23,7 +23,7 @@ profit, loss, invoice, contract, client, revenue, expense, budget, merger, start
 office_words | OFFICE WORDS | found_in | 0.25 | 0.82 | A | Things and routines found in an office workplace | $W is part of an office workplace
 cubicle, meeting, memo, deadline, printer, copier, badge, break room, inbox, boss, overtime, shift, desk, calendar, intern, conference call, water cooler, spreadsheet
 
-job_hunting | JOB HUNTING WORDS | found_in | 0.35 | 0.75 | A | Words used when looking for a job | $W is used when looking for a job
+job_hunting | JOB HUNTING | found_in | 0.35 | 0.75 | A | Words used when looking for a job | $W is used when looking for a job
 resume, interview, application, reference, cover letter, offer, hire, salary, position, opening, recruiter, screening, portfolio, contract, benefits, orientation
 
 banking_words | BANKING WORDS | found_in | 0.3 | 0.78 | A | Words used at a bank | $W is used at a bank

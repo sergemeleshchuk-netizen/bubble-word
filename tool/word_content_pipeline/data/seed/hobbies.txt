@@ -2,7 +2,7 @@
 # key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
-collecting_hobbies | THINGS PEOPLE COLLECT | is_a | 0.3 | 0.8 | A | Things people collect as a hobby | $W is collected as a hobby
+collecting_hobbies | COLLECTIBLES | is_a | 0.3 | 0.8 | A | Things people collect as a hobby | $W is collected as a hobby
 stamp, coin, card, doll, comic, record, shell, rock, button, key, magnet, postcard, figurine, badge, marble, thimble, autograph, spoon, matchbook, bottle cap
 
 knitting_words | KNITTING WORDS | found_in | 0.4 | 0.65 | C | Things used in knitting and crochet | $W is used in knitting or crochet
@@ -20,34 +20,34 @@ crossword, jigsaw, sudoku, maze, riddle, word search, rubiks cube, anagram, brai
 chess_words | CHESS WORDS | found_in | 0.35 | 0.75 | A | Pieces and moves in a game of chess | $W is a piece or move in chess
 pawn, rook, knight, bishop, queen, king, castle, check, checkmate, stalemate, gambit, board, capture, en passant, promotion, opening
 
-gardening_hobby | GARDENING HOBBY THINGS | used_in | 0.3 | 0.8 | A | Things a hobby gardener uses | $W is used by a hobby gardener
+gardening_hobby | GARDEN HOBBY | used_in | 0.3 | 0.8 | A | Things a hobby gardener uses | $W is used by a hobby gardener
 seed packet, pot, trowel, gloves, watering can, soil, fertilizer, greenhouse, trellis, pruner, wheelbarrow, hose, compost bin, planter, stake, twine
 
-model_building | MODEL BUILDING THINGS | used_in | 0.4 | 0.68 | C | Things used to build scale models | $W is used to build scale models
+model_building | MODEL KITS | used_in | 0.4 | 0.68 | C | Things used to build scale models | $W is used to build scale models
 glue, paint, kit, decal, tweezers, brush, sandpaper, knife, clamp, putty, base, scale, plastic, instructions
 
 birdwatching | BIRDWATCHING THINGS | used_in | 0.4 | 0.68 | A | Things a birdwatcher uses | $W is used by a birdwatcher
 binoculars, field guide, notebook, feeder, camera, scope, checklist, birdhouse, bird bath, whistle, blind, seed
 
-fishing_hobby | FISHING TRIP THINGS | used_in | 0.3 | 0.8 | A | Things taken on a fishing trip | $W is taken on a fishing trip
+fishing_hobby | FISHING TRIP | used_in | 0.3 | 0.8 | A | Things taken on a fishing trip | $W is taken on a fishing trip
 rod, reel, tackle box, bait, cooler, net, license, boat, waders, hook, line, bucket, lure, hat, sunscreen, stringer
 
 board_game_pieces | GAME PIECES | is_a | 0.35 | 0.75 | A | Pieces and parts used in board games | $W is a piece or part used in board games
 dice, token, card, board, spinner, meeple, chip, tile, pawn, timer, scorepad, marker, cup, rulebook
 
-dance_class | DANCE CLASS THINGS | found_in | 0.35 | 0.75 | A | Things found in a dance class | $W is found in a dance class
+dance_class | DANCE CLASS | found_in | 0.35 | 0.75 | A | Things found in a dance class | $W is found in a dance class
 mirror, barre, leotard, tights, slippers, mat, music, tutu, stage, instructor, stretch, routine, spin, pointe shoe
 
 photography_hobby | PHOTOGRAPHY GEAR | used_in | 0.3 | 0.78 | A | Gear a hobby photographer uses | $W is used by a hobby photographer
 camera, lens, tripod, flash, filter, memory card, strap, bag, battery, remote, reflector, lightbox, hood, backdrop
 
-cooking_hobby | BAKING HOBBY THINGS | used_in | 0.3 | 0.8 | A | Things a home baker uses | $W is used by a home baker
+cooking_hobby | HOME BAKING | used_in | 0.3 | 0.8 | A | Things a home baker uses | $W is used by a home baker
 mixing bowl, whisk, oven, mitt, sheet, rolling pin, measuring cup, sifter, spatula, apron, timer, cooling rack, piping bag, cutter, mold, scale
 
-music_practice | PRACTICING MUSIC THINGS | used_in | 0.35 | 0.75 | A | Things used when practicing an instrument | $W is used when practicing an instrument
+music_practice | MUSIC PRACTICE | used_in | 0.35 | 0.75 | A | Things used when practicing an instrument | $W is used when practicing an instrument
 metronome, sheet music, stand, tuner, case, strap, reed, rosin, pick, mute, bow, capo, bench, amplifier
 
-video_gaming | GAMING SETUP THINGS | used_in | 0.3 | 0.8 | A | Things in a video gaming setup | $W is part of a video gaming setup
+video_gaming | GAMING SETUP | used_in | 0.3 | 0.8 | A | Things in a video gaming setup | $W is part of a video gaming setup
 console, controller, headset, monitor, keyboard, mouse, chair, disc, cartridge, memory card, cable, microphone, webcam, mousepad
 
 crafting_materials | CRAFT MATERIALS | made_of | 0.3 | 0.8 | A | Materials used in craft projects | $W is a material used in craft projects
@@ -56,5 +56,5 @@ paper, glue, felt, yarn, ribbon, bead, glitter, pipe cleaner, popsicle stick, cl
 hobby_verbs | HOBBY ACTIVITIES | is_a | 0.3 | 0.8 | A | Activities people do as a hobby | $W is an activity people do as a hobby
 knitting, painting, hiking, fishing, gardening, baking, reading, cycling, running, dancing, singing, writing, drawing, sewing, woodworking, birdwatching, collecting, photography, chess, camping
 
-magic_tricks | MAGIC TRICK PROPS | used_in | 0.4 | 0.68 | C | Props used in performing magic tricks | $W is a prop used in magic tricks
+magic_tricks | MAGIC PROPS | used_in | 0.4 | 0.68 | C | Props used in performing magic tricks | $W is a prop used in magic tricks
 card, coin, rope, scarf, hat, wand, box, ring, ball, cup, handcuff, mirror, dove, thumb tip

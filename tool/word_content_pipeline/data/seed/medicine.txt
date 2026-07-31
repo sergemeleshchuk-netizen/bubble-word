@@ -5,7 +5,7 @@
 medical_tools | MEDICAL TOOLS | used_in | 0.3 | 0.8 | A | Instruments a doctor or nurse uses | $W is an instrument a doctor or nurse uses
 stethoscope, syringe, scalpel, thermometer, forceps, clamp, otoscope, tweezers, catheter, speculum, needle, gauze, splint, tourniquet, defibrillator, ventilator, monitor, IV, gurney, sling
 
-first_aid | FIRST AID THINGS | used_in | 0.25 | 0.85 | A | Things kept in a first aid kit | $W is kept in a first aid kit
+first_aid | FIRST AID | used_in | 0.25 | 0.85 | A | Things kept in a first aid kit | $W is kept in a first aid kit
 bandage, gauze, tape, antiseptic, scissors, tweezers, gloves, ice pack, ointment, aspirin, sling, splint, wipe, cotton ball, thermometer, burn cream, eye wash
 
 medicine_forms | FORMS OF MEDICINE | is_a | 0.35 | 0.75 | A | Forms in which medicine is taken | $W is a form in which medicine is taken
@@ -38,7 +38,7 @@ glasses, contacts, lens, frame, prescription, nearsighted, farsighted, astigmati
 therapy_words | THERAPY WORDS | found_in | 0.4 | 0.68 | C | Words used in physical and mental therapy | $W is used in therapy
 session, exercise, stretch, rehab, counselor, progress, recovery, brace, crutch, walker, massage, treatment, appointment, goal
 
-pregnancy_words | PREGNANCY AND BIRTH WORDS | found_in | 0.4 | 0.7 | A | Words used about pregnancy and childbirth | $W is used about pregnancy or childbirth
+pregnancy_words | BIRTH WORDS | found_in | 0.4 | 0.7 | A | Words used about pregnancy and childbirth | $W is used about pregnancy or childbirth
 midwife, ultrasound, delivery, labor, newborn, crib, due date, nursery, trimester, stroller, formula, incubator, obstetrician, cradle, twins
 
 sleep_and_rest | SLEEP WORDS | found_in | 0.35 | 0.75 | A | Words about sleep and its problems | $W is a word about sleep

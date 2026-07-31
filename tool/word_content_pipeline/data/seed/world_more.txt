@@ -8,10 +8,10 @@ Nepal, Bhutan, Mongolia, Kazakhstan, Uzbekistan, Georgia, Armenia, Albania, Slov
 island_nations | ISLAND NATIONS | is_a | 0.45 | 0.65 | AP | Countries made up of islands | $W is an island nation
 Japan, Philippines, Indonesia, Madagascar, Sri Lanka, Cuba, Iceland, Malta, Fiji, Maldives, Cyprus, Jamaica, Bahrain, Seychelles, Mauritius
 
-world_sports | SPORTS AROUND THE WORLD | is_a | 0.4 | 0.7 | A | Sports popular outside the United States | $W is a sport popular outside the United States
+world_sports | WORLD SPORTS | is_a | 0.4 | 0.7 | A | Sports popular outside the United States | $W is a sport popular outside the United States
 cricket, rugby, badminton, table tennis, handball, sumo, kabaddi, hurling, curling, netball, sepak takraw, pelota, bandy, futsal
 
-world_breakfasts | BREAKFASTS AROUND THE WORLD | is_a | 0.45 | 0.62 | C | Breakfast foods eaten in other countries | $W is a breakfast food eaten in another country
+world_breakfasts | WORLD BREAKFAST | is_a | 0.45 | 0.62 | C | Breakfast foods eaten in other countries | $W is a breakfast food eaten in another country
 congee, miso soup, croissant, churro, arepa, shakshuka, full english, dim sum, tamale, porridge, pastry, cheese plate, flatbread, fruit plate
 
 world_soups | WORLD SOUPS | is_a | 0.4 | 0.68 | A | Soups from cuisines around the world | $W is a soup from a world cuisine
@@ -35,5 +35,5 @@ sake, ouzo, tequila, vodka, rum, whiskey, mead, cider, kvass, horchata, lassi, m
 world_markets | MARKET WORDS | found_in | 0.35 | 0.75 | A | Things found at an open air market | $W is found at an open air market
 stall, vendor, basket, scale, awning, crate, produce, spice, haggling, cash, sample, cart, canopy, sign, crowd
 
-world_transport | TRANSPORT AROUND THE WORLD | is_a | 0.4 | 0.7 | A | Ways people get around in other countries | $W is a way people get around in another country
+world_transport | WORLD TRANSPORT | is_a | 0.4 | 0.7 | A | Ways people get around in other countries | $W is a way people get around in another country
 rickshaw, tuk tuk, gondola, cable car, ferry, moped, tram, camel, sled, canoe, bicycle, jeepney, double decker, funicular

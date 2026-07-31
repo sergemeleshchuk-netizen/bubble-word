@@ -26,13 +26,13 @@ add, subtract, multiply, divide, square, round, factor, count, average, estimate
 states_of_matter | STATES OF MATTER | is_a | 0.3 | 0.82 | A | Physical states matter can take | $W is a physical state of matter
 solid, liquid, gas, plasma, vapor, ice, steam, crystal, powder, foam, mist, slush
 
-weather_science | WEATHER SCIENCE WORDS | found_in | 0.35 | 0.72 | A | Scientific words used to describe weather | $W is a scientific word about weather
+weather_science | WEATHER SCIENCE | found_in | 0.35 | 0.72 | A | Scientific words used to describe weather | $W is a scientific word about weather
 pressure, humidity, front, forecast, barometer, precipitation, evaporation, condensation, jet stream, air mass, isobar, radar, dew point, updraft
 
 energy_words | ENERGY WORDS | is_a | 0.35 | 0.72 | A | Words for kinds and sources of energy | $W is a kind or source of energy
 solar, wind, nuclear, coal, gas, electric, steam, battery, hydro, geothermal, fuel, biomass, kinetic, thermal, magnetic
 
-body_science | HUMAN BIOLOGY WORDS | found_in | 0.4 | 0.65 | C | Scientific words about how the human body works | $W is a scientific word about the human body
+body_science | HUMAN BIOLOGY | found_in | 0.4 | 0.65 | C | Scientific words about how the human body works | $W is a scientific word about the human body
 cell, tissue, organ, gene, DNA, protein, enzyme, hormone, nerve, blood, muscle, bone, plasma, oxygen, immunity, metabolism, artery, membrane
 
 science_fields | BRANCHES OF SCIENCE | is_a | 0.3 | 0.8 | A | Fields of scientific study | $W is a field of scientific study
@@ -59,7 +59,7 @@ oxygen, hydrogen, carbon, nitrogen, gold, silver, iron, helium, calcium, sodium,
 dinosaurs | DINOSAURS | is_a | 0.3 | 0.78 | A | Dinosaur species an average person can name | $W is a dinosaur species
 tyrannosaurus, triceratops, stegosaurus, velociraptor, brontosaurus, brachiosaurus, pterodactyl, ankylosaurus, allosaurus, raptor, diplodocus, spinosaurus
 
-microscope_things | THINGS TOO SMALL TO SEE | has_property | 0.4 | 0.68 | C | Things too small to see with the naked eye | $W is too small to see with the naked eye
+microscope_things | TINY THINGS | has_property | 0.4 | 0.68 | C | Things too small to see with the naked eye | $W is too small to see with the naked eye
 atom, cell, germ, virus, bacteria, molecule, pollen, mite, spore, electron, DNA, microbe, particle, dust mite
 
 things_in_the_sky_science | ASTRONOMY WORDS | found_in | 0.35 | 0.72 | A | Words used by astronomers | $W is a word used in astronomy
@@ -71,5 +71,5 @@ hot, cold, warm, cool, freezing, boiling, lukewarm, chilly, scalding, frigid, mi
 rock_cycle_words | GEOLOGY WORDS | found_in | 0.4 | 0.62 | C | Words used to describe the earth and its rocks | $W is a word used in geology
 erosion, sediment, fossil, lava, magma, crust, mantle, core, fault, plate, quarry, strata, mineral, volcano, tectonic, glacier
 
-experiments | THINGS THAT DISSOLVE | has_property | 0.4 | 0.65 | C | Substances that dissolve in water | $W dissolves in water
+experiments | DISSOLVING THINGS | has_property | 0.4 | 0.65 | C | Substances that dissolve in water | $W dissolves in water
 salt, sugar, soap, powder, coffee, tablet, gelatin, baking soda, honey, syrup, kool aid, candy, ink, chalk

@@ -35,7 +35,7 @@ deer, elk, moose, caribou, reindeer, antelope, gazelle, impala, fawn, stag, doe,
 monkeys_and_apes | MONKEYS AND APES | is_a | 0.3 | 0.8 | A | Kinds of monkey and ape | $W is a monkey or ape
 chimpanzee, gorilla, orangutan, baboon, gibbon, macaque, marmoset, lemur, capuchin, mandrill, howler, spider monkey, bonobo, tamarin
 
-wild_dogs | WILD DOG FAMILY | is_a | 0.35 | 0.75 | A | Wild members of the dog family | $W is a wild member of the dog family
+wild_dogs | WILD DOGS | is_a | 0.35 | 0.75 | A | Wild members of the dog family | $W is a wild member of the dog family
 wolf, fox, coyote, jackal, dingo, hyena, arctic fox, red fox, gray wolf, fennec, maned wolf
 
 whale_types | WHALE TYPES | is_a | 0.4 | 0.7 | A | Kinds of whale | $W is a kind of whale

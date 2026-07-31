@@ -44,5 +44,5 @@ Mona Lisa, Starry Night, The Scream, David, Last Supper, Sunflowers, The Thinker
 sculpture_materials | SCULPTURE MATERIALS | made_of | 0.35 | 0.72 | A | Materials sculptors carve or cast | $W is a material sculptors work with
 marble, bronze, clay, wood, stone, plaster, ice, sand, metal, glass, granite, wax, concrete, soapstone
 
-jewelry_making | JEWELRY MAKING THINGS | used_in | 0.4 | 0.65 | C | Things used to make jewelry | $W is used to make jewelry
+jewelry_making | JEWELRY SUPPLIES | used_in | 0.4 | 0.65 | C | Things used to make jewelry | $W is used to make jewelry
 bead, wire, clasp, pliers, chain, gem, thread, hook, solder, mold, setting, pendant, ring blank, cord

@@ -147,3 +147,6 @@ cigarette
 tobacco
 vape
 hangover
+
+# --- расовые оскорбления в бытовом значении (решение заказчика) ---
+cracker

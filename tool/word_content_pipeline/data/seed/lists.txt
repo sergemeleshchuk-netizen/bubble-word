@@ -2,16 +2,16 @@
 # key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
-us_states_more | MORE US STATES | is_a | 0.3 | 0.85 | AP | States of the United States not in the shorter list | $W is a state of the United States
+us_states_more | MORE STATES | is_a | 0.3 | 0.85 | AP | States of the United States not in the shorter list | $W is a state of the United States
 Illinois, Pennsylvania, Missouri, Minnesota, Wisconsin, Washington, Tennessee, Kentucky, Oklahoma, Arkansas, Louisiana, Mississippi, Maryland, Massachusetts, Connecticut, Oregon, Nevada, Utah, Kansas, South Dakota, North Dakota, New Mexico, West Virginia, Rhode Island, New Hampshire
 
-elements_more | MORE CHEMICAL ELEMENTS | is_a | 0.45 | 0.6 | A | Chemical elements beyond the most familiar ones | $W is a chemical element
+elements_more | MORE ELEMENTS | is_a | 0.45 | 0.6 | A | Chemical elements beyond the most familiar ones | $W is a chemical element
 lithium, beryllium, boron, fluorine, aluminum, silicon, phosphorus, titanium, chromium, manganese, cobalt, nickel, arsenic, bromine, krypton, silver, iodine, xenon, platinum, radon, radium, plutonium
 
-bible_books | BOOKS OF THE BIBLE | is_a | 0.45 | 0.65 | AP | Books of the Bible | $W is a book of the Bible
+bible_books | BIBLE BOOKS | is_a | 0.45 | 0.65 | AP | Books of the Bible | $W is a book of the Bible
 Genesis, Exodus, Leviticus, Numbers, Deuteronomy, Joshua, Judges, Ruth, Kings, Psalms, Proverbs, Ecclesiastes, Isaiah, Jeremiah, Daniel, Jonah, Matthew, Mark, Luke, John, Acts, Romans, Corinthians, Revelation
 
-dog_breeds_more | MORE DOG BREEDS | is_a | 0.4 | 0.7 | A | Dog breeds beyond the most common ones | $W is a breed of dog
+dog_breeds_more | MORE BREEDS | is_a | 0.4 | 0.7 | A | Dog breeds beyond the most common ones | $W is a breed of dog
 akita, basenji, bloodhound, borzoi, chow chow, dalmatian, malamute, newfoundland, papillon, pointer, pomeranian, saluki, samoyed, schnauzer, setter, shih tzu, vizsla, weimaraner, whippet, bichon
 
 flowers_more | MORE FLOWERS | is_a | 0.4 | 0.68 | A | Flowers beyond the most common garden ones | $W is a kind of flower
@@ -23,11 +23,11 @@ alder, banyan, baobab, catalpa, cottonwood, eucalyptus, ginkgo, hawthorn, hemloc
 vitamins_letters | ALPHABET AND SYMBOLS | is_a | 0.35 | 0.78 | A | Symbols and marks used in writing and math | $W is a symbol used in writing or math
 plus, minus, equals, percent, dollar sign, ampersand, hashtag, asterisk, at sign, degree, arrow, bullet, caret, tilde, backslash, pipe
 
-body_of_water_types | WATER FEATURE TYPES | is_a | 0.4 | 0.68 | A | Kinds of water feature made by people | $W is a water feature made by people
+body_of_water_types | WATER FEATURES | is_a | 0.4 | 0.68 | A | Kinds of water feature made by people | $W is a water feature made by people
 fountain, pool, canal, reservoir, aqueduct, cistern, well, moat, dam, pond, waterway, birdbath, sprinkler, drain
 
 weather_instruments | WEATHER INSTRUMENTS | used_in | 0.45 | 0.62 | A | Instruments used to measure the weather | $W measures the weather
 thermometer, barometer, anemometer, rain gauge, hygrometer, weather vane, radar, satellite, weather balloon, seismograph, sundial, windsock
 
-gem_cuts | GEM AND JEWELRY WORDS | found_in | 0.45 | 0.6 | C | Words used to describe cut and set gemstones | $W describes a cut or setting of a gemstone
+gem_cuts | GEM CUTS | found_in | 0.45 | 0.6 | C | Words used to describe cut and set gemstones | $W describes a cut or setting of a gemstone
 carat, cut, facet, setting, band, prong, bezel, solitaire, brilliant, emerald cut, princess cut, cabochon, clarity, polish

@@ -5,7 +5,7 @@
 greek_letters | GREEK LETTERS | is_a | 0.35 | 0.78 | A | Letters of the Greek alphabet | $W is a letter of the Greek alphabet
 alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, nu, xi, omicron, pi, rho, sigma, tau, upsilon, phi, chi, psi, omega
 
-latin_phrases | LATIN PHRASES IN ENGLISH | is_a | 0.45 | 0.6 | C | Latin phrases used in everyday English | $W is a Latin phrase used in English
+latin_phrases | LATIN PHRASES | is_a | 0.45 | 0.6 | C | Latin phrases used in everyday English | $W is a Latin phrase used in English
 et cetera, versus, per se, status quo, vice versa, ad hoc, bona fide, alma mater, carpe diem, alibi, agenda, quid pro quo, per capita, alter ego, magnum opus
 
 world_instruments | WORLD INSTRUMENTS | is_a | 0.4 | 0.68 | A | Musical instruments from cultures around the world | $W is an instrument from a world culture
@@ -26,7 +26,7 @@ flag, anthem, eagle, maple leaf, rose, shamrock, kangaroo, dragon, lion, crown, 
 traditional_clothing | TRADITIONAL CLOTHING | is_a | 0.4 | 0.68 | A | Traditional garments from world cultures | $W is a traditional garment from a world culture
 kimono, sari, kilt, poncho, sarong, dirndl, hanbok, kaftan, toga, lederhosen, turban, sombrero, moccasin, kente, dashiki
 
-world_hats | HATS AROUND THE WORLD | is_a | 0.45 | 0.62 | C | Traditional headwear from world cultures | $W is traditional headwear from a world culture
+world_hats | WORLD HATS | is_a | 0.45 | 0.62 | C | Traditional headwear from world cultures | $W is traditional headwear from a world culture
 sombrero, turban, fez, beret, kufi, conical hat, ushanka, tam, keffiyeh, bowler, panama, tarboosh
 
 card_and_dice_games | CLASSIC GAMES | is_a | 0.35 | 0.75 | A | Classic games played for generations | $W is a classic game played for generations
@@ -35,13 +35,13 @@ chess, checkers, marbles, jacks, hopscotch, tag, hide and seek, jump rope, domin
 playground_games | PLAYGROUND GAMES | is_a | 0.3 | 0.8 | A | Games children play at recess | $W is a game children play at recess
 tag, hopscotch, hide and seek, jump rope, four square, kickball, dodgeball, red rover, freeze tag, duck duck goose, marbles, hot potato, simon says, capture the flag
 
-video_game_classics | CLASSIC VIDEO GAMES | is_a | 0.35 | 0.75 | AP | Video games known across generations | $W is a classic video game
+video_game_classics | RETRO GAMES | is_a | 0.35 | 0.75 | AP | Video games known across generations | $W is a classic video game
 Pac Man, Tetris, Mario, Zelda, Donkey Kong, Space Invaders, Pong, Sonic, Frogger, Galaga, Centipede, Asteroids, Pinball, Minesweeper, Solitaire
 
 superstition_numbers | NUMBER WORDS | is_a | 0.3 | 0.85 | A | Words for numbers and counting | $W is a word for a number
 one, two, three, four, five, six, seven, eight, nine, ten, dozen, hundred, thousand, million, billion, half, quarter, pair, score, couple, zero, few, single, twenty
 
-opposites | OPPOSITE PAIRS WORDS | is_a | 0.3 | 0.82 | A | Words commonly taught as opposites | $W is commonly taught as one half of an opposite pair
+opposites | OPPOSITES | is_a | 0.3 | 0.82 | A | Words commonly taught as opposites | $W is commonly taught as one half of an opposite pair
 hot, cold, big, small, up, down, in, out, fast, slow, hard, soft, day, night, open, shut, wet, dry, light, dark, near, far, high, low, full
 
 manners | MANNERS WORDS | is_a | 0.35 | 0.75 | A | Words used when teaching good manners | $W is used when teaching good manners

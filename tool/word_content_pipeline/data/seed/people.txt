@@ -59,7 +59,7 @@ Shakespeare, Dickens, Twain, Austen, Hemingway, Poe, Tolkien, Orwell, Steinbeck,
 personality_words | PERSONALITY WORDS | is_a | 0.35 | 0.75 | A | Words describing a person character | $W describes a person character
 shy, bold, honest, curious, patient, stubborn, cheerful, quiet, serious, funny, careful, generous, clever, loyal, calm, brave, gentle, sensible
 
-people_at_a_wedding | PEOPLE AT A WEDDING | found_in | 0.3 | 0.8 | A | People with a role at a wedding | $W has a role at a wedding
+people_at_a_wedding | WEDDING PEOPLE | found_in | 0.3 | 0.8 | A | People with a role at a wedding | $W has a role at a wedding
 bride, groom, best man, bridesmaid, flower girl, ring bearer, officiant, guest, photographer, usher, maid of honor, father of the bride, caterer, DJ
 
 people_in_a_story | STORY CHARACTERS | is_a | 0.3 | 0.78 | A | Character roles found in stories | $W is a character role in stories

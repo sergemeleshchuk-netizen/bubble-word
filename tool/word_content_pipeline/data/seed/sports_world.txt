@@ -11,10 +11,10 @@ Wembley, Fenway, Wrigley, Yankee Stadium, Madison Square Garden, Camp Nou, Old T
 sports_leagues | SPORTS LEAGUES | is_a | 0.4 | 0.75 | AP | Professional sports leagues and competitions | $W is a professional sports league or competition
 NFL, NBA, MLB, NHL, MLS, World Cup, Olympics, Super Bowl, World Series, Stanley Cup, Wimbledon, Tour de France, Masters, Indy 500, Kentucky Derby
 
-track_events | TRACK AND FIELD EVENTS | is_a | 0.35 | 0.75 | A | Events contested in track and field | $W is a track and field event
+track_events | TRACK EVENTS | is_a | 0.35 | 0.75 | A | Events contested in track and field | $W is a track and field event
 sprint, marathon, hurdles, relay, long jump, high jump, pole vault, shot put, discus, javelin, triple jump, steeplechase, decathlon, race walk
 
-swimming_strokes | SWIMMING STROKES AND EVENTS | is_a | 0.35 | 0.78 | A | Strokes and events in competitive swimming | $W is a stroke or event in swimming
+swimming_strokes | SWIM STROKES | is_a | 0.35 | 0.78 | A | Strokes and events in competitive swimming | $W is a stroke or event in swimming
 freestyle, backstroke, breaststroke, butterfly, medley, relay, sidestroke, dive, treading, sprint, distance, doggy paddle
 
 gymnastics_events | GYMNASTICS EVENTS | is_a | 0.4 | 0.7 | A | Events and moves in gymnastics | $W is an event or move in gymnastics
@@ -23,7 +23,7 @@ vault, beam, bars, floor, rings, pommel horse, handstand, cartwheel, somersault,
 boxing_words | BOXING WORDS | found_in | 0.35 | 0.75 | A | Words used in a boxing match | $W is used in a boxing match
 jab, hook, uppercut, ring, round, bell, corner, glove, knockout, referee, belt, bout, clinch, cutman, decision, southpaw
 
-racing_words | MOTOR RACING WORDS | found_in | 0.35 | 0.75 | A | Words used in motor racing | $W is used in motor racing
+racing_words | MOTOR RACING | found_in | 0.35 | 0.75 | A | Words used in motor racing | $W is used in motor racing
 lap, pit stop, checkered flag, pole position, track, driver, crew, helmet, tire, speedway, qualifying, grid, spoiler, caution
 
 skiing_words | SKIING WORDS | found_in | 0.35 | 0.75 | A | Words used on a ski slope | $W is used on a ski slope
@@ -38,7 +38,7 @@ deck, trucks, wheels, grip tape, ollie, kickflip, ramp, halfpipe, grind, rail, b
 archery_words | ARCHERY WORDS | found_in | 0.4 | 0.7 | A | Words used in archery | $W is used in archery
 bow, arrow, target, quiver, bullseye, fletching, nock, string, draw, release, range, sight, arm guard, shaft
 
-equestrian_words | HORSE RIDING WORDS | found_in | 0.4 | 0.7 | A | Words used in horse riding sports | $W is used in horse riding sports
+equestrian_words | HORSE RIDING | found_in | 0.4 | 0.7 | A | Words used in horse riding sports | $W is used in horse riding sports
 dressage, jumping, saddle, bridle, reins, stirrup, gallop, trot, canter, jockey, arena, fence, groom, tack
 
 wrestling_words | WRESTLING WORDS | found_in | 0.4 | 0.7 | A | Words used in wrestling | $W is used in wrestling

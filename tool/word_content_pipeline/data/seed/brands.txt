@@ -11,7 +11,7 @@ Snickers, Twix, Skittles, Kitkat, Reeses, Hershey, Milky Way, Butterfinger, Star
 cereal_brands | CEREAL BRANDS | is_a | 0.35 | 0.78 | AP | Breakfast cereal brands sold in America | $W is an American breakfast cereal brand
 Cheerios, Frosted Flakes, Lucky Charms, Froot Loops, Rice Krispies, Corn Flakes, Wheaties, Raisin Bran, Trix, Special K, Chex, Grape Nuts, Cocoa Puffs, Life
 
-fast_food_chains | FAST FOOD CHAINS | is_a | 0.25 | 0.85 | AP | Fast food restaurant chains in America | $W is an American fast food chain
+fast_food_chains | FAST FOOD | is_a | 0.25 | 0.85 | AP | Fast food restaurant chains in America | $W is an American fast food chain
 McDonalds, Burger King, Wendys, Taco Bell, Subway, KFC, Pizza Hut, Dominos, Arbys, Chipotle, Sonic, Dairy Queen, Popeyes, Five Guys, Panera, Whataburger
 
 retail_stores | RETAIL STORES | is_a | 0.3 | 0.82 | AP | Large retail store chains in America | $W is an American retail chain
@@ -38,10 +38,10 @@ Lego, Hasbro, Mattel, Fisher Price, Barbie, Hot Wheels, Nerf, Play Doh, Lincoln 
 car_models | CAR MODELS | is_a | 0.35 | 0.75 | AP | Well known car model names | $W is a well known car model
 Mustang, Corvette, Civic, Camry, Accord, Beetle, Jeep Wrangler, F150, Silverado, Prius, Impala, Charger, Explorer, Tahoe, Camaro, Ranger
 
-candy_bar_flavors | ICE CREAM BRANDS | is_a | 0.4 | 0.72 | AP | Ice cream brands sold in America | $W is an American ice cream brand
+candy_bar_flavors | DAIRY BRANDS | is_a | 0.4 | 0.72 | AP | Ice cream brands sold in America | $W is an American ice cream brand
 Ben and Jerry, Haagen Dazs, Breyers, Dreyers, Blue Bell, Klondike, Popsicle, Drumstick, Eskimo Pie, Magnum, Talenti, Edys
 
-sports_brands | SPORTS EQUIPMENT BRANDS | is_a | 0.4 | 0.72 | AP | Brands of sports equipment | $W is a sports equipment brand
+sports_brands | SPORTS BRANDS | is_a | 0.4 | 0.72 | AP | Brands of sports equipment | $W is a sports equipment brand
 Wilson, Spalding, Rawlings, Titleist, Callaway, Easton, Louisville Slugger, Bauer, Head, Prince, Franklin, Schwinn
 
 camera_and_electronics | ELECTRONICS BRANDS | is_a | 0.35 | 0.78 | AP | Brands of consumer electronics | $W is a consumer electronics brand
@@ -59,5 +59,5 @@ Rolex, Gucci, Chanel, Prada, Cartier, Tiffany, Versace, Dior, Hermes, Armani, Bu
 bank_brands | BANK BRANDS | is_a | 0.45 | 0.65 | AP | Major American banks and card brands | $W is a major American bank or card brand
 Chase, Wells Fargo, Citibank, Visa, Mastercard, Amex, Discover, PNC, Capital One, US Bank, TD Bank, Ally
 
-paint_and_home | HOME IMPROVEMENT BRANDS | is_a | 0.45 | 0.62 | AP | Brands sold at a hardware store | $W is a brand sold at a hardware store
+paint_and_home | HARDWARE BRANDS | is_a | 0.45 | 0.62 | AP | Brands sold at a hardware store | $W is a brand sold at a hardware store
 Sherwin Williams, Behr, Valspar, Rustoleum, Gorilla Glue, Elmers, Scotch, Duracell, Energizer, WD40, Weber, Ace

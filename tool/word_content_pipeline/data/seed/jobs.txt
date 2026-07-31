@@ -59,7 +59,7 @@ vet, groomer, trainer, zookeeper, farmer, jockey, breeder, handler, beekeeper, r
 repair_jobs | REPAIR JOBS | is_a | 0.3 | 0.8 | A | Jobs held by people who fix broken things | $W is a job fixing broken things
 mechanic, plumber, electrician, technician, repairman, locksmith, cobbler, tailor, watchmaker, upholsterer, welder, handyman, machinist, appliance repairman
 
-historic_jobs | OLD FASHIONED JOBS | is_a | 0.4 | 0.6 | C | Jobs that were common in the past but are rare today | $W was a common job in the past
+historic_jobs | BYGONE JOBS | is_a | 0.4 | 0.6 | C | Jobs that were common in the past but are rare today | $W was a common job in the past
 blacksmith, cobbler, milkman, telegraph operator, lamplighter, cooper, chimney sweep, town crier, scribe, wheelwright, tanner, weaver, miller, ferryman, switchboard operator
 
 circus_and_fair_jobs | CIRCUS JOBS | is_a | 0.35 | 0.75 | A | Jobs held by performers and workers at a circus or fair | $W is a job at a circus or fair
@@ -74,7 +74,7 @@ carpenter, plumber, mechanic, electrician, surgeon, dentist, sculptor, gardener,
 sports_jobs | SPORTS JOBS | is_a | 0.3 | 0.8 | A | Jobs held by people who work in professional sports | $W is a job in professional sports
 coach, referee, trainer, scout, umpire, manager, announcer, physio, agent, groundskeeper, athlete, commentator, statistician, mascot
 
-night_shift_jobs | NIGHT SHIFT JOBS | has_property | 0.4 | 0.65 | C | Jobs commonly worked overnight | $W is commonly worked overnight
+night_shift_jobs | NIGHT SHIFT | has_property | 0.4 | 0.65 | C | Jobs commonly worked overnight | $W is commonly worked overnight
 security guard, nurse, baker, trucker, dispatcher, bartender, janitor, night watchman, DJ, doctor, police officer, air traffic controller, hotel clerk, radio host
 
 people_who_help | HELPING PROFESSIONS | is_a | 0.35 | 0.72 | A | Jobs whose main purpose is helping other people directly | $W helps other people directly as a job

@@ -20,7 +20,7 @@ rustle, chirp, howl, thunder, whistle, buzz, croak, crackle, splash, hoot, roar,
 scary_sounds | SCARY SOUNDS | does_action | 0.45 | 0.65 | C | Sounds that make people uneasy | $W is a sound that makes people uneasy
 creak, howl, scream, whisper, groan, thud, scratch, rattle, moan, shriek, wail, footstep, growl, snap
 
-musical_sounds | MUSICAL SOUND WORDS | is_a | 0.4 | 0.7 | A | Words for the sound a musical instrument makes | $W is a sound a musical instrument makes
+musical_sounds | MUSIC SOUNDS | is_a | 0.4 | 0.7 | A | Words for the sound a musical instrument makes | $W is a sound a musical instrument makes
 strum, toot, boom, jingle, twang, blare, trill, hum, clang, chime, thump, ring, riff, drumroll
 
 city_sounds | CITY SOUNDS | does_action | 0.4 | 0.7 | C | Sounds heard on a city street | $W is a sound heard on a city street

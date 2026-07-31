@@ -8,7 +8,7 @@ tractor, combine, plow, harvester, baler, seeder, sprayer, tiller, thresher, cul
 barn_things | BARN THINGS | found_in | 0.3 | 0.8 | A | Things found inside a barn | $W is found inside a barn
 hay, stall, trough, pitchfork, bale, loft, saddle, bucket, feed, rope, lantern, harness, milking stool, shovel, gate, sack
 
-dairy_words | DAIRY FARM WORDS | found_in | 0.35 | 0.75 | A | Things involved in dairy farming | $W is involved in dairy farming
+dairy_words | DAIRY FARM | found_in | 0.35 | 0.75 | A | Things involved in dairy farming | $W is involved in dairy farming
 milk, udder, churn, pail, cream, cheese, pasteurize, herd, calf, barn, milking machine, separator, butterfat, curd
 
 harvest_words | HARVEST WORDS | found_in | 0.35 | 0.75 | A | Words used at harvest time | $W is used at harvest time
@@ -41,7 +41,7 @@ milk, eggs, wool, honey, grain, cheese, beef, hay, corn, cotton, produce, lumber
 pest_control | CROP PESTS | is_a | 0.4 | 0.68 | C | Creatures that damage crops | $W damages crops
 locust, aphid, weevil, beetle, caterpillar, deer, crow, gopher, rabbit, slug, mite, nematode, grasshopper, cutworm
 
-country_life | COUNTRY LIFE THINGS | found_in | 0.35 | 0.75 | A | Things associated with rural country living | $W is associated with country living
+country_life | COUNTRY LIFE | found_in | 0.35 | 0.75 | A | Things associated with rural country living | $W is associated with country living
 tractor, dirt road, porch, well, fence post, creek, pasture, mailbox, rooster, pickup truck, chores, bonfire, hayride, general store, pond
 
 ranch_words | RANCH WORDS | found_in | 0.35 | 0.75 | A | Things found on a cattle ranch | $W is found on a cattle ranch

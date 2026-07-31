@@ -8,7 +8,7 @@ ladybug, june bug, dung beetle, stag beetle, weevil, firefly, scarab, click beet
 wildflowers | WILDFLOWERS | is_a | 0.4 | 0.68 | A | Flowers that grow wild in fields and roadsides | $W is a wildflower
 bluebonnet, black eyed susan, queen annes lace, goldenrod, chicory, columbine, indian paintbrush, aster, milkweed, coneflower, trillium, bloodroot, wild rose, primrose
 
-mosses_and_lichens | MOSS AND LICHEN WORDS | is_a | 0.5 | 0.55 | C | Small plants that grow on rocks and bark | $W grows on rocks or bark
+mosses_and_lichens | MOSS & LICHEN | is_a | 0.5 | 0.55 | C | Small plants that grow on rocks and bark | $W grows on rocks or bark
 moss, lichen, algae, fungus, liverwort, sphagnum, reindeer moss, crustose, foliose, hornwort
 
 saltwater_fish | SALTWATER FISH | is_a | 0.4 | 0.7 | A | Fish that live in salt water | $W lives in salt water

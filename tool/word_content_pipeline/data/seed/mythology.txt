@@ -29,10 +29,10 @@ wand, potion, crystal ball, magic carpet, cauldron, amulet, ring, cloak, sword, 
 monsters | SCARY CREATURES | is_a | 0.25 | 0.85 | A | Frightening creatures from stories and folklore | $W is a frightening creature from stories
 vampire, werewolf, zombie, ghost, mummy, witch, monster, demon, goblin, banshee, poltergeist, bogeyman, gremlin, ghoul, phantom
 
-american_legends | AMERICAN FOLK HEROES | is_a | 0.4 | 0.68 | AP | Legendary figures from American folklore | $W is a figure from American folklore
+american_legends | FOLK HEROES | is_a | 0.4 | 0.68 | AP | Legendary figures from American folklore | $W is a figure from American folklore
 Paul Bunyan, Johnny Appleseed, Pecos Bill, John Henry, Davy Crockett, Rip Van Winkle, Big Foot, Uncle Sam, Sasquatch
 
-fortune_telling | FORTUNE TELLING THINGS | used_in | 0.4 | 0.68 | C | Things used to tell fortunes | $W is used to tell fortunes
+fortune_telling | FORTUNE TELLING | used_in | 0.4 | 0.68 | C | Things used to tell fortunes | $W is used to tell fortunes
 crystal ball, tarot, palm, tea leaves, horoscope, rune, pendulum, cards, stars, dice, omen, oracle, dream
 
 zodiac_signs | ZODIAC SIGNS | is_a | 0.35 | 0.78 | AP | Signs of the astrological zodiac | $W is a sign of the zodiac
@@ -44,5 +44,5 @@ black cat, ladder, mirror, horseshoe, four leaf clover, rabbit foot, wishbone, s
 wizards_and_spells | WIZARD WORDS | found_in | 0.35 | 0.75 | A | Things belonging to a wizard in stories | $W belongs to a wizard in stories
 wand, spell, robe, hat, staff, potion, book, familiar, tower, apprentice, incantation, crystal, cauldron, scroll
 
-fairy_tale_things | FAIRY TALE THINGS | found_in | 0.25 | 0.85 | A | Objects that appear in classic fairy tales | $W appears in classic fairy tales
+fairy_tale_things | TALE OBJECTS | found_in | 0.25 | 0.85 | A | Objects that appear in classic fairy tales | $W appears in classic fairy tales
 glass slipper, spinning wheel, beanstalk, golden egg, red hood, gingerbread house, magic mirror, apple, breadcrumb, pumpkin coach, tower, porridge, harp, cottage

@@ -2,7 +2,7 @@
 # key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
-state_capitals | US STATE CAPITALS | is_a | 0.35 | 0.75 | AP | Capital cities of American states | $W is the capital of an American state
+state_capitals | STATE CAPITALS | is_a | 0.35 | 0.75 | AP | Capital cities of American states | $W is the capital of an American state
 Albany, Boston, Denver, Sacramento, Austin, Nashville, Phoenix, Atlanta, Boise, Honolulu, Trenton, Richmond, Columbus, Madison, Lansing, Helena, Salem, Topeka, Juneau, Olympia, Raleigh, Dover, Concord, Augusta, Lincoln
 
 great_lakes_and_us_water | US WATERS | is_a | 0.4 | 0.7 | AP | Famous lakes and rivers in the United States | $W is a famous American lake or river
@@ -29,7 +29,7 @@ Toronto, Montreal, Vancouver, Ottawa, Quebec, Calgary, Banff, Yukon, Alberta, Ma
 caribbean_places | CARIBBEAN PLACES | is_a | 0.4 | 0.7 | AP | Islands and countries of the Caribbean | $W is a Caribbean island or country
 Jamaica, Cuba, Bahamas, Barbados, Haiti, Aruba, Trinidad, Dominica, Grenada, Antigua, Martinique, Curacao, Saint Lucia, Bermuda
 
-middle_east_places | MIDDLE EAST PLACES | is_a | 0.4 | 0.7 | AP | Countries and cities of the Middle East | $W is a place in the Middle East
+middle_east_places | MIDDLE EAST | is_a | 0.4 | 0.7 | AP | Countries and cities of the Middle East | $W is a place in the Middle East
 Israel, Jordan, Lebanon, Syria, Iraq, Iran, Yemen, Oman, Qatar, Kuwait, Bahrain, Jerusalem, Damascus, Baghdad, Tehran, Riyadh
 
 oceania_places | OCEANIA PLACES | is_a | 0.45 | 0.65 | AP | Countries and islands of Oceania | $W is a place in Oceania
@@ -41,13 +41,13 @@ Empire State, Burj Khalifa, Louvre, Kremlin, Parthenon, Sagrada Familia, Notre D
 kinds_of_buildings | KINDS OF BUILDINGS | is_a | 0.2 | 0.88 | A | Kinds of building found in towns and cities | $W is a kind of building
 house, apartment, church, school, hospital, barn, factory, warehouse, skyscraper, cabin, castle, cottage, mansion, hotel, stadium, theater, library, museum, temple, tower, shed, mall, garage, bungalow, courthouse
 
-rooms_in_public_buildings | PUBLIC BUILDING ROOMS | part_of | 0.35 | 0.72 | A | Rooms found in public buildings | $W is a room in a public building
+rooms_in_public_buildings | PUBLIC ROOMS | part_of | 0.35 | 0.72 | A | Rooms found in public buildings | $W is a room in a public building
 lobby, hall, auditorium, office, waiting room, restroom, cafeteria, corridor, stairwell, elevator, storeroom, chapel, gallery, ballroom, foyer
 
 streets_and_roads | KINDS OF ROADS | is_a | 0.3 | 0.8 | A | Kinds of road and pathway | $W is a kind of road or pathway
 street, avenue, highway, freeway, lane, alley, boulevard, path, trail, driveway, road, route, turnpike, causeway, bypass, byway, cul de sac, expressway
 
-places_you_sleep | PLACES YOU SLEEP | found_in | 0.3 | 0.8 | C | Places where people sleep away from home | $W is a place people sleep away from home
+places_you_sleep | SLEEPING PLACES | found_in | 0.3 | 0.8 | C | Places where people sleep away from home | $W is a place people sleep away from home
 hotel, motel, tent, cabin, hostel, inn, lodge, camper, bunkhouse, dorm, guest room, sleeper car, yurt, cottage
 
 places_to_eat | PLACES TO EAT | is_a | 0.2 | 0.88 | A | Places where people go to eat a meal | $W is a place people go to eat

@@ -14,13 +14,13 @@ website, browser, link, password, email, download, wifi, server, cloud, streamin
 phone_words | PHONE WORDS | found_in | 0.25 | 0.85 | A | Things and features of a mobile phone | $W is a feature or part of a mobile phone
 screen, app, charger, ringtone, contact, text, voicemail, camera, speaker, battery, notification, sim card, case, headphones, keypad, alarm, signal, hotspot
 
-social_media_words | SOCIAL MEDIA WORDS | found_in | 0.3 | 0.8 | A | Words used on social media | $W is a word used on social media
+social_media_words | SOCIAL MEDIA | found_in | 0.3 | 0.8 | A | Words used on social media | $W is a word used on social media
 post, like, share, comment, follow, feed, profile, hashtag, story, tag, message, filter, trending, viral, block, thread, emoji, reel
 
 gadgets | GADGETS | is_a | 0.25 | 0.85 | A | Small electronic devices people own | $W is a small electronic device
 phone, tablet, laptop, camera, watch, headphones, speaker, drone, console, e-reader, fitness tracker, remote, scanner, projector, printer, thermostat, doorbell, earbuds
 
-file_types | FILE AND DOCUMENT WORDS | is_a | 0.35 | 0.72 | A | Words for computer files and documents | $W is a word for a computer file or document
+file_types | FILE WORDS | is_a | 0.35 | 0.72 | A | Words for computer files and documents | $W is a word for a computer file or document
 folder, file, document, spreadsheet, presentation, image, video, backup, archive, shortcut, trash, template, attachment, zip, pdf, draft
 
 programming_words | PROGRAMMING WORDS | found_in | 0.4 | 0.6 | C | Words used when writing computer programs | $W is used when writing computer programs

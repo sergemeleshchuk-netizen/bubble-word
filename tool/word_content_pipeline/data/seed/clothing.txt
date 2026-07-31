@@ -23,7 +23,7 @@ belt, scarf, purse, sunglasses, watch, tie, gloves, hat, wallet, handbag, backpa
 fabrics | FABRICS | is_a | 0.3 | 0.78 | A | Materials that clothes are made from | $W is a material clothes are made from
 cotton, wool, silk, linen, denim, leather, polyester, velvet, satin, suede, nylon, cashmere, corduroy, flannel, lace, canvas, fleece, tweed, chiffon, spandex
 
-clothing_parts | PARTS OF A GARMENT | part_of | 0.3 | 0.78 | A | Parts sewn into a piece of clothing | $W is a part sewn into a piece of clothing
+clothing_parts | GARMENT PARTS | part_of | 0.3 | 0.78 | A | Parts sewn into a piece of clothing | $W is a part sewn into a piece of clothing
 sleeve, collar, cuff, pocket, hem, zipper, button, seam, lining, waistband, lapel, hood, strap, buckle, belt loop, placket, yoke
 
 formal_wear | FORMAL WEAR | is_a | 0.3 | 0.8 | A | Clothing worn to a formal occasion | $W is worn to a formal occasion
@@ -38,22 +38,22 @@ scrubs, apron, coveralls, lab coat, jumpsuit, blazer, badge, hard hat, chef coat
 swimwear | SWIMWEAR | is_a | 0.25 | 0.85 | A | Clothing worn for swimming | $W is worn for swimming
 swimsuit, trunks, bikini, wetsuit, goggles, swim cap, rash guard, cover up, flippers, one piece, board shorts
 
-things_you_button | THINGS WITH BUTTONS ON THEM | has_property | 0.4 | 0.65 | C | Clothes and objects fastened with buttons | $W is fastened with buttons
+things_you_button | BUTTONED THINGS | has_property | 0.4 | 0.65 | C | Clothes and objects fastened with buttons | $W is fastened with buttons
 shirt, coat, cardigan, jeans, blouse, cuff, vest, pajamas, overalls, jacket, pillowcase, glove, pants, sweater
 
-things_you_tie | THINGS YOU TIE | does_action | 0.35 | 0.7 | C | Things fastened by tying a knot or bow | $W is fastened by tying
+things_you_tie | TIED THINGS | does_action | 0.35 | 0.7 | C | Things fastened by tying a knot or bow | $W is fastened by tying
 shoelace, tie, apron, sash, ribbon, bowtie, rope, scarf, belt, bandana, hair tie, drawstring, knot, laces
 
-clothing_sizes | CLOTHING SIZE WORDS | is_a | 0.35 | 0.75 | A | Words used for clothing sizes and fit | $W is a word used for clothing size or fit
+clothing_sizes | CLOTHING SIZES | is_a | 0.35 | 0.75 | A | Words used for clothing sizes and fit | $W is a word used for clothing size or fit
 small, medium, large, petite, tall, slim, loose, tight, oversized, regular, plus, narrow, wide, snug
 
 sewing_words | SEWING WORDS | found_in | 0.35 | 0.7 | A | Words used when sewing or altering clothes | $W is used when sewing or altering clothes
 stitch, hem, seam, needle, thread, pattern, pin, tuck, dart, pleat, alter, baste, cuff, lining, bobbin, thimble
 
-laundry_care | LAUNDRY CARE WORDS | does_action | 0.35 | 0.72 | A | Things done to clothes to keep them clean and neat | $W is done to clothes to keep them clean or neat
+laundry_care | LAUNDRY CARE | does_action | 0.35 | 0.72 | A | Things done to clothes to keep them clean and neat | $W is done to clothes to keep them clean or neat
 wash, dry, iron, fold, bleach, starch, hang, soak, press, mend, dry clean, steam, sort, rinse
 
-things_worn_on_hands | THINGS WORN ON THE HANDS | has_property | 0.3 | 0.8 | C | Things worn on the hands | $W is worn on the hands
+things_worn_on_hands | HAND WEAR | has_property | 0.3 | 0.8 | C | Things worn on the hands | $W is worn on the hands
 glove, ring, mitten, bracelet, watch, bandage, oven mitt, boxing glove, cast, splint, nail polish, gauntlet
 
 things_with_pockets | THINGS WITH POCKETS | has_property | 0.35 | 0.7 | C | Clothes and bags that have pockets | $W has pockets
@@ -62,5 +62,5 @@ jeans, coat, backpack, apron, jacket, shirt, purse, cargo pants, vest, hoodie, b
 kids_clothing | KIDS CLOTHING | is_a | 0.3 | 0.78 | A | Clothing made especially for babies and children | $W is clothing made for babies or children
 onesie, bib, romper, jumper, diaper, booties, mittens, overalls, snowsuit, sunhat, footie pajamas, smock
 
-shoe_parts | PARTS OF A SHOE | part_of | 0.35 | 0.72 | A | Parts of a shoe | $W is a part of a shoe
+shoe_parts | SHOE PARTS | part_of | 0.35 | 0.72 | A | Parts of a shoe | $W is a part of a shoe
 sole, heel, lace, tongue, toe, insole, arch, eyelet, upper, buckle, strap, tread, cushion, shank

@@ -11,7 +11,7 @@ brush, comb, curler, straightener, tweezers, clipper, file, sponge, mirror, drye
 hairstyles | HAIRSTYLES | is_a | 0.3 | 0.78 | A | Ways of styling hair | $W is a way of styling hair
 ponytail, braid, bun, bob, pixie, mohawk, dreadlocks, perm, updo, pigtails, cornrows, layers, bangs, afro, crew cut, beehive, chignon, topknot
 
-nail_words | NAIL CARE WORDS | found_in | 0.4 | 0.7 | A | Things used for manicures and nail care | $W is used for nail care
+nail_words | NAIL CARE | found_in | 0.4 | 0.7 | A | Things used for manicures and nail care | $W is used for nail care
 polish, file, clipper, cuticle, buffer, remover, base coat, top coat, acrylic, gel, wrap, soak, pusher, glitter
 
 perfume_words | FRAGRANCE WORDS | found_in | 0.4 | 0.68 | C | Words used to describe perfumes and scents | $W is used to describe a scent
@@ -44,5 +44,5 @@ hanger, closet, garment bag, iron, steamer, lint roller, mothball, shoe tree, dr
 jewelry_stones | JEWELRY STONES | is_a | 0.35 | 0.75 | A | Stones set into jewelry | $W is a stone set into jewelry
 diamond, ruby, emerald, sapphire, pearl, opal, topaz, amethyst, garnet, turquoise, jade, onyx, aquamarine, peridot, moonstone
 
-fashion_show | FASHION SHOW THINGS | found_in | 0.4 | 0.7 | A | Things found at a fashion show | $W is found at a fashion show
+fashion_show | FASHION SHOW | found_in | 0.4 | 0.7 | A | Things found at a fashion show | $W is found at a fashion show
 runway, model, designer, collection, spotlight, front row, backstage, outfit, pose, camera, seamstress, rack, program, fitting

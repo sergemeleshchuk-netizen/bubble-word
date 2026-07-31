@@ -53,17 +53,17 @@ whisper, snow, feather, mouse, library, cat, shadow, cloud, sleep, breeze, silk,
 shiny_things | SHINY THINGS | has_property | 0.35 | 0.7 | C | Things that reflect light and look shiny | $W reflects light and looks shiny
 mirror, diamond, gold, silver, coin, glass, chrome, star, foil, sequin, polish, glitter, ice, blade, jewel, lacquer, satin, bumper
 
-transparent_things | SEE THROUGH THINGS | has_property | 0.35 | 0.7 | C | Things you can see through | $W can be seen through
+transparent_things | CLEAR THINGS | has_property | 0.35 | 0.7 | C | Things you can see through | $W can be seen through
 glass, window, water, ice, bubble, plastic wrap, lens, air, cellophane, jellyfish, veil, screen, crystal, aquarium
 
-things_that_float | THINGS THAT FLOAT | has_property | 0.35 | 0.7 | C | Things that float on water | $W floats on water
+things_that_float | FLOATING THINGS | has_property | 0.35 | 0.7 | C | Things that float on water | $W floats on water
 boat, cork, leaf, duck, balloon, raft, ice, wood, buoy, feather, oil, bubble, foam, life vest, pool noodle, lily pad, driftwood
 
-things_that_stretch | THINGS THAT STRETCH | has_property | 0.4 | 0.65 | C | Things that stretch when pulled | $W stretches when pulled
+things_that_stretch | STRETCHY THINGS | has_property | 0.4 | 0.65 | C | Things that stretch when pulled | $W stretches when pulled
 rubber band, gum, dough, spandex, sock, balloon, slinky, bungee cord, taffy, elastic, muscle, skin, spring, waistband
 
 things_that_break | FRAGILE THINGS | has_property | 0.35 | 0.7 | C | Things that break easily when dropped | $W breaks easily when dropped
-glass, egg, mirror, vase, china, bulb, ornament, screen, chalk, pottery, cracker, ice, shell, lightbulb, porcelain
+glass, egg, mirror, vase, china, bulb, ornament, screen, chalk, pottery, ice, shell, lightbulb, porcelain
 
 fast_things | FAST THINGS | has_property | 0.35 | 0.7 | C | Things known for moving very fast | $W is known for moving very fast
 cheetah, rocket, bullet, jet, lightning, race car, falcon, arrow, sprinter, motorcycle, wind, comet, hare, torpedo
@@ -71,23 +71,23 @@ cheetah, rocket, bullet, jet, lightning, race car, falcon, arrow, sprinter, moto
 slow_things | SLOW THINGS | has_property | 0.35 | 0.7 | C | Things known for moving very slowly | $W is known for moving very slowly
 snail, turtle, sloth, glacier, traffic, molasses, tortoise, caterpillar, worm, slug, tractor, parade
 
-smelly_things | STRONG SMELLING THINGS | has_property | 0.4 | 0.65 | C | Things with a very strong smell | $W has a very strong smell
+smelly_things | SMELLY THINGS | has_property | 0.4 | 0.65 | C | Things with a very strong smell | $W has a very strong smell
 skunk, garlic, onion, perfume, gasoline, cheese, vinegar, smoke, fish, ammonia, mothball, manure, bleach, incense, durian
 
 things_with_holes | THINGS WITH HOLES | has_property | 0.35 | 0.7 | C | Everyday things that have holes in them | $W has holes in it
 donut, sponge, colander, button, needle, net, swiss cheese, belt, sieve, golf course, straw, whistle, flute, cheese grater, sock, waffle
 
-things_that_are_sharp | THINGS WITH A POINT | has_property | 0.35 | 0.7 | C | Things that come to a sharp point | $W comes to a sharp point
+things_that_are_sharp | POINTED THINGS | has_property | 0.35 | 0.7 | C | Things that come to a sharp point | $W comes to a sharp point
 needle, pencil, arrow, thorn, nail, pin, dart, spear, icicle, fang, horn, cone, sword, tack, spike, claw
 
 striped_things | STRIPED THINGS | has_property | 0.4 | 0.65 | C | Things that normally have stripes | $W normally has stripes
 zebra, tiger, candy cane, flag, barber pole, crosswalk, referee shirt, bee, prison uniform, road, awning, skunk, ribbon
 
 square_things | SQUARE THINGS | has_property | 0.35 | 0.7 | C | Everyday things shaped like a square | $W is shaped like a square
-box, checkerboard, waffle, tile, window, stamp, dice, napkin, brick, cracker, envelope, picture frame, sticky note, keyboard key
+box, checkerboard, waffle, tile, window, stamp, dice, napkin, brick, envelope, picture frame, sticky note, keyboard key
 
-long_thin_things | LONG THIN THINGS | has_property | 0.35 | 0.7 | C | Everyday things that are long and thin | $W is long and thin
+long_thin_things | THIN THINGS | has_property | 0.35 | 0.7 | C | Everyday things that are long and thin | $W is long and thin
 pencil, straw, noodle, snake, rope, wire, ruler, chopstick, needle, hair, spaghetti, cane, pole, ribbon, worm, arrow
 
-things_that_shrink | THINGS THAT SHRINK | has_property | 0.45 | 0.6 | C | Things that get smaller over time or with heat | $W gets smaller over time
+things_that_shrink | SHRINKING THINGS | has_property | 0.45 | 0.6 | C | Things that get smaller over time or with heat | $W gets smaller over time
 ice, candle, sweater, balloon, puddle, soap, snowman, battery, pencil, savings, shadow, glacier, sponge

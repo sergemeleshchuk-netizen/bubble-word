@@ -17,7 +17,7 @@ bell, jalapeno, habanero, cayenne, poblano, serrano, banana, ghost, chipotle, an
 tomato_varieties | TOMATO VARIETIES | is_a | 0.4 | 0.7 | A | Varieties of tomato | $W is a variety of tomato
 cherry, roma, beefsteak, grape, heirloom, plum, vine, campari, san marzano, green, yellow, sun dried
 
-lettuce_and_greens | SALAD GREEN VARIETIES | is_a | 0.4 | 0.68 | A | Varieties of lettuce and salad green | $W is a variety of salad green
+lettuce_and_greens | SALAD GREENS | is_a | 0.4 | 0.68 | A | Varieties of lettuce and salad green | $W is a variety of salad green
 romaine, iceberg, butter, arugula, spinach, radicchio, endive, frisee, mesclun, watercress, escarole, red leaf, green leaf
 
 rice_types | RICE TYPES | is_a | 0.4 | 0.68 | A | Kinds of rice sold in stores | $W is a kind of rice
@@ -29,17 +29,17 @@ black, pinto, kidney, navy, lima, garbanzo, cannellini, fava, mung, adzuki, grea
 honey_and_syrups | SYRUPS AND SWEETENERS | is_a | 0.4 | 0.7 | A | Sweet syrups and sweeteners used in food | $W is a sweetener used in food
 honey, maple syrup, molasses, corn syrup, agave, brown sugar, powdered sugar, stevia, caramel, treacle, sorghum, cane sugar, date syrup
 
-olive_types | OLIVE AND OIL VARIETIES | is_a | 0.45 | 0.62 | C | Varieties of olive and olive oil | $W is a variety of olive or olive oil
+olive_types | OLIVE TYPES | is_a | 0.45 | 0.62 | C | Varieties of olive and olive oil | $W is a variety of olive or olive oil
 kalamata, green, black, spanish, castelvetrano, extra virgin, virgin, light, pitted, stuffed, manzanilla, nicoise
 
 chili_and_spice_blends | SPICE BLENDS | is_a | 0.4 | 0.68 | A | Mixtures of spices sold as one seasoning | $W is a blend of spices
 curry powder, chili powder, garam masala, italian seasoning, cajun, jerk, five spice, herbes de provence, taco seasoning, poultry seasoning, old bay, ranch mix, pumpkin spice, za'atar
 
-melons_and_squash | MELON AND SQUASH VARIETIES | is_a | 0.35 | 0.75 | A | Varieties of melon and squash | $W is a variety of melon or squash
+melons_and_squash | MELONS & SQUASH | is_a | 0.35 | 0.75 | A | Varieties of melon and squash | $W is a variety of melon or squash
 watermelon, cantaloupe, honeydew, butternut, acorn, spaghetti, zucchini, pumpkin, delicata, hubbard, casaba, crookneck, kabocha
 
 berry_varieties | BERRY VARIETIES | is_a | 0.35 | 0.75 | A | Varieties of berry sold fresh or frozen | $W is a variety of berry
 strawberry, blueberry, raspberry, blackberry, cranberry, marionberry, loganberry, gooseberry, elderberry, currant, boysenberry, cloudberry
 
-mint_and_herbs_varieties | MINT AND HERB VARIETIES | is_a | 0.45 | 0.62 | C | Varieties of mint and other kitchen herbs | $W is a variety of kitchen herb
+mint_and_herbs_varieties | HERB VARIETIES | is_a | 0.45 | 0.62 | C | Varieties of mint and other kitchen herbs | $W is a variety of kitchen herb
 peppermint, spearmint, basil, thai basil, italian parsley, curly parsley, cilantro, dill, chervil, lemon balm, oregano, marjoram, sorrel

@@ -17,10 +17,10 @@ Broadway, Wall Street, Bourbon Street, Abbey Road, Rodeo Drive, Fifth Avenue, Ch
 universities | UNIVERSITIES | is_a | 0.4 | 0.7 | AP | Well known universities | $W is a well known university
 Harvard, Yale, Stanford, Oxford, Cambridge, Princeton, MIT, Columbia, Berkeley, Cornell, Duke, Sorbonne, Georgetown, Dartmouth, Notre Dame
 
-sports_teams | SPORTS TEAM NAMES | is_a | 0.35 | 0.75 | AP | Names of long standing American sports teams | $W is a long standing American sports team name
+sports_teams | TEAM NAMES | is_a | 0.35 | 0.75 | AP | Names of long standing American sports teams | $W is a long standing American sports team name
 Yankees, Dodgers, Lakers, Celtics, Cowboys, Packers, Steelers, Red Sox, Cubs, Bulls, Knicks, Giants, Bears, Broncos, Rangers, Braves, Tigers, Eagles
 
-classic_tv_shows | CLASSIC TV SHOWS | is_a | 0.4 | 0.72 | AP | Television shows known across generations | $W is a television show known across generations
+classic_tv_shows | CLASSIC TV | is_a | 0.4 | 0.72 | AP | Television shows known across generations | $W is a television show known across generations
 Friends, Seinfeld, Cheers, MASH, I Love Lucy, Twilight Zone, Star Trek, Simpsons, Sesame Street, Jeopardy, Wheel of Fortune, Gunsmoke, Bonanza, Dallas
 
 theme_parks | THEME PARKS | is_a | 0.4 | 0.72 | AP | Well known theme parks | $W is a well known theme park

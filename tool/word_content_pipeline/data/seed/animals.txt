@@ -65,7 +65,7 @@ herd, flock, school, pack, swarm, pride, colony, litter, pod, gaggle, hive, troo
 animal_coverings | ANIMAL COVERINGS | part_of | 0.35 | 0.7 | A | Things that cover an animal body | $W covers the body of an animal
 fur, feather, scale, shell, skin, hide, wool, hair, quill, spine, plate, coat, plume, down, fleece
 
-animal_body_parts | ANIMAL BODY PARTS | part_of | 0.25 | 0.85 | A | Body parts that animals have but people do not | $W is a body part animals have
+animal_body_parts | ANIMAL PARTS | part_of | 0.25 | 0.85 | A | Body parts that animals have but people do not | $W is a body part animals have
 tail, paw, hoof, claw, beak, wing, fin, horn, antler, snout, whisker, mane, trunk, tusk, gill, fang, talon, hump, muzzle, flipper
 
 zoo_animals | ZOO ANIMALS | found_in | 0.15 | 0.9 | A | Animals commonly seen at an American zoo | $W is commonly seen at a zoo

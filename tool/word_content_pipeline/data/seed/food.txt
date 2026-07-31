@@ -92,13 +92,13 @@ chocolate, gum, lollipop, caramel, taffy, fudge, licorice, marshmallow, jelly be
 cake_types | CAKE TYPES | is_a | 0.3 | 0.75 | A | Kinds of cake baked and sold in the United States | $W is a kind of cake
 chocolate, vanilla, carrot, sponge, pound, angel food, red velvet, cheesecake, bundt, layer, birthday, wedding, coffee cake, fruitcake, upside down, marble, lava, ice cream cake, shortcake, cupcake
 
-ice_cream_flavors | ICE CREAM FLAVORS | is_a | 0.25 | 0.8 | A | Flavors of ice cream sold in American shops | $W is a common ice cream flavor
+ice_cream_flavors | ICE CREAM | is_a | 0.25 | 0.8 | A | Flavors of ice cream sold in American shops | $W is a common ice cream flavor
 vanilla, chocolate, strawberry, mint, cookie dough, rocky road, butter pecan, pistachio, coffee, cookies and cream, neapolitan, caramel, peach, banana, cherry, mango, lemon, birthday cake, moose tracks, sherbet
 
 snack_foods | SNACK FOODS | is_a | 0.2 | 0.85 | A | Packaged foods eaten between meals | $W is eaten as a snack between meals
-chips, popcorn, pretzel, cracker, nuts, granola bar, trail mix, jerky, cookie, candy bar, cheese stick, fruit snack, pita chips, popsicle, muffin, yogurt, hummus, rice cake, puffs, raisin
+chips, popcorn, pretzel, nuts, granola bar, trail mix, jerky, cookie, candy bar, cheese stick, fruit snack, pita chips, popsicle, muffin, yogurt, hummus, rice cake, puffs, raisin
 
-fast_food_items | FAST FOOD ITEMS | is_a | 0.2 | 0.88 | A | Items ordered at an American fast food counter | $W is ordered at a fast food counter
+fast_food_items | DRIVE THRU | is_a | 0.2 | 0.88 | A | Items ordered at an American fast food counter | $W is ordered at a fast food counter
 burger, fries, nugget, milkshake, hot dog, taco, burrito, pizza, sub, wrap, onion ring, soda, sundae, chicken sandwich, quesadilla, corn dog, slider, mozzarella stick, chili, biscuit
 
 mexican_dishes | MEXICAN DISHES | is_a | 0.3 | 0.8 | A | Dishes from Mexican cuisine widely eaten in the United States | $W is a dish from Mexican cuisine
@@ -116,13 +116,13 @@ burger, hot dog, ribs, brisket, corn, coleslaw, potato salad, baked beans, chick
 thanksgiving_foods | THANKSGIVING FOODS | found_in | 0.3 | 0.85 | A | Foods traditionally served at an American Thanksgiving dinner | $W is traditionally served at Thanksgiving
 turkey, stuffing, gravy, cranberry sauce, pumpkin pie, mashed potatoes, sweet potato, green bean casserole, cornbread, rolls, yam, pecan pie, apple cider, brussels sprouts, squash, biscuit, ham, corn, pie, cranberry
 
-cooking_fats | COOKING OILS AND FATS | used_in | 0.4 | 0.65 | A | Fats and oils used to cook or dress food | $W is a fat or oil used in cooking
+cooking_fats | COOKING FATS | used_in | 0.4 | 0.65 | A | Fats and oils used to cook or dress food | $W is a fat or oil used in cooking
 butter, olive oil, vegetable oil, canola, lard, shortening, coconut oil, peanut oil, sesame oil, margarine, ghee, bacon grease, avocado oil, corn oil, sunflower oil
 
-things_you_spread | THINGS YOU SPREAD | does_action | 0.35 | 0.7 | C | Foods that are spread with a knife onto bread or crackers | $W is spread onto bread with a knife
+things_you_spread | SPREADS | does_action | 0.35 | 0.7 | C | Foods that are spread with a knife onto bread or toast | $W is spread onto bread with a knife
 butter, jam, peanut butter, cream cheese, hummus, mayo, honey, jelly, marmalade, guacamole, frosting, margarine, apple butter, mustard, ricotta, nutella
 
-things_that_melt | THINGS THAT MELT | has_property | 0.35 | 0.7 | C | Everyday things that melt when they get warm | $W melts when it gets warm
+things_that_melt | MELTING THINGS | has_property | 0.35 | 0.7 | C | Everyday things that melt when they get warm | $W melts when it gets warm
 butter, cheese, chocolate, ice, ice cream, wax, snow, marshmallow, caramel, popsicle, candle, frosting, glacier, lard, sugar, gelato, crayon, icicle
 
 frozen_foods | FROZEN FOODS | found_in | 0.3 | 0.78 | A | Foods normally bought from the freezer aisle | $W is normally bought frozen

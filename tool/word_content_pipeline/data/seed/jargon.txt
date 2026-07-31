@@ -2,10 +2,10 @@
 # key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
 # flags: A = можно approved, C = только candidate; P = имена собственные
 
-music_tempo_terms | MUSIC TEMPO TERMS | is_a | 0.45 | 0.6 | C | Italian words used to mark tempo in music | $W is an Italian word used to mark tempo in music
+music_tempo_terms | TEMPO TERMS | is_a | 0.45 | 0.6 | C | Italian words used to mark tempo in music | $W is an Italian word used to mark tempo in music
 allegro, adagio, andante, presto, largo, vivace, moderato, lento, grave, accelerando, ritardando, forte, piano, crescendo, staccato, legato
 
-french_cooking_terms | FRENCH COOKING TERMS | is_a | 0.45 | 0.6 | C | French words used in professional cooking | $W is a French word used in cooking
+french_cooking_terms | FRENCH COOKING | is_a | 0.45 | 0.6 | C | French words used in professional cooking | $W is a French word used in cooking
 saute, julienne, blanch, flambe, roux, puree, souffle, braise, mise en place, au gratin, consomme, bouquet garni, chiffonade, deglaze
 
 aviation_words | AVIATION WORDS | found_in | 0.4 | 0.68 | A | Words used by pilots and air crew | $W is used by pilots and air crew
@@ -29,7 +29,7 @@ arch, column, dome, facade, balcony, gable, vault, buttress, cornice, foundation
 theater_stage_terms | STAGE TERMS | found_in | 0.4 | 0.68 | A | Terms used backstage in a theater | $W is a term used backstage in a theater
 cue, blocking, wings, apron, catwalk, gel, dimmer, flat, set piece, prop table, green room, call time, strike, dress rehearsal
 
-kitchen_brigade | RESTAURANT KITCHEN TERMS | found_in | 0.45 | 0.6 | C | Terms used in a restaurant kitchen | $W is a term used in a restaurant kitchen
+kitchen_brigade | KITCHEN SLANG | found_in | 0.45 | 0.6 | C | Terms used in a restaurant kitchen | $W is a term used in a restaurant kitchen
 order up, fire, plating, prep, station, line, expo, ticket, walk in, sous vide, mise, garnish, pass, comp
 
 photography_terms | CAMERA SETTINGS | found_in | 0.45 | 0.6 | C | Settings and controls on a camera | $W is a camera setting or control
@@ -38,7 +38,7 @@ aperture, shutter speed, iso, focus, exposure, white balance, zoom, flash, timer
 weather_forecast_terms | FORECAST TERMS | found_in | 0.4 | 0.7 | A | Terms used in a weather forecast | $W is used in a weather forecast
 front, high, low, pressure, precipitation, chance of rain, wind chill, heat index, advisory, watch, warning, dew point, visibility, forecast
 
-nautical_ranks | SHIP CREW ROLES | is_a | 0.45 | 0.62 | C | Roles in the crew of a ship | $W is a role in a ship crew
+nautical_ranks | SHIP CREW | is_a | 0.45 | 0.62 | C | Roles in the crew of a ship | $W is a role in a ship crew
 captain, first mate, navigator, engineer, deckhand, cook, boatswain, purser, helmsman, lookout, quartermaster, steward
 
 detective_procedures | FORENSICS WORDS | found_in | 0.45 | 0.62 | C | Words used in forensic investigation | $W is used in forensic investigation

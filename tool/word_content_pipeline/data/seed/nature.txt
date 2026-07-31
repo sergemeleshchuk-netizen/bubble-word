@@ -5,13 +5,13 @@
 trees | TREES | is_a | 0.2 | 0.85 | A | Kinds of trees an average American can name | $W is a kind of tree
 oak, maple, pine, birch, willow, elm, cedar, spruce, redwood, aspen, walnut, palm, fir, cypress, magnolia, sycamore, poplar, chestnut, cherry, dogwood, hickory, ash, beech, juniper, apple
 
-tree_parts | PARTS OF A TREE | part_of | 0.25 | 0.85 | A | Physical parts of a living tree | $W is a physical part of a tree
+tree_parts | TREE PARTS | part_of | 0.25 | 0.85 | A | Physical parts of a living tree | $W is a physical part of a tree
 root, trunk, branch, leaf, twig, sap, bud, knot, ring, seed, bough, crown, needle, cone, stump, bark, limb, shoot, acorn, pulp
 
 flowers | FLOWERS | is_a | 0.15 | 0.88 | A | Kinds of flowers commonly sold or grown in gardens | $W is a kind of flower
 rose, tulip, daisy, lily, sunflower, orchid, violet, carnation, daffodil, iris, poppy, marigold, peony, lilac, jasmine, dahlia, petunia, hyacinth, magnolia, lavender, begonia, geranium, zinnia, azalea, buttercup
 
-flower_parts | PARTS OF A FLOWER | part_of | 0.35 | 0.7 | A | Parts of a flowering plant | $W is a part of a flowering plant
+flower_parts | FLOWER PARTS | part_of | 0.35 | 0.7 | A | Parts of a flowering plant | $W is a part of a flowering plant
 petal, stem, leaf, root, bud, pollen, seed, thorn, stamen, nectar, sepal, bulb, pistil, blossom, stalk
 
 weather_words | WEATHER WORDS | is_a | 0.15 | 0.9 | A | Words describing weather conditions or events in the sky | $W is a word for a weather condition
@@ -65,17 +65,17 @@ ice, snow, steam, rain, hail, frost, dew, fog, mist, sleet, vapor, slush, icicle
 light_sources | LIGHT SOURCES | does_action | 0.3 | 0.8 | A | Things that give off light | $W gives off light
 sun, star, lamp, candle, flashlight, fire, moon, lantern, bulb, torch, firefly, lightning, screen, headlight, match, neon, laser, campfire, glowstick, streetlight
 
-things_that_grow | THINGS THAT GROW | has_property | 0.35 | 0.7 | C | Living things that grow larger over time | $W grows larger over time
+things_that_grow | GROWING THINGS | has_property | 0.35 | 0.7 | C | Living things that grow larger over time | $W grows larger over time
 tree, plant, flower, grass, child, hair, nail, crystal, seedling, sapling, vine, weed, moss, crop, bud, root, leaf, mushroom
 
 underground_things | UNDERGROUND THINGS | found_in | 0.35 | 0.7 | C | Things found under the surface of the ground | $W is found under the ground
 root, worm, mole, tunnel, cave, pipe, ore, fossil, seed, burrow, subway, aquifer, bulb, mine, treasure, sewer, coal, ant nest
 
-sea_shore_things | THINGS ON A BEACH | found_in | 0.2 | 0.85 | A | Things you find on an ocean beach | $W is found on an ocean beach
+sea_shore_things | BEACH THINGS | found_in | 0.2 | 0.85 | A | Things you find on an ocean beach | $W is found on an ocean beach
 sand, shell, wave, crab, seaweed, driftwood, surfboard, towel, umbrella, gull, pebble, starfish, sandcastle, tide, dune, cooler, sunscreen, boardwalk, jellyfish, kite
 
 mountain_things | MOUNTAIN THINGS | found_in | 0.3 | 0.75 | A | Things found on or around a mountain | $W is found on or around a mountain
 peak, cliff, snow, trail, boulder, cave, glacier, pine, goat, eagle, ridge, slope, avalanche, summit, valley, stream, cabin, ski lift, echo, timberline
 
-animal_tracks_and_signs | THINGS IN THE DIRT | found_in | 0.4 | 0.6 | C | Marks and things you see in bare dirt | $W is seen in bare dirt
+animal_tracks_and_signs | DIRT THINGS | found_in | 0.4 | 0.6 | C | Marks and things you see in bare dirt | $W is seen in bare dirt
 footprint, track, hole, worm, root, pebble, tire mark, ant, puddle, mud, gravel, seed, stone, dust, twig

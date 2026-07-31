@@ -5,13 +5,13 @@
 body_parts | BODY PARTS | is_a | 0.1 | 0.95 | A | External parts of the human body | $W is an external part of the human body
 arm, leg, hand, foot, head, knee, elbow, shoulder, neck, back, chest, ankle, hip, wrist, thigh, waist, calf, heel, toe, finger, chin, forehead, stomach, shin, jaw
 
-face_parts | PARTS OF THE FACE | part_of | 0.12 | 0.92 | A | Parts of the human face | $W is a part of the human face
+face_parts | FACE PARTS | part_of | 0.12 | 0.92 | A | Parts of the human face | $W is a part of the human face
 eye, nose, mouth, ear, cheek, chin, lip, forehead, eyebrow, eyelash, jaw, dimple, nostril, iris, pupil, temple, freckle, brow, lash, eyelid
 
 internal_organs | INTERNAL ORGANS | part_of | 0.25 | 0.85 | A | Organs inside the human body | $W is an organ inside the human body
 lung, liver, kidney, stomach, brain, spleen, pancreas, intestine, bladder, gallbladder, heart, colon, appendix, thyroid, esophagus, womb, artery, vein, gland, marrow
 
-hand_parts | PARTS OF THE HAND | part_of | 0.3 | 0.8 | A | Parts of the human hand | $W is a part of the human hand
+hand_parts | HAND PARTS | part_of | 0.3 | 0.8 | A | Parts of the human hand | $W is a part of the human hand
 thumb, finger, knuckle, nail, wrist, pinky, cuticle, index finger, ring finger, fingertip, palm, middle finger, joint, tendon, grip
 
 bones | BONES | is_a | 0.3 | 0.78 | A | Bones of the human skeleton | $W is a bone in the human skeleton
@@ -35,7 +35,7 @@ cold, flu, fever, allergy, asthma, migraine, chickenpox, measles, pneumonia, bro
 symptoms | SYMPTOMS | is_a | 0.3 | 0.8 | A | Signs that a person feels unwell | $W is a sign that a person feels unwell
 fever, cough, headache, rash, nausea, chills, sneeze, ache, swelling, dizziness, fatigue, sore throat, cramp, congestion, itching, bruise
 
-medicine_cabinet | MEDICINE CABINET THINGS | found_in | 0.25 | 0.82 | A | Things kept in a home medicine cabinet | $W is kept in a home medicine cabinet
+medicine_cabinet | MEDICINE CABINET | found_in | 0.25 | 0.82 | A | Things kept in a home medicine cabinet | $W is kept in a home medicine cabinet
 aspirin, bandage, thermometer, ointment, cough syrup, vitamin, antacid, gauze, tweezers, alcohol, cotton swab, sunscreen, eye drops, ice pack, painkiller, lozenge
 
 hospital_things | HOSPITAL THINGS | found_in | 0.25 | 0.85 | A | Things and places found in a hospital | $W is found in a hospital
@@ -47,19 +47,19 @@ drill, floss, mirror, chair, X-ray, filling, crown, brace, toothbrush, rinse, ca
 exercise_words | EXERCISE WORDS | does_action | 0.3 | 0.8 | A | Movements done as physical exercise | $W is done as physical exercise
 pushup, situp, squat, lunge, plank, jog, stretch, curl, crunch, burpee, pullup, jumping jack, sprint, row, press, dip
 
-things_that_grow_on_you | THINGS THAT GROW ON THE BODY | has_property | 0.35 | 0.72 | C | Things that grow naturally on the human body | $W grows naturally on the human body
+things_that_grow_on_you | BODY GROWTHS | has_property | 0.35 | 0.72 | C | Things that grow naturally on the human body | $W grows naturally on the human body
 hair, nail, beard, eyelash, eyebrow, mustache, skin, tooth, freckle, mole, callus, whisker, sideburn, wart
 
 fingers_and_toes | DIGITS | is_a | 0.35 | 0.75 | A | Names for individual fingers and toes | $W is the name of a finger or toe
 thumb, index finger, middle finger, ring finger, pinky, big toe, little toe, forefinger, toe, digit
 
-parts_of_the_eye | PARTS OF THE EYE | part_of | 0.4 | 0.65 | C | Parts of the human eye | $W is a part of the human eye
+parts_of_the_eye | EYE PARTS | part_of | 0.4 | 0.65 | C | Parts of the human eye | $W is a part of the human eye
 pupil, iris, lens, cornea, retina, eyelid, lash, socket, tear duct, white, brow, optic nerve
 
 body_systems | BODY SYSTEMS | is_a | 0.4 | 0.65 | C | Systems that make up the human body | $W is a system of the human body
 nervous, digestive, immune, skeletal, muscular, respiratory, circulatory, endocrine, urinary, lymphatic
 
-things_that_hurt | THINGS THAT HURT | has_property | 0.4 | 0.65 | C | Everyday things that cause physical pain | $W causes physical pain
+things_that_hurt | PAINFUL THINGS | has_property | 0.4 | 0.65 | C | Everyday things that cause physical pain | $W causes physical pain
 burn, cut, bruise, splinter, sunburn, blister, sprain, bee sting, paper cut, stubbed toe, cramp, headache, thorn, scrape, pinch
 
 muscles | MUSCLES | is_a | 0.4 | 0.62 | C | Muscles an average person can name | $W is a muscle

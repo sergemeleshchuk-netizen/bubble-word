@@ -14,10 +14,10 @@ chair, table, sofa, bed, desk, dresser, bookshelf, stool, bench, cabinet, nights
 cleaning_supplies | CLEANING SUPPLIES | used_in | 0.2 | 0.88 | A | Tools and products used to clean a house | $W is used for cleaning a house
 broom, mop, sponge, bucket, vacuum, detergent, bleach, duster, brush, soap, dustpan, rag, wipes, polish, scrubber, gloves, trash bag, squeegee, cleanser, disinfectant
 
-bedroom_things | THINGS IN A BEDROOM | found_in | 0.2 | 0.88 | A | Objects normally found in a bedroom | $W is normally found in a bedroom
+bedroom_things | BEDROOM THINGS | found_in | 0.2 | 0.88 | A | Objects normally found in a bedroom | $W is normally found in a bedroom
 bed, pillow, blanket, dresser, closet, lamp, nightstand, sheet, mattress, hanger, alarm clock, quilt, comforter, curtain, rug, mirror, hamper, pajamas, slipper, chest
 
-living_room_things | THINGS IN A LIVING ROOM | found_in | 0.2 | 0.88 | A | Objects normally found in a living room | $W is normally found in a living room
+living_room_things | LIVING ROOM | found_in | 0.2 | 0.88 | A | Objects normally found in a living room | $W is normally found in a living room
 sofa, television, coffee table, lamp, rug, remote, bookshelf, painting, cushion, curtain, fireplace, armchair, vase, clock, speaker, plant, ottoman, blanket, magazine, console
 
 kitchen_appliances | KITCHEN APPLIANCES | found_in | 0.2 | 0.88 | A | Electric machines used in a kitchen | $W is an electric machine used in a kitchen
@@ -29,34 +29,34 @@ plate, bowl, cup, mug, glass, saucer, platter, tumbler, pitcher, teapot, bottle,
 silverware | SILVERWARE | is_a | 0.2 | 0.88 | A | Eating utensils laid out at a table setting | $W is an eating utensil at a table setting
 fork, knife, spoon, teaspoon, butter knife, salad fork, soup spoon, chopsticks, ladle, tongs, skewer, spork, carving knife, serving spoon
 
-things_in_a_garage | THINGS IN A GARAGE | found_in | 0.25 | 0.8 | A | Things stored in an ordinary home garage | $W is stored in a home garage
+things_in_a_garage | GARAGE THINGS | found_in | 0.25 | 0.8 | A | Things stored in an ordinary home garage | $W is stored in a home garage
 car, toolbox, ladder, bike, lawnmower, shovel, rake, workbench, tire, hose, paint, cooler, sled, wheelbarrow, extension cord, jack, oil, broom, shelf, gas can
 
 laundry_things | LAUNDRY THINGS | used_in | 0.25 | 0.85 | A | Things used to wash and dry clothes | $W is used to wash or dry clothes
 washer, dryer, detergent, bleach, softener, hamper, hanger, iron, clothespin, basket, line, lint trap, stain remover, dryer sheet, ironing board, starch
 
-home_rooms | ROOMS IN A HOUSE | part_of | 0.15 | 0.9 | A | Rooms and spaces inside an ordinary house | $W is a room or space inside a house
+home_rooms | HOUSE ROOMS | part_of | 0.15 | 0.9 | A | Rooms and spaces inside an ordinary house | $W is a room or space inside a house
 kitchen, bedroom, bathroom, basement, attic, garage, hallway, den, pantry, closet, porch, foyer, nursery, study, laundry room, dining room, living room, cellar, loft, sunroom
 
-parts_of_a_house | PARTS OF A HOUSE | part_of | 0.2 | 0.88 | A | Structural parts of a house | $W is a structural part of a house
+parts_of_a_house | HOUSE PARTS | part_of | 0.2 | 0.88 | A | Structural parts of a house | $W is a structural part of a house
 roof, wall, floor, ceiling, door, window, chimney, stairs, foundation, porch, gutter, shutter, railing, beam, column, deck, siding, shingle, threshold, doorframe
 
-things_on_a_wall | THINGS ON A WALL | found_in | 0.3 | 0.78 | A | Things hung or mounted on an interior wall | $W is hung or mounted on a wall
+things_on_a_wall | WALL THINGS | found_in | 0.3 | 0.78 | A | Things hung or mounted on an interior wall | $W is hung or mounted on a wall
 painting, clock, mirror, shelf, poster, photo, calendar, switch, outlet, thermostat, hook, tapestry, sconce, plaque, television, wallpaper, art, trophy, antlers, whiteboard
 
 things_with_buttons | THINGS WITH BUTTONS | has_property | 0.35 | 0.7 | C | Everyday objects operated by pressing buttons | $W is operated by pressing buttons
 remote, phone, microwave, calculator, elevator, keyboard, camera, blender, alarm clock, game controller, vending machine, doorbell, dishwasher, printer, radio, watch, cash register, thermostat
 
-things_that_plug_in | THINGS THAT PLUG IN | has_property | 0.3 | 0.78 | C | Household devices powered by plugging into an outlet | $W is powered by plugging into an outlet
+things_that_plug_in | PLUGGED IN | has_property | 0.3 | 0.78 | C | Household devices powered by plugging into an outlet | $W is powered by plugging into an outlet
 lamp, toaster, television, computer, vacuum, fan, blender, charger, printer, heater, hairdryer, radio, microwave, iron, speaker, clock, freezer, lampshade, drill, kettle
 
-things_that_open | THINGS THAT OPEN | has_property | 0.35 | 0.7 | C | Everyday objects that open and close | $W opens and closes
+things_that_open | OPENING THINGS | has_property | 0.35 | 0.7 | C | Everyday objects that open and close | $W opens and closes
 door, window, book, drawer, jar, umbrella, box, gate, curtain, laptop, wallet, suitcase, fridge, mailbox, envelope, shell, zipper, lid, fan, cabinet
 
-things_that_hold_water | THINGS THAT HOLD WATER | has_property | 0.35 | 0.7 | C | Containers and objects built to hold water | $W is built to hold water
+things_that_hold_water | WATER HOLDERS | has_property | 0.35 | 0.7 | C | Containers and objects built to hold water | $W is built to hold water
 bucket, glass, bathtub, sink, pot, kettle, bottle, vase, pool, aquarium, canteen, barrel, jug, watering can, tank, basin, cup, trough
 
-sewing_and_repair | HOME REPAIR THINGS | used_in | 0.3 | 0.75 | A | Small supplies used for fixing things around the house | $W is used to fix things around the house
+sewing_and_repair | HOME REPAIR | used_in | 0.3 | 0.75 | A | Small supplies used for fixing things around the house | $W is used to fix things around the house
 tape, glue, nail, screw, hammer, wrench, sandpaper, putty, caulk, wire, bolt, washer, hinge, bracket, sealant, patch, plunger, level
 
 lighting | LIGHTING | is_a | 0.25 | 0.82 | A | Devices that light a home | $W is a device that lights a home
@@ -77,5 +77,5 @@ leash, collar, bowl, litter, cage, kennel, treat, toy, brush, aquarium, tag, har
 storage_containers | CONTAINERS | is_a | 0.25 | 0.82 | A | Things made to store or carry other things | $W is made to store or carry things
 box, jar, bag, basket, bin, crate, bucket, drawer, chest, tin, barrel, envelope, folder, case, sack, canister, trunk, cooler, carton, pouch
 
-things_in_a_junk_drawer | JUNK DRAWER THINGS | found_in | 0.35 | 0.7 | C | Small odds and ends that pile up in a kitchen drawer | $W piles up in a junk drawer
+things_in_a_junk_drawer | JUNK DRAWER | found_in | 0.35 | 0.7 | C | Small odds and ends that pile up in a kitchen drawer | $W piles up in a junk drawer
 battery, rubber band, tape, key, pen, coin, receipt, screw, twist tie, paper clip, matches, string, magnet, scissors, glue, takeout menu, chapstick, flashlight

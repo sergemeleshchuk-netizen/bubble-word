@@ -50,13 +50,13 @@ broom, mop, vacuum, duster, sponge, brush, squeegee, dustpan, bucket, rag, scrub
 things_with_handles | THINGS WITH HANDLES | has_property | 0.35 | 0.7 | C | Everyday objects gripped by a handle | $W is gripped by a handle
 mug, hammer, suitcase, bucket, door, pan, umbrella, broom, knife, basket, drawer, briefcase, shovel, kettle, purse, axe, racket, pitcher
 
-things_that_spin | THINGS THAT SPIN | has_property | 0.35 | 0.7 | C | Everyday things that spin or rotate | $W spins or rotates
+things_that_spin | SPINNING THINGS | has_property | 0.35 | 0.7 | C | Everyday things that spin or rotate | $W spins or rotates
 wheel, fan, top, propeller, drill, washing machine, record, carousel, turbine, gear, blender, globe, windmill, ceiling fan, tire, dial, coin, dryer
 
 things_that_cut | SHARP THINGS | has_property | 0.35 | 0.7 | C | Everyday things with a sharp edge or point | $W has a sharp edge or point
 knife, needle, scissors, razor, nail, thorn, glass shard, blade, tack, arrow, saw, spear, hook, pin, dart, sword, splinter, ice pick
 
-things_that_stick_out | THINGS YOU HAMMER | does_action | 0.4 | 0.65 | C | Things a hammer is normally used on | $W is something you hammer
+things_that_stick_out | HAMMERED THINGS | does_action | 0.4 | 0.65 | C | Things a hammer is normally used on | $W is something you hammer
 nail, tack, stake, peg, dent, chisel, spike, rivet, wedge, post, bolt, tent stake, horseshoe
 
 boxes_and_cases | TOOL STORAGE | is_a | 0.35 | 0.72 | A | Things used to store and carry tools | $W is used to store or carry tools

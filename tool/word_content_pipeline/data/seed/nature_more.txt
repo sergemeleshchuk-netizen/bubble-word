@@ -29,7 +29,7 @@ arch, spire, hoodoo, mesa, butte, pillar, cliff, boulder, outcrop, stack, cave, 
 cave_things | CAVE THINGS | found_in | 0.4 | 0.7 | A | Things found inside a cave | $W is found inside a cave
 stalactite, stalagmite, bat, darkness, echo, chamber, tunnel, pool, crystal, column, cavern, drip, moss, fossil
 
-night_sky_things | NIGHT SKY THINGS | found_in | 0.3 | 0.82 | A | Things visible in the night sky | $W is visible in the night sky
+night_sky_things | NIGHT SKY | found_in | 0.3 | 0.82 | A | Things visible in the night sky | $W is visible in the night sky
 moon, star, planet, comet, meteor, satellite, aurora, milky way, constellation, cloud, eclipse, shooting star, plane, galaxy
 
 seasons_spring | SPRING THINGS | found_in | 0.3 | 0.8 | A | Things associated with spring | $W is associated with spring
@@ -47,7 +47,7 @@ snow, mitten, icicle, sled, fireplace, scarf, snowman, hot cocoa, shovel, skate,
 tide_and_moon | MOON PHASES | is_a | 0.4 | 0.72 | A | Phases and states of the moon | $W is a phase of the moon
 full moon, new moon, crescent, half moon, gibbous, waxing, waning, harvest moon, blue moon, eclipse, quarter, supermoon
 
-erosion_words | WATER SHAPES THE LAND | does_action | 0.45 | 0.6 | C | Ways water shapes the land over time | $W is a way water shapes the land
+erosion_words | EROSION WORDS | does_action | 0.45 | 0.6 | C | Ways water shapes the land over time | $W is a way water shapes the land
 erosion, flood, carve, deposit, sediment, delta, canyon, gully, meander, silt, runoff, weathering, undercut
 
 wind_words | WIND WORDS | is_a | 0.35 | 0.75 | A | Words for kinds and strengths of wind | $W is a word for a kind of wind

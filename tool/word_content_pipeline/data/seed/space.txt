@@ -20,7 +20,7 @@ NASA, Cape Canaveral, Houston, Baikonur, Kennedy Space Center, ISS, Mission Cont
 astronaut_gear | ASTRONAUT GEAR | used_in | 0.35 | 0.75 | A | Equipment an astronaut uses | $W is used by an astronaut
 spacesuit, helmet, glove, boot, tether, oxygen tank, visor, jetpack, camera, tool belt, backpack, checklist, communicator
 
-solar_system_words | SOLAR SYSTEM WORDS | found_in | 0.35 | 0.75 | A | Words describing the solar system | $W describes something in the solar system
+solar_system_words | SOLAR SYSTEM | found_in | 0.35 | 0.75 | A | Words describing the solar system | $W describes something in the solar system
 orbit, sun, planet, moon, asteroid belt, comet, meteor, ring, gravity, eclipse, solar wind, dwarf planet, kuiper belt, corona
 
 telescope_words | TELESCOPE WORDS | found_in | 0.4 | 0.68 | C | Parts and words used with a telescope | $W is used with a telescope
@@ -35,5 +35,5 @@ booster, nose cone, engine, fuel tank, fin, stage, payload, nozzle, capsule, thr
 space_measurements | SPACE MEASUREMENTS | is_a | 0.45 | 0.62 | C | Units used to measure distance and time in space | $W is a unit used to measure space
 light year, parsec, astronomical unit, orbit, rotation, revolution, magnitude, gravity, kilometer, mile, degree
 
-science_fiction_space | SCI FI SPACE WORDS | found_in | 0.4 | 0.7 | C | Words used in space science fiction | $W is used in space science fiction
+science_fiction_space | SCI FI | found_in | 0.4 | 0.7 | C | Words used in space science fiction | $W is used in space science fiction
 warp, laser, alien, android, starship, hyperdrive, galaxy, colony, teleport, force field, cyborg, mothership, wormhole, ray gun

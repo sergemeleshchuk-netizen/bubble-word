@@ -11,7 +11,7 @@ math, history, science, art, music, geography, biology, chemistry, English, gym,
 classroom_things | CLASSROOM THINGS | found_in | 0.2 | 0.88 | A | Things found in a school classroom | $W is found in a school classroom
 desk, chalkboard, whiteboard, globe, poster, chair, clock, bookshelf, projector, flag, locker, calendar, alphabet, map, cubby, bell, chalk, textbook, easel, hall pass
 
-school_places | PLACES IN A SCHOOL | part_of | 0.2 | 0.88 | A | Rooms and places inside a school | $W is a place inside a school
+school_places | SCHOOL PLACES | part_of | 0.2 | 0.88 | A | Rooms and places inside a school | $W is a place inside a school
 classroom, cafeteria, gym, library, hallway, auditorium, playground, office, lab, locker room, nurse office, art room, computer lab, field, bathroom, principal office, stage, courtyard
 
 school_events | SCHOOL EVENTS | is_a | 0.3 | 0.8 | A | Events that happen during a school year | $W is an event in the school year
@@ -44,20 +44,20 @@ chapter, page, paragraph, index, glossary, footnote, preface, appendix, title, s
 testing_words | TEST WORDS | found_in | 0.35 | 0.75 | A | Words for kinds of test questions and formats | $W is a kind of test question or format
 multiple choice, essay, true false, fill in the blank, matching, short answer, oral, open book, timed, pop quiz, practical, final
 
-alphabet_and_numbers | BASIC LEARNING WORDS | is_a | 0.3 | 0.82 | A | The very first things children learn at school | $W is one of the first things children learn at school
+alphabet_and_numbers | FIRST LESSONS | is_a | 0.3 | 0.82 | A | The very first things children learn at school | $W is one of the first things children learn at school
 alphabet, number, color, shape, letter, count, sound, word, rhyme, sight word, addition, name, day, month, season
 
-art_class_things | ART CLASS THINGS | found_in | 0.25 | 0.85 | A | Things used in a school art class | $W is used in a school art class
+art_class_things | ART CLASS | found_in | 0.25 | 0.85 | A | Things used in a school art class | $W is used in a school art class
 paint, brush, easel, smock, clay, palette, canvas, glitter, glue, scissors, construction paper, marker, chalk, kiln, sketchbook, pastel, stencil, apron
 
-gym_class_things | GYM CLASS THINGS | found_in | 0.25 | 0.85 | A | Things used in a school gym class | $W is used in a school gym class
+gym_class_things | GYM CLASS | found_in | 0.25 | 0.85 | A | Things used in a school gym class | $W is used in a school gym class
 ball, jump rope, mat, whistle, cone, hoop, sneakers, scoreboard, bleachers, uniform, net, parachute, hurdle, stopwatch, locker, dodgeball
 
-music_class_things | MUSIC CLASS THINGS | found_in | 0.3 | 0.8 | A | Things used in a school music class | $W is used in a school music class
+music_class_things | MUSIC CLASS | found_in | 0.3 | 0.8 | A | Things used in a school music class | $W is used in a school music class
 recorder, triangle, tambourine, sheet music, stand, xylophone, piano, choir, metronome, drum, maraca, conductor, riser, bell
 
 school_people | SCHOOL PEOPLE | is_a | 0.25 | 0.85 | A | People you meet at a school | $W is a person you meet at school
 student, teacher, principal, janitor, coach, nurse, librarian, counselor, classmate, substitute, tutor, volunteer, crossing guard, aide, bus driver, cafeteria worker
 
-field_trip_places | FIELD TRIP PLACES | found_in | 0.3 | 0.8 | A | Places classes visit on a field trip | $W is a place a class visits on a field trip
+field_trip_places | FIELD TRIPS | found_in | 0.3 | 0.8 | A | Places classes visit on a field trip | $W is a place a class visits on a field trip
 museum, zoo, aquarium, farm, planetarium, factory, park, theater, capitol, fire station, science center, orchard, gallery, historical site, bakery

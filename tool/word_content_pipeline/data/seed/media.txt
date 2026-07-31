@@ -26,13 +26,13 @@ Hamlet, Macbeth, Othello, Romeo and Juliet, King Lear, Julius Caesar, Tempest, T
 book_genres | BOOK GENRES | is_a | 0.3 | 0.8 | A | Categories used to classify books | $W is a category of book
 mystery, romance, biography, fantasy, thriller, memoir, history, poetry, cookbook, textbook, self help, science fiction, horror, western, travel, humor, atlas, encyclopedia
 
-tv_genres | TV SHOW TYPES | is_a | 0.3 | 0.8 | A | Kinds of television program | $W is a kind of television program
+tv_genres | TV GENRES | is_a | 0.3 | 0.8 | A | Kinds of television program | $W is a kind of television program
 sitcom, drama, news, soap opera, game show, talk show, reality, documentary, cartoon, sports, cooking show, talent show, crime show, mini series, variety show
 
 famous_movies | FAMOUS MOVIES | is_a | 0.3 | 0.8 | AP | Films most Americans have heard of | $W is a film most Americans have heard of
 Titanic, Jaws, Casablanca, Star Wars, Rocky, Ghostbusters, Jurassic Park, Godfather, Wizard of Oz, Psycho, Terminator, Gladiator, Avatar, Frozen, Shrek, Grease, Alien, Braveheart
 
-movie_roles | MOVIE CREW ROLES | is_a | 0.35 | 0.75 | A | Jobs in the crew of a film production | $W is a job on a film crew
+movie_roles | FILM CREW | is_a | 0.35 | 0.75 | A | Jobs in the crew of a film production | $W is a job on a film crew
 director, producer, actor, editor, cameraman, screenwriter, stunt double, gaffer, composer, costume designer, makeup artist, sound engineer, extra, casting director, set designer
 
 awards | AWARDS | is_a | 0.35 | 0.78 | AP | Famous prizes and awards | $W is a famous award
@@ -50,8 +50,8 @@ fashion, sports, news, gossip, science, cooking, travel, gardening, hobby, tablo
 famous_musicians | MUSIC LEGENDS | is_a | 0.35 | 0.78 | AP | Musicians widely known across generations | $W is a widely known musician
 Beatles, Elvis, Mozart, Bach, Sinatra, Armstrong, Dylan, Beethoven, Presley, Hendrix, Cash, Ellington, Chopin, Gershwin
 
-game_shows | GAME SHOW WORDS | found_in | 0.4 | 0.7 | A | Things found on a television game show | $W is found on a television game show
+game_shows | GAME SHOWS | found_in | 0.4 | 0.7 | A | Things found on a television game show | $W is found on a television game show
 host, contestant, buzzer, prize, wheel, category, podium, audience, jackpot, round, question, lifeline, trophy, spin, board
 
-comic_words | COMIC BOOK WORDS | found_in | 0.4 | 0.68 | C | Words used about comic books | $W is used when talking about comic books
+comic_words | COMIC BOOKS | found_in | 0.4 | 0.68 | C | Words used about comic books | $W is used when talking about comic books
 panel, speech bubble, issue, hero, villain, origin, cape, sidekick, series, artist, inker, cover, strip, graphic novel
