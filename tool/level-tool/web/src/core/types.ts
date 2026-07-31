@@ -21,6 +21,18 @@ export const STATUS = {
 
 export type StatusCode = 0 | 1 | 2 | 3 | 4;
 
+/**
+ * Готовность категории к автоматической сборке уровня. Считается на стороне
+ * базы (`derive-readiness`), не здесь: это свойство контента, а не генератора.
+ *   ready        — 4+ слов уровня approved/alternative, пул не перекошен
+ *   constrained  — годится, но пул тонкий или перекошен в hard_only
+ *   curated_only — только вручную собранные четвёрки (парное правило)
+ *   hard_only    — нормальных слов нет, только сложные уровни
+ *   blocked      — четвёрку не собрать даже со hard_only
+ */
+export type Readiness =
+  | 'ready' | 'constrained' | 'curated_only' | 'hard_only' | 'blocked' | 'unknown';
+
 export interface SnapshotCategory {
   /** ключ, стабильный идентификатор */
   k: string;
@@ -34,6 +46,8 @@ export interface SnapshotCategory {
   th: string;
   /** базовая сложность 0..1, может отсутствовать */
   d: number | null;
+  /** готовность категории; в снимках 1.0 поля нет */
+  rd?: Readiness;
 }
 
 export interface SnapshotWord {
@@ -62,11 +76,46 @@ export type SnapshotMembership = [
   obviousness: number,
   relation: string,
   senseIndex: number | null,
+  /** игровая сложность связи 0..1; отдельная ось от статуса (снимок 2.0) */
+  gameplayDifficulty?: number | null,
+  /** битовая маска risk-флагов по порядку Snapshot.risk_flags (снимок 2.0) */
+  riskMask?: number,
+];
+
+/**
+ * Запрет на сочетание двух категорий в одном уровне.
+ *
+ * Решение принято на стороне контента: `derive-conflicts` считает пересечение
+ * играбельных пулов и сохраняет пару с причиной. Генератор его исполняет, а не
+ * пересчитывает — иначе одна и та же пара разрешена в базе и запрещена в
+ * инструменте (или наоборот), и спорить будет нечем.
+ */
+export type SnapshotConflict = [
+  categoryA: number,
+  categoryB: number,
+  /** индекс в Snapshot.conflict_types: do_not_pair | needs_disjoint_words */
+  type: number,
+  /** P0/P1/…, как решено в базе */
+  severity: string | null,
+  /** сколько играбельных слов у пулов общие */
+  overlap: number,
+];
+
+/** Проверенная четвёрка: прошла solver единственности на стороне базы. */
+export type SnapshotQuartet = [
+  category: number,
+  words: number[],
+  /** индекс в Snapshot.quartet_tiers: normal | hard */
+  tier: number,
 ];
 
 export interface Snapshot {
   schema_version: string;
   statuses: string[];
+  /** порядок risk-флагов: индекс = бит в маске связи (снимок 2.0) */
+  risk_flags?: string[];
+  conflict_types?: string[];
+  quartet_tiers?: string[];
   constants: { zipf_max: number; top50k_zipf: number; quickwin_zipf: number };
   categories: SnapshotCategory[];
   words: SnapshotWord[];
@@ -74,6 +123,10 @@ export interface Snapshot {
   memberships: SnapshotMembership[];
   /** категории, чьё имя существует в базе как слово: материал для мета-связей */
   meta_capable: { category: number; word: number; hosts: number[] }[];
+  /** пары категорий, которые нельзя ставить в один уровень (снимок 2.0) */
+  conflicts?: SnapshotConflict[];
+  /** четвёрки, проверенные solver'ом базы (снимок 2.0) */
+  quartets?: SnapshotQuartet[];
   content_snapshot_hash: string;
   stats?: Record<string, number>;
 }

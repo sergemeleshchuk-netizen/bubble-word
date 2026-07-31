@@ -157,6 +157,10 @@ function buildPool(
   for (let cat = 0; cat < index.categories.length; cat += 1) {
     const meta = index.categories[cat];
     if (excluded?.has(cat)) continue;
+    // Готовность категории решает база (derive-readiness), а не генератор:
+    // curated_only — парное правило вроде OPPOSITES, четвёрка собирается руками;
+    // hard_only и blocked — нормальной четвёрки нет вообще.
+    if (!index.isAutoUsable(cat)) continue;
     if (c.themesExcluded.has(meta.th)) continue;
     if (c.themesAllowed && !c.themesAllowed.has(meta.th)) continue;
 
@@ -449,6 +453,18 @@ function selectCategories(
   };
   const UNSEPARABLE_JACCARD = 0.30;
   const separableFromSelected = (entry: PoolEntry): boolean => {
+    /**
+     * Запреты пар из базы действуют ВСЕГДА, в том числе без гейтов декады.
+     *
+     * Это не эвристика инструмента, а решение стороны контента: derive-conflicts
+     * посчитал пересечение играбельных пулов и сохранил пару с причиной
+     * (GEMSTONES + BIRTHSTONES — 15 общих слов, FABRICS + UPHOLSTERY — 13).
+     * Живой Жаккар ниже остаётся: он ловит и то, чего в базе ещё нет, но
+     * порог у него один на всех, а в базе есть ручные запреты и severity.
+     */
+    for (const other of selected) {
+      if (index.conflict(entry.category, other.category)) return false;
+    }
     if (!c.gates) return true;
     const a = approvedSet(entry);
     for (const other of selected) {
@@ -992,6 +1008,31 @@ export function generateLevel(
     if (!picked) {
       lastStage = 'выбор категорий';
       lastReason = 'не удалось собрать набор с мета-каркасом и категорией быстрой победы';
+      attempts.push({ index: attempt, outcome: 'rejected', stage: lastStage,
+        reason: lastReason, relaxations: active.slice() });
+      continue;
+    }
+
+    /**
+     * Мета-связей должно быть столько, сколько просит план.
+     *
+     * Раньше этой проверки не было: сколько мета-пар удалось собрать, столько и
+     * шло в уровень. Из 20 декад восемь не проходили собственную приёмку по
+     * META_RANGE — и всегда из-за одного-двух уровней, провалившихся ПОД коридор
+     * (декада 31-40: [5,3,4,2,4,3,5,4,1,5] при коридоре 3-6). Причина не в
+     * дефиците материала: мета-пар в базе 178, а в том, что попытка с бедным
+     * набором категорий принималась, хотя следующая дала бы нужное.
+     *
+     * Требование снимается в последней трети попыток: потерять уровень хуже, чем
+     * потерять одну мета-пару. Считать эту границу нужно от лимита попыток, а не
+     * от числа ослаблений — у некалиброванного пресета лимит 24, ослабления
+     * заканчиваются на 24-й попытке, и требование не снималось никогда: пресет
+     * 201-210 терял по уровню на трёх seed из двенадцати.
+     */
+    const metaRequired = attempt < Math.floor((maxAttempts * 2) / 3);
+    if (metaRequired && picked.edges.length < constraints.metaCount) {
+      lastStage = 'мета-связи';
+      lastReason = `мета-пар ${picked.edges.length}, план требует ${constraints.metaCount}`;
       attempts.push({ index: attempt, outcome: 'rejected', stage: lastStage,
         reason: lastReason, relaxations: active.slice() });
       continue;

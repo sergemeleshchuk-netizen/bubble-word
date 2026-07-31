@@ -475,6 +475,39 @@ const CHECKS: Check[] = [
     },
   },
   {
+    /**
+     * Запрет пары, объявленный базой. В отличие от UNSEPARABLE_PAIR ниже это не
+     * оценка, а решение: `derive-conflicts` посчитал пересечение играбельных
+     * пулов и записал пару с причиной и severity. Поэтому severity здесь hard.
+     *
+     * Генератор такие пары не выдаёт (гейт в selectCategories), но валидатор
+     * смотрит и на уровни, собранные не им: руками, импортом, старой выгрузкой.
+     */
+    code: 'CONFLICT_PAIR',
+    severity: 'hard',
+    run: (spec, ctx) => {
+      const cats = spec.categories
+        .map((c) => ({ key: c.key, index: ctx.index.categoryIndex(c.key) }))
+        .filter((c): c is { key: string; index: number } => c.index !== undefined);
+      const bad: string[] = [];
+      for (let i = 0; i < cats.length; i += 1) {
+        for (let j = i + 1; j < cats.length; j += 1) {
+          const conflict = ctx.index.conflict(cats[i].index, cats[j].index);
+          if (!conflict) continue;
+          bad.push(`${cats[i].key} и ${cats[j].key}: запрет ${conflict.severity ?? '—'}, `
+            + `общих играбельных слов ${conflict.overlap}`);
+        }
+      }
+      return {
+        passed: bad.length === 0,
+        detail: bad.length ? `запрещённых базой пар категорий: ${bad.length}`
+          : 'запрещённых базой пар на уровне нет',
+        entities: bad,
+        suggestion: 'запрет снимается в базе (data/seed/_category_meta.json), а не в уровне',
+      };
+    },
+  },
+  {
     code: 'UNSEPARABLE_PAIR',
     severity: 'soft',
     run: (spec, ctx) => {

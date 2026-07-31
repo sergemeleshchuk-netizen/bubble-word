@@ -6,7 +6,7 @@
  * не задев остальные. Поэтому здесь маленькая управляемая база.
  */
 import type {
-  LevelSpec, LevelCategory, LevelWord, Snapshot, SnapshotMembership,
+  LevelSpec, LevelCategory, LevelWord, Readiness, Snapshot, SnapshotMembership,
 } from '../../web/src/core/types.ts';
 import { STATUS } from '../../web/src/core/types.ts';
 
@@ -23,6 +23,10 @@ export function makeSnapshot(specs: CatSpec[], extra: {
   /** дополнительные связи: слово годится ещё и в эту категорию */
   alternatives?: [string, string, number, number][];
   metaCapable?: [string, string][];
+  /** запреты пар из базы: [ключ, ключ, severity] */
+  conflicts?: [string, string, string?][];
+  /** готовность категорий: ключ → readiness (по умолчанию ready) */
+  readiness?: Record<string, Readiness>;
 } = {}): Snapshot {
   const wordList: { t: string; z: number }[] = [];
   const wordIndex = new Map<string, number>();
@@ -68,14 +72,29 @@ export function makeSnapshot(specs: CatSpec[], extra: {
     metaCapable.push({ category: child, word: wi, hosts: [parent] });
   }
 
+  const conflicts: Snapshot['conflicts'] = [];
+  for (const [aKey, bKey, severity] of extra.conflicts ?? []) {
+    const a = catIndex.get(aKey);
+    const b = catIndex.get(bKey);
+    if (a === undefined || b === undefined) {
+      throw new Error(`фикстура: нет категории ${aKey} или ${bKey}`);
+    }
+    conflicts.push([Math.min(a, b), Math.max(a, b), 0, severity ?? 'P0', 4]);
+  }
+
   return {
     schema_version: 'snapshot-test',
     statuses: ['approved', 'alternative', 'hard_only', 'candidate', 'rejected'],
+    risk_flags: ['obscure', 'regional', 'proper_noun', 'multiword'],
+    conflict_types: ['do_not_pair', 'needs_disjoint_words'],
+    quartet_tiers: ['normal', 'hard'],
     constants: { zipf_max: 7, top50k_zipf: 2.55, quickwin_zipf: 3.0 },
     categories: specs.map((s) => ({
       k: s.key, l: s.label, r: `правило для ${s.label}`,
       rel: 'associated_with', th: s.theme ?? 'test', d: 0.4,
+      rd: extra.readiness?.[s.key] ?? 'ready',
     })),
+    conflicts,
     words: wordList.map((w) => ({
       t: w.t, n: w.t.toLowerCase(), z: w.z, u: 0,
       l: /^[a-z]+$/.test(w.t) ? 1 : 0, p: 0, tok: 1,
