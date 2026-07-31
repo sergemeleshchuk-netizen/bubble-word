@@ -842,8 +842,23 @@ function loop(ts){
 }
 /* ===== старт: уровень из ?level=... (JSON) либо встроенный контент ===== */
 (async function boot(){
-  const q=new URLSearchParams(location.search).get('level');
-  if(q){
+  const params=new URLSearchParams(location.search);
+  const q=params.get('level');
+  /* ?gen=N — уровень, отданный генератором уровней (пункт 05 сайта). Лежит не
+     файлом, а в localStorage: инструмент и прототип на одном origin, поэтому
+     между «собрал» и «сыграл» не нужен ни сервер, ни деплой.
+     Ключ и формат — tool/level-tool/web/src/core/playableHandoff.ts */
+  const gen=params.get('gen');
+  if(gen!==null){
+    try{
+      const pack=JSON.parse(localStorage.getItem('bubble-level-tool.generated-pack.v1')||'null');
+      const lvl=pack&&pack.levels&&pack.levels[Number(gen)];
+      if(!lvl) throw new Error('в хранилище нет уровня '+gen);
+      applyLevel(lvl);
+      console.log('level loaded from generator:',pack.label,lvl.title||lvl.level_id);
+    }catch(e){ console.warn('generated level load failed, играем встроенный контент:',e); }
+  }
+  else if(q){
     try{ applyLevel(await (await fetch(q)).json()); console.log('level loaded:',q); }
     catch(e){ console.warn('level load failed, играем встроенный контент:',e); }
   }

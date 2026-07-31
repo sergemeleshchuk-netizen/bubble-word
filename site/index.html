@@ -1712,11 +1712,41 @@ README должен содержать:
 <script>
   /* уровень и модификатор живут в одном URL прототипа: выбор любого из двух
      перезагружает телефон с новой партией */
+  /* Уровни, отданные генератором из пункта 05. Ключ и формат — см.
+     tool/level-tool/web/src/core/playableHandoff.ts (тот же origin, поэтому
+     хранилище общее). Группа называется версией инструмента и хешем пакета. */
+  var HANDOFF_KEY='bubble-level-tool.generated-pack.v1';
+  function readHandoff(){
+    try{ return JSON.parse(localStorage.getItem(HANDOFF_KEY)||'null'); }
+    catch(e){ return null; }
+  }
+  function mountHandoff(){
+    var pack=readHandoff();
+    var sel=document.getElementById('lvlSel');
+    if(!sel) return;
+    var old=sel.querySelector('optgroup[data-generated]');
+    if(old) old.remove();
+    if(!pack||!pack.levels||!pack.levels.length) return;
+    var group=document.createElement('optgroup');
+    group.setAttribute('data-generated','1');
+    group.label='Из генератора · '+pack.label;
+    pack.levels.forEach(function(l,i){
+      var o=document.createElement('option');
+      o.value='gen:'+i;
+      o.textContent=l.title||('Уровень '+l.level_id);
+      group.appendChild(o);
+    });
+    /* первой группой: только что собранное ищут в начале списка, а не в хвосте */
+    sel.insertBefore(group, sel.firstChild.nextSibling);
+  }
+
   function reloadPlay(){
     var lv=document.getElementById('lvlSel').value;
     var md=document.getElementById('modSel').value;
     var q=[];
-    if(lv) q.push('level='+lv);
+    /* gen:N — уровень из генератора, лежит в localStorage, а не файлом */
+    if(lv.indexOf('gen:')===0) q.push('gen='+lv.slice(4));
+    else if(lv) q.push('level='+lv);
     if(md) q.push('mod='+md);
     document.getElementById('playFrame').src='playable/index.html'+(q.length?'?'+q.join('&'):'');
   }
@@ -1734,6 +1764,10 @@ README должен содержать:
         lazy[i].src = lazy[i].getAttribute('data-src');
         lazy[i].removeAttribute('data-src');
       }
+      /* Список уровней пересобираем при каждом раскрытии: генератор мог отдать
+         пакет только что, в этой же сессии, и перезагружать страницу ради
+         появления группы человек не должен. */
+      if(body.querySelector('#lvlSel')) mountHandoff();
       body.style.maxHeight = body.scrollHeight + 'px';
       /* после анимации отпускаем ограничение: контент с vh-размерами
          (рамка телефона) не должен обрезаться при изменении окна */

@@ -307,7 +307,10 @@ export function configForRange(
     recoveryPositions: [RECOVERY_POSITION],
     rarityRange: profile.rareRange,
     maxMetaDepth: 2,          // глубже 2 в референсе не встречается ни разу
-    allowedModifiers: profile.allowedModifiers,
+    // Замер декады по-прежнему знает, где в оригинале появляются цепи
+    // (`profile.allowedModifiers`), но генератор их не ставит: он словесный.
+    // См. DEFAULT_BLOCK_CONFIG.allowedModifiers.
+    allowedModifiers: [],
     includeThemes: [],
     excludeThemes: [],
     trapThemes: [],

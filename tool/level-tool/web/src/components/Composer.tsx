@@ -206,10 +206,9 @@ export function RhythmChart({ plans, levels }: {
  * ни на что. График под формой считается по черновику — это предпросмотр того,
  * что будет собрано, а не состояние генератора.
  */
-export function Composer({ config, onGenerate, knownThemes }: {
+export function Composer({ config, onGenerate }: {
   config: BlockConfig;
   onGenerate: (config: BlockConfig) => void;
-  knownThemes: string[];
 }) {
   const [text, setText] = useState(
     'Еда и путешествия, без спорта, два пика, передышка после каждого пика, '
@@ -342,17 +341,15 @@ export function Composer({ config, onGenerate, knownThemes }: {
             <span className="small muted">повторов слов {decade.repeatRange.join('–')}</span>
           </div>
           <div className="field">
-            <span className="lbl">модификаторы</span>
-            <strong>{decade.allowedModifiers.length ? 'цепи разрешены' : 'запрещены'}</strong>
-            <span className="small muted">
-              видно на поле от {(visibleShareMin(decade) * 100).toFixed(0)}% уровня
-            </span>
+            <span className="lbl">видно на поле</span>
+            <strong>от {(visibleShareMin(decade) * 100).toFixed(0)}% уровня</strong>
+            <span className="small muted">остальное досыпается по ходу</span>
           </div>
         </div>
         {draft.levelRange[0] === 1 && (
           <p className="small" style={{ color: 'var(--ok)', marginTop: 8 }}>
             Уровень 1 — туториал: 5 категорий, весь уровень на поле, лимита ходов нет,
-            мета-пар и модификаторов ноль (как L1 оригинала).
+            мета-пар ноль (как L1 оригинала).
           </p>
         )}
         {!draft.decadeGates && (
@@ -462,25 +459,6 @@ export function Composer({ config, onGenerate, knownThemes }: {
               patch({ categoryFreshnessWindow: value });
               return true;
             }} />
-          <label className="field">
-            <span className="lbl">модификаторы</span>
-            <select value={draft.allowedModifiers.join(',')}
-              onChange={(e) => patch({
-                allowedModifiers: e.target.value ? e.target.value.split(',') as never : [],
-              })}>
-              <option value="chains">цепи</option>
-              <option value="">без модификаторов</option>
-            </select>
-          </label>
-        </div>
-
-        <div className="grid c2" style={{ marginTop: 4 }}>
-          <ThemePicker label="включить только эти сферы" themes={knownThemes}
-            selected={draft.includeThemes}
-            onChange={(v) => patch({ includeThemes: v })} />
-          <ThemePicker label="исключить сферы" themes={knownThemes}
-            selected={draft.excludeThemes}
-            onChange={(v) => patch({ excludeThemes: v })} />
         </div>
 
         {/*
@@ -506,25 +484,6 @@ export function Composer({ config, onGenerate, knownThemes }: {
         </div>
       </div>
     </>
-  );
-}
-
-function ThemePicker({ label, themes, selected, onChange }: {
-  label: string; themes: string[]; selected: string[]; onChange: (v: string[]) => void;
-}) {
-  const toggle = (theme: string) => onChange(
-    selected.includes(theme) ? selected.filter((t) => t !== theme) : [...selected, theme]);
-  return (
-    <div>
-      <span className="lbl muted small">{label}</span>
-      <div className="row" style={{ marginTop: 6, maxHeight: 116, overflowY: 'auto' }}>
-        {themes.map((theme) => (
-          <button key={theme} className={`ghost ${selected.includes(theme) ? 'on' : ''}`}
-            style={{ padding: '3px 8px', fontSize: 11 }}
-            onClick={() => toggle(theme)}>{theme}</button>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -599,7 +558,7 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
               <th>ур.</th><th>роль</th><th className="num">кат</th>
               <th className="num">пуз</th><th className="num">мета</th>
               <th className="num">глуб</th><th className="num">редк</th>
-              <th className="num">лов</th><th className="num">цепи</th>
+              <th className="num">лов</th>
               <th className="num">реш</th><th>проверки</th>
               <th className="num">D</th><th className="num">I</th>
               <th className="num">поп</th>
@@ -625,7 +584,6 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
                   <td className="num">{depth >= 3 ? <strong>{depth}</strong> : depth}</td>
                   <td className="num">{rare}</td>
                   <td className="num">{s.traps.length}</td>
-                  <td className="num">{s.modifiers.chains.length}</td>
                   <td className="num">{level.solutions.count}</td>
                   <td>
                     {hard === 0

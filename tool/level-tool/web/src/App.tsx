@@ -7,7 +7,6 @@ import type { ScoringConfig } from './core/scoringDifficulty.ts';
 import { TOOL_VERSION } from './core/version.ts';
 import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
-import { Playable } from './components/Playable.tsx';
 import { ContentBase } from './components/ContentBase.tsx';
 import { ExportView } from './components/ExportView.tsx';
 
@@ -23,7 +22,6 @@ const TABS = [
   { id: 'compose', label: 'Настройка блока' },
   { id: 'run', label: 'Генерация' },
   { id: 'level', label: 'Уровень' },
-  { id: 'play', label: 'Playable' },
   { id: 'export', label: 'Экспорт' },
 ] as const;
 
@@ -37,10 +35,6 @@ export function App() {
   const [elapsed, setElapsed] = useState<number>(0);
 
   const index = useMemo(() => new ContentIndex(snapshot), []);
-  // лексикон базы нужен прототипу: фрагмент половинки не имеет права быть
-  // самостоятельным словом (SPEC §4), а проверить это можно только по списку слов
-  const lexicon = useMemo(
-    () => new Set(snapshot.words.map((w) => w.n.toLowerCase())), []);
   // план применённого конфига нужен экрану генерации; экран настройки считает
   // свой собственный по черновику формы
   const plans = useMemo(() => buildBlockPlan(config), [config]);
@@ -97,11 +91,7 @@ export function App() {
       {tab === 'base' && <ContentBase snapshot={snapshot} index={index} runs={aiRunsJson as never} />}
 
       {tab === 'compose' && (
-        <Composer
-          config={config}
-          onGenerate={generate}
-          knownThemes={Array.from(new Set(snapshot.categories.map((c) => c.th))).sort()}
-        />
+        <Composer config={config} onGenerate={generate} />
       )}
 
       {tab === 'run' && (
@@ -122,18 +112,10 @@ export function App() {
               block={block!}
               index={index}
               scoring={scoring}
-              onPlay={() => setTab('play')}
               onSelect={setSelectedLevel}
               levels={block!.levels}
             />
           )
-          : <Empty onGenerate={generate} />
-      )}
-
-      {tab === 'play' && (
-        level
-          ? <Playable level={level} levels={block!.levels} lexicon={lexicon}
-              onSelect={setSelectedLevel} />
           : <Empty onGenerate={generate} />
       )}
 

@@ -7,6 +7,7 @@
  */
 import { useState } from 'react';
 import type { BlockResult, GeneratedLevel, LevelSpec } from '../core/types.ts';
+import { publishToPlayable, type HandoffPack } from '../core/playableHandoff.ts';
 
 export function ExportView({ block, toGameJson, toPipelineJson }: {
   block: BlockResult;
@@ -16,6 +17,8 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
   const [mode, setMode] = useState<'game' | 'pipeline'>('game');
   const [levelId, setLevelId] = useState(block.levels[0]?.spec.levelId ?? 0);
   const level = block.levels.find((l) => l.spec.levelId === levelId) ?? block.levels[0];
+  /** null — ещё не отдавали; 'failed' — хранилище недоступно */
+  const [handed, setHanded] = useState<HandoffPack | 'failed' | null>(null);
 
   const single = mode === 'game'
     ? toGameJson(level.spec)
@@ -66,6 +69,43 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
         </div>
       </div>
 
+      {/*
+        Отдать пакет в прототип. Кнопка стоит до экспорта JSON намеренно:
+        сыграть в собранное — самая быстрая проверка, что уровень живой,
+        и делать её удобнее до того, как файлы уехали в билд.
+      */}
+      <div className="panel">
+        <h2>Сыграть в собранное</h2>
+        <p className="hint">
+          Пакет уезжает в играбельный прототип — он отдельным пунктом рядом
+          («Build Playable»). Уровни появятся там в списке отдельной группой,
+          названной версией инструмента и хешем пакета.
+        </p>
+        <div className="row">
+          <button className="primary"
+            onClick={() => setHanded(publishToPlayable(block) ?? 'failed')}>
+            Добавить в Playable
+          </button>
+          {handed && handed !== 'failed' && (
+            <span className="tag mono">{handed.label}</span>
+          )}
+        </div>
+
+        {handed === 'failed' && (
+          <p className="small" style={{ color: 'var(--warn)', marginTop: 10 }}>
+            Браузер не дал сохранить пакет (приватный режим или запрет хранилища).
+            Прототип его не увидит — воспользуйтесь скачиванием JSON ниже.
+          </p>
+        )}
+        {handed && handed !== 'failed' && (
+          <p className="small" style={{ color: 'var(--ok)', marginTop: 10 }}>
+            Готово: {handed.levels.length} уровней добавлено как группа
+            «{handed.label}». Можете сыграть в эти уровни в Playable —
+            откройте пункт «Build Playable» и выберите эту группу в списке уровней.
+          </p>
+        )}
+      </div>
+
       <div className="panel">
         <div className="spread">
           <div className="row">
@@ -86,7 +126,7 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
         <p className="hint" style={{ marginTop: 10 }}>
           {mode === 'game'
             ? 'Только то, что нужно клиенту игры: категории, слова, мета-связи, '
-              + 'модификаторы, лимит ходов. Без оценок и следов валидации.'
+              + 'лимит ходов. Без оценок и следов валидации.'
             : 'Артефакт пайплайна: происхождение, разбивка оценок, результаты всех '
               + 'проверок, история попыток генерации.'}
         </p>

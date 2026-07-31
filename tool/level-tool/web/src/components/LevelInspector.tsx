@@ -9,12 +9,11 @@ import type { BlockResult, GeneratedLevel } from '../core/types.ts';
 import type { ContentIndex } from '../core/snapshot.ts';
 import type { ScoringConfig } from '../core/scoringDifficulty.ts';
 
-export function LevelInspector({ level, block, index, scoring, onPlay, onSelect, levels }: {
+export function LevelInspector({ level, block, index, scoring, onSelect, levels }: {
   level: GeneratedLevel;
   block: BlockResult;
   index: ContentIndex;
   scoring: ScoringConfig;
-  onPlay: () => void;
   onSelect: (id: number) => void;
   levels: GeneratedLevel[];
 }) {
@@ -35,7 +34,6 @@ export function LevelInspector({ level, block, index, scoring, onPlay, onSelect,
                 onClick={() => onSelect(l.spec.levelId)}>{l.spec.levelId}</button>
             ))}
           </div>
-          <button className="ghost" onClick={onPlay}>Играть этот уровень →</button>
         </div>
       </div>
 
@@ -123,7 +121,7 @@ export function LevelInspector({ level, block, index, scoring, onPlay, onSelect,
               total={level.difficulty.declaredTotal} color="#bc8cff" />
             <Bucket title="семантика: двусмысленность" items={level.difficulty.semantic}
               total={level.difficulty.semanticTotal} color="#ff9e64" />
-            <Bucket title="механика: модификаторы и ходы" items={level.difficulty.mechanical}
+            <Bucket title="механика: лимит ходов" items={level.difficulty.mechanical}
               total={level.difficulty.mechanicalTotal} color="#d29922" />
             <ul className="small muted" style={{ paddingLeft: 18, marginTop: 10 }}>
               {level.difficulty.explanation.map((e, i) => <li key={i}>{e}</li>)}

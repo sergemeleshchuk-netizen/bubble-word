@@ -37,7 +37,6 @@ export function ContentBase({ snapshot, index, runs }: {
   const base = runs.content_base as Record<string, number>;
   const byStatus = (runs.content_base.by_status ?? {}) as Record<string, number>;
   const zipf = (runs.content_base.zipf_buckets ?? {}) as Record<string, number>;
-  const relations = (runs.content_base.relation_types ?? {}) as Record<string, number>;
   const run = runs.runs[0];
 
   return (
@@ -125,17 +124,6 @@ export function ContentBase({ snapshot, index, runs }: {
               </div>
             </div>
 
-            <h3 style={{ fontSize: 13, margin: '16px 0 8px' }}>Типы связи</h3>
-            <div className="row">
-              {Object.entries(relations).map(([type, n]) => (
-                <span className="tag" key={type}>{type} · {n}</span>
-              ))}
-            </div>
-            <p className="muted small" style={{ marginTop: 8 }}>
-              Разнотипность внутри категории — фактор интересности, а не дефект.
-              В референсе 1660 имён категорий, и лишь у 30 есть явный маркер связи:
-              это игра в свободную ассоциацию, а не в таксономию.
-            </p>
           </>
         )}
 

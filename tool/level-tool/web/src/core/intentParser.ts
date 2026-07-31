@@ -156,18 +156,10 @@ export function parseIntent(text: string): ParsedIntent {
       matches.push({ field: 'recoveryPositions', value: '3, 6, 10', source: fragment });
     }
 
-    // модификаторы
-    if (/цеп|chain/.test(fragment)) {
-      touched = true;
-      patch.allowedModifiers = negated ? [] : ['chains'];
-      matches.push({ field: 'allowedModifiers', value: negated ? 'нет' : 'chains',
-        source: fragment });
-    }
-    if (/без модификатор|no modifier/.test(fragment)) {
-      touched = true;
-      patch.allowedModifiers = [];
-      matches.push({ field: 'allowedModifiers', value: 'нет', source: fragment });
-    }
+    // Модификаторов генератор не ставит (см. DEFAULT_BLOCK_CONFIG), поэтому
+    // и разбирать просьбу о цепях нечестно: разобрали бы, показали в таблице
+    // «понято», а на уровень это не попало бы. Просьба уйдёт в «не понято» —
+    // это и есть правда.
 
     // редкость и сложность
     if (/редк|rare|экзотик|сложн слов/.test(fragment)) {
