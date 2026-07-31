@@ -10,113 +10,113 @@
   },
   "categories": [
     {
-      "key": "opera",
-      "label": "OPERA",
+      "key": "crimes",
+      "label": "CRIMES",
       "words": [
         {
-          "text": "theater",
+          "text": "fraud",
           "kind": "word"
         },
         {
-          "text": "phantom",
+          "text": "theft",
           "kind": "word"
         },
         {
-          "text": "chorus",
+          "text": "littering",
           "kind": "word"
         },
         {
-          "text": "Wagner",
+          "text": "shoplifting",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "italy",
-      "label": "ITALY",
+      "key": "courtroom",
+      "label": "COURTROOM",
       "words": [
         {
-          "text": "opera",
+          "text": "crimes",
           "kind": "meta",
-          "meta_child": "opera"
+          "meta_child": "crimes"
         },
         {
-          "text": "Rome",
+          "text": "jury",
           "kind": "word"
         },
         {
-          "text": "pizza",
+          "text": "penalties",
           "kind": "word"
         },
         {
-          "text": "mafia",
+          "text": "verdict",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "countries_in_europe",
-      "label": "COUNTRIES IN EUROPE",
+      "key": "quiet_places",
+      "label": "QUIET PLACES",
       "words": [
         {
-          "text": "Italy",
+          "text": "courtroom",
           "kind": "meta",
-          "meta_child": "italy"
+          "meta_child": "courtroom"
         },
         {
-          "text": "Greece",
+          "text": "library",
           "kind": "word"
         },
         {
-          "text": "Belgium",
+          "text": "museum",
           "kind": "word"
         },
         {
-          "text": "Spain",
+          "text": "church",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "zoo",
-      "label": "ZOO",
+      "key": "cured_meats",
+      "label": "CURED MEATS",
       "words": [
         {
-          "text": "cage",
+          "text": "bacon",
           "kind": "word"
         },
         {
-          "text": "lion",
+          "text": "sausage",
           "kind": "word"
         },
         {
-          "text": "exhibit",
+          "text": "bologna",
           "kind": "word"
         },
         {
-          "text": "keeper",
+          "text": "jerky",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "vehicles",
-      "label": "VEHICLES",
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
       "words": [
         {
-          "text": "taxi",
+          "text": "pot",
           "kind": "word"
         },
         {
-          "text": "helicopter",
+          "text": "pan",
           "kind": "word"
         },
         {
-          "text": "Subway",
+          "text": "fork",
           "kind": "word"
         },
         {
-          "text": "bike",
+          "text": "opener",
           "kind": "word"
         }
       ]
@@ -126,15 +126,15 @@
       "label": "BUGS",
       "words": [
         {
-          "text": "bee",
-          "kind": "word"
-        },
-        {
           "text": "spider",
           "kind": "word"
         },
         {
-          "text": "ant",
+          "text": "bee",
+          "kind": "word"
+        },
+        {
+          "text": "tick",
           "kind": "word"
         },
         {
@@ -144,23 +144,23 @@
       ]
     },
     {
-      "key": "dishes_and_glassware",
-      "label": "DISHES",
+      "key": "christmas_things",
+      "label": "CHRISTMAS THINGS",
       "words": [
         {
-          "text": "bowl",
+          "text": "carol",
           "kind": "word"
         },
         {
-          "text": "bottle",
+          "text": "lights",
           "kind": "word"
         },
         {
-          "text": "dish",
+          "text": "gift",
           "kind": "word"
         },
         {
-          "text": "jar",
+          "text": "tree",
           "kind": "word"
         }
       ]
@@ -174,81 +174,37 @@
           "kind": "word"
         },
         {
-          "text": "chemistry",
+          "text": "economics",
+          "kind": "word"
+        },
+        {
+          "text": "biology",
           "kind": "word"
         },
         {
           "text": "math",
           "kind": "word"
-        },
-        {
-          "text": "economics",
-          "kind": "word"
         }
       ]
     },
     {
-      "key": "bathroom_items",
-      "label": "BATHROOM ITEMS",
+      "key": "family_members",
+      "label": "FAMILY MEMBERS",
       "words": [
         {
-          "text": "tissue",
+          "text": "uncle",
           "kind": "word"
         },
         {
-          "text": "toilet",
+          "text": "grandfather",
           "kind": "word"
         },
         {
-          "text": "soap",
+          "text": "cousin",
           "kind": "word"
         },
         {
-          "text": "shower",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "toys",
-      "label": "TOYS",
-      "words": [
-        {
-          "text": "blocks",
-          "kind": "word"
-        },
-        {
-          "text": "bubble",
-          "kind": "word"
-        },
-        {
-          "text": "robot",
-          "kind": "word"
-        },
-        {
-          "text": "frisbee",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "art_tools",
-      "label": "ART TOOLS",
-      "words": [
-        {
-          "text": "brush",
-          "kind": "word"
-        },
-        {
-          "text": "roller",
-          "kind": "word"
-        },
-        {
-          "text": "canvas",
-          "kind": "word"
-        },
-        {
-          "text": "chisel",
+          "text": "twin",
           "kind": "word"
         }
       ]
@@ -258,10 +214,6 @@
       "label": "PIE INGREDIENTS",
       "words": [
         {
-          "text": "egg",
-          "kind": "word"
-        },
-        {
           "text": "chocolate",
           "kind": "word"
         },
@@ -270,7 +222,55 @@
           "kind": "word"
         },
         {
+          "text": "vanilla",
+          "kind": "word"
+        },
+        {
           "text": "flour",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cleaning_supplies",
+      "label": "CLEANING SUPPLIES",
+      "words": [
+        {
+          "text": "polish",
+          "kind": "word"
+        },
+        {
+          "text": "brush",
+          "kind": "word"
+        },
+        {
+          "text": "vacuum",
+          "kind": "word"
+        },
+        {
+          "text": "soap",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
+      "words": [
+        {
+          "text": "piano",
+          "kind": "word"
+        },
+        {
+          "text": "organ",
+          "kind": "word"
+        },
+        {
+          "text": "drum",
+          "kind": "word"
+        },
+        {
+          "text": "guitar",
           "kind": "word"
         }
       ]

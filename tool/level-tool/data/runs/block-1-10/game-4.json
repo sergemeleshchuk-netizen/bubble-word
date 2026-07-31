@@ -10,177 +10,23 @@
   },
   "categories": [
     {
-      "key": "emergency_services",
-      "label": "EMERGENCY SERVICES",
+      "key": "color_words_advanced",
+      "label": "SHADES OF COLOR",
       "words": [
         {
-          "text": "ambulance",
+          "text": "olive",
           "kind": "word"
         },
         {
-          "text": "dispatch",
+          "text": "amber",
           "kind": "word"
         },
         {
-          "text": "hospital",
+          "text": "coral",
           "kind": "word"
         },
         {
-          "text": "Ranger",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "birds",
-      "label": "BIRDS",
-      "words": [
-        {
-          "text": "robin",
-          "kind": "word"
-        },
-        {
-          "text": "jay",
-          "kind": "word"
-        },
-        {
-          "text": "eagle",
-          "kind": "word"
-        },
-        {
-          "text": "duck",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "jewelry",
-      "label": "JEWELRY",
-      "words": [
-        {
-          "text": "charm",
-          "kind": "word"
-        },
-        {
-          "text": "chain",
-          "kind": "word"
-        },
-        {
-          "text": "stud",
-          "kind": "word"
-        },
-        {
-          "text": "bracelet",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "breakfast_foods",
-      "label": "BREAKFAST FOODS",
-      "words": [
-        {
-          "text": "ham",
-          "kind": "word"
-        },
-        {
-          "text": "honey",
-          "kind": "word"
-        },
-        {
-          "text": "juice",
-          "kind": "word"
-        },
-        {
-          "text": "bacon",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "team_sports",
-      "label": "TEAM SPORTS",
-      "words": [
-        {
-          "text": "hockey",
-          "kind": "word"
-        },
-        {
-          "text": "rugby",
-          "kind": "word"
-        },
-        {
-          "text": "cricket",
-          "kind": "word"
-        },
-        {
-          "text": "baseball",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "musical_instruments",
-      "label": "MUSICAL INSTRUMENTS",
-      "words": [
-        {
-          "text": "guitar",
-          "kind": "word"
-        },
-        {
-          "text": "piano",
-          "kind": "word"
-        },
-        {
-          "text": "drum",
-          "kind": "word"
-        },
-        {
-          "text": "organ",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "christmas_things",
-      "label": "CHRISTMAS THINGS",
-      "words": [
-        {
-          "text": "carol",
-          "kind": "word"
-        },
-        {
-          "text": "tinsel",
-          "kind": "word"
-        },
-        {
-          "text": "lights",
-          "kind": "word"
-        },
-        {
-          "text": "gift",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "body_parts",
-      "label": "BODY PARTS",
-      "words": [
-        {
-          "text": "knee",
-          "kind": "word"
-        },
-        {
-          "text": "fingers",
-          "kind": "word"
-        },
-        {
-          "text": "tongue",
-          "kind": "word"
-        },
-        {
-          "text": "bones",
+          "text": "ivory",
           "kind": "word"
         }
       ]
@@ -190,19 +36,173 @@
       "label": "FURNITURE",
       "words": [
         {
-          "text": "desk",
-          "kind": "word"
-        },
-        {
-          "text": "bureau",
-          "kind": "word"
-        },
-        {
           "text": "bench",
           "kind": "word"
         },
         {
           "text": "couch",
+          "kind": "word"
+        },
+        {
+          "text": "sofa",
+          "kind": "word"
+        },
+        {
+          "text": "wardrobe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "cocoa",
+          "kind": "word"
+        },
+        {
+          "text": "cider",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "classroom_things",
+      "label": "CLASSROOM THINGS",
+      "words": [
+        {
+          "text": "globe",
+          "kind": "word"
+        },
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "map",
+          "kind": "word"
+        },
+        {
+          "text": "chair",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jewelry",
+      "label": "JEWELRY",
+      "words": [
+        {
+          "text": "chain",
+          "kind": "word"
+        },
+        {
+          "text": "charm",
+          "kind": "word"
+        },
+        {
+          "text": "ring",
+          "kind": "word"
+        },
+        {
+          "text": "stud",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "team_sports",
+      "label": "TEAM SPORTS",
+      "words": [
+        {
+          "text": "rugby",
+          "kind": "word"
+        },
+        {
+          "text": "baseball",
+          "kind": "word"
+        },
+        {
+          "text": "hockey",
+          "kind": "word"
+        },
+        {
+          "text": "cricket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baby_things",
+      "label": "BABY THINGS",
+      "words": [
+        {
+          "text": "swing",
+          "kind": "word"
+        },
+        {
+          "text": "formula",
+          "kind": "word"
+        },
+        {
+          "text": "bib",
+          "kind": "word"
+        },
+        {
+          "text": "blanket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "medical_jobs",
+      "label": "MEDICAL JOBS",
+      "words": [
+        {
+          "text": "nurse",
+          "kind": "word"
+        },
+        {
+          "text": "surgeon",
+          "kind": "word"
+        },
+        {
+          "text": "therapist",
+          "kind": "word"
+        },
+        {
+          "text": "dentist",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pizza_toppings",
+      "label": "PIZZA TOPPINGS",
+      "words": [
+        {
+          "text": "egg",
+          "kind": "word"
+        },
+        {
+          "text": "pepper",
+          "kind": "word"
+        },
+        {
+          "text": "chicken",
+          "kind": "word"
+        },
+        {
+          "text": "ham",
           "kind": "word"
         }
       ]

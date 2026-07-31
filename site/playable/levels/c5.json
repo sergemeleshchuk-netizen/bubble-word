@@ -4,73 +4,73 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "opera",
-      "name": "Opera",
+      "id": "crimes",
+      "name": "Crimes",
       "words": [
-        "theater",
-        "phantom",
-        "chorus",
-        "wagner"
+        "fraud",
+        "theft",
+        "littering",
+        "shoplifting"
       ]
     },
     {
-      "id": "italy",
-      "name": "Italy",
+      "id": "courtroom",
+      "name": "Courtroom",
       "words": [
-        "opera",
-        "rome",
-        "pizza",
-        "mafia"
+        "crimes",
+        "jury",
+        "penalties",
+        "verdict"
       ]
     },
     {
-      "id": "countries-in-europe",
-      "name": "Countries In Europe",
+      "id": "quiet-places",
+      "name": "Quiet Places",
       "words": [
-        "italy",
-        "greece",
-        "belgium",
-        "spain"
+        "courtroom",
+        "library",
+        "museum",
+        "church"
       ]
     },
     {
-      "id": "zoo",
-      "name": "Zoo",
+      "id": "cured-meats",
+      "name": "Cured Meats",
       "words": [
-        "cage",
-        "lion",
-        "exhibit",
-        "keeper"
+        "bacon",
+        "sausage",
+        "bologna",
+        "jerky"
       ]
     },
     {
-      "id": "vehicles",
-      "name": "Vehicles",
+      "id": "kitchen-tools",
+      "name": "Kitchen Tools",
       "words": [
-        "taxi",
-        "helicopter",
-        "subway",
-        "bike"
+        "pot",
+        "pan",
+        "fork",
+        "opener"
       ]
     },
     {
       "id": "insects",
       "name": "Bugs",
       "words": [
-        "bee",
         "spider",
-        "ant",
+        "bee",
+        "tick",
         "butterfly"
       ]
     },
     {
-      "id": "dishes-and-glassware",
-      "name": "Dishes",
+      "id": "christmas-things",
+      "name": "Christmas Things",
       "words": [
-        "bowl",
-        "bottle",
-        "dish",
-        "jar"
+        "carol",
+        "lights",
+        "gift",
+        "tree"
       ]
     },
     {
@@ -78,49 +78,49 @@
       "name": "School Subjects",
       "words": [
         "physics",
-        "chemistry",
-        "math",
-        "economics"
+        "economics",
+        "biology",
+        "math"
       ]
     },
     {
-      "id": "bathroom-items",
-      "name": "Bathroom Items",
+      "id": "family-members",
+      "name": "Family Members",
       "words": [
-        "tissue",
-        "toilet",
-        "soap",
-        "shower"
-      ]
-    },
-    {
-      "id": "toys",
-      "name": "Toys",
-      "words": [
-        "blocks",
-        "bubble",
-        "robot",
-        "frisbee"
-      ]
-    },
-    {
-      "id": "art-tools",
-      "name": "Art Tools",
-      "words": [
-        "brush",
-        "roller",
-        "canvas",
-        "chisel"
+        "uncle",
+        "grandfather",
+        "cousin",
+        "twin"
       ]
     },
     {
       "id": "pie-ingredients",
       "name": "Pie Ingredients",
       "words": [
-        "egg",
         "chocolate",
         "salt",
+        "vanilla",
         "flour"
+      ]
+    },
+    {
+      "id": "cleaning-supplies",
+      "name": "Cleaning Supplies",
+      "words": [
+        "polish",
+        "brush",
+        "vacuum",
+        "soap"
+      ]
+    },
+    {
+      "id": "musical-instruments",
+      "name": "Musical Instruments",
+      "words": [
+        "piano",
+        "organ",
+        "drum",
+        "guitar"
       ]
     }
   ],

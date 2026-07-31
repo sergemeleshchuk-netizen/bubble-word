@@ -4,43 +4,43 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "photography",
-      "name": "Photography",
+      "id": "trees",
+      "name": "Trees",
       "words": [
-        "capture",
-        "lens",
-        "exposure",
-        "lighting"
+        "oak",
+        "ash",
+        "pine",
+        "palm"
       ]
     },
     {
-      "id": "art",
-      "name": "Art",
+      "id": "garden-center",
+      "name": "Garden Center",
       "words": [
-        "photography",
-        "portrait",
-        "painting",
-        "sketch"
+        "trees",
+        "soil",
+        "flowers",
+        "seedling"
       ]
     },
     {
-      "id": "mollusca",
-      "name": "Mollusca",
+      "id": "airlines",
+      "name": "Airlines",
       "words": [
-        "oyster",
-        "snail",
-        "octopus",
-        "squid"
+        "alaska",
+        "frontier",
+        "southwest",
+        "spirit"
       ]
     },
     {
       "id": "office-supplies",
       "name": "Office Supplies",
       "words": [
-        "label",
-        "calendar",
+        "pen",
         "tape",
-        "pen"
+        "calendar",
+        "label"
       ]
     },
     {
@@ -48,29 +48,29 @@
       "name": "Hand Tools",
       "words": [
         "hammer",
+        "drill",
         "knife",
-        "square",
-        "drill"
+        "square"
       ]
     },
     {
       "id": "shapes",
       "name": "Shapes",
       "words": [
-        "cylinder",
         "circle",
+        "triangle",
         "sphere",
-        "oval"
+        "cylinder"
       ]
     },
     {
       "id": "face-parts",
       "name": "Face Parts",
       "words": [
+        "ear",
         "temple",
         "lip",
-        "ear",
-        "jaw"
+        "nose"
       ]
     },
     {
@@ -80,7 +80,7 @@
         "butter",
         "cheese",
         "cream",
-        "kefir"
+        "milk"
       ]
     }
   ],

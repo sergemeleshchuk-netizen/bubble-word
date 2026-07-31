@@ -4,103 +4,103 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "vampire",
-      "name": "Vampire",
+      "id": "vegetables",
+      "name": "Vegetables",
       "words": [
-        "transylvania",
-        "twilight",
-        "coffin",
-        "blood"
+        "bean",
+        "corn",
+        "potato",
+        "squash"
       ]
     },
     {
-      "id": "halloween",
-      "name": "Halloween",
+      "id": "grocery-aisles",
+      "name": "Grocery Aisles",
       "words": [
-        "vampire",
-        "witch",
-        "costume",
-        "ghost"
+        "vegetables",
+        "frozen",
+        "fruits",
+        "dairy"
       ]
     },
     {
-      "id": "ceramics",
-      "name": "Ceramics",
+      "id": "metals",
+      "name": "Metals",
       "words": [
-        "tile",
-        "vase",
-        "wedge",
-        "porcelain"
+        "copper",
+        "brass",
+        "platinum",
+        "bronze"
       ]
     },
     {
-      "id": "studio-arts",
-      "name": "Studio Arts",
+      "id": "jewelry-box",
+      "name": "Jewelry Box",
       "words": [
-        "ceramics",
-        "pottery",
-        "photography",
-        "sculpture"
+        "metals",
+        "jewelry",
+        "velvet",
+        "gemstones"
       ]
     },
     {
-      "id": "draft",
-      "name": "Draft",
+      "id": "water-actions",
+      "name": "Water Actions",
       "words": [
-        "wind",
-        "concept",
-        "beer",
-        "writing"
-      ]
-    },
-    {
-      "id": "medical-jobs",
-      "name": "Medical Jobs",
-      "words": [
-        "nurse",
-        "surgeon",
-        "therapist",
-        "psychiatrist"
-      ]
-    },
-    {
-      "id": "winter-clothing",
-      "name": "Winter Clothing",
-      "words": [
-        "boot",
-        "thermal",
-        "sweater",
-        "scarf"
-      ]
-    },
-    {
-      "id": "hot-drinks",
-      "name": "Hot Drinks",
-      "words": [
-        "tea",
-        "cocoa",
-        "coffee",
-        "cider"
-      ]
-    },
-    {
-      "id": "candy",
-      "name": "Candy",
-      "words": [
-        "sweet",
-        "mint",
-        "fudge",
-        "caramel"
+        "swim",
+        "spray",
+        "flood",
+        "dive"
       ]
     },
     {
       "id": "gardening-words",
       "name": "Gardening Words",
       "words": [
-        "seed",
-        "soil",
         "weed",
-        "shade"
+        "seed",
+        "harvest",
+        "soil"
+      ]
+    },
+    {
+      "id": "illnesses",
+      "name": "Illnesses",
+      "words": [
+        "infection",
+        "diseases",
+        "diabetes",
+        "fever"
+      ]
+    },
+    {
+      "id": "weapons-of-the-past",
+      "name": "Old Weapons",
+      "words": [
+        "sword",
+        "arrow",
+        "bow",
+        "spear"
+      ]
+    },
+    {
+      "id": "jungle-animals",
+      "name": "Jungle Animals",
+      "words": [
+        "tiger",
+        "snake",
+        "frog",
+        "monkey"
+      ]
+    },
+    {
+      "id": "wild-west",
+      "name": "Wild West",
+      "words": [
+        "boots",
+        "spurs",
+        "marshal",
+        "sheriff"
       ]
     }
   ],

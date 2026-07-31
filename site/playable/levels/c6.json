@@ -4,63 +4,33 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "reading",
-      "name": "Reading",
+      "id": "girls-names",
+      "name": "Girls Names",
       "words": [
-        "poem",
-        "magazine",
-        "index",
-        "newspaper"
+        "charlotte",
+        "grace",
+        "elizabeth",
+        "rachel"
       ]
     },
     {
-      "id": "family-members",
-      "name": "Family Members",
+      "id": "town-places",
+      "name": "Town Places",
       "words": [
-        "twin",
-        "cousin",
-        "grandfather",
-        "aunt"
+        "mall",
+        "stadium",
+        "theater",
+        "pharmacy"
       ]
     },
     {
-      "id": "home-rooms",
-      "name": "House Rooms",
+      "id": "body-parts",
+      "name": "Body Parts",
       "words": [
-        "bedroom",
-        "garage",
-        "den",
-        "closet"
-      ]
-    },
-    {
-      "id": "zoo-animals",
-      "name": "Zoo Animals",
-      "words": [
-        "seal",
-        "monkey",
-        "tiger",
-        "bear"
-      ]
-    },
-    {
-      "id": "birthday-things",
-      "name": "Birthday Things",
-      "words": [
-        "guest",
-        "hat",
-        "invitation",
-        "candle"
-      ]
-    },
-    {
-      "id": "us-states",
-      "name": "Us States",
-      "words": [
-        "georgia",
-        "oregon",
-        "iowa",
-        "alabama"
+        "knee",
+        "stomach",
+        "finger",
+        "hip"
       ]
     },
     {
@@ -68,9 +38,39 @@
       "name": "Clothing Items",
       "words": [
         "jacket",
-        "coat",
         "pants",
-        "gloves"
+        "coat",
+        "skirt"
+      ]
+    },
+    {
+      "id": "school-places",
+      "name": "School Places",
+      "words": [
+        "gym",
+        "lab",
+        "bathroom",
+        "classroom"
+      ]
+    },
+    {
+      "id": "party-things",
+      "name": "Party Things",
+      "words": [
+        "candy",
+        "favor",
+        "banner",
+        "invitation"
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "Directions",
+      "words": [
+        "beside",
+        "forward",
+        "north",
+        "east"
       ]
     }
   ],

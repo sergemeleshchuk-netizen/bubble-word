@@ -10,156 +10,90 @@
   },
   "categories": [
     {
-      "key": "hats",
-      "label": "HATS",
+      "key": "rodents",
+      "label": "RODENTS",
       "words": [
         {
-          "text": "cap",
+          "text": "rat",
           "kind": "word"
         },
         {
-          "text": "helmet",
+          "text": "chipmunk",
           "kind": "word"
         },
         {
-          "text": "derby",
+          "text": "beaver",
           "kind": "word"
         },
         {
-          "text": "panama",
+          "text": "squirrel",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "costume_party",
-      "label": "COSTUME PARTY",
+      "key": "pet_store",
+      "label": "PET STORE",
       "words": [
         {
-          "text": "hats",
+          "text": "rodents",
           "kind": "meta",
-          "meta_child": "hats"
+          "meta_child": "rodents"
         },
         {
-          "text": "cape",
+          "text": "pets",
           "kind": "word"
         },
         {
-          "text": "mask",
+          "text": "cage",
           "kind": "word"
         },
         {
-          "text": "superheroes",
+          "text": "birds",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "initials_and_titles",
-      "label": "NAME PARTS",
+      "key": "joining_actions",
+      "label": "JOINING ACTIONS",
       "words": [
         {
-          "text": "nickname",
+          "text": "tape",
           "kind": "word"
         },
         {
-          "text": "junior",
+          "text": "clip",
           "kind": "word"
         },
         {
-          "text": "initial",
+          "text": "zip",
           "kind": "word"
         },
         {
-          "text": "senior",
+          "text": "glue",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "pizza_toppings",
-      "label": "PIZZA TOPPINGS",
+      "key": "sandwich_fillings",
+      "label": "SANDWICH FILLINGS",
       "words": [
+        {
+          "text": "mayo",
+          "kind": "word"
+        },
+        {
+          "text": "jelly",
+          "kind": "word"
+        },
+        {
+          "text": "tomato",
+          "kind": "word"
+        },
         {
           "text": "onion",
-          "kind": "word"
-        },
-        {
-          "text": "garlic",
-          "kind": "word"
-        },
-        {
-          "text": "pepper",
-          "kind": "word"
-        },
-        {
-          "text": "sausage",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "car_parts",
-      "label": "CAR PARTS",
-      "words": [
-        {
-          "text": "battery",
-          "kind": "word"
-        },
-        {
-          "text": "horn",
-          "kind": "word"
-        },
-        {
-          "text": "trunk",
-          "kind": "word"
-        },
-        {
-          "text": "gear",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "flying_animals",
-      "label": "FLYING ANIMALS",
-      "words": [
-        {
-          "text": "bat",
-          "kind": "word"
-        },
-        {
-          "text": "hawk",
-          "kind": "word"
-        },
-        {
-          "text": "falcon",
-          "kind": "word"
-        },
-        {
-          "text": "swan",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "town_places",
-      "label": "TOWN PLACES",
-      "words": [
-        {
-          "text": "gym",
-          "kind": "word"
-        },
-        {
-          "text": "jail",
-          "kind": "word"
-        },
-        {
-          "text": "clinic",
-          "kind": "word"
-        },
-        {
-          "text": "stadium",
           "kind": "word"
         }
       ]
@@ -169,7 +103,7 @@
       "label": "BEACH THINGS",
       "words": [
         {
-          "text": "wave",
+          "text": "shell",
           "kind": "word"
         },
         {
@@ -177,33 +111,99 @@
           "kind": "word"
         },
         {
-          "text": "shell",
+          "text": "cooler",
           "kind": "word"
         },
         {
-          "text": "cooler",
+          "text": "wave",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "makeup",
-      "label": "MAKEUP",
+      "key": "tennis_words",
+      "label": "TENNIS WORDS",
       "words": [
         {
-          "text": "powder",
+          "text": "rally",
           "kind": "word"
         },
         {
-          "text": "mirror",
+          "text": "fault",
           "kind": "word"
         },
         {
-          "text": "foundation",
+          "text": "Ace",
           "kind": "word"
         },
         {
-          "text": "bronzer",
+          "text": "net",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "harbor_things",
+      "label": "HARBOR THINGS",
+      "words": [
+        {
+          "text": "anchor",
+          "kind": "word"
+        },
+        {
+          "text": "warehouse",
+          "kind": "word"
+        },
+        {
+          "text": "dock",
+          "kind": "word"
+        },
+        {
+          "text": "rope",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bedroom_things",
+      "label": "BEDROOM THINGS",
+      "words": [
+        {
+          "text": "sheet",
+          "kind": "word"
+        },
+        {
+          "text": "closet",
+          "kind": "word"
+        },
+        {
+          "text": "lamp",
+          "kind": "word"
+        },
+        {
+          "text": "pillow",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "rocks_and_minerals",
+      "label": "ROCKS AND MINERALS",
+      "words": [
+        {
+          "text": "coal",
+          "kind": "word"
+        },
+        {
+          "text": "granite",
+          "kind": "word"
+        },
+        {
+          "text": "limestone",
+          "kind": "word"
+        },
+        {
+          "text": "slate",
           "kind": "word"
         }
       ]

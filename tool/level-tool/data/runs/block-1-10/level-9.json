@@ -14,418 +14,230 @@
     },
     "categories": [
       {
-        "key": "vampire",
-        "label": "VAMPIRE",
-        "rule": "What belongs to the group «Vampire» as used in the original game",
-        "theme": "misc",
+        "key": "vegetables",
+        "label": "VEGETABLES",
+        "rule": "Common edible vegetables sold in an ordinary American grocery store",
+        "theme": "food",
         "words": [
           {
-            "text": "transylvania",
+            "text": "bean",
             "kind": "word",
-            "zipf": 2.92,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.35
-          },
-          {
-            "text": "twilight",
-            "kind": "word",
-            "zipf": 3.82,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.58
-          },
-          {
-            "text": "coffin",
-            "kind": "word",
-            "zipf": 3.8,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.57
-          },
-          {
-            "text": "blood",
-            "kind": "word",
-            "zipf": 5.1,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.9
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "halloween",
-        "isQuickwin": false
-      },
-      {
-        "key": "halloween",
-        "label": "HALLOWEEN",
-        "rule": "What belongs to the group «Halloween» as used in the original game",
-        "theme": "misc",
-        "words": [
-          {
-            "text": "vampire",
-            "kind": "meta",
-            "metaChild": "vampire",
-            "zipf": 4.03,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "witch",
-            "kind": "word",
-            "zipf": 4.11,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.65
-          },
-          {
-            "text": "costume",
-            "kind": "word",
-            "zipf": 4.18,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.67
-          },
-          {
-            "text": "ghost",
-            "kind": "word",
-            "zipf": 4.42,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.73
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "ceramics",
-        "label": "CERAMICS",
-        "rule": "What belongs to the group «Ceramics» as used in the original game",
-        "theme": "misc",
-        "words": [
-          {
-            "text": "tile",
-            "kind": "word",
-            "zipf": 3.72,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.56
-          },
-          {
-            "text": "vase",
-            "kind": "word",
-            "zipf": 3.54,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.51
-          },
-          {
-            "text": "wedge",
-            "kind": "word",
-            "zipf": 3.62,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.53
-          },
-          {
-            "text": "porcelain",
-            "kind": "word",
-            "zipf": 3.56,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.52
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "studio_arts",
-        "isQuickwin": true
-      },
-      {
-        "key": "studio_arts",
-        "label": "STUDIO ARTS",
-        "rule": "What belongs to the group «Studio Arts» as used in the original game",
-        "theme": "entertainment",
-        "words": [
-          {
-            "text": "ceramics",
-            "kind": "meta",
-            "metaChild": "ceramics",
-            "zipf": 3.44,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "pottery",
-            "kind": "word",
-            "zipf": 3.7,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.55
-          },
-          {
-            "text": "photography",
-            "kind": "word",
-            "zipf": 4.45,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.74
-          },
-          {
-            "text": "sculpture",
-            "kind": "word",
-            "zipf": 3.92,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.6
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "draft",
-        "label": "DRAFT",
-        "rule": "What belongs to the group «Draft» as used in the original game",
-        "theme": "misc",
-        "words": [
-          {
-            "text": "wind",
-            "kind": "word",
-            "zipf": 4.84,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.83
-          },
-          {
-            "text": "concept",
-            "kind": "word",
-            "zipf": 4.77,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.82
-          },
-          {
-            "text": "beer",
-            "kind": "word",
-            "zipf": 4.7,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.8
-          },
-          {
-            "text": "writing",
-            "kind": "word",
-            "zipf": 5.07,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.89
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "medical_jobs",
-        "label": "MEDICAL JOBS",
-        "rule": "Jobs held by people who treat patients or work in healthcare",
-        "theme": "jobs",
-        "words": [
-          {
-            "text": "nurse",
-            "kind": "word",
-            "zipf": 4.4,
+            "zipf": 3.98,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.95
           },
           {
-            "text": "surgeon",
-            "kind": "word",
-            "zipf": 4.13,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "therapist",
-            "kind": "word",
-            "zipf": 3.97,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "psychiatrist",
-            "kind": "word",
-            "zipf": 3.7,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "winter_clothing",
-        "label": "WINTER CLOTHING",
-        "rule": "Clothing worn specifically to stay warm in cold weather",
-        "theme": "clothing",
-        "words": [
-          {
-            "text": "boot",
+            "text": "corn",
             "kind": "word",
             "zipf": 4.19,
             "frequencyUnknown": false,
-            "relation": "used_in",
+            "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.95
           },
           {
-            "text": "thermal",
+            "text": "potato",
             "kind": "word",
-            "zipf": 4.04,
+            "zipf": 4.11,
             "frequencyUnknown": false,
-            "relation": "associated_with",
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "squash",
+            "kind": "word",
+            "zipf": 3.63,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "grocery_aisles",
+        "isQuickwin": true
+      },
+      {
+        "key": "grocery_aisles",
+        "label": "GROCERY AISLES",
+        "rule": "The sections a supermarket is divided into",
+        "theme": "food",
+        "words": [
+          {
+            "text": "vegetables",
+            "kind": "meta",
+            "metaChild": "vegetables",
+            "zipf": 4.15,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "Frozen",
+            "kind": "word",
+            "zipf": 4.32,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.68
+          },
+          {
+            "text": "fruits",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.96,
+            "obviousness": 0.7
+          },
+          {
+            "text": "dairy",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "found_in",
             "fit": 0.95,
-            "obviousness": 0.64
-          },
-          {
-            "text": "sweater",
-            "kind": "word",
-            "zipf": 3.78,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "scarf",
-            "kind": "word",
-            "zipf": 3.68,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.72
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "metals",
+        "label": "METALS",
+        "rule": "Metals and metal alloys used in everyday objects",
+        "theme": "science",
+        "words": [
+          {
+            "text": "copper",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "brass",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "platinum",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bronze",
+            "kind": "word",
+            "zipf": 4.2,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "jewelry_box",
         "isQuickwin": true
       },
       {
-        "key": "hot_drinks",
-        "label": "HOT DRINKS",
-        "rule": "Drinks normally served hot",
-        "theme": "food",
+        "key": "jewelry_box",
+        "label": "JEWELRY BOX",
+        "rule": "What is kept in a jewelry box or what it is made of",
+        "theme": "clothing",
         "words": [
           {
-            "text": "tea",
+            "text": "metals",
+            "kind": "meta",
+            "metaChild": "metals",
+            "zipf": 3.95,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "jewelry",
             "kind": "word",
-            "zipf": 4.73,
+            "zipf": 4.12,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
+            "relation": "found_in",
+            "fit": 0.98,
             "obviousness": 0.9
           },
           {
-            "text": "cocoa",
+            "text": "velvet",
             "kind": "word",
-            "zipf": 3.64,
+            "zipf": 3.77,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
+            "relation": "part_of",
+            "fit": 0.88,
+            "obviousness": 0.66
           },
           {
-            "text": "coffee",
+            "text": "gemstones",
             "kind": "word",
-            "zipf": 4.86,
+            "zipf": 2.78,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "cider",
-            "kind": "word",
-            "zipf": 3.5,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.62
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
-        "isQuickwin": true
+        "isQuickwin": false
       },
       {
-        "key": "candy",
-        "label": "CANDY",
-        "rule": "Sweets sold in a candy aisle",
-        "theme": "food",
+        "key": "water_actions",
+        "label": "WATER ACTIONS",
+        "rule": "Actions done in or with water",
+        "theme": "actions",
         "words": [
           {
-            "text": "sweet",
+            "text": "swim",
             "kind": "word",
-            "zipf": 4.91,
+            "zipf": 4.21,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.85
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.72
           },
           {
-            "text": "mint",
+            "text": "spray",
             "kind": "word",
-            "zipf": 3.92,
+            "zipf": 4.18,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "does_action",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.72
           },
           {
-            "text": "fudge",
+            "text": "flood",
             "kind": "word",
-            "zipf": 3.33,
+            "zipf": 4.34,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "does_action",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.72
           },
           {
-            "text": "caramel",
+            "text": "dive",
             "kind": "word",
-            "zipf": 3.48,
+            "zipf": 4.12,
             "frequencyUnknown": false,
-            "relation": "is_a",
+            "relation": "does_action",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.72
           }
         ],
         "metaDepth": 0,
@@ -439,9 +251,27 @@
         "theme": "plants",
         "words": [
           {
+            "text": "weed",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
             "text": "seed",
             "kind": "word",
             "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "harvest",
+            "kind": "word",
+            "zipf": 4.03,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -455,22 +285,98 @@
             "relation": "found_in",
             "fit": 0.97,
             "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "illnesses",
+        "label": "ILLNESSES",
+        "rule": "Common illnesses an average person can name",
+        "theme": "body",
+        "words": [
+          {
+            "text": "infection",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
           },
           {
-            "text": "weed",
+            "text": "diseases",
             "kind": "word",
-            "zipf": 4.27,
+            "zipf": 4.36,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.72
+          },
+          {
+            "text": "diabetes",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "fever",
+            "kind": "word",
+            "zipf": 4.22,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "weapons_of_the_past",
+        "label": "OLD WEAPONS",
+        "rule": "Weapons used before modern firearms",
+        "theme": "history",
+        "words": [
+          {
+            "text": "sword",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.8
           },
           {
-            "text": "shade",
+            "text": "arrow",
             "kind": "word",
-            "zipf": 4.16,
+            "zipf": 4.13,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "bow",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "spear",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.8
           }
@@ -478,18 +384,103 @@
         "metaDepth": 0,
         "parentKey": null,
         "isQuickwin": true
-      }
-    ],
-    "traps": [
+      },
       {
-        "word": "pottery",
-        "home": "studio_arts",
-        "decoy": "ceramics",
-        "homeObviousness": 0.55,
-        "decoyFit": 0.95,
-        "decoyObviousness": 0.55
+        "key": "jungle_animals",
+        "label": "JUNGLE ANIMALS",
+        "rule": "Animals that live in tropical jungles and rainforests",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "tiger",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "snake",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "frog",
+            "kind": "word",
+            "zipf": 3.89,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "monkey",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "wild_west",
+        "label": "WILD WEST",
+        "rule": "Things associated with the American Old West",
+        "theme": "history",
+        "words": [
+          {
+            "text": "boots",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "spurs",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "marshal",
+            "kind": "word",
+            "zipf": 3.87,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "sheriff",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
       }
     ],
+    "traps": [],
     "halves": [],
     "modifiers": {
       "chains": [],
@@ -498,12 +489,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T14:57:01.075Z",
+    "generated_at": "2026-07-31T15:23:28.153Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
-    "level_spec_hash": "597474c14bf0ccc2e22448fc1a37dcdec758acb620d98559f4ab849668c74757",
-    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
+    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+    "level_spec_hash": "ac6cd37aa1891291802cddec9997a36f7325285e27fab5a25f5000e973bb799f",
+    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
     "seed": "final-03"
   },
   "plan": {
@@ -527,7 +518,7 @@
     "moveLimitK": 1.35
   },
   "scoring": {
-    "difficulty": 6,
+    "difficulty": 5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 3.4541999999999997,
@@ -540,8 +531,8 @@
         "быстрые победы (объявлено)": -0.6
       },
       "semantic": {
-        "подтверждённые ловушки": 0.6,
-        "смежность категорий": 1.2,
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -552,7 +543,7 @@
       "totals": {
         "base": 3.5715999999999997,
         "declared": -0.15999999999999998,
-        "semantic": 1.7999999999999998,
+        "semantic": 0.8,
         "mechanical": 0.6428571428571427
       }
     },
@@ -560,24 +551,23 @@
       "38 пузырей на старте при 10 категориях",
       "1 редких слов, из них 0 очень редких",
       "2 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
-      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "1 ловушек: слово с одним домом при наличии на поле второй правдоподобной категории",
-      "7 пар категорий из одной тематической сферы",
+      "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 41 при минимуме 30 (K = 1.35)"
     ],
-    "interest": 7.5,
+    "interest": 7,
     "interest_breakdown": {
-      "clarity": 2.22,
-      "variety": 2.09,
-      "aha": 1,
+      "clarity": 2.29,
+      "variety": 2.25,
+      "aha": 0.4,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.22: узнаваемых слов 100%, средняя очевидность связи 0.76",
-      "Variety 2.09: 4 типов связи, 6 тематических сфер, но 60% категорий однотипны",
-      "Aha 1.00: 1 честных ловушек, 2 мета-связей, глубина 1",
-      "Freshness 2.05: новых для пакета слов 98%"
+      "Clarity 2.29: узнаваемых слов 100%, средняя очевидность связи 0.81",
+      "Variety 2.25: 4 типов связи, 8 тематических сфер",
+      "Aha 0.40: 0 честных ловушек, 2 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 95%"
     ]
   },
   "validation": {
@@ -659,7 +649,7 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 7: ceramics, draft, medical_jobs, winter_clothing, hot_drinks, candy, gardening_words"
+        "detail": "категорий быстрой победы 8: vegetables, metals, water_actions, gardening_words, illnesses, weapons_of_the_past, jungle_animals, wild_west"
       },
       {
         "code": "RECOGNIZABILITY",
@@ -713,7 +703,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.04 (цель декады 4.35), p25 3.70 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.16 (цель декады 4.35), p25 4.03 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -731,7 +721,7 @@
         "code": "REPEAT_BUDGET",
         "passed": true,
         "severity": "soft",
-        "detail": "слов из прошлых уровней в другой категории: 1, коридор декады 0-4"
+        "detail": "слов из прошлых уровней в другой категории: 2, коридор декады 0-4"
       }
     ],
     "issues": [],
@@ -745,7 +735,7 @@
         "index": 0,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "10 категорий, 2 мета-связей, 1 редких слов, 1 ловушек",
+        "reason": "10 категорий, 2 мета-связей, 1 редких слов, 0 ловушек",
         "relaxations": []
       }
     ]

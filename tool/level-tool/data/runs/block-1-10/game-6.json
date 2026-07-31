@@ -10,133 +10,67 @@
   },
   "categories": [
     {
-      "key": "reading",
-      "label": "READING",
+      "key": "girls_names",
+      "label": "GIRLS NAMES",
       "words": [
         {
-          "text": "poem",
+          "text": "Charlotte",
           "kind": "word"
         },
         {
-          "text": "magazine",
+          "text": "Grace",
           "kind": "word"
         },
         {
-          "text": "index",
+          "text": "Elizabeth",
           "kind": "word"
         },
         {
-          "text": "newspaper",
+          "text": "Rachel",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "family_members",
-      "label": "FAMILY MEMBERS",
+      "key": "town_places",
+      "label": "TOWN PLACES",
       "words": [
         {
-          "text": "twin",
+          "text": "mall",
           "kind": "word"
         },
         {
-          "text": "cousin",
+          "text": "stadium",
           "kind": "word"
         },
         {
-          "text": "grandfather",
+          "text": "theater",
           "kind": "word"
         },
         {
-          "text": "aunt",
+          "text": "pharmacy",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "home_rooms",
-      "label": "HOUSE ROOMS",
+      "key": "body_parts",
+      "label": "BODY PARTS",
       "words": [
         {
-          "text": "bedroom",
+          "text": "knee",
           "kind": "word"
         },
         {
-          "text": "garage",
+          "text": "stomach",
           "kind": "word"
         },
         {
-          "text": "den",
+          "text": "finger",
           "kind": "word"
         },
         {
-          "text": "closet",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "zoo_animals",
-      "label": "ZOO ANIMALS",
-      "words": [
-        {
-          "text": "seal",
-          "kind": "word"
-        },
-        {
-          "text": "monkey",
-          "kind": "word"
-        },
-        {
-          "text": "tiger",
-          "kind": "word"
-        },
-        {
-          "text": "bear",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "birthday_things",
-      "label": "BIRTHDAY THINGS",
-      "words": [
-        {
-          "text": "guest",
-          "kind": "word"
-        },
-        {
-          "text": "hat",
-          "kind": "word"
-        },
-        {
-          "text": "invitation",
-          "kind": "word"
-        },
-        {
-          "text": "candle",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "us_states",
-      "label": "US STATES",
-      "words": [
-        {
-          "text": "Georgia",
-          "kind": "word"
-        },
-        {
-          "text": "Oregon",
-          "kind": "word"
-        },
-        {
-          "text": "Iowa",
-          "kind": "word"
-        },
-        {
-          "text": "Alabama",
+          "text": "hip",
           "kind": "word"
         }
       ]
@@ -150,15 +84,81 @@
           "kind": "word"
         },
         {
-          "text": "coat",
-          "kind": "word"
-        },
-        {
           "text": "pants",
           "kind": "word"
         },
         {
-          "text": "gloves",
+          "text": "coat",
+          "kind": "word"
+        },
+        {
+          "text": "skirt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_places",
+      "label": "SCHOOL PLACES",
+      "words": [
+        {
+          "text": "gym",
+          "kind": "word"
+        },
+        {
+          "text": "lab",
+          "kind": "word"
+        },
+        {
+          "text": "bathroom",
+          "kind": "word"
+        },
+        {
+          "text": "classroom",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "party_things",
+      "label": "PARTY THINGS",
+      "words": [
+        {
+          "text": "candy",
+          "kind": "word"
+        },
+        {
+          "text": "favor",
+          "kind": "word"
+        },
+        {
+          "text": "banner",
+          "kind": "word"
+        },
+        {
+          "text": "invitation",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "directions",
+      "label": "DIRECTIONS",
+      "words": [
+        {
+          "text": "beside",
+          "kind": "word"
+        },
+        {
+          "text": "forward",
+          "kind": "word"
+        },
+        {
+          "text": "north",
+          "kind": "word"
+        },
+        {
+          "text": "east",
           "kind": "word"
         }
       ]

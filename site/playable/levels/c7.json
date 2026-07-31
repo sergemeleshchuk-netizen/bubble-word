@@ -4,23 +4,23 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "theater-roles",
-      "name": "Theater Roles",
+      "id": "ice-cream-flavors",
+      "name": "Ice Cream",
       "words": [
-        "producer",
-        "actor",
-        "crew",
-        "dresser"
+        "banana",
+        "mint",
+        "lemon",
+        "peach"
       ]
     },
     {
-      "id": "classroom-things",
-      "name": "Classroom Things",
+      "id": "bathroom-items",
+      "name": "Bathroom Items",
       "words": [
-        "clock",
-        "flag",
-        "globe",
-        "bell"
+        "tissue",
+        "toilet",
+        "sink",
+        "curtain"
       ]
     },
     {
@@ -30,77 +30,77 @@
         "patterns",
         "clay",
         "colors",
-        "marker"
-      ]
-    },
-    {
-      "id": "sandwich-fillings",
-      "name": "Sandwich Fillings",
-      "words": [
-        "chicken",
-        "mayo",
-        "mustard",
-        "tuna"
+        "shapes"
       ]
     },
     {
       "id": "camping-and-outdoors",
       "name": "Outdoor Activities",
       "words": [
-        "hunting",
-        "climbing",
         "fishing",
-        "sailing"
+        "hunting",
+        "camping",
+        "climbing"
       ]
     },
     {
       "id": "building-materials",
       "name": "Building Materials",
       "words": [
-        "brick",
-        "timber",
+        "concrete",
         "vinyl",
-        "steel"
+        "brick",
+        "aluminum"
       ]
     },
     {
       "id": "injuries",
       "name": "Injuries",
       "words": [
-        "strain",
         "burn",
-        "fracture",
-        "break"
+        "strain",
+        "cut",
+        "fracture"
       ]
     },
     {
       "id": "things-in-a-garage",
       "name": "Garage Things",
       "words": [
-        "shelf",
-        "ladder",
+        "tire",
+        "toolbox",
         "paint",
-        "wheelbarrow"
+        "shelf"
       ]
     },
     {
-      "id": "cleaning-supplies",
-      "name": "Cleaning Supplies",
+      "id": "home-rooms",
+      "name": "House Rooms",
       "words": [
-        "polish",
-        "bucket",
-        "vacuum",
-        "rag"
+        "basement",
+        "bedroom",
+        "garage",
+        "den"
       ]
     },
     {
-      "id": "wild-west",
-      "name": "Wild West",
+      "id": "taste-words",
+      "name": "Taste Words",
       "words": [
-        "horses",
-        "spurs",
-        "cowboys",
-        "wagon"
+        "bitter",
+        "sour",
+        "mild",
+        "rich"
+      ]
+    },
+    {
+      "id": "flying-animals",
+      "name": "Flying Animals",
+      "words": [
+        "bat",
+        "swan",
+        "goose",
+        "hawk"
       ]
     }
   ],

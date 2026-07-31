@@ -4,93 +4,93 @@
   "source": "block-1-10",
   "categories": [
     {
-      "id": "emergency-services",
-      "name": "Emergency Services",
+      "id": "color-words-advanced",
+      "name": "Shades Of Color",
       "words": [
-        "ambulance",
-        "dispatch",
-        "hospital",
-        "ranger"
-      ]
-    },
-    {
-      "id": "birds",
-      "name": "Birds",
-      "words": [
-        "robin",
-        "jay",
-        "eagle",
-        "duck"
-      ]
-    },
-    {
-      "id": "jewelry",
-      "name": "Jewelry",
-      "words": [
-        "charm",
-        "chain",
-        "stud",
-        "bracelet"
-      ]
-    },
-    {
-      "id": "breakfast-foods",
-      "name": "Breakfast Foods",
-      "words": [
-        "ham",
-        "honey",
-        "juice",
-        "bacon"
-      ]
-    },
-    {
-      "id": "team-sports",
-      "name": "Team Sports",
-      "words": [
-        "hockey",
-        "rugby",
-        "cricket",
-        "baseball"
-      ]
-    },
-    {
-      "id": "musical-instruments",
-      "name": "Musical Instruments",
-      "words": [
-        "guitar",
-        "piano",
-        "drum",
-        "organ"
-      ]
-    },
-    {
-      "id": "christmas-things",
-      "name": "Christmas Things",
-      "words": [
-        "carol",
-        "tinsel",
-        "lights",
-        "gift"
-      ]
-    },
-    {
-      "id": "body-parts",
-      "name": "Body Parts",
-      "words": [
-        "knee",
-        "fingers",
-        "tongue",
-        "bones"
+        "olive",
+        "amber",
+        "coral",
+        "ivory"
       ]
     },
     {
       "id": "furniture",
       "name": "Furniture",
       "words": [
-        "desk",
-        "bureau",
         "bench",
-        "couch"
+        "couch",
+        "sofa",
+        "wardrobe"
+      ]
+    },
+    {
+      "id": "hot-drinks",
+      "name": "Hot Drinks",
+      "words": [
+        "tea",
+        "coffee",
+        "cocoa",
+        "cider"
+      ]
+    },
+    {
+      "id": "classroom-things",
+      "name": "Classroom Things",
+      "words": [
+        "globe",
+        "desk",
+        "map",
+        "chair"
+      ]
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "words": [
+        "chain",
+        "charm",
+        "ring",
+        "stud"
+      ]
+    },
+    {
+      "id": "team-sports",
+      "name": "Team Sports",
+      "words": [
+        "rugby",
+        "baseball",
+        "hockey",
+        "cricket"
+      ]
+    },
+    {
+      "id": "baby-things",
+      "name": "Baby Things",
+      "words": [
+        "swing",
+        "formula",
+        "bib",
+        "blanket"
+      ]
+    },
+    {
+      "id": "medical-jobs",
+      "name": "Medical Jobs",
+      "words": [
+        "nurse",
+        "surgeon",
+        "therapist",
+        "dentist"
+      ]
+    },
+    {
+      "id": "pizza-toppings",
+      "name": "Pizza Toppings",
+      "words": [
+        "egg",
+        "pepper",
+        "chicken",
+        "ham"
       ]
     }
   ],

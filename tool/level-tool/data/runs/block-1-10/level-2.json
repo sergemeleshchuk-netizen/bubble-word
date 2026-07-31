@@ -14,91 +14,91 @@
     },
     "categories": [
       {
-        "key": "photography",
-        "label": "PHOTOGRAPHY",
-        "rule": "What belongs to the group «Photography» as used in the original game",
-        "theme": "misc",
+        "key": "trees",
+        "label": "TREES",
+        "rule": "Kinds of trees an average American can name",
+        "theme": "nature",
         "words": [
           {
-            "text": "capture",
+            "text": "oak",
             "kind": "word",
-            "zipf": 4.42,
+            "zipf": 4.18,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.73
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
           },
           {
-            "text": "lens",
+            "text": "ash",
             "kind": "word",
-            "zipf": 4.17,
+            "zipf": 4.16,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.67
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
           },
           {
-            "text": "exposure",
+            "text": "pine",
             "kind": "word",
-            "zipf": 4.44,
+            "zipf": 4.1,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.74
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
           },
           {
-            "text": "lighting",
+            "text": "palm",
             "kind": "word",
-            "zipf": 4.29,
+            "zipf": 4.23,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.7
+            "relation": "is_a",
+            "fit": 0.98,
+            "obviousness": 0.85
           }
         ],
         "metaDepth": 1,
-        "parentKey": "art",
+        "parentKey": "garden_center",
         "isQuickwin": true
       },
       {
-        "key": "art",
-        "label": "ART",
-        "rule": "What belongs to the group «Art» as used in the original game",
-        "theme": "entertainment",
+        "key": "garden_center",
+        "label": "GARDEN CENTER",
+        "rule": "What a garden center sells or what you buy there",
+        "theme": "plants",
         "words": [
           {
-            "text": "photography",
+            "text": "trees",
             "kind": "meta",
-            "metaChild": "photography",
-            "zipf": 4.45,
+            "metaChild": "trees",
+            "zipf": 4.69,
             "frequencyUnknown": false
           },
           {
-            "text": "portrait",
+            "text": "soil",
             "kind": "word",
-            "zipf": 4.22,
+            "zipf": 4.42,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.68
+            "relation": "found_in",
+            "fit": 0.94,
+            "obviousness": 0.82
           },
           {
-            "text": "painting",
+            "text": "flowers",
             "kind": "word",
-            "zipf": 4.6,
+            "zipf": 4.64,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.77
+            "relation": "found_in",
+            "fit": 0.96,
+            "obviousness": 0.78
           },
           {
-            "text": "sketch",
+            "text": "seedling",
             "kind": "word",
-            "zipf": 4.04,
+            "zipf": 2.75,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.64
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.74
           }
         ],
         "metaDepth": 0,
@@ -106,46 +106,46 @@
         "isQuickwin": false
       },
       {
-        "key": "mollusca",
-        "label": "MOLLUSCA",
-        "rule": "What belongs to the group «Mollusca» as used in the original game",
-        "theme": "misc",
+        "key": "airlines",
+        "label": "AIRLINES",
+        "rule": "Major passenger airlines",
+        "theme": "brands",
         "words": [
           {
-            "text": "oyster",
+            "text": "Alaska",
             "kind": "word",
-            "zipf": 3.54,
+            "zipf": 4.19,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.51
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
           },
           {
-            "text": "snail",
+            "text": "Frontier",
             "kind": "word",
-            "zipf": 3.67,
+            "zipf": 3.97,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.54
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
           },
           {
-            "text": "octopus",
+            "text": "Southwest",
             "kind": "word",
-            "zipf": 3.46,
+            "zipf": 4.1,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.49
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
           },
           {
-            "text": "squid",
+            "text": "Spirit",
             "kind": "word",
-            "zipf": 3.44,
+            "zipf": 4.79,
             "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.95,
-            "obviousness": 0.48
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
           }
         ],
         "metaDepth": 0,
@@ -159,18 +159,9 @@
         "theme": "tools",
         "words": [
           {
-            "text": "label",
+            "text": "pen",
             "kind": "word",
-            "zipf": 4.43,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "calendar",
-            "kind": "word",
-            "zipf": 4.3,
+            "zipf": 4.38,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -186,9 +177,18 @@
             "obviousness": 0.88
           },
           {
-            "text": "pen",
+            "text": "calendar",
             "kind": "word",
-            "zipf": 4.38,
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "label",
+            "kind": "word",
+            "zipf": 4.43,
             "frequencyUnknown": false,
             "relation": "found_in",
             "fit": 0.97,
@@ -215,6 +215,15 @@
             "obviousness": 0.9
           },
           {
+            "text": "drill",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
             "text": "knife",
             "kind": "word",
             "zipf": 4.41,
@@ -227,15 +236,6 @@
             "text": "Square",
             "kind": "word",
             "zipf": 4.84,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "drill",
-            "kind": "word",
-            "zipf": 4.09,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -253,18 +253,18 @@
         "theme": "science",
         "words": [
           {
-            "text": "cylinder",
+            "text": "circle",
             "kind": "word",
-            "zipf": 3.99,
+            "zipf": 4.55,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
             "obviousness": 0.92
           },
           {
-            "text": "circle",
+            "text": "triangle",
             "kind": "word",
-            "zipf": 4.55,
+            "zipf": 3.93,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -280,9 +280,9 @@
             "obviousness": 0.92
           },
           {
-            "text": "oval",
+            "text": "cylinder",
             "kind": "word",
-            "zipf": 3.98,
+            "zipf": 3.99,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -299,6 +299,15 @@
         "rule": "Parts of the human face",
         "theme": "body",
         "words": [
+          {
+            "text": "ear",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
           {
             "text": "temple",
             "kind": "word",
@@ -318,18 +327,9 @@
             "obviousness": 0.92
           },
           {
-            "text": "ear",
+            "text": "nose",
             "kind": "word",
-            "zipf": 4.43,
-            "frequencyUnknown": false,
-            "relation": "part_of",
-            "fit": 0.97,
-            "obviousness": 0.92
-          },
-          {
-            "text": "jaw",
-            "kind": "word",
-            "zipf": 3.98,
+            "zipf": 4.51,
             "frequencyUnknown": false,
             "relation": "part_of",
             "fit": 0.97,
@@ -374,9 +374,9 @@
             "obviousness": 0.9
           },
           {
-            "text": "kefir",
+            "text": "milk",
             "kind": "word",
-            "zipf": 2.13,
+            "zipf": 4.66,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
@@ -385,17 +385,17 @@
         ],
         "metaDepth": 0,
         "parentKey": null,
-        "isQuickwin": false
+        "isQuickwin": true
       }
     ],
     "traps": [
       {
-        "word": "portrait",
-        "home": "art",
-        "decoy": "photography",
-        "homeObviousness": 0.68,
-        "decoyFit": 0.95,
-        "decoyObviousness": 0.68
+        "word": "Square",
+        "home": "hand_tools",
+        "decoy": "shapes",
+        "homeObviousness": 0.9,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.92
       }
     ],
     "halves": [],
@@ -406,12 +406,12 @@
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T14:57:01.074Z",
+    "generated_at": "2026-07-31T15:23:28.152Z",
     "generator_version": "gen-1.0",
     "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "5ea90f44767436841ecc13cf2e2c96cafee97d5e1dcd637d3e839a55f0c8155c",
-    "level_spec_hash": "d83634a1e935858286a111f04194477247f18c648c2ae36caa4b411955b2c218",
-    "pack_hash": "52b20e0a2b2cbce7cefbf77dfe8fd4dc56a6612071961c3cdeaa6f625b0bd536",
+    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+    "level_spec_hash": "11814e052bb1ef3961a934f9edd301d55bc5993d3f6494566e1b58bde5f10d24",
+    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
     "seed": "final-03"
   },
   "plan": {
@@ -435,7 +435,7 @@
     "moveLimitK": 1.35
   },
   "scoring": {
-    "difficulty": 4,
+    "difficulty": 3.5,
     "difficulty_breakdown": {
       "base_calibrated": {
         "объём (пузырей на старте)": 2.8179,
@@ -449,7 +449,7 @@
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.8,
+        "смежность категорий": 0.4,
         "незапланированная спорность": 0
       },
       "mechanical": {
@@ -460,7 +460,7 @@
       "totals": {
         "base": 2.9353,
         "declared": -0.38,
-        "semantic": 0.8,
+        "semantic": 0.4,
         "mechanical": 0.6428571428571427
       }
     },
@@ -468,21 +468,21 @@
       "31 пузырей на старте при 8 категориях",
       "1 редких слов, из них 0 очень редких",
       "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
-      "6 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "2 пар категорий из одной тематической сферы",
+      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "1 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 33 при минимуме 24 (K = 1.35)"
     ],
     "interest": 6.5,
     "interest_breakdown": {
-      "clarity": 2.23,
-      "variety": 2.25,
+      "clarity": 2.34,
+      "variety": 1.8,
       "aha": 0.2,
       "freshness": 2.05
     },
     "interest_explanation": [
-      "Clarity 2.23: узнаваемых слов 97%, средняя очевидность связи 0.80",
-      "Variety 2.25: 4 типов связи, 6 тематических сфер",
+      "Clarity 2.34: узнаваемых слов 100%, средняя очевидность связи 0.86",
+      "Variety 1.80: 3 типов связи, 7 тематических сфер, но 63% категорий однотипны",
       "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
       "Freshness 2.05: новых для пакета слов 100%"
     ]
@@ -566,13 +566,13 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 6: photography, mollusca, office_supplies, hand_tools, shapes, face_parts"
+        "detail": "категорий быстрой победы 7: trees, airlines, office_supplies, hand_tools, shapes, face_parts, dairy_products"
       },
       {
         "code": "RECOGNIZABILITY",
         "passed": true,
         "severity": "hard",
-        "detail": "внутри top-50k 96.9% пузырей (порог zipf 2.55, вне порога 1)"
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
       },
       {
         "code": "NEAR_DUPLICATE_WORDS",
@@ -620,7 +620,7 @@
         "code": "ZIPF_DISTRIBUTION",
         "passed": true,
         "severity": "soft",
-        "detail": "медиана zipf 4.30 (цель декады 4.35), p25 3.99 (цель 3.8), допуск на уровень ±0.65"
+        "detail": "медиана zipf 4.40 (цель декады 4.35), p25 4.13 (цель 3.8), допуск на уровень ±0.65"
       },
       {
         "code": "RARE_WORD_BUDGET",
@@ -652,7 +652,7 @@
         "index": 0,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "8 категорий, 1 мета-связей, 1 редких слов, 2 ловушек",
+        "reason": "8 категорий, 1 мета-связей, 1 редких слов, 1 ловушек",
         "relaxations": []
       }
     ]
