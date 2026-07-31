@@ -716,6 +716,44 @@ def replace_pair_groups(
     return written, missing
 
 
+def ensure_rule_types(conn: sqlite3.Connection) -> dict[str, int]:
+    """Проставляет тип принципа группировки правилам, где его ещё нет.
+
+    Тип выводится из уже принятого `relation_type`, а не угадывается: чего нет
+    в таблице соответствий, остаётся `unclassified`. Структура важнее типа
+    связи — пары и последовательности видны явно и перекрывают вывод.
+
+    Шаг обязателен в сборке, а не только в миграции: на чистой сборке миграция
+    отрабатывает на пустой базе, категории приезжают позже, и без этого шага
+    все 1276 правил остались бы без типа.
+    """
+    from .migrations import _RELATION_TO_RULE_TYPE
+
+    applied: dict[str, int] = {}
+    for relation, rule_type in sorted(_RELATION_TO_RULE_TYPE.items()):
+        count = conn.execute(
+            "UPDATE categories SET rule_type = ? "
+            " WHERE relation_type = ? AND rule_type = 'unclassified'",
+            (rule_type, relation),
+        ).rowcount
+        if count:
+            applied[rule_type] = applied.get(rule_type, 0) + count
+    for structure, rule_type in (("pairs", "structured_set"), ("sequence", "sequence")):
+        count = conn.execute(
+            "UPDATE categories SET rule_type = ? WHERE id IN "
+            "(SELECT category_id FROM structured_relations WHERE structure = ?)",
+            (rule_type, structure),
+        ).rowcount
+        if count:
+            applied[rule_type] = applied.get(rule_type, 0) + count
+    applied["unclassified"] = int(
+        conn.execute(
+            "SELECT COUNT(*) FROM categories WHERE rule_type = 'unclassified'"
+        ).fetchone()[0]
+    )
+    return applied
+
+
 def ensure_primary_labels(conn: sqlite3.Connection) -> tuple[int, int]:
     """У каждого правила группировки есть основная надпись. Возвращает (надписей, связок).
 

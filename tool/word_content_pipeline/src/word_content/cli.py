@@ -62,6 +62,7 @@ from .repositories import (
     collect_stats,
     coverage_report,
     ensure_primary_labels,
+    ensure_rule_types,
     get_category,
     list_categories,
     memberships_for_category,
@@ -1030,6 +1031,26 @@ def cmd_score_words(
 ) -> None:
     """Пересчитывает метрики слов: длина, вместимость, знакомость, новизна, доступность."""
     _run_scoring(db, config, scoring_version, dry_run, output, ("words",))
+
+
+@app.command("derive-rule-types")
+def cmd_derive_rule_types(db: DbOption) -> None:
+    """Проставляет тип принципа группировки: таксономия, части, хаб, структура.
+
+    Тип выводится из уже принятого relation_type, а не угадывается. Шаг нужен
+    в каждой сборке: миграция отрабатывает на пустой базе, категории приезжают
+    позже.
+    """
+    conn = _open(db)
+    try:
+        with conn:
+            applied = ensure_rule_types(conn)
+    finally:
+        conn.close()
+    _print_table(
+        ["тип правила", "правил"],
+        [[name, str(count)] for name, count in sorted(applied.items())],
+    )
 
 
 @app.command("derive-labels")
