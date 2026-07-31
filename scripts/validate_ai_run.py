@@ -86,9 +86,18 @@ def validate(run_dir: Path) -> int:
     declared_keys = set()
     problems = Counter()
 
-    # слой ручных исправлений: raw.jsonl не редактируется никогда
+    # слой ручных исправлений: raw.jsonl не редактируется никогда.
+    # Флаг --no-fixes прогоняет проверку БЕЗ правок: так фиксируется, что именно
+    # модель сделала неправильно. Без этого история ошибок исчезает из отчёта,
+    # как только правки применены.
+    apply_fixes = "--no-fixes" not in sys.argv
+    # Повторный прогон после импорта: категории уже в базе, и это не ошибка.
+    # Без флага проверка была бы неидемпотентной и на втором запуске падала бы
+    # на собственном результате.
+    allow_existing = "--allow-existing" in sys.argv
     fixes_path = run_dir / "human_fixes.json"
-    fixes = json.loads(fixes_path.read_text(encoding="utf-8")) if fixes_path.exists() else {}
+    fixes = (json.loads(fixes_path.read_text(encoding="utf-8"))
+             if fixes_path.exists() and apply_fixes else {})
     renames = fixes.get("rename_categories", {})
     dropped_cats = set(fixes.get("drop_categories", {}))
     remap = fixes.get("remap_membership_category", {})
@@ -129,7 +138,7 @@ def validate(run_dir: Path) -> int:
             if not rec.get(field):
                 errs.append(f"нет поля {field}")
         key = rec.get("category_key", "")
-        if key in db["categories"]:
+        if key in db["categories"] and not allow_existing:
             errs.append(f"category_key '{key}' уже существует в базе")
         if key in declared_keys:
             errs.append(f"category_key '{key}' объявлен дважды в прогоне")
@@ -138,7 +147,8 @@ def validate(run_dir: Path) -> int:
         if rec.get("theme") not in db["themes"]:
             errs.append(f"тема '{rec.get('theme')}' отсутствует в базе")
         label_norm = normalize(rec.get("label", ""))
-        if label_norm in db["label_to_key"]:
+        if label_norm in db["label_to_key"] and not (
+                allow_existing and db["label_to_key"][label_norm] == key):
             errs.append(f"имя '{rec['label']}' уже занято категорией "
                         f"'{db['label_to_key'][label_norm]}'")
 
