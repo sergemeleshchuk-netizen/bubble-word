@@ -14,6 +14,7 @@ from typing import Annotated, Any
 import typer
 from pydantic import ValidationError
 
+from . import baseline
 from . import candidate_generation as gen
 from . import conflicts, integrity, quartet_builder, readiness, sense_gaps, solver
 from .blocklist import Blocklist
@@ -934,6 +935,39 @@ def cmd_sense_gaps(
     if output:
         written = _write_csv(output, sense_gaps.to_rows(gaps))
         typer.echo(f"\nОчередь: {output} ({written} строк)")
+
+
+@app.command("baseline-report")
+def cmd_baseline_report(
+    db: DbOption,
+    output: Annotated[
+        Path | None, typer.Option("--output", help="Куда сохранить снимок метрик в JSON")
+    ] = None,
+    compare: Annotated[
+        Path | None, typer.Option("--compare", help="JSON предыдущего снимка: показать diff")
+    ] = None,
+) -> None:
+    """Снимок метрик базы. С --compare печатает изменения относительно прошлого снимка."""
+    conn = _open(db)
+    try:
+        report = baseline.collect(conn)
+    finally:
+        conn.close()
+
+    typer.echo(baseline.render_text(report))
+    if output:
+        path = baseline.write_json(output, report)
+        typer.echo(f"\nJSON: {path}")
+    if compare:
+        if not compare.exists():
+            _fail(f"Файл для сравнения не найден: {compare}")
+        previous = json.loads(compare.read_text(encoding="utf-8"))
+        changes = baseline.diff(previous, report)
+        typer.echo(f"\nИзменений относительно {compare}: {len(changes)}")
+        _print_table(
+            ["метрика", "было", "стало"],
+            [[key, str(old), str(new)] for key, old, new in changes],
+        )
 
 
 @app.command("check-integrity")

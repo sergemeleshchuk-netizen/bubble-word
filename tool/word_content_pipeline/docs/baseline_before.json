@@ -1,0 +1,65 @@
+{
+  "words": 10441,
+  "words_with_familiarity": 10413,
+  "words_proper_noun": 2051,
+  "word_senses": 564,
+  "words_polysemous": 221,
+  "category_variants": 1276,
+  "category_concepts": 0,
+  "category_aliases": 0,
+  "categories_by_readiness": {
+    "blocked": 1,
+    "constrained": 448,
+    "curated_only": 4,
+    "hard_only": 5,
+    "ready": 818
+  },
+  "categories_by_status": {
+    "active": 1275,
+    "disabled": 1
+  },
+  "memberships": 18775,
+  "memberships_by_review_status": {
+    "alternative": 4074,
+    "approved": 13687,
+    "candidate": 28,
+    "hard_only": 923,
+    "rejected": 63
+  },
+  "memberships_by_semantic_status": {
+    "correct": 3,
+    "disputed": 74,
+    "unreviewed": 18698
+  },
+  "memberships_with_sense": 1244,
+  "quartets": 3200,
+  "quartet_tokens": 12800,
+  "quartet_tokens_with_sense": 941,
+  "quartets_by_validation_state": {
+    "auto_validated": 3200
+  },
+  "quartets_by_tier": {
+    "normal": 3200
+  },
+  "categories_without_quartets": 13,
+  "category_conflicts": 567,
+  "structured_groups": 13,
+  "level_candidates": 0,
+  "levels_by_status": {},
+  "levels_solver_valid": 0,
+  "levels_ambiguous": 0,
+  "levels_solver_timeout": 0,
+  "quartets_in_accepted_levels": 0,
+  "level_rejection_reasons": {},
+  "schema_version": 2,
+  "schema_meta": {
+    "schema_version": "2",
+    "content_version": "2026.07.31",
+    "git_commit": "14bb3dfea11da0d7bd9a87acb175a127d9286399",
+    "built_at": "2026-07-31T18:07:58+00:00",
+    "wordfreq_version": "3.1.1",
+    "sha256_categories.jsonl": "1288d7596c98dca412124f6a40261bb8bfb184f7ed9f1edaa6eb6ab4fb42ddc8",
+    "sha256_membership_candidates.jsonl": "12f1c6806f40f33b6f9840ec04b45ecfae7a3a11778ba42a4435d7e8714b083c",
+    "sha256_review_decisions.csv": "00452eb26b478b745b120ea6c1686b948b14b5c3013bf5a3049637ea5683dbe0"
+  }
+}
