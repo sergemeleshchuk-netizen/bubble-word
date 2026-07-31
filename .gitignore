@@ -1,0 +1,23 @@
+# окружения
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# системное
+.DS_Store
+
+# сборка
+web/dist/
+dist/
+
+# чужой контент: референс используется офлайн для калибровки, в публичный репозиторий не идёт
+data/reference-derived/reference-levels.json
+
+# секреты
+.env
+.env.local
+*.key

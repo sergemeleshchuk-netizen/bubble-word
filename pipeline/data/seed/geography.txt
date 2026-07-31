@@ -1,0 +1,78 @@
+# geography — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+us_states | US STATES | is_a | 0.2 | 0.9 | AP | States of the United States of America | $W is a state of the United States
+Texas, Florida, Alaska, Ohio, Maine, Nevada, Kansas, Oregon, Utah, Virginia, Montana, California, Arizona, Colorado, Georgia, Hawaii, Idaho, Indiana, Iowa, Michigan, Nebraska, Alabama, Wyoming, Vermont, Delaware
+
+world_capitals | WORLD CAPITALS | is_a | 0.3 | 0.8 | AP | Capital cities of countries around the world | $W is the capital city of a country
+Paris, London, Tokyo, Rome, Madrid, Berlin, Ottawa, Cairo, Moscow, Lima, Oslo, Athens, Dublin, Vienna, Lisbon, Prague, Beijing, Seoul, Bangkok, Havana, Nairobi, Warsaw, Budapest, Helsinki, Amsterdam
+
+european_countries | EUROPEAN COUNTRIES | is_a | 0.25 | 0.85 | AP | Countries located in Europe | $W is a country in Europe
+France, Spain, Italy, Germany, Poland, Greece, Portugal, Sweden, Norway, Ireland, Austria, Hungary, Belgium, Denmark, Finland, Switzerland, Netherlands, Croatia, Romania, Iceland, Scotland, Serbia, Bulgaria, Slovakia, Estonia
+
+asian_countries | ASIAN COUNTRIES | is_a | 0.3 | 0.82 | AP | Countries located in Asia | $W is a country in Asia
+China, Japan, India, Korea, Thailand, Vietnam, Indonesia, Nepal, Pakistan, Philippines, Malaysia, Cambodia, Mongolia, Israel, Iran, Turkey, Laos, Singapore, Bangladesh, Jordan
+
+african_countries | AFRICAN COUNTRIES | is_a | 0.35 | 0.75 | AP | Countries located in Africa | $W is a country in Africa
+Egypt, Kenya, Nigeria, Morocco, Ghana, Ethiopia, Tanzania, Uganda, Algeria, Tunisia, Senegal, Zambia, Sudan, Angola, Namibia, Botswana, Rwanda, Somalia, Libya, Chad
+
+latin_american_countries | LATIN AMERICA | is_a | 0.3 | 0.8 | AP | Countries of Central and South America | $W is a country in Latin America
+Mexico, Brazil, Argentina, Chile, Peru, Colombia, Venezuela, Ecuador, Bolivia, Cuba, Panama, Uruguay, Paraguay, Guatemala, Honduras, Nicaragua, Costa Rica, Belize
+
+landforms | LANDFORMS | is_a | 0.3 | 0.8 | A | Natural features of the land surface | $W is a natural feature of the land surface
+mountain, valley, canyon, plateau, hill, cliff, dune, plain, cave, island, peninsula, glacier, mesa, ridge, gorge, butte, basin, crater, isthmus, prairie, tundra, delta, foothill, summit, marsh
+
+town_places | TOWN PLACES | found_in | 0.15 | 0.9 | A | Public buildings and places found in an ordinary American town | $W is a public place found in an ordinary town
+school, library, hospital, park, museum, station, market, church, temple, post office, courthouse, bank, city hall, firehouse, theater, pharmacy, diner, gym, mall, playground, clinic, cemetery, plaza, jail, stadium
+
+city_words | CITY WORDS | found_in | 0.25 | 0.85 | A | Words for the parts and features of a city | $W is a part or feature of a city
+street, avenue, block, downtown, suburb, skyline, sidewalk, alley, plaza, subway, bridge, district, boulevard, intersection, skyscraper, park, traffic, neighborhood, curb, tower
+
+map_words | MAP WORDS | found_in | 0.3 | 0.8 | A | Words used to read and describe a map | $W is used when reading a map
+legend, scale, compass, border, latitude, longitude, key, grid, contour, symbol, north, south, east, west, elevation, route, atlas, globe, coordinate, meridian
+
+continents_and_oceans | CONTINENTS AND OCEANS | is_a | 0.2 | 0.9 | AP | The continents and the world oceans | $W is a continent or an ocean
+Africa, Asia, Europe, Antarctica, Australia, Pacific, Atlantic, Arctic, Indian, North America, South America, Southern
+
+famous_landmarks | FAMOUS LANDMARKS | is_a | 0.3 | 0.82 | AP | World landmarks most people can recognize | $W is a world famous landmark
+Eiffel Tower, Big Ben, Colosseum, Pyramid, Stonehenge, Statue of Liberty, Great Wall, Taj Mahal, Acropolis, Golden Gate, Mount Rushmore, Leaning Tower, Sphinx, White House, Empire State
+
+us_cities | US CITIES | is_a | 0.25 | 0.85 | AP | Large cities in the United States | $W is a large American city
+Chicago, Boston, Denver, Seattle, Miami, Dallas, Atlanta, Phoenix, Detroit, Portland, Nashville, Houston, Philadelphia, Baltimore, Cleveland, Memphis, Austin, Charlotte, Milwaukee, Orlando
+
+mountain_ranges | MOUNTAIN RANGES | is_a | 0.35 | 0.75 | AP | Major mountain ranges of the world | $W is a major mountain range
+Alps, Andes, Rockies, Himalayas, Appalachians, Urals, Pyrenees, Sierra Nevada, Atlas, Cascades, Ozarks, Carpathians
+
+rivers | RIVERS | is_a | 0.3 | 0.8 | AP | Major rivers of the world | $W is a major river
+Nile, Amazon, Mississippi, Danube, Thames, Rhine, Volga, Ganges, Yangtze, Congo, Hudson, Seine, Colorado, Missouri, Rio Grande, Euphrates
+
+climate_zones | CLIMATE WORDS | is_a | 0.35 | 0.72 | A | Words describing the climate of a region | $W describes the climate of a region
+tropical, arctic, desert, temperate, humid, arid, polar, coastal, alpine, monsoon, mediterranean, subtropical, continental, rainforest
+
+directions | DIRECTIONS | is_a | 0.2 | 0.9 | A | Words used to give directions | $W is used to give directions
+north, south, east, west, left, right, up, down, forward, back, straight, around, across, under, over, near, far, behind, beside, through
+
+things_on_a_farm | FARM THINGS | found_in | 0.2 | 0.88 | A | Things found on a working farm | $W is found on a working farm
+barn, silo, tractor, field, fence, hay, crop, coop, pasture, plow, trough, well, orchard, scarecrow, gate, windmill, pen, stable, harvest, bale
+
+national_parks | PARK WORDS | found_in | 0.3 | 0.78 | A | Things found in a national park or campground | $W is found in a national park or campground
+trail, campsite, ranger, tent, lodge, overlook, waterfall, wildlife, campfire, picnic table, map, visitor center, canyon, geyser, bear box, path, cabin, lantern
+
+islands | ISLANDS | is_a | 0.35 | 0.75 | AP | Well known islands around the world | $W is a well known island
+Hawaii, Cuba, Iceland, Madagascar, Sicily, Jamaica, Bali, Greenland, Fiji, Tahiti, Crete, Malta, Bermuda, Barbados, Sardinia
+
+deserts_and_wild_places | DESERTS | is_a | 0.4 | 0.65 | CP | Major deserts of the world | $W is a major desert
+Sahara, Gobi, Mojave, Kalahari, Atacama, Sonoran, Arabian, Death Valley, Painted Desert, Great Basin
+
+hot_places | HOT PLACES | has_property | 0.35 | 0.7 | C | Places that are typically hot | $W is typically hot
+desert, sauna, oven, beach, volcano, jungle, furnace, kitchen, greenhouse, equator, tropics, campfire, engine, attic, sun
+
+cold_places | COLD PLACES | has_property | 0.3 | 0.75 | C | Places that are typically cold | $W is typically cold
+arctic, freezer, mountain, igloo, glacier, tundra, cave, refrigerator, north pole, iceberg, snowfield, basement, antarctica, ski slope
+
+places_you_wait | WAITING PLACES | found_in | 0.35 | 0.7 | C | Places where people commonly stand in line | $W is a place where people wait in line
+bank, airport, grocery store, DMV, theater, restaurant, post office, amusement park, bus stop, pharmacy, ticket booth, buffet, checkout, doctor office
+
+quiet_places | QUIET PLACES | has_property | 0.35 | 0.7 | C | Places where people are expected to stay quiet | $W is a place where people stay quiet
+library, church, museum, hospital, theater, courtroom, classroom, funeral, exam room, monastery, study hall, cemetery

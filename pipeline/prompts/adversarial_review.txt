@@ -1,0 +1,36 @@
+TASK: act as a strict critic of proposed word-category memberships for an American English
+word puzzle. Your job is to find reasons a membership should NOT be shipped, not to defend it.
+
+AUDIENCE the content must serve: an average American adult casual player.
+
+MEMBERSHIPS TO REVIEW:
+$memberships_json
+
+HOW TO JUDGE
+1. Read the category rule literally. If the word only fits the label but not the rule, reject it.
+2. Reject subjective, evaluative or vague memberships.
+3. Reject loose metaphorical associations.
+4. Check the declared sense: if the reason relies on a different sense than sense_definition, flag it.
+5. Check the scores. fit_score is correctness; obviousness_score is how fast a casual player sees it.
+   Overrated obviousness is a common error — correct it downward without changing fit_score.
+6. Pick the decision by how a player meets this membership:
+   - "approve"     the sense a player recalls first for this word;
+   - "alternative" correct and recognizable, but not the first sense that comes to mind —
+                   valuable as a trap in normal levels;
+   - "hard_only"   correct, yet a player would never get there unaided — hard levels only.
+7. Use "manual_review" when you genuinely cannot decide from the data given.
+8. Prefer rejecting a doubtful entry over approving it. Do not be generous.
+
+OUTPUT: raw JSON only, no markdown, exactly this shape:
+{
+  "verdicts": [
+    {
+      "membership_id": 123,
+      "recommended_decision": "approve",
+      "corrected_fit_score": 0.95,
+      "corrected_obviousness_score": 0.7,
+      "issues": ["The category is broader than the provided rule"],
+      "explanation": "One or two sentences of reasoning."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+# law — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+courtroom_things | COURTROOM THINGS | found_in | 0.3 | 0.8 | A | Things and people found in a courtroom | $W is found in a courtroom
+judge, jury, gavel, witness, bench, lawyer, defendant, bailiff, oath, verdict, evidence, testimony, stand, docket, transcript, plaintiff, exhibit, sentence
+
+crimes | CRIMES | is_a | 0.3 | 0.82 | A | Acts that are against the law | $W is an act against the law
+theft, burglary, fraud, forgery, arson, trespassing, vandalism, bribery, smuggling, perjury, kidnapping, embezzlement, blackmail, counterfeiting, shoplifting, speeding, littering, poaching
+
+police_things | POLICE THINGS | used_in | 0.25 | 0.85 | A | Equipment and things used by police | $W is used by police
+badge, handcuffs, siren, radio, uniform, cruiser, baton, whistle, ticket, holster, flashlight, vest, dispatch, patrol, warrant, k9
+
+legal_documents | LEGAL DOCUMENTS | is_a | 0.35 | 0.75 | A | Documents used in legal matters | $W is a legal document
+contract, will, deed, license, warrant, subpoena, affidavit, lease, patent, permit, title, summons, testament, waiver, petition, certificate
+
+prison_words | PRISON WORDS | found_in | 0.35 | 0.75 | A | Things and words associated with prison | $W is associated with prison
+cell, bars, guard, warden, inmate, sentence, parole, yard, uniform, visitation, bail, cellmate, lockdown, release, bunk, mess hall
+
+government_branches | GOVERNMENT WORDS | found_in | 0.35 | 0.75 | A | Words for the parts and workings of government | $W is part of how government works
+congress, senate, house, vote, bill, law, veto, cabinet, election, campaign, ballot, term, majority, committee, amendment, treaty, budget, session
+
+rights_and_freedoms | RIGHTS | is_a | 0.4 | 0.7 | A | Legal rights and freedoms people have | $W is a legal right or freedom
+speech, press, assembly, religion, privacy, vote, trial, counsel, petition, bear arms, due process, equality, protest, appeal
+
+military_branches | MILITARY BRANCHES | is_a | 0.3 | 0.82 | A | Branches of the armed forces | $W is a branch of the armed forces
+army, navy, air force, marines, coast guard, national guard, space force, reserves, infantry, cavalry, artillery, militia
+
+military_things | MILITARY EQUIPMENT | used_in | 0.3 | 0.8 | A | Equipment used by the armed forces | $W is equipment used by the armed forces
+tank, jeep, helmet, rifle, uniform, boots, radio, parachute, canteen, backpack, binoculars, submarine, jet, compass, bunker, ration, dog tag, camouflage, medal
+
+military_words | MILITARY WORDS | found_in | 0.35 | 0.75 | A | Words used in military life | $W is a word used in military life
+salute, drill, march, barracks, mission, patrol, squad, platoon, base, deploy, rank, boot camp, formation, reveille, roll call, leave
+
+spy_words | SPY WORDS | found_in | 0.4 | 0.7 | A | Things associated with spies and espionage | $W is associated with spies
+disguise, code, cipher, agent, mission, surveillance, bug, tail, dossier, safe house, informant, decoder, alias, microfilm, mole
+
+safety_signs | SAFETY WORDS | is_a | 0.35 | 0.78 | A | Words seen on warning and safety signs | $W is seen on a warning or safety sign
+caution, danger, warning, exit, stop, yield, restricted, flammable, poison, high voltage, no entry, keep out, emergency, hazard, slippery, biohazard
+
+punishments | PENALTIES | is_a | 0.4 | 0.7 | A | Penalties handed down for breaking rules | $W is a penalty for breaking rules
+fine, ticket, warning, suspension, probation, detention, community service, jail, expulsion, penalty, ban, forfeit, restitution, curfew
+
+emergency_services | EMERGENCY SERVICES | is_a | 0.25 | 0.85 | A | Public services that respond to emergencies | $W is a public service that responds to emergencies
+police, fire department, ambulance, coast guard, rescue squad, hazmat, search and rescue, dispatch, hospital, animal control, poison control, ranger
+
+detective_words | DETECTIVE WORDS | found_in | 0.35 | 0.75 | A | Words used in a criminal investigation | $W is used in a criminal investigation
+clue, suspect, alibi, motive, fingerprint, evidence, witness, interrogation, lineup, case, stakeout, footprint, forensics, lead, autopsy, warrant

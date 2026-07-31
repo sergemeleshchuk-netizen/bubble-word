@@ -1,0 +1,39 @@
+# world_more — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+countries_more | MORE COUNTRIES | is_a | 0.4 | 0.72 | AP | Countries less often named in lists | $W is a country
+Nepal, Bhutan, Mongolia, Kazakhstan, Uzbekistan, Georgia, Armenia, Albania, Slovenia, Latvia, Lithuania, Moldova, Belarus, Ukraine, Cyprus, Malta, Luxembourg, Monaco, Andorra, Iceland
+
+island_nations | ISLAND NATIONS | is_a | 0.45 | 0.65 | AP | Countries made up of islands | $W is an island nation
+Japan, Philippines, Indonesia, Madagascar, Sri Lanka, Cuba, Iceland, Malta, Fiji, Maldives, Cyprus, Jamaica, Bahrain, Seychelles, Mauritius
+
+world_sports | WORLD SPORTS | is_a | 0.4 | 0.7 | A | Sports popular outside the United States | $W is a sport popular outside the United States
+cricket, rugby, badminton, table tennis, handball, sumo, kabaddi, hurling, curling, netball, sepak takraw, pelota, bandy, futsal
+
+world_breakfasts | WORLD BREAKFAST | is_a | 0.45 | 0.62 | C | Breakfast foods eaten in other countries | $W is a breakfast food eaten in another country
+congee, miso soup, croissant, churro, arepa, shakshuka, full english, dim sum, tamale, porridge, pastry, cheese plate, flatbread, fruit plate
+
+world_soups | WORLD SOUPS | is_a | 0.4 | 0.68 | A | Soups from cuisines around the world | $W is a soup from a world cuisine
+pho, ramen, borscht, minestrone, gazpacho, miso, tom yum, goulash, avgolemono, harira, caldo, laksa, mulligatawny, egg drop
+
+world_deserts_and_seas | WORLD REGIONS | is_a | 0.45 | 0.62 | AP | Named regions of the world | $W is a named region of the world
+Scandinavia, Balkans, Caribbean, Mediterranean, Sahara, Amazon, Siberia, Patagonia, Himalaya, Outback, Riviera, Bavaria, Tuscany, Andalusia, Alps
+
+world_hats_and_dress | TRADITIONAL FOOTWEAR | is_a | 0.5 | 0.55 | C | Traditional shoes from world cultures | $W is traditional footwear from a world culture
+clog, geta, moccasin, espadrille, huarache, sandal, mukluk, babouche, jutti, sabot
+
+tropical_birds | TROPICAL BIRDS | is_a | 0.4 | 0.68 | A | Colorful birds of tropical regions | $W is a tropical bird
+toucan, macaw, parrot, hummingbird, flamingo, cockatoo, bird of paradise, quetzal, hornbill, lorikeet, sunbird, kingfisher, motmot
+
+tropical_flowers | TROPICAL FLOWERS | is_a | 0.4 | 0.68 | A | Flowers that grow in tropical places | $W is a tropical flower
+hibiscus, orchid, plumeria, bougainvillea, bird of paradise, frangipani, anthurium, heliconia, jasmine, lotus, ginger flower, protea
+
+world_teas_and_drinks | TRADITIONAL DRINKS | is_a | 0.45 | 0.62 | C | Traditional drinks from world cultures | $W is a traditional drink from a world culture
+sake, ouzo, tequila, vodka, rum, whiskey, mead, cider, kvass, horchata, lassi, matcha, yerba mate, sangria, aquavit
+
+world_markets | MARKET WORDS | found_in | 0.35 | 0.75 | A | Things found at an open air market | $W is found at an open air market
+stall, vendor, basket, scale, awning, crate, produce, spice, haggling, cash, sample, cart, canopy, sign, crowd
+
+world_transport | WORLD TRANSPORT | is_a | 0.4 | 0.7 | A | Ways people get around in other countries | $W is a way people get around in another country
+rickshaw, tuk tuk, gondola, cable car, ferry, moped, tram, camel, sled, canoe, bicycle, jeepney, double decker, funicular

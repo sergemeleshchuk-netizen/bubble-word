@@ -1,0 +1,5546 @@
+{
+ "levels": {
+  "levels_count": 199,
+  "categories_total": 2244,
+  "word_slots_total": 8976,
+  "meta_links_total": 639,
+  "levels_with_meta": 183,
+  "max_depth_overall": 2,
+  "depth_distribution": {
+   "0": 16,
+   "1": 158,
+   "2": 25
+  },
+  "mean_meta_components": 2.12,
+  "single_component_levels": 49,
+  "cat_sizes": {
+   "4": 2244
+  },
+  "problems": {
+   "meta_flag_mismatch": [
+    {
+     "level": 17,
+     "flagged_only": [],
+     "derived_only": [
+      "building materials"
+     ]
+    },
+    {
+     "level": 74,
+     "flagged_only": [],
+     "derived_only": [
+      "programming language"
+     ]
+    },
+    {
+     "level": 165,
+     "flagged_only": [],
+     "derived_only": [
+      "status"
+     ]
+    }
+   ],
+   "word_missing_from_vocabulary": [
+    {
+     "level": 42,
+     "words": [
+      "sidestroke",
+      "liberica"
+     ]
+    },
+    {
+     "level": 45,
+     "words": [
+      "esagila temple"
+     ]
+    },
+    {
+     "level": 51,
+     "words": [
+      "dorblu"
+     ]
+    },
+    {
+     "level": 79,
+     "words": [
+      "deepfrost"
+     ]
+    },
+    {
+     "level": 95,
+     "words": [
+      "cushaw"
+     ]
+    },
+    {
+     "level": 98,
+     "words": [
+      "arts & crafts"
+     ]
+    },
+    {
+     "level": 147,
+     "words": [
+      "fallover",
+      "swimcap"
+     ]
+    },
+    {
+     "level": 156,
+     "words": [
+      "shumai"
+     ]
+    },
+    {
+     "level": 159,
+     "words": [
+      "airhockey"
+     ]
+    },
+    {
+     "level": 178,
+     "words": [
+      "bellbottom"
+     ]
+    },
+    {
+     "level": 180,
+     "words": [
+      "khinkali"
+     ]
+    },
+    {
+     "level": 184,
+     "words": [
+      "fumet"
+     ]
+    },
+    {
+     "level": 187,
+     "words": [
+      "crossexam"
+     ]
+    }
+   ]
+  },
+  "per_level": {
+   "1": {
+    "categories": 5,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 20,
+    "total_word_slots": 20,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.98,
+    "median_zipf": 4.88,
+    "unknown_words": 0
+   },
+   "2": {
+    "categories": 8,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 32,
+    "total_word_slots": 32,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.21,
+    "median_zipf": 4.42,
+    "unknown_words": 0
+   },
+   "3": {
+    "categories": 8,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 31,
+    "total_word_slots": 32,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.55,
+    "median_zipf": 4.52,
+    "unknown_words": 0
+   },
+   "4": {
+    "categories": 10,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.32,
+    "median_zipf": 4.66,
+    "unknown_words": 0
+   },
+   "5": {
+    "categories": 11,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.65,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "6": {
+    "categories": 11,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 44,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.97,
+    "median_zipf": 4.07,
+    "unknown_words": 0
+   },
+   "7": {
+    "categories": 12,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.89,
+    "median_zipf": 4.64,
+    "unknown_words": 0
+   },
+   "8": {
+    "categories": 12,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 46,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.72,
+    "median_zipf": 3.91,
+    "unknown_words": 0
+   },
+   "9": {
+    "categories": 10,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.38,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "10": {
+    "categories": 8,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 32,
+    "total_word_slots": 32,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.77,
+    "median_zipf": 4.39,
+    "unknown_words": 0
+   },
+   "11": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.9,
+    "median_zipf": 4.09,
+    "unknown_words": 0
+   },
+   "12": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.67,
+    "median_zipf": 4.33,
+    "unknown_words": 0
+   },
+   "13": {
+    "categories": 8,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 28,
+    "total_word_slots": 32,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.98,
+    "median_zipf": 4.08,
+    "unknown_words": 0
+   },
+   "14": {
+    "categories": 10,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.01,
+    "median_zipf": 3.89,
+    "unknown_words": 0
+   },
+   "15": {
+    "categories": 7,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 27,
+    "total_word_slots": 28,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.15,
+    "median_zipf": 3.54,
+    "unknown_words": 0
+   },
+   "16": {
+    "categories": 9,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 31,
+    "total_word_slots": 36,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.11,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "17": {
+    "categories": 11,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 39,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 11,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.53,
+    "median_zipf": 3.8,
+    "unknown_words": 0
+   },
+   "18": {
+    "categories": 11,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 39,
+    "total_word_slots": 44,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 3.94,
+    "unknown_words": 0
+   },
+   "19": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.08,
+    "median_zipf": 4.11,
+    "unknown_words": 0
+   },
+   "20": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.63,
+    "median_zipf": 4.16,
+    "unknown_words": 0
+   },
+   "21": {
+    "categories": 8,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 30,
+    "total_word_slots": 32,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.94,
+    "median_zipf": 3.84,
+    "unknown_words": 0
+   },
+   "22": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.61,
+    "median_zipf": 4.14,
+    "unknown_words": 0
+   },
+   "23": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.52,
+    "median_zipf": 3.91,
+    "unknown_words": 0
+   },
+   "24": {
+    "categories": 7,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 27,
+    "total_word_slots": 28,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 3.87,
+    "unknown_words": 0
+   },
+   "25": {
+    "categories": 9,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.74,
+    "median_zipf": 4.42,
+    "unknown_words": 0
+   },
+   "26": {
+    "categories": 9,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.56,
+    "median_zipf": 3.62,
+    "unknown_words": 0
+   },
+   "27": {
+    "categories": 12,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 5,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 48,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.25,
+    "median_zipf": 3.67,
+    "unknown_words": 0
+   },
+   "28": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.8,
+    "median_zipf": 4.11,
+    "unknown_words": 0
+   },
+   "29": {
+    "categories": 9,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.7,
+    "median_zipf": 4.08,
+    "unknown_words": 0
+   },
+   "30": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 4.12,
+    "unknown_words": 0
+   },
+   "31": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.87,
+    "median_zipf": 3.96,
+    "unknown_words": 0
+   },
+   "32": {
+    "categories": 11,
+    "meta_categories": 7,
+    "meta_links": 7,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 44,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.56,
+    "median_zipf": 4.05,
+    "unknown_words": 0
+   },
+   "33": {
+    "categories": 11,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "34": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.46,
+    "median_zipf": 3.83,
+    "unknown_words": 0
+   },
+   "35": {
+    "categories": 10,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.0,
+    "median_zipf": 4.14,
+    "unknown_words": 0
+   },
+   "36": {
+    "categories": 6,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 24,
+    "total_word_slots": 24,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.74,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "37": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 6,
+    "min_zipf": 1.48,
+    "median_zipf": 3.62,
+    "unknown_words": 0
+   },
+   "38": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.34,
+    "median_zipf": 3.45,
+    "unknown_words": 0
+   },
+   "39": {
+    "categories": 11,
+    "meta_categories": 7,
+    "meta_links": 7,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 3.96,
+    "unknown_words": 0
+   },
+   "40": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.81,
+    "median_zipf": 3.85,
+    "unknown_words": 0
+   },
+   "41": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.66,
+    "median_zipf": 3.55,
+    "unknown_words": 0
+   },
+   "42": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.67,
+    "median_zipf": 3.84,
+    "unknown_words": 2
+   },
+   "43": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.59,
+    "median_zipf": 3.9,
+    "unknown_words": 0
+   },
+   "44": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 1,
+    "max_meta_depth": 2,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.22,
+    "median_zipf": 4.27,
+    "unknown_words": 0
+   },
+   "45": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 6,
+    "min_zipf": 1.61,
+    "median_zipf": 3.58,
+    "unknown_words": 1
+   },
+   "46": {
+    "categories": 7,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 26,
+    "total_word_slots": 28,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.88,
+    "median_zipf": 4.59,
+    "unknown_words": 0
+   },
+   "47": {
+    "categories": 10,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.31,
+    "median_zipf": 4.18,
+    "unknown_words": 0
+   },
+   "48": {
+    "categories": 11,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.7,
+    "median_zipf": 3.77,
+    "unknown_words": 0
+   },
+   "49": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.79,
+    "median_zipf": 4.16,
+    "unknown_words": 0
+   },
+   "50": {
+    "categories": 6,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 24,
+    "total_word_slots": 24,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 2,
+    "min_zipf": 1.17,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "51": {
+    "categories": 12,
+    "meta_categories": 8,
+    "meta_links": 8,
+    "meta_components": 4,
+    "max_meta_depth": 2,
+    "start_bubbles": 40,
+    "total_word_slots": 48,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 3,
+    "min_zipf": 1.88,
+    "median_zipf": 3.82,
+    "unknown_words": 1
+   },
+   "52": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 3.95,
+    "unknown_words": 0
+   },
+   "53": {
+    "categories": 10,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.63,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "54": {
+    "categories": 10,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 34,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.87,
+    "median_zipf": 4.36,
+    "unknown_words": 0
+   },
+   "55": {
+    "categories": 14,
+    "meta_categories": 8,
+    "meta_links": 8,
+    "meta_components": 5,
+    "max_meta_depth": 2,
+    "start_bubbles": 48,
+    "total_word_slots": 56,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.29,
+    "median_zipf": 4.44,
+    "unknown_words": 0
+   },
+   "56": {
+    "categories": 7,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 27,
+    "total_word_slots": 28,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.86,
+    "median_zipf": 4.04,
+    "unknown_words": 0
+   },
+   "57": {
+    "categories": 10,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.5,
+    "median_zipf": 4.18,
+    "unknown_words": 0
+   },
+   "58": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.39,
+    "median_zipf": 4.18,
+    "unknown_words": 0
+   },
+   "59": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.58,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "60": {
+    "categories": 13,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 48,
+    "total_word_slots": 52,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.5,
+    "median_zipf": 4.26,
+    "unknown_words": 0
+   },
+   "61": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.38,
+    "median_zipf": 3.79,
+    "unknown_words": 0
+   },
+   "62": {
+    "categories": 10,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.86,
+    "median_zipf": 4.62,
+    "unknown_words": 0
+   },
+   "63": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.18,
+    "median_zipf": 4.13,
+    "unknown_words": 0
+   },
+   "64": {
+    "categories": 9,
+    "meta_categories": 7,
+    "meta_links": 7,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 36,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.91,
+    "median_zipf": 4.37,
+    "unknown_words": 0
+   },
+   "65": {
+    "categories": 13,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 50,
+    "total_word_slots": 52,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 12,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 4,
+    "min_zipf": 1.18,
+    "median_zipf": 3.63,
+    "unknown_words": 0
+   },
+   "66": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.45,
+    "median_zipf": 3.8,
+    "unknown_words": 0
+   },
+   "67": {
+    "categories": 8,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 31,
+    "total_word_slots": 32,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 3,
+    "min_zipf": 1.49,
+    "median_zipf": 4.02,
+    "unknown_words": 0
+   },
+   "68": {
+    "categories": 11,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.5,
+    "median_zipf": 3.73,
+    "unknown_words": 0
+   },
+   "69": {
+    "categories": 9,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 30,
+    "total_word_slots": 36,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.18,
+    "median_zipf": 4.58,
+    "unknown_words": 0
+   },
+   "70": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.67,
+    "median_zipf": 4.2,
+    "unknown_words": 0
+   },
+   "71": {
+    "categories": 7,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 26,
+    "total_word_slots": 28,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 3,
+    "min_zipf": 1.8,
+    "median_zipf": 4.24,
+    "unknown_words": 0
+   },
+   "72": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.69,
+    "median_zipf": 4.04,
+    "unknown_words": 0
+   },
+   "73": {
+    "categories": 11,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 39,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.27,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "74": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.21,
+    "median_zipf": 4.33,
+    "unknown_words": 0
+   },
+   "75": {
+    "categories": 12,
+    "meta_categories": 7,
+    "meta_links": 7,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 41,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.99,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "76": {
+    "categories": 6,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 23,
+    "total_word_slots": 24,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.89,
+    "median_zipf": 3.79,
+    "unknown_words": 0
+   },
+   "77": {
+    "categories": 12,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 45,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.36,
+    "median_zipf": 4.07,
+    "unknown_words": 0
+   },
+   "78": {
+    "categories": 15,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 57,
+    "total_word_slots": 60,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.23,
+    "median_zipf": 3.91,
+    "unknown_words": 0
+   },
+   "79": {
+    "categories": 11,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 1,
+    "max_meta_depth": 2,
+    "start_bubbles": 38,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.18,
+    "median_zipf": 3.84,
+    "unknown_words": 1
+   },
+   "80": {
+    "categories": 8,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 30,
+    "total_word_slots": 32,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.91,
+    "median_zipf": 4.08,
+    "unknown_words": 0
+   },
+   "81": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.96,
+    "median_zipf": 4.04,
+    "unknown_words": 0
+   },
+   "82": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.57,
+    "median_zipf": 3.93,
+    "unknown_words": 0
+   },
+   "83": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.99,
+    "median_zipf": 4.03,
+    "unknown_words": 0
+   },
+   "84": {
+    "categories": 8,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 31,
+    "total_word_slots": 32,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.65,
+    "median_zipf": 3.79,
+    "unknown_words": 0
+   },
+   "85": {
+    "categories": 11,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 39,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.95,
+    "median_zipf": 3.88,
+    "unknown_words": 0
+   },
+   "86": {
+    "categories": 7,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 26,
+    "total_word_slots": 28,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.56,
+    "median_zipf": 4.13,
+    "unknown_words": 0
+   },
+   "87": {
+    "categories": 10,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 35,
+    "total_word_slots": 40,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.7,
+    "median_zipf": 3.84,
+    "unknown_words": 0
+   },
+   "88": {
+    "categories": 10,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 37,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.65,
+    "median_zipf": 4.13,
+    "unknown_words": 0
+   },
+   "89": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.3,
+    "median_zipf": 3.79,
+    "unknown_words": 0
+   },
+   "90": {
+    "categories": 10,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 38,
+    "total_word_slots": 40,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.9,
+    "median_zipf": 4.04,
+    "unknown_words": 0
+   },
+   "91": {
+    "categories": 8,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 28,
+    "total_word_slots": 32,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 5,
+    "min_zipf": 1.19,
+    "median_zipf": 3.97,
+    "unknown_words": 0
+   },
+   "92": {
+    "categories": 9,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 30,
+    "total_word_slots": 36,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.16,
+    "median_zipf": 4.12,
+    "unknown_words": 0
+   },
+   "93": {
+    "categories": 8,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 30,
+    "total_word_slots": 32,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.05,
+    "median_zipf": 3.43,
+    "unknown_words": 0
+   },
+   "94": {
+    "categories": 10,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.66,
+    "median_zipf": 4.12,
+    "unknown_words": 0
+   },
+   "95": {
+    "categories": 14,
+    "meta_categories": 8,
+    "meta_links": 8,
+    "meta_components": 4,
+    "max_meta_depth": 2,
+    "start_bubbles": 48,
+    "total_word_slots": 56,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.98,
+    "median_zipf": 4.12,
+    "unknown_words": 1
+   },
+   "96": {
+    "categories": 7,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 28,
+    "total_word_slots": 28,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.88,
+    "median_zipf": 3.71,
+    "unknown_words": 0
+   },
+   "97": {
+    "categories": 8,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 28,
+    "total_word_slots": 32,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.0,
+    "median_zipf": 3.82,
+    "unknown_words": 0
+   },
+   "98": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 2,
+    "min_zipf": 1.87,
+    "median_zipf": 4.23,
+    "unknown_words": 1
+   },
+   "99": {
+    "categories": 9,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 31,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.56,
+    "median_zipf": 3.74,
+    "unknown_words": 0
+   },
+   "100": {
+    "categories": 13,
+    "meta_categories": 8,
+    "meta_links": 8,
+    "meta_components": 5,
+    "max_meta_depth": 1,
+    "start_bubbles": 44,
+    "total_word_slots": 52,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.08,
+    "median_zipf": 4.15,
+    "unknown_words": 0
+   },
+   "101": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.91,
+    "median_zipf": 4.13,
+    "unknown_words": 0
+   },
+   "102": {
+    "categories": 7,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 25,
+    "total_word_slots": 28,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.52,
+    "median_zipf": 3.75,
+    "unknown_words": 0
+   },
+   "103": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.08,
+    "median_zipf": 4.11,
+    "unknown_words": 0
+   },
+   "104": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.59,
+    "median_zipf": 3.67,
+    "unknown_words": 0
+   },
+   "105": {
+    "categories": 13,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 46,
+    "total_word_slots": 52,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.37,
+    "median_zipf": 3.71,
+    "unknown_words": 0
+   },
+   "106": {
+    "categories": 6,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 23,
+    "total_word_slots": 24,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.64,
+    "median_zipf": 4.47,
+    "unknown_words": 0
+   },
+   "107": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.34,
+    "median_zipf": 4.14,
+    "unknown_words": 0
+   },
+   "108": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.05,
+    "median_zipf": 4.06,
+    "unknown_words": 0
+   },
+   "109": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.85,
+    "median_zipf": 4.43,
+    "unknown_words": 0
+   },
+   "110": {
+    "categories": 12,
+    "meta_categories": 6,
+    "meta_links": 6,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 48,
+    "quickwin_categories": 2,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.8,
+    "median_zipf": 4.02,
+    "unknown_words": 0
+   },
+   "111": {
+    "categories": 11,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 41,
+    "total_word_slots": 44,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.18,
+    "median_zipf": 4.06,
+    "unknown_words": 0
+   },
+   "112": {
+    "categories": 8,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 29,
+    "total_word_slots": 32,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 1,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.6,
+    "median_zipf": 4.48,
+    "unknown_words": 0
+   },
+   "113": {
+    "categories": 9,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 33,
+    "total_word_slots": 36,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 6,
+    "min_zipf": 1.25,
+    "median_zipf": 3.55,
+    "unknown_words": 0
+   },
+   "114": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 3,
+    "min_zipf": 1.32,
+    "median_zipf": 3.88,
+    "unknown_words": 0
+   },
+   "115": {
+    "categories": 12,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 48,
+    "quickwin_categories": 1,
+    "words_zipf_lt_3": 14,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 7,
+    "min_zipf": 1.68,
+    "median_zipf": 3.51,
+    "unknown_words": 0
+   },
+   "116": {
+    "categories": 5,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 20,
+    "total_word_slots": 20,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 0,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 3.19,
+    "median_zipf": 3.95,
+    "unknown_words": 0
+   },
+   "117": {
+    "categories": 9,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 32,
+    "total_word_slots": 36,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.51,
+    "median_zipf": 4.25,
+    "unknown_words": 0
+   },
+   "118": {
+    "categories": 9,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 2,
+    "start_bubbles": 34,
+    "total_word_slots": 36,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.75,
+    "median_zipf": 4.35,
+    "unknown_words": 0
+   },
+   "119": {
+    "categories": 9,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 34,
+    "total_word_slots": 36,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.31,
+    "median_zipf": 4.02,
+    "unknown_words": 0
+   },
+   "120": {
+    "categories": 12,
+    "meta_categories": 7,
+    "meta_links": 7,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 41,
+    "total_word_slots": 48,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 4,
+    "min_zipf": 1.56,
+    "median_zipf": 4.01,
+    "unknown_words": 0
+   },
+   "121": {
+    "categories": 11,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 44,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.02,
+    "median_zipf": 3.71,
+    "unknown_words": 0
+   },
+   "122": {
+    "categories": 12,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 45,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.96,
+    "median_zipf": 4.21,
+    "unknown_words": 0
+   },
+   "123": {
+    "categories": 12,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 48,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 3,
+    "min_zipf": 1.6,
+    "median_zipf": 3.58,
+    "unknown_words": 0
+   },
+   "124": {
+    "categories": 12,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 44,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 4,
+    "min_zipf": 2.08,
+    "median_zipf": 3.8,
+    "unknown_words": 0
+   },
+   "125": {
+    "categories": 16,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 59,
+    "total_word_slots": 64,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 5,
+    "min_zipf": 1.26,
+    "median_zipf": 3.72,
+    "unknown_words": 0
+   },
+   "126": {
+    "categories": 12,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 46,
+    "total_word_slots": 48,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 16,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.44,
+    "median_zipf": 3.61,
+    "unknown_words": 0
+   },
+   "127": {
+    "categories": 12,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 46,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.83,
+    "median_zipf": 3.7,
+    "unknown_words": 0
+   },
+   "128": {
+    "categories": 15,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 58,
+    "total_word_slots": 60,
+    "quickwin_categories": 10,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 5,
+    "min_zipf": 1.89,
+    "median_zipf": 3.68,
+    "unknown_words": 0
+   },
+   "129": {
+    "categories": 14,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 53,
+    "total_word_slots": 56,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 11,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 4,
+    "min_zipf": 2.18,
+    "median_zipf": 3.77,
+    "unknown_words": 0
+   },
+   "130": {
+    "categories": 16,
+    "meta_categories": 8,
+    "meta_links": 8,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 56,
+    "total_word_slots": 64,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 13,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 7,
+    "min_zipf": 1.66,
+    "median_zipf": 3.58,
+    "unknown_words": 0
+   },
+   "131": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.76,
+    "median_zipf": 3.75,
+    "unknown_words": 0
+   },
+   "132": {
+    "categories": 14,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 52,
+    "total_word_slots": 56,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 12,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.94,
+    "median_zipf": 3.86,
+    "unknown_words": 0
+   },
+   "133": {
+    "categories": 15,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 56,
+    "total_word_slots": 60,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.51,
+    "median_zipf": 4.36,
+    "unknown_words": 0
+   },
+   "134": {
+    "categories": 15,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 59,
+    "total_word_slots": 60,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.27,
+    "median_zipf": 3.94,
+    "unknown_words": 0
+   },
+   "135": {
+    "categories": 17,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 65,
+    "total_word_slots": 68,
+    "quickwin_categories": 10,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 7,
+    "min_zipf": 1.12,
+    "median_zipf": 3.63,
+    "unknown_words": 0
+   },
+   "136": {
+    "categories": 10,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 36,
+    "total_word_slots": 40,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.05,
+    "median_zipf": 3.53,
+    "unknown_words": 0
+   },
+   "137": {
+    "categories": 13,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 49,
+    "total_word_slots": 52,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.63,
+    "median_zipf": 4.07,
+    "unknown_words": 0
+   },
+   "138": {
+    "categories": 15,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 55,
+    "total_word_slots": 60,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.22,
+    "median_zipf": 4.29,
+    "unknown_words": 0
+   },
+   "139": {
+    "categories": 17,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 66,
+    "total_word_slots": 68,
+    "quickwin_categories": 11,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 4,
+    "min_zipf": 2.06,
+    "median_zipf": 3.77,
+    "unknown_words": 0
+   },
+   "140": {
+    "categories": 15,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 56,
+    "total_word_slots": 60,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 4,
+    "min_zipf": 2.18,
+    "median_zipf": 4.01,
+    "unknown_words": 0
+   },
+   "141": {
+    "categories": 10,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 39,
+    "total_word_slots": 40,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 2,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.57,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "142": {
+    "categories": 15,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 58,
+    "total_word_slots": 60,
+    "quickwin_categories": 10,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.8,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "143": {
+    "categories": 14,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 52,
+    "total_word_slots": 56,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 15,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 8,
+    "min_zipf": 1.87,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "144": {
+    "categories": 12,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 46,
+    "total_word_slots": 48,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.59,
+    "median_zipf": 3.74,
+    "unknown_words": 0
+   },
+   "145": {
+    "categories": 14,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 52,
+    "total_word_slots": 56,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.3,
+    "median_zipf": 3.89,
+    "unknown_words": 0
+   },
+   "146": {
+    "categories": 11,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 44,
+    "total_word_slots": 44,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.55,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "147": {
+    "categories": 13,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 50,
+    "total_word_slots": 52,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.86,
+    "median_zipf": 3.54,
+    "unknown_words": 2
+   },
+   "148": {
+    "categories": 15,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 56,
+    "total_word_slots": 60,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 11,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 4,
+    "min_zipf": 1.07,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "149": {
+    "categories": 13,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 49,
+    "total_word_slots": 52,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 3,
+    "min_zipf": 1.63,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "150": {
+    "categories": 17,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 66,
+    "total_word_slots": 68,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.76,
+    "median_zipf": 3.83,
+    "unknown_words": 0
+   },
+   "151": {
+    "categories": 17,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 4,
+    "max_meta_depth": 2,
+    "start_bubbles": 63,
+    "total_word_slots": 68,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.44,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "152": {
+    "categories": 14,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 54,
+    "total_word_slots": 56,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.46,
+    "median_zipf": 3.84,
+    "unknown_words": 0
+   },
+   "153": {
+    "categories": 15,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 59,
+    "total_word_slots": 60,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 16,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 6,
+    "min_zipf": 1.85,
+    "median_zipf": 3.55,
+    "unknown_words": 0
+   },
+   "154": {
+    "categories": 14,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 53,
+    "total_word_slots": 56,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 17,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 9,
+    "min_zipf": 1.28,
+    "median_zipf": 3.62,
+    "unknown_words": 0
+   },
+   "155": {
+    "categories": 14,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 53,
+    "total_word_slots": 56,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.73,
+    "median_zipf": 3.81,
+    "unknown_words": 0
+   },
+   "156": {
+    "categories": 13,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 50,
+    "total_word_slots": 52,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 12,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.77,
+    "median_zipf": 3.94,
+    "unknown_words": 1
+   },
+   "157": {
+    "categories": 13,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 49,
+    "total_word_slots": 52,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.33,
+    "median_zipf": 3.96,
+    "unknown_words": 0
+   },
+   "158": {
+    "categories": 15,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 56,
+    "total_word_slots": 60,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 14,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.92,
+    "median_zipf": 3.66,
+    "unknown_words": 0
+   },
+   "159": {
+    "categories": 17,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 64,
+    "total_word_slots": 68,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 11,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.16,
+    "median_zipf": 4.05,
+    "unknown_words": 1
+   },
+   "160": {
+    "categories": 11,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 44,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 2,
+    "min_zipf": 1.81,
+    "median_zipf": 4.21,
+    "unknown_words": 0
+   },
+   "161": {
+    "categories": 13,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 51,
+    "total_word_slots": 52,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.84,
+    "median_zipf": 4.05,
+    "unknown_words": 0
+   },
+   "162": {
+    "categories": 13,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 52,
+    "total_word_slots": 52,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.22,
+    "median_zipf": 3.7,
+    "unknown_words": 0
+   },
+   "163": {
+    "categories": 14,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 56,
+    "total_word_slots": 56,
+    "quickwin_categories": 10,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.11,
+    "median_zipf": 3.73,
+    "unknown_words": 0
+   },
+   "164": {
+    "categories": 16,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 60,
+    "total_word_slots": 64,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 20,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 9,
+    "min_zipf": 1.36,
+    "median_zipf": 3.46,
+    "unknown_words": 0
+   },
+   "165": {
+    "categories": 16,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 61,
+    "total_word_slots": 64,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 16,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 7,
+    "min_zipf": 1.58,
+    "median_zipf": 3.7,
+    "unknown_words": 0
+   },
+   "166": {
+    "categories": 13,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 52,
+    "total_word_slots": 52,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 0,
+    "min_zipf": 2.62,
+    "median_zipf": 3.83,
+    "unknown_words": 0
+   },
+   "167": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 13,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 9,
+    "min_zipf": 1.75,
+    "median_zipf": 3.52,
+    "unknown_words": 0
+   },
+   "168": {
+    "categories": 12,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 2,
+    "start_bubbles": 46,
+    "total_word_slots": 48,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 3,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.01,
+    "median_zipf": 4.11,
+    "unknown_words": 0
+   },
+   "169": {
+    "categories": 16,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 60,
+    "total_word_slots": 64,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 13,
+    "words_zipf_lt_2": 4,
+    "words_below_top50k": 9,
+    "min_zipf": 1.53,
+    "median_zipf": 3.62,
+    "unknown_words": 0
+   },
+   "170": {
+    "categories": 15,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 57,
+    "total_word_slots": 60,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 13,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 7,
+    "min_zipf": 1.85,
+    "median_zipf": 3.65,
+    "unknown_words": 0
+   },
+   "171": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.82,
+    "median_zipf": 4.0,
+    "unknown_words": 0
+   },
+   "172": {
+    "categories": 11,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.33,
+    "median_zipf": 3.95,
+    "unknown_words": 0
+   },
+   "173": {
+    "categories": 15,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 2,
+    "start_bubbles": 55,
+    "total_word_slots": 60,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.52,
+    "median_zipf": 3.83,
+    "unknown_words": 0
+   },
+   "174": {
+    "categories": 17,
+    "meta_categories": 3,
+    "meta_links": 3,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 65,
+    "total_word_slots": 68,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 17,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 9,
+    "min_zipf": 1.49,
+    "median_zipf": 3.75,
+    "unknown_words": 0
+   },
+   "175": {
+    "categories": 17,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 67,
+    "total_word_slots": 68,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 21,
+    "words_zipf_lt_2": 3,
+    "words_below_top50k": 11,
+    "min_zipf": 1.3,
+    "median_zipf": 3.58,
+    "unknown_words": 0
+   },
+   "176": {
+    "categories": 14,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 52,
+    "total_word_slots": 56,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 5,
+    "min_zipf": 2.12,
+    "median_zipf": 3.82,
+    "unknown_words": 0
+   },
+   "177": {
+    "categories": 13,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 4,
+    "max_meta_depth": 1,
+    "start_bubbles": 48,
+    "total_word_slots": 52,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.63,
+    "median_zipf": 3.88,
+    "unknown_words": 0
+   },
+   "178": {
+    "categories": 11,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 44,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.06,
+    "median_zipf": 4.17,
+    "unknown_words": 1
+   },
+   "179": {
+    "categories": 17,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 66,
+    "total_word_slots": 68,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.16,
+    "median_zipf": 3.88,
+    "unknown_words": 0
+   },
+   "180": {
+    "categories": 18,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 67,
+    "total_word_slots": 72,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 18,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 9,
+    "min_zipf": 1.84,
+    "median_zipf": 3.61,
+    "unknown_words": 1
+   },
+   "181": {
+    "categories": 11,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 44,
+    "total_word_slots": 44,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 6,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 4,
+    "min_zipf": 1.87,
+    "median_zipf": 3.95,
+    "unknown_words": 0
+   },
+   "182": {
+    "categories": 13,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 50,
+    "total_word_slots": 52,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 8,
+    "min_zipf": 1.7,
+    "median_zipf": 3.85,
+    "unknown_words": 0
+   },
+   "183": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 17,
+    "words_zipf_lt_2": 5,
+    "words_below_top50k": 15,
+    "min_zipf": 1.71,
+    "median_zipf": 3.38,
+    "unknown_words": 0
+   },
+   "184": {
+    "categories": 16,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 62,
+    "total_word_slots": 64,
+    "quickwin_categories": 10,
+    "words_zipf_lt_3": 11,
+    "words_zipf_lt_2": 4,
+    "words_below_top50k": 8,
+    "min_zipf": 1.07,
+    "median_zipf": 3.84,
+    "unknown_words": 1
+   },
+   "185": {
+    "categories": 15,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 59,
+    "total_word_slots": 60,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 2,
+    "min_zipf": 1.88,
+    "median_zipf": 3.89,
+    "unknown_words": 0
+   },
+   "186": {
+    "categories": 12,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 48,
+    "total_word_slots": 48,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.12,
+    "median_zipf": 3.73,
+    "unknown_words": 0
+   },
+   "187": {
+    "categories": 12,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 48,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.92,
+    "median_zipf": 3.99,
+    "unknown_words": 1
+   },
+   "188": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 3,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 2,
+    "words_below_top50k": 6,
+    "min_zipf": 1.78,
+    "median_zipf": 3.51,
+    "unknown_words": 0
+   },
+   "189": {
+    "categories": 13,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 50,
+    "total_word_slots": 52,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.78,
+    "median_zipf": 3.92,
+    "unknown_words": 0
+   },
+   "190": {
+    "categories": 15,
+    "meta_categories": 5,
+    "meta_links": 5,
+    "meta_components": 3,
+    "max_meta_depth": 1,
+    "start_bubbles": 55,
+    "total_word_slots": 60,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 12,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 6,
+    "min_zipf": 2.26,
+    "median_zipf": 3.96,
+    "unknown_words": 0
+   },
+   "191": {
+    "categories": 11,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 42,
+    "total_word_slots": 44,
+    "quickwin_categories": 4,
+    "words_zipf_lt_3": 8,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 1,
+    "min_zipf": 2.53,
+    "median_zipf": 3.7,
+    "unknown_words": 0
+   },
+   "192": {
+    "categories": 12,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 47,
+    "total_word_slots": 48,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 7,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 3,
+    "min_zipf": 1.87,
+    "median_zipf": 3.98,
+    "unknown_words": 0
+   },
+   "193": {
+    "categories": 13,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 51,
+    "total_word_slots": 52,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 12,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 3,
+    "min_zipf": 2.21,
+    "median_zipf": 3.65,
+    "unknown_words": 0
+   },
+   "194": {
+    "categories": 14,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 2,
+    "start_bubbles": 52,
+    "total_word_slots": 56,
+    "quickwin_categories": 8,
+    "words_zipf_lt_3": 5,
+    "words_zipf_lt_2": 0,
+    "words_below_top50k": 2,
+    "min_zipf": 2.38,
+    "median_zipf": 3.6,
+    "unknown_words": 0
+   },
+   "195": {
+    "categories": 17,
+    "meta_categories": 2,
+    "meta_links": 2,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 66,
+    "total_word_slots": 68,
+    "quickwin_categories": 5,
+    "words_zipf_lt_3": 16,
+    "words_zipf_lt_2": 4,
+    "words_below_top50k": 11,
+    "min_zipf": 1.45,
+    "median_zipf": 3.69,
+    "unknown_words": 0
+   },
+   "196": {
+    "categories": 11,
+    "meta_categories": 0,
+    "meta_links": 0,
+    "meta_components": 0,
+    "max_meta_depth": 0,
+    "start_bubbles": 44,
+    "total_word_slots": 44,
+    "quickwin_categories": 6,
+    "words_zipf_lt_3": 10,
+    "words_zipf_lt_2": 4,
+    "words_below_top50k": 7,
+    "min_zipf": 1.2,
+    "median_zipf": 3.97,
+    "unknown_words": 0
+   },
+   "197": {
+    "categories": 11,
+    "meta_categories": 1,
+    "meta_links": 1,
+    "meta_components": 1,
+    "max_meta_depth": 1,
+    "start_bubbles": 43,
+    "total_word_slots": 44,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 4,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.99,
+    "median_zipf": 3.97,
+    "unknown_words": 0
+   },
+   "198": {
+    "categories": 13,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 48,
+    "total_word_slots": 52,
+    "quickwin_categories": 7,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 4,
+    "min_zipf": 1.7,
+    "median_zipf": 3.9,
+    "unknown_words": 0
+   },
+   "199": {
+    "categories": 16,
+    "meta_categories": 4,
+    "meta_links": 4,
+    "meta_components": 2,
+    "max_meta_depth": 1,
+    "start_bubbles": 60,
+    "total_word_slots": 64,
+    "quickwin_categories": 9,
+    "words_zipf_lt_3": 9,
+    "words_zipf_lt_2": 1,
+    "words_below_top50k": 1,
+    "min_zipf": 1.9,
+    "median_zipf": 4.23,
+    "unknown_words": 0
+   }
+  }
+ },
+ "metrics_diff": {
+  "meta_categories": [
+   {
+    "level": 17,
+    "csv": 4.0,
+    "recomputed": 5
+   },
+   {
+    "level": 74,
+    "csv": 4.0,
+    "recomputed": 5
+   },
+   {
+    "level": 165,
+    "csv": 2.0,
+    "recomputed": 3
+   }
+  ],
+  "start_bubbles": [
+   {
+    "level": 17,
+    "csv": 40.0,
+    "recomputed": 39
+   },
+   {
+    "level": 74,
+    "csv": 36.0,
+    "recomputed": 35
+   },
+   {
+    "level": 165,
+    "csv": 62.0,
+    "recomputed": 61
+   }
+  ],
+  "max_meta_depth": [
+   {
+    "level": 74,
+    "csv": 1.0,
+    "recomputed": 2
+   }
+  ],
+  "quickwin_categories": [
+   {
+    "level": 74,
+    "csv": 7.0,
+    "recomputed": 6
+   },
+   {
+    "level": 165,
+    "csv": 6.0,
+    "recomputed": 5
+   }
+  ]
+ },
+ "vocabulary": {
+  "rows": 4794,
+  "unique_normalized": 4793,
+  "normalization_collisions": {
+   "constellation": [
+    "Constellation",
+    "constellation"
+   ]
+  },
+  "top50k_conflicts": [
+   {
+    "word": "8-Ball",
+    "zipf": 4.91,
+    "in_top50k": 0
+   },
+   {
+    "word": "Building Materials",
+    "zipf": 4.78,
+    "in_top50k": 0
+   },
+   {
+    "word": "Constellation",
+    "zipf": 3.37,
+    "in_top50k": 0
+   },
+   {
+    "word": "Programming Language",
+    "zipf": 4.37,
+    "in_top50k": 0
+   },
+   {
+    "word": "Status",
+    "zipf": 4.87,
+    "in_top50k": 0
+   },
+   {
+    "word": "Supplement",
+    "zipf": 4.03,
+    "in_top50k": 0
+   },
+   {
+    "word": "ak-47",
+    "zipf": 3.7,
+    "in_top50k": 0
+   },
+   {
+    "word": "blu-ray",
+    "zipf": 3.7,
+    "in_top50k": 0
+   },
+   {
+    "word": "dunning-kruger",
+    "zipf": 2.69,
+    "in_top50k": 0
+   },
+   {
+    "word": "e-book",
+    "zipf": 5.05,
+    "in_top50k": 0
+   },
+   {
+    "word": "f-150",
+    "zipf": 3.72,
+    "in_top50k": 0
+   },
+   {
+    "word": "first-person",
+    "zipf": 5.44,
+    "in_top50k": 0
+   },
+   {
+    "word": "full-grain",
+    "zipf": 4.16,
+    "in_top50k": 0
+   },
+   {
+    "word": "hip-hop",
+    "zipf": 4.13,
+    "in_top50k": 0
+   },
+   {
+    "word": "hot-air balloon",
+    "zipf": 3.9,
+    "in_top50k": 0
+   },
+   {
+    "word": "jack-o’-lantern",
+    "zipf": 3.57,
+    "in_top50k": 0
+   },
+   {
+    "word": "juggler",
+    "zipf": 2.55,
+    "in_top50k": 0
+   },
+   {
+    "word": "level-up",
+    "zipf": 5.37,
+    "in_top50k": 0
+   },
+   {
+    "word": "m&ms",
+    "zipf": 4.59,
+    "in_top50k": 0
+   },
+   {
+    "word": "nightshade",
+    "zipf": 2.55,
+    "in_top50k": 0
+   },
+   {
+    "word": "objective-c",
+    "zipf": 4.32,
+    "in_top50k": 0
+   },
+   {
+    "word": "omega-3",
+    "zipf": 3.78,
+    "in_top50k": 0
+   },
+   {
+    "word": "orb-weaver",
+    "zipf": 3.1,
+    "in_top50k": 0
+   },
+   {
+    "word": "pecos bill",
+    "zipf": 2.55,
+    "in_top50k": 0
+   },
+   {
+    "word": "rubik’s cube",
+    "zipf": 2.7,
+    "in_top50k": 0
+   },
+   {
+    "word": "saber-tooth",
+    "zipf": 3.13,
+    "in_top50k": 0
+   },
+   {
+    "word": "second-person",
+    "zipf": 5.29,
+    "in_top50k": 0
+   },
+   {
+    "word": "semaphore",
+    "zipf": 2.55,
+    "in_top50k": 0
+   },
+   {
+    "word": "spider-man",
+    "zipf": 4.24,
+    "in_top50k": 0
+   },
+   {
+    "word": "stand-up",
+    "zipf": 5.12,
+    "in_top50k": 0
+   },
+   {
+    "word": "t-34",
+    "zipf": 4.81,
+    "in_top50k": 0
+   },
+   {
+    "word": "t-rex",
+    "zipf": 3.88,
+    "in_top50k": 0
+   },
+   {
+    "word": "t-shirt",
+    "zipf": 4.57,
+    "in_top50k": 0
+   },
+   {
+    "word": "tri-state",
+    "zipf": 3.71,
+    "in_top50k": 0
+   },
+   {
+    "word": "twenty-three",
+    "zipf": 4.62,
+    "in_top50k": 0
+   },
+   {
+    "word": "wi-fi",
+    "zipf": 3.87,
+    "in_top50k": 0
+   },
+   {
+    "word": "x-ray",
+    "zipf": 4.57,
+    "in_top50k": 0
+   },
+   {
+    "word": "yo-yo",
+    "zipf": 4.15,
+    "in_top50k": 0
+   }
+  ],
+  "zipf_drift": [
+   {
+    "word": "3d printer",
+    "csv": 3.93,
+    "wordfreq": 3.82
+   },
+   {
+    "word": "Building Materials",
+    "csv": 4.78,
+    "wordfreq": 4.66
+   },
+   {
+    "word": "Programming Language",
+    "csv": 4.37,
+    "wordfreq": 4.3
+   },
+   {
+    "word": "addis ababa",
+    "csv": 2.96,
+    "wordfreq": 2.72
+   },
+   {
+    "word": "amino acid",
+    "csv": 3.72,
+    "wordfreq": 3.65
+   },
+   {
+    "word": "ariana grande",
+    "csv": 3.15,
+    "wordfreq": 3.09
+   },
+   {
+    "word": "barber pole",
+    "csv": 3.81,
+    "wordfreq": 3.67
+   },
+   {
+    "word": "base pair",
+    "csv": 4.72,
+    "wordfreq": 4.55
+   },
+   {
+    "word": "belly dance",
+    "csv": 4.1,
+    "wordfreq": 4.04
+   },
+   {
+    "word": "black bear",
+    "csv": 4.71,
+    "wordfreq": 4.64
+   },
+   {
+    "word": "black hole",
+    "csv": 4.66,
+    "wordfreq": 4.6
+   },
+   {
+    "word": "blood pressure",
+    "csv": 5.01,
+    "wordfreq": 4.75
+   },
+   {
+    "word": "bruno mars",
+    "csv": 3.81,
+    "wordfreq": 3.68
+   },
+   {
+    "word": "buenos aires",
+    "csv": 3.55,
+    "wordfreq": 3.28
+   },
+   {
+    "word": "candy cane",
+    "csv": 3.76,
+    "wordfreq": 3.65
+   },
+   {
+    "word": "captain america",
+    "csv": 4.89,
+    "wordfreq": 4.72
+   },
+   {
+    "word": "carbon dioxide",
+    "csv": 3.81,
+    "wordfreq": 3.74
+   },
+   {
+    "word": "card trick",
+    "csv": 4.48,
+    "wordfreq": 4.37
+   },
+   {
+    "word": "cargo ship",
+    "csv": 4.19,
+    "wordfreq": 4.12
+   },
+   {
+    "word": "central park",
+    "csv": 5.12,
+    "wordfreq": 4.84
+   },
+   {
+    "word": "cherry juice",
+    "csv": 4.18,
+    "wordfreq": 3.96
+   },
+   {
+    "word": "coffee machine",
+    "csv": 4.86,
+    "wordfreq": 4.58
+   },
+   {
+    "word": "cold cut",
+    "csv": 5.02,
+    "wordfreq": 4.81
+   },
+   {
+    "word": "cotton candy",
+    "csv": 4.29,
+    "wordfreq": 4.02
+   },
+   {
+    "word": "credit card",
+    "csv": 5.0,
+    "wordfreq": 4.72
+   },
+   {
+    "word": "davy crockett",
+    "csv": 3.09,
+    "wordfreq": 2.83
+   },
+   {
+    "word": "dirt bike",
+    "csv": 4.24,
+    "wordfreq": 4.06
+   },
+   {
+    "word": "dirty clothes",
+    "csv": 4.55,
+    "wordfreq": 4.33
+   },
+   {
+    "word": "dwarf crocodile",
+    "csv": 3.49,
+    "wordfreq": 3.3
+   },
+   {
+    "word": "eggs benedict",
+    "csv": 3.7,
+    "wordfreq": 3.64
+   },
+   {
+    "word": "eye contact",
+    "csv": 4.99,
+    "wordfreq": 4.7
+   },
+   {
+    "word": "facial expressions",
+    "csv": 3.92,
+    "wordfreq": 3.7
+   },
+   {
+    "word": "fast food",
+    "csv": 5.13,
+    "wordfreq": 4.94
+   },
+   {
+    "word": "fighter jet",
+    "csv": 4.29,
+    "wordfreq": 4.0
+   },
+   {
+    "word": "finger print",
+    "csv": 4.48,
+    "wordfreq": 4.21
+   },
+   {
+    "word": "fire breath",
+    "csv": 4.52,
+    "wordfreq": 4.45
+   },
+   {
+    "word": "flat white",
+    "csv": 4.72,
+    "wordfreq": 4.66
+   },
+   {
+    "word": "floppy disk",
+    "csv": 3.25,
+    "wordfreq": 3.18
+   },
+   {
+    "word": "food court",
+    "csv": 5.4,
+    "wordfreq": 5.1
+   },
+   {
+    "word": "free throw",
+    "csv": 4.83,
+    "wordfreq": 4.77
+   },
+   {
+    "word": "french revolution",
+    "csv": 4.56,
+    "wordfreq": 4.45
+   },
+   {
+    "word": "fresh water",
+    "csv": 4.83,
+    "wordfreq": 4.75
+   },
+   {
+    "word": "frozen yogurt",
+    "csv": 3.63,
+    "wordfreq": 3.55
+   },
+   {
+    "word": "gold fish",
+    "csv": 4.9,
+    "wordfreq": 4.71
+   },
+   {
+    "word": "golden gate",
+    "csv": 4.47,
+    "wordfreq": 4.26
+   },
+   {
+    "word": "great wall",
+    "csv": 5.04,
+    "wordfreq": 4.98
+   },
+   {
+    "word": "great white",
+    "csv": 5.51,
+    "wordfreq": 5.36
+   },
+   {
+    "word": "guinea pig",
+    "csv": 4.06,
+    "wordfreq": 3.8
+   },
+   {
+    "word": "hand saw",
+    "csv": 5.34,
+    "wordfreq": 5.07
+   },
+   {
+    "word": "hanging gardens",
+    "csv": 4.27,
+    "wordfreq": 4.07
+   },
+   {
+    "word": "har gow",
+    "csv": 2.69,
+    "wordfreq": 2.57
+   },
+   {
+    "word": "hard drive",
+    "csv": 5.13,
+    "wordfreq": 4.98
+   },
+   {
+    "word": "heart rate",
+    "csv": 5.14,
+    "wordfreq": 4.92
+   },
+   {
+    "word": "home run",
+    "csv": 5.49,
+    "wordfreq": 5.32
+   },
+   {
+    "word": "honey mustard",
+    "csv": 3.69,
+    "wordfreq": 3.61
+   },
+   {
+    "word": "horse racing",
+    "csv": 4.5,
+    "wordfreq": 4.31
+   },
+   {
+    "word": "hot dog",
+    "csv": 5.1,
+    "wordfreq": 4.83
+   },
+   {
+    "word": "hot spring",
+    "csv": 4.92,
+    "wordfreq": 4.72
+   },
+   {
+    "word": "humpty dumpty",
+    "csv": 2.5,
+    "wordfreq": 2.26
+   },
+   {
+    "word": "ice age",
+    "csv": 5.0,
+    "wordfreq": 4.83
+   },
+   {
+    "word": "ice cream",
+    "csv": 4.62,
+    "wordfreq": 4.47
+   },
+   {
+    "word": "industrial revolution",
+    "csv": 4.56,
+    "wordfreq": 4.33
+   },
+   {
+    "word": "invisible ink",
+    "csv": 4.07,
+    "wordfreq": 3.78
+   },
+   {
+    "word": "jet fuel",
+    "csv": 4.29,
+    "wordfreq": 4.15
+   },
+   {
+    "word": "jet ski",
+    "csv": 4.13,
+    "wordfreq": 3.9
+   },
+   {
+    "word": "john henry",
+    "csv": 4.74,
+    "wordfreq": 4.65
+   },
+   {
+    "word": "launch pad",
+    "csv": 4.01,
+    "wordfreq": 3.93
+   },
+   {
+    "word": "lava lamp",
+    "csv": 3.73,
+    "wordfreq": 3.56
+   },
+   {
+    "word": "leaning tower",
+    "csv": 3.89,
+    "wordfreq": 3.79
+   },
+   {
+    "word": "leonardo dicaprio",
+    "csv": 3.16,
+    "wordfreq": 3.05
+   },
+   {
+    "word": "london bridge",
+    "csv": 4.77,
+    "wordfreq": 4.65
+   },
+   {
+    "word": "machu picchu",
+    "csv": 2.59,
+    "wordfreq": 2.3
+   },
+   {
+    "word": "magic spell",
+    "csv": 4.37,
+    "wordfreq": 4.22
+   },
+   {
+    "word": "main course",
+    "csv": 5.24,
+    "wordfreq": 5.03
+   },
+   {
+    "word": "mashed potatoes",
+    "csv": 3.39,
+    "wordfreq": 3.31
+   },
+   {
+    "word": "massey ferguson",
+    "csv": 3.18,
+    "wordfreq": 3.1
+   },
+   {
+    "word": "meryl streep",
+    "csv": 3.02,
+    "wordfreq": 2.78
+   },
+   {
+    "word": "mind reading",
+    "csv": 5.14,
+    "wordfreq": 4.95
+   },
+   {
+    "word": "mona lisa",
+    "csv": 3.54,
+    "wordfreq": 3.47
+   },
+   {
+    "word": "mountain animals",
+    "csv": 4.73,
+    "wordfreq": 4.48
+   },
+   {
+    "word": "natural gas",
+    "csv": 5.01,
+    "wordfreq": 4.76
+   },
+   {
+    "word": "night time",
+    "csv": 5.61,
+    "wordfreq": 5.53
+   },
+   {
+    "word": "north america",
+    "csv": 5.22,
+    "wordfreq": 4.97
+   },
+   {
+    "word": "northern lights",
+    "csv": 4.64,
+    "wordfreq": 4.43
+   },
+   {
+    "word": "nose cone",
+    "csv": 3.83,
+    "wordfreq": 3.75
+   },
+   {
+    "word": "one way",
+    "csv": 6.01,
+    "wordfreq": 5.88
+   },
+   {
+    "word": "oxford press",
+    "csv": 4.38,
+    "wordfreq": 4.31
+   },
+   {
+    "word": "peter pan",
+    "csv": 4.39,
+    "wordfreq": 4.27
+   },
+   {
+    "word": "pinot noir",
+    "csv": 3.09,
+    "wordfreq": 2.94
+   },
+   {
+    "word": "pocket watch",
+    "csv": 4.48,
+    "wordfreq": 4.42
+   },
+   {
+    "word": "polar bear",
+    "csv": 3.96,
+    "wordfreq": 3.89
+   },
+   {
+    "word": "queen mary",
+    "csv": 4.78,
+    "wordfreq": 4.52
+   },
+   {
+    "word": "question mark",
+    "csv": 5.05,
+    "wordfreq": 4.87
+   },
+   {
+    "word": "rare elements",
+    "csv": 4.7,
+    "wordfreq": 4.43
+   },
+   {
+    "word": "real estate",
+    "csv": 4.82,
+    "wordfreq": 4.75
+   },
+   {
+    "word": "record player",
+    "csv": 5.19,
+    "wordfreq": 4.9
+   },
+   {
+    "word": "religious building",
+    "csv": 4.85,
+    "wordfreq": 4.72
+   },
+   {
+    "word": "robert lee",
+    "csv": 4.73,
+    "wordfreq": 4.48
+   },
+   {
+    "word": "role play",
+    "csv": 5.16,
+    "wordfreq": 5.03
+   },
+   {
+    "word": "roller coaster",
+    "csv": 3.69,
+    "wordfreq": 3.51
+   },
+   {
+    "word": "rolling fork",
+    "csv": 4.03,
+    "wordfreq": 3.9
+   },
+   {
+    "word": "rose city",
+    "csv": 4.82,
+    "wordfreq": 4.75
+   },
+   {
+    "word": "science fiction",
+    "csv": 4.44,
+    "wordfreq": 4.36
+   },
+   {
+    "word": "sea world",
+    "csv": 5.06,
+    "wordfreq": 5.0
+   },
+   {
+    "word": "seat belt",
+    "csv": 4.42,
+    "wordfreq": 4.27
+   },
+   {
+    "word": "set square",
+    "csv": 4.84,
+    "wordfreq": 4.77
+   },
+   {
+    "word": "shoulder pad",
+    "csv": 4.01,
+    "wordfreq": 3.89
+   },
+   {
+    "word": "silicon valley",
+    "csv": 4.0,
+    "wordfreq": 3.92
+   },
+   {
+    "word": "sleeping bag",
+    "csv": 4.56,
+    "wordfreq": 4.36
+   },
+   {
+    "word": "spark plug",
+    "csv": 3.99,
+    "wordfreq": 3.76
+   },
+   {
+    "word": "speed limit",
+    "csv": 4.7,
+    "wordfreq": 4.52
+   },
+   {
+    "word": "spring roll",
+    "csv": 4.75,
+    "wordfreq": 4.53
+   },
+   {
+    "word": "star chart",
+    "csv": 4.47,
+    "wordfreq": 4.39
+   },
+   {
+    "word": "star death",
+    "csv": 5.19,
+    "wordfreq": 4.98
+   },
+   {
+    "word": "statue of liberty",
+    "csv": 4.09,
+    "wordfreq": 3.9
+   },
+   {
+    "word": "steam engine",
+    "csv": 4.52,
+    "wordfreq": 4.35
+   },
+   {
+    "word": "student loan",
+    "csv": 4.68,
+    "wordfreq": 4.52
+   },
+   {
+    "word": "super bowl",
+    "csv": 4.63,
+    "wordfreq": 4.5
+   },
+   {
+    "word": "sweet corn",
+    "csv": 4.19,
+    "wordfreq": 4.11
+   },
+   {
+    "word": "sydney harbour",
+    "csv": 3.98,
+    "wordfreq": 3.87
+   },
+   {
+    "word": "taj mahal",
+    "csv": 3.2,
+    "wordfreq": 2.95
+   },
+   {
+    "word": "taylor swift",
+    "csv": 4.15,
+    "wordfreq": 4.03
+   },
+   {
+    "word": "team sports",
+    "csv": 4.94,
+    "wordfreq": 4.87
+   },
+   {
+    "word": "teddy bear",
+    "csv": 3.88,
+    "wordfreq": 3.82
+   },
+   {
+    "word": "tennis bag",
+    "csv": 4.35,
+    "wordfreq": 4.21
+   },
+   {
+    "word": "ticket booth",
+    "csv": 4.1,
+    "wordfreq": 3.98
+   },
+   {
+    "word": "times square",
+    "csv": 4.84,
+    "wordfreq": 4.76
+   },
+   {
+    "word": "tomato sauce",
+    "csv": 3.85,
+    "wordfreq": 3.72
+   },
+   {
+    "word": "tower bridge",
+    "csv": 4.5,
+    "wordfreq": 4.31
+   },
+   {
+    "word": "walking stick",
+    "csv": 4.76,
+    "wordfreq": 4.51
+   },
+   {
+    "word": "wall street",
+    "csv": 5.04,
+    "wordfreq": 4.84
+   },
+   {
+    "word": "weight room",
+    "csv": 5.02,
+    "wordfreq": 4.87
+   },
+   {
+    "word": "wild dog",
+    "csv": 4.8,
+    "wordfreq": 4.62
+   },
+   {
+    "word": "wonder woman",
+    "csv": 4.93,
+    "wordfreq": 4.79
+   },
+   {
+    "word": "word search",
+    "csv": 4.96,
+    "wordfreq": 4.78
+   },
+   {
+    "word": "world cup",
+    "csv": 5.11,
+    "wordfreq": 5.04
+   },
+   {
+    "word": "world war",
+    "csv": 5.46,
+    "wordfreq": 5.32
+   }
+  ],
+  "buckets": {
+   "3.0-3.9": 1987,
+   "4.0-4.9": 1492,
+   "2.0-2.9": 803,
+   "5.0+": 372,
+   "<2.0": 125,
+   "unknown": 15
+  },
+  "unknown_to_frequency_list": [
+   "airhockey",
+   "arts & crafts",
+   "bellbottom",
+   "crossexam",
+   "cushaw",
+   "deepfrost",
+   "dorblu",
+   "esagila temple",
+   "fallover",
+   "fumet",
+   "khinkali",
+   "liberica",
+   "shumai",
+   "sidestroke",
+   "swimcap"
+  ],
+  "multi_token": [
+   "3d printer",
+   "8-Ball",
+   "Building Materials",
+   "Programming Language",
+   "addis ababa",
+   "air fryer",
+   "ak-47",
+   "al pastor",
+   "amino acid",
+   "amusement park",
+   "anne bonny",
+   "ariana grande",
+   "armored vehicle",
+   "arts & crafts",
+   "baggage claim",
+   "barber pole",
+   "base pair",
+   "belly dance",
+   "big bang",
+   "big ben",
+   "big ears",
+   "big max",
+   "black bear",
+   "black hole",
+   "blood pressure",
+   "blu-ray",
+   "brain teaser",
+   "bruno mars",
+   "buenos aires",
+   "bumper cars",
+   "bungee cord",
+   "bungee jumping",
+   "cair paravel",
+   "calico jack",
+   "candy cane",
+   "captain america",
+   "carbon dioxide",
+   "card trick",
+   "cargo ship",
+   "central park",
+   "cherry juice",
+   "chicken noodle",
+   "cn tower",
+   "coffee bean",
+   "coffee machine",
+   "cold cut",
+   "control tower",
+   "corn dog",
+   "cotton candy",
+   "credit card",
+   "da vinci",
+   "davy crockett",
+   "denzel washington",
+   "dirt bike",
+   "dirty clothes",
+   "don quixote",
+   "double davy",
+   "down payment",
+   "dunning-kruger",
+   "dwarf crocodile",
+   "e-book",
+   "ear muffs",
+   "ed sheeran",
+   "eggs benedict",
+   "eiffel tower",
+   "el dorado",
+   "en garde",
+   "esagila temple",
+   "eye contact",
+   "f-150",
+   "facial expressions",
+   "fake mustache",
+   "fast food",
+   "fighter jet",
+   "figure skating",
+   "finding nemo",
+   "finger print",
+   "fire breath",
+   "first-person",
+   "flat white",
+   "floppy disk",
+   "food court",
+   "free throw",
+   "french revolution",
+   "fresh water",
+   "frozen yogurt",
+   "full-grain",
+   "funnel cake",
+   "giant squid",
+   "going to",
+   "gold fish",
+   "golden gate",
+   "grand canyon",
+   "great wall",
+   "great white",
+   "guinea pig",
+   "halo effect",
+   "hand saw",
+   "hanging gardens",
+   "har gow",
+   "hard drive",
+   "hard hat",
+   "heart rate",
+   "high priestess",
+   "hip-hop",
+   "home run",
+   "honey mustard",
+   "horse racing",
+   "hot dog",
+   "hot spring",
+   "hot tub",
+   "hot-air balloon",
+   "humpty dumpty",
+   "hydrothermal vent",
+   "ice age",
+   "ice cream",
+   "ice diving",
+   "ice skating",
+   "independence day",
+   "industrial revolution",
+   "invisible ink",
+   "iron man",
+   "ishtar gate",
+   "itchy eyes",
+   "jack sparrow",
+   "jack-o’-lantern",
+   "jet fuel",
+   "jet ski",
+   "john deere",
+   "john henry",
+   "labor day",
+   "launch pad",
+   "lava lamp",
+   "leaning tower",
+   "leonardo dicaprio",
+   "level-up",
+   "light bulb",
+   "london bridge",
+   "long ear",
+   "louis vuitton",
+   "machu picchu",
+   "mad libs",
+   "magic spell",
+   "magnifying glass",
+   "main course",
+   "maine coon",
+   "marching band",
+   "martini glass",
+   "mashed potatoes",
+   "massey ferguson",
+   "meryl streep",
+   "milky way",
+   "mind reading",
+   "moby dick",
+   "mona lisa",
+   "morse code",
+   "mount fuji",
+   "mountain animals",
+   "mp3 player",
+   "nail care",
+   "natural gas",
+   "new deal",
+   "new holland",
+   "new york",
+   "new zealand",
+   "night time",
+   "north america",
+   "north pole",
+   "northern lights",
+   "nose cone",
+   "objective-c",
+   "omega-3",
+   "one way",
+   "opera house",
+   "orb-weaver",
+   "oxford press",
+   "party hat",
+   "paul bunyan",
+   "pecos bill",
+   "peter pan",
+   "piccadilly circus",
+   "pinot noir",
+   "pitcher plant",
+   "plate tectonics",
+   "pocket watch",
+   "polar bear",
+   "printing press",
+   "queen mary",
+   "question mark",
+   "rare elements",
+   "real estate",
+   "record player",
+   "religious building",
+   "robert lee",
+   "rock climbing",
+   "role play",
+   "roll out",
+   "roller coaster",
+   "rolling fork",
+   "rose city",
+   "rubik’s cube",
+   "saber-tooth",
+   "sabertooth tiger",
+   "san marco",
+   "santa claus",
+   "school subjects",
+   "science fiction",
+   "sea world",
+   "seat belt",
+   "second-person",
+   "set square",
+   "shere khan",
+   "shibuya crossing",
+   "shoulder pad",
+   "silicon valley",
+   "sleeping bag",
+   "south pole",
+   "spark plug",
+   "speed limit",
+   "spider-man",
+   "spring roll",
+   "stand-up",
+   "star chart",
+   "star death",
+   "starry night",
+   "statue of liberty",
+   "steam engine",
+   "student loan",
+   "sun tzu",
+   "super bowl",
+   "swan lake",
+   "sweet corn",
+   "sydney harbour",
+   "t-34",
+   "t-rex",
+   "t-shirt",
+   "taj mahal",
+   "taylor swift",
+   "team sports",
+   "teddy bear",
+   "tennis bag",
+   "thanksgiving day",
+   "the matrix",
+   "the scream",
+   "thumbs up",
+   "ticket booth",
+   "times square",
+   "tom hanks",
+   "tomato sauce",
+   "tooth loss",
+   "tower bridge",
+   "toy story",
+   "trafalgar square",
+   "tri-state",
+   "twenty-three",
+   "two wheel",
+   "ursa major",
+   "van gogh",
+   "venus flytrap",
+   "walking stick",
+   "wall street",
+   "watering can",
+   "weight room",
+   "wi-fi",
+   "wild dog",
+   "wonder woman",
+   "word search",
+   "world cup",
+   "world war",
+   "x-ray",
+   "yo-yo"
+  ],
+  "max_length": 21,
+  "in_top50k_share": 0.9153108051731331,
+  "known_words": 4779
+ },
+ "halves": {
+  "rows": 177,
+  "needs_manual_review": [
+   {
+    "word": "airbag",
+    "halves": [
+     "air",
+     "bag"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "airhockey",
+    "halves": [
+     "air",
+     "hockey"
+    ],
+    "flags": [
+     "short_fragment",
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "airplane",
+    "halves": [
+     "air",
+     "plane"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "anthill",
+    "halves": [
+     "ant",
+     "hill"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "appointment",
+    "halves": [
+     "app",
+     "ointment"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "armbar",
+    "halves": [
+     "arm",
+     "bar"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "assistant",
+    "halves": [
+     "assist",
+     "ant"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "barcode",
+    "halves": [
+     "bar",
+     "code"
+    ],
+    "flags": [
+     "short_fragment",
+     "weak_head"
+    ]
+   },
+   {
+    "word": "bedrock",
+    "halves": [
+     "bed",
+     "rock"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "bellbottom",
+    "halves": [
+     "bell",
+     "bottom"
+    ],
+    "flags": [
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "biosphere",
+    "halves": [
+     "bio",
+     "sphere"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "birthday",
+    "halves": [
+     "birth",
+     "day"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "bowhead",
+    "halves": [
+     "bow",
+     "head"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "bowline",
+    "halves": [
+     "bow",
+     "line"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "bubblegum",
+    "halves": [
+     "bubble",
+     "gum"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "bullseye",
+    "halves": [
+     "bulls",
+     "eye"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "butterfly",
+    "halves": [
+     "butter",
+     "fly"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "catfish",
+    "halves": [
+     "cat",
+     "fish"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "compassion",
+    "halves": [
+     "compass",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "crossbow",
+    "halves": [
+     "cross",
+     "bow"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "crossexam",
+    "halves": [
+     "cross",
+     "exam"
+    ],
+    "flags": [
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "cupcake",
+    "halves": [
+     "cup",
+     "cake"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "deepfrost",
+    "halves": [
+     "deep",
+     "frost"
+    ],
+    "flags": [
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "donkey",
+    "halves": [
+     "don",
+     "key"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "dragonfly",
+    "halves": [
+     "dragon",
+     "fly"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "dustpan",
+    "halves": [
+     "dust",
+     "pan"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "earrings",
+    "halves": [
+     "ear",
+     "rings"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "finland",
+    "halves": [
+     "fin",
+     "land"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "firefly",
+    "halves": [
+     "fire",
+     "fly"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "foxglove",
+    "halves": [
+     "fox",
+     "glove"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "goldenrod",
+    "halves": [
+     "golden",
+     "rod"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "hamstrings",
+    "halves": [
+     "ham",
+     "strings"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "handlebar",
+    "halves": [
+     "handle",
+     "bar"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "iceland",
+    "halves": [
+     "ice",
+     "land"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "inspection",
+    "halves": [
+     "inspect",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "keyboard",
+    "halves": [
+     "key",
+     "board"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "keychain",
+    "halves": [
+     "key",
+     "chain"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "keyhole",
+    "halves": [
+     "key",
+     "hole"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "legend",
+    "halves": [
+     "leg",
+     "end"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "legion",
+    "halves": [
+     "leg",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "lotion",
+    "halves": [
+     "lot",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment",
+     "weak_head"
+    ]
+   },
+   {
+    "word": "package",
+    "halves": [
+     "pack",
+     "age"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "pancakes",
+    "halves": [
+     "pan",
+     "cakes"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "parking",
+    "halves": [
+     "par",
+     "king"
+    ],
+    "flags": [
+     "short_fragment",
+     "weak_head"
+    ]
+   },
+   {
+    "word": "passage",
+    "halves": [
+     "pass",
+     "age"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "passion",
+    "halves": [
+     "pass",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "pitstop",
+    "halves": [
+     "pit",
+     "stop"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "popcorn",
+    "halves": [
+     "pop",
+     "corn"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "question",
+    "halves": [
+     "quest",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "rainbow",
+    "halves": [
+     "rain",
+     "bow"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "recession",
+    "halves": [
+     "recess",
+     "ion"
+    ],
+    "flags": [
+     "rejected_morphological",
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "riverbed",
+    "halves": [
+     "river",
+     "bed"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "rooftop",
+    "halves": [
+     "roof",
+     "top"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "rowboat",
+    "halves": [
+     "row",
+     "boat"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "seafood",
+    "halves": [
+     "sea",
+     "food"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "seahorse",
+    "halves": [
+     "sea",
+     "horse"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sidestroke",
+    "halves": [
+     "side",
+     "stroke"
+    ],
+    "flags": [
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "spacebar",
+    "halves": [
+     "space",
+     "bar"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sunday",
+    "halves": [
+     "sun",
+     "day"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sundial",
+    "halves": [
+     "sun",
+     "dial"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sundog",
+    "halves": [
+     "sun",
+     "dog"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sunflower",
+    "halves": [
+     "sun",
+     "flower"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sunglasses",
+    "halves": [
+     "sun",
+     "glasses"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sunlight",
+    "halves": [
+     "sun",
+     "light"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "sunscreen",
+    "halves": [
+     "sun",
+     "screen"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "swimcap",
+    "halves": [
+     "swim",
+     "cap"
+    ],
+    "flags": [
+     "short_fragment",
+     "source_word_not_in_vocabulary"
+    ]
+   },
+   {
+    "word": "tangram",
+    "halves": [
+     "tan",
+     "gram"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "voltage",
+    "halves": [
+     "volt",
+     "age"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "warlock",
+    "halves": [
+     "war",
+     "lock"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "warship",
+    "halves": [
+     "war",
+     "ship"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   },
+   {
+    "word": "website",
+    "halves": [
+     "web",
+     "site"
+    ],
+    "flags": [
+     "short_fragment"
+    ]
+   }
+  ],
+  "clean": 106
+ },
+ "curve": {
+  "correlations_with_level_number": {
+   "start_bubbles": 0.655,
+   "categories": 0.603,
+   "words_zipf_lt_3": 0.573,
+   "words_zipf_lt_2": 0.365,
+   "min_zipf": -0.409,
+   "median_zipf": -0.353,
+   "max_meta_depth": -0.055,
+   "quickwin_categories": 0.288,
+   "meta_share": -0.419
+  },
+  "blocks_of_20": [
+   {
+    "block": "1-20",
+    "levels": 20,
+    "categories": 9.6,
+    "meta": 2.8,
+    "start_bubbles": 35.6,
+    "meta_share": 0.28,
+    "rare": 2.7,
+    "min_zipf": 2.61
+   },
+   {
+    "block": "21-40",
+    "levels": 20,
+    "categories": 9.4,
+    "meta": 3.8,
+    "start_bubbles": 34.0,
+    "meta_share": 0.38,
+    "rare": 3.9,
+    "min_zipf": 2.4
+   },
+   {
+    "block": "41-60",
+    "levels": 20,
+    "categories": 10.1,
+    "meta": 4.2,
+    "start_bubbles": 36.2,
+    "meta_share": 0.39,
+    "rare": 4.3,
+    "min_zipf": 2.19
+   },
+   {
+    "block": "61-80",
+    "levels": 20,
+    "categories": 10.0,
+    "meta": 4.1,
+    "start_bubbles": 35.9,
+    "meta_share": 0.41,
+    "rare": 3.2,
+    "min_zipf": 2.37
+   },
+   {
+    "block": "81-100",
+    "levels": 20,
+    "categories": 9.5,
+    "meta": 4.0,
+    "start_bubbles": 34.0,
+    "meta_share": 0.4,
+    "rare": 4.2,
+    "min_zipf": 2.33
+   },
+   {
+    "block": "101-120",
+    "levels": 20,
+    "categories": 9.2,
+    "meta": 3.5,
+    "start_bubbles": 33.5,
+    "meta_share": 0.36,
+    "rare": 4.7,
+    "min_zipf": 2.13
+   },
+   {
+    "block": "121-140",
+    "levels": 20,
+    "categories": 13.8,
+    "meta": 3.0,
+    "start_bubbles": 52.0,
+    "meta_share": 0.22,
+    "rare": 8.3,
+    "min_zipf": 2.08
+   },
+   {
+    "block": "141-160",
+    "levels": 20,
+    "categories": 13.8,
+    "meta": 2.6,
+    "start_bubbles": 52.8,
+    "meta_share": 0.19,
+    "rare": 8.6,
+    "min_zipf": 1.94
+   },
+   {
+    "block": "161-180",
+    "levels": 20,
+    "categories": 14.2,
+    "meta": 2.3,
+    "start_bubbles": 54.7,
+    "meta_share": 0.16,
+    "rare": 10.6,
+    "min_zipf": 1.86
+   },
+   {
+    "block": "181-199",
+    "levels": 19,
+    "categories": 13.1,
+    "meta": 1.7,
+    "start_bubbles": 50.7,
+    "meta_share": 0.13,
+    "rare": 9.2,
+    "min_zipf": 1.86
+   }
+  ],
+  "saw_tooth": {
+   "transitions": 198,
+   "easier_than_previous": 74,
+   "share_easier": 0.374,
+   "mean_abs_step": 2.14,
+   "step_range": [
+    -7,
+    6
+   ]
+  },
+  "position_in_decade_avg_categories": {
+   "0": 12.0,
+   "1": 10.4,
+   "2": 10.9,
+   "3": 11.0,
+   "4": 11.3,
+   "5": 13.2,
+   "6": 9.2,
+   "7": 11.0,
+   "8": 11.7,
+   "9": 12.0
+  },
+  "freshness": {
+   "words_used_more_than_once": 1882,
+   "unique_words": 4793,
+   "median_reuse_gap": 31,
+   "adjacent_level_repeats": 64,
+   "unique_category_names": 1660,
+   "total_categories": 2244
+  },
+  "tail_180_199": {
+   "categories_mean": 13.3,
+   "categories_range": [
+    11,
+    18
+   ],
+   "start_bubbles_range": [
+    42,
+    67
+   ]
+  },
+  "observed_max_start_bubbles": 67
+ },
+ "relation_markers": {
+  "unique_category_names": 1660,
+  "plain_noun_like": 1631,
+  "plain_share": 0.983,
+  "markers": {
+   "things that": 6,
+   "words before": 0,
+   "words after": 0,
+   "types of": 18,
+   "kinds of": 0,
+   "parts of": 6,
+   "used for": 0
+  }
+ },
+ "preset": {
+  "rows": [
+   {
+    "level": 201,
+    "categories": 13,
+    "meta": 2,
+    "spec_value": 51,
+    "formula_value": 50,
+    "ok": false
+   },
+   {
+    "level": 202,
+    "categories": 15,
+    "meta": 3,
+    "spec_value": 58,
+    "formula_value": 57,
+    "ok": false
+   },
+   {
+    "level": 203,
+    "categories": 12,
+    "meta": 1,
+    "spec_value": 47,
+    "formula_value": 47,
+    "ok": true
+   },
+   {
+    "level": 204,
+    "categories": 16,
+    "meta": 4,
+    "spec_value": 61,
+    "formula_value": 60,
+    "ok": false
+   },
+   {
+    "level": 205,
+    "categories": 18,
+    "meta": 5,
+    "spec_value": 68,
+    "formula_value": 67,
+    "ok": false
+   },
+   {
+    "level": 206,
+    "categories": 12,
+    "meta": 1,
+    "spec_value": 46,
+    "formula_value": 47,
+    "ok": false
+   },
+   {
+    "level": 207,
+    "categories": 14,
+    "meta": 3,
+    "spec_value": 54,
+    "formula_value": 53,
+    "ok": false
+   },
+   {
+    "level": 208,
+    "categories": 15,
+    "meta": 2,
+    "spec_value": 57,
+    "formula_value": 58,
+    "ok": false
+   },
+   {
+    "level": 209,
+    "categories": 17,
+    "meta": 4,
+    "spec_value": 64,
+    "formula_value": 64,
+    "ok": true
+   },
+   {
+    "level": 210,
+    "categories": 13,
+    "meta": 2,
+    "spec_value": 50,
+    "formula_value": 50,
+    "ok": true
+   }
+  ],
+  "errors": 7
+ },
+ "normalization": {
+  "identity_key": "NFKC + unify apostrophes/dashes + casefold + collapse spaces",
+  "note": "display_text хранится отдельно; агрессивный stemming не применяется"
+ }
+}

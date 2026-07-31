@@ -1,0 +1,66 @@
+# clothing — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+clothing_items | CLOTHING ITEMS | is_a | 0.1 | 0.95 | A | Garments worn on the body | $W is a garment worn on the body
+shirt, pants, dress, skirt, jacket, coat, sweater, hat, sock, scarf, glove, tie, blouse, jeans, shorts, vest, hoodie, suit, robe, sweatshirt, cardigan, tank top, leggings, overalls, blazer
+
+footwear | FOOTWEAR | is_a | 0.15 | 0.9 | A | Things worn on the feet | $W is worn on the feet
+boot, sneaker, sandal, slipper, heel, loafer, flip-flop, cleat, moccasin, clog, pump, sock, wader, galosh, oxford, flat, stiletto, wedge, hiking boot, slip on
+
+winter_clothing | WINTER CLOTHING | used_in | 0.2 | 0.85 | A | Clothing worn specifically to stay warm in cold weather | $W is worn to stay warm in cold weather
+coat, scarf, mitten, boot, sweater, glove, parka, earmuffs, thermals, beanie, hood, snow pants, fleece, muffler, ski mask, wool socks, down jacket, shawl
+
+jewelry | JEWELRY | is_a | 0.2 | 0.88 | A | Decorative items worn on the body as jewelry | $W is a piece of jewelry worn on the body
+necklace, bracelet, earring, brooch, pendant, chain, anklet, locket, watch, cufflink, ring, choker, bangle, charm, stud, hoop, tiara, pin
+
+hats | HATS | is_a | 0.25 | 0.85 | A | Things worn on the head | $W is worn on the head
+cap, beanie, fedora, beret, helmet, sombrero, top hat, bonnet, visor, cowboy hat, turban, bowler, hood, headband, crown, sun hat, hard hat, baseball cap
+
+accessories | ACCESSORIES | is_a | 0.3 | 0.78 | A | Small items worn or carried to complete an outfit | $W completes an outfit as an accessory
+belt, scarf, purse, sunglasses, watch, tie, gloves, hat, wallet, handbag, backpack, umbrella, bowtie, suspenders, cufflinks, brooch, clutch, headband
+
+fabrics | FABRICS | is_a | 0.3 | 0.78 | A | Materials that clothes are made from | $W is a material clothes are made from
+cotton, wool, silk, linen, denim, leather, polyester, velvet, satin, suede, nylon, cashmere, corduroy, flannel, lace, canvas, fleece, tweed, chiffon, spandex
+
+clothing_parts | GARMENT PARTS | part_of | 0.3 | 0.78 | A | Parts sewn into a piece of clothing | $W is a part sewn into a piece of clothing
+sleeve, collar, cuff, pocket, hem, zipper, button, seam, lining, waistband, lapel, hood, strap, buckle, belt loop, placket, yoke
+
+formal_wear | FORMAL WEAR | is_a | 0.3 | 0.8 | A | Clothing worn to a formal occasion | $W is worn to a formal occasion
+tuxedo, gown, suit, bowtie, cummerbund, dress shoes, corsage, evening dress, cocktail dress, tails, sash, veil, cufflinks, waistcoat
+
+sleepwear | SLEEPWEAR | is_a | 0.25 | 0.85 | A | Clothing worn to bed | $W is worn to bed
+pajamas, nightgown, robe, slippers, nightshirt, boxers, sleep mask, onesie, nightcap, lounge pants
+
+work_uniforms | UNIFORMS | is_a | 0.3 | 0.8 | A | Outfits worn as a required uniform for work or school | $W is worn as a required uniform
+scrubs, apron, coveralls, lab coat, jumpsuit, blazer, badge, hard hat, chef coat, cassock, kilt, tunic, smock, vest
+
+swimwear | SWIMWEAR | is_a | 0.25 | 0.85 | A | Clothing worn for swimming | $W is worn for swimming
+swimsuit, trunks, bikini, wetsuit, goggles, swim cap, rash guard, cover up, flippers, one piece, board shorts
+
+things_you_button | BUTTONED THINGS | has_property | 0.4 | 0.65 | C | Clothes and objects fastened with buttons | $W is fastened with buttons
+shirt, coat, cardigan, jeans, blouse, cuff, vest, pajamas, overalls, jacket, pillowcase, glove, pants, sweater
+
+things_you_tie | TIED THINGS | does_action | 0.35 | 0.7 | C | Things fastened by tying a knot or bow | $W is fastened by tying
+shoelace, tie, apron, sash, ribbon, bowtie, rope, scarf, belt, bandana, hair tie, drawstring, knot, laces
+
+clothing_sizes | CLOTHING SIZES | is_a | 0.35 | 0.75 | A | Words used for clothing sizes and fit | $W is a word used for clothing size or fit
+small, medium, large, petite, tall, slim, loose, tight, oversized, regular, plus, narrow, wide, snug
+
+sewing_words | SEWING WORDS | found_in | 0.35 | 0.7 | A | Words used when sewing or altering clothes | $W is used when sewing or altering clothes
+stitch, hem, seam, needle, thread, pattern, pin, tuck, dart, pleat, alter, baste, cuff, lining, bobbin, thimble
+
+laundry_care | LAUNDRY CARE | does_action | 0.35 | 0.72 | A | Things done to clothes to keep them clean and neat | $W is done to clothes to keep them clean or neat
+wash, dry, iron, fold, bleach, starch, hang, soak, press, mend, dry clean, steam, sort, rinse
+
+things_worn_on_hands | HAND WEAR | has_property | 0.3 | 0.8 | C | Things worn on the hands | $W is worn on the hands
+glove, ring, mitten, bracelet, watch, bandage, oven mitt, boxing glove, cast, splint, nail polish, gauntlet
+
+things_with_pockets | THINGS WITH POCKETS | has_property | 0.35 | 0.7 | C | Clothes and bags that have pockets | $W has pockets
+jeans, coat, backpack, apron, jacket, shirt, purse, cargo pants, vest, hoodie, blazer, overalls, suitcase, robe
+
+kids_clothing | KIDS CLOTHING | is_a | 0.3 | 0.78 | A | Clothing made especially for babies and children | $W is clothing made for babies or children
+onesie, bib, romper, jumper, diaper, booties, mittens, overalls, snowsuit, sunhat, footie pajamas, smock
+
+shoe_parts | SHOE PARTS | part_of | 0.35 | 0.72 | A | Parts of a shoe | $W is a part of a shoe
+sole, heel, lace, tongue, toe, insole, arch, eyelet, upper, buckle, strap, tread, cushion, shank

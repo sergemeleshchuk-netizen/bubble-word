@@ -1,0 +1,48 @@
+# fashion — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+makeup | MAKEUP | is_a | 0.3 | 0.8 | A | Cosmetics applied to the face | $W is a cosmetic applied to the face
+lipstick, mascara, foundation, blush, eyeliner, concealer, powder, gloss, eyeshadow, primer, bronzer, highlighter, brow pencil, setting spray
+
+beauty_tools | BEAUTY TOOLS | used_in | 0.35 | 0.75 | A | Tools used for hair, nails and makeup | $W is a tool used for hair, nails or makeup
+brush, comb, curler, straightener, tweezers, clipper, file, sponge, mirror, dryer, roller, applicator, buffer, curling iron, razor
+
+hairstyles | HAIRSTYLES | is_a | 0.3 | 0.78 | A | Ways of styling hair | $W is a way of styling hair
+ponytail, braid, bun, bob, pixie, mohawk, dreadlocks, perm, updo, pigtails, cornrows, layers, bangs, afro, crew cut, beehive, chignon, topknot
+
+nail_words | NAIL CARE | found_in | 0.4 | 0.7 | A | Things used for manicures and nail care | $W is used for nail care
+polish, file, clipper, cuticle, buffer, remover, base coat, top coat, acrylic, gel, wrap, soak, pusher, glitter
+
+perfume_words | FRAGRANCE WORDS | found_in | 0.4 | 0.68 | C | Words used to describe perfumes and scents | $W is used to describe a scent
+floral, musk, citrus, spicy, woody, fresh, sweet, vanilla, rose, lavender, sandalwood, amber, cologne, mist, note
+
+fashion_styles | FASHION STYLES | is_a | 0.4 | 0.68 | A | Named styles of dressing | $W is a named style of dressing
+casual, formal, vintage, preppy, bohemian, punk, gothic, sporty, retro, minimalist, streetwear, business casual, western, classic
+
+patterns | PATTERNS | is_a | 0.3 | 0.78 | A | Patterns printed on cloth | $W is a pattern printed on cloth
+stripe, polka dot, plaid, floral, checkered, paisley, houndstooth, camouflage, tie dye, animal print, argyle, gingham, herringbone, chevron, tartan
+
+bags | BAGS AND CASES | is_a | 0.25 | 0.85 | A | Kinds of bag people carry | $W is a kind of bag people carry
+purse, backpack, briefcase, tote, duffel, suitcase, clutch, satchel, fanny pack, messenger bag, wallet, pouch, gym bag, garment bag, trunk
+
+eyewear | EYEWEAR | is_a | 0.3 | 0.8 | A | Things worn over the eyes | $W is worn over the eyes
+glasses, sunglasses, goggles, monocle, contacts, bifocals, visor, mask, shades, safety glasses, reading glasses, blindfold
+
+fashion_accessories | FASHION ACCESSORIES | is_a | 0.3 | 0.8 | A | Items added to complete a look | $W is added to complete a look
+scarf, belt, hat, tie, gloves, watch, necklace, bracelet, earring, brooch, sunglasses, hairband, cufflinks, pocket square, bowtie, suspenders
+
+shoe_styles | SHOE STYLES | is_a | 0.3 | 0.78 | A | Styles of shoe | $W is a style of shoe
+sneaker, boot, sandal, heel, flat, loafer, oxford, pump, wedge, mule, slipper, clog, moccasin, stiletto, platform, espadrille
+
+sewing_patterns | GARMENT DETAILS | part_of | 0.4 | 0.68 | C | Details sewn into a garment design | $W is a detail sewn into a garment
+pleat, ruffle, dart, cuff, collar, hem, seam, lapel, pocket, lining, yoke, gusset, panel, trim, applique
+
+wardrobe_care | WARDROBE CARE | used_in | 0.4 | 0.7 | A | Things used to store and care for clothes | $W is used to store or care for clothes
+hanger, closet, garment bag, iron, steamer, lint roller, mothball, shoe tree, drawer, shelf, hook, brush, cedar block
+
+jewelry_stones | JEWELRY STONES | is_a | 0.35 | 0.75 | A | Stones set into jewelry | $W is a stone set into jewelry
+diamond, ruby, emerald, sapphire, pearl, opal, topaz, amethyst, garnet, turquoise, jade, onyx, aquamarine, peridot, moonstone
+
+fashion_show | FASHION SHOW | found_in | 0.4 | 0.7 | A | Things found at a fashion show | $W is found at a fashion show
+runway, model, designer, collection, spotlight, front row, backstage, outfit, pose, camera, seamstress, rack, program, fitting

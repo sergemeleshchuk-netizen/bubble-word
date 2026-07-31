@@ -1,0 +1,33 @@
+# names — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+common_surnames | COMMON SURNAMES | is_a | 0.3 | 0.8 | AP | Family names common in the United States | $W is a common American family name
+Smith, Johnson, Williams, Brown, Jones, Miller, Davis, Wilson, Moore, Taylor, Anderson, Thomas, Jackson, White, Harris, Martin, Thompson, Garcia, Martinez, Robinson, Clark, Lewis, Walker, Hall, Young
+
+biblical_names | BIBLICAL NAMES | is_a | 0.35 | 0.75 | AP | First names that come from the Bible | $W is a first name from the Bible
+Adam, Eve, Noah, Sarah, Rachel, Rebecca, Daniel, Samuel, Simon, Matthew, Mark, Luke, John, Timothy, Ruth, Esther, Aaron, Elijah, Isaiah, Naomi
+
+nature_names | NATURE NAMES | is_a | 0.35 | 0.75 | AP | First names taken from nature words | $W is a first name taken from nature
+Rose, Lily, Ivy, Daisy, Hazel, Willow, River, Autumn, Summer, Sky, Jasmine, Violet, Fern, Heather, Amber, Rain, Sage, Aspen
+
+old_fashioned_names | VINTAGE NAMES | is_a | 0.4 | 0.68 | AP | First names that sound old fashioned today | $W is an old fashioned first name
+Mildred, Gertrude, Harold, Herbert, Ethel, Agnes, Wilbur, Eugene, Norman, Beatrice, Clarence, Dorothy, Florence, Walter, Edna, Cecil, Mabel, Horace
+
+short_names | SHORT NAMES | has_property | 0.4 | 0.7 | CP | First names with only one syllable | $W is a one syllable first name
+Jack, John, Kate, Paul, Ann, Jane, Mark, Grace, James, Blake, Bruce, Claire, Dean, Faith, George, Hope, Joyce, Luke, Rose, Scott
+
+pet_names | PET NAMES | is_a | 0.3 | 0.8 | AP | Names people commonly give to pets | $W is a common pet name
+Buddy, Max, Bella, Charlie, Lucy, Daisy, Rocky, Molly, Bailey, Coco, Ginger, Oreo, Whiskers, Mittens, Shadow, Tiger, Sparky, Rex, Fluffy, Peanut
+
+royal_names | ROYAL NAMES | is_a | 0.4 | 0.72 | AP | First names traditionally used by kings and queens | $W is a name traditionally used by royalty
+Henry, Elizabeth, Victoria, Charles, William, Edward, George, Anne, Mary, Louis, Philip, Catherine, Richard, James, Margaret, Alexander
+
+nicknames_for_names | NAME SHORTENINGS | is_a | 0.4 | 0.68 | AP | Short forms people use instead of a full first name | $W is a short form of a longer first name
+Jim, Bob, Tom, Rich, Dan, Beth, Meg, Sue, Nan, Ted, Pete, Fran, Vic, Gus, Hal, Lou, Nate, Cal
+
+initials_and_titles | NAME PARTS | part_of | 0.4 | 0.7 | A | Parts that make up a person full name | $W is part of a person full name
+first name, last name, middle name, initial, surname, nickname, title, suffix, maiden name, junior, senior, given name
+
+place_names_as_names | PLACE NAMES | is_a | 0.45 | 0.62 | CP | First names that are also place names | $W is a place name also used as a first name
+Austin, Dakota, Georgia, Jordan, Paris, Sydney, Brooklyn, Cheyenne, Aspen, Phoenix, Madison, Kenya, Israel, Devon, Savannah, Trenton

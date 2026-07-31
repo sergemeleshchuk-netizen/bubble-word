@@ -1,0 +1,49 @@
+TASK: for each given word, find ADDITIONAL categories from a fixed catalog that the word
+naturally belongs to. This is the reverse pass of a word association puzzle content pipeline.
+
+LANGUAGE: American English.
+AUDIENCE: an average American adult casual player.
+
+WORDS (with their known senses and the categories they are already linked to):
+$words_json
+
+CATEGORY CATALOG (the ONLY categories you may use):
+$catalog_json
+
+RULES
+1. Never invent a category_key. Use only keys present in the catalog above.
+2. Never return a membership that is already listed for that word.
+3. Judge each membership against the category rule, not against the label alone.
+4. A loose association is NOT a membership. If the word does not literally satisfy the rule, skip it.
+5. Separate distinct senses of the same spelling: "bank" as a financial institution and
+   "bank" as the side of a river are different senses and must carry different sense_key values.
+   Two categories may share the same sense when that is genuinely the same meaning.
+6. Provide sense_key (short snake_case id) together with sense_definition (one short sentence).
+7. fit_score = correctness under the rule; obviousness_score = how fast an average player sees it.
+   A correct but surprising membership gets high fit and low obviousness — that is valuable, not wrong.
+8. Do not maximize the number of categories per word. Quality over quantity.
+9. An empty "memberships" list is a perfectly acceptable answer for a word.
+10. Add risk_flags when the entry is debatable. Allowed flags:
+    obscure, regional, proper_noun, multiword, culturally_specific,
+    weak_relation, highly_ambiguous, sensitive, possible_duplicate.
+
+OUTPUT: raw JSON only, no markdown, exactly this shape:
+{
+  "words": [
+    {
+      "word": "apple",
+      "memberships": [
+        {
+          "category_key": "words_before_sauce",
+          "sense_key": "apple_fruit",
+          "sense_definition": "The edible fruit of an apple tree",
+          "relation_type": "phrase_before",
+          "reason": "Apple forms the familiar phrase apple sauce",
+          "fit_score": 0.98,
+          "obviousness_score": 0.9,
+          "risk_flags": []
+        }
+      ]
+    }
+  ]
+}

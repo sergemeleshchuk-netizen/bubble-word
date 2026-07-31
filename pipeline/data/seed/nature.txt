@@ -1,0 +1,81 @@
+# nature — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+trees | TREES | is_a | 0.2 | 0.85 | A | Kinds of trees an average American can name | $W is a kind of tree
+oak, maple, pine, birch, willow, elm, cedar, spruce, redwood, aspen, walnut, palm, fir, cypress, magnolia, sycamore, poplar, chestnut, cherry, dogwood, hickory, ash, beech, juniper, apple
+
+tree_parts | TREE PARTS | part_of | 0.25 | 0.85 | A | Physical parts of a living tree | $W is a physical part of a tree
+root, trunk, branch, leaf, twig, sap, bud, knot, ring, seed, bough, crown, needle, cone, stump, bark, limb, shoot, acorn, pulp
+
+flowers | FLOWERS | is_a | 0.15 | 0.88 | A | Kinds of flowers commonly sold or grown in gardens | $W is a kind of flower
+rose, tulip, daisy, lily, sunflower, orchid, violet, carnation, daffodil, iris, poppy, marigold, peony, lilac, jasmine, dahlia, petunia, hyacinth, magnolia, lavender, begonia, geranium, zinnia, azalea, buttercup
+
+flower_parts | FLOWER PARTS | part_of | 0.35 | 0.7 | A | Parts of a flowering plant | $W is a part of a flowering plant
+petal, stem, leaf, root, bud, pollen, seed, thorn, stamen, nectar, sepal, bulb, pistil, blossom, stalk
+
+weather_words | WEATHER WORDS | is_a | 0.15 | 0.9 | A | Words describing weather conditions or events in the sky | $W is a word for a weather condition
+rain, snow, wind, fog, hail, thunder, lightning, storm, cloud, sleet, drizzle, frost, breeze, gale, mist, blizzard, tornado, hurricane, humidity, sunshine, downpour, shower, heat wave, thaw, flurry
+
+storms | STORMS | is_a | 0.3 | 0.8 | A | Kinds of violent weather events | $W is a kind of violent weather event
+hurricane, tornado, blizzard, thunderstorm, cyclone, typhoon, monsoon, squall, hailstorm, gale, dust storm, ice storm, downpour, whirlwind, tempest
+
+cloud_and_sky | SKY WORDS | found_in | 0.3 | 0.78 | A | Things you can see in the sky | $W can be seen in the sky
+cloud, sun, moon, star, rainbow, lightning, plane, bird, kite, comet, balloon, smoke, fog, eclipse, aurora, meteor, helicopter, satellite, sunset, haze
+
+things_with_seeds | THINGS WITH SEEDS | has_property | 0.35 | 0.7 | C | Common objects or foods that naturally contain seeds | $W naturally contains seeds
+watermelon, sunflower, pumpkin, tomato, grape, pepper, cucumber, pear, pomegranate, squash, apple, orange, melon, fig, kiwi, avocado, peach, plum, cherry, sesame, pinecone, bean, corn, poppy, strawberry
+
+bodies_of_water | BODIES OF WATER | is_a | 0.2 | 0.88 | A | Natural or man-made bodies of water on the surface of the earth | $W is a body of water
+lake, river, ocean, pond, sea, stream, bay, creek, lagoon, gulf, canal, harbor, brook, reservoir, marsh, swamp, waterfall, spring, inlet, strait, fjord, delta, pool, sound, estuary
+
+river_features | RIVER FEATURES | part_of | 0.35 | 0.6 | C | Parts and features of a river described in everyday English | $W is a feature or part of a river
+current, delta, rapids, bend, channel, source, tributary, shore, ford, basin, bank, mouth, waterfall, sandbar, levee, gorge, floodplain, eddy, headwater, bed
+
+gemstones | GEMSTONES | is_a | 0.25 | 0.82 | A | Precious or semi-precious stones used in jewelry | $W is a stone used in jewelry
+ruby, emerald, sapphire, opal, pearl, amethyst, topaz, jade, garnet, turquoise, quartz, diamond, onyx, agate, aquamarine, peridot, coral, moonstone, obsidian, lapis
+
+rocks_and_minerals | ROCKS AND MINERALS | is_a | 0.3 | 0.75 | A | Common rocks and minerals from the ground | $W is a rock or mineral
+granite, marble, limestone, sandstone, slate, quartz, obsidian, basalt, shale, chalk, coal, salt, gypsum, flint, pumice, clay, gravel, pebble, boulder, iron ore
+
+seasons_and_nature | SEASONAL WORDS | found_in | 0.3 | 0.75 | A | Words describing the changing seasons outdoors | $W describes a change of season outdoors
+bloom, thaw, harvest, frost, sprout, foliage, hibernate, migrate, blossom, shed, ripen, wither, snowfall, sunrise, equinox, solstice, bud, molt
+
+garden_plants | GARDEN PLANTS | found_in | 0.25 | 0.8 | A | Plants people grow in a home garden | $W is grown in a home garden
+tomato, rose, basil, mint, lettuce, cucumber, pepper, sunflower, tulip, carrot, strawberry, zucchini, marigold, lavender, fern, ivy, hosta, pumpkin, squash, bean
+
+wild_plants | WILD PLANTS | is_a | 0.35 | 0.65 | C | Plants that grow wild in fields and woods | $W grows wild in fields or woods
+moss, fern, weed, thistle, clover, dandelion, nettle, ivy, vine, bramble, cattail, milkweed, goldenrod, ragweed, bracken, lichen, reed, sedge
+
+mushrooms_and_fungi | FUNGI | is_a | 0.4 | 0.6 | C | Mushrooms and other fungi | $W is a fungus
+mushroom, toadstool, mold, yeast, truffle, shiitake, portobello, morel, chanterelle, puffball, mildew, button mushroom
+
+natural_disasters | NATURAL DISASTERS | is_a | 0.3 | 0.82 | A | Destructive natural events | $W is a destructive natural event
+earthquake, flood, hurricane, tornado, wildfire, drought, tsunami, avalanche, landslide, volcano, blizzard, famine, eruption, mudslide, sinkhole, cyclone
+
+things_in_the_forest | FOREST THINGS | found_in | 0.25 | 0.8 | A | Things you find walking through a forest | $W is found in a forest
+tree, moss, fern, mushroom, log, stump, trail, deer, squirrel, pinecone, acorn, stream, owl, leaf, bark, branch, undergrowth, clearing, fox, campsite
+
+desert_things | DESERT THINGS | found_in | 0.3 | 0.78 | A | Things found in a hot desert | $W is found in a hot desert
+sand, cactus, dune, camel, lizard, scorpion, oasis, snake, rock, heat, mirage, tumbleweed, vulture, coyote, sagebrush, drought, canyon, rattlesnake
+
+water_states | FORMS OF WATER | is_a | 0.3 | 0.78 | C | Forms water takes in nature | $W is a form water takes in nature
+ice, snow, steam, rain, hail, frost, dew, fog, mist, sleet, vapor, slush, icicle, glacier, cloud, puddle, drizzle, humidity
+
+light_sources | LIGHT SOURCES | does_action | 0.3 | 0.8 | A | Things that give off light | $W gives off light
+sun, star, lamp, candle, flashlight, fire, moon, lantern, bulb, torch, firefly, lightning, screen, headlight, match, neon, laser, campfire, glowstick, streetlight
+
+things_that_grow | GROWING THINGS | has_property | 0.35 | 0.7 | C | Living things that grow larger over time | $W grows larger over time
+tree, plant, flower, grass, child, hair, nail, crystal, seedling, sapling, vine, weed, moss, crop, bud, root, leaf, mushroom
+
+underground_things | UNDERGROUND THINGS | found_in | 0.35 | 0.7 | C | Things found under the surface of the ground | $W is found under the ground
+root, worm, mole, tunnel, cave, pipe, ore, fossil, seed, burrow, subway, aquifer, bulb, mine, treasure, sewer, coal, ant nest
+
+sea_shore_things | BEACH THINGS | found_in | 0.2 | 0.85 | A | Things you find on an ocean beach | $W is found on an ocean beach
+sand, shell, wave, crab, seaweed, driftwood, surfboard, towel, umbrella, gull, pebble, starfish, sandcastle, tide, dune, cooler, sunscreen, boardwalk, jellyfish, kite
+
+mountain_things | MOUNTAIN THINGS | found_in | 0.3 | 0.75 | A | Things found on or around a mountain | $W is found on or around a mountain
+peak, cliff, snow, trail, boulder, cave, glacier, pine, goat, eagle, ridge, slope, avalanche, summit, valley, stream, cabin, ski lift, echo, timberline
+
+animal_tracks_and_signs | DIRT THINGS | found_in | 0.4 | 0.6 | C | Marks and things you see in bare dirt | $W is seen in bare dirt
+footprint, track, hole, worm, root, pebble, tire mark, ant, puddle, mud, gravel, seed, stone, dust, twig
