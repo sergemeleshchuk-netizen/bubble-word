@@ -154,6 +154,9 @@ test('арифметика доски совпадает с формулой н�
       n + c.words.filter((w) => w.kind === 'meta').length, 0);
     assert.equal(level.spec.board.startBubbles,
       level.spec.categories.length * 4 - meta);
-    assert.ok(level.spec.board.moveLimit >= level.spec.board.moveFloor);
+    // null = туториал без лимита ходов; там сравнивать не с чем
+    if (level.spec.board.moveLimit !== null) {
+      assert.ok(level.spec.board.moveLimit >= level.spec.board.moveFloor);
+    }
   }
 });

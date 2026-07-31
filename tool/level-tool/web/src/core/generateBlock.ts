@@ -11,7 +11,7 @@ import type {
 import { ContentIndex } from './snapshot.ts';
 import { buildBlockPlan } from './blockPlan.ts';
 import {
-  GENERATOR_VERSION, emptyPackHistory, generateLevel, planDeepChain,
+  GENERATOR_VERSION, emptyPackHistory, generateLevel, normalizeWordKey, planDeepChain,
   recordLevelInHistory, type PackHistory,
 } from './generator.ts';
 import { validateLevel } from './validator.ts';
@@ -51,7 +51,24 @@ function normalizeConfig(config: BlockConfig): unknown {
     wordsPerCategory: config.wordsPerCategory,
     categoryPlan: config.categoryPlan ?? null,
     metaPlan: config.metaPlan ?? null,
+    // undefined канонический сериализатор выбрасывает, поэтому у пресета 201-210
+    // хеш остаётся прежним, а у калиброванного по декаде блока гейты в хеш входят:
+    // они влияют на контент, значит обязаны влиять на хеш
+    decadeGates: config.decadeGates,
   };
+}
+
+/** Слов уровня, которые уже встречались раньше в ДРУГОЙ категории. */
+function repeatCount(spec: LevelSpec, history: PackHistory): number {
+  let n = 0;
+  for (const category of spec.categories) {
+    for (const w of category.words) {
+      const key = normalizeWordKey(w.text);
+      if (!history.wordLastLevel.has(key)) continue;
+      if (history.wordCategory?.get(key) !== category.key) n += 1;
+    }
+  }
+  return n;
 }
 
 /** Доля слов уровня, новых для пакета. */
@@ -82,7 +99,8 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
   const deepestPlan = plans.reduce((best, p) =>
     (p.metaDepthTarget > best.metaDepthTarget ? p : best), plans[0]);
   const reservedChain = deepestPlan.metaDepthTarget >= 2
-    ? planDeepChain(index, deepestPlan.metaDepthTarget, config.seed, config.wordsPerCategory)
+    ? planDeepChain(index, deepestPlan.metaDepthTarget, config.seed, config.wordsPerCategory,
+      config.decadeGates ?? null)
     : null;
   const reservedCategories = new Set<number>();
   if (reservedChain) {
@@ -111,6 +129,8 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       referenceQuadrupleHashes: options.referenceQuadrupleHashes,
       hashQuadruple,
       maxMetaDepth: config.maxMetaDepth,
+      decadeGates: config.decadeGates,
+      rareRange: config.decadeGates ? config.rarityRange : undefined,
     });
 
     const outcome = generateLevel(index, plan, config, history, {
@@ -129,7 +149,9 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
           return { ok: false, stage: 'единственность решения',
             reason: `найдено две полные раскладки: слова двоятся между ${clash}` };
         }
-        const validation = validateLevel(spec, { ...validationContext(), solutions });
+        const validation = validateLevel(spec, {
+          ...validationContext(), solutions, repeatCount: repeatCount(spec, history),
+        });
         const hard = validation.issues.filter((i) => i.severity === 'hard');
         if (hard.length) {
           return { ok: false, stage: 'валидация',
@@ -148,7 +170,9 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     // порядок важен: сначала считаем решения, потом валидируем (валидатор
     // использует результат), и только потом выставляем оценки
     const solutions = countSolutions(index, spec);
-    const validation = validateLevel(spec, { ...validationContext(), solutions });
+    const validation = validateLevel(spec, {
+      ...validationContext(), solutions, repeatCount: repeatCount(spec, history),
+    });
 
     const evidence = options.solverEvidence?.get(plan.levelId) ?? {};
     const difficulty = computeDifficulty(spec, index, scoring, solutions, evidence);

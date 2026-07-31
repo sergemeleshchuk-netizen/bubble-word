@@ -110,6 +110,36 @@ def load_seed() -> tuple[list[dict], list[dict]]:
     return categories, ambiguous
 
 
+def load_sense_map() -> tuple[dict[str, dict[str, dict]], dict[str, dict[str, dict]]]:
+    """Читает _sense_map.json: дополнительные значения и карту связь -> значение.
+
+    Возвращает (senses, assignments), где
+      senses[word][sense_key]      = {"definition": ..., "part_of_speech": ...}
+      assignments[word][cat_key]   = {"sense": ..., "review_status": ... | None}
+    """
+    path = SEED_DIR / "_sense_map.json"
+    if not path.exists():
+        return {}, {}
+    raw = json.loads(path.read_text(encoding="utf-8"))
+
+    senses = {
+        normalize_word(word): dict(entries)
+        for word, entries in (raw.get("senses") or {}).items()
+    }
+    assignments: dict[str, dict[str, dict]] = {}
+    for word, by_category in (raw.get("assignments") or {}).items():
+        bucket = assignments.setdefault(normalize_word(word), {})
+        for category_key, value in by_category.items():
+            if isinstance(value, str):
+                bucket[category_key] = {"sense": value, "review_status": None}
+            else:
+                bucket[category_key] = {
+                    "sense": value["sense"],
+                    "review_status": value.get("review_status"),
+                }
+    return senses, assignments
+
+
 def capitalize(word: str) -> str:
     return word[0].upper() + word[1:] if word else word
 
@@ -132,16 +162,119 @@ def build_categories(specs: list[dict]) -> list[dict]:
     ]
 
 
-def _is_rare(word: str) -> bool:
+def _needs_review(word: str) -> bool:
+    """True, если слово нельзя ставить approved автоматически.
+
+    Два случая: слово редкое или частотность посчитать не удалось. Второй случай —
+    P0 аудита: отсутствующие данные должны закрывать связь, а не проходить как
+    подтверждённые (calfling, WD40, Barqs приходили в базу как approved).
+    """
     value = zipf(word)
-    return value is not None and value < RARE_ZIPF
+    return value is None or value < RARE_ZIPF
 
 
-def build_memberships(specs: list[dict], ambiguous: list[dict]) -> list[dict]:
+# Темы, в которых слова — товарные знаки: написание и правовой статус нужно проверять
+TRADEMARK_THEMES = {"brands"}
+# Темы и приставки категорий, привязанных к конкретной культуре
+CULTURAL_THEMES = {"world_food", "world_more", "names_world", "religion", "culture"}
+CULTURAL_PREFIXES = ("world_", "traditional_")
+_MULTIWORD_RE = None
+
+
+def load_risk_flags() -> dict[tuple[str, str], dict[str, str]]:
+    """Читает _risk_flags.csv: ручные пометки рисков. Ключ — (слово или *, категория или *)."""
+    path = SEED_DIR / "_risk_flags.csv"
+    if not path.exists():
+        return {}
+    import csv
+
+    lines = [
+        line
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    result: dict[tuple[str, str], dict[str, str]] = {}
+    for row in csv.DictReader(lines):
+        word = (row["word"] or "").strip()
+        key = word if word == "*" else normalize_word(word)
+        result[(key, (row["category_key"] or "*").strip())] = {
+            "flags": (row["flags"] or "").split(),
+            "note": (row.get("note") or "").strip(),
+        }
+    return result
+
+
+def risk_flags_for(
+    word: str, spec: dict, manual: dict[tuple[str, str], dict[str, str]]
+) -> list[str]:
+    """Флаги риска связи: механические плюс ручные.
+
+    Аудит: поле risk_flags было пустым у всех 17 550 связей, то есть слоя
+    культурных и терминологических рисков не существовало.
+    """
+    flags: list[str] = []
+    normalized = normalize_word(word)
+    value = zipf(word)
+
+    if " " in normalized or "-" in normalized:
+        flags.append("multiword")
+    if spec.get("is_proper_noun"):
+        flags.append("proper_noun")
+    if value is None:
+        flags.append("no_familiarity")
+    elif value < RARE_ZIPF:
+        flags.append("obscure")
+    if spec["theme"] in TRADEMARK_THEMES:
+        flags.append("trademark")
+    if spec["theme"] in CULTURAL_THEMES or spec["category_key"].startswith(CULTURAL_PREFIXES):
+        flags.append("culturally_specific")
+
+    for key in (
+        (normalized, spec["category_key"]),
+        (normalized, "*"),
+        ("*", spec["category_key"]),
+    ):
+        entry = manual.get(key)
+        if entry:
+            flags.extend(entry["flags"])
+
+    seen: dict[str, None] = {}
+    for flag in flags:
+        seen[flag] = None
+    return list(seen)
+
+
+# Категории игры слов работают с написанием слова, а не с его значением:
+# 'starboard' не происходит от звезды. Приписывать таким связям значение — вносить
+# в базу ложь, поэтому у них sense_id остаётся пустым осознанно.
+WORDPLAY_RELATIONS = {"phrase_before", "phrase_after"}
+
+
+def build_memberships(
+    specs: list[dict],
+    ambiguous: list[dict],
+    extra_senses: dict[str, dict[str, dict]] | None = None,
+    assignments: dict[str, dict[str, dict]] | None = None,
+) -> list[dict]:
     records: list[dict] = []
     explicit = {(normalize_word(row["word"]), row["category_key"]) for row in ambiguous}
+    extra_senses = extra_senses or {}
+    assignments = assignments or {}
+    manual_risks = load_risk_flags()
 
+    # Все известные значения слова: из _ambiguous.json плюс из _sense_map.json
+    definitions: dict[str, dict[str, dict]] = {}
     for row in ambiguous:
+        definitions.setdefault(normalize_word(row["word"]), {})[row["sense_key"]] = {
+            "definition": row["sense_definition"],
+            "part_of_speech": row.get("part_of_speech"),
+        }
+    for word, entries in extra_senses.items():
+        definitions.setdefault(word, {}).update(entries)
+
+    by_key = {spec["category_key"]: spec for spec in specs}
+    for row in ambiguous:
+        spec = by_key.get(row["category_key"])
         records.append(
             {
                 "word": row["word"],
@@ -157,33 +290,55 @@ def build_memberships(specs: list[dict], ambiguous: list[dict]) -> list[dict]:
                 "obviousness_score": row["obviousness_score"],
                 "source": SOURCE,
                 "review_status": row.get("review_status", "candidate"),
+                # у омонима значение разведено, поэтому многозначность не риск,
+                # а разобранный факт: флаг highly_ambiguous здесь не ставится
+                "risk_flags": risk_flags_for(row["word"], spec, manual_risks) if spec else [],
             }
         )
 
     for spec in specs:
         proper = bool(spec.get("is_proper_noun"))
         for word in spec["words"]:
-            if (normalize_word(word), spec["category_key"]) in explicit:
+            normalized = normalize_word(word)
+            if (normalized, spec["category_key"]) in explicit:
                 continue  # связь описана вручную вместе со значением слова
-            records.append(
-                {
-                    "word": word,
-                    "language": "en",
-                    "part_of_speech": "proper_noun" if proper else "noun",
-                    "is_proper_noun": proper,
-                    "category_key": spec["category_key"],
-                    "relation_type": spec["relation_type"],
-                    "reason": render(spec["reason_template"], word),
-                    "fit_score": spec.get("fit_score", DEFAULT_FIT),
-                    "obviousness_score": spec["obviousness"],
-                    "source": SOURCE,
-                    # approved только для очевидных вручную выверенных пулов;
-                    # редкое слово всегда уходит в очередь на ручную проверку
-                    "review_status": "approved"
-                    if spec.get("approve") and not _is_rare(word)
-                    else "candidate",
-                }
-            )
+
+            record = {
+                "word": word,
+                "language": "en",
+                "part_of_speech": "proper_noun" if proper else "noun",
+                "is_proper_noun": proper,
+                "category_key": spec["category_key"],
+                "relation_type": spec["relation_type"],
+                "reason": render(spec["reason_template"], word),
+                "fit_score": spec.get("fit_score", DEFAULT_FIT),
+                "obviousness_score": spec["obviousness"],
+                "source": SOURCE,
+                # approved только для очевидных вручную выверенных пулов;
+                # редкое слово и слово без частотности уходят на ручную проверку
+                "review_status": "approved"
+                if spec.get("approve") and not _needs_review(word)
+                else "candidate",
+                "risk_flags": risk_flags_for(word, spec, manual_risks),
+            }
+
+            assigned = assignments.get(normalized, {}).get(spec["category_key"])
+            if assigned:
+                sense_key = assigned["sense"]
+                known = definitions.get(normalized, {}).get(sense_key)
+                if known is None:
+                    raise SystemExit(
+                        f"_sense_map.json: у слова {word!r} нет значения {sense_key!r} — "
+                        "опишите его в блоке senses или в _ambiguous.json"
+                    )
+                record["sense_key"] = sense_key
+                record["sense_definition"] = known["definition"]
+                if known.get("part_of_speech"):
+                    record["part_of_speech"] = known["part_of_speech"]
+                if assigned["review_status"]:
+                    record["review_status"] = assigned["review_status"]
+
+            records.append(record)
     return records
 
 
@@ -263,6 +418,36 @@ def validate(categories: list[dict], memberships: list[dict], specs: list[dict])
         if hit:
             problems.append(f"слово из блок-листа: {membership['word']} (совпадение {hit})")
 
+    problems.extend(check_sense_coverage(memberships))
+    return problems
+
+
+def check_sense_coverage(memberships: list[dict]) -> list[str]:
+    """Инвариант из аудита: у слова с двумя и более значениями каждая связь знает значение.
+
+    Иначе база не может ответить, в каком смысле слово стоит в категории, и
+    генератор уровней собирает четвёрку из разных значений одного слова.
+    Исключение — категории игры слов: там слово участвует написанием.
+    """
+    senses: dict[str, set[str]] = {}
+    for membership in memberships:
+        if membership.get("sense_key"):
+            senses.setdefault(normalize_word(membership["word"]), set()).add(
+                membership["sense_key"]
+            )
+
+    problems: list[str] = []
+    for membership in memberships:
+        word = normalize_word(membership["word"])
+        if len(senses.get(word, ())) < 2 or membership.get("sense_key"):
+            continue
+        if membership["relation_type"] in WORDPLAY_RELATIONS:
+            continue  # осознанное исключение, см. комментарий у WORDPLAY_RELATIONS
+        problems.append(
+            f"связь многозначного слова без значения: {word} -> "
+            f"{membership['category_key']} (значения: {', '.join(sorted(senses[word]))}). "
+            "Добавьте её в data/seed/_sense_map.json"
+        )
     return problems
 
 
@@ -275,8 +460,9 @@ def write_jsonl(path: Path, rows: list[dict]) -> None:
 
 def main() -> None:
     specs, ambiguous = load_seed()
+    extra_senses, assignments = load_sense_map()
     categories = build_categories(specs)
-    memberships = build_memberships(specs, ambiguous)
+    memberships = build_memberships(specs, ambiguous, extra_senses, assignments)
 
     problems = validate(categories, memberships, specs)
     if problems:

@@ -2,18 +2,23 @@
 
 from __future__ import annotations
 
+import csv
+import hashlib
 import json
 import sqlite3
+import subprocess
 import sys
 from pathlib import Path
 from typing import Annotated, Any
 
 import typer
+from pydantic import ValidationError
 
 from . import candidate_generation as gen
+from . import conflicts, integrity, quartet_builder, readiness, sense_gaps, solver
 from .blocklist import Blocklist
 from .blocklist import default_path as default_blocklist_path
-from .db import init_db, open_existing
+from .db import init_db, open_existing, utc_now
 from .exporters import export_review_csv, write_jsonl
 from .importers import (
     ImportReport,
@@ -25,13 +30,21 @@ from .importers import (
 from .llm.base import LLMError, LLMProvider
 from .llm.mock import MockLLMProvider, echo_handler
 from .llm.openai_compatible import provider_from_env
+from .models import CategoryConflictInput, QuartetInput
 from .repositories import (
+    RepositoryError,
+    clear_category_conflicts,
+    clear_quartets,
     collect_stats,
     coverage_report,
     get_category,
     list_categories,
     memberships_for_category,
     memberships_for_word,
+    replace_pair_groups,
+    set_schema_meta,
+    upsert_category_conflict,
+    upsert_quartet,
     words_with_status,
 )
 from .validators import ContentFilter, ValidationIssue, parse_statuses
@@ -672,6 +685,358 @@ def cmd_review_membership_candidates(
         _fail(str(exc))
     finally:
         conn.close()
+
+
+# ----------------------------------------------- готовность, конфликты, четвёрки
+
+
+def _category_meta(path: Path | None) -> dict[str, Any]:
+    """Читает ручные оверрайды категорий. Файла нет — работаем без них."""
+    target = path or (Path(__file__).resolve().parents[2] / "data" / "seed" / "_category_meta.json")
+    if not target.exists():
+        return {}
+    return json.loads(target.read_text(encoding="utf-8"))
+
+
+MetaOption = Annotated[
+    Path | None,
+    typer.Option("--meta", help="Файл ручных оверрайдов (по умолчанию data/seed/_category_meta.json)"),
+]
+
+
+@app.command("derive-readiness")
+def cmd_derive_readiness(db: DbOption, meta: MetaOption = None) -> None:
+    """Пересчитывает readiness категорий по пулам и отключает те, что не собирают четвёрку."""
+    conn = _open(db)
+    try:
+        loaded = _category_meta(meta)
+        curated = dict(loaded.get("curated_only") or {})
+        pair_groups = dict(loaded.get("pair_groups") or {})
+        with conn:
+            summary = readiness.derive(conn, curated)
+            pairs_written = 0
+            pairs_missing: list[str] = []
+            for category_key, groups in pair_groups.items():
+                written, missing = replace_pair_groups(conn, category_key, groups)
+                pairs_written += written
+                pairs_missing.extend(missing)
+        blocked = list(
+            conn.execute(
+                "SELECT category_key, label, readiness_reason FROM categories "
+                "WHERE readiness = 'blocked' ORDER BY category_key"
+            )
+        )
+        hard = list(
+            conn.execute(
+                "SELECT category_key, label, readiness_reason FROM categories "
+                "WHERE readiness = 'hard_only' ORDER BY category_key"
+            )
+        )
+    finally:
+        conn.close()
+
+    typer.echo("Готовность категорий:")
+    for key in ("ready", "constrained", "curated_only", "hard_only", "blocked"):
+        typer.echo(f"  {key:14} {summary.get(key, 0)}")
+    if pair_groups:
+        typer.echo(f"Парных групп записано: {pairs_written}")
+    for item in pairs_missing:
+        typer.secho(f"  слово пары не найдено: {item}", fg=typer.colors.YELLOW, err=True)
+    if blocked:
+        typer.echo(f"\nОтключено (status=disabled), четвёрку не собрать — {len(blocked)}:")
+        for row in blocked:
+            typer.echo(f"  {row['label']} ({row['category_key']}): {row['readiness_reason']}")
+    if hard:
+        typer.echo(f"\nТолько для сложных уровней — {len(hard)}:")
+        for row in hard[:30]:
+            typer.echo(f"  {row['label']} ({row['category_key']}): {row['readiness_reason']}")
+        if len(hard) > 30:
+            typer.echo(f"  ... ещё {len(hard) - 30}")
+
+
+@app.command("derive-conflicts")
+def cmd_derive_conflicts(
+    db: DbOption,
+    output: Annotated[
+        Path | None, typer.Option("--output", help="Куда выгрузить CSV конфликтов")
+    ] = None,
+    meta: MetaOption = None,
+    min_overlap: Annotated[
+        int, typer.Option("--min-overlap", help="Минимальное пересечение пулов")
+    ] = conflicts.MIN_OVERLAP,
+) -> None:
+    """Считает пары категорий, которые нельзя ставить в один уровень."""
+    conn = _open(db)
+    try:
+        overlaps = conflicts.find_overlaps(conn, min_overlap)
+        rows = conflicts.to_rows(overlaps)
+        manual = _category_meta(meta).get("do_not_pair") or []
+        for pair in manual:
+            rows.append(
+                {
+                    "category_a": pair[0],
+                    "category_b": pair[1],
+                    "conflict_type": "do_not_pair",
+                    "origin": "manual",
+                    "overlap_count": 0,
+                    "overlap_words": "",
+                    "severity": "P1",
+                    "note": "ручное правило из _category_meta.json",
+                }
+            )
+
+        inserted = updated = skipped = 0
+        with conn:
+            clear_category_conflicts(conn)
+            for row in rows:
+                try:
+                    item = CategoryConflictInput.model_validate(row)
+                    result = upsert_category_conflict(conn, item)
+                except (ValidationError, RepositoryError) as exc:
+                    skipped += 1
+                    typer.secho(f"  пропущено: {exc}", fg=typer.colors.YELLOW, err=True)
+                    continue
+                if result == "inserted":
+                    inserted += 1
+                else:
+                    updated += 1
+    finally:
+        conn.close()
+
+    typer.echo(
+        f"Конфликтов: derived={len(overlaps)} manual={len(manual)} | "
+        f"записано {inserted}, обновлено {updated}, пропущено {skipped}"
+    )
+    by_severity: dict[str, int] = {}
+    for item in overlaps:
+        by_severity[item.severity] = by_severity.get(item.severity, 0) + 1
+    typer.echo("По серьёзности: " + ", ".join(f"{k}={v}" for k, v in sorted(by_severity.items())))
+    typer.echo("\nСамые опасные пересечения:")
+    _print_table(
+        ["категория A", "категория B", "общих слов"],
+        [[i.category_a, i.category_b, str(i.count)] for i in overlaps[:15]],
+    )
+    if output:
+        written = _write_csv(output, rows)
+        typer.echo(f"\nCSV: {output} ({written} строк)")
+
+
+@app.command("build-quartets")
+def cmd_build_quartets(
+    db: DbOption,
+    output: Annotated[
+        Path | None, typer.Option("--output", help="Куда выгрузить CSV четвёрок")
+    ] = None,
+    per_category: Annotated[
+        int, typer.Option("--per-category", help="Сколько четвёрок собирать на категорию")
+    ] = quartet_builder.MAX_PER_CATEGORY,
+    category: Annotated[
+        str | None, typer.Option("--category", help="Только одна категория")
+    ] = None,
+) -> None:
+    """Собирает четвёрки из пулов и проверяет каждую solver'ом единственности."""
+    conn = _open(db)
+    try:
+        built, stats = quartet_builder.build(
+            conn, max_per_category=per_category, only_category=category
+        )
+        rows = quartet_builder.to_rows(built)
+        inserted = updated = skipped = 0
+        with conn:
+            clear_quartets(conn)
+            for row in rows:
+                try:
+                    item = QuartetInput.model_validate(row)
+                    result = upsert_quartet(conn, item)
+                except (ValidationError, RepositoryError) as exc:
+                    skipped += 1
+                    typer.secho(f"  пропущено: {exc}", fg=typer.colors.YELLOW, err=True)
+                    continue
+                if result == "inserted":
+                    inserted += 1
+                else:
+                    updated += 1
+    finally:
+        conn.close()
+
+    for key, value in stats.items():
+        typer.echo(f"{key}: {value}")
+    typer.echo(f"записано в базу: {inserted}, обновлено: {updated}, пропущено: {skipped}")
+    typer.echo("Статус четвёрок: auto_validated — solver прошёл, человек не смотрел.")
+    if output:
+        written = _write_csv(output, rows)
+        typer.echo(f"CSV: {output} ({written} строк)")
+
+
+@app.command("solve-level")
+def cmd_solve_level(
+    db: DbOption,
+    words: Annotated[
+        str, typer.Option("--words", help="Слова уровня через запятую (кратно четырём)")
+    ],
+    normal_only: Annotated[
+        bool,
+        typer.Option("--normal-only", help="Считать пулы без hard_only (обычный уровень)"),
+    ] = False,
+) -> None:
+    """Проверяет уровень: принимает только при единственном корректном разбиении."""
+    conn = _open(db)
+    try:
+        pools = solver.normal_pools(conn) if normal_only else solver.category_pools(conn)
+        word_list = [w.strip() for w in words.split(",") if w.strip()]
+        result = solver.solve(word_list, pools)
+    finally:
+        conn.close()
+
+    typer.echo(f"Слов: {len(word_list)} | разбиений найдено: {result.solution_count}")
+    for index, solution in enumerate(result.solutions, start=1):
+        typer.echo(f"\nРазбиение {index}:")
+        for category_key, group in solution:
+            typer.echo(f"  {category_key}: {', '.join(group)}")
+    if result.unique:
+        typer.secho(f"\nОК: {result.reason}", fg=typer.colors.GREEN)
+    else:
+        typer.secho(f"\nОтклонён: {result.reason}", fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1)
+
+
+@app.command("sense-gaps")
+def cmd_sense_gaps(
+    db: DbOption,
+    output: Annotated[
+        Path | None, typer.Option("--output", help="Куда выгрузить очередь на разведение значений")
+    ] = None,
+    show: Annotated[int, typer.Option("--show", help="Сколько строк показать")] = 20,
+) -> None:
+    """Ищет слова, которым нужны дополнительные значения. Ничего не меняет в базе."""
+    conn = _open(db)
+    try:
+        not_homonyms = sense_gaps.load_not_homonyms(
+            Path(__file__).resolve().parents[2] / "data" / "seed" / "_not_homonyms.txt"
+        )
+        gaps = sense_gaps.find(conn, not_homonyms=not_homonyms)
+    finally:
+        conn.close()
+
+    by_priority: dict[str, int] = {}
+    for gap in gaps:
+        by_priority[gap.priority] = by_priority.get(gap.priority, 0) + 1
+    typer.echo(f"Слов, которым нужны значения: {len(gaps)}")
+    typer.echo("По приоритету: " + ", ".join(f"{k}={v}" for k, v in sorted(by_priority.items())))
+    _print_table(
+        ["приоритет", "слово", "категорий", "тем", "темы"],
+        [
+            [g.priority, g.word, str(g.category_count), str(g.theme_count),
+             _truncate(", ".join(g.themes), 46)]
+            for g in gaps[:show]
+        ],
+    )
+    if output:
+        written = _write_csv(output, sense_gaps.to_rows(gaps))
+        typer.echo(f"\nОчередь: {output} ({written} строк)")
+
+
+@app.command("check-integrity")
+def cmd_check_integrity(
+    db: DbOption,
+    show: Annotated[int, typer.Option("--show", help="Сколько примеров показывать")] = 5,
+) -> None:
+    """Критерии приёмки из аудита. Ненулевой код возврата, если база не готова."""
+    conn = _open(db)
+    try:
+        results = integrity.run_all(conn)
+    finally:
+        conn.close()
+
+    failed = [r for r in results if r.failed]
+    for result in results:
+        if result.severity == "blocker":
+            mark = "OK  " if result.ok else "СТОП"
+            color = typer.colors.GREEN if result.ok else typer.colors.RED
+        elif result.severity == "warning":
+            mark = "OK  " if result.ok else "ВНИМ"
+            color = typer.colors.GREEN if result.ok else typer.colors.YELLOW
+        else:
+            mark, color = "ИНФО", typer.colors.BLUE
+        typer.secho(f"{mark}  {result.question}: {result.count}", fg=color)
+        if result.note and not result.ok:
+            typer.echo(f"        {result.note}")
+        for example in result.examples[:show]:
+            typer.echo(f"        - {example}")
+        if len(result.examples) > show:
+            typer.echo(f"        ... ещё {len(result.examples) - show}")
+
+    if failed:
+        typer.secho(
+            f"\nБаза не готова: провалено проверок {len(failed)}", fg=typer.colors.RED, err=True
+        )
+        raise typer.Exit(code=1)
+    typer.secho("\nВсе блокирующие проверки пройдены.", fg=typer.colors.GREEN)
+
+
+@app.command("stamp-version")
+def cmd_stamp_version(
+    db: DbOption,
+    content_version: Annotated[
+        str, typer.Option("--content-version", help="Версия контента, например 2026.07.31")
+    ],
+) -> None:
+    """Записывает версию схемы и контента, commit и хеши источников в schema_meta."""
+    conn = _open(db)
+    try:
+        data = Path(__file__).resolve().parents[2] / "data"
+        meta: dict[str, str] = {
+            "schema_version": str(conn.execute("PRAGMA user_version").fetchone()[0]),
+            "content_version": content_version,
+            "git_commit": _git_commit(),
+            "built_at": utc_now(),
+            "wordfreq_version": _package_version("wordfreq"),
+        }
+        for name in ("categories.jsonl", "membership_candidates.jsonl", "review_decisions.csv"):
+            path = data / name
+            if path.exists():
+                meta[f"sha256_{name}"] = hashlib.sha256(path.read_bytes()).hexdigest()
+        with conn:
+            set_schema_meta(conn, meta)
+    finally:
+        conn.close()
+
+    for key, value in meta.items():
+        typer.echo(f"{key}: {value}")
+
+
+def _git_commit() -> str:
+    try:
+        return subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=Path(__file__).resolve().parents[4],
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+    except (subprocess.CalledProcessError, OSError):
+        return "unknown"
+
+
+def _package_version(name: str) -> str:
+    try:
+        from importlib.metadata import version
+
+        return version(name)
+    except Exception:
+        return "not installed"
+
+
+def _write_csv(path: Path, rows: list[dict[str, Any]]) -> int:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not rows:
+        path.write_text("", encoding="utf-8")
+        return 0
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+    return len(rows)
 
 
 @app.command("show-runs")

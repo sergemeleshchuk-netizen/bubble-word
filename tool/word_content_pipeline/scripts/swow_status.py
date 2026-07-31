@@ -52,7 +52,7 @@ SWOW_AGG = REPO / "reference" / "swow" / "swow_agg.pkl"
 sys.path.insert(0, str(PIPE / "src"))
 sys.path.insert(0, str(PIPE / "scripts"))
 
-from build_seed import load_seed  # noqa: E402
+from build_seed import load_seed, load_sense_map  # noqa: E402
 from word_content.familiarity import familiarity  # noqa: E402
 from word_content.normalization import NormalizationError, normalize_word  # noqa: E402
 
@@ -74,6 +74,103 @@ MIN_SCORE_ALTERNATIVE = 0.02
 MIN_SCORE_FLOOR = 0.0  # в прозрачной категории пол действует всегда: игрок доходит рассудком
 RARE_FAMILIARITY = 0.357
 REJECT_FLOOR = 0.20  # ниже этого слово практически не встречается в письменном английском
+
+# --------------------------------------------------------------- абсолютные пороги
+#
+# Замечание аудита: SWOW сравнивает категории слова только между собой, поэтому
+# объективно очевидная связь редкого слова уезжала в hard_only —
+# xylophone -> MUSICAL INSTRUMENTS, Sahara -> DESERTS, key -> KEYCHAIN THINGS.
+# Абсолютная оценка считается независимо от других категорий этого слова:
+#
+#   salience = W_OBVIOUS * очевидность категории + W_FAMILIAR * знакомость слова
+#
+# Очевидность отвечает за «понятно ли правило категории», знакомость — за «знает ли
+# игрок слово». Одно компенсирует другое: xylophone редкое в текстах, но категория
+# MUSICAL INSTRUMENTS настолько прозрачна, что игрок соберёт её сразу.
+W_OBVIOUS = 0.6
+W_FAMILIAR = 0.4
+FAMILIAR_FULL = 0.7  # знакомость 0.7 и выше считается полной (это zipf ~4.9)
+
+# Пороги подобраны по спискам аудита: они должны поднимать названные там связи
+# (xylophone -> MUSICAL INSTRUMENTS, key -> KEYCHAIN THINGS, camera -> THINGS WITH
+# SCREENS) и при этом не превращать всю базу в approved — ловушки `alternative`
+# и материал для сложных уровней `hard_only` игре нужны не меньше.
+SALIENCE_APPROVED = 0.80
+SALIENCE_ALTERNATIVE = 0.60
+
+# Категория, правило которой само себя объясняет (MUSICAL INSTRUMENTS, DESSERTS,
+# SEASONS): игрок соберёт её, даже если отдельное слово редко встречается в текстах.
+# Частотность измеряет употребимость, а не узнаваемость: xylophone знают все.
+SELF_EVIDENT_OBVIOUSNESS = 0.90
+SELF_EVIDENT_MIN_FAMILIARITY = 0.28
+
+# Категории игры слов оцениваются только относительно: там играет написание слова,
+# а не узнаваемость значения, и абсолютный пол дал бы ложный approved
+# ('key' частотное, но категория ___ BOARD — это загадка, а не очевидность).
+WORDPLAY_RELATIONS = {"phrase_before", "phrase_after"}
+
+
+def salience(obviousness: float, word_familiarity: float | None) -> float | None:
+    """Абсолютная заметность связи: 0..1. None, если знакомость неизвестна."""
+    if word_familiarity is None:
+        return None
+    familiar = min(word_familiarity / FAMILIAR_FULL, 1.0)
+    return W_OBVIOUS * obviousness + W_FAMILIAR * familiar
+
+
+def absolute_floor(
+    value: float | None, obviousness: float, word_familiarity: float | None
+) -> str | None:
+    """Минимальный статус, ниже которого связь опускать нельзя."""
+    if value is None or word_familiarity is None:
+        return None
+    if value >= SALIENCE_APPROVED:
+        return "approved"
+    if (
+        obviousness >= SELF_EVIDENT_OBVIOUSNESS
+        and word_familiarity >= SELF_EVIDENT_MIN_FAMILIARITY
+    ):
+        return "approved"
+    if value >= SALIENCE_ALTERNATIVE:
+        return "alternative"
+    return None
+
+
+TIER_ORDER = {"hard_only": 0, "alternative": 1, "approved": 2}
+
+
+def gameplay_difficulty(value: float | None, base_difficulty: float) -> float | None:
+    """Игровая сложность связи: отдельная ось от семантики и от знакомости.
+
+    Складывается из того, насколько связь незаметна, и из базовой сложности
+    категории. Нужна генератору уровней, чтобы строить кривую сложности.
+    """
+    if value is None:
+        return None
+    return round(min(max(0.5 * (1.0 - value) + 0.5 * base_difficulty, 0.0), 1.0), 3)
+
+
+SEMANTIC_REVIEW = PIPE / "data" / "seed" / "_semantic_review.csv"
+
+
+def load_semantic_review() -> dict[tuple[str, str], dict[str, str]]:
+    """Читает _semantic_review.csv. Ключ — (слово или '*', category_key)."""
+    if not SEMANTIC_REVIEW.exists():
+        return {}
+    lines = [
+        line
+        for line in SEMANTIC_REVIEW.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    ]
+    result: dict[tuple[str, str], dict[str, str]] = {}
+    for row in csv.DictReader(lines):
+        word = (row["word"] or "").strip()
+        key = word if word == "*" else canon(word)
+        result[(key, row["category_key"].strip())] = {
+            "semantic_status": row["semantic_status"].strip(),
+            "note": (row.get("note") or "").strip(),
+        }
+    return result
 
 
 def build_vectors(fwd: dict, bwd: dict, words: set[str]) -> dict[str, dict[str, float]]:
@@ -146,13 +243,32 @@ def main() -> None:
     mem = [json.loads(line) for line in Path(args.memberships).open(encoding="utf-8")]
     specs, ambiguous = load_seed()
     obvious_category = {s["category_key"]: bool(s.get("approve")) for s in specs}
+    category_obviousness = {s["category_key"]: float(s["obviousness"]) for s in specs}
+    category_difficulty = {s["category_key"]: float(s["base_difficulty"]) for s in specs}
+    semantic_review = load_semantic_review()
 
-    # Ручная разметка второстепенных значений омонимов: SWOW про них часто молчит
+    # Слова с разведёнными значениями: у них абсолютный пол не работает, потому что
+    # частотность считается по написанию, а не по значению. 'monitor' частотное слово,
+    # но monitor -> LIZARDS игрок сам не назовёт. Такие связи судит ручная разметка.
+    senses_per_word: dict[str, set[str]] = defaultdict(set)
+    for m in mem:
+        if m.get("sense_key"):
+            senses_per_word[canon(m["word"])].add(m["sense_key"])
+    multi_sense = {word for word, keys in senses_per_word.items() if len(keys) > 1}
+
+    # Ручная разметка значений омонимов сильнее данных: у слова с разведёнными
+    # значениями SWOW отвечает доминирующим смыслом и про остальные молчит.
+    # Источники — _ambiguous.json и статусы из _sense_map.json.
     manual = {
         (canon(row["word"]), row["category_key"]): row["review_status"]
         for row in ambiguous
-        if row.get("review_status") in ("alternative", "hard_only")
+        if row.get("review_status") in ("approved", "alternative", "hard_only")
     }
+    _, sense_assignments = load_sense_map()
+    for word, by_category in sense_assignments.items():
+        for category_key, value in by_category.items():
+            if value.get("review_status"):
+                manual[(word, category_key)] = value["review_status"]
 
     pool: dict[str, list[str]] = defaultdict(list)
     for m in mem:
@@ -177,27 +293,53 @@ def main() -> None:
         word = canon(m["word"])
         key = m["category_key"]
         word_familiarity = familiarity(word)
+        obviousness = category_obviousness.get(key, m.get("obviousness_score", 0.7))
+        abs_score = salience(obviousness, word_familiarity)
+        floor = absolute_floor(abs_score, obviousness, word_familiarity)
+
+        # Пул, выверенный вручную (флаг A в файле темы), — сам по себе абсолютный
+        # сигнал: если правило категории прозрачно и слово не редкое, игрок соберёт
+        # эту связь. Ключевая правка по аудиту: раньше такую связь могло опустить
+        # относительное сравнение категорий слова между собой.
+        if (
+            obvious_category.get(key, False)
+            and word_familiarity is not None
+            and word_familiarity >= RARE_FAMILIARITY
+        ):
+            floor = "approved"
+
+        # Пол не применяется там, где частотность написания не отвечает за
+        # узнаваемость значения: у многозначного слова судит ручная разметка,
+        # у категории игры слов — само правило загадка, а не очевидность.
+        if m.get("sense_key") or word in multi_sense or m["relation_type"] in WORDPLAY_RELATIONS:
+            floor = None
+
         if word_familiarity is not None and word_familiarity < REJECT_FLOOR:
             decision = "rejected"
             source = f"частотность {word_familiarity:.3f}: слово почти не встречается в английском"
         elif m.get("review_status") == "rejected":
             decision, source = "rejected", "оставлено как есть"
+        elif word_familiarity is None:
+            # P0 аудита: нет данных о частотности — связь не может быть играбельной
+            decision = "candidate"
+            source = "частотность не посчитана: связь закрыта до ручной проверки"
+            stats["без частотности"] += 1
         else:
             s = scores[i]
             top = best.get(word)
             if s is None or not top:
-                # Запасной путь для слов вне SWOW: та же логика, что и раньше —
-                # очевидная категория плюс нередкое слово дают approved,
-                # всё прочее уходит в hard_only.
-                fam = familiarity(word)
-                rare = fam is not None and fam < RARE_FAMILIARITY
+                # Слова вне SWOW (многословные, имена собственные, редкие) решаются
+                # абсолютной оценкой. Раньше здесь всё, кроме A-категорий, падало
+                # в hard_only — отсюда и брались «все пустыни hard_only».
                 if m.get("review_status") in ("approved", "alternative", "hard_only"):
                     decision = m["review_status"]
-                elif obvious_category.get(key, False) and not rare:
-                    decision = "approved"
+                    source = "нет данных SWOW: сохранена ручная разметка"
                 else:
-                    decision = "hard_only"
-                source = "нет данных SWOW: решено по правилам категории и частотности"
+                    decision = floor or "hard_only"
+                    source = (
+                        f"нет данных SWOW: абсолютная заметность {abs_score:.2f} "
+                        f"(очевидность {obviousness:.2f}, знакомость {word_familiarity:.2f})"
+                    )
                 stats["без SWOW"] += 1
             else:
                 ratio = s / top if top > 0 else 0.0
@@ -210,30 +352,33 @@ def main() -> None:
                 source = f"SWOW: оценка {s:.3f}, доля от лучшей категории слова {ratio:.2f}"
                 stats["по SWOW"] += 1
 
-                # потолки: неочевидная категория и редкое слово не дают approved
-                if decision == "approved" and not obvious_category.get(key, False):
-                    decision, source = "alternative", source + "; категория неочевидная"
-                fam = familiarity(word)
-                if decision == "approved" and fam is not None and fam < RARE_FAMILIARITY:
-                    decision, source = "alternative", source + "; слово редкое"
-
-                # Пол: в прозрачной категории игрок доходит рассудком, даже если
-                # ассоциации слабые. Банк ассоциируется с деньгами, а не со школой,
-                # но что это здание в городе — сообразит любой.
+                # Потолок остался только для многозначных слов: там SWOW отвечает
+                # доминирующим значением, и относительная оценка вторичного значения
+                # завышена быть не может, а вот занижена — сплошь.
                 if (
-                    decision == "hard_only"
-                    and obvious_category.get(key, False)
-                    and not (fam is not None and fam < RARE_FAMILIARITY)
-                    and s >= MIN_SCORE_FLOOR
+                    decision == "approved"
+                    and not obvious_category.get(key, False)
+                    and floor != "approved"
                 ):
-                    decision = "alternative"
-                    source += "; прозрачная категория, игрок доходит рассудком"
+                    decision, source = "alternative", source + "; категория неочевидная"
+
+                # Абсолютный пол сильнее относительной оценки: категория может быть
+                # прозрачной сама по себе, даже если SWOW-ассоциаций почти нет.
+                if floor and TIER_ORDER[floor] > TIER_ORDER[decision]:
+                    decision = floor
+                    source += f"; абсолютная заметность {abs_score:.2f} поднимает до {floor}"
 
         override = manual.get((word, key))
         if override and override != decision:
             decision = override
             source = "ручная разметка значения (SWOW не различает это значение)"
             stats["ручных переопределений"] += 1
+
+        semantic = semantic_review.get((word, key)) or semantic_review.get(("*", key))
+        if semantic and semantic["semantic_status"] == "incorrect" and decision != "rejected":
+            decision = "rejected"
+            source = f"семантика: {semantic['note']}"
+            stats["отклонено по семантике"] += 1
 
         stats[decision] += 1
         rows.append(
@@ -245,6 +390,12 @@ def main() -> None:
                 "category_key": key,
                 "current_status": m.get("review_status", "candidate"),
                 "decision": decision,
+                "semantic_status": semantic["semantic_status"] if semantic else "unreviewed",
+                "gameplay_difficulty": gameplay_difficulty(
+                    abs_score, category_difficulty.get(key, 0.5)
+                )
+                if abs_score is not None
+                else "",
                 "review_comment": source,
             }
         )

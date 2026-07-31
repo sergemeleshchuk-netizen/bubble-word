@@ -9,7 +9,7 @@ french_cooking_terms | FRENCH COOKING | is_a | 0.45 | 0.6 | C | French words use
 saute, julienne, blanch, flambe, roux, puree, souffle, braise, mise en place, au gratin, consomme, bouquet garni, chiffonade, deglaze
 
 aviation_words | AVIATION WORDS | found_in | 0.4 | 0.68 | A | Words used by pilots and air crew | $W is used by pilots and air crew
-cockpit, altitude, runway, throttle, rudder, flaps, taxi, cruise, turbulence, autopilot, hangar, radar, tower, callsign, wingspan, landing gear, yaw, stall
+cockpit, altitude, runway, throttle, rudder, flaps, taxi, cruise, turbulence, autopilot, hangar, radar, tower, call sign, wingspan, landing gear, yaw, stall
 
 sailing_terms | SAILING TERMS | found_in | 0.45 | 0.6 | C | Terms used when sailing a boat | $W is a term used when sailing
 tack, jibe, luff, leeward, windward, halyard, boom, cleat, sheet, spinnaker, heel, capsize, mooring, draft

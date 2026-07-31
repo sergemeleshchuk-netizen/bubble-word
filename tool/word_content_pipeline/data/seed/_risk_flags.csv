@@ -1,0 +1,23 @@
+# Ручные пометки культурных, терминологических и правовых рисков.
+# Механические флаги (multiword, proper_noun, obscure, no_familiarity, trademark,
+# culturally_specific) build_seed.py считает сам — здесь только то, что требует
+# человеческого суждения.
+#
+# word          нормализованное слово или * для всей категории
+# category_key  ключ категории или * для всех категорий слова
+# flags         через пробел: sensitive, outdated_term, trademark,
+#               culturally_specific, possible_duplicate, highly_ambiguous
+# note          чем именно рискует
+#
+# Источник: word_database_audit, 31.07.2026.
+word,category_key,flags,note
+spongy moth,butterflies_and_moths,sensitive,"Заменяет gypsy moth: старое название содержит этнический оскорбительный термин, USDA и ESA официально переименовали вид. Флаг оставлен как памятка: если кто-то вернёт старое название, риск виден. Сам outdated_term снят — spongy moth и есть современная форма."
+Dreyers,frozen_treat_brands,possible_duplicate trademark,"Dreyer's и Edy's — один продукт под региональными именами. Нельзя ставить в один уровень."
+Edys,frozen_treat_brands,possible_duplicate trademark,"См. Dreyers. Edy's Pie — современное название продукта, ранее Eskimo Pie."
+squaw,*,sensitive,"Термин признан оскорбительным; в базе быть не должен, строка оставлена как памятка для блок-листа."
+*,world_hats,culturally_specific,"Традиционная одежда конкретных культур: проверять, что подпись и написание не искажают название."
+*,world_hats_and_dress,culturally_specific,"См. world_hats."
+*,traditional_clothing,culturally_specific,"Национальная одежда: избегать смешения разных культур в одной четвёрке без контекста."
+*,religious_symbols,sensitive culturally_specific,"Религиозная символика: не смешивать в один уровень со шуточными категориями."
+*,places_of_worship,culturally_specific,"См. religious_symbols."
+*,latin_phrases,culturally_specific,"Латинские выражения предполагают образовательный фон; для casual-аудитории только знакомые."

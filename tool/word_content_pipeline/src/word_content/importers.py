@@ -23,7 +23,14 @@ from .repositories import (
     upsert_sense,
     upsert_word,
 )
-from .validators import ContentFilter, ValidationIssue, require_category, resolve_sense_key
+from .validators import (
+    ContentFilter,
+    ValidationIssue,
+    familiarity_gate,
+    require_category,
+    resolve_sense_key,
+    word_familiarity,
+)
 
 REVIEW_CSV_COLUMNS = [
     "membership_id",
@@ -151,14 +158,24 @@ def apply_membership(
     filters = content_filter or ContentFilter()
     filters.check(item.word)
 
+    familiarity_score = filters.score(item.word)
     word_id = upsert_word(
         conn,
         text=item.word,
         language=item.language,
         part_of_speech=item.part_of_speech,
         is_proper_noun=item.is_proper_noun,
-        familiarity_score=filters.score(item.word),
+        familiarity_score=familiarity_score,
     )
+
+    # Гейт частотности: слово без familiarity_score не может прийти в базу
+    # играбельным, даже если в файле стоит approved (P0 аудита).
+    review_status, downgrade = familiarity_gate(
+        item.review_status, word_familiarity(conn, word_id)
+    )
+    risk_flags = list(item.risk_flags)
+    if downgrade and "no_familiarity" not in risk_flags:
+        risk_flags.append("no_familiarity")
 
     sense_id: int | None = None
     if item.sense_key and item.sense_definition:
@@ -181,8 +198,11 @@ def apply_membership(
         fit_score=item.fit_score,
         obviousness_score=item.obviousness_score,
         source=item.source,
-        review_status=item.review_status,
-        risk_flags=item.risk_flags,
+        review_status=review_status,
+        semantic_status=item.semantic_status,
+        gameplay_difficulty=item.gameplay_difficulty,
+        risk_flags=risk_flags,
+        review_comment=downgrade,
         overwrite_review_status=overwrite_review_status,
     )
 
@@ -324,6 +344,8 @@ def import_review_csv(conn: sqlite3.Connection, path: Path) -> ImportReport:
                         "membership_id": row.get("membership_id"),
                         "decision": decision,
                         "review_comment": row.get("review_comment"),
+                        "semantic_status": row.get("semantic_status"),
+                        "gameplay_difficulty": row.get("gameplay_difficulty"),
                     }
                 )
             except ValidationError as exc:
@@ -332,7 +354,12 @@ def import_review_csv(conn: sqlite3.Connection, path: Path) -> ImportReport:
 
             membership_id = _resolve_membership_id(conn, item.membership_id, row)
             if membership_id is not None and set_review_status(
-                conn, membership_id, item.decision, item.review_comment
+                conn,
+                membership_id,
+                item.decision,
+                item.review_comment,
+                semantic_status=item.semantic_status,
+                gameplay_difficulty=item.gameplay_difficulty,
             ):
                 report.updated += 1
             else:

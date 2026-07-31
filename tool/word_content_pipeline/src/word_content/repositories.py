@@ -7,7 +7,16 @@ import sqlite3
 from typing import Any, Literal
 
 from .db import utc_now
-from .models import REVIEW_STATUSES, CategoryInput, MembershipCandidateInput
+from .models import (
+    CATEGORY_READINESS,
+    REVIEW_STATUSES,
+    SEMANTIC_STATUSES,
+    CategoryConflictInput,
+    CategoryInput,
+    MembershipCandidateInput,
+    QuartetInput,
+    familiarity_gate,
+)
 from .normalization import normalize_word
 
 UpsertResult = Literal["inserted", "updated"]
@@ -224,7 +233,10 @@ def upsert_membership(
     obviousness_score: float,
     source: str,
     review_status: str = "candidate",
+    semantic_status: str = "unreviewed",
+    gameplay_difficulty: float | None = None,
     risk_flags: list[str] | None = None,
+    review_comment: str | None = None,
     overwrite_review_status: bool = False,
 ) -> UpsertResult:
     """Создаёт связь или обновляет существующую.
@@ -248,8 +260,9 @@ def upsert_membership(
             """
             INSERT INTO memberships
                 (word_id, sense_id, category_id, relation_type, reason, fit_score,
-                 obviousness_score, source, review_status, risk_flags, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 obviousness_score, source, review_status, semantic_status,
+                 gameplay_difficulty, review_comment, risk_flags, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 word_id,
@@ -261,6 +274,9 @@ def upsert_membership(
                 obviousness_score,
                 source,
                 review_status,
+                semantic_status,
+                gameplay_difficulty,
+                review_comment,
                 flags_json,
                 now,
                 now,
@@ -280,7 +296,10 @@ def upsert_membership(
         """
         UPDATE memberships
            SET reason = ?, fit_score = ?, obviousness_score = ?, source = ?,
-               review_status = ?, risk_flags = COALESCE(?, risk_flags), updated_at = ?
+               review_status = ?, semantic_status = ?,
+               gameplay_difficulty = COALESCE(?, gameplay_difficulty),
+               review_comment = COALESCE(?, review_comment),
+               risk_flags = COALESCE(?, risk_flags), updated_at = ?
          WHERE id = ?
         """,
         (
@@ -289,6 +308,9 @@ def upsert_membership(
             obviousness_score,
             source,
             next_status,
+            semantic_status,
+            gameplay_difficulty,
+            review_comment,
             flags_json,
             now,
             row["id"],
@@ -335,16 +357,54 @@ def find_membership(
 
 
 def set_review_status(
-    conn: sqlite3.Connection, membership_id: int, decision: str, comment: str | None
+    conn: sqlite3.Connection,
+    membership_id: int,
+    decision: str,
+    comment: str | None,
+    *,
+    semantic_status: str | None = None,
+    gameplay_difficulty: float | None = None,
 ) -> bool:
-    """Возвращает False, если связи с таким id нет."""
+    """Применяет решение reviewer. Возвращает False, если связи с таким id нет.
+
+    Решение из CSV тоже проходит гейт частотности: без familiarity_score связь
+    не может стать играбельной, даже если в файле стоит approved.
+    """
     if decision not in REVIEW_STATUSES:
         raise RepositoryError(
             f"Недопустимое решение {decision!r}. Разрешены: {', '.join(REVIEW_STATUSES)}"
         )
+    if semantic_status is not None and semantic_status not in SEMANTIC_STATUSES:
+        raise RepositoryError(
+            f"Недопустимый semantic_status {semantic_status!r}. "
+            f"Разрешены: {', '.join(SEMANTIC_STATUSES)}"
+        )
+
+    row = conn.execute(
+        """
+        SELECT w.familiarity_score AS fam
+          FROM memberships m JOIN words w ON w.id = m.word_id
+         WHERE m.id = ?
+        """,
+        (membership_id,),
+    ).fetchone()
+    if row is None:
+        return False
+
+    decision, downgrade = familiarity_gate(decision, row["fam"])
+    if downgrade:
+        comment = f"{comment}; {downgrade}" if comment else downgrade
+
     cur = conn.execute(
-        "UPDATE memberships SET review_status = ?, review_comment = ?, updated_at = ? WHERE id = ?",
-        (decision, comment, utc_now(), membership_id),
+        """
+        UPDATE memberships
+           SET review_status = ?, review_comment = ?,
+               semantic_status = COALESCE(?, semantic_status),
+               gameplay_difficulty = COALESCE(?, gameplay_difficulty),
+               updated_at = ?
+         WHERE id = ?
+        """,
+        (decision, comment, semantic_status, gameplay_difficulty, utc_now(), membership_id),
     )
     return cur.rowcount > 0
 
@@ -438,6 +498,248 @@ def words_with_status(
         sql += " LIMIT ?"
         params.append(limit)
     return [row["text"] for row in conn.execute(sql, params)]
+
+
+# -------------------------------------------------------------- конфликты и четвёрки
+
+
+def set_category_readiness(
+    conn: sqlite3.Connection, category_id: int, readiness: str, reason: str | None
+) -> None:
+    """Пишет readiness и синхронизирует status: blocked-категория отключается."""
+    if readiness not in CATEGORY_READINESS:
+        raise RepositoryError(
+            f"Недопустимый readiness {readiness!r}. Разрешены: {', '.join(CATEGORY_READINESS)}"
+        )
+    status = "disabled" if readiness == "blocked" else "active"
+    conn.execute(
+        """
+        UPDATE categories
+           SET readiness = ?, readiness_reason = ?, status = ?, updated_at = ?
+         WHERE id = ?
+        """,
+        (readiness, reason, status, utc_now(), category_id),
+    )
+
+
+def clear_category_conflicts(conn: sqlite3.Connection, origin: str | None = None) -> int:
+    sql = "DELETE FROM category_conflicts"
+    params: list[Any] = []
+    if origin:
+        sql += " WHERE origin = ?"
+        params.append(origin)
+    return int(conn.execute(sql, params).rowcount)
+
+
+def upsert_category_conflict(
+    conn: sqlite3.Connection, item: CategoryConflictInput
+) -> UpsertResult:
+    """Пара хранится один раз: id нормализуются так, что a_id < b_id."""
+    ids = []
+    for key in (item.category_a, item.category_b):
+        row = get_category(conn, key)
+        if row is None:
+            raise RepositoryError(f"Категория {key!r} не найдена")
+        ids.append(int(row["id"]))
+    a_id, b_id = sorted(ids)
+
+    row = conn.execute(
+        """
+        SELECT id FROM category_conflicts
+         WHERE category_a_id = ? AND category_b_id = ? AND conflict_type = ?
+        """,
+        (a_id, b_id, item.conflict_type),
+    ).fetchone()
+    if row is None:
+        conn.execute(
+            """
+            INSERT INTO category_conflicts
+                (category_a_id, category_b_id, conflict_type, origin,
+                 overlap_count, overlap_words, severity, note, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                a_id,
+                b_id,
+                item.conflict_type,
+                item.origin,
+                item.overlap_count,
+                item.overlap_words,
+                item.severity,
+                item.note,
+                utc_now(),
+            ),
+        )
+        return "inserted"
+
+    conn.execute(
+        """
+        UPDATE category_conflicts
+           SET origin = ?, overlap_count = ?, overlap_words = ?, severity = ?, note = ?
+         WHERE id = ?
+        """,
+        (item.origin, item.overlap_count, item.overlap_words, item.severity, item.note, row["id"]),
+    )
+    return "updated"
+
+
+def conflicting_categories(conn: sqlite3.Connection, category_key: str) -> set[str]:
+    """Все категории, которые нельзя ставить в один уровень с данной."""
+    rows = conn.execute(
+        """
+        SELECT ca.category_key AS a, cb.category_key AS b
+          FROM category_conflicts x
+          JOIN categories ca ON ca.id = x.category_a_id
+          JOIN categories cb ON cb.id = x.category_b_id
+         WHERE ca.category_key = ? OR cb.category_key = ?
+        """,
+        (category_key, category_key),
+    )
+    result: set[str] = set()
+    for row in rows:
+        result.add(row["b"] if row["a"] == category_key else row["a"])
+    return result
+
+
+def replace_pair_groups(
+    conn: sqlite3.Connection, category_key: str, groups: list[list[str]]
+) -> tuple[int, list[str]]:
+    """Перезаписывает структуру парной категории. Возвращает (сколько пар, что не нашлось)."""
+    category = get_category(conn, category_key)
+    if category is None:
+        raise RepositoryError(f"Категория {category_key!r} не найдена")
+    category_id = int(category["id"])
+    conn.execute("DELETE FROM category_pair_groups WHERE category_id = ?", (category_id,))
+
+    now = utc_now()
+    missing: list[str] = []
+    written = 0
+    for index, group in enumerate(groups, start=1):
+        resolved = []
+        for word in group:
+            row = get_word(conn, word)
+            if row is None:
+                missing.append(f"{word} ({category_key})")
+                resolved = []
+                break
+            resolved.append(int(row["id"]))
+        if not resolved:
+            continue
+        group_key = f"{category_key}__pair{index}"
+        for slot, word_id in enumerate(resolved, start=1):
+            conn.execute(
+                """
+                INSERT INTO category_pair_groups
+                    (category_id, group_key, word_id, slot, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (category_id, group_key, word_id, slot, now),
+            )
+        written += 1
+    return written, missing
+
+
+def clear_quartets(conn: sqlite3.Connection) -> int:
+    """quartet_words удаляются каскадом."""
+    return int(conn.execute("DELETE FROM quartets").rowcount)
+
+
+def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult:
+    """Создаёт четвёрку. Слова должны уже быть в базе — четвёрка не создаёт контент."""
+    category = get_category(conn, item.category_key)
+    if category is None:
+        raise RepositoryError(f"Категория {item.category_key!r} не найдена")
+
+    resolved: list[tuple[int, int | None]] = []
+    for word, sense_key in item.word_items:
+        word_row = get_word(conn, word)
+        if word_row is None:
+            raise RepositoryError(f"Слово {word!r} не найдено в базе")
+        sense_id: int | None = None
+        if sense_key:
+            sense_row = conn.execute(
+                "SELECT id FROM word_senses WHERE word_id = ? AND sense_key = ?",
+                (int(word_row["id"]), sense_key),
+            ).fetchone()
+            if sense_row is None:
+                raise RepositoryError(f"У слова {word!r} нет значения {sense_key!r}")
+            sense_id = int(sense_row["id"])
+        resolved.append((int(word_row["id"]), sense_id))
+
+    now = utc_now()
+    existing = conn.execute(
+        "SELECT id FROM quartets WHERE quartet_key = ?", (item.quartet_key,)
+    ).fetchone()
+    if existing is None:
+        cur = conn.execute(
+            """
+            INSERT INTO quartets
+                (category_id, quartet_key, tier, review_state, solver_state,
+                 difficulty, note, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                int(category["id"]),
+                item.quartet_key,
+                item.tier,
+                item.review_state,
+                item.solver_state,
+                item.difficulty,
+                item.note,
+                now,
+                now,
+            ),
+        )
+        quartet_id = int(cur.lastrowid)
+        result: UpsertResult = "inserted"
+    else:
+        quartet_id = int(existing["id"])
+        conn.execute(
+            """
+            UPDATE quartets
+               SET category_id = ?, tier = ?, review_state = ?, solver_state = ?,
+                   difficulty = ?, note = ?, updated_at = ?
+             WHERE id = ?
+            """,
+            (
+                int(category["id"]),
+                item.tier,
+                item.review_state,
+                item.solver_state,
+                item.difficulty,
+                item.note,
+                now,
+                quartet_id,
+            ),
+        )
+        conn.execute("DELETE FROM quartet_words WHERE quartet_id = ?", (quartet_id,))
+        result = "updated"
+
+    for slot, (word_id, sense_id) in enumerate(resolved, start=1):
+        conn.execute(
+            """
+            INSERT INTO quartet_words (quartet_id, word_id, sense_id, slot, created_at)
+            VALUES (?, ?, ?, ?, ?)
+            """,
+            (quartet_id, word_id, sense_id, slot, now),
+        )
+    return result
+
+
+def set_schema_meta(conn: sqlite3.Connection, values: dict[str, str]) -> None:
+    now = utc_now()
+    for key, value in values.items():
+        conn.execute(
+            """
+            INSERT INTO schema_meta (key, value, updated_at) VALUES (?, ?, ?)
+            ON CONFLICT (key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at
+            """,
+            (key, str(value), now),
+        )
+
+
+def get_schema_meta(conn: sqlite3.Connection) -> dict[str, str]:
+    return {row["key"]: row["value"] for row in conn.execute("SELECT key, value FROM schema_meta")}
 
 
 # ------------------------------------------------------------------------------- runs

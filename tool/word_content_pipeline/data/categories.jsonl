@@ -26,7 +26,7 @@
 {"category_key": "farm_animals", "label": "FARM ANIMALS", "rule": "Animals commonly kept on an ordinary farm", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.1}
 {"category_key": "birds", "label": "BIRDS", "rule": "Bird species an average American can name", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.12}
 {"category_key": "ocean_animals", "label": "OCEAN ANIMALS", "rule": "Animals that live in the ocean", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.15}
-{"category_key": "insects", "label": "INSECTS", "rule": "Insects and other small bugs an average person recognizes", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.15}
+{"category_key": "insects", "label": "BUGS", "rule": "Insects and other small bugs an average person recognizes", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.15}
 {"category_key": "pets", "label": "PETS", "rule": "Animals commonly kept as household pets in the United States", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.12}
 {"category_key": "flying_animals", "label": "FLYING ANIMALS", "rule": "Animals that can fly under their own power", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.2}
 {"category_key": "animal_babies", "label": "BABY ANIMALS", "rule": "English words for the young of an animal species", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.25}
@@ -34,7 +34,7 @@
 {"category_key": "nocturnal_animals", "label": "NOCTURNAL ANIMALS", "rule": "Animals that are active at night and rest during the day", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.35}
 {"category_key": "jungle_animals", "label": "JUNGLE ANIMALS", "rule": "Animals that live in tropical jungles and rainforests", "relation_type": "found_in", "theme": "animals", "base_difficulty": 0.2}
 {"category_key": "african_animals", "label": "AFRICAN ANIMALS", "rule": "Wild animals associated with the African savanna", "relation_type": "found_in", "theme": "animals", "base_difficulty": 0.2}
-{"category_key": "arctic_animals", "label": "ARCTIC ANIMALS", "rule": "Animals that live in the cold polar regions", "relation_type": "found_in", "theme": "animals", "base_difficulty": 0.25}
+{"category_key": "arctic_animals", "label": "ARCTIC ANIMALS", "rule": "Animals that live in the Arctic north", "relation_type": "found_in", "theme": "animals", "base_difficulty": 0.25}
 {"category_key": "reptiles", "label": "REPTILES", "rule": "Cold-blooded scaly animals classed as reptiles", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.25}
 {"category_key": "amphibians_and_bugs", "label": "AMPHIBIANS", "rule": "Animals that live both in water and on land as amphibians", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.35}
 {"category_key": "rodents", "label": "RODENTS", "rule": "Small gnawing mammals classed as rodents", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.3}
@@ -49,20 +49,20 @@
 {"category_key": "spotted_and_striped", "label": "STRIPED ANIMALS", "rule": "Animals whose coat has clear stripes", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.4}
 {"category_key": "pond_animals", "label": "POND ANIMALS", "rule": "Animals that live in or around a freshwater pond", "relation_type": "found_in", "theme": "animals", "base_difficulty": 0.3}
 {"category_key": "farm_bird_words", "label": "POULTRY", "rule": "Birds raised for meat or eggs on a farm", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.35}
-{"category_key": "extinct_animals", "label": "EXTINCT ANIMALS", "rule": "Animal species that no longer exist", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.3}
+{"category_key": "extinct_animals", "label": "EXTINCT ANIMALS", "rule": "Extinct animals and animal groups people recognize by name", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.3}
 {"category_key": "pests", "label": "PESTS", "rule": "Animals treated as household or garden pests", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.35}
 {"category_key": "animals_with_shells", "label": "ANIMALS WITH SHELLS", "rule": "Animals whose body is protected by a hard shell", "relation_type": "has_property", "theme": "animals", "base_difficulty": 0.35}
 {"category_key": "animal_verbs", "label": "ANIMAL MOVEMENTS", "rule": "Verbs for the way particular animals move", "relation_type": "does_action", "theme": "animals", "base_difficulty": 0.4}
 {"category_key": "marsupials", "label": "MARSUPIALS", "rule": "Animals that carry young in a pouch", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "antelope_and_grazers", "label": "GRAZING ANIMALS", "rule": "Animals that graze on grass in herds", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
-{"category_key": "seals_and_walruses", "label": "SEAL FAMILY", "rule": "Kinds of seal and sea lion", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.45}
+{"category_key": "seals_and_walruses", "label": "SEAL FAMILY", "rule": "Kinds of seal, sea lion and walrus", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.45}
 {"category_key": "jellyfish_and_soft", "label": "SOFT CREATURES", "rule": "Soft bodied sea creatures without bones", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.45}
-{"category_key": "worms_and_crawlers", "label": "WORMS", "rule": "Kinds of worm", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
+{"category_key": "worms_and_crawlers", "label": "WORMS", "rule": "Long soft bodied crawlers commonly called worms in English", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "parrots_and_exotic_birds", "label": "EXOTIC BIRDS", "rule": "Colorful birds kept as pets or seen in zoos", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "waterfowl", "label": "WATERFOWL", "rule": "Birds that swim on lakes and ponds", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.35}
 {"category_key": "wading_birds", "label": "WADING BIRDS", "rule": "Birds with long legs that wade in shallow water", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "turtles_and_tortoises", "label": "TURTLES", "rule": "Kinds of turtle and tortoise", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
-{"category_key": "crustaceans", "label": "CRUSTACEANS", "rule": "Sea creatures with a hard shell and many legs", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
+{"category_key": "crustaceans", "label": "CRUSTACEANS", "rule": "Animals classed as crustaceans: a hard shell and many jointed legs", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "wild_cats_small", "label": "SMALL CATS", "rule": "Smaller members of the wild cat family", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.45}
 {"category_key": "pack_animals", "label": "WORK ANIMALS", "rule": "Animals used to carry loads or do work", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
 {"category_key": "animal_names_male_female", "label": "ANIMAL GENDERS", "rule": "Words for the male or female of an animal species", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.4}
@@ -116,13 +116,14 @@
 {"category_key": "tool_brands", "label": "TOOL BRANDS", "rule": "Brands of hand and power tools", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
 {"category_key": "toy_brands", "label": "TOY BRANDS", "rule": "Well known toy brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
 {"category_key": "car_models", "label": "CAR MODELS", "rule": "Well known car model names", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
-{"category_key": "candy_bar_flavors", "label": "DAIRY BRANDS", "rule": "Ice cream brands sold in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
+{"category_key": "frozen_treat_brands", "label": "FROZEN TREATS", "rule": "Brands and products sold in the American ice cream aisle", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
 {"category_key": "sports_brands", "label": "SPORTS BRANDS", "rule": "Brands of sports equipment", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
 {"category_key": "camera_and_electronics", "label": "ELECTRONICS BRANDS", "rule": "Brands of consumer electronics", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
 {"category_key": "snack_brands", "label": "SNACK BRANDS", "rule": "Brands of packaged snacks", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.35}
 {"category_key": "coffee_brands", "label": "COFFEE BRANDS", "rule": "Coffee brands and coffee shops", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
 {"category_key": "watch_and_luxury", "label": "LUXURY BRANDS", "rule": "Well known luxury brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
-{"category_key": "bank_brands", "label": "BANK BRANDS", "rule": "Major American banks and card brands", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
+{"category_key": "bank_brands", "label": "BANK BRANDS", "rule": "Major American retail banks", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
+{"category_key": "payment_brands", "label": "PAYMENT BRANDS", "rule": "Card networks and payment apps used in America", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.4}
 {"category_key": "paint_and_home", "label": "HARDWARE BRANDS", "rule": "Brands sold at a hardware store", "relation_type": "is_a", "theme": "brands", "base_difficulty": 0.45}
 {"category_key": "tech_companies", "label": "TECH COMPANIES", "rule": "Well-known technology companies or consumer technology brands", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
 {"category_key": "money_words", "label": "MONEY WORDS", "rule": "Everyday English words for money, payments and personal finance", "relation_type": "is_a", "theme": "business", "base_difficulty": 0.25}
@@ -235,7 +236,7 @@
 {"category_key": "percussion", "label": "PERCUSSION INSTRUMENTS", "rule": "Musical instruments played by striking or shaking", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.3}
 {"category_key": "music_words", "label": "MUSIC WORDS", "rule": "Words used to describe how a piece of music is written or performed", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.3}
 {"category_key": "music_genres", "label": "MUSIC GENRES", "rule": "Styles used to classify music", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
-{"category_key": "board_games", "label": "BOARD GAMES", "rule": "Games played on a board with pieces or cards on a table", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
+{"category_key": "board_games", "label": "BOARD GAMES", "rule": "Games played on a printed board with pieces", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
 {"category_key": "card_words", "label": "CARD WORDS", "rule": "Words for the cards, suits and parts of a standard deck of playing cards", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.3}
 {"category_key": "card_games", "label": "CARD GAMES", "rule": "Games played with a deck of cards", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.3}
 {"category_key": "movie_genres", "label": "MOVIE GENRES", "rule": "Categories used to classify films", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.25}
@@ -366,7 +367,7 @@
 {"category_key": "things_on_a_farm", "label": "FARM THINGS", "rule": "Things found on a working farm", "relation_type": "found_in", "theme": "geography", "base_difficulty": 0.2}
 {"category_key": "national_parks", "label": "PARK WORDS", "rule": "Things found in a national park or campground", "relation_type": "found_in", "theme": "geography", "base_difficulty": 0.3}
 {"category_key": "islands", "label": "ISLANDS", "rule": "Well known islands around the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.35}
-{"category_key": "deserts_and_wild_places", "label": "DESERTS", "rule": "Major deserts of the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.4}
+{"category_key": "deserts_and_wild_places", "label": "DESERTS", "rule": "Major deserts of the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.35}
 {"category_key": "hot_places", "label": "HOT PLACES", "rule": "Places that are typically hot", "relation_type": "has_property", "theme": "geography", "base_difficulty": 0.35}
 {"category_key": "cold_places", "label": "COLD PLACES", "rule": "Places that are typically cold", "relation_type": "has_property", "theme": "geography", "base_difficulty": 0.3}
 {"category_key": "places_you_wait", "label": "WAITING PLACES", "rule": "Places where people commonly stand in line", "relation_type": "found_in", "theme": "geography", "base_difficulty": 0.35}

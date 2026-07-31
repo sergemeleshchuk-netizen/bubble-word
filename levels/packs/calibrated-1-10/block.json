@@ -1,0 +1,168 @@
+{
+  "pack_hash": "3fffb1cb00d8594e953e91286e3f91b3cf66b907617ec27cf3e27920c43bb02e",
+  "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+  "generator_version": "gen-1.0",
+  "config": {
+    "levelRange": [
+      1,
+      10
+    ],
+    "categoryCorridor": [
+      5,
+      12
+    ],
+    "spikePositions": [
+      5
+    ],
+    "recoveryPositions": [
+      6
+    ],
+    "rarityRange": [
+      0,
+      2
+    ],
+    "maxMetaDepth": 2,
+    "allowedModifiers": [],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 5,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "final-03",
+    "categoryPlan": [
+      5,
+      8,
+      7,
+      9,
+      12,
+      7,
+      10,
+      9,
+      10,
+      8
+    ],
+    "metaPlan": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      2,
+      0
+    ],
+    "decadeGates": {
+      "maxTokens": 1,
+      "maxWordLen": 12,
+      "minProperNounZipf": 3.2,
+      "zipfMedianTarget": 4.35,
+      "zipfP25Target": 3.8,
+      "visibleShareMin": 0.5,
+      "repeatRange": [
+        0,
+        4
+      ],
+      "tutorialFirstLevel": true
+    }
+  },
+  "rhythm": {
+    "passed": true,
+    "issues": []
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "role": "tutorial",
+      "difficulty": 1.5,
+      "interest": 6,
+      "level_spec_hash": "473fa4169114a5f2ee13cdcb884a85493c4e88c23efd6e4e64ff414efc1ff9b3",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 2,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 7,
+      "level_spec_hash": "03098dbc51a32305d5709705eeaeecb963472c319b11cbfc4dcc1e0539a96001",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 3,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6,
+      "level_spec_hash": "7d4a95613871038e462c7286ce53067062bcc5765629803d263942fb7a15563f",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 4,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 6,
+      "level_spec_hash": "0d140b1f0fb707c6380da8546c03abdf8fa385d2f9c09d2e117ddc6b4aa591c8",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 5,
+      "role": "peak",
+      "difficulty": 5,
+      "interest": 6.5,
+      "level_spec_hash": "098a88f524babd438e51b1f83a99fa9d76ea77cb1bd0fb8d3aa9460990dfff5f",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 6,
+      "role": "recovery",
+      "difficulty": 2.5,
+      "interest": 5.5,
+      "level_spec_hash": "c4115b18bf038efc5554392489a97ef5913f538aa31dfe7d13140540eec1f1aa",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 7,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 7,
+      "level_spec_hash": "a0226b1ab72f93da4d637d324050ddf6f28f0496fc9f12f67dc2802a476ca00d",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 8,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 6.5,
+      "level_spec_hash": "115a930001cd45d099603b5f01c68ddf1c993b36d8e2bbdbf2e2ed12fbdb3642",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 9,
+      "role": "growth",
+      "difficulty": 5,
+      "interest": 6.5,
+      "level_spec_hash": "b7f367d777ca1568d5bd242116ed0a0c62b0828d46d8c6825847f78321ae5b05",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 10,
+      "role": "exit",
+      "difficulty": 3,
+      "interest": 6.5,
+      "level_spec_hash": "db1a7d4e64aa07abdc438c7bc367dac5a1aead1fcdc654c4f7f4ff7db994eae9",
+      "validation_passed": true,
+      "solution_count": 1
+    }
+  ],
+  "failures": []
+}

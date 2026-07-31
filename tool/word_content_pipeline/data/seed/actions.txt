@@ -9,7 +9,7 @@ ways_of_moving | WAYS OF MOVING | does_action | 0.25 | 0.85 | A | Verbs describi
 walk, run, jump, crawl, skip, swim, climb, slide, march, hop, sprint, stroll, dash, wander, tiptoe, limp, stagger, jog, leap, wade, scramble, shuffle, dart, race, trudge
 
 ways_of_looking | WAYS OF LOOKING | does_action | 0.35 | 0.72 | A | Verbs describing a way of looking at something | To $w is a way of looking at something
-stare, glance, peek, gaze, glare, watch, squint, observe, peer, scan, spy, ogle, inspect, survey, blink
+stare, glance, peek, gaze, glare, watch, squint, observe, peer, scan, spy, ogle, inspect, survey
 
 ways_of_speaking | WAYS OF SPEAKING | does_action | 0.3 | 0.78 | A | Verbs describing a way of saying something aloud | To $w is a way of saying something aloud
 whisper, shout, mumble, yell, murmur, chant, scream, sing, mutter, announce, recite, stammer, holler, gossip, chatter, declare, growl, hiss
@@ -33,7 +33,7 @@ water_actions | WATER ACTIONS | does_action | 0.35 | 0.72 | A | Actions done in 
 swim, dive, splash, float, sink, pour, spill, drip, soak, wade, paddle, sprinkle, flood, rinse, drain, spray, dunk, wash
 
 sleeping_actions | SLEEP ACTIONS | does_action | 0.35 | 0.75 | A | Things a person does while sleeping or falling asleep | $W is done while sleeping or falling asleep
-snore, dream, doze, nap, yawn, rest, drift off, toss, turn, sleepwalk, slumber, stretch, wake
+snore, dream, doze, nap, yawn, rest, drift off, toss, turn, sleepwalk, slumber, stretch
 
 eating_actions | EATING ACTIONS | does_action | 0.3 | 0.8 | A | Actions done while eating or drinking | To $w is done while eating or drinking
 chew, bite, swallow, sip, gulp, nibble, munch, slurp, taste, lick, devour, gnaw, drink, feast, snack

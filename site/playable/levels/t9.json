@@ -1,7 +1,7 @@
 {
   "level_id": 9,
   "difficulty_target": null,
-  "source": "game-pack-1-10.json (generator gen-1.0)",
+  "source": "game-pack-1-10.json",
   "categories": [
     {
       "id": "diseases",

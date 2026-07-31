@@ -6,11 +6,11 @@
  * они и есть определение «уровень не сломан».
  */
 import type {
-  LevelSpec, ValidationIssue, ValidationResult, Severity, SolutionCount,
+  DecadeGates, LevelSpec, ValidationIssue, ValidationResult, Severity, SolutionCount,
 } from './types.ts';
-import { STATUS } from './types.ts';
+import { STATUS, ZIPF_LEVEL_TOLERANCE } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
-import { moveFloor, moveLimit, startBubbles } from './levelMath.ts';
+import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
 export interface ValidationContext {
   index: ContentIndex;
@@ -28,6 +28,24 @@ export interface ValidationContext {
   maxMetaDepth?: number;
   /** хеш-функция для novelty (передаётся, чтобы модуль не зависел от порядка импортов) */
   hashQuadruple?: (words: string[]) => string;
+  /**
+   * Гейты декады. Если не заданы, соответствующие проверки считаются пройденными:
+   * так блок 201-210 остаётся ровно таким, каким сдавался, а калиброванные по
+   * декадам блоки получают дополнительные ограничения (docs/DECADE_CALIBRATION.md).
+   */
+  decadeGates?: DecadeGates;
+  /** сколько слов уровня уже встречались раньше в ДРУГОЙ категории; целевой коридор */
+  repeatRange?: [number, number];
+  repeatCount?: number;
+  /** целевое число редких слов (zipf<3) на уровень */
+  rareRange?: [number, number];
+}
+
+/** Медиана и 25-й процентиль набора чисел. */
+function percentile(sorted: number[], p: number): number {
+  if (!sorted.length) return 0;
+  const i = Math.min(sorted.length - 1, Math.floor(sorted.length * p));
+  return sorted[i];
 }
 
 interface Check {
@@ -291,6 +309,18 @@ const CHECKS: Check[] = [
     run: (spec) => {
       const floor = moveFloor(spec.categories.length, spec.halves.length,
         spec.board.wordsPerCategory);
+      // туториал без лимита: K и лимит обязаны быть null ОБА, иначе это
+      // рассинхрон плана и уровня, а не осознанный режим
+      if (spec.board.moveLimitK === null || spec.board.moveLimit === null) {
+        const consistent = spec.board.moveLimitK === null && spec.board.moveLimit === null;
+        return {
+          passed: consistent,
+          detail: consistent
+            ? `лимита ходов нет (туториал), минимум мерджей ${floor}`
+            : `рассинхрон: moveLimit ${spec.board.moveLimit}, K ${spec.board.moveLimitK}`,
+          suggestion: 'режим «без лимита» задаётся одновременно в K и в лимите',
+        };
+      }
       const expected = moveLimit(floor, spec.board.moveLimitK);
       const ok = spec.board.moveLimit === expected && spec.board.moveLimit >= floor;
       return {
@@ -473,6 +503,129 @@ const CHECKS: Check[] = [
           : 'сильно пересекающихся пар категорий нет',
         entities: bad,
         suggestion: 'такие категории на один уровень не ставят: слова будут двоиться',
+      };
+    },
+  },
+  /**
+   * Дальше — гейты декады. Все они пропускают уровень, если `ctx.decadeGates`
+   * не задан: пресет блока 201-210 их не получает и остаётся байт-в-байт тем же.
+   */
+  {
+    code: 'WORD_FORM_GATE',
+    severity: 'hard',
+    run: (spec, ctx) => {
+      const gates = ctx.decadeGates;
+      if (!gates) return { passed: true, detail: 'гейты декады не заданы' };
+      const bad: string[] = [];
+      for (const category of spec.categories) {
+        for (const w of category.words) {
+          const tokens = w.text.trim().split(/\s+/).length;
+          if (tokens > gates.maxTokens) {
+            bad.push(`«${w.text}»: ${tokens} слова, предел ${gates.maxTokens}`);
+          }
+          if (w.text.replace(/\s/g, '').length > gates.maxWordLen) {
+            bad.push(`«${w.text}»: ${w.text.length} букв, предел ${gates.maxWordLen}`);
+          }
+          // имя собственное определяем по снимку, а не по регистру строки
+          const wi = ctx.index.wordIndex(w.text.toLowerCase());
+          const isProper = wi !== undefined && ctx.index.words[wi].p === 1;
+          if (isProper && (w.zipf === null || w.zipf < gates.minProperNounZipf)) {
+            bad.push(`«${w.text}»: имя собственное с zipf ${w.zipf ?? '?'}, `
+              + `порог ${gates.minProperNounZipf}`);
+          }
+        }
+      }
+      return {
+        passed: bad.length === 0,
+        detail: bad.length ? `слов вне формы декады: ${bad.length}`
+          : `форма слов в норме декады (до ${gates.maxTokens} токенов, `
+            + `${gates.maxWordLen} букв, имена собственные от zipf ${gates.minProperNounZipf})`,
+        entities: bad,
+        suggestion: 'ранние декады референса однословные и без редких имён собственных: '
+          + 'mars 4.27 и egypt 4.45 узнаваемы, steinbeck 2.67 — уже викторина',
+      };
+    },
+  },
+  {
+    code: 'ZIPF_DISTRIBUTION',
+    // soft, потому что цель декады — медиана всей десятки, а не каждого уровня:
+    // у самого референса медианы уровней внутри L1-10 гуляют на целый zipf.
+    // Строгую проверку среднего по блоку делает checkDecadeFit().
+    severity: 'soft',
+    run: (spec, ctx) => {
+      const gates = ctx.decadeGates;
+      if (!gates) return { passed: true, detail: 'гейты декады не заданы' };
+      const zs = spec.categories
+        .flatMap((c) => c.words)
+        .map((w) => w.zipf)
+        .filter((z): z is number => z !== null)
+        .sort((a, b) => a - b);
+      if (!zs.length) return { passed: false, detail: 'ни у одного слова нет частотности' };
+      const median = percentile(zs, 0.5);
+      const p25 = percentile(zs, 0.25);
+      const dMedian = Math.abs(median - gates.zipfMedianTarget);
+      const dP25 = Math.abs(p25 - gates.zipfP25Target);
+      const ok = dMedian <= ZIPF_LEVEL_TOLERANCE && dP25 <= ZIPF_LEVEL_TOLERANCE;
+      return {
+        passed: ok,
+        detail: `медиана zipf ${median.toFixed(2)} (цель декады ${gates.zipfMedianTarget}), `
+          + `p25 ${p25.toFixed(2)} (цель ${gates.zipfP25Target}), допуск на уровень `
+          + `±${ZIPF_LEVEL_TOLERANCE}`,
+        suggestion: 'узнаваемость — главная ось сложности первых 120 уровней референса: '
+          + 'медиана 4.35 на L1-10 против 3.70 на L121-130',
+      };
+    },
+  },
+  {
+    code: 'RARE_WORD_BUDGET',
+    severity: 'soft',
+    run: (spec, ctx) => {
+      if (!ctx.rareRange) return { passed: true, detail: 'коридор редкости не задан' };
+      const [lo, hi] = ctx.rareRange;
+      const rare = spec.categories.flatMap((c) => c.words)
+        .filter((w) => w.zipf === null || w.zipf < 3.0);
+      return {
+        passed: rare.length >= lo && rare.length <= hi,
+        detail: `редких слов (zipf<3) ${rare.length}, коридор декады ${lo}-${hi}`,
+        entities: rare.map((w) => w.text),
+        suggestion: 'в референсе экзотика есть с L4 (aglet, zipf 1.32), но ровно 1-2 '
+          + 'слова на уровень — это счётчик, а не пол по частотности',
+      };
+    },
+  },
+  {
+    code: 'VISIBLE_SHARE',
+    severity: 'hard',
+    run: (spec, ctx) => {
+      const gates = ctx.decadeGates;
+      if (!gates) return { passed: true, detail: 'гейты декады не заданы' };
+      const total = spec.categories.length * spec.board.wordsPerCategory;
+      const capacity = spec.board.boardCapacity || BOARD_CAPACITY;
+      const share = capacity / total;
+      return {
+        passed: share >= gates.visibleShareMin,
+        detail: `на поле видно ${(share * 100).toFixed(1)}% уровня `
+          + `(${capacity} из ${total}), минимум декады ${(gates.visibleShareMin * 100).toFixed(1)}%`,
+        suggestion: 'чем меньше видно, тем меньше пар в поле зрения: это скрытый '
+          + 'источник сложности. На L1 референса видно 100% — потому там и нет лимита ходов',
+      };
+    },
+  },
+  {
+    code: 'REPEAT_BUDGET',
+    severity: 'soft',
+    run: (spec, ctx) => {
+      const range = ctx.repeatRange ?? ctx.decadeGates?.repeatRange;
+      if (!range || ctx.repeatCount === undefined) {
+        return { passed: true, detail: 'коридор повторов не задан' };
+      }
+      const [lo, hi] = range;
+      return {
+        passed: ctx.repeatCount >= lo && ctx.repeatCount <= hi,
+        detail: `слов из прошлых уровней в другой категории: ${ctx.repeatCount}, `
+          + `коридор декады ${lo}-${hi}`,
+        suggestion: 'повтор слова в ДРУГОЙ категории — самая сильная растущая ось '
+          + 'референса (2.9 слова на уровень в L1-10 против 28 в L171-180)',
       };
     },
   },

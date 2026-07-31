@@ -7,13 +7,13 @@
 
 ## APPLE
 - **apple_company** — The American technology company Apple Inc.
-  - ~tech_companies
+  - +tech_companies
 - **apple_fruit** — The round edible fruit of an apple tree
-  - +fruits, +pie_ingredients, ~red_things, ~round_things, ~things_with_seeds, ~words_before_sauce
+  - !fairy_tale_things, +fruit_trees, +fruits, +pie_ingredients, +pie_types, +things_with_seeds, +words_before_sauce, ~red_things, ~round_things, ~trees
 
 ## APRON
 - **apron_garment** — A cloth worn over the front of clothes to keep them clean
-  - !things_you_tie, !welding_words, +baker_words, +cooking_hobby, ~art_class_things, ~barbershop_words, ~butcher_words, ~fabrics_at_home, ~instruments_you_strum, ~safety_gear, ~things_with_pockets, ~work_uniforms, ~workshop_things
+  - !things_you_tie, !welding_words, +art_class_things, +baker_words, +barbershop_words, +butcher_words, +cooking_hobby, +fabrics_at_home, +safety_gear, +work_uniforms, +workshop_things, ~instruments_you_strum, ~things_with_pockets
 - **apron_stage** — The part of a theater stage in front of the curtain
   - !theater_stage_terms
 
@@ -27,7 +27,7 @@
 - **atlas_book** — A book of maps
   - +map_words, ~book_genres, ~library_words
 - **atlas_mountains** — The mountain range across northwest Africa
-  - ~mountain_ranges
+  - !mountain_ranges
 
 ## BALCONY
 - **balcony_house** — A platform projecting from an outside wall
@@ -39,7 +39,7 @@
 - **ball_dance** — A large formal dance
   - ~words_before_room
 - **ball_sphere** — A round object used in games
-  - !words_after_fire, !words_after_hand, +gym_class_things, +toys, ~baseball_equipment, ~bowling_words, ~candy_shapes, ~juggling_words, ~knitting_words, ~magic_tricks, ~round_things, ~things_made_of_leather, ~things_made_of_rubber, ~words_after_foot, ~words_after_snow
+  - !candy_shapes, !words_after_fire, !words_after_hand, +gym_class_things, +toys, ~baseball_equipment, ~bowling_words, ~juggling_words, ~knitting_words, ~magic_tricks, ~round_things, ~things_made_of_leather, ~things_made_of_rubber, ~words_after_foot, ~words_after_snow
 
 ## BAND
 - **band_group** — A group of musicians playing together
@@ -49,9 +49,9 @@
 
 ## BANK
 - **bank_finance** — A business that keeps and lends money
-  - +money_words, ~town_places
+  - !places_you_wait, +money_words, +town_places
 - **bank_river** — The sloping land along the side of a river
-  - ~river_features
+  - +river_features
 
 ## BAR
 - **bar_berry** — The thorny shrub that gives barberries
@@ -59,15 +59,15 @@
 - **bar_block** — A solid oblong block of something
   - ~candy_shapes
 - **bar_music** — One measure of written music
-  - ~music_words
+  - !music_words
 - **bar_pub** — A place where drinks are served
   - ~restaurant_words
 
 ## BARK
 - **bark_sound** — The short loud sound a dog makes
-  - ~animal_sounds
+  - +animal_sounds
 - **bark_tree** — The tough outer covering of a tree trunk
-  - +tree_parts
+  - +things_in_the_forest, +tree_parts, ~pine_and_cones, ~plant_parts
 
 ## BASS
 - **bass_fish** — A freshwater fish popular with anglers
@@ -77,9 +77,9 @@
 
 ## BAT
 - **bat_animal** — A small flying mammal active at night
-  - ~flying_animals, ~nocturnal_animals
+  - +flying_animals, ~black_things, ~cave_things, ~halloween_things, ~nocturnal_animals
 - **bat_equipment** — A wooden or metal club used to hit a baseball
-  - +baseball_equipment
+  - +baseball_equipment, ~things_made_of_wood
 
 ## BEAM
 - **beam_gym** — The narrow raised bar used in gymnastics
@@ -95,7 +95,7 @@
 - **bench_court** — The seat and office of a judge
   - ~courtroom_things
 - **bench_seat** — A long seat for several people
-  - +furniture, ~gym_equipment, ~music_practice
+  - !gym_equipment, +furniture, ~music_practice
 
 ## BILL
 - **bill_law** — A proposed law put before a legislature
@@ -113,13 +113,13 @@
 
 ## BLOCK
 - **block_ban** — To stop someone from contacting you online
-  - ~social_media_words
+  - !social_media_words
 - **block_cube** — A solid piece of hard material
   - +city_words, ~butcher_words, ~masonry_words
 - **block_shield** — A cream that shields skin from the sun
   - !words_after_sun
 - **block_stop** — To stop an opponent from getting through
-  - !self_defense_moves, ~basketball_words, ~sports_actions
+  - !basketball_words, !self_defense_moves, !sports_actions
 
 ## BOARD
 - **board_committee** — The group of people who run an organization
@@ -139,7 +139,7 @@
 - **boot_clamp** — A clamp locked onto a wheel so a car cannot be driven
   - !parking_words
 - **boot_shoe** — A sturdy shoe that covers the foot and ankle
-  - !words_after_rain, +footwear, +shoe_styles, ~astronaut_gear, ~ranch_words, ~seasons_winter, ~things_made_of_leather, ~things_made_of_rubber, ~winter_clothing
+  - !words_after_rain, +astronaut_gear, +footwear, +ranch_words, +seasons_winter, +shoe_styles, +winter_clothing, ~things_made_of_leather, ~things_made_of_rubber
 
 ## BOW
 - **bow_arc** — A curved arch of colors seen in the sky after rain
@@ -163,7 +163,7 @@
 - **brand_cattle** — The mark burned into cattle to show the owner
   - ~ranch_words
 - **brand_company** — The name a company sells its goods under
-  - +advertising_words, ~business_words
+  - !business_words, +advertising_words
 
 ## BRIDGE
 - **bridge_card** — A card game played by two pairs of partners
@@ -237,7 +237,7 @@
 - **card_greeting** — A folded paper with a printed message
   - ~birthday_things, ~things_made_of_paper
 - **card_plastic** — A plastic card that identifies or pays
-  - !things_made_of_plastic, +things_in_a_wallet, ~library_words
+  - !library_words, !things_made_of_plastic, +things_in_a_wallet
 - **card_playing** — One of the printed cards used in games
   - !magic_tricks, ~board_game_pieces, ~collecting_hobbies
 
@@ -249,17 +249,17 @@
 
 ## CASE
 - **case_box** — A container made to hold and protect something
-  - +storage_containers, ~boxes_and_cases, ~butcher_words, ~computer_parts, ~music_practice, ~phone_words, ~words_after_book
+  - !butcher_words, !computer_parts, !music_practice, !phone_words, +storage_containers, ~boxes_and_cases, ~words_after_book
 - **case_legal** — A matter investigated by police or heard in court
   - ~detective_words
 
 ## CAST
 - **cast_medical** — A hard covering that holds a broken bone still
-  - ~medical_procedures, ~things_worn_on_hands
+  - +medical_procedures, ~things_worn_on_hands
 - **cast_mold** — A shape made by pouring material into a mold
   - ~detective_procedures
 - **cast_people** — All the actors appearing in a play or film
-  - +movie_words, +theater_words, ~groups_of_people
+  - +groups_of_people, +movie_words, +theater_words
 
 ## CELL
 - **cell_body** — The smallest living unit of a body
@@ -279,7 +279,7 @@
 - **check_chess** — A move that threatens the king
   - ~chess_words
 - **check_hockey** — A body block used to stop an opponent
-  - ~hockey_words
+  - !hockey_words
 - **check_payment** — A written order to a bank to pay money
   - +banking_words, +money_words, ~words_before_book
 - **check_rain** — A ticket for a later date when an event is called off
@@ -293,9 +293,9 @@
 
 ## CHEST
 - **chest_body** — The front of the upper body between neck and stomach
-  - ~body_parts
+  - +body_parts
 - **chest_box** — A large sturdy box with a hinged lid
-  - +boxes_and_cases, +storage_containers, ~bedroom_things, ~pirate_words
+  - +bedroom_things, +boxes_and_cases, +pirate_words, +storage_containers
 
 ## CHILI
 - **chili_dish** — A thick stew of beans, meat and chili
@@ -305,9 +305,11 @@
 
 ## CLUB
 - **club_card** — One of the four suits in a deck of playing cards
-  - ~card_words
+  - +card_words
+- **club_sandwich** — A tall sandwich made with three slices of bread
+  - +sandwich_types
 - **club_stick** — A heavy stick used as a weapon or for hitting a ball
-  - !gym_equipment
+  - !gym_equipment, +weapons_of_the_past, ~juggling_words
 
 ## COAT
 - **coat_fur** — The fur or hair covering an animal
@@ -323,7 +325,7 @@
 
 ## COOK
 - **cook_explorer** — Captain James Cook, the British explorer
-  - ~explorers
+  - !explorers
 - **cook_person** — A person whose job is preparing food
   - !nautical_ranks, +kitchen_jobs
 - **cook_prepare** — To prepare food with heat
@@ -335,17 +337,17 @@
 - **court_royal** — The household and attendants of a monarch
   - ~royalty
 - **court_sport** — The marked playing area for tennis or basketball
-  - +tennis_words, ~basketball_words, ~sports_venues
+  - !sports_venues, +tennis_words, ~basketball_words
 
 ## CRANE
 - **crane_bird** — A tall long-legged wading bird
-  - +birds
+  - +birds, +wading_birds
 - **crane_machine** — A tall machine that lifts heavy loads on a building site
-  - ~construction_equipment
+  - !harbor_things, +construction_equipment, ~high_places
 
 ## CREAM
 - **cream_color** — A pale yellowish white color
-  - ~color_words_advanced
+  - !color_words_advanced
 - **cream_dairy** — The thick fatty part of milk
   - +baking_ingredients, +dairy_products, +dairy_words, +pie_ingredients, ~drink_mixers, ~soup_ingredients
 - **cream_ointment** — A soft medicine rubbed onto the skin
@@ -355,9 +357,9 @@
 - **crown_dental** — A cap fitted over a damaged tooth
   - ~dental_words, ~dentist_things
 - **crown_royal** — The jeweled headpiece worn by a king or queen
-  - +royalty, ~flags_and_symbols, ~hats
+  - !flags_and_symbols, +royalty, ~hats
 - **crown_tree** — The spreading top of a tree
-  - ~tree_parts
+  - !tree_parts
 
 ## CRUNCH
 - **crunch_exercise** — An abdominal exercise done lying down
@@ -397,7 +399,7 @@
 - **degree_academic** — A qualification awarded by a university
   - +college_words
 - **degree_angle** — A unit of angle or temperature
-  - !space_measurements, ~vitamins_letters
+  - !space_measurements, !vitamins_letters
 
 ## DELTA
 - **delta_airline** — The American airline Delta
@@ -409,11 +411,11 @@
 
 ## DIAMOND
 - **diamond_card** — One of the four suits in a deck of playing cards
-  - ~card_words
+  - +card_words
 - **diamond_field** — The infield of a baseball field
-  - ~baseball_words
+  - ~baseball_words, ~sports_venues
 - **diamond_gem** — A clear precious stone used in jewelry
-  - +gemstones
+  - +gemstones, +jewelry_stones, +precious_materials, ~hard_things, ~shiny_things
 - **diamond_shape** — A four-sided shape standing on one of its corners
   - ~shapes
 
@@ -433,9 +435,9 @@
 
 ## DRILL
 - **drill_practice** — A repeated exercise done for practice
-  - ~learning_actions, ~military_words, ~training_words, ~words_after_fire
+  - +learning_actions, +military_words, +training_words, ~words_after_fire
 - **drill_tool** — A tool that bores holes by spinning a bit
-  - !things_that_plug_in, !things_that_spin, +hand_tools, ~building_actions, ~dentist_things, ~power_tools, ~workshop_things
+  - !things_that_plug_in, !things_that_spin, +building_actions, +dentist_things, +hand_tools, +power_tools, +workshop_things
 
 ## DRIP
 - **drip_coffee** — Coffee made by dripping water through grounds
@@ -447,7 +449,7 @@
 - **duck_bird** — A water bird with a broad flat bill
   - +birds, +farm_bird_words, +flying_animals, +livestock, +pond_animals, +waterfowl, ~farm_animals, ~things_that_float
 - **duck_meat** — The meat of a duck served as food
-  - !words_before_sauce, ~meats
+  - !meats, !words_before_sauce
 - **duck_toy** — The rubber toy duck floated in a bath
   - ~things_made_of_rubber
 
@@ -467,7 +469,7 @@
 
 ## FAN
 - **fan_device** — A machine with spinning blades that moves air
-  - +seasons_summer, ~computer_parts, ~things_that_plug_in, ~things_that_spin
+  - +computer_parts, +seasons_summer, ~things_that_plug_in, ~things_that_spin
 - **fan_hand** — A folding handheld device waved to make a breeze
   - ~things_that_open
 - **fan_person** — Someone who follows and supports a team or performer
@@ -545,7 +547,7 @@
 
 ## GROOM
 - **groom_horse** — A person who looks after horses
-  - ~equestrian_words, ~farm_jobs, ~horse_words
+  - !farm_jobs, ~equestrian_words, ~horse_words
 - **groom_wedding** — The man getting married at a wedding
   - +wedding_things, ~people_at_a_wedding
 
@@ -557,7 +559,7 @@
 
 ## GUM
 - **gum_candy** — A sweet soft substance that is chewed
-  - !things_in_a_glove_box, !words_before_ball, ~candy, ~things_in_a_purse, ~things_that_stretch, ~vending_machine_items
+  - !things_in_a_glove_box, !things_in_a_purse, !words_before_ball, ~candy, ~things_that_stretch, ~vending_machine_items
 - **gum_glue** — A sticky substance used to stick paper
   - +adhesives, ~sticky_things
 - **gum_mouth** — The firm flesh around the roots of the teeth
@@ -567,27 +569,29 @@
 - **hand_body** — The part of the arm below the wrist
   - !words_before_work, +body_parts, ~words_after_back, ~words_before_bag, ~words_before_book
 - **hand_cards** — The cards dealt to one player
-  - ~card_words
+  - !card_words
 - **hand_clock** — The pointer that moves around a clock face
-  - ~clock_words
+  - !clock_words
 - **hand_give** — To pass something to someone
   - ~giving_and_taking
 - **hand_worker** — A hired worker on a farm or ship
-  - ~farm_jobs
+  - !farm_jobs
 
 ## HEAD
 - **head_body** — The part of the body above the neck
   - !words_before_light, !words_before_master, +body_parts, ~words_before_board, ~words_before_line
 - **head_brand** — The sports equipment brand Head
-  - ~sports_brands
+  - !sports_brands
 - **head_leader** — The person in charge of a group
   - +famous_job_titles
 
 ## HEART
 - **heart_card** — One of the four suits in a deck of playing cards
-  - ~card_words
+  - +card_words
 - **heart_organ** — The organ that pumps blood through the body
   - +internal_organs
+- **heart_shape** — A rounded symmetrical shape used to stand for love
+  - +shapes
 
 ## HOOD
 - **hood_car** — The hinged cover over a car engine
@@ -595,7 +599,7 @@
 - **hood_garment** — A soft covering for the head attached to a coat
   - ~clothing_parts, ~diving_gear, ~hats, ~winter_clothing
 - **hood_kitchen** — The vent cover above a kitchen stove
-  - ~kitchen_appliances
+  - !kitchen_appliances
 - **hood_lens** — The shade fitted around a camera lens
   - ~photography_hobby
 
@@ -605,7 +609,7 @@
 - **hook_crochet** — A hooked needle used for crochet
   - !knitting_words
 - **hook_fastener** — A bent piece of metal used to hang or catch things
-  - !things_that_cut, ~fasteners, ~jewelry_making, ~sewing_supplies, ~things_on_a_wall, ~wardrobe_care
+  - !things_that_cut, +fasteners, +sewing_supplies, +things_on_a_wall, +wardrobe_care, ~jewelry_making
 - **hook_fishing** — The sharp bent metal that catches a fish
   - +fishing_hobby, +fishing_things, ~whaling_and_fishing
 - **hook_pirate** — A curved metal hand worn by a pirate in stories
@@ -621,7 +625,7 @@
 - **host_person** — The person who receives and seats guests
   - +kitchen_jobs, +restaurant_words, ~relationships
 - **host_presenter** — The person who presents a show
-  - +game_shows, ~media_jobs, ~radio_words, ~tv_words
+  - !media_jobs, !radio_words, !tv_words, +game_shows
 
 ## HOT
 - **hot_spicy** — Burning to the taste because of chili
@@ -637,15 +641,15 @@
 
 ## IRON
 - **iron_appliance** — A heated flat tool pressed over clothes to smooth them
-  - ~hot_things, ~laundry_care, ~laundry_things, ~tailor_words, ~things_that_plug_in, ~wardrobe_care
+  - +laundry_care, +laundry_things, +tailor_words, +wardrobe_care, ~hot_things, ~things_that_plug_in
 - **iron_golf** — A golf club with a flat angled metal head
   - ~golf_words
 - **iron_metal** — A hard gray metal used to make steel
-  - +metals, ~elements, ~hard_things, ~vitamins_and_minerals
+  - +elements, +metals, +vitamins_and_minerals, ~hard_things
 
 ## JACK
 - **jack_animal** — The word for a male donkey
-  - ~animal_names_male_female
+  - !animal_names_male_female
 - **jack_box** — The toy that springs out of a box
   - ~words_before_box
 - **jack_card** — The face card ranked below the queen
@@ -656,10 +660,12 @@
   - +auto_repair, ~things_in_a_garage
 
 ## KEY
+- **key_legend** — The panel that explains the symbols on a map
+  - ~map_words
 - **key_lock** — A small metal object that opens a lock
-  - !bedroom_things
+  - !bedroom_things, !collecting_hobbies, +locksmith_words, +things_in_a_junk_drawer, +things_on_a_keychain, ~things_made_of_metal
 - **key_music** — The set of notes a piece of music is based on
-  - ~music_words
+  - +music_words
 
 ## KEYBOARD
 - **keyboard_computer** — The set of keys used to type on a computer
@@ -671,7 +677,7 @@
 - **kite_bird** — A bird of prey with long narrow wings
   - +birds_of_prey
 - **kite_toy** — A light frame flown on a string in the wind
-  - !things_made_of_paper, +cloud_and_sky, ~instruments_you_strum, ~sea_shore_things, ~seasons_spring, ~toys
+  - !sea_shore_things, !things_made_of_paper, +cloud_and_sky, ~instruments_you_strum, ~seasons_spring, ~toys
 
 ## LAP
 - **lap_race** — One full circuit of a race track
@@ -687,7 +693,7 @@
 
 ## LEAD
 - **lead_clue** — A clue that points an investigation forward
-  - ~detective_words
+  - !detective_words
 - **lead_front** — The position ahead of everyone else
   - ~sports_scoring
 - **lead_metal** — A heavy soft gray metal
@@ -695,9 +701,9 @@
 
 ## LETTER
 - **letter_alphabet** — A written symbol of the alphabet
-  - ~alphabet_and_numbers, ~writing_words
+  - +alphabet_and_numbers, +writing_words
 - **letter_mail** — A written message sent to someone by mail
-  - +mail_words, ~reading_material
+  - +mail_words, +reading_material
 
 ## LIGHT
 - **light_bright** — The brightness that lets you see
@@ -707,13 +713,13 @@
 
 ## LINE
 - **line_cord** — A length of cord or rope
-  - +fishing_hobby, +fishing_things, ~laundry_things, ~whaling_and_fishing
+  - !laundry_things, +fishing_hobby, +fishing_things, ~whaling_and_fishing
 - **line_drawn** — A long thin mark drawn on a surface
   - !words_after_air, !words_after_head, !words_after_water, +drawing_words
 - **line_kitchen** — The row of cooks working the stations
   - !kitchen_brigade
 - **line_queue** — A row of people waiting their turn
-  - ~shopping_words
+  - !shopping_words
 
 ## LINK
 - **link_chain** — One ring of a chain
@@ -729,7 +735,7 @@
 
 ## MARBLE
 - **marble_cake** — A cake swirled with two colors of batter
-  - ~cake_types
+  - !cake_types
 - **marble_stone** — A hard polished stone used for building
   - +building_materials, +rocks_and_minerals, +sculpture_materials, ~hard_things, ~precious_materials
 - **marble_toy** — A small glass ball children play with
@@ -751,11 +757,11 @@
 
 ## MINT
 - **mint_candy** — A small hard sweet flavored with mint
-  - +candy, ~candy_shapes, ~ice_cream_flavors
+  - +candy, +candy_shapes, +ice_cream_flavors
 - **mint_color** — A pale green color
   - ~color_words_advanced
 - **mint_herb** — A green leafy herb with a cool sharp taste
-  - +garden_plants, +herbs, +spices_and_herbs, +teas, ~drink_mixers, ~green_things
+  - +drink_mixers, +garden_plants, +herbs, +spices_and_herbs, +teas, ~green_things
 
 ## MINUTE
 - **minute_time** — Sixty seconds of time
@@ -765,7 +771,7 @@
 
 ## MOLD
 - **mold_form** — A hollow form that shapes a material
-  - !jewelry_making, ~art_tools, ~cooking_hobby, ~dentist_things, ~factory_words, ~pottery_words
+  - !cooking_hobby, !dentist_things, !factory_words, !jewelry_making, ~art_tools, ~pottery_words
 - **mold_fungus** — A furry fungus that grows on old food
   - ~mushrooms_and_fungi
 
@@ -785,7 +791,7 @@
 - **monitor_medical** — A device that tracks a patient vital signs
   - ~baby_things, ~first_aid_actions, ~hospital_things, ~medical_tools
 - **monitor_screen** — A screen that displays a computer picture
-  - +computer_parts, +video_gaming, ~screens, ~security_tech
+  - +computer_parts, +security_tech, +video_gaming, ~screens
 
 ## MOON
 - **moon_space** — The natural satellite that orbits the earth
@@ -807,17 +813,17 @@
 - **mouth_face** — The opening in the face used for eating and speaking
   - +face_parts
 - **mouth_river** — The place where a river flows into the sea
-  - ~river_features
+  - +river_features
 
 ## NAIL
 - **nail_body** — The hard covering at the tip of a finger or toe
   - !things_that_grow, !things_that_grow_on_you, +hand_parts
 - **nail_metal** — A thin pointed metal pin hammered into wood
-  - +building_actions, ~fasteners, ~hard_things, ~sewing_and_repair, ~things_made_of_metal, ~things_that_are_sharp, ~things_that_cut, ~things_that_stick_out, ~workshop_things
+  - +building_actions, +fasteners, +sewing_and_repair, +workshop_things, ~hard_things, ~things_made_of_metal, ~things_that_are_sharp, ~things_that_cut, ~things_that_stick_out
 
 ## NEEDLE
 - **needle_medical** — The thin hollow point of a syringe
-  - ~medical_tools
+  - +medical_tools
 - **needle_pine** — The thin sharp leaf of a pine tree
   - ~leaf_shapes, ~pine_and_cones, ~tree_parts
 - **needle_sewing** — A thin pointed tool with an eye for thread
@@ -825,7 +831,7 @@
 
 ## NOTE
 - **note_money** — A piece of paper money
-  - ~coins_and_bills, ~things_in_a_wallet
+  - !coins_and_bills, ~things_in_a_wallet
 - **note_music** — A single musical sound or its written sign
   - +music_words
 - **note_scent** — One distinguishable smell within a perfume
@@ -837,7 +843,7 @@
 - **nut_food** — A hard shelled seed that is eaten
   - ~hard_things
 - **nut_metal** — The metal piece screwed onto a bolt
-  - ~fasteners
+  - !fasteners
 
 ## OIL
 - **oil_cooking** — A liquid fat used for cooking
@@ -847,13 +853,13 @@
 - **oil_motor** — The thick liquid that lubricates an engine
   - +gas_station_things, +things_that_burn, ~auto_repair, ~black_things, ~things_in_a_garage
 - **oil_paint** — Paint made with oil rather than water
-  - ~paint_types
+  - !paint_types
 
 ## ORANGE
 - **orange_color** — The color between red and yellow
-  - ~colors
+  - +colors
 - **orange_fruit** — A round citrus fruit with an orange peel
-  - +fruits, ~round_things, ~things_with_seeds
+  - +citrus_fruits, +fruit_trees, +fruits, ~round_things, ~things_with_seeds
 
 ## ORGAN
 - **organ_body** — A part inside the body that does a particular job
@@ -863,13 +869,13 @@
 
 ## PALM
 - **palm_hand** — The inner surface of the hand
-  - +hand_parts
+  - !card_tricks, !fortune_telling, +hand_parts
 - **palm_tree** — A tall tropical tree with large leaves at the top
-  - +trees
+  - +trees, ~houseplants, ~tropical_plants
 
 ## PARK
 - **park_place** — A public green space in a town
-  - ~city_words, ~field_trip_places, ~town_places, ~words_after_water
+  - +city_words, +field_trip_places, +town_places, ~words_after_water
 - **park_verb** — To leave a car standing in a chosen place
   - +driving_actions
 
@@ -883,13 +889,13 @@
 - **party_event** — A social gathering to celebrate something
   - +birthday_things, +new_year_things
 - **party_group** — A group of people acting together
-  - ~groups_of_people
+  - !groups_of_people
 
 ## PEN
 - **pen_animal** — A fenced enclosure that holds farm animals
   - ~animal_homes, ~farm_buildings, ~things_on_a_farm
 - **pen_writing** — A handheld tool that writes with ink
-  - !things_in_a_glove_box, +office_supplies, +school_supplies, ~art_tools, ~things_in_a_junk_drawer, ~things_in_a_purse, ~writing_tools
+  - !things_in_a_glove_box, +art_tools, +office_supplies, +school_supplies, +things_in_a_purse, +writing_tools, ~things_in_a_junk_drawer
 
 ## PHOENIX
 - **phoenix_bird** — The mythical bird that rises from its ashes
@@ -903,29 +909,33 @@
 - **pin_code** — The secret number that unlocks a bank card
   - ~banking_words
 - **pin_fastener** — A thin pointed piece of metal that fastens things
-  - +sewing_supplies, +sewing_words, +tailor_words, ~fasteners, ~jewelry, ~things_that_are_sharp, ~things_that_cut, ~words_before_ball
+  - !jewelry, +sewing_supplies, +sewing_words, +tailor_words, ~fasteners, ~things_that_are_sharp, ~things_that_cut, ~words_before_ball
 - **pin_wrestling** — Holding an opponent shoulders to the mat
-  - ~wrestling_words
+  - !wrestling_words
 
 ## PIPE
 - **pipe_symbol** — The vertical bar symbol used in writing and code
-  - ~vitamins_letters
+  - !vitamins_letters
 - **pipe_tube** — A tube that carries water or gas
   - +plumbing_words, ~irrigation, ~things_made_of_metal, ~things_made_of_plastic, ~underground_things, ~words_before_line
 
 ## PITCH
+- **pitch_field** — The playing field used in soccer and cricket
+  - ~soccer_words, ~sports_venues
 - **pitch_music** — How high or low a musical sound is
-  - ~music_words
+  - +music_words
+- **pitch_present** — A short presentation made to sell an idea
+  - ~startup_words
 - **pitch_tar** — A thick sticky black substance made from tar
-  - !sticky_things
+  - !pine_and_cones, !sticky_things
 - **pitch_throw** — A throw of the ball by the pitcher in baseball
-  - +baseball_words
+  - +baseball_words, +sports_actions
 
 ## PITCHER
 - **pitcher_baseball** — The player who throws the ball to the batter
   - +baseball_words
 - **pitcher_jug** — A large jug with a handle and a lip for pouring
-  - ~dishes_and_glassware, ~things_with_handles
+  - +dishes_and_glassware, ~things_with_handles
 
 ## PLANE
 - **plane_aircraft** — A flying machine with fixed wings
@@ -935,19 +945,25 @@
 
 ## PLANT
 - **plant_growth** — A living thing that grows in soil
-  - ~living_room_things, ~things_that_grow
+  - !living_room_things, ~things_that_grow
 - **plant_verb** — To put a seed or young plant into the ground
   - ~garden_actions
 
 ## PLATE
+- **plate_armor** — A hard flat piece that covers and protects a body
+  - !animal_coverings
 - **plate_base** — The flat marker a baseball batter stands beside
-  - ~baseball_equipment
+  - +baseball_equipment
 - **plate_dish** — A flat round dish food is served on
-  - +kitchen_tools, ~round_things
+  - +dishes_and_glassware, +kitchen_tools, ~party_things, ~round_things
+- **plate_printing** — A flat metal sheet that carries an image for printing
+  - !printing_words
+- **plate_tectonic** — One of the huge slabs that make up the crust of the earth
+  - ~rock_cycle_words
 
 ## POINT
 - **point_gesture** — To aim a finger at something
-  - ~body_language, ~body_movements, ~hand_actions
+  - !body_movements, ~body_language, ~hand_actions
 - **point_score** — A single unit of scoring in a game
   - ~sports_scoring
 - **point_tip** — The sharp end of something
@@ -957,7 +973,7 @@
 - **polish_language** — The language and people of Poland
   - ~languages, ~nationalities
 - **polish_product** — A liquid or paste rubbed on to make something shine
-  - +nail_words, ~cleaning_supplies, ~liquids
+  - +cleaning_supplies, +liquids, +nail_words
 - **polish_verb** — To rub a surface until it shines
   - +cleaning_actions, ~gem_cuts, ~shiny_things
 
@@ -987,23 +1003,23 @@
 - **present_gift** — Something given to someone as a gift
   - +party_things, ~birthday_things
 - **present_show** — To show or explain something to an audience
-  - ~school_actions
+  - !school_actions
 
 ## PRESS
 - **press_machine** — A machine that squeezes or prints
-  - !vineyard_words, ~factory_words, ~printing_words
+  - !factory_words, !vineyard_words, ~printing_words
 - **press_media** — Newspapers and journalists as a whole
-  - ~rights_and_freedoms
+  - !rights_and_freedoms
 - **press_push** — To push down firmly on something
   - ~exercise_words, ~laundry_care
 
 ## PUNCH
 - **punch_drink** — A sweet drink mixed in a large bowl
-  - +cold_drinks, ~party_things
+  - !party_things, +cold_drinks
 - **punch_hit** — A blow struck with the fist
   - !words_before_line
 - **punch_tool** — A tool that drives holes through material
-  - ~hand_tools
+  - !hand_tools
 
 ## PYRAMID
 - **pyramid_monument** — The great stone tomb built in ancient Egypt
@@ -1043,43 +1059,49 @@
 - **reel_fishing** — The spool that winds fishing line
   - +fishing_hobby, +fishing_things
 - **reel_video** — A short vertical video posted online
-  - ~social_media_words
+  - !social_media_words
 
 ## REMOTE
 - **remote_device** — The handheld control for a television
-  - !robot_words, +tv_words, ~gadgets, ~living_room_things, ~photography_hobby, ~things_with_buttons
+  - !photography_hobby, !robot_words, +tv_words, ~gadgets, ~living_room_things, ~things_with_buttons
 - **remote_far** — Far away from anything else
   - +distance_words
 
 ## REST
 - **rest_music** — A written sign for a silence in music
-  - ~music_words
+  - !music_words
 - **rest_sleep** — A period of not working or moving
   - !words_after_foot, !words_after_head, +sleep_and_rest, +sleeping_actions, ~words_before_room
 
 ## RING
+- **ring_arena** — The roped or circular area used for boxing and circus acts
+  - +boxing_words, +circus_words, ~sports_venues
+- **ring_circle** — A circular band or ring shaped object
+  - !juggling_words, +round_things, +things_on_a_keychain, ~magic_tricks, ~solar_system_words, ~space_objects
 - **ring_jewelry** — A band worn on a finger
-  - ~jewelry
+  - !magic_objects, +jewelry, +wedding_things, ~things_worn_on_hands
+- **ring_sound** — The sound a bell or a phone makes
+  - +bell_and_alarm, +onomatopoeia, ~musical_sounds
 - **ring_tree** — One of the circles in a tree trunk that mark a year of growth
-  - ~tree_parts
+  - !tree_parts
 
 ## ROCK
 - **rock_music** — A style of loud guitar music
   - ~music_genres
 - **rock_stone** — A hard lump of stone
-  - ~collecting_hobbies, ~desert_things, ~hard_things
+  - !desert_things, ~collecting_hobbies, ~hard_things
 
 ## ROLL
 - **roll_bread** — A small round loaf of bread
   - +bread_types, +sandwich_breads
 - **roll_turn** — To turn over and over
-  - ~carrying_actions, ~self_defense_moves
+  - !carrying_actions, ~self_defense_moves
 
 ## ROUND
 - **round_math** — To change a number to the nearest whole one
   - ~math_operations
 - **round_meat** — A cut of beef from the hind leg
-  - ~cuts_of_meat
+  - !cuts_of_meat
 - **round_shape** — Shaped like a circle
   - +shape_adjectives
 - **round_stage** — One stage of a contest
@@ -1108,10 +1130,16 @@
   - +exploration_words
 
 ## SCALE
+- **scale_grow** — To grow a business to a much larger size
+  - !startup_words
 - **scale_music** — A series of musical notes in rising or falling order
-  - ~music_words
+  - +music_words
+- **scale_ratio** — The ratio between a map or a model and real size
+  - !model_building, ~map_words
+- **scale_skin** — One of the small hard plates covering a fish or a reptile
+  - +animal_coverings
 - **scale_weigh** — A device used to weigh things
-  - ~lab_equipment
+  - !baker_words, !bathroom_items, !butcher_words, !cooking_hobby, !world_markets, +lab_equipment, +measurement_devices, +measuring_tools
 
 ## SCORE
 - **score_points** — The number of points made in a game or test
@@ -1123,7 +1151,7 @@
 - **screen_basketball** — A move where a player blocks a defender for a teammate
   - !basketball_words
 - **screen_display** — The flat surface of a device that shows a picture
-  - !things_made_of_glass, !things_that_break, +computer_parts, +tv_words, ~light_sources, ~phone_words, ~transparent_things
+  - !things_made_of_glass, !things_that_break, +computer_parts, +light_sources, +phone_words, +tv_words, ~transparent_things
 - **screen_print** — A fine mesh stencil used to print ink onto cloth
   - ~printing_words
 - **screen_shield** — Something that shields skin or eyes from the sun
@@ -1137,15 +1165,15 @@
 
 ## SEAL
 - **seal_animal** — A sea mammal with flippers that lives in cold water
-  - +sea_mammals, +zoo_animals, ~arctic_animals, ~ocean_animals
+  - +arctic_animals, +ocean_animals, +sea_mammals, +zoo_animals
 - **seal_rubber** — A ring that closes a gap tightly so nothing leaks
   - ~things_made_of_rubber
 
 ## SEASON
 - **season_flavor** — To add salt and spices to food
-  - ~cooking_actions
+  - !cooking_actions
 - **season_time** — One of the divisions of the year
-  - +calendar_words, ~alphabet_and_numbers, ~tv_words
+  - !tv_words, +calendar_words, ~alphabet_and_numbers
 
 ## SECOND
 - **second_order** — Coming after the first
@@ -1167,9 +1195,9 @@
 
 ## SET
 - **set_exercise** — A group of repetitions in training
-  - ~training_words
+  - !training_words
 - **set_film** — The built scenery a film is shot on
-  - ~movie_words
+  - !movie_words
 - **set_sun** — To sink below the horizon
   - ~words_after_sun
 - **set_tennis** — A group of games making part of a match
@@ -1185,7 +1213,7 @@
 
 ## SHELF
 - **shelf_furniture** — A flat board fixed to a wall for holding things
-  - +library_words, ~shopping_words, ~things_in_a_garage, ~things_made_of_wood, ~things_on_a_wall, ~wardrobe_care, ~warehouse_words, ~words_after_book, ~workshop_things
+  - +library_words, +shopping_words, +things_in_a_garage, +things_on_a_wall, +wardrobe_care, +warehouse_words, +workshop_things, ~things_made_of_wood, ~words_after_book
 - **shelf_sea** — The shallow sea floor that extends out from a coast
   - !ocean_zones
 
@@ -1213,7 +1241,7 @@
 
 ## SINGLE
 - **single_baseball** — A hit that gets the batter to first base
-  - ~baseball_words
+  - !baseball_words
 - **single_one** — Only one, not part of a pair
   - +superstition_numbers
 
@@ -1247,7 +1275,7 @@
 - **sound_noise** — Something that can be heard
   - !words_before_proof, ~alphabet_and_numbers
 - **sound_water** — A long narrow stretch of sea
-  - ~bodies_of_water
+  - !bodies_of_water
 
 ## SOW
 - **sow_pig** — An adult female pig
@@ -1273,13 +1301,15 @@
 - **sponge_cake** — A light airy cake made without much fat
   - ~cake_types, ~words_before_cake
 - **sponge_cleaning** — A soft absorbent block used for washing
-  - +bathroom_items, +cleaning_supplies, +cleaning_tools, ~art_tools, ~beauty_tools, ~painting_supplies, ~soft_things, ~things_that_shrink, ~things_with_holes
+  - +art_tools, +bathroom_items, +beauty_tools, +cleaning_supplies, +cleaning_tools, +painting_supplies, ~soft_things, ~things_that_shrink, ~things_with_holes
 
 ## SPRING
+- **spring_coil** — A coil of metal that returns to shape after being pressed
+  - +things_that_stretch
 - **spring_jump** — To jump suddenly upward or forward
   - ~ways_of_moving
 - **spring_season** — The season between winter and summer
-  - ~calendar_words
+  - +calendar_words, +seasons
 - **spring_water** — A place where water flows naturally out of the ground
   - ~bodies_of_water
 
@@ -1291,7 +1321,7 @@
 
 ## STACK
 - **stack_pile** — A neat pile of things one on another
-  - +harvest_words, ~rock_formations
+  - !rock_formations, +harvest_words
 - **stack_shelves** — The rows of shelves holding a library collection
   - +library_words
 
@@ -1307,7 +1337,7 @@
 
 ## STAMP
 - **stamp_postage** — A small printed square stuck on mail to pay postage
-  - +mail_words, ~collecting_hobbies, ~square_things, ~things_in_a_wallet
+  - +collecting_hobbies, +mail_words, +things_in_a_wallet, ~square_things
 - **stamp_tool** — A rubber block used to print a mark on paper
   - ~office_supplies, ~things_made_of_rubber
 
@@ -1321,15 +1351,15 @@
 
 ## STAR
 - **star_shape** — A shape with five or more points around a center
-  - ~shapes, ~words_before_light
+  - +shapes, ~christmas_things, ~flags_and_symbols, ~religious_symbols, ~words_before_light
 - **star_space** — A burning ball of gas seen as a point of light in the night sky
-  - +space_objects
+  - +cloud_and_sky, +light_sources, +night_sky_things, +space_objects, ~navigation_tools, ~shiny_things
 
 ## STATION
 - **station_kitchen** — One cook's work post in a restaurant kitchen
   - ~kitchen_brigade
 - **station_place** — A building where a service is based
-  - !words_before_master, +train_words, ~radio_words, ~space_travel, ~town_places
+  - !town_places, !words_before_master, +train_words, ~radio_words, ~space_travel
 
 ## STICK
 - **stick_candy** — A long thin piece of candy
@@ -1339,7 +1369,7 @@
 
 ## STORY
 - **story_post** — A short post that disappears after a day
-  - ~social_media_words
+  - !social_media_words
 - **story_tale** — An account of events, real or invented
   - ~words_before_book, ~words_before_time
 
@@ -1359,7 +1389,7 @@
 - **strike_hit** — To hit something forcefully
   - ~self_defense_moves
 - **strike_theater** — To take down the set after the last show
-  - ~theater_stage_terms
+  - !theater_stage_terms
 
 ## STROKE
 - **stroke_sun** — Illness caused by too much sun
@@ -1369,7 +1399,7 @@
 
 ## SUIT
 - **suit_card** — One of the four sets of symbols in a deck of cards
-  - ~card_words
+  - +card_words
 - **suit_clothing** — A matching jacket and trousers worn together
   - !words_after_snow, +clothing_items, +formal_wear
 
@@ -1377,7 +1407,7 @@
 - **swallow_bird** — A small fast bird with pointed wings
   - +songbirds
 - **swallow_throat** — To make food go down the throat
-  - ~body_movements, ~eating_actions
+  - !body_movements, ~eating_actions
 
 ## TACK
 - **tack_horse** — The saddle and harness used on a horse
@@ -1389,15 +1419,15 @@
 
 ## TAG
 - **tag_game** — A chasing game where one player is it
-  - +card_and_dice_games, ~playground_games
+  - !playground_games, +card_and_dice_games
 - **tag_label** — A small label attached to an object
   - !things_on_a_keychain, ~pet_supplies, ~shopping_words
 - **tag_mention** — To mark someone by name in an online post
-  - ~social_media_words
+  - !social_media_words
 
 ## TANK
 - **tank_container** — A large container for holding liquid or gas
-  - ~diving_gear, ~pet_supplies, ~things_that_hold_water
+  - +diving_gear, +pet_supplies, ~things_that_hold_water
 - **tank_military** — An armored vehicle that moves on metal tracks
   - +military_things
 
@@ -1405,13 +1435,13 @@
 - **tap_dance** — A dance style done in shoes with metal plates
   - +dance_moves, +dance_styles
 - **tap_touch** — To touch something lightly and quickly
-  - ~hand_actions
+  - +hand_actions
 
 ## TEMPLE
 - **temple_building** — A building used for religious worship
-  - ~town_places
+  - !egypt_things, +places_of_worship, +town_places, ~kinds_of_buildings
 - **temple_head** — The flat area on each side of the forehead
-  - ~face_parts
+  - +face_parts
 
 ## TERM
 - **term_condition** — A condition written into an agreement
@@ -1423,13 +1453,13 @@
 - **tick_bug** — A small blood sucking parasite
   - +insects, +pests, +spiders_and_crawlers
 - **tick_sound** — The short repeated sound of a clock
-  - !quiet_sounds, +clock_words, ~onomatopoeia
+  - !onomatopoeia, !quiet_sounds, +clock_words
 
 ## TICKET
 - **ticket_admission** — A printed slip that lets you into an event or ride
-  - +train_words, ~airport_words, ~amusement_park, ~fan_things, ~reading_material, ~things_in_a_wallet, ~things_made_of_paper, ~travel_documents
+  - +airport_words, +amusement_park, +fan_things, +reading_material, +things_in_a_wallet, +train_words, +travel_documents, ~things_made_of_paper
 - **ticket_fine** — A written notice of a fine for breaking a traffic rule
-  - ~parking_words, ~police_things, ~punishments
+  - +parking_words, +police_things, +punishments
 - **ticket_order** — The order slip a cook works from in a restaurant kitchen
   - !kitchen_brigade
 
@@ -1439,7 +1469,7 @@
 - **tie_knot** — To fasten something with a knot
   - ~joining_actions, ~things_you_tie
 - **tie_score** — A result where both sides have equal points
-  - ~sports_scoring
+  - !sports_scoring
 
 ## TIN
 - **tin_can** — A sealed metal container for food
@@ -1451,13 +1481,13 @@
 - **tip_money** — Extra money left for good service
   - +money_actions, +money_words, ~restaurant_words
 - **tip_point** — The pointed end of something
-  - !welding_words, ~blades
+  - !blades, !welding_words
 
 ## TISSUE
 - **tissue_body** — A group of similar cells that forms part of the body
   - ~body_science
 - **tissue_paper** — A soft paper used for wiping the nose or hands
-  - +paper_types, ~bathroom_items, ~hygiene, ~light_things, ~things_in_a_purse, ~things_made_of_paper, ~things_you_recycle, ~words_before_paper
+  - +bathroom_items, +hygiene, +paper_types, +things_in_a_purse, ~light_things, ~things_made_of_paper, ~things_you_recycle, ~words_before_paper
 
 ## TITANIC
 - **titanic_movie** — The film about the sinking of the Titanic
@@ -1469,7 +1499,7 @@
 - **toast_bread** — Bread browned by heat
   - +breakfast_foods
 - **toast_salute** — Raised glasses in honor of someone
-  - ~new_year_things, ~wedding_things
+  - !new_year_things, !wedding_things
 
 ## TOP
 - **top_spin** — A toy that spins on a point
@@ -1503,7 +1533,7 @@
 - **turkey_bird** — A large farm bird with a fanned tail
   - +birds, +farm_bird_words, ~farm_animals, ~livestock
 - **turkey_bowling** — Three strikes in a row in bowling
-  - ~bowling_words
+  - !bowling_words
 - **turkey_country** — The country between Europe and Asia
   - ~asian_countries
 - **turkey_meat** — The meat of a turkey served as food
@@ -1513,7 +1543,7 @@
 - **watch_look** — To look at something for a period of time
   - +ways_of_looking
 - **watch_object** — A small clock worn on the wrist
-  - ~accessories, ~fashion_accessories, ~gadgets, ~jewelry, ~screens, ~things_that_have_a_face, ~things_with_buttons, ~things_worn_on_hands
+  - +accessories, +fashion_accessories, +gadgets, +jewelry, ~screens, ~things_that_have_a_face, ~things_with_buttons, ~things_worn_on_hands
 - **watch_warning** — An official notice that severe weather is possible
   - !weather_forecast_terms
 
@@ -1523,7 +1553,7 @@
 - **wave_hair** — A soft loose curl in hair
   - ~hair_words
 - **wave_hand** — To move a raised hand back and forth as a greeting
-  - !quiet_actions, ~body_language, ~body_movements, ~hand_actions
+  - !quiet_actions, +body_movements, +hand_actions, ~body_language
 - **wave_water** — A moving ridge of water on the surface of the sea
   - +ocean_zones, +sea_shore_things
 
@@ -1531,7 +1561,7 @@
 - **wax_polish** — A paste rubbed on a floor or car to make it shine
   - ~cleaning_trade
 - **wax_substance** — A soft solid that melts easily, used to make candles
-  - !things_that_melt, !words_before_paper, +beekeeping, ~paper_types, ~sculpture_materials, ~sticky_things, ~things_that_burn
+  - !things_that_melt, !words_before_paper, +beekeeping, +paper_types, +sculpture_materials, +things_that_burn, ~sticky_things
 
 ## WHITE
 - **white_color** — The color of snow and milk
@@ -1543,7 +1573,7 @@
 
 ## YARD
 - **yard_ground** — An enclosed piece of ground beside a building
-  - ~prison_words, ~words_after_back
+  - !prison_words, ~words_after_back
 - **yard_measure** — A unit of length equal to three feet
   - +things_measured_in_inches
 

@@ -1,0 +1,238 @@
+{
+  "level_id": 9,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 38,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "categories": [
+    {
+      "key": "sleepwear",
+      "label": "SLEEPWEAR",
+      "words": [
+        {
+          "text": "nightgown",
+          "kind": "word"
+        },
+        {
+          "text": "pajamas",
+          "kind": "word"
+        },
+        {
+          "text": "robe",
+          "kind": "word"
+        },
+        {
+          "text": "slippers",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wardrobe",
+      "label": "WARDROBE",
+      "words": [
+        {
+          "text": "sleepwear",
+          "kind": "meta",
+          "meta_child": "sleepwear"
+        },
+        {
+          "text": "closet",
+          "kind": "word"
+        },
+        {
+          "text": "hats",
+          "kind": "word"
+        },
+        {
+          "text": "accessories",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "things_that_burn",
+      "label": "FUELS",
+      "words": [
+        {
+          "text": "diesel",
+          "kind": "word"
+        },
+        {
+          "text": "coal",
+          "kind": "word"
+        },
+        {
+          "text": "gasoline",
+          "kind": "word"
+        },
+        {
+          "text": "ethanol",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hardware_store",
+      "label": "HARDWARE STORE",
+      "words": [
+        {
+          "text": "fuels",
+          "kind": "meta",
+          "meta_child": "things_that_burn"
+        },
+        {
+          "text": "ladder",
+          "kind": "word"
+        },
+        {
+          "text": "blades",
+          "kind": "word"
+        },
+        {
+          "text": "hose",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "equestrian_words",
+      "label": "HORSE RIDING",
+      "words": [
+        {
+          "text": "jumping",
+          "kind": "word"
+        },
+        {
+          "text": "saddle",
+          "kind": "word"
+        },
+        {
+          "text": "jockey",
+          "kind": "word"
+        },
+        {
+          "text": "tack",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "gardening_words",
+      "label": "GARDENING WORDS",
+      "words": [
+        {
+          "text": "weed",
+          "kind": "word"
+        },
+        {
+          "text": "seed",
+          "kind": "word"
+        },
+        {
+          "text": "pot",
+          "kind": "word"
+        },
+        {
+          "text": "fertilizer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "garden_center",
+      "label": "GARDEN CENTER",
+      "words": [
+        {
+          "text": "soil",
+          "kind": "word"
+        },
+        {
+          "text": "flowers",
+          "kind": "word"
+        },
+        {
+          "text": "trees",
+          "kind": "word"
+        },
+        {
+          "text": "houseplants",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "christmas_things",
+      "label": "CHRISTMAS THINGS",
+      "words": [
+        {
+          "text": "lights",
+          "kind": "word"
+        },
+        {
+          "text": "gift",
+          "kind": "word"
+        },
+        {
+          "text": "carol",
+          "kind": "word"
+        },
+        {
+          "text": "stocking",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "word_fast",
+      "label": "FAST WORDS",
+      "words": [
+        {
+          "text": "fleet",
+          "kind": "word"
+        },
+        {
+          "text": "rapid",
+          "kind": "word"
+        },
+        {
+          "text": "express",
+          "kind": "word"
+        },
+        {
+          "text": "prompt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "shapes",
+      "label": "SHAPES",
+      "words": [
+        {
+          "text": "circle",
+          "kind": "word"
+        },
+        {
+          "text": "arch",
+          "kind": "word"
+        },
+        {
+          "text": "cylinder",
+          "kind": "word"
+        },
+        {
+          "text": "cone",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

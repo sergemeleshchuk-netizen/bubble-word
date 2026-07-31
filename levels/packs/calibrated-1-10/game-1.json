@@ -1,0 +1,126 @@
+{
+  "level_id": 1,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 5,
+    "words_per_category": 4,
+    "start_bubbles": 20,
+    "board_capacity": 24,
+    "move_limit": null
+  },
+  "categories": [
+    {
+      "key": "directions",
+      "label": "DIRECTIONS",
+      "words": [
+        {
+          "text": "beside",
+          "kind": "word"
+        },
+        {
+          "text": "behind",
+          "kind": "word"
+        },
+        {
+          "text": "forward",
+          "kind": "word"
+        },
+        {
+          "text": "north",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "streets_and_roads",
+      "label": "KINDS OF ROADS",
+      "words": [
+        {
+          "text": "avenue",
+          "kind": "word"
+        },
+        {
+          "text": "lane",
+          "kind": "word"
+        },
+        {
+          "text": "trail",
+          "kind": "word"
+        },
+        {
+          "text": "alley",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bodies_of_water",
+      "label": "BODIES OF WATER",
+      "words": [
+        {
+          "text": "creek",
+          "kind": "word"
+        },
+        {
+          "text": "canal",
+          "kind": "word"
+        },
+        {
+          "text": "delta",
+          "kind": "word"
+        },
+        {
+          "text": "stream",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "math_words",
+      "label": "MATH WORDS",
+      "words": [
+        {
+          "text": "sum",
+          "kind": "word"
+        },
+        {
+          "text": "angle",
+          "kind": "word"
+        },
+        {
+          "text": "ratio",
+          "kind": "word"
+        },
+        {
+          "text": "diameter",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "photography_words",
+      "label": "PHOTOGRAPHY WORDS",
+      "words": [
+        {
+          "text": "portrait",
+          "kind": "word"
+        },
+        {
+          "text": "lens",
+          "kind": "word"
+        },
+        {
+          "text": "exposure",
+          "kind": "word"
+        },
+        {
+          "text": "frame",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,706 @@
+{
+  "level_spec": {
+    "levelId": 4,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 9,
+      "wordsPerCategory": 4,
+      "startBubbles": 36,
+      "boardCapacity": 24,
+      "moveFloor": 27,
+      "moveLimit": 37,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "evergreens",
+        "label": "EVERGREEN TREES",
+        "rule": "Trees that keep their leaves or needles all year",
+        "theme": "plants",
+        "words": [
+          {
+            "text": "pine",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "holly",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "cedar",
+            "kind": "word",
+            "zipf": 3.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "fir",
+            "kind": "word",
+            "zipf": 3.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "tennis_words",
+        "label": "TENNIS WORDS",
+        "rule": "Words used to describe play and scoring in tennis",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "deuce",
+            "kind": "word",
+            "zipf": 2.94,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "serve",
+            "kind": "word",
+            "zipf": 4.85,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "baseline",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "racket",
+            "kind": "word",
+            "zipf": 3.33,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "temperature_words",
+        "label": "TEMPERATURE WORDS",
+        "rule": "Words describing how hot or cold something is",
+        "theme": "science",
+        "words": [
+          {
+            "text": "warm",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "freezing",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mild",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "boiling",
+            "kind": "word",
+            "zipf": 3.75,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "sleep_and_rest",
+        "label": "SLEEP WORDS",
+        "rule": "Words about sleep and its problems",
+        "theme": "medicine",
+        "words": [
+          {
+            "text": "nightmare",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "nap",
+            "kind": "word",
+            "zipf": 3.82,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "dream",
+            "kind": "word",
+            "zipf": 4.91,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "pillow",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "airport_words",
+        "label": "AIRPORT WORDS",
+        "rule": "Words for things, places or roles you encounter at an airport",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "terminal",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "pilot",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "customs",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "airlines",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.96,
+            "obviousness": 0.74
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "theater_words",
+        "label": "THEATER WORDS",
+        "rule": "Words for the parts and people of a live theater production",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "script",
+            "kind": "word",
+            "zipf": 4.36,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "spotlight",
+            "kind": "word",
+            "zipf": 3.9,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "curtain",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "rehearsal",
+            "kind": "word",
+            "zipf": 3.68,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "cutting_tools",
+        "label": "CUTTING TOOLS",
+        "rule": "Tools used to cut material",
+        "theme": "tools",
+        "words": [
+          {
+            "text": "knife",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "blade",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "razor",
+            "kind": "word",
+            "zipf": 3.72,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "scissors",
+            "kind": "word",
+            "zipf": 3.58,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "fruits",
+        "label": "FRUITS",
+        "rule": "Common edible fruits familiar to an average American adult",
+        "theme": "food",
+        "words": [
+          {
+            "text": "cherry",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "banana",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "orange",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 1,
+            "obviousness": 1
+          },
+          {
+            "text": "lemon",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "restaurant_words",
+        "label": "RESTAURANT WORDS",
+        "rule": "Things and roles found at a restaurant",
+        "theme": "business",
+        "words": [
+          {
+            "text": "chef",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "reservation",
+            "kind": "word",
+            "zipf": 3.95,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "booth",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "menu",
+            "kind": "word",
+            "zipf": 4.26,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T11:00:13.932Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+    "level_spec_hash": "0d140b1f0fb707c6380da8546c03abdf8fa385d2f9c09d2e117ddc6b4aa591c8",
+    "pack_hash": "3fffb1cb00d8594e953e91286e3f91b3cf66b907617ec27cf3e27920c43bb02e",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 4,
+    "position": 4,
+    "role": "growth",
+    "categoryCount": 9,
+    "metaCount": 0,
+    "metaDepthTarget": 0,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 3.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.2723999999999998,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 3.3897999999999997,
+        "declared": -0.6,
+        "semantic": 0,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "36 пузырей на старте при 9 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 37 при минимуме 27 (K = 1.35)"
+    ],
+    "interest": 6,
+    "interest_breakdown": {
+      "clarity": 2.28,
+      "variety": 1.91,
+      "aha": 0,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.28: узнаваемых слов 100%, средняя очевидность связи 0.81",
+      "Variety 1.91: 3 типов связи, 9 тематических сфер, но 56% категорий однотипны",
+      "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 9 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (37 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 0"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 0, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 36, по формуле 4 × 9 − 0 = 36"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 37, минимум мерджей 27, K = 1.35 → ожидалось 37"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 8: evergreens, temperature_words, sleep_and_rest, airport_words, theater_words, cutting_tools, fruits, restaurant_words"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.10 (цель декады 4.35), p25 3.82 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 66.7% уровня (24 из 36), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 37
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "rejected",
+        "stage": "валидация",
+        "reason": "REFERENCE_NOVELTY: точных копий четвёрок референса: 1",
+        "relaxations": []
+      },
+      {
+        "index": 1,
+        "outcome": "rejected",
+        "stage": "валидация",
+        "reason": "REFERENCE_NOVELTY: точных копий четвёрок референса: 1",
+        "relaxations": []
+      },
+      {
+        "index": 2,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "9 категорий, 0 мета-связей, 1 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

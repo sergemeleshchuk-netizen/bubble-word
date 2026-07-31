@@ -12,7 +12,7 @@ world_instruments | WORLD INSTRUMENTS | is_a | 0.4 | 0.68 | A | Musical instrume
 sitar, djembe, bagpipes, didgeridoo, balalaika, koto, erhu, ukulele, panpipe, steel drum, kalimba, bouzouki, shamisen, oud, marimba
 
 world_dances | WORLD DANCES | is_a | 0.4 | 0.7 | A | Traditional dances from around the world | $W is a traditional dance
-flamenco, tango, samba, polka, hula, salsa, waltz, irish jig, square dance, cancan, merengue, bolero, tarantella, kabuki, mambo
+flamenco, tango, samba, polka, hula, salsa, waltz, irish jig, square dance, cancan, merengue, bolero, tarantella, mambo
 
 festivals | WORLD FESTIVALS | is_a | 0.4 | 0.7 | AP | Festivals celebrated around the world | $W is a festival celebrated somewhere in the world
 Carnival, Oktoberfest, Mardi Gras, Diwali, Holi, Lunar New Year, Day of the Dead, Songkran, Bastille Day, Cinco de Mayo, St Patricks Day, Obon, Hogmanay
@@ -42,7 +42,7 @@ superstition_numbers | NUMBER WORDS | is_a | 0.3 | 0.85 | A | Words for numbers 
 one, two, three, four, five, six, seven, eight, nine, ten, dozen, hundred, thousand, million, billion, half, quarter, pair, score, couple, zero, few, single, twenty
 
 opposites | OPPOSITES | is_a | 0.3 | 0.82 | A | Words commonly taught as opposites | $W is commonly taught as one half of an opposite pair
-hot, cold, big, small, up, down, in, out, fast, slow, hard, soft, day, night, open, shut, wet, dry, light, dark, near, far, high, low, full
+hot, cold, big, small, up, down, in, out, fast, slow, hard, soft, day, night, open, shut, wet, dry, light, dark, near, far, high, low, full, empty
 
 manners | MANNERS WORDS | is_a | 0.35 | 0.75 | A | Words used when teaching good manners | $W is used when teaching good manners
 please, thank you, sorry, excuse me, may I, sharing, waiting, listening, chewing, greeting, apologize, respect, patience, turn taking

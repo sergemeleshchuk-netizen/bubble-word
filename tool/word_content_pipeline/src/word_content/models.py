@@ -23,6 +23,31 @@ Score = Annotated[float, Field(ge=0.0, le=1.0)]
 REVIEW_STATUSES = ("candidate", "approved", "alternative", "hard_only", "rejected")
 ReviewStatus = Literal["candidate", "approved", "alternative", "hard_only", "rejected"]
 
+# Статусы, означающие «связь идёт в игру». Для них частотность слова обязательна:
+# без неё нельзя утверждать, что средний игрок это слово знает.
+PLAYABLE_STATUSES = ("approved", "alternative", "hard_only")
+
+# Куда падает связь, когда данных для решения нет. Правило аудита: отсутствующие
+# данные должны закрывать связь, а не проходить как подтверждённые.
+FAIL_CLOSED_STATUS = "candidate"
+
+
+def familiarity_gate(
+    review_status: str, familiarity_score: float | None
+) -> tuple[str, str | None]:
+    """Запрещает играбельный статус при неизвестной частотности.
+
+    Возвращает (статус, причина понижения). Причина не None только если статус изменён.
+    `rejected` и `candidate` не трогаем: им частотность не нужна.
+    """
+    if familiarity_score is not None or review_status not in PLAYABLE_STATUSES:
+        return review_status, None
+    return (
+        FAIL_CLOSED_STATUS,
+        f"частотность слова неизвестна: статус {review_status} понижен "
+        f"до {FAIL_CLOSED_STATUS} до ручной проверки",
+    )
+
 RISK_FLAGS = (
     "obscure",
     "regional",
@@ -33,7 +58,20 @@ RISK_FLAGS = (
     "highly_ambiguous",
     "sensitive",
     "possible_duplicate",
+    # добавлено по аудиту: терминологические и правовые риски
+    "outdated_term",  # устаревшее название, есть современная замена (gypsy moth -> spongy moth)
+    "trademark",  # товарный знак: написание и правовой статус нужно проверять
+    "no_familiarity",  # частотность посчитать не удалось: связь не может быть approved
+    "needs_sense",  # слово переиспользуется в разных смыслах, значения не разведены
 )
+
+# Семантическая корректность связи — отдельная ось от игровой пригодности
+# (review_status). Связь бывает correct и hard_only одновременно.
+SEMANTIC_STATUSES = ("unreviewed", "correct", "disputed", "incorrect")
+SemanticStatus = Literal["unreviewed", "correct", "disputed", "incorrect"]
+
+# Готовность категории к автоматической сборке уровней
+CATEGORY_READINESS = ("unknown", "ready", "constrained", "curated_only", "hard_only", "blocked")
 
 
 class CategoryInput(BaseModel):
@@ -79,6 +117,8 @@ class MembershipCandidateInput(BaseModel):
     obviousness_score: Score
     source: str = "ai"
     review_status: ReviewStatus = "candidate"
+    semantic_status: SemanticStatus = "unreviewed"
+    gameplay_difficulty: Score | None = None
     risk_flags: list[str] = Field(default_factory=list)
 
     @field_validator("word")
@@ -144,6 +184,9 @@ class ReviewDecisionInput(BaseModel):
     membership_id: int | None = Field(default=None, gt=0)
     decision: ReviewStatus
     review_comment: str | None = None
+    # необязательная колонка: reviewer может отдельно отметить семантику
+    semantic_status: SemanticStatus | None = None
+    gameplay_difficulty: Score | None = None
 
     @field_validator("membership_id", mode="before")
     @classmethod
@@ -165,3 +208,82 @@ class ReviewDecisionInput(BaseModel):
     @classmethod
     def _empty_to_none(cls, value: str | None) -> str | None:
         return value or None
+
+    @field_validator("semantic_status", "gameplay_difficulty", mode="before")
+    @classmethod
+    def _blank_optional(cls, value: object) -> object:
+        if isinstance(value, str) and not value.strip():
+            return None
+        return value
+
+
+class CategoryConflictInput(BaseModel):
+    """Строка category_conflicts.csv: две категории, которые нельзя ставить в один уровень."""
+
+    model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
+
+    category_a: str
+    category_b: str
+    conflict_type: Literal["do_not_pair", "needs_disjoint_words"] = "do_not_pair"
+    origin: Literal["derived", "manual"] = "derived"
+    overlap_count: int = Field(default=0, ge=0)
+    overlap_words: str | None = None
+    severity: str | None = None
+    note: str | None = None
+
+    @field_validator("category_a", "category_b")
+    @classmethod
+    def _check_key(cls, value: str) -> str:
+        if not is_valid_category_key(value):
+            raise ValueError(f"Неверный category_key: {value!r}")
+        return value
+
+    @model_validator(mode="after")
+    def _distinct(self) -> CategoryConflictInput:
+        if self.category_a == self.category_b:
+            raise ValueError("Категория не может конфликтовать сама с собой")
+        return self
+
+
+class QuartetInput(BaseModel):
+    """Строка quartets.csv: проверенная четвёрка слов одной категории."""
+
+    model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
+
+    quartet_key: str = Field(min_length=1)
+    category_key: str
+    tier: Literal["normal", "hard"] = "normal"
+    review_state: Literal["auto_validated", "human_approved", "rejected"] = "auto_validated"
+    solver_state: Literal["unchecked", "unique", "ambiguous"] = "unchecked"
+    difficulty: Score | None = None
+    note: str | None = None
+    # четыре слова через "|", по желанию с значением: "ring#ring_arena"
+    words: str
+
+    @field_validator("category_key")
+    @classmethod
+    def _check_key(cls, value: str) -> str:
+        if not is_valid_category_key(value):
+            raise ValueError(f"Неверный category_key: {value!r}")
+        return value
+
+    @property
+    def word_items(self) -> list[tuple[str, str | None]]:
+        items: list[tuple[str, str | None]] = []
+        for chunk in self.words.split("|"):
+            chunk = chunk.strip()
+            if not chunk:
+                continue
+            word, _, sense = chunk.partition("#")
+            items.append((word.strip(), sense.strip() or None))
+        return items
+
+    @model_validator(mode="after")
+    def _exactly_four(self) -> QuartetInput:
+        items = self.word_items
+        if len(items) != 4:
+            raise ValueError(f"В четвёрке должно быть ровно 4 слова, получено {len(items)}")
+        normalized = {normalize_word(word) for word, _ in items}
+        if len(normalized) != 4:
+            raise ValueError("В четвёрке есть повторяющиеся слова")
+        return self

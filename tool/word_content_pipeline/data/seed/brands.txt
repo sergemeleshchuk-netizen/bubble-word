@@ -38,8 +38,8 @@ Lego, Hasbro, Mattel, Fisher Price, Barbie, Hot Wheels, Nerf, Play Doh, Lincoln 
 car_models | CAR MODELS | is_a | 0.35 | 0.75 | AP | Well known car model names | $W is a well known car model
 Mustang, Corvette, Civic, Camry, Accord, Beetle, Jeep Wrangler, F150, Silverado, Prius, Impala, Charger, Explorer, Tahoe, Camaro, Ranger
 
-candy_bar_flavors | DAIRY BRANDS | is_a | 0.4 | 0.72 | AP | Ice cream brands sold in America | $W is an American ice cream brand
-Ben and Jerry, Haagen Dazs, Breyers, Dreyers, Blue Bell, Klondike, Popsicle, Drumstick, Eskimo Pie, Magnum, Talenti, Edys
+frozen_treat_brands | FROZEN TREATS | is_a | 0.4 | 0.72 | AP | Brands and products sold in the American ice cream aisle | $W is sold in the American ice cream aisle
+Ben and Jerry, Haagen Dazs, Breyers, Dreyers, Blue Bell, Klondike, Popsicle, Drumstick, Magnum, Talenti, Edys
 
 sports_brands | SPORTS BRANDS | is_a | 0.4 | 0.72 | AP | Brands of sports equipment | $W is a sports equipment brand
 Wilson, Spalding, Rawlings, Titleist, Callaway, Easton, Louisville Slugger, Bauer, Head, Prince, Franklin, Schwinn
@@ -56,8 +56,10 @@ Starbucks, Folgers, Maxwell House, Dunkin, Peets, Nescafe, Keurig, Caribou, Lava
 watch_and_luxury | LUXURY BRANDS | is_a | 0.4 | 0.7 | AP | Well known luxury brands | $W is a well known luxury brand
 Rolex, Gucci, Chanel, Prada, Cartier, Tiffany, Versace, Dior, Hermes, Armani, Burberry, Omega, Ferrari, Lamborghini
 
-bank_brands | BANK BRANDS | is_a | 0.45 | 0.65 | AP | Major American banks and card brands | $W is a major American bank or card brand
-Chase, Wells Fargo, Citibank, Visa, Mastercard, Amex, Discover, PNC, Capital One, US Bank, TD Bank, Ally
+bank_brands | BANK BRANDS | is_a | 0.45 | 0.65 | AP | Major American retail banks | $W is a major American bank
+Chase, Wells Fargo, Citibank, PNC, Capital One, US Bank, TD Bank, Ally, Truist, Regions Bank, Fifth Third, KeyBank
+payment_brands | PAYMENT BRANDS | is_a | 0.4 | 0.7 | AP | Card networks and payment apps used in America | $W is a card network or payment app
+Visa, Mastercard, Amex, Discover, PayPal, Venmo, Apple Pay, Zelle, Cash App, Stripe, Square, Google Pay
 
 paint_and_home | HARDWARE BRANDS | is_a | 0.45 | 0.62 | AP | Brands sold at a hardware store | $W is a brand sold at a hardware store
 Sherwin Williams, Behr, Valspar, Rustoleum, Gorilla Glue, Elmers, Scotch, Duracell, Energizer, WD40, Weber, Ace

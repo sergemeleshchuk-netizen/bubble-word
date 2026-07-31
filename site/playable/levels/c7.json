@@ -1,0 +1,119 @@
+{
+  "level_id": 7,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "ways-of-looking",
+      "name": "Ways Of Looking",
+      "words": [
+        "spy",
+        "scan",
+        "survey",
+        "observe"
+      ]
+    },
+    {
+      "id": "art-class-things",
+      "name": "Art Class",
+      "words": [
+        "colors",
+        "patterns",
+        "shapes",
+        "paint"
+      ]
+    },
+    {
+      "id": "musical-instruments",
+      "name": "Musical Instruments",
+      "words": [
+        "guitar",
+        "piano",
+        "drum",
+        "organ"
+      ]
+    },
+    {
+      "id": "pie-ingredients",
+      "name": "Pie Ingredients",
+      "words": [
+        "chocolate",
+        "sugar",
+        "pumpkin",
+        "cream"
+      ]
+    },
+    {
+      "id": "birds",
+      "name": "Birds",
+      "words": [
+        "robin",
+        "duck",
+        "eagle",
+        "owl"
+      ]
+    },
+    {
+      "id": "weather-words",
+      "name": "Weather Words",
+      "words": [
+        "cloud",
+        "thunder",
+        "storm",
+        "hurricane"
+      ]
+    },
+    {
+      "id": "greek-letters",
+      "name": "Greek Letters",
+      "words": [
+        "beta",
+        "alpha",
+        "chi",
+        "xi"
+      ]
+    },
+    {
+      "id": "internal-organs",
+      "name": "Internal Organs",
+      "words": [
+        "stomach",
+        "liver",
+        "kidney",
+        "lung"
+      ]
+    },
+    {
+      "id": "spy-words",
+      "name": "Spy Words",
+      "words": [
+        "surveillance",
+        "agent",
+        "decoder",
+        "disguise"
+      ]
+    },
+    {
+      "id": "cleanliness-words",
+      "name": "Cleanliness Words",
+      "words": [
+        "dirty",
+        "filthy",
+        "stained",
+        "neat"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 41,
+    "move_limit_k": 1.367
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -18,7 +18,7 @@ birds_of_prey | BIRDS OF PREY | is_a | 0.3 | 0.8 | A | Birds that hunt other ani
 eagle, hawk, falcon, owl, kite, osprey, vulture, condor, harrier, kestrel, buzzard, merlin, goshawk
 
 butterflies_and_moths | BUTTERFLIES AND MOTHS | is_a | 0.4 | 0.68 | A | Kinds of butterfly and moth | $W is a kind of butterfly or moth
-monarch, swallowtail, painted lady, luna moth, admiral, fritillary, skipper, gypsy moth, sphinx moth, cabbage white, buckeye, viceroy
+monarch, swallowtail, painted lady, luna moth, admiral, fritillary, skipper, spongy moth, sphinx moth, cabbage white, buckeye, viceroy
 
 snakes | SNAKES | is_a | 0.3 | 0.8 | A | Kinds of snake | $W is a kind of snake
 cobra, python, rattlesnake, boa, viper, garter, anaconda, mamba, adder, copperhead, king snake, coral snake, sidewinder, bullsnake

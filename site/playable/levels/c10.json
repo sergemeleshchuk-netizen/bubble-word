@@ -1,0 +1,99 @@
+{
+  "level_id": 10,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "military-words",
+      "name": "Military Words",
+      "words": [
+        "squad",
+        "rank",
+        "formation",
+        "base"
+      ]
+    },
+    {
+      "id": "school-supplies",
+      "name": "School Supplies",
+      "words": [
+        "backpack",
+        "pen",
+        "notebook",
+        "folder"
+      ]
+    },
+    {
+      "id": "camping-and-outdoors",
+      "name": "Outdoor Activities",
+      "words": [
+        "fishing",
+        "canoeing",
+        "climbing",
+        "skiing"
+      ]
+    },
+    {
+      "id": "fabric-types",
+      "name": "Fabric Types",
+      "words": [
+        "cotton",
+        "velvet",
+        "silk",
+        "felt"
+      ]
+    },
+    {
+      "id": "weather-actions",
+      "name": "Weather Actions",
+      "words": [
+        "pour",
+        "melt",
+        "hail",
+        "freeze"
+      ]
+    },
+    {
+      "id": "destroying-actions",
+      "name": "Breaking Actions",
+      "words": [
+        "tear",
+        "crush",
+        "smash",
+        "burst"
+      ]
+    },
+    {
+      "id": "light-sources",
+      "name": "Light Sources",
+      "words": [
+        "laser",
+        "candle",
+        "lamp",
+        "bulb"
+      ]
+    },
+    {
+      "id": "royalty",
+      "name": "Royal Words",
+      "words": [
+        "princess",
+        "knight",
+        "throne",
+        "empire"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 36,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -1,0 +1,40 @@
+# Семантическая корректность связи — отдельная ось от игровой пригодности.
+# Связь бывает верной и при этом hard_only, и наоборот: approved и спорной.
+#
+# word          нормализованное слово или * для всей категории
+# category_key  ключ категории
+# semantic_status  correct | disputed | incorrect
+#                  incorrect отклоняет связь независимо от статуса review_status
+# note          почему; для спорных попадает в 06_manual_decisions.md
+#
+# Источник: word_database_audit (semantic_issues.csv, 31.07.2026).
+# Подтверждённые ошибки исправлены прямо в data/seed/*.txt, здесь остаётся то,
+# что требует решения человека или носителя языка.
+word,category_key,semantic_status,note
+silkworm,worms_and_crawlers,disputed,"Не настоящий червь (личинка мотылька), но в английском называется worm. Правило категории переписано на «commonly called worms» — нужно подтверждение носителя."
+inchworm,worms_and_crawlers,disputed,"Личинка пяденицы, не червь. Оставлено по узнаваемости названия."
+glowworm,worms_and_crawlers,disputed,"Личинка жука. Оставлено по узнаваемости названия."
+spider,insects,disputed,"Паук не насекомое. Название категории изменено на BUGS, правило допускает «other small bugs»."
+centipede,insects,disputed,"Многоножка не насекомое. См. spider."
+tick,insects,disputed,"Клещ не насекомое. См. spider."
+crayfish,crustaceans,correct,"Правило переписано на таксономическое: рак — крустацея, пресноводность правилу не противоречит."
+pill bug,crustaceans,correct,"Мокрица — наземная крустацея; таксономическое правило её включает."
+walrus,seals_and_walruses,correct,"Правило теперь включает моржа явно."
+penguin,arctic_animals,incorrect,"Пингвины живут в Антарктике. Слово убрано из пула, правило сужено до Арктики."
+kabuki,world_dances,incorrect,"Кабуки — форма театра, не танец. Слово убрано из пула."
+ringworm,worms_and_crawlers,incorrect,"Стригущий лишай — заболевание, не животное. Слово убрано из пула."
+wake,sleeping_actions,incorrect,"Противоречит правилу «во время сна или засыпания». Слово убрано из пула."
+blink,ways_of_looking,incorrect,"Мигание — действие глаза, а не способ смотреть. Слово убрано из пула."
+calfling,animal_babies,incorrect,"Не английское слово. Убрано из пула."
+tadpole,amphibians_and_bugs,incorrect,"Стадия развития, а не вид амфибии. Остаётся в BABY ANIMALS."
+jenga,board_games,incorrect,"Игра без доски. Убрана из пула."
+dominoes,board_games,incorrect,"Игра без доски. Остаётся в CLASSIC GAMES."
+yahtzee,board_games,incorrect,"Игра в кости без доски. Убрана из пула."
+hive,animal_groups,incorrect,"Улей — сооружение, а не собирательное существительное. Убран из пула."
+nest,animal_groups,incorrect,"Гнездо — сооружение. Убрано из пула."
+*,flags_and_symbols,disputed,"NATIONAL SYMBOLS: страна в данных не хранится, случайная четвёрка не имеет одного общего правила. Категория помечена curated_only."
+*,opposites,disputed,"OPPOSITES: пары противоположностей не заданы, случайные четыре слова могут не образовать двух понятных пар. Категория помечена curated_only, пары в _category_meta.json."
+*,jellyfish_and_soft,disputed,"SOFT CREATURES: правило субъективное, под него подходит слишком много морских беспозвоночных."
+*,card_and_dice_games,disputed,"CLASSIC GAMES: субъективное правило и устаревший ключ card_and_dice_games; сильно пересекается с PLAYGROUND GAMES и BOARD GAMES."
+Dreyers,frozen_treat_brands,disputed,"Dreyer's и Edy's — один продукт под региональными именами. Нужно решить, оставлять оба или один."
+Edys,frozen_treat_brands,disputed,"См. Dreyers."

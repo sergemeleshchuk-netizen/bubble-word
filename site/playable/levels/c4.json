@@ -1,0 +1,109 @@
+{
+  "level_id": 4,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "evergreens",
+      "name": "Evergreen Trees",
+      "words": [
+        "pine",
+        "holly",
+        "cedar",
+        "fir"
+      ]
+    },
+    {
+      "id": "tennis-words",
+      "name": "Tennis Words",
+      "words": [
+        "deuce",
+        "serve",
+        "baseline",
+        "racket"
+      ]
+    },
+    {
+      "id": "temperature-words",
+      "name": "Temperature Words",
+      "words": [
+        "warm",
+        "freezing",
+        "mild",
+        "boiling"
+      ]
+    },
+    {
+      "id": "sleep-and-rest",
+      "name": "Sleep Words",
+      "words": [
+        "nightmare",
+        "nap",
+        "dream",
+        "pillow"
+      ]
+    },
+    {
+      "id": "airport-words",
+      "name": "Airport Words",
+      "words": [
+        "terminal",
+        "pilot",
+        "customs",
+        "airlines"
+      ]
+    },
+    {
+      "id": "theater-words",
+      "name": "Theater Words",
+      "words": [
+        "script",
+        "spotlight",
+        "curtain",
+        "rehearsal"
+      ]
+    },
+    {
+      "id": "cutting-tools",
+      "name": "Cutting Tools",
+      "words": [
+        "knife",
+        "blade",
+        "razor",
+        "scissors"
+      ]
+    },
+    {
+      "id": "fruits",
+      "name": "Fruits",
+      "words": [
+        "cherry",
+        "banana",
+        "orange",
+        "lemon"
+      ]
+    },
+    {
+      "id": "restaurant-words",
+      "name": "Restaurant Words",
+      "words": [
+        "chef",
+        "reservation",
+        "booth",
+        "menu"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 37,
+    "move_limit_k": 1.37
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "level_id": 8,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 35,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "categories": [
+    {
+      "key": "pests",
+      "label": "PESTS",
+      "words": [
+        {
+          "text": "mouse",
+          "kind": "word"
+        },
+        {
+          "text": "insects",
+          "kind": "word"
+        },
+        {
+          "text": "ant",
+          "kind": "word"
+        },
+        {
+          "text": "termite",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_morning",
+      "label": "FARM",
+      "words": [
+        {
+          "text": "pests",
+          "kind": "meta",
+          "meta_child": "pests"
+        },
+        {
+          "text": "barn",
+          "kind": "word"
+        },
+        {
+          "text": "livestock",
+          "kind": "word"
+        },
+        {
+          "text": "tractor",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "home_rooms",
+      "label": "HOUSE ROOMS",
+      "words": [
+        {
+          "text": "bedroom",
+          "kind": "word"
+        },
+        {
+          "text": "kitchen",
+          "kind": "word"
+        },
+        {
+          "text": "basement",
+          "kind": "word"
+        },
+        {
+          "text": "den",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wild_west",
+      "label": "WILD WEST",
+      "words": [
+        {
+          "text": "boots",
+          "kind": "word"
+        },
+        {
+          "text": "horse",
+          "kind": "word"
+        },
+        {
+          "text": "marshal",
+          "kind": "word"
+        },
+        {
+          "text": "spurs",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "car_parts",
+      "label": "CAR PARTS",
+      "words": [
+        {
+          "text": "hood",
+          "kind": "word"
+        },
+        {
+          "text": "trunk",
+          "kind": "word"
+        },
+        {
+          "text": "horn",
+          "kind": "word"
+        },
+        {
+          "text": "brake",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "video_game_words",
+      "label": "GAMING WORDS",
+      "words": [
+        {
+          "text": "quest",
+          "kind": "word"
+        },
+        {
+          "text": "console",
+          "kind": "word"
+        },
+        {
+          "text": "controller",
+          "kind": "word"
+        },
+        {
+          "text": "avatar",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "meats",
+      "label": "MEATS",
+      "words": [
+        {
+          "text": "beef",
+          "kind": "word"
+        },
+        {
+          "text": "bacon",
+          "kind": "word"
+        },
+        {
+          "text": "ham",
+          "kind": "word"
+        },
+        {
+          "text": "steak",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "calendar_words",
+      "label": "CALENDAR WORDS",
+      "words": [
+        {
+          "text": "decade",
+          "kind": "word"
+        },
+        {
+          "text": "era",
+          "kind": "word"
+        },
+        {
+          "text": "holiday",
+          "kind": "word"
+        },
+        {
+          "text": "anniversary",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "medical_jobs",
+      "label": "MEDICAL JOBS",
+      "words": [
+        {
+          "text": "nurse",
+          "kind": "word"
+        },
+        {
+          "text": "therapist",
+          "kind": "word"
+        },
+        {
+          "text": "vet",
+          "kind": "word"
+        },
+        {
+          "text": "surgeon",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

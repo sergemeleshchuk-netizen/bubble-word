@@ -28,6 +28,34 @@ def connect(db_path: Path | str) -> sqlite3.Connection:
     return conn
 
 
+# Колонки, добавленные после первой версии схемы. CREATE TABLE IF NOT EXISTS
+# не догоняет старую базу, поэтому недостающие колонки добавляются явно.
+ADDED_COLUMNS: dict[str, list[tuple[str, str]]] = {
+    "categories": [
+        ("readiness", "TEXT NOT NULL DEFAULT 'unknown'"),
+        ("readiness_reason", "TEXT NULL"),
+    ],
+    "memberships": [
+        ("semantic_status", "TEXT NOT NULL DEFAULT 'unreviewed'"),
+        ("gameplay_difficulty", "REAL NULL"),
+    ],
+}
+
+
+def _add_missing_columns(conn: sqlite3.Connection) -> list[str]:
+    """Догоняет базу, созданную предыдущей версией схемы. Возвращает список правок."""
+    applied: list[str] = []
+    for table, columns in ADDED_COLUMNS.items():
+        existing = {row["name"] for row in conn.execute(f"PRAGMA table_info({table})")}
+        if not existing:
+            continue  # таблицы ещё нет — её создаст schema.sql
+        for name, definition in columns:
+            if name not in existing:
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {name} {definition}")
+                applied.append(f"{table}.{name}")
+    return applied
+
+
 def init_db(db_path: Path | str) -> Path:
     """Создаёт файл базы и все таблицы. Повторный запуск безопасен."""
     path = Path(db_path)
@@ -36,6 +64,7 @@ def init_db(db_path: Path | str) -> Path:
     try:
         with conn:
             conn.executescript(schema_sql)
+            _add_missing_columns(conn)
     finally:
         conn.close()
     return path

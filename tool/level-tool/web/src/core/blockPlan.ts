@@ -104,6 +104,7 @@ function metaDepthTarget(role: LevelRole, metaCount: number, config: BlockConfig
 
 function targetDifficulty(role: LevelRole): [number, number] {
   switch (role) {
+    case 'tutorial': return [1.0, 2.0];
     case 'entry': return [5.5, 6.5];
     case 'growth': return [6.0, 7.5];
     case 'recovery': return [4.0, 5.5];
@@ -122,6 +123,7 @@ function targetDifficulty(role: LevelRole): [number, number] {
  */
 function targetInterest(role: LevelRole): [number, number] {
   switch (role) {
+    case 'tutorial': return [6.5, 8.5];
     case 'entry': return [6.5, 8.0];
     case 'growth': return [6.0, 8.0];
     case 'recovery': return [7.0, 9.0];
@@ -132,8 +134,9 @@ function targetInterest(role: LevelRole): [number, number] {
 }
 
 /** K лимита ходов: чем тяжелее роль, тем теснее проход. */
-function moveLimitK(role: LevelRole): number {
+function moveLimitK(role: LevelRole): number | null {
   switch (role) {
+    case 'tutorial': return null;
     case 'recovery': return MAX_MOVE_LIMIT_K;
     case 'entry': return 1.45;
     case 'exit': return 1.5;
@@ -147,14 +150,18 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
   const [from, to] = config.levelRange;
   const total = to - from + 1;
   const [rareLo, rareHi] = config.rarityRange;
+  // туториал: первый уровень игры вообще. 5 категорий, весь уровень на поле,
+  // лимита ходов нет, мета и модификаторы запрещены (референс L1)
+  const tutorial = config.decadeGates?.tutorialFirstLevel === true && from === 1;
 
   const plans: LevelPlan[] = [];
   for (let position = 1; position <= total; position += 1) {
     const role = roleFor(position, total, config);
+    const isTutorial = tutorial && position === 1;
     const categoryCount = config.categoryPlan?.[position - 1]
       ?? derivedCategoryCount(role, position, total, config);
-    const metaCount = config.metaPlan?.[position - 1]
-      ?? derivedMetaCount(role, categoryCount, config);
+    const metaCount = isTutorial ? 0 : (config.metaPlan?.[position - 1]
+      ?? derivedMetaCount(role, categoryCount, config));
 
     // редкость — единственный признак референса, который рос до самого конца
     // и не разворачивался; растим её вместе с ролью, а не с номером уровня
@@ -162,29 +169,32 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       : role === 'recovery' ? 0.15 : role === 'growth' ? 0.6 : 0.3;
     const rareTarget = Math.round(rareLo + (rareHi - rareLo) * load);
 
-    const trapTarget = role === 'recovery' ? 0
+    const trapTarget = isTutorial ? 0
+      : role === 'recovery' ? 0
       : role === 'peak' ? 2 : role === 'spike' ? 2 : 1;
 
     // Модификатор — акцент, а не фон: цепи ставятся только на пики. Когда они
     // стояли на каждом уровне роста, верх шкалы сложности схлопывался (четыре
     // уровня подряд упирались в 9.5-10) и терялась разрешающая способность.
-    const chainCount = config.allowedModifiers.includes('chains')
+    const chainCount = config.allowedModifiers.includes('chains') && !isTutorial
       ? (role === 'peak' ? 2 : role === 'spike' ? 1 : 0)
       : 0;
 
     plans.push({
       levelId: from + position - 1,
       position,
-      role,
+      role: isTutorial ? 'tutorial' : role,
       categoryCount,
       metaCount: Math.min(metaCount, categoryCount - 1),
-      metaDepthTarget: metaDepthTarget(role, metaCount, config),
-      rareTarget,
+      metaDepthTarget: isTutorial ? 0 : metaDepthTarget(role, metaCount, config),
+      rareTarget: isTutorial ? 0 : rareTarget,
       trapTarget,
       chainCount,
-      targetDifficulty: targetDifficulty(role),
-      targetInterest: targetInterest(role),
-      moveLimitK: moveLimitK(role),
+      targetDifficulty: isTutorial ? [1.0, 2.0] : targetDifficulty(role),
+      targetInterest: isTutorial ? [6.5, 8.5] : targetInterest(role),
+      // лимита ходов на туториале нет: в референсе L1 без лимита, поле держит
+      // весь уровень целиком, игрока учат только драгу
+      moveLimitK: isTutorial ? null : moveLimitK(role),
     });
   }
   return plans;
@@ -204,20 +214,32 @@ export function checkBlockRhythm(plans: LevelPlan[]): { passed: boolean; issues:
       + 'а в референсе 37% уровней проще предыдущего');
   }
 
+  /**
+   * Разброс. Верхнюю границу добавили по замеру всех 19 полных декад референса:
+   * там разброс макс-мин стабильно 5-7 категорий. Раньше проверялось только
+   * `>= 4`, и блок с разбросом 3 (как даёт усреднённый шаблон) проходил, хотя
+   * на референс не похож; блок с разбросом 12 тоже проходил, хотя это уже
+   * не ритм, а качели.
+   */
   const spread = Math.max(...counts) - Math.min(...counts);
-  if (spread < 4) {
+  if (spread < 5 || spread > 7) {
     issues.push(`разброс внутри блока ${spread} категорий, в референсе стабильно 5-7`);
   }
 
   const peaks = plans.filter((p) => p.role === 'peak' || p.role === 'spike');
-  if (peaks.length < 2) issues.push('меньше двух выраженных пиков');
+  if (peaks.length < 1) issues.push('нет ни одного выраженного пика');
 
-  for (const peak of peaks) {
-    const next = plans.find((p) => p.position === peak.position + 1);
-    if (next && next.categoryCount >= peak.categoryCount) {
-      issues.push(`после пика на позиции ${peak.position} нет передышки: `
-        + `уровень ${next.levelId} не проще`);
-    }
+  /**
+   * Передышка гарантируется только после позиции 5 — это единственная фигура,
+   * устойчивая в референсе (16 декад из 19 идут вниз именно на позиции 6).
+   * Требовать провал после КАЖДОГО пика было ошибкой: позиция 10 в референсе,
+   * наоборот, самая нагруженная после спайка (1.07 от средней декады).
+   */
+  const mainSpike = plans.find((p) => p.position === 5);
+  const afterSpike = plans.find((p) => p.position === 6);
+  if (mainSpike && afterSpike && afterSpike.categoryCount >= mainSpike.categoryCount) {
+    issues.push('после спайка на позиции 5 нет передышки: '
+      + `уровень ${afterSpike.levelId} не проще уровня ${mainSpike.levelId}`);
   }
 
   for (let i = 1; i < plans.length; i += 1) {

@@ -10,6 +10,9 @@ import { useState } from 'react';
 import type { BlockConfig, BlockResult, GeneratedLevel, LevelPlan } from '../core/types.ts';
 import { parseIntent, type ParsedIntent } from '../core/intentParser.ts';
 import { startBubbles } from '../core/levelMath.ts';
+import {
+  configForRange, decadeLabel, profileForRange, visibleShareMin,
+} from '../core/decadeProfiles.ts';
 
 const ROLE_LABEL: Record<string, string> = {
   entry: 'вход', growth: 'рост', recovery: 'передышка',
@@ -143,6 +146,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
     'Еда и путешествия, без спорта, два пика, передышка после каждого пика, '
     + 'несколько честных ловушек на цветах, побольше редких слов.');
   const [parsed, setParsed] = useState<ParsedIntent | null>(null);
+  const decade = profileForRange(config.levelRange);
 
   const patch = (p: Partial<BlockConfig>) => onChange({ ...config, ...p });
   const nums = (v: string) => v.split(/[^0-9]+/).filter(Boolean).map(Number);
@@ -225,6 +229,62 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
       </div>
 
       <div className="panel">
+        <h2>Профиль декады</h2>
+        <p className="hint">
+          Профиль подставляется по номеру уровней из замера всех 199 уровней
+          оригинала (docs/DECADE_CALIBRATION.md). Любое поле ниже можно
+          переопределить руками — профиль это старт, а не запрет.
+        </p>
+        <div className="grid c3">
+          <div className="field">
+            <span className="lbl">декада</span>
+            <strong>{decadeLabel(decade)}</strong>
+          </div>
+          <div className="field">
+            <span className="lbl">категорий в среднем</span>
+            <strong>{decade.categoryMean}</strong>
+            <span className="small muted">коридор {decade.categoryCorridor.join('–')}</span>
+          </div>
+          <div className="field">
+            <span className="lbl">целевая узнаваемость</span>
+            <strong>медиана zipf {decade.zipfMedianTarget}</strong>
+            <span className="small muted">p25 {decade.zipfP25Target}</span>
+          </div>
+          <div className="field">
+            <span className="lbl">форма слова</span>
+            <strong>{decade.maxTokens === 1 ? 'только однословные' : `до ${decade.maxTokens} слов`}</strong>
+            <span className="small muted">
+              до {decade.maxWordLen} букв, имена собственные от zipf {decade.minProperNounZipf}
+            </span>
+          </div>
+          <div className="field">
+            <span className="lbl">мета-пар на уровень</span>
+            <strong>{decade.metaRange.join('–')}</strong>
+            <span className="small muted">повторов слов {decade.repeatRange.join('–')}</span>
+          </div>
+          <div className="field">
+            <span className="lbl">модификаторы</span>
+            <strong>{decade.allowedModifiers.length ? 'цепи разрешены' : 'запрещены'}</strong>
+            <span className="small muted">
+              видно на поле от {(visibleShareMin(decade) * 100).toFixed(0)}% уровня
+            </span>
+          </div>
+        </div>
+        {config.levelRange[0] === 1 && (
+          <p className="small" style={{ color: 'var(--ok)', marginTop: 8 }}>
+            Уровень 1 — туториал: 5 категорий, весь уровень на поле, лимита ходов нет,
+            мета-пар и модификаторов ноль (как L1 оригинала).
+          </p>
+        )}
+        {!config.decadeGates && (
+          <p className="small" style={{ color: 'var(--warn)', marginTop: 8 }}>
+            Гейты декады выключены: это пресет блока 201–210, он воспроизводит
+            сдаваемый пакет байт-в-байт. Поменяйте диапазон, чтобы включить калибровку.
+          </p>
+        )}
+      </div>
+
+      <div className="panel">
         <h2>Параметры</h2>
         <div className="grid c3">
           <label className="field">
@@ -232,7 +292,13 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             <input type="text" value={config.levelRange.join('–')}
               onChange={(e) => {
                 const v = nums(e.target.value);
-                if (v.length === 2) patch({ levelRange: [v[0], v[1]] });
+                /**
+                 * Смена диапазона пересобирает ВЕСЬ профиль из таблицы декад,
+                 * а не только два числа. Именно на этом мы получили блок 1-10
+                 * с контентом уровней ~150: диапазон поменяли, а коридор
+                 * категорий, редкость и модификаторы остались от пресета 201-210.
+                 */
+                if (v.length === 2) onChange(configForRange([v[0], v[1]], config.seed));
               }} />
           </label>
           <label className="field">

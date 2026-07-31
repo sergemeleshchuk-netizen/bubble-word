@@ -1,0 +1,89 @@
+{
+  "level_id": 3,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "elements",
+      "name": "Chemical Elements",
+      "words": [
+        "carbon",
+        "oxygen",
+        "hydrogen",
+        "nitrogen"
+      ]
+    },
+    {
+      "id": "kitchen-tools",
+      "name": "Kitchen Tools",
+      "words": [
+        "pot",
+        "pan",
+        "spoon",
+        "plate"
+      ]
+    },
+    {
+      "id": "dishes-and-glassware",
+      "name": "Dishes",
+      "words": [
+        "dish",
+        "bowl",
+        "bottle",
+        "jar"
+      ]
+    },
+    {
+      "id": "cleaning-actions",
+      "name": "Cleaning Actions",
+      "words": [
+        "polish",
+        "wash",
+        "wipe",
+        "vacuum"
+      ]
+    },
+    {
+      "id": "weapons-of-the-past",
+      "name": "Old Weapons",
+      "words": [
+        "bow",
+        "sword",
+        "dagger",
+        "axe"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "Furniture",
+      "words": [
+        "desk",
+        "bench",
+        "couch",
+        "chair"
+      ]
+    },
+    {
+      "id": "noise-adjectives",
+      "name": "Volume Words",
+      "words": [
+        "loud",
+        "silent",
+        "deafening",
+        "quiet"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 29,
+    "move_limit_k": 1.381
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

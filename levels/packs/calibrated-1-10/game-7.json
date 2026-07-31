@@ -1,0 +1,236 @@
+{
+  "level_id": 7,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 40,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "categories": [
+    {
+      "key": "ways_of_looking",
+      "label": "WAYS OF LOOKING",
+      "words": [
+        {
+          "text": "spy",
+          "kind": "word"
+        },
+        {
+          "text": "scan",
+          "kind": "word"
+        },
+        {
+          "text": "survey",
+          "kind": "word"
+        },
+        {
+          "text": "observe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "art_class_things",
+      "label": "ART CLASS",
+      "words": [
+        {
+          "text": "colors",
+          "kind": "word"
+        },
+        {
+          "text": "patterns",
+          "kind": "word"
+        },
+        {
+          "text": "shapes",
+          "kind": "word"
+        },
+        {
+          "text": "paint",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
+      "words": [
+        {
+          "text": "guitar",
+          "kind": "word"
+        },
+        {
+          "text": "piano",
+          "kind": "word"
+        },
+        {
+          "text": "drum",
+          "kind": "word"
+        },
+        {
+          "text": "organ",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pie_ingredients",
+      "label": "PIE INGREDIENTS",
+      "words": [
+        {
+          "text": "chocolate",
+          "kind": "word"
+        },
+        {
+          "text": "sugar",
+          "kind": "word"
+        },
+        {
+          "text": "pumpkin",
+          "kind": "word"
+        },
+        {
+          "text": "cream",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds",
+      "label": "BIRDS",
+      "words": [
+        {
+          "text": "robin",
+          "kind": "word"
+        },
+        {
+          "text": "duck",
+          "kind": "word"
+        },
+        {
+          "text": "eagle",
+          "kind": "word"
+        },
+        {
+          "text": "owl",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_words",
+      "label": "WEATHER WORDS",
+      "words": [
+        {
+          "text": "cloud",
+          "kind": "word"
+        },
+        {
+          "text": "thunder",
+          "kind": "word"
+        },
+        {
+          "text": "storm",
+          "kind": "word"
+        },
+        {
+          "text": "hurricane",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "greek_letters",
+      "label": "GREEK LETTERS",
+      "words": [
+        {
+          "text": "beta",
+          "kind": "word"
+        },
+        {
+          "text": "alpha",
+          "kind": "word"
+        },
+        {
+          "text": "chi",
+          "kind": "word"
+        },
+        {
+          "text": "xi",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "internal_organs",
+      "label": "INTERNAL ORGANS",
+      "words": [
+        {
+          "text": "stomach",
+          "kind": "word"
+        },
+        {
+          "text": "liver",
+          "kind": "word"
+        },
+        {
+          "text": "kidney",
+          "kind": "word"
+        },
+        {
+          "text": "lung",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "spy_words",
+      "label": "SPY WORDS",
+      "words": [
+        {
+          "text": "surveillance",
+          "kind": "word"
+        },
+        {
+          "text": "agent",
+          "kind": "word"
+        },
+        {
+          "text": "decoder",
+          "kind": "word"
+        },
+        {
+          "text": "disguise",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cleanliness_words",
+      "label": "CLEANLINESS WORDS",
+      "words": [
+        {
+          "text": "dirty",
+          "kind": "word"
+        },
+        {
+          "text": "filthy",
+          "kind": "word"
+        },
+        {
+          "text": "stained",
+          "kind": "word"
+        },
+        {
+          "text": "neat",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,7 +1,11 @@
 /**
  * Офлайн-сборка блока уровней тем же ядром, что работает в браузере.
  *
- *   node scripts/generate_block.ts [--seed SEED] [--out DIR] [--quiet]
+ *   node scripts/generate_block.ts [--seed SEED] [--range 1-10] [--out DIR]
+ *
+ * Без --range берётся пресет блока 201-210 (он воспроизводит сдаваемый пакет
+ * и проверяется хешем). С --range конфиг собирается из профиля декады —
+ * docs/DECADE_CALIBRATION.md, web/src/core/decadeProfiles.ts.
  *
  * Печатает отчёт по блоку и, если задан --out, пишет туда pipeline JSON и game JSON.
  */
@@ -11,6 +15,9 @@ import { fileURLToPath } from 'node:url';
 
 import type { BlockConfig, Snapshot } from '../web/src/core/types.ts';
 import { DEFAULT_BLOCK_CONFIG, buildBlockPlan, checkBlockRhythm } from '../web/src/core/blockPlan.ts';
+import {
+  checkDecadeFit, configForRange, decadeLabel, profileForRange,
+} from '../web/src/core/decadeProfiles.ts';
 import { generateBlock, toGameJson, toPipelineJson } from '../web/src/core/generateBlock.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 
@@ -35,7 +42,16 @@ try {
   referenceQuadrupleHashes = undefined;
 }
 
-const config: BlockConfig = { ...DEFAULT_BLOCK_CONFIG, seed: arg('seed') ?? DEFAULT_BLOCK_CONFIG.seed };
+const rangeArg = arg('range');
+const seed = arg('seed') ?? DEFAULT_BLOCK_CONFIG.seed;
+let config: BlockConfig;
+if (rangeArg) {
+  const parts = rangeArg.split(/[-–\s]+/).map(Number).filter((n) => Number.isFinite(n));
+  if (parts.length !== 2) throw new Error(`--range ждёт вид 1-10, получено «${rangeArg}»`);
+  config = configForRange([parts[0], parts[1]], seed);
+} else {
+  config = { ...DEFAULT_BLOCK_CONFIG, seed };
+}
 
 const rhythm = checkBlockRhythm(buildBlockPlan(config));
 const started = Date.now();
@@ -44,6 +60,14 @@ const elapsed = Date.now() - started;
 
 console.log(`снимок базы   ${snapshot.content_snapshot_hash.slice(0, 16)}…`);
 console.log(`seed          ${config.seed}`);
+console.log(`диапазон      ${config.levelRange.join('-')}`
+  + (rangeArg ? `, профиль декады ${decadeLabel(profileForRange(config.levelRange))}` : ', пресет 201-210'));
+if (config.decadeGates) {
+  const g = config.decadeGates;
+  console.log(`гейты декады  медиана zipf ${g.zipfMedianTarget}, p25 ${g.zipfP25Target}, `
+    + `${g.maxTokens} токен(а), до ${g.maxWordLen} букв, имена от zipf ${g.minProperNounZipf}`);
+  console.log(`план категорий ${(config.categoryPlan ?? []).join(', ')}`);
+}
 console.log(`ритм блока    ${rhythm.passed ? 'PASS' : 'ЗАМЕЧАНИЯ'}`);
 for (const issue of rhythm.issues) console.log(`  - ${issue}`);
 console.log(`собрано       ${result.levels.length} из ${buildBlockPlan(config).length}`
@@ -93,6 +117,29 @@ if (allIssues.size) {
   console.log('\nЗамечания валидатора по блоку:');
   for (const [code, n] of Array.from(allIssues).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${code}: ${n}`);
+  }
+}
+
+// приёмка блока по декаде: часть требований проверяема только на блоке целиком
+if (rangeArg && result.levels.length) {
+  const profile = profileForRange(config.levelRange);
+  const fit = checkDecadeFit(result.levels.map((l) => ({
+    levelId: l.spec.levelId,
+    categoryCount: l.spec.categories.length,
+    zipfs: l.spec.categories.flatMap((c) => c.words.map((w) => w.zipf)),
+    metaCount: l.spec.categories.reduce((n, c) =>
+      n + c.words.filter((w) => w.kind === 'meta').length, 0),
+    metaDepth: Math.max(0, ...l.spec.categories.map((c) => c.metaDepth)),
+    chainCount: l.spec.modifiers.chains.length,
+    moveLimit: l.spec.board.moveLimit,
+    startBubbles: l.spec.board.startBubbles,
+    boardCapacity: l.spec.board.boardCapacity,
+    wordsPerCategory: l.spec.board.wordsPerCategory,
+  })), profile, undefined, buildBlockPlan(config).length);
+  console.log(`\nПриёмка по декаде ${decadeLabel(profile)}: `
+    + `${fit.passed ? 'PASS' : 'ЕСТЬ РАСХОЖДЕНИЯ'}`);
+  for (const c of fit.checks) {
+    console.log(`  ${c.passed ? 'ok  ' : 'FAIL'} ${c.code.padEnd(22)} ${c.detail}`);
   }
 }
 

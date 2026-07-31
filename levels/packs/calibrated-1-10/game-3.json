@@ -1,0 +1,170 @@
+{
+  "level_id": 3,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 28,
+    "board_capacity": 24,
+    "move_limit": 29
+  },
+  "categories": [
+    {
+      "key": "elements",
+      "label": "CHEMICAL ELEMENTS",
+      "words": [
+        {
+          "text": "carbon",
+          "kind": "word"
+        },
+        {
+          "text": "oxygen",
+          "kind": "word"
+        },
+        {
+          "text": "hydrogen",
+          "kind": "word"
+        },
+        {
+          "text": "nitrogen",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
+      "words": [
+        {
+          "text": "pot",
+          "kind": "word"
+        },
+        {
+          "text": "pan",
+          "kind": "word"
+        },
+        {
+          "text": "spoon",
+          "kind": "word"
+        },
+        {
+          "text": "plate",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dishes_and_glassware",
+      "label": "DISHES",
+      "words": [
+        {
+          "text": "dish",
+          "kind": "word"
+        },
+        {
+          "text": "bowl",
+          "kind": "word"
+        },
+        {
+          "text": "bottle",
+          "kind": "word"
+        },
+        {
+          "text": "jar",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cleaning_actions",
+      "label": "CLEANING ACTIONS",
+      "words": [
+        {
+          "text": "polish",
+          "kind": "word"
+        },
+        {
+          "text": "wash",
+          "kind": "word"
+        },
+        {
+          "text": "wipe",
+          "kind": "word"
+        },
+        {
+          "text": "vacuum",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weapons_of_the_past",
+      "label": "OLD WEAPONS",
+      "words": [
+        {
+          "text": "bow",
+          "kind": "word"
+        },
+        {
+          "text": "sword",
+          "kind": "word"
+        },
+        {
+          "text": "dagger",
+          "kind": "word"
+        },
+        {
+          "text": "axe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "couch",
+          "kind": "word"
+        },
+        {
+          "text": "chair",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "noise_adjectives",
+      "label": "VOLUME WORDS",
+      "words": [
+        {
+          "text": "loud",
+          "kind": "word"
+        },
+        {
+          "text": "silent",
+          "kind": "word"
+        },
+        {
+          "text": "deafening",
+          "kind": "word"
+        },
+        {
+          "text": "quiet",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

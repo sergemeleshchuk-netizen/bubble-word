@@ -174,8 +174,9 @@ export function computeDifficulty(
   // ---------------- mechanical ----------------
   const chains = spec.modifiers.chains.length;
   const halves = spec.halves.length;
-  const tightness = (MAX_MOVE_LIMIT_K - spec.board.moveLimitK)
-    / (MAX_MOVE_LIMIT_K - MIN_MOVE_LIMIT_K);
+  // без лимита ходов тесноты нет вовсе, а не «теснота по K = 0»
+  const tightness = spec.board.moveLimitK === null ? 0
+    : (MAX_MOVE_LIMIT_K - spec.board.moveLimitK) / (MAX_MOVE_LIMIT_K - MIN_MOVE_LIMIT_K);
   const mechanical: Record<string, number> = {
     'цепи': Math.min(w.mechanical.modifier_max, w.mechanical.chain * chains),
     'половинки': Math.min(w.mechanical.modifier_max, w.mechanical.half_pair * halves),
@@ -186,8 +187,10 @@ export function computeDifficulty(
     Object.values(mechanical).reduce((a, b) => a + b, 0));
 
   if (chains > 0) explanation.push(`${chains} цепи: аналитически проверяемый модификатор`);
-  explanation.push(`лимит ходов ${spec.board.moveLimit} при минимуме ${spec.board.moveFloor} `
-    + `(K = ${spec.board.moveLimitK})`);
+  explanation.push(spec.board.moveLimit === null
+    ? `лимита ходов нет (туториал), минимум мерджей ${spec.board.moveFloor}`
+    : `лимит ходов ${spec.board.moveLimit} при минимуме ${spec.board.moveFloor} `
+      + `(K = ${spec.board.moveLimitK})`);
 
   // ---------------- итог ----------------
   let value = baseTotal + declaredTotal + semanticTotal + mechanicalTotal;

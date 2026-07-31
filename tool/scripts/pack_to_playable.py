@@ -10,7 +10,10 @@ playable ждёт {id,name,words:[строки]}. Мета-слово в схе�
   ЁМКОСТЬ поля с досыпкой (референс 20-24) -> берём board.board_capacity;
 - modifiers.chains прототип не реализует -> уносим в extensions.chains как данные.
 
-Запуск: python3 tool/scripts/pack_to_playable.py <pack.json> <outdir> [--prefix t]
+На входе принимает и цельный пакет (`{levels: [...]}`), и папку с отдельными
+`game-*.json` — так их отдаёт `tool/level-tool/scripts/generate_block.ts --out`.
+
+Запуск: python3 tool/scripts/pack_to_playable.py <pack.json|dir> <outdir> [--prefix t]
 """
 import json
 import math
@@ -18,7 +21,7 @@ import sys
 from pathlib import Path
 
 
-def convert(level: dict) -> dict:
+def convert(level: dict, source: str) -> dict:
     cats = []
     for c in level["categories"]:
         cats.append({
@@ -28,12 +31,12 @@ def convert(level: dict) -> dict:
         })
     b = level["board"]
     m = len(cats)
-    limit = b.get("move_limit")
+    limit = b.get("move_limit")   # None = туториальный уровень без лимита ходов
     chains = (level.get("modifiers") or {}).get("chains") or []
     return {
         "level_id": level["level_id"],
         "difficulty_target": None,
-        "source": "game-pack-1-10.json (generator gen-1.0)",
+        "source": source,
         "categories": cats,
         "traps": [],
         "repeats": [],
@@ -50,7 +53,17 @@ def main() -> int:
     if len(sys.argv) < 3:
         print(__doc__)
         return 2
-    pack = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    src = Path(sys.argv[1])
+    if src.is_dir():
+        # папка от generate_block.ts --out: по файлу на уровень
+        files = sorted(src.glob("game-*.json"), key=lambda f: int(f.stem.split("-")[1]))
+        if not files:
+            print(f"в {src} нет файлов game-*.json", file=sys.stderr)
+            return 2
+        pack = {"levels": [json.loads(f.read_text(encoding="utf-8")) for f in files]}
+    else:
+        pack = json.loads(src.read_text(encoding="utf-8"))
+    source = src.name
     outdir = Path(sys.argv[2])
     outdir.mkdir(parents=True, exist_ok=True)
     prefix = "t"
@@ -58,7 +71,7 @@ def main() -> int:
         prefix = sys.argv[sys.argv.index("--prefix") + 1]
 
     for lv in pack["levels"]:
-        out = convert(lv)
+        out = convert(lv, source)
         # инварианты схемы: ровно 4 слова, слово на уровне уникально
         seen = set()
         for c in out["categories"]:
@@ -67,11 +80,12 @@ def main() -> int:
                 assert w not in seen, (out["level_id"], "дубль слова", w)
                 seen.add(w)
         m = len(out["categories"])
-        assert out["board"]["move_limit"] >= 3 * m, (out["level_id"], "лимит ниже минимума")
+        limit = out["board"]["move_limit"]
+        assert limit is None or limit >= 3 * m, (out["level_id"], "лимит ниже минимума")
         path = outdir / f"{prefix}{out['level_id']}.json"
         path.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"{path}  M={m} words={len(seen)} field={out['board']['start_bubbles']} "
-              f"moves={out['board']['move_limit']} K={out['board']['move_limit_k']}")
+              f"moves={'без лимита' if limit is None else limit} K={out['board']['move_limit_k']}")
     return 0
 
 

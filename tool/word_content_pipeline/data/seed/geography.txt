@@ -62,7 +62,7 @@ trail, campsite, ranger, tent, lodge, overlook, waterfall, wildlife, campfire, p
 islands | ISLANDS | is_a | 0.35 | 0.75 | AP | Well known islands around the world | $W is a well known island
 Hawaii, Cuba, Iceland, Madagascar, Sicily, Jamaica, Bali, Greenland, Fiji, Tahiti, Crete, Malta, Bermuda, Barbados, Sardinia
 
-deserts_and_wild_places | DESERTS | is_a | 0.4 | 0.65 | CP | Major deserts of the world | $W is a major desert
+deserts_and_wild_places | DESERTS | is_a | 0.35 | 0.8 | AP | Major deserts of the world | $W is a major desert
 Sahara, Gobi, Mojave, Kalahari, Atacama, Sonoran, Arabian, Death Valley, Painted Desert, Great Basin
 
 hot_places | HOT PLACES | has_property | 0.35 | 0.7 | C | Places that are typically hot | $W is typically hot

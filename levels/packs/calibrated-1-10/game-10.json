@@ -1,0 +1,192 @@
+{
+  "level_id": 10,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 32,
+    "board_capacity": 24,
+    "move_limit": 36
+  },
+  "categories": [
+    {
+      "key": "military_words",
+      "label": "MILITARY WORDS",
+      "words": [
+        {
+          "text": "squad",
+          "kind": "word"
+        },
+        {
+          "text": "rank",
+          "kind": "word"
+        },
+        {
+          "text": "formation",
+          "kind": "word"
+        },
+        {
+          "text": "base",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_supplies",
+      "label": "SCHOOL SUPPLIES",
+      "words": [
+        {
+          "text": "backpack",
+          "kind": "word"
+        },
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "notebook",
+          "kind": "word"
+        },
+        {
+          "text": "folder",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "camping_and_outdoors",
+      "label": "OUTDOOR ACTIVITIES",
+      "words": [
+        {
+          "text": "fishing",
+          "kind": "word"
+        },
+        {
+          "text": "canoeing",
+          "kind": "word"
+        },
+        {
+          "text": "climbing",
+          "kind": "word"
+        },
+        {
+          "text": "skiing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fabric_types",
+      "label": "FABRIC TYPES",
+      "words": [
+        {
+          "text": "cotton",
+          "kind": "word"
+        },
+        {
+          "text": "velvet",
+          "kind": "word"
+        },
+        {
+          "text": "silk",
+          "kind": "word"
+        },
+        {
+          "text": "felt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_actions",
+      "label": "WEATHER ACTIONS",
+      "words": [
+        {
+          "text": "pour",
+          "kind": "word"
+        },
+        {
+          "text": "melt",
+          "kind": "word"
+        },
+        {
+          "text": "hail",
+          "kind": "word"
+        },
+        {
+          "text": "freeze",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "destroying_actions",
+      "label": "BREAKING ACTIONS",
+      "words": [
+        {
+          "text": "tear",
+          "kind": "word"
+        },
+        {
+          "text": "crush",
+          "kind": "word"
+        },
+        {
+          "text": "smash",
+          "kind": "word"
+        },
+        {
+          "text": "burst",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "light_sources",
+      "label": "LIGHT SOURCES",
+      "words": [
+        {
+          "text": "laser",
+          "kind": "word"
+        },
+        {
+          "text": "candle",
+          "kind": "word"
+        },
+        {
+          "text": "lamp",
+          "kind": "word"
+        },
+        {
+          "text": "bulb",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "royalty",
+      "label": "ROYAL WORDS",
+      "words": [
+        {
+          "text": "princess",
+          "kind": "word"
+        },
+        {
+          "text": "knight",
+          "kind": "word"
+        },
+        {
+          "text": "throne",
+          "kind": "word"
+        },
+        {
+          "text": "empire",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "level_id": 6,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 28,
+    "board_capacity": 24,
+    "move_limit": 34
+  },
+  "categories": [
+    {
+      "key": "nature_surnames",
+      "label": "SURNAMES FROM TRADES",
+      "words": [
+        {
+          "text": "miller",
+          "kind": "word"
+        },
+        {
+          "text": "Turner",
+          "kind": "word"
+        },
+        {
+          "text": "potter",
+          "kind": "word"
+        },
+        {
+          "text": "Taylor",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tv_words",
+      "label": "TELEVISION WORDS",
+      "words": [
+        {
+          "text": "ratings",
+          "kind": "word"
+        },
+        {
+          "text": "remote",
+          "kind": "word"
+        },
+        {
+          "text": "streaming",
+          "kind": "word"
+        },
+        {
+          "text": "broadcast",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "movie_genres",
+      "label": "MOVIE GENRES",
+      "words": [
+        {
+          "text": "horror",
+          "kind": "word"
+        },
+        {
+          "text": "documentary",
+          "kind": "word"
+        },
+        {
+          "text": "comedy",
+          "kind": "word"
+        },
+        {
+          "text": "drama",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "feelings",
+      "label": "FEELINGS",
+      "words": [
+        {
+          "text": "lonely",
+          "kind": "word"
+        },
+        {
+          "text": "grateful",
+          "kind": "word"
+        },
+        {
+          "text": "frustrated",
+          "kind": "word"
+        },
+        {
+          "text": "excited",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "things_measured_in_inches",
+      "label": "MEASURING UNITS",
+      "words": [
+        {
+          "text": "inch",
+          "kind": "word"
+        },
+        {
+          "text": "ton",
+          "kind": "word"
+        },
+        {
+          "text": "gram",
+          "kind": "word"
+        },
+        {
+          "text": "mile",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "team_sports",
+      "label": "TEAM SPORTS",
+      "words": [
+        {
+          "text": "cricket",
+          "kind": "word"
+        },
+        {
+          "text": "basketball",
+          "kind": "word"
+        },
+        {
+          "text": "rugby",
+          "kind": "word"
+        },
+        {
+          "text": "hockey",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruit_trees",
+      "label": "FRUIT TREES",
+      "words": [
+        {
+          "text": "fig",
+          "kind": "word"
+        },
+        {
+          "text": "olive",
+          "kind": "word"
+        },
+        {
+          "text": "lime",
+          "kind": "word"
+        },
+        {
+          "text": "apple",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

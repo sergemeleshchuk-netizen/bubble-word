@@ -35,7 +35,21 @@ CREATE TABLE IF NOT EXISTS categories (
     relation_type   TEXT    NOT NULL,
     theme           TEXT    NOT NULL,
     base_difficulty REAL    NULL,
+    -- active   — годится для автоматической сборки уровней
+    -- disabled — отключена: пул не собирает нормальную четвёрку
     status          TEXT    NOT NULL DEFAULT 'active',
+    -- Готовность категории к генерации уровней. Выводится из пулов
+    -- командой derive-readiness, руками не правится.
+    --   ready         — 4+ слов уровня approved/alternative, пул не перекошен
+    --   constrained   — годится, но пул тонкий или перекошен в hard_only
+    --   curated_only  — только вручную собранные четвёрки (парное или субъективное правило)
+    --   hard_only     — нормальных слов нет вообще, только сложные уровни
+    --   blocked       — четвёрку не собрать даже со hard_only
+    readiness       TEXT    NOT NULL DEFAULT 'unknown'
+                            CHECK (readiness IN
+                                   ('unknown', 'ready', 'constrained', 'curated_only',
+                                    'hard_only', 'blocked')),
+    readiness_reason TEXT   NULL,
     created_at      TEXT    NOT NULL,
     updated_at      TEXT    NOT NULL
 );
@@ -58,6 +72,19 @@ CREATE TABLE IF NOT EXISTS memberships (
     review_status     TEXT    NOT NULL DEFAULT 'candidate'
                               CHECK (review_status IN
                                      ('candidate', 'approved', 'alternative', 'hard_only', 'rejected')),
+    -- Семантическая корректность — отдельная ось от игровой пригодности.
+    -- Связь может быть correct и при этом hard_only, или approved и disputed.
+    --   unreviewed — никто не смотрел глазами
+    --   correct    — проверено, слово удовлетворяет правилу категории
+    --   disputed   — замечание есть, решение не принято (см. manual_decisions)
+    --   incorrect  — правилу не удовлетворяет; в игру не идёт независимо от review_status
+    semantic_status   TEXT    NOT NULL DEFAULT 'unreviewed'
+                              CHECK (semantic_status IN
+                                     ('unreviewed', 'correct', 'disputed', 'incorrect')),
+    -- Игровая сложность связи: производная от знакомости слова, очевидности
+    -- значения и базовой сложности категории. Не путать с obviousness_score.
+    gameplay_difficulty REAL  NULL CHECK (gameplay_difficulty IS NULL
+                                          OR gameplay_difficulty BETWEEN 0 AND 1),
     review_comment    TEXT    NULL,
     risk_flags        TEXT    NULL,
     created_at        TEXT    NOT NULL,
@@ -86,6 +113,81 @@ CREATE TABLE IF NOT EXISTS import_runs (
     created_at        TEXT    NOT NULL
 );
 
+-- Категории, которые нельзя ставить в один уровень: их пулы пересекаются настолько,
+-- что четвёрка из одной может целиком лежать в другой — у уровня появляется второй
+-- корректный ответ. derived — посчитано по пересечению пулов, manual — решение человека.
+CREATE TABLE IF NOT EXISTS category_conflicts (
+    id             INTEGER PRIMARY KEY,
+    category_a_id  INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
+    category_b_id  INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
+    conflict_type  TEXT    NOT NULL
+                           CHECK (conflict_type IN ('do_not_pair', 'needs_disjoint_words')),
+    origin         TEXT    NOT NULL CHECK (origin IN ('derived', 'manual')),
+    overlap_count  INTEGER NOT NULL DEFAULT 0,
+    overlap_words  TEXT    NULL,
+    severity       TEXT    NULL,
+    note           TEXT    NULL,
+    created_at     TEXT    NOT NULL,
+    -- пара хранится один раз, порядок нормализован (a_id < b_id)
+    CHECK (category_a_id < category_b_id),
+    UNIQUE (category_a_id, category_b_id, conflict_type)
+);
+
+CREATE INDEX IF NOT EXISTS ix_conflicts_a ON category_conflicts (category_a_id);
+CREATE INDEX IF NOT EXISTS ix_conflicts_b ON category_conflicts (category_b_id);
+
+-- Структура парных категорий: OPPOSITES это не пул из 24 слов, а 12 пар.
+-- Четвёрка для такой категории собирается только как две полные пары.
+CREATE TABLE IF NOT EXISTS category_pair_groups (
+    id          INTEGER PRIMARY KEY,
+    category_id INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
+    group_key   TEXT    NOT NULL,
+    word_id     INTEGER NOT NULL REFERENCES words (id) ON DELETE CASCADE,
+    slot        INTEGER NOT NULL,
+    created_at  TEXT    NOT NULL,
+    UNIQUE (category_id, group_key, word_id)
+);
+
+-- Проверенная игровая четвёрка: ровно четыре слова одной категории, у которых
+-- проверена единственность разбиения. База хранит пулы, уровни собираются отсюда.
+CREATE TABLE IF NOT EXISTS quartets (
+    id            INTEGER PRIMARY KEY,
+    category_id   INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
+    quartet_key   TEXT    NOT NULL UNIQUE,
+    tier          TEXT    NOT NULL CHECK (tier IN ('normal', 'hard')),
+    -- auto_validated — прошла solver, человек не смотрел
+    -- human_approved — подтверждена человеком
+    -- rejected       — забракована
+    review_state  TEXT    NOT NULL DEFAULT 'auto_validated'
+                          CHECK (review_state IN ('auto_validated', 'human_approved', 'rejected')),
+    solver_state  TEXT    NOT NULL DEFAULT 'unchecked'
+                          CHECK (solver_state IN ('unchecked', 'unique', 'ambiguous')),
+    difficulty    REAL    NULL,
+    note          TEXT    NULL,
+    created_at    TEXT    NOT NULL,
+    updated_at    TEXT    NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS quartet_words (
+    id         INTEGER PRIMARY KEY,
+    quartet_id INTEGER NOT NULL REFERENCES quartets (id) ON DELETE CASCADE,
+    word_id    INTEGER NOT NULL REFERENCES words (id) ON DELETE CASCADE,
+    sense_id   INTEGER NULL     REFERENCES word_senses (id) ON DELETE SET NULL,
+    slot       INTEGER NOT NULL CHECK (slot BETWEEN 1 AND 4),
+    created_at TEXT    NOT NULL,
+    UNIQUE (quartet_id, slot),
+    UNIQUE (quartet_id, word_id)
+);
+
+CREATE INDEX IF NOT EXISTS ix_quartets_category ON quartets (category_id);
+
+-- Версия схемы и контента: без неё снимок нельзя привязать к коммиту и источникам.
+CREATE TABLE IF NOT EXISTS schema_meta (
+    key        TEXT PRIMARY KEY,
+    value      TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS generation_runs (
     id                 INTEGER PRIMARY KEY,
     generation_type    TEXT NOT NULL,
@@ -98,3 +200,6 @@ CREATE TABLE IF NOT EXISTS generation_runs (
     error_message      TEXT NULL,
     created_at         TEXT NOT NULL
 );
+
+-- Версия схемы: меняется при любом изменении структуры таблиц.
+PRAGMA user_version = 2;

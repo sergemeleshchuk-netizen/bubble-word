@@ -9,7 +9,7 @@ garden_tools | GARDEN TOOLS | used_in | 0.25 | 0.85 | A | Tools used for gardeni
 rake, shovel, hoe, trowel, pruner, wheelbarrow, hose, watering can, shears, sprinkler, spade, lawnmower, edger, weeder, cultivator, gloves, pitchfork, clippers, leaf blower, seeder
 
 office_supplies | OFFICE SUPPLIES | found_in | 0.15 | 0.88 | A | Small items kept in an office desk and used for paperwork | $W is an office supply used for paperwork
-stapler, pen, pencil, folder, clip, tape, eraser, highlighter, envelope, notepad, scissors, ruler, binder, sticky note, hole punch, rubber band, marker, calculator, label, whiteout, paperclip, ink, stamp, calendar, planner
+stapler, pen, pencil, folder, clip, tape, eraser, highlighter, envelope, notepad, scissors, ruler, binder, sticky note, hole punch, rubber band, marker, calculator, label, whiteout, paper clip, ink, stamp, calendar, planner
 
 sewing_supplies | SEWING SUPPLIES | used_in | 0.3 | 0.8 | A | Items used for sewing and mending clothes | $W is used for sewing or mending clothes
 needle, thread, thimble, pin, button, zipper, patch, yarn, bobbin, hem, scissors, tape measure, pattern, seam ripper, pincushion, snap, hook, elastic

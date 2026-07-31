@@ -119,9 +119,50 @@ export interface BlockConfig {
    */
   categoryPlan?: number[];
   metaPlan?: number[];
+  /**
+   * Гейты декады: чем уровень 1-10 отличается от уровня 191-200 не размером,
+   * а содержимым. Собираются из `DECADE_PROFILES` (см. decadeProfiles.ts).
+   *
+   * Поле необязательное сознательно: пресет блока 201-210 его не задаёт, поэтому
+   * нормализованный конфиг для него не меняется и хеш сдаваемого пакета остаётся
+   * прежним. Как только гейты заданы — они входят в хеш, потому что влияют
+   * на контент.
+   */
+  decadeGates?: DecadeGates;
 }
 
-export type LevelRole = 'entry' | 'growth' | 'recovery' | 'peak' | 'spike' | 'exit';
+export interface DecadeGates {
+  /** предел числа токенов в ответе: 1 = только однословные */
+  maxTokens: number;
+  /** предел длины слова в буквах */
+  maxWordLen: number;
+  /** минимальный zipf для имени собственного */
+  minProperNounZipf: number;
+  /** целевая медиана частотности слов уровня */
+  zipfMedianTarget: number;
+  /** целевой 25-й процентиль частотности */
+  zipfP25Target: number;
+  /** минимальная доля уровня, видимая на поле одновременно */
+  visibleShareMin: number;
+  /** коридор повторов слова из прошлых уровней в ДРУГОЙ категории */
+  repeatRange: [number, number];
+  /** первый уровень блока — туториал (только для блока, начинающегося с 1) */
+  tutorialFirstLevel: boolean;
+}
+
+/**
+ * Допуски по частотности.
+ *
+ * Важное различие, на котором легко ошибиться. Цель из таблицы декад (медиана
+ * 4.35 для L1-10) — это медиана ВСЕЙ декады, а не каждого уровня. Замер по
+ * референсу: внутри L1-10 медианы отдельных уровней идут 4.92, 4.42, 4.53, 4.66,
+ * 4.04, 4.07, 4.65, 3.97, 3.95, 4.42 — разброс почти целый zipf, sd 0.32.
+ * Поэтому на уровень допуск широкий (≈2σ), а строгий держится на блоке целиком.
+ */
+export const ZIPF_BLOCK_TOLERANCE = 0.15;
+export const ZIPF_LEVEL_TOLERANCE = 0.65;
+
+export type LevelRole = 'tutorial' | 'entry' | 'growth' | 'recovery' | 'peak' | 'spike' | 'exit';
 
 export interface LevelPlan {
   levelId: number;
@@ -137,8 +178,8 @@ export interface LevelPlan {
   /** целевой коридор оценок */
   targetDifficulty: [number, number];
   targetInterest: [number, number];
-  /** K из формулы лимита ходов (TARGET_GAME_OBSERVATIONS §3) */
-  moveLimitK: number;
+  /** K из формулы лимита ходов (TARGET_GAME_OBSERVATIONS §3); null = без лимита */
+  moveLimitK: number | null;
 }
 
 // --------------------------------------------------------------------------- //
@@ -205,8 +246,9 @@ export interface LevelSpec {
     /** одновременно на поле; остальное досыпается (TARGET_GAME_OBSERVATIONS §5) */
     boardCapacity: number;
     moveFloor: number;
-    moveLimit: number;
-    moveLimitK: number;
+    /** null = без лимита ходов (туториальный первый уровень, как L1 референса) */
+    moveLimit: number | null;
+    moveLimitK: number | null;
     moveLimitPolicy: 'conservative';
   };
   categories: LevelCategory[];

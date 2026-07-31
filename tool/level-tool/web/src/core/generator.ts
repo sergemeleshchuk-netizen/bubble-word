@@ -18,7 +18,8 @@
  *   9. упорядоченное ослабление, если не сошлось
  */
 import type {
-  BlockConfig, Chain, GenerationAttempt, GenerationFailure, LevelCategory,
+  BlockConfig,
+  DecadeGates, Chain, GenerationAttempt, GenerationFailure, LevelCategory,
   LevelPlan, LevelSpec, LevelWord, Trap,
 } from './types.ts';
 import { STATUS } from './types.ts';
@@ -36,10 +37,17 @@ export interface PackHistory {
   categoryLastLevel: Map<string, number>;
   /** четвёрки слов референса, чтобы не выдать копию: ключ = отсортированные слова */
   referenceQuadruples?: Set<string>;
+  /**
+   * Нормализованное слово → ключ категории, где оно лежало в прошлый раз.
+   * Нужно, чтобы отличить повтор слова в ТОЙ ЖЕ категории (это брак) от повтора
+   * в ДРУГОЙ категории (это рычаг сложности: 2.9 слова на уровень в L1-10
+   * против 28 в L171-180 референса).
+   */
+  wordCategory?: Map<string, string>;
 }
 
 export function emptyPackHistory(): PackHistory {
-  return { wordLastLevel: new Map(), categoryLastLevel: new Map() };
+  return { wordLastLevel: new Map(), categoryLastLevel: new Map(), wordCategory: new Map() };
 }
 
 export interface LevelGenerationOutcome {
@@ -64,6 +72,13 @@ type Relaxation = typeof RELAXATION_ORDER[number];
 
 interface Constraints {
   categoryCount: number;
+  /**
+   * Гейты формы слова из профиля декады. Фильтруют пул НА ВХОДЕ, а не отбраковывают
+   * готовый уровень: когда гейты стояли только в валидаторе, генератор 24 попытки
+   * подряд собирал уровень из многословных и длинных слов и каждый раз получал
+   * отказ WORD_FORM_GATE, хотя годные слова в базе были.
+   */
+  gates: DecadeGates | null;
   /** окна свежести из конфига, а не захардкоженные числа */
   wordWindow: number;
   categoryWindow: number;
@@ -111,6 +126,27 @@ interface PoolEntry {
   /** сколько approved-слов редкие — потенциал редкости */
   rareCount: number;
   canQuickwin: boolean;
+  /**
+   * Узнаваемость категории: медиана частотности четырёх самых частотных годных
+   * слов, то есть «насколько понятной эта категория может быть, если брать из неё
+   * лучшее». Нужна для отбора категорий под целевую медиану декады: в базе
+   * 230 категорий способны дать медиану 4.35+, но без этого поля генератор
+   * выбирал их не чаще любых других и блок 1-10 упирался в медиану 3.81.
+   */
+  recognizability: number;
+}
+
+/**
+ * Слово проходит форму декады: число токенов, длина, порог для имён собственных.
+ * Без гейтов пропускает всё — так ведёт себя пресет блока 201-210.
+ */
+export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGates | null): boolean {
+  if (!gates) return true;
+  const w = index.words[word];
+  if (w.tok > gates.maxTokens) return false;
+  if (w.t.replace(/\s/g, '').length > gates.maxWordLen) return false;
+  if (w.p === 1 && (w.z === null || w.z < gates.minProperNounZipf)) return false;
+  return true;
 }
 
 function buildPool(
@@ -129,7 +165,9 @@ function buildPool(
       if (last !== undefined && plan.levelId - last <= c.categoryWindow) continue;
     }
 
-    const approved = index.categoryMemberships(cat, STATUS.approved).map((m) => m.word);
+    const approved = index.categoryMemberships(cat, STATUS.approved)
+      .map((m) => m.word)
+      .filter((w) => wordFitsGates(index, w, c.gates));
     if (approved.length < 4) continue;
 
     const frequentCount = approved.filter((w) => index.isQuickwinWord(w)).length;
@@ -137,6 +175,13 @@ function buildPool(
       const z = index.zipf(w);
       return z !== null && z < 3.0;
     }).length;
+
+    const top4 = approved
+      .map((w) => index.zipf(w))
+      .filter((z): z is number => z !== null)
+      .sort((a, b) => b - a)
+      .slice(0, 4);
+    const recognizability = top4.length === 4 ? (top4[1] + top4[2]) / 2 : 0;
 
     pool.push({
       category: cat,
@@ -146,6 +191,7 @@ function buildPool(
       frequentCount,
       rareCount,
       canQuickwin: frequentCount >= 4,
+      recognizability,
     });
   }
   return pool;
@@ -169,12 +215,19 @@ interface MetaEdge {
  * (в референсе мета-граф — лес из в среднем 2.12 компонент, SPEC_AUDIT §2).
  */
 /** Все возможные мета-рёбра внутри набора категорий. */
-export function possibleMetaEdges(index: ContentIndex, categories: Iterable<number>): MetaEdge[] {
+export function possibleMetaEdges(
+  index: ContentIndex, categories: Iterable<number>, gates: DecadeGates | null = null,
+): MetaEdge[] {
   const inSet = new Set(categories);
   const edges: MetaEdge[] = [];
   for (const cat of inSet) {
     const capable = index.metaCapable(cat);
     if (!capable) continue;
+    // мета-слово — это ИМЯ категории, и на поле оно такой же пузырь, как остальные:
+    // «school subjects» на уровне 1-10 нарушает форму декады ровно так же, как
+    // обычное двусловное слово. Без этого фильтра гейты ловили мета-слова
+    // уже в валидаторе, и уровень уходил в отказ на 24-й попытке
+    if (!wordFitsGates(index, capable.word, gates)) continue;
     for (const host of capable.hosts) {
       if (!inSet.has(host) || host === cat) continue;
       edges.push({ child: cat, parent: host, word: capable.word });
@@ -193,13 +246,14 @@ export function possibleMetaEdges(index: ContentIndex, categories: Iterable<numb
  */
 export function planDeepChain(
   index: ContentIndex, depth: number, seed: string, wordsPerCategory = 4,
+  gates: DecadeGates | null = null,
 ): MetaEdge[] | null {
   if (depth < 2) return null;
   const usable: number[] = [];
   for (let cat = 0; cat < index.categories.length; cat += 1) {
     if (index.approvedCount(cat) >= wordsPerCategory) usable.push(cat);
   }
-  const edges = possibleMetaEdges(index, usable);
+  const edges = possibleMetaEdges(index, usable, gates);
   const outgoing = new Map<number, MetaEdge[]>();
   const rng = createRng(`${seed}|deep-chain|${depth}`);
   for (const edge of rng.shuffle(edges)) {
@@ -238,7 +292,7 @@ function buildMetaForest(
    * свежести обязаны запрещать. Принудительные слова обходили проверку, потому
    * что ставились до перебора.
    */
-  const allEdges: MetaEdge[] = possibleMetaEdges(index, inPool)
+  const allEdges: MetaEdge[] = possibleMetaEdges(index, inPool, c.gates)
     .filter((edge) => isWordFresh(edge.word));
   if (allEdges.length === 0 && !forcedChain?.length) {
     return { edges: [], categories: new Set() };
@@ -352,8 +406,64 @@ function selectCategories(
 
   const selected: PoolEntry[] = [];
   const taken = new Set<number>();
+
+  /**
+   * Неразделимые пары отсекаются ЗДЕСЬ, при отборе категорий.
+   *
+   * Раньше это была только soft-проверка валидатора: пары вида
+   * CONSTELLATIONS + ZODIAC SIGNS, DISEASES + ILLNESSES, TOYS + TOY CHEST
+   * доезжали до готового уровня, счётчик решений находил две раскладки, и попытка
+   * отклонялась — при том что какие именно четыре слова выбрать, уже не важно:
+   * проблема в пулах, а не в выборке.
+   *
+   * Чего этот фильтр НЕ ловит: двусмысленность, собранную циклом обменов через
+   * три и более категории. Там попарного пересечения пулов может не быть вовсе
+   * (у `moons` и `stargazing` оно ровно ноль), и такие случаи остаются на
+   * счётчике решений.
+   *
+   * Порог 0.30 по Жаккару: пересечение пулов approved-слов. Считаем по пулам,
+   * а не по выбранным четвёркам, потому что проблема именно в пулах.
+   *
+   * Работает только на калиброванных блоках (там, где заданы гейты декады).
+   * Пресет 201-210 обязан воспроизводить сдаваемый пакет байт-в-байт, а этот
+   * фильтр меняет выбор категорий и, значит, pack hash. Тот пакет уже прошёл
+   * слепого решателя целиком — переcобирать его под новое правило нельзя.
+   */
+  /**
+   * Пул считаем по статусу alternative, а не approved.
+   *
+   * Двусмысленность создают именно alternative-связи: слово живёт в одной
+   * категории как дом, но в соседней читается правдоподобно. Счётчик решений
+   * смотрит ровно на этот статус, значит и фильтр пар обязан смотреть на него же,
+   * иначе он мерит не то, что потом ломает уровень.
+   */
+  const plausibleSets = new Map<number, Set<number>>();
+  const approvedSet = (entry: PoolEntry): Set<number> => {
+    let set = plausibleSets.get(entry.category);
+    if (!set) {
+      set = new Set(index.categoryMemberships(entry.category, STATUS.alternative)
+        .map((m) => m.word));
+      plausibleSets.set(entry.category, set);
+    }
+    return set;
+  };
+  const UNSEPARABLE_JACCARD = 0.30;
+  const separableFromSelected = (entry: PoolEntry): boolean => {
+    if (!c.gates) return true;
+    const a = approvedSet(entry);
+    for (const other of selected) {
+      const b = approvedSet(other);
+      let shared = 0;
+      for (const w of a) if (b.has(w)) shared += 1;
+      const union = a.size + b.size - shared;
+      if (union > 0 && shared / union >= UNSEPARABLE_JACCARD) return false;
+    }
+    return true;
+  };
+
   const add = (entry: PoolEntry | undefined): void => {
     if (!entry || taken.has(entry.category) || selected.length >= c.categoryCount) return;
+    if (!separableFromSelected(entry)) return;
     taken.add(entry.category);
     selected.push(entry);
   };
@@ -383,9 +493,17 @@ function selectCategories(
       const themePenalty = (themeUsage.get(entry.theme) ?? 0) * 0.35;
       const rareBonus = c.rareTarget > 0 ? Math.min(entry.rareCount, 3) * 0.12 : 0;
       const depthBonus = Math.min(entry.approved.length - 4, 6) * 0.05;
+      // категории под целевую медиану декады: чем ближе потолок узнаваемости
+      // категории к цели сверху, тем она ценнее. Вес 0.9 сознательно крупный —
+      // это главная ось сложности первых 120 уровней референса.
+      // Вес 1.3 подобран перебором: 0.9 давало медиану блока 4.16 при цели 4.35,
+      // 1.3 — 4.22 (в допуске), дальше рост упирается в содержимое базы
+      const fitBonus = c.gates
+        ? 1.3 * Math.max(0, 1 - Math.max(0, c.gates.zipfMedianTarget - entry.recognizability) / 1.2)
+        : 0;
       return {
         entry,
-        score: rareBonus + depthBonus - themePenalty
+        score: rareBonus + depthBonus + fitBonus - themePenalty
           + rng.stableWeight(entry.key) * 0.3,
       };
     })
@@ -472,6 +590,9 @@ function assignWords(
       .map((m) => m.word)
       .filter((w) => {
         if (used.has(w)) return false;
+        // тот же фильтр формы, что в buildPool: список кандидатов собирается
+        // заново из индекса, поэтому без него сюда возвращались отсеянные слова
+        if (!wordFitsGates(index, w, c.gates)) return false;
         const word = index.words[w];
         if (word.n === catLabelNorm) return false;               // слово = имя своей категории
         if (chosenNorms.some((n) => isNearDuplicate(n, word.n))) return false;
@@ -503,7 +624,24 @@ function assignWords(
         let score = rng.stableWeight(`${cat}:${w}`) * 0.25;
         if (!isQuickwin && rareNeeded > 0 && isRare) score += 0.6;
         if (rareNeeded <= 0 && isRare) score -= 0.5;
-        if (z !== null) score += Math.min(z, 6) * 0.02;         // при прочих равных — понятнее
+        /**
+         * Предпочтение по узнаваемости.
+         *
+         * Без гейтов декады это слабый тай-брейкер «при прочих равных — понятнее»
+         * (вес 0.02). С гейтами узнаваемость становится главной осью: у декады
+         * есть целевая медиана zipf, и слово тем ценнее, чем ближе оно к ней
+         * сверху. Вес 0.9 подобран так, чтобы обгонять бонус за новизну (0.15),
+         * но не перебивать добор редких слов (0.6): 1-2 редких слова на уровень —
+         * тоже требование декады, а не случайность.
+         */
+        if (z !== null) {
+          if (c.gates) {
+            const target = c.gates.zipfMedianTarget;
+            score += 0.9 * Math.max(0, 1 - Math.abs(z - target) / 1.5);
+          } else {
+            score += Math.min(z, 6) * 0.02;       // при прочих равных — понятнее
+          }
+        }
         const last = history.wordLastLevel.get(index.words[w].n);
         if (last === undefined) score += 0.15;                   // новое для пакета слово
         return { w, score };
@@ -729,7 +867,8 @@ function buildLevelSpec(
       startBubbles: bubbles,
       boardCapacity: BOARD_CAPACITY,
       moveFloor: floor,
-      moveLimit: moveLimit(floor, plan.moveLimitK),
+      // K = null -> лимита нет: на L1 референса поле держит весь уровень
+      moveLimit: plan.moveLimitK === null ? null : moveLimit(floor, plan.moveLimitK),
       moveLimitK: plan.moveLimitK,
       moveLimitPolicy: 'conservative',
     },
@@ -771,11 +910,19 @@ export function generateLevel(
 ): LevelGenerationOutcome {
   const attempts: GenerationAttempt[] = [];
   const relaxationsUsed: Relaxation[] = [];
-  const maxAttempts = options.maxAttempts ?? 24;
+  /**
+   * Калиброванному блоку нужно больше попыток: гейты декады отсекают часть пула,
+   * и подходящий набор категорий находится не так быстро. Замер по всем 20
+   * декадам: при 24 попытках декада 51-60 собирала 9 уровней из 10, при 48 —
+   * все двадцать декад дают 10 из 10. Без гейтов лимит остаётся прежним, иначе
+   * изменилось бы поведение пресета 201-210.
+   */
+  const maxAttempts = options.maxAttempts ?? (config.decadeGates ? 48 : 24);
   const wordsPerCategory = config.wordsPerCategory || 4;
 
   const baseConstraints = (): Constraints => ({
     categoryCount: plan.categoryCount,
+    gates: config.decadeGates ?? null,
     wordWindow: config.wordFreshnessWindow,
     categoryWindow: config.categoryFreshnessWindow,
     metaCount: plan.metaCount,
@@ -920,6 +1067,7 @@ export function recordLevelInHistory(history: PackHistory, spec: LevelSpec): voi
       // тот же ключ, что использует проверка свежести: иначе слово с необычным
       // апострофом или регистром проскочило бы мимо неё
       history.wordLastLevel.set(normalizeWordKey(word.text), spec.levelId);
+      history.wordCategory?.set(normalizeWordKey(word.text), category.key);
     }
   }
 }

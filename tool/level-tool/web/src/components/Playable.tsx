@@ -57,14 +57,15 @@ export function Playable({ level, levels, onSelect }: {
   const [state, setState] = useState(() => bubblesOf(spec));
   const [picked, setPicked] = useState<number | null>(null);
   const [bad, setBad] = useState<number | null>(null);
-  const [moves, setMoves] = useState(spec.board.moveLimit);
+  const unlimited = spec.board.moveLimit === null;   // туториальный уровень
+  const [moves, setMoves] = useState(spec.board.moveLimit ?? Infinity);
   const [done, setDone] = useState<string[]>([]);
   const [showDev, setShowDev] = useState(false);
 
   useEffect(() => {
     setState(bubblesOf(spec));
     setPicked(null);
-    setMoves(spec.board.moveLimit);
+    setMoves(spec.board.moveLimit ?? Infinity);
     setDone([]);
   }, [spec]);
 
@@ -91,7 +92,7 @@ export function Playable({ level, levels, onSelect }: {
 
     const categoryKey = merged[0] ? homeOf.get(merged[0])! : '';
     const complete = merged.length === spec.board.wordsPerCategory;
-    setMoves((m) => m - 1);
+    if (!unlimited) setMoves((m) => m - 1);
 
     setState((prev) => {
       let board = prev.board.filter((x) => x.id !== aId && x.id !== bId);
@@ -149,7 +150,7 @@ export function Playable({ level, levels, onSelect }: {
                 onClick={() => onSelect(l.spec.levelId)}>{l.spec.levelId}</button>
             ))}
             <button className="ghost" onClick={() => {
-              setState(bubblesOf(spec)); setMoves(spec.board.moveLimit);
+              setState(bubblesOf(spec)); setMoves(spec.board.moveLimit ?? Infinity);
               setDone([]); setPicked(null);
             }}>Сброс</button>
             <button className={`ghost ${showDev ? 'on' : ''}`}
@@ -161,7 +162,7 @@ export function Playable({ level, levels, onSelect }: {
       <div className="panel">
         <div className="phone">
           <div className="hud">
-            <span>MOVES {Math.max(0, moves)}</span>
+            <span>MOVES {unlimited ? '∞' : Math.max(0, moves)}</span>
             <span>{solved}/{total}</span>
             <span>в очереди {state.queue.length}</span>
           </div>
@@ -201,7 +202,9 @@ export function Playable({ level, levels, onSelect }: {
               background: 'rgba(4,20,30,0.86)', flexDirection: 'column', gap: 6 }}>
               <strong style={{ fontSize: 18 }}>Уровень собран</strong>
               <span className="muted small">
-                осталось ходов: {moves} из {spec.board.moveLimit}
+                {unlimited
+                  ? 'лимита ходов нет: туториальный уровень'
+                  : `осталось ходов: ${moves} из ${spec.board.moveLimit}`}
               </span>
             </div>
           )}

@@ -1,0 +1,89 @@
+{
+  "level_id": 6,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "nature-surnames",
+      "name": "Surnames From Trades",
+      "words": [
+        "miller",
+        "turner",
+        "potter",
+        "taylor"
+      ]
+    },
+    {
+      "id": "tv-words",
+      "name": "Television Words",
+      "words": [
+        "ratings",
+        "remote",
+        "streaming",
+        "broadcast"
+      ]
+    },
+    {
+      "id": "movie-genres",
+      "name": "Movie Genres",
+      "words": [
+        "horror",
+        "documentary",
+        "comedy",
+        "drama"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "Feelings",
+      "words": [
+        "lonely",
+        "grateful",
+        "frustrated",
+        "excited"
+      ]
+    },
+    {
+      "id": "things-measured-in-inches",
+      "name": "Measuring Units",
+      "words": [
+        "inch",
+        "ton",
+        "gram",
+        "mile"
+      ]
+    },
+    {
+      "id": "team-sports",
+      "name": "Team Sports",
+      "words": [
+        "cricket",
+        "basketball",
+        "rugby",
+        "hockey"
+      ]
+    },
+    {
+      "id": "fruit-trees",
+      "name": "Fruit Trees",
+      "words": [
+        "fig",
+        "olive",
+        "lime",
+        "apple"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 34,
+    "move_limit_k": 1.619
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

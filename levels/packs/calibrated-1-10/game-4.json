@@ -1,0 +1,214 @@
+{
+  "level_id": 4,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 36,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "categories": [
+    {
+      "key": "evergreens",
+      "label": "EVERGREEN TREES",
+      "words": [
+        {
+          "text": "pine",
+          "kind": "word"
+        },
+        {
+          "text": "holly",
+          "kind": "word"
+        },
+        {
+          "text": "cedar",
+          "kind": "word"
+        },
+        {
+          "text": "fir",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tennis_words",
+      "label": "TENNIS WORDS",
+      "words": [
+        {
+          "text": "deuce",
+          "kind": "word"
+        },
+        {
+          "text": "serve",
+          "kind": "word"
+        },
+        {
+          "text": "baseline",
+          "kind": "word"
+        },
+        {
+          "text": "racket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "temperature_words",
+      "label": "TEMPERATURE WORDS",
+      "words": [
+        {
+          "text": "warm",
+          "kind": "word"
+        },
+        {
+          "text": "freezing",
+          "kind": "word"
+        },
+        {
+          "text": "mild",
+          "kind": "word"
+        },
+        {
+          "text": "boiling",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sleep_and_rest",
+      "label": "SLEEP WORDS",
+      "words": [
+        {
+          "text": "nightmare",
+          "kind": "word"
+        },
+        {
+          "text": "nap",
+          "kind": "word"
+        },
+        {
+          "text": "dream",
+          "kind": "word"
+        },
+        {
+          "text": "pillow",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "airport_words",
+      "label": "AIRPORT WORDS",
+      "words": [
+        {
+          "text": "terminal",
+          "kind": "word"
+        },
+        {
+          "text": "pilot",
+          "kind": "word"
+        },
+        {
+          "text": "customs",
+          "kind": "word"
+        },
+        {
+          "text": "airlines",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "theater_words",
+      "label": "THEATER WORDS",
+      "words": [
+        {
+          "text": "script",
+          "kind": "word"
+        },
+        {
+          "text": "spotlight",
+          "kind": "word"
+        },
+        {
+          "text": "curtain",
+          "kind": "word"
+        },
+        {
+          "text": "rehearsal",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cutting_tools",
+      "label": "CUTTING TOOLS",
+      "words": [
+        {
+          "text": "knife",
+          "kind": "word"
+        },
+        {
+          "text": "blade",
+          "kind": "word"
+        },
+        {
+          "text": "razor",
+          "kind": "word"
+        },
+        {
+          "text": "scissors",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruits",
+      "label": "FRUITS",
+      "words": [
+        {
+          "text": "cherry",
+          "kind": "word"
+        },
+        {
+          "text": "banana",
+          "kind": "word"
+        },
+        {
+          "text": "orange",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "restaurant_words",
+      "label": "RESTAURANT WORDS",
+      "words": [
+        {
+          "text": "chef",
+          "kind": "word"
+        },
+        {
+          "text": "reservation",
+          "kind": "word"
+        },
+        {
+          "text": "booth",
+          "kind": "word"
+        },
+        {
+          "text": "menu",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

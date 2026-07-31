@@ -1,0 +1,281 @@
+{
+  "level_id": 5,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 47,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "categories": [
+    {
+      "key": "bones",
+      "label": "BONES",
+      "words": [
+        {
+          "text": "skull",
+          "kind": "word"
+        },
+        {
+          "text": "spine",
+          "kind": "word"
+        },
+        {
+          "text": "vertebra",
+          "kind": "word"
+        },
+        {
+          "text": "rib",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "emergency_room",
+      "label": "EMERGENCY ROOM",
+      "words": [
+        {
+          "text": "bones",
+          "kind": "meta",
+          "meta_child": "bones"
+        },
+        {
+          "text": "injuries",
+          "kind": "word"
+        },
+        {
+          "text": "symptoms",
+          "kind": "word"
+        },
+        {
+          "text": "triage",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "lab_equipment",
+      "label": "LAB EQUIPMENT",
+      "words": [
+        {
+          "text": "magnet",
+          "kind": "word"
+        },
+        {
+          "text": "burner",
+          "kind": "word"
+        },
+        {
+          "text": "microscope",
+          "kind": "word"
+        },
+        {
+          "text": "flask",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "currencies",
+      "label": "CURRENCIES",
+      "words": [
+        {
+          "text": "pound",
+          "kind": "word"
+        },
+        {
+          "text": "dollar",
+          "kind": "word"
+        },
+        {
+          "text": "euro",
+          "kind": "word"
+        },
+        {
+          "text": "won",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "locksmith_words",
+      "label": "LOCKS & KEYS",
+      "words": [
+        {
+          "text": "lock",
+          "kind": "word"
+        },
+        {
+          "text": "combination",
+          "kind": "word"
+        },
+        {
+          "text": "bolt",
+          "kind": "word"
+        },
+        {
+          "text": "safe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baseball_words",
+      "label": "BASEBALL WORDS",
+      "words": [
+        {
+          "text": "triple",
+          "kind": "word"
+        },
+        {
+          "text": "pitch",
+          "kind": "word"
+        },
+        {
+          "text": "strike",
+          "kind": "word"
+        },
+        {
+          "text": "lineup",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "courtroom_things",
+      "label": "COURTROOM THINGS",
+      "words": [
+        {
+          "text": "jury",
+          "kind": "word"
+        },
+        {
+          "text": "lawyer",
+          "kind": "word"
+        },
+        {
+          "text": "oath",
+          "kind": "word"
+        },
+        {
+          "text": "witness",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "monsters",
+      "label": "SCARY CREATURES",
+      "words": [
+        {
+          "text": "ghost",
+          "kind": "word"
+        },
+        {
+          "text": "zombie",
+          "kind": "word"
+        },
+        {
+          "text": "vampire",
+          "kind": "word"
+        },
+        {
+          "text": "monster",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sea_shore_things",
+      "label": "BEACH THINGS",
+      "words": [
+        {
+          "text": "shell",
+          "kind": "word"
+        },
+        {
+          "text": "sand",
+          "kind": "word"
+        },
+        {
+          "text": "tide",
+          "kind": "word"
+        },
+        {
+          "text": "wave",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "phone_words",
+      "label": "PHONE WORDS",
+      "words": [
+        {
+          "text": "notification",
+          "kind": "word"
+        },
+        {
+          "text": "app",
+          "kind": "word"
+        },
+        {
+          "text": "camera",
+          "kind": "word"
+        },
+        {
+          "text": "headphones",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "cocoa",
+          "kind": "word"
+        },
+        {
+          "text": "espresso",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "driving_actions",
+      "label": "DRIVING ACTIONS",
+      "words": [
+        {
+          "text": "reverse",
+          "kind": "word"
+        },
+        {
+          "text": "yield",
+          "kind": "word"
+        },
+        {
+          "text": "shift",
+          "kind": "word"
+        },
+        {
+          "text": "stall",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

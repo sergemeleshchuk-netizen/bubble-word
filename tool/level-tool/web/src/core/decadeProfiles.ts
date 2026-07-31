@@ -1,0 +1,492 @@
+/**
+ * Профили декад: каким должен быть блок в зависимости от номера уровней.
+ *
+ * Причина существования файла. Раньше в генераторе был один пресет —
+ * `DEFAULT_BLOCK_CONFIG` для блока 201-210. Когда в него подставили диапазон
+ * 1-10, всё остальное осталось от поздней палитры: 13-18 категорий вместо 5-12,
+ * 9-13 редких слов на уровень вместо ~2. На выходе получились уровни примерно
+ * L150+, выданные под номерами 1-10 (разбор: docs/DECADE_CALIBRATION.md).
+ *
+ * Числа взяты замером всех 199 уровней оригинала, скрипт `scripts/decade_profile.py`.
+ * Главное, что показал замер: размер уровня — НЕ основная ось сложности.
+ * Категорий на уровень: плато ~9.5 на L1-120 и плато ~13.5 на L121+, между ними
+ * ступенька. А растут внутри плато узнаваемость слов (медиана zipf 4.35 → 3.99),
+ * мета-плотность (1.7 → 3.3) и повторы слов из прошлых уровней (2.9 → 18.4).
+ */
+import type { BlockConfig, Modifier } from './types.ts';
+import { BOARD_CAPACITY } from './levelMath.ts';
+import { createRng } from './rng.ts';
+
+export interface DecadeProfile {
+  /** первый уровень декады: 1, 11, 21, … */
+  from: number;
+  /** среднее число категорий на уровень */
+  categoryMean: number;
+  /** наблюдённый коридор мин-макс внутри декады */
+  categoryCorridor: [number, number];
+  /** слов zipf<3 на уровень (в референсе это счётчик, а не пол по частотности) */
+  rareRange: [number, number];
+  /** мета-пар (слово = имя другой категории уровня) на уровень */
+  metaRange: [number, number];
+  /** слов, уже встречавшихся раньше в ДРУГОЙ категории, на уровень */
+  repeatRange: [number, number];
+  /** целевая медиана и 25-й процентиль частотности слов уровня */
+  zipfMedianTarget: number;
+  zipfP25Target: number;
+  /** предел числа токенов в ответе: 1 = только однословные */
+  maxTokens: number;
+  /** предел длины слова в буквах */
+  maxWordLen: number;
+  /**
+   * Минимальный zipf для имени собственного. Референс имена использует с L1
+   * (monday), но узнаваемые: mars 4.27, egypt 4.45, beethoven 3.41, picasso 3.46.
+   * Ниже ~3.2 начинается викторина, а не ассоциация.
+   */
+  minProperNounZipf: number;
+  /** модификаторы, разрешённые на этой декаде (chains в оригинале — с L20) */
+  allowedModifiers: Modifier[];
+}
+
+/**
+ * Минимальная доля уровня, видимая на поле.
+ *
+ * Не поле таблицы, а производное от коридора: поле вмещает 24 пузыря всегда,
+ * значит худший случай декады — её самый большой уровень. Руками это число
+ * задавать нельзя, я на этом ошибся дважды: поставил 0.55 для декады 1-10,
+ * где референс на L7 даёт ровно 50%, и 0.42 для 121-130, где 15 категорий
+ * дают ровно 40%.
+ */
+export function visibleShareMin(profile: DecadeProfile, wordsPerCategory = 4): number {
+  return BOARD_CAPACITY / (profile.categoryCorridor[1] * wordsPerCategory);
+}
+
+/**
+ * Таблица §2 из docs/DECADE_CALIBRATION.md.
+ *
+ * Коридоры чуть шире наблюдённых мин-макс там, где выборка декады всего 10
+ * уровней: наблюдение «мин 7» на одной декаде не запрещает 6 на соседней.
+ */
+export const DECADE_PROFILES: DecadeProfile[] = [
+  { from: 1, categoryMean: 9.5, categoryCorridor: [5, 12], rareRange: [0, 2], metaRange: [0, 2],
+    repeatRange: [0, 4], zipfMedianTarget: 4.35, zipfP25Target: 3.80, maxTokens: 1,
+    maxWordLen: 12, minProperNounZipf: 3.2, allowedModifiers: [] },
+  { from: 11, categoryMean: 9.7, categoryCorridor: [7, 12], rareRange: [2, 5], metaRange: [2, 5],
+    repeatRange: [3, 8], zipfMedianTarget: 4.01, zipfP25Target: 3.50, maxTokens: 2,
+    maxWordLen: 13, minProperNounZipf: 3.0, allowedModifiers: ['chains'] },
+  { from: 21, categoryMean: 9.3, categoryCorridor: [7, 12], rareRange: [2, 5], metaRange: [1, 4],
+    repeatRange: [5, 11], zipfMedianTarget: 4.00, zipfP25Target: 3.51, maxTokens: 2,
+    maxWordLen: 13, minProperNounZipf: 3.0, allowedModifiers: ['chains'] },
+  { from: 31, categoryMean: 9.6, categoryCorridor: [6, 12], rareRange: [3, 7], metaRange: [3, 6],
+    repeatRange: [6, 13], zipfMedianTarget: 3.85, zipfP25Target: 3.40, maxTokens: 2,
+    maxWordLen: 14, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
+  { from: 41, categoryMean: 9.4, categoryCorridor: [6, 12], rareRange: [3, 7], metaRange: [2, 5],
+    repeatRange: [6, 13], zipfMedianTarget: 3.92, zipfP25Target: 3.41, maxTokens: 2,
+    maxWordLen: 14, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
+  { from: 51, categoryMean: 10.8, categoryCorridor: [7, 14], rareRange: [3, 6], metaRange: [3, 6],
+    repeatRange: [10, 18], zipfMedianTarget: 4.06, zipfP25Target: 3.55, maxTokens: 2,
+    maxWordLen: 14, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
+  { from: 61, categoryMean: 9.8, categoryCorridor: [8, 13], rareRange: [3, 6], metaRange: [3, 6],
+    repeatRange: [11, 19], zipfMedianTarget: 4.03, zipfP25Target: 3.51, maxTokens: 2,
+    maxWordLen: 14, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
+  { from: 71, categoryMean: 10.2, categoryCorridor: [6, 15], rareRange: [2, 5], metaRange: [2, 6],
+    repeatRange: [14, 23], zipfMedianTarget: 4.04, zipfP25Target: 3.49, maxTokens: 2,
+    maxWordLen: 15, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
+  { from: 81, categoryMean: 9.5, categoryCorridor: [7, 12], rareRange: [2, 6], metaRange: [2, 5],
+    repeatRange: [14, 24], zipfMedianTarget: 4.00, zipfP25Target: 3.47, maxTokens: 2,
+    maxWordLen: 15, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
+  { from: 91, categoryMean: 9.5, categoryCorridor: [7, 14], rareRange: [3, 7], metaRange: [3, 7],
+    repeatRange: [13, 22], zipfMedianTarget: 3.96, zipfP25Target: 3.35, maxTokens: 2,
+    maxWordLen: 15, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
+  { from: 101, categoryMean: 9.2, categoryCorridor: [6, 13], rareRange: [3, 6], metaRange: [2, 5],
+    repeatRange: [14, 23], zipfMedianTarget: 4.09, zipfP25Target: 3.45, maxTokens: 2,
+    maxWordLen: 15, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
+  { from: 111, categoryMean: 9.3, categoryCorridor: [5, 13], rareRange: [4, 8], metaRange: [2, 5],
+    repeatRange: [14, 23], zipfMedianTarget: 3.99, zipfP25Target: 3.44, maxTokens: 2,
+    maxWordLen: 16, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
+  // ступенька: с L121 размер уровня прыгает с ~9.3 до ~13.2 и больше не падает
+  { from: 121, categoryMean: 13.2, categoryCorridor: [10, 16], rareRange: [7, 12], metaRange: [2, 5],
+    repeatRange: [22, 32], zipfMedianTarget: 3.70, zipfP25Target: 3.15, maxTokens: 2,
+    maxWordLen: 16, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
+  { from: 131, categoryMean: 14.3, categoryCorridor: [10, 17], rareRange: [5, 10], metaRange: [2, 5],
+    repeatRange: [23, 33], zipfMedianTarget: 3.92, zipfP25Target: 3.37, maxTokens: 2,
+    maxWordLen: 16, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
+  { from: 141, categoryMean: 13.4, categoryCorridor: [10, 17], rareRange: [6, 11], metaRange: [1, 4],
+    repeatRange: [22, 32], zipfMedianTarget: 3.83, zipfP25Target: 3.33, maxTokens: 2,
+    maxWordLen: 16, minProperNounZipf: 2.6, allowedModifiers: ['chains'] },
+  { from: 151, categoryMean: 14.3, categoryCorridor: [11, 17], rareRange: [7, 13], metaRange: [1, 5],
+    repeatRange: [21, 31], zipfMedianTarget: 3.82, zipfP25Target: 3.23, maxTokens: 2,
+    maxWordLen: 17, minProperNounZipf: 2.6, allowedModifiers: ['chains'] },
+  { from: 161, categoryMean: 14.0, categoryCorridor: [11, 17], rareRange: [8, 14], metaRange: [1, 4],
+    repeatRange: [20, 30], zipfMedianTarget: 3.73, zipfP25Target: 3.13, maxTokens: 2,
+    maxWordLen: 17, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
+  { from: 171, categoryMean: 14.5, categoryCorridor: [11, 18], rareRange: [7, 13], metaRange: [1, 4],
+    repeatRange: [23, 33], zipfMedianTarget: 3.83, zipfP25Target: 3.21, maxTokens: 2,
+    maxWordLen: 17, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
+  { from: 181, categoryMean: 13.1, categoryCorridor: [11, 16], rareRange: [7, 13], metaRange: [1, 4],
+    repeatRange: [21, 31], zipfMedianTarget: 3.80, zipfP25Target: 3.23, maxTokens: 2,
+    maxWordLen: 17, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
+  { from: 191, categoryMean: 13.1, categoryCorridor: [11, 17], rareRange: [7, 12], metaRange: [1, 4],
+    repeatRange: [20, 30], zipfMedianTarget: 3.87, zipfP25Target: 3.21, maxTokens: 2,
+    maxWordLen: 17, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
+];
+
+/**
+ * Профиль для диапазона уровней. За пределами замеренных 199 уровней (наш блок
+ * 201-210 как раз там) продолжаем последней декадой: экстраполировать тренд не
+ * на чем, а последняя декада — ближайшее известное состояние игры.
+ */
+export function profileForRange(levelRange: [number, number]): DecadeProfile {
+  const first = levelRange[0];
+  let profile = DECADE_PROFILES[0];
+  for (const candidate of DECADE_PROFILES) {
+    if (candidate.from <= first) profile = candidate;
+  }
+  return profile;
+}
+
+/** Человеческое имя декады для интерфейса: «уровни 1-10». */
+export function decadeLabel(profile: DecadeProfile): string {
+  const next = DECADE_PROFILES.find((p) => p.from === profile.from + 10);
+  return next ? `${profile.from}-${profile.from + 9}` : `${profile.from}+`;
+}
+
+/**
+ * Ритм внутри декады.
+ *
+ * Замер по 19 полным декадам: единственная устойчивая фигура — спайк на позиции 5
+ * (×1.17 от средней декады) и передышка на позиции 6 (×0.81); вниз на позиции 6
+ * идут 16 декад из 19. Остальные позиции колеблются в пределах ±5%.
+ *
+ * Но усреднённый шаблон брать нельзя: он даёт разброс 3 категории и одно падение,
+ * а в референсе разброс внутри декады стабильно 5-7 и вниз идут 37% переходов.
+ * Поэтому к фигуре добавляется детерминированный от seed дребезг, и из кандидатов
+ * выбирается первый, проходящий инварианты ритма.
+ */
+export const SPIKE_POSITION = 5;
+export const RECOVERY_POSITION = 6;
+const POSITION_SHAPE = [0.93, 0.98, 0.97, 0.99, 1.17, 0.81, 1.00, 1.05, 1.04, 1.07];
+
+export interface RhythmInvariants {
+  minSpread: number;
+  maxSpread: number;
+  minDescents: number;
+}
+
+export const RHYTHM_INVARIANTS: RhythmInvariants = {
+  minSpread: 5, maxSpread: 7, minDescents: 3,
+};
+
+function rhythmOk(counts: number[], corridor: [number, number]): boolean {
+  const spread = Math.max(...counts) - Math.min(...counts);
+  if (spread < RHYTHM_INVARIANTS.minSpread || spread > RHYTHM_INVARIANTS.maxSpread) return false;
+  const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
+  if (descents < RHYTHM_INVARIANTS.minDescents) return false;
+  if (counts.some((c) => c < corridor[0] || c > corridor[1])) return false;
+  // передышка после спайка — единственная гарантированная фигура референса
+  const spike = counts[SPIKE_POSITION - 1];
+  const recovery = counts[RECOVERY_POSITION - 1];
+  if (counts.length >= RECOVERY_POSITION && recovery >= spike) return false;
+  // два соседних уровня не должны быть структурно одинаковы
+  return !counts.slice(1).some((c, i) => c === counts[i]);
+}
+
+/**
+ * План числа категорий на декаду.
+ *
+ * `total` обычно 10. Для первой декады позиция 1 — туториал: в референсе L1 это
+ * 5 категорий, весь уровень на поле и без лимита ходов.
+ */
+export function planCategoryCounts(
+  profile: DecadeProfile, seed: string, total = 10, isFirstDecade = false,
+): number[] {
+  const corridor = profile.categoryCorridor;
+  const clamp = (v: number): number => Math.min(corridor[1], Math.max(corridor[0], v));
+  const base = POSITION_SHAPE.slice(0, total)
+    .map((factor) => clamp(Math.round(profile.categoryMean * factor)));
+
+  /**
+   * Спайк и передышка задают разброс блока.
+   *
+   * Одной фигуры ×1.17/×0.81 мало: в узком коридоре (например 8-13 у декады
+   * 61-70) она даёт разброс 4, а инвариант требует 5-7. В самом референсе спайк
+   * и передышка почти всегда и есть крайние точки декады, поэтому раздвигаем
+   * именно их — до нужного разброса, но не за пределы коридора.
+   */
+  let spike = base[SPIKE_POSITION - 1];
+  let recovery = base[RECOVERY_POSITION - 1];
+  while (spike - recovery < RHYTHM_INVARIANTS.minSpread
+    && (spike < corridor[1] || recovery > corridor[0])) {
+    if (spike < corridor[1]) spike += 1;
+    if (spike - recovery >= RHYTHM_INVARIANTS.minSpread) break;
+    if (recovery > corridor[0]) recovery -= 1;
+  }
+  base[SPIKE_POSITION - 1] = spike;
+  base[RECOVERY_POSITION - 1] = recovery;
+
+  const rng = createRng(`${seed}::rhythm::${profile.from}`);
+  for (let attempt = 0; attempt < 500; attempt += 1) {
+    const counts = base.map((value, i) => {
+      // спайк и передышку дребезг не трогает: это несущая фигура ритма
+      if (i + 1 === SPIKE_POSITION || i + 1 === RECOVERY_POSITION) return value;
+      // остальные позиции держим между передышкой и спайком, иначе дребезг
+      // легко выносит разброс за верхнюю границу 7
+      return Math.min(spike, Math.max(recovery, clamp(value + rng.int(5) - 2)));
+    });
+    if (isFirstDecade) counts[0] = TUTORIAL_CATEGORY_COUNT;
+    if (rhythmOk(counts, corridor)) return counts;
+  }
+  // не сошлось за 500 попыток: возвращаем несущую фигуру с растянутыми краями,
+  // чтобы разброс всё-таки набрался. Дальше блок отбракует checkBlockRhythm.
+  const fallback = base.slice();
+  fallback[SPIKE_POSITION - 1] = clamp(Math.round(profile.categoryMean * 1.25));
+  fallback[RECOVERY_POSITION - 1] = clamp(Math.round(profile.categoryMean * 0.72));
+  if (isFirstDecade) fallback[0] = TUTORIAL_CATEGORY_COUNT;
+  return fallback;
+}
+
+/** L1 референса: 5 категорий, 20 пузырей = весь уровень, лимита ходов нет. */
+export const TUTORIAL_CATEGORY_COUNT = 5;
+
+/** Мета-план: середина коридора декады, ноль на туториале. */
+export function planMetaCounts(
+  profile: DecadeProfile, categoryCounts: number[], seed: string, isFirstDecade = false,
+): number[] {
+  const [lo, hi] = profile.metaRange;
+  const rng = createRng(`${seed}::meta::${profile.from}`);
+  return categoryCounts.map((categories, i) => {
+    if (isFirstDecade && i === 0) return 0;   // мета-пары в оригинале с L3
+    const span = hi - lo;
+    const value = lo + (span > 0 ? rng.int(span + 1) : 0);
+    return Math.min(value, categories - 1);
+  });
+}
+
+/**
+ * Конфиг блока, собранный из профиля декады.
+ *
+ * Всё, что пользователь потом поменяет руками в интерфейсе, сильнее этого:
+ * профиль — разумный старт, а не запрет (принцип инструмента из DECISION_LOG).
+ */
+export function configForRange(
+  levelRange: [number, number], seed: string, overrides: Partial<BlockConfig> = {},
+): BlockConfig {
+  const profile = profileForRange(levelRange);
+  const total = levelRange[1] - levelRange[0] + 1;
+  const isFirstDecade = levelRange[0] === 1;
+  const categoryPlan = planCategoryCounts(profile, seed, total, isFirstDecade);
+  const metaPlan = planMetaCounts(profile, categoryPlan, seed, isFirstDecade);
+
+  return {
+    levelRange,
+    categoryCorridor: profile.categoryCorridor,
+    spikePositions: [SPIKE_POSITION],
+    recoveryPositions: [RECOVERY_POSITION],
+    rarityRange: profile.rareRange,
+    maxMetaDepth: 2,          // глубже 2 в референсе не встречается ни разу
+    allowedModifiers: profile.allowedModifiers,
+    includeThemes: [],
+    excludeThemes: [],
+    trapThemes: [],
+    // повтор слова в ДРУГОЙ категории — рычаг сложности, а не брак: окно запрета
+    // сужаем до половины декады, а нужное число повторов задаёт repeatRange
+    wordFreshnessWindow: 5,
+    categoryFreshnessWindow: Math.max(10, 40 - Math.floor(profile.from / 10) * 2),
+    wordsPerCategory: 4,
+    seed,
+    categoryPlan,
+    metaPlan,
+    decadeGates: {
+      maxTokens: profile.maxTokens,
+      maxWordLen: profile.maxWordLen,
+      minProperNounZipf: profile.minProperNounZipf,
+      zipfMedianTarget: profile.zipfMedianTarget,
+      zipfP25Target: profile.zipfP25Target,
+      visibleShareMin: visibleShareMin(profile, 4),
+      repeatRange: profile.repeatRange,
+      tutorialFirstLevel: isFirstDecade,
+    },
+    ...overrides,
+  };
+}
+
+// --------------------------------------------------------------------------- //
+// приёмка блока по декаде
+// --------------------------------------------------------------------------- //
+
+/**
+ * Допуск по медиане частотности для блока целиком.
+ *
+ * Значение искалось трижды, и обе первые попытки были неправильны — оставляю
+ * историю, чтобы никто не повторил.
+ *
+ * 1. ±0.15 «на глаз». Калиброванный блок 1-10 давал 4.20 при цели 4.35 и падал
+ *    на 0.153: проверка ловила не брак контента, а произвол собственного порога.
+ * 2. «Половина расстояния до соседней декады». Красиво звучит и полностью
+ *    ломается на плато: у декад 51-60, 61-70 и 71-80 цели 4.06, 4.03 и 4.04 —
+ *    расстояние 0.01-0.03, то есть меньше шума замера. Требовать такой точности
+ *    бессмысленно: эти декады по узнаваемости неразличимы в принципе.
+ *
+ * 3. Что есть на самом деле: у референса не 20 уровней узнаваемости, а три —
+ *    туториальный (L1-10, медиана 4.35), основное плато (L11-120, 3.85-4.09,
+ *    в среднем 4.00) и позднее плато (L121-199, 3.70-3.92, в среднем 3.81).
+ *    Расстояние между тирами 0.35 и 0.19. Допуск 0.20 меньше этого расстояния
+ *    (значит блок нельзя перепутать с чужим тиром) и больше разброса внутри
+ *    тира (значит соседние декады не требуют невозможной точности).
+ */
+export const ZIPF_BLOCK_TOLERANCE = 0.20;
+
+export function zipfBlockTolerance(_profile: DecadeProfile): number {
+  return ZIPF_BLOCK_TOLERANCE;
+}
+
+/**
+ * Соответствует ли собранный блок своей декаде.
+ *
+ * Отдельно от валидатора уровня, потому что часть требований проверяема только
+ * на блоке целиком: медиана частотности — это медиана всей десятки (у самого
+ * референса медианы отдельных уровней внутри L1-10 гуляют от 3.95 до 4.92),
+ * а ритм — свойство последовательности.
+ */
+export interface DecadeFitInput {
+  levelId: number;
+  categoryCount: number;
+  /** частотности всех слов уровня; null означает «частотнику слово неизвестно» */
+  zipfs: (number | null)[];
+  metaCount: number;
+  metaDepth: number;
+  chainCount: number;
+  moveLimit: number | null;
+  startBubbles: number;
+  boardCapacity: number;
+  wordsPerCategory: number;
+}
+
+export interface DecadeFitResult {
+  passed: boolean;
+  checks: { code: string; passed: boolean; detail: string }[];
+}
+
+function median(values: number[]): number {
+  const s = [...values].sort((a, b) => a - b);
+  return s.length ? s[Math.floor(s.length / 2)] : 0;
+}
+
+export function checkDecadeFit(
+  levels: DecadeFitInput[], profile: DecadeProfile,
+  blockTolerance = zipfBlockTolerance(profile),
+  plannedCount = levels.length,
+): DecadeFitResult {
+  const checks: DecadeFitResult['checks'] = [];
+  const add = (code: string, passed: boolean, detail: string): void => {
+    checks.push({ code, passed, detail });
+  };
+  if (!levels.length) {
+    return { passed: false, checks: [{ code: 'BLOCK_NOT_EMPTY', passed: false, detail: 'блок пуст' }] };
+  }
+
+  /**
+   * Ритм — свойство ПОЛНОЙ последовательности. Если часть уровней не собралась,
+   * судить по остатку нельзя: выпавший спайк превращает нормальный план в
+   * «нет падений» и «разброс 3». Раньше приёмка так и врала, показывая FAIL
+   * ритма там, где виноват был отказ генератора.
+   */
+  const complete = levels.length === plannedCount;
+  add('BLOCK_COMPLETE', complete,
+    `собрано ${levels.length} уровней из ${plannedCount}`
+    + (complete ? '' : ' — проверки ритма пропущены, судить по остатку нельзя'));
+
+  const counts = levels.map((l) => l.categoryCount);
+  const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
+  if (complete) add('CATEGORY_MEAN', Math.abs(mean - profile.categoryMean) <= 1.0,
+    `среднее категорий ${mean.toFixed(1)}, цель декады ${profile.categoryMean} (допуск ±1.0)`);
+
+  const spread = Math.max(...counts) - Math.min(...counts);
+  if (complete) add('CATEGORY_SPREAD', spread >= 5 && spread <= 7,
+    `разброс ${spread} категорий (${Math.min(...counts)}-${Math.max(...counts)}), в референсе 5-7`);
+
+  if (complete) add('CATEGORY_CORRIDOR',
+    counts.every((c) => c >= profile.categoryCorridor[0] && c <= profile.categoryCorridor[1]),
+    `коридор декады ${profile.categoryCorridor.join('-')}, факт `
+    + `${Math.min(...counts)}-${Math.max(...counts)}`);
+
+  const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
+  if (complete) add('DESCENTS', descents >= 3,
+    `переходов вниз ${descents} из ${counts.length - 1}, нужно минимум 3 (в референсе 37%)`);
+
+  if (complete && counts.length >= RECOVERY_POSITION) {
+    const spike = counts[SPIKE_POSITION - 1];
+    const recovery = counts[RECOVERY_POSITION - 1];
+    add('SPIKE_THEN_RECOVERY', recovery < spike,
+      `позиция ${SPIKE_POSITION}: ${spike} категорий, позиция ${RECOVERY_POSITION}: ${recovery} `
+      + '(в референсе 16 декад из 19 идут вниз именно здесь)');
+  }
+
+  // медиана по блоку: усредняем медианы уровней, а не сваливаем все слова в кучу,
+  // иначе большой уровень перевешивал бы маленький
+  const perLevelMedians = levels.map((l) => median(l.zipfs.filter((z): z is number => z !== null)));
+  const blockMedian = perLevelMedians.reduce((a, b) => a + b, 0) / perLevelMedians.length;
+  // эпсилон не косметика: разность double вида |4.20 - 4.35| даёт
+  // 0.15000000000000036, и сравнение с ровным порогом падало без причины
+  add('ZIPF_BLOCK_MEDIAN',
+    Math.abs(blockMedian - profile.zipfMedianTarget) <= blockTolerance + 1e-9,
+    `средняя медиана zipf по блоку ${blockMedian.toFixed(2)}, цель `
+    + `${profile.zipfMedianTarget} (допуск ±${blockTolerance.toFixed(2)} — половина `
+    + 'расстояния до соседней декады)');
+
+  /**
+   * Коридор редкости расширяем на RARE_RELAXATION.
+   *
+   * Генератору официально разрешено ослабление «точное число редких слов →
+   * диапазон» (±3, см. RELAXATION_ORDER в generator.ts). Требовать в приёмке
+   * строгий коридор — значит запрещать то, что сам генератор считает законным
+   * компромиссом. Зубы проверка не теряет: у сломанного блока 1-10 было 9-13
+   * редких слов на уровень при коридоре 0-2, то есть мимо даже с расширением.
+   */
+  const RARE_RELAXATION = 3;
+  const lo = Math.max(0, profile.rareRange[0] - RARE_RELAXATION);
+  const hi = profile.rareRange[1] + RARE_RELAXATION;
+  const rareCounts = levels.map((l) =>
+    l.zipfs.filter((z) => z === null || z < 3.0).length);
+  const inRange = rareCounts.filter((n) => n >= lo && n <= hi).length;
+  add('RARE_BUDGET', inRange >= Math.ceil(levels.length * 0.8),
+    `редких слов в коридоре ${profile.rareRange.join('-')} (с допуском ${lo}-${hi}) `
+    + `на ${inRange} уровнях из ${levels.length}; факт по уровням ${rareCounts.join(', ')}`);
+
+  add('META_RANGE',
+    levels.every((l) => l.metaCount >= profile.metaRange[0] && l.metaCount <= profile.metaRange[1]),
+    `мета-пар на уровень ${Math.min(...levels.map((l) => l.metaCount))}-`
+    + `${Math.max(...levels.map((l) => l.metaCount))}, коридор декады ${profile.metaRange.join('-')}`);
+
+  add('META_DEPTH', levels.every((l) => l.metaDepth <= 2),
+    `максимальная глубина мета-цепи ${Math.max(...levels.map((l) => l.metaDepth))}, `
+    + 'в референсе глубже 2 не встречается');
+
+  const modifiersAllowed = profile.allowedModifiers.includes('chains');
+  add('MODIFIERS_BY_DECADE', modifiersAllowed || levels.every((l) => l.chainCount === 0),
+    modifiersAllowed
+      ? 'цепи на этой декаде разрешены'
+      : `цепи на декаде ${profile.from}+ запрещены (в оригинале с L20), найдено `
+        + `${levels.reduce((n, l) => n + l.chainCount, 0)}`);
+
+  const floor = visibleShareMin(profile);
+  const shares = levels.map((l) => l.boardCapacity / (l.categoryCount * l.wordsPerCategory));
+  add('VISIBLE_SHARE', shares.every((s) => s >= floor - 1e-9),
+    `видимая доля уровня ${(Math.min(...shares) * 100).toFixed(0)}-`
+    + `${(Math.max(...shares) * 100).toFixed(0)}%, минимум декады `
+    + `${(floor * 100).toFixed(0)}% (24 пузыря на ${profile.categoryCorridor[1]} категорий)`);
+
+  if (profile.from === 1) {
+    const first = levels.find((l) => l.levelId === 1);
+    add('TUTORIAL_FIRST_LEVEL',
+      first !== undefined && first.moveLimit === null
+        && first.categoryCount === TUTORIAL_CATEGORY_COUNT
+        && first.startBubbles === first.categoryCount * first.wordsPerCategory,
+      first
+        ? `уровень 1: ${first.categoryCount} категорий, лимит `
+          + `${first.moveLimit === null ? 'отсутствует' : first.moveLimit}, `
+          + `пузырей ${first.startBubbles}`
+        : 'уровня 1 в блоке нет');
+  }
+
+  return { passed: checks.every((c) => c.passed), checks };
+}

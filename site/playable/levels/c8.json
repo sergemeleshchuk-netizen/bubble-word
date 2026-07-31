@@ -1,0 +1,109 @@
+{
+  "level_id": 8,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "pests",
+      "name": "Pests",
+      "words": [
+        "mouse",
+        "insects",
+        "ant",
+        "termite"
+      ]
+    },
+    {
+      "id": "farm-morning",
+      "name": "Farm",
+      "words": [
+        "pests",
+        "barn",
+        "livestock",
+        "tractor"
+      ]
+    },
+    {
+      "id": "home-rooms",
+      "name": "House Rooms",
+      "words": [
+        "bedroom",
+        "kitchen",
+        "basement",
+        "den"
+      ]
+    },
+    {
+      "id": "wild-west",
+      "name": "Wild West",
+      "words": [
+        "boots",
+        "horse",
+        "marshal",
+        "spurs"
+      ]
+    },
+    {
+      "id": "car-parts",
+      "name": "Car Parts",
+      "words": [
+        "hood",
+        "trunk",
+        "horn",
+        "brake"
+      ]
+    },
+    {
+      "id": "video-game-words",
+      "name": "Gaming Words",
+      "words": [
+        "quest",
+        "console",
+        "controller",
+        "avatar"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "Meats",
+      "words": [
+        "beef",
+        "bacon",
+        "ham",
+        "steak"
+      ]
+    },
+    {
+      "id": "calendar-words",
+      "name": "Calendar Words",
+      "words": [
+        "decade",
+        "era",
+        "holiday",
+        "anniversary"
+      ]
+    },
+    {
+      "id": "medical-jobs",
+      "name": "Medical Jobs",
+      "words": [
+        "nurse",
+        "therapist",
+        "vet",
+        "surgeon"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 37,
+    "move_limit_k": 1.37
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

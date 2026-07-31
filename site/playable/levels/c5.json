@@ -1,0 +1,139 @@
+{
+  "level_id": 5,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "bones",
+      "name": "Bones",
+      "words": [
+        "skull",
+        "spine",
+        "vertebra",
+        "rib"
+      ]
+    },
+    {
+      "id": "emergency-room",
+      "name": "Emergency Room",
+      "words": [
+        "bones",
+        "injuries",
+        "symptoms",
+        "triage"
+      ]
+    },
+    {
+      "id": "lab-equipment",
+      "name": "Lab Equipment",
+      "words": [
+        "magnet",
+        "burner",
+        "microscope",
+        "flask"
+      ]
+    },
+    {
+      "id": "currencies",
+      "name": "Currencies",
+      "words": [
+        "pound",
+        "dollar",
+        "euro",
+        "won"
+      ]
+    },
+    {
+      "id": "locksmith-words",
+      "name": "Locks & Keys",
+      "words": [
+        "lock",
+        "combination",
+        "bolt",
+        "safe"
+      ]
+    },
+    {
+      "id": "baseball-words",
+      "name": "Baseball Words",
+      "words": [
+        "triple",
+        "pitch",
+        "strike",
+        "lineup"
+      ]
+    },
+    {
+      "id": "courtroom-things",
+      "name": "Courtroom Things",
+      "words": [
+        "jury",
+        "lawyer",
+        "oath",
+        "witness"
+      ]
+    },
+    {
+      "id": "monsters",
+      "name": "Scary Creatures",
+      "words": [
+        "ghost",
+        "zombie",
+        "vampire",
+        "monster"
+      ]
+    },
+    {
+      "id": "sea-shore-things",
+      "name": "Beach Things",
+      "words": [
+        "shell",
+        "sand",
+        "tide",
+        "wave"
+      ]
+    },
+    {
+      "id": "phone-words",
+      "name": "Phone Words",
+      "words": [
+        "notification",
+        "app",
+        "camera",
+        "headphones"
+      ]
+    },
+    {
+      "id": "hot-drinks",
+      "name": "Hot Drinks",
+      "words": [
+        "coffee",
+        "tea",
+        "cocoa",
+        "espresso"
+      ]
+    },
+    {
+      "id": "driving-actions",
+      "name": "Driving Actions",
+      "words": [
+        "reverse",
+        "yield",
+        "shift",
+        "stall"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 45,
+    "move_limit_k": 1.25
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

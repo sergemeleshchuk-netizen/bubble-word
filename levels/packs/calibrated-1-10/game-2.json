@@ -1,0 +1,193 @@
+{
+  "level_id": 2,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 31,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "categories": [
+    {
+      "key": "storage_containers",
+      "label": "CONTAINERS",
+      "words": [
+        {
+          "text": "barrel",
+          "kind": "word"
+        },
+        {
+          "text": "basket",
+          "kind": "word"
+        },
+        {
+          "text": "chest",
+          "kind": "word"
+        },
+        {
+          "text": "cooler",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_drawer",
+      "label": "KITCHEN DRAWER",
+      "words": [
+        {
+          "text": "containers",
+          "kind": "meta",
+          "meta_child": "storage_containers"
+        },
+        {
+          "text": "peeler",
+          "kind": "word"
+        },
+        {
+          "text": "whisk",
+          "kind": "word"
+        },
+        {
+          "text": "silverware",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "snack_foods",
+      "label": "SNACK FOODS",
+      "words": [
+        {
+          "text": "popcorn",
+          "kind": "word"
+        },
+        {
+          "text": "muffin",
+          "kind": "word"
+        },
+        {
+          "text": "raisin",
+          "kind": "word"
+        },
+        {
+          "text": "puffs",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "onomatopoeia",
+      "label": "SOUND WORDS",
+      "words": [
+        {
+          "text": "snap",
+          "kind": "word"
+        },
+        {
+          "text": "bang",
+          "kind": "word"
+        },
+        {
+          "text": "crash",
+          "kind": "word"
+        },
+        {
+          "text": "buzz",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
+      "words": [
+        {
+          "text": "calendar",
+          "kind": "word"
+        },
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "clip",
+          "kind": "word"
+        },
+        {
+          "text": "ink",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "face_parts",
+      "label": "FACE PARTS",
+      "words": [
+        {
+          "text": "chin",
+          "kind": "word"
+        },
+        {
+          "text": "lip",
+          "kind": "word"
+        },
+        {
+          "text": "ear",
+          "kind": "word"
+        },
+        {
+          "text": "cheek",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "eating_actions",
+      "label": "EATING ACTIONS",
+      "words": [
+        {
+          "text": "bite",
+          "kind": "word"
+        },
+        {
+          "text": "taste",
+          "kind": "word"
+        },
+        {
+          "text": "snack",
+          "kind": "word"
+        },
+        {
+          "text": "feast",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "golf_words",
+      "label": "GOLF WORDS",
+      "words": [
+        {
+          "text": "par",
+          "kind": "word"
+        },
+        {
+          "text": "driver",
+          "kind": "word"
+        },
+        {
+          "text": "tee",
+          "kind": "word"
+        },
+        {
+          "text": "birdie",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

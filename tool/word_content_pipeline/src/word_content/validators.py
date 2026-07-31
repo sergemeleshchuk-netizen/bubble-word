@@ -7,8 +7,26 @@ from dataclasses import dataclass
 
 from .blocklist import Blocklist
 from .familiarity import familiarity, zipf
-from .models import REVIEW_STATUSES, MembershipCandidateInput
+from .models import (
+    FAIL_CLOSED_STATUS,
+    PLAYABLE_STATUSES,
+    REVIEW_STATUSES,
+    MembershipCandidateInput,
+    familiarity_gate,
+)
 from .repositories import find_sense_by_definition, get_word
+
+__all__ = [
+    "ContentFilter",
+    "FAIL_CLOSED_STATUS",
+    "PLAYABLE_STATUSES",
+    "ValidationIssue",
+    "familiarity_gate",
+    "parse_statuses",
+    "require_category",
+    "resolve_sense_key",
+    "word_familiarity",
+]
 
 
 class ValidationIssue(ValueError):
@@ -40,6 +58,13 @@ class ContentFilter:
 
     def score(self, word: str) -> float | None:
         return familiarity(word)
+
+
+def word_familiarity(conn: sqlite3.Connection, word_id: int) -> float | None:
+    row = conn.execute(
+        "SELECT familiarity_score FROM words WHERE id = ?", (word_id,)
+    ).fetchone()
+    return None if row is None else row["familiarity_score"]
 
 
 def require_category(conn: sqlite3.Connection, category_key: str) -> sqlite3.Row:

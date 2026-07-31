@@ -1,0 +1,69 @@
+{
+  "level_id": 1,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "directions",
+      "name": "Directions",
+      "words": [
+        "beside",
+        "behind",
+        "forward",
+        "north"
+      ]
+    },
+    {
+      "id": "streets-and-roads",
+      "name": "Kinds Of Roads",
+      "words": [
+        "avenue",
+        "lane",
+        "trail",
+        "alley"
+      ]
+    },
+    {
+      "id": "bodies-of-water",
+      "name": "Bodies Of Water",
+      "words": [
+        "creek",
+        "canal",
+        "delta",
+        "stream"
+      ]
+    },
+    {
+      "id": "math-words",
+      "name": "Math Words",
+      "words": [
+        "sum",
+        "angle",
+        "ratio",
+        "diameter"
+      ]
+    },
+    {
+      "id": "photography-words",
+      "name": "Photography Words",
+      "words": [
+        "portrait",
+        "lens",
+        "exposure",
+        "frame"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": null,
+    "move_limit_k": null
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

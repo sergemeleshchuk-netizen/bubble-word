@@ -1,0 +1,99 @@
+{
+  "level_id": 2,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "storage-containers",
+      "name": "Containers",
+      "words": [
+        "barrel",
+        "basket",
+        "chest",
+        "cooler"
+      ]
+    },
+    {
+      "id": "kitchen-drawer",
+      "name": "Kitchen Drawer",
+      "words": [
+        "containers",
+        "peeler",
+        "whisk",
+        "silverware"
+      ]
+    },
+    {
+      "id": "snack-foods",
+      "name": "Snack Foods",
+      "words": [
+        "popcorn",
+        "muffin",
+        "raisin",
+        "puffs"
+      ]
+    },
+    {
+      "id": "onomatopoeia",
+      "name": "Sound Words",
+      "words": [
+        "snap",
+        "bang",
+        "crash",
+        "buzz"
+      ]
+    },
+    {
+      "id": "office-supplies",
+      "name": "Office Supplies",
+      "words": [
+        "calendar",
+        "pen",
+        "clip",
+        "ink"
+      ]
+    },
+    {
+      "id": "face-parts",
+      "name": "Face Parts",
+      "words": [
+        "chin",
+        "lip",
+        "ear",
+        "cheek"
+      ]
+    },
+    {
+      "id": "eating-actions",
+      "name": "Eating Actions",
+      "words": [
+        "bite",
+        "taste",
+        "snack",
+        "feast"
+      ]
+    },
+    {
+      "id": "golf-words",
+      "name": "Golf Words",
+      "words": [
+        "par",
+        "driver",
+        "tee",
+        "birdie"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 33,
+    "move_limit_k": 1.375
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

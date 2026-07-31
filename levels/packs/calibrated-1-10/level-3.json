@@ -1,0 +1,615 @@
+{
+  "level_spec": {
+    "levelId": 3,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 7,
+      "wordsPerCategory": 4,
+      "startBubbles": 28,
+      "boardCapacity": 24,
+      "moveFloor": 21,
+      "moveLimit": 29,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "elements",
+        "label": "CHEMICAL ELEMENTS",
+        "rule": "Chemical elements an average person can name",
+        "theme": "science",
+        "words": [
+          {
+            "text": "carbon",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "oxygen",
+            "kind": "word",
+            "zipf": 4.25,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "hydrogen",
+            "kind": "word",
+            "zipf": 3.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "nitrogen",
+            "kind": "word",
+            "zipf": 3.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "kitchen_tools",
+        "label": "KITCHEN TOOLS",
+        "rule": "Handheld tools and utensils used to prepare food in a kitchen",
+        "theme": "home",
+        "words": [
+          {
+            "text": "pot",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "pan",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "spoon",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "plate",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.9,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "dishes_and_glassware",
+        "label": "DISHES",
+        "rule": "Things you eat and drink from at a table",
+        "theme": "home",
+        "words": [
+          {
+            "text": "dish",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bowl",
+            "kind": "word",
+            "zipf": 4.63,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bottle",
+            "kind": "word",
+            "zipf": 4.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "jar",
+            "kind": "word",
+            "zipf": 3.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "cleaning_actions",
+        "label": "CLEANING ACTIONS",
+        "rule": "Actions done when cleaning something",
+        "theme": "actions",
+        "words": [
+          {
+            "text": "polish",
+            "kind": "word",
+            "zipf": 4.29,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "wash",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "wipe",
+            "kind": "word",
+            "zipf": 4.01,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "vacuum",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "weapons_of_the_past",
+        "label": "OLD WEAPONS",
+        "rule": "Weapons used before modern firearms",
+        "theme": "history",
+        "words": [
+          {
+            "text": "bow",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "sword",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "dagger",
+            "kind": "word",
+            "zipf": 3.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "axe",
+            "kind": "word",
+            "zipf": 3.79,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "furniture",
+        "label": "FURNITURE",
+        "rule": "Movable household furniture",
+        "theme": "home",
+        "words": [
+          {
+            "text": "desk",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "bench",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "couch",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "chair",
+            "kind": "word",
+            "zipf": 4.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "noise_adjectives",
+        "label": "VOLUME WORDS",
+        "rule": "Words describing how loud something is",
+        "theme": "descriptive",
+        "words": [
+          {
+            "text": "loud",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "silent",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "deafening",
+            "kind": "word",
+            "zipf": 2.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "quiet",
+            "kind": "word",
+            "zipf": 4.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      }
+    ],
+    "traps": [
+      {
+        "word": "plate",
+        "home": "kitchen_tools",
+        "decoy": "dishes_and_glassware",
+        "homeObviousness": 0.9,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.85
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T11:00:13.932Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+    "level_spec_hash": "7d4a95613871038e462c7286ce53067062bcc5765629803d263942fb7a15563f",
+    "pack_hash": "3fffb1cb00d8594e953e91286e3f91b3cf66b907617ec27cf3e27920c43bb02e",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 3,
+    "position": 3,
+    "role": "growth",
+    "categoryCount": 7,
+    "metaCount": 0,
+    "metaDepthTarget": 0,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 4,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 2.5452,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 1.2,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 2.6626,
+        "declared": -0.6,
+        "semantic": 1.2,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "28 пузырей на старте при 7 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "6 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "3 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 29 при минимуме 21 (K = 1.35)"
+    ],
+    "interest": 6,
+    "interest_breakdown": {
+      "clarity": 2.3,
+      "variety": 1.66,
+      "aha": 0,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.30: узнаваемых слов 100%, средняя очевидность связи 0.82",
+      "Variety 1.66: 3 типов связи, 5 тематических сфер, но 71% категорий однотипны",
+      "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 7 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (29 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 0"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 0, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 28, по формуле 4 × 7 − 0 = 28"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 29, минимум мерджей 21, K = 1.35 → ожидалось 29"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 6: elements, kitchen_tools, dishes_and_glassware, cleaning_actions, weapons_of_the_past, furniture"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.37 (цель декады 4.35), p25 4.01 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 85.7% уровня (24 из 28), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 29
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "rejected",
+        "stage": "валидация",
+        "reason": "REFERENCE_NOVELTY: точных копий четвёрок референса: 1",
+        "relaxations": []
+      },
+      {
+        "index": 1,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "7 категорий, 0 мета-связей, 1 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

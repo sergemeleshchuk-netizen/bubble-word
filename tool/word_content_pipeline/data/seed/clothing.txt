@@ -9,7 +9,7 @@ footwear | FOOTWEAR | is_a | 0.15 | 0.9 | A | Things worn on the feet | $W is wo
 boot, sneaker, sandal, slipper, heel, loafer, flip-flop, cleat, moccasin, clog, pump, sock, wader, galosh, oxford, flat, stiletto, wedge, hiking boot, slip on
 
 winter_clothing | WINTER CLOTHING | used_in | 0.2 | 0.85 | A | Clothing worn specifically to stay warm in cold weather | $W is worn to stay warm in cold weather
-coat, scarf, mitten, boot, sweater, glove, parka, earmuffs, thermals, beanie, hood, snow pants, fleece, muffler, ski mask, wool socks, down jacket, shawl
+coat, scarf, mitten, boot, sweater, glove, parka, ear muffs, thermals, beanie, hood, snow pants, fleece, muffler, ski mask, wool socks, down jacket, shawl
 
 jewelry | JEWELRY | is_a | 0.2 | 0.88 | A | Decorative items worn on the body as jewelry | $W is a piece of jewelry worn on the body
 necklace, bracelet, earring, brooch, pendant, chain, anklet, locket, watch, cufflink, ring, choker, bangle, charm, stud, hoop, tiara, pin
@@ -60,7 +60,7 @@ things_with_pockets | THINGS WITH POCKETS | has_property | 0.35 | 0.7 | C | Clot
 jeans, coat, backpack, apron, jacket, shirt, purse, cargo pants, vest, hoodie, blazer, overalls, suitcase, robe
 
 kids_clothing | KIDS CLOTHING | is_a | 0.3 | 0.78 | A | Clothing made especially for babies and children | $W is clothing made for babies or children
-onesie, bib, romper, jumper, diaper, booties, mittens, overalls, snowsuit, sunhat, footie pajamas, smock
+onesie, bib, romper, jumper, diaper, booties, mittens, overalls, snowsuit, sun hat, footie pajamas, smock
 
 shoe_parts | SHOE PARTS | part_of | 0.35 | 0.72 | A | Parts of a shoe | $W is a part of a shoe
 sole, heel, lace, tongue, toe, insole, arch, eyelet, upper, buckle, strap, tread, cushion, shank

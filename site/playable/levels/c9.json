@@ -1,0 +1,119 @@
+{
+  "level_id": 9,
+  "difficulty_target": null,
+  "source": "calibrated-1-10",
+  "categories": [
+    {
+      "id": "sleepwear",
+      "name": "Sleepwear",
+      "words": [
+        "nightgown",
+        "pajamas",
+        "robe",
+        "slippers"
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "name": "Wardrobe",
+      "words": [
+        "sleepwear",
+        "closet",
+        "hats",
+        "accessories"
+      ]
+    },
+    {
+      "id": "things-that-burn",
+      "name": "Fuels",
+      "words": [
+        "diesel",
+        "coal",
+        "gasoline",
+        "ethanol"
+      ]
+    },
+    {
+      "id": "hardware-store",
+      "name": "Hardware Store",
+      "words": [
+        "fuels",
+        "ladder",
+        "blades",
+        "hose"
+      ]
+    },
+    {
+      "id": "equestrian-words",
+      "name": "Horse Riding",
+      "words": [
+        "jumping",
+        "saddle",
+        "jockey",
+        "tack"
+      ]
+    },
+    {
+      "id": "gardening-words",
+      "name": "Gardening Words",
+      "words": [
+        "weed",
+        "seed",
+        "pot",
+        "fertilizer"
+      ]
+    },
+    {
+      "id": "garden-center",
+      "name": "Garden Center",
+      "words": [
+        "soil",
+        "flowers",
+        "trees",
+        "houseplants"
+      ]
+    },
+    {
+      "id": "christmas-things",
+      "name": "Christmas Things",
+      "words": [
+        "lights",
+        "gift",
+        "carol",
+        "stocking"
+      ]
+    },
+    {
+      "id": "word-fast",
+      "name": "Fast Words",
+      "words": [
+        "fleet",
+        "rapid",
+        "express",
+        "prompt"
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "Shapes",
+      "words": [
+        "circle",
+        "arch",
+        "cylinder",
+        "cone"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 41,
+    "move_limit_k": 1.367
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}
