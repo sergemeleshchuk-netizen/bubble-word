@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompting: промпты 2 и 3 — Bubble Associations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1633;
+    --ink-soft:#4f4a66;
+    --violet:#7c5cfc;
+    --chip:#efeafd;
+    --line:#ececf2;
+    --bg:#fefefe;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Poppins",system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  .wrap{max-width:1560px;margin:0 auto;padding:0 56px;}
+  @media (max-width:760px){.wrap{padding:0 24px;}}
+  header{border-bottom:1px solid var(--line);background:var(--bg);}
+  .head-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 0;}
+  .logo{font-weight:700;font-size:19px;line-height:1.25;}
+  .back{
+    font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--violet);text-decoration:none;
+    background:var(--chip);border-radius:999px;padding:10px 18px;
+  }
+  .back:hover{opacity:.75;}
+
+  .doc{max-width:1020px;padding:44px 0 96px;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink-soft);}
+  .doc h1{font-size:clamp(30px,3.4vw,50px);font-weight:800;line-height:1.14;letter-spacing:-.01em;color:var(--ink);text-wrap:balance;}
+  .lead{margin-top:18px;font-size:16px;line-height:1.62;}
+  .lead b{color:var(--ink);font-weight:600;}
+
+  .item{margin-top:56px;padding-top:34px;border-top:1px solid var(--line);}
+  .item:first-of-type{border-top:none;}
+  .eyebrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+  .enum{
+    min-width:34px;height:34px;border-radius:9px;padding:0 9px;
+    background:var(--chip);color:var(--violet);font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .pill{
+    font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    border-radius:999px;padding:5px 11px;background:var(--chip);color:var(--violet);
+  }
+  .pill.wait{background:#fdf1e3;color:#b3701c;}
+  .doc h2{font-size:20px;font-weight:700;line-height:1.3;color:var(--ink);letter-spacing:-.005em;}
+  .doc h3{
+    font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--violet);margin:30px 0 12px;
+  }
+  .doc p{margin-top:12px;}
+  .doc p b,.doc li b{color:var(--ink);font-weight:600;}
+  .doc ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+  .doc ul li{padding-left:18px;position:relative;}
+  .doc ul li::before{
+    content:"";position:absolute;left:3px;top:9px;width:6px;height:6px;
+    border-radius:50%;background:var(--violet);opacity:.55;
+  }
+  code{
+    font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12.5px;
+    background:var(--chip);color:var(--violet);border-radius:5px;padding:1px 5px;
+  }
+
+  /* цифры замера */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border-radius:14px;overflow:hidden;margin-top:16px;}
+  .fact{background:var(--bg);padding:18px 20px;}
+  .fact-n{display:block;font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.01em;font-variant-numeric:tabular-nums;}
+  .fact-t{display:block;margin-top:5px;font-size:12.5px;line-height:1.5;}
+
+  /* четыре оси */
+  .axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:16px;}
+  .axis{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg);}
+  .axis-k{display:flex;align-items:baseline;gap:9px;}
+  .axis-l{font-size:24px;font-weight:800;color:var(--violet);line-height:1;}
+  .axis-r{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .axis-n{display:block;margin-top:9px;font-size:14px;font-weight:700;color:var(--ink);}
+  .axis-d{display:block;margin-top:5px;font-size:12.5px;line-height:1.5;}
+
+  /* врезка */
+  .callout{
+    margin-top:22px;border-left:3px solid var(--violet);
+    background:var(--chip);border-radius:0 14px 14px 0;padding:18px 22px;
+  }
+  .callout p{margin:0;}
+  .callout p + p{margin-top:10px;}
+
+  /* таблица весов */
+  .tbl-scroll{overflow-x:auto;margin-top:14px;}
+  table{border-collapse:collapse;width:100%;min-width:420px;font-size:13.5px;}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--violet);}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+
+  /* fairness gate */
+  .gates{display:flex;flex-direction:column;gap:1px;background:var(--line);border-radius:14px;overflow:hidden;margin-top:14px;}
+  .gate{background:var(--bg);padding:16px 20px;display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;}
+  .gate-k{
+    flex:0 0 auto;font-size:10.5px;font-weight:800;letter-spacing:.09em;
+    border-radius:999px;padding:5px 12px;margin-top:2px;
+  }
+  .gate-fail{background:#fdeaea;color:#b3261e;}
+  .gate-warn{background:#fdf1e3;color:#b3701c;}
+  .gate-pass{background:#e7f5ec;color:#1c7c46;}
+  .gate-b{flex:1 1 320px;min-width:0;font-size:13px;line-height:1.55;}
+
+  /* раскрывающийся промпт */
+  .pdrop{margin:20px 0 6px;}
+  .pdrop summary{
+    display:inline-flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+    background:var(--chip);color:var(--violet);border-radius:999px;
+    padding:10px 18px;font-size:13px;font-weight:700;letter-spacing:.02em;max-width:100%;
+  }
+  .pdrop summary::-webkit-details-marker{display:none;}
+  .pdrop summary::marker{content:"";}
+  .pdrop summary:hover{opacity:.75;}
+  .pd-arrow{
+    width:0;height:0;border-left:4.5px solid transparent;border-right:4.5px solid transparent;
+    border-top:5.5px solid currentColor;transition:transform .2s;
+  }
+  .pdrop[open] summary .pd-arrow{transform:rotate(180deg);}
+  .prompt-box{
+    background:#1c1633;color:#e8e3f5;border-radius:16px;
+    padding:18px 20px;margin:10px 0 6px;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:12.5px;line-height:1.65;white-space:pre-wrap;
+    box-shadow:0 12px 32px rgba(28,22,51,.18);
+    max-height:min(62vh,620px);overflow:auto;
+  }
+  .prompt-box .pb-label{
+    display:block;font-family:inherit;font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:#b9a8e8;margin-bottom:10px;font-weight:700;
+  }
+  a{color:var(--violet);}
+  :focus-visible{outline:2px solid var(--violet);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="logo">Chardonnay<br>Partners</div>
+    <a class="back" href="index.html">&larr; Case study</a>
+  </div>
+</header>
+
+<main class="wrap doc">
+
+  <h1>Prompting: промпты 2 и 3</h1>
+  <p class="lead">Продолжение блока <b>03 Prompting</b>. Первый промпт создал базу слов;
+  эти два — про то, как база растёт дальше и как мы вообще решаем, что уровень хороший.
+  Оба ещё не реализованы: показаны как задания и как продуктовая позиция за ними.</p>
+
+  <section class="item">
+    <div class="eyebrow">
+      <span class="enum">2</span>
+      <span class="pill wait">подготовлен, в работу не взят</span>
+    </div>
+    <h2>Обогащение базы: разрезание тем, глубина пулов, хабы</h2>
+
+    <p>Первый инстинкт при наращивании базы — просить у модели новые категории пачками.
+    Так база растёт вширь и мгновенно упирается в потолок: категория с пулом ровно
+    в четыре слова играбельна ровно один раз. Промпт разворачивает работу в другую
+    сторону, и не по интуиции, а по замеру выгрузки живой игры-референса на
+    1025 уровней.</p>
+
+    <h3>Что показал замер</h3>
+    <div class="facts">
+      <div class="fact"><span class="fact-n">584</span><span class="fact-t">семейства «общая категория + уточнения»: sports &rarr; beach sports, combat sports, board sports</span></div>
+      <div class="fact"><span class="fact-n">37%</span><span class="fact-t">имён категорий возвращаются на других уровнях, в среднем 3.3 раза — и почти всегда с другим пулом</span></div>
+      <div class="fact"><span class="fact-n">44%</span><span class="fact-t">словаря живёт в двух и более категориях: <code>water</code> в 34, <code>glass</code> в 27. Ловушки — это фон, а не редкая находка</span></div>
+      <div class="fact"><span class="fact-n">4 из 6714</span><span class="fact-t">категорий построены на игре слов. У нас их были десятки — и именно они не собирали нормальную четвёрку</span></div>
+    </div>
+
+    <h3>Что промпт меняет в скилле наполнения</h3>
+    <ul>
+      <li><b>Три режима вместо одного.</b> <code>split</code> — разрезать существующую
+        категорию признаком (регион, среда, назначение, эпоха, материал);
+        <code>deepen</code> — добрать слова категории с тонким пулом до 6-8;
+        <code>theme</code> — прежний режим «придумай категории по теме», теперь
+        последний по приоритету. Режим выбирается по состоянию базы, а не по
+        формулировке запроса.</li>
+      <li><b>Пул 6-8 слов как условие приёмки.</b> Категория с четвёркой попадает
+        в базу только со статусом «тонкий пул» и встаёт в очередь на углубление.</li>
+      <li><b>Хабы планируются намеренно:</b> в каждом новом пуле 1-2 слова обязаны
+        уже существовать в базе в другой категории. Это материал ловушек, а не
+        побочный эффект.</li>
+      <li><b>Многозначное слово нельзя влить без указания значения.</b>
+        <code>scale</code> в MAP LEGEND и в BATHROOM ITEMS — разные слова, и приёмка
+        базы ловит это блокирующе.</li>
+      <li><b>Сложность категории ставится руками, а не выводится из частотности слов.</b>
+        Живой пример: у <code>CARDINAL</code> пул robin / bird / direction / vatican —
+        слова частотные, формула дала 0.15, и категория-загадка на омонимах уехала
+        на уровень-туториал.</li>
+    </ul>
+
+    <details class="pdrop">
+      <summary>Промпт целиком<span class="pd-arrow"></span></summary>
+      <div class="prompt-box"><span class="pb-label">Base augmentation prompt</span>Задача: переписать скилл `word-associations-generator` так, чтобы он наращивал
+базу тем же способом, каким это делает оригинал, — разрезанием тем и углублением
+пулов, а не выдумыванием россыпи новых категорий. Основание — замер выгрузки
+(1025 уровней) в `reference-taxonomy.md`, разделы 3, 4, 6 и 7.2, 7.3, 7.5.
+
+Контекст:
+- скилл живёт в `.claude/skills/word-associations-generator/SKILL.md`;
+- он уже переведён на источник правды `tool/word_content_pipeline/data/seed/*.txt`
+  + пересборку `bash scripts/rebuild_all.sh`;
+- AI-проходы пайплайна написаны и обкатаны на mock-провайдере:
+  `generate-category-candidates` (категория → слова),
+  `generate-word-memberships` (слово → ещё категории),
+  `review-membership-candidates` (модель-критик). Реального платного вызова
+  не делали ни разу — ключ и разрешение на трату спрашивать у владельца.
+
+## Что показал замер
+
+1. **Масштаб делается разрезанием.** 584 семейства «общая категория + уточнения»:
+   `sports` → `action sports`, `beach sports`, `board sports`, `combat sports`,
+   `contact sports`; `capitals` → `african capitals`, `european capitals`,
+   `us state capitals`, `fashion capitals`; `plants` → `alpine plants`,
+   `carnivorous plants`, `climbing plants`, `desert plants`.
+   Признаки разреза: регион, среда, назначение, эпоха, размер, аудитория,
+   материал, способ приготовления.
+2. **Пул должен быть глубже четвёрки.** 37% имён категорий возвращаются на других
+   уровнях (в среднем 3.3 раза), 1725 из них — с ДРУГИМ пулом. У нас категория
+   с пулом ровно 4 даёт одну и ту же четвёрку навсегда.
+3. **Хабы массовые, а не точечные.** 44% словаря живёт в 2+ категориях;
+   `water` в 34 категориях, `glass` в 27, `paper` и `helmet` в 25.
+   Мы ищем ловушки поштучно, а у оригинала это фон.
+4. **Имена короткие**: 2878 категорий названы одним словом, 2995 — двумя.
+5. **Игра слов почти не используется**: 4 категории из 6714.
+
+## Сделать
+
+### 1. Три режима работы вместо одного
+
+Сейчас скилл работает «по теме» (придумай категории про космос). Заменить на три
+режима с явным приоритетом:
+
+- **`split` (основной)**: взять существующую категорию базы и разрезать признаком.
+  На входе — ключ категории, на выходе 2-5 разрезов, у каждого своё правило,
+  пул 6-8 слов и связь «ребёнок такой-то категории». Требование: пересечение
+  разреза с родителем не больше трети пула, иначе `derive-conflicts` запретит
+  их сочетание и разрез бесполезен.
+- **`deepen`**: взять категорию с тонким пулом (`readiness = constrained`) и
+  добрать слова до 6-8. Это самый частый вид работы: категория, попавшая в базу
+  с четвёркой, играбельна ровно один раз.
+- **`theme`**: прежний режим, но теперь последний в приоритете. Использовать
+  только когда в базе нет подходящего родителя для разреза.
+
+Порядок в скилле: сначала посмотреть, что уже есть (`word-content stats`,
+`coverage`), и выбрать режим по состоянию базы, а не по формулировке запроса.
+
+### 2. Правила качества переписать под замер
+
+Заменить действующие правила на измеримые:
+
+- **пул 6-8 слов**, минимум 6. Категория с пулом 4-5 в базу принимается только
+  как `constrained` и попадает в очередь на `deepen`;
+- **имя 1-2 слова**, до 3 в исключительных случаях;
+- **разрез не дублирует родителя**: пересечение пулов не больше трети;
+- **хабы планировать намеренно**: в каждом новом пуле 1-2 слова обязаны уже
+  существовать в базе в другой категории. Это не побочный эффект, а материал
+  ловушек: у оригинала так живёт 44% словаря. Проверять по
+  `tool/data/categories.json` (поле `shared_words`) и по силе живых ассоциаций
+  (`tool/scripts/swow_source.py traps|mine`);
+- **не добавлять категории игры слов** (`___ BOARD`, `SNOW ___`): в оригинале
+  их 4 из 6714, а у нас несколько десятков, и именно они дают 159 категорий
+  без единого `approved`;
+- **сложность категории ставить руками, а не выводить из частотности слов.**
+  Живой пример: у `CARDINAL` пул `robin, bird, direction, vatican` — слова
+  частотные, формула дала 0.15, и категория-загадка на омонимах уехала на
+  уровень-туториал. Частотность говорит о словах, а не о прозрачности правила.
+
+### 3. Многозначные слова — сразу с значением
+
+Слово, у которого в базе уже разведены 2+ значения, нельзя вливать в новую
+категорию без указания смысла: `scale` в MAP LEGEND и в BATHROOM ITEMS — разные
+слова, и приёмка базы это ловит блокирующе. Скилл обязан:
+
+- проверять слово на многозначность до записи в пул;
+- если значений несколько — дописывать привязку в `data/seed/_sense_map.json`
+  (там формат «слово → категория → sense_key»);
+- если нужного значения в базе нет — добавлять его в секцию `senses` того же файла.
+
+Мера объёма проблемы: при массовом импорте таких связей набралось 1603 штуки.
+
+### 4. Процедура и отчёт
+
+Процедуру в SKILL.md привести к виду: посмотреть базу → выбрать режим → сгенерить
+через AI-проход пайплайна (статус `candidate`) → критик → пересборка
+`rebuild_all.sh` с приёмкой → обновить три выгрузки → показать сводку.
+
+Сводка обязана содержать: сколько категорий и слов добавлено, сколько разрезов
+и от каких родителей, сколько категорий вышло из `constrained`, какие новые
+пересечения-ловушки появились, не появилось ли новых запретов пар
+(`data/category_conflicts.csv`).
+
+## Как проверять
+
+- боевой прогон на mock-провайдере: три режима, по одному примеру каждый;
+- один реальный вызов на дешёвой модели — только после разрешения владельца
+  (`LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL` в окружении, ключ в файлы не писать);
+- приёмка базы зелёная после пересборки, иначе не сдавать;
+- прогнать блок 1-10 и убедиться, что новые категории не сломали приёмку декады;
+- слепой решатель (`.claude/skills/level-solver`) на любом уровне, куда попали
+  новые категории: массовое наполнение проверяется именно им, а не глазами.
+
+## Чего не делать
+
+- не тянуть слова и четвёрки из выгрузки оригинала: скилл переносит СПОСОБ
+  (разрез, глубина, хабы), а не контент;
+- не править `tool/data/categories.json` руками — он пересоздаётся из SQLite;
+- не понижать порог пула, чтобы прогон «прошёл»: тонкий пул это очередь работы;
+- не выдавать наполнение готовым без пересборки с приёмкой.</div>
+    </details>
+  </section>
+
+  <section class="item">
+    <div class="eyebrow">
+      <span class="enum">3</span>
+      <span class="pill wait">проработка, в реализацию не взято</span>
+    </div>
+    <h2>Сложность и интерес: четыре оси вместо одной оценки</h2>
+
+    <p>Этот промпт устроен наоборот по отношению к остальным. Там человек приносил
+    готовую спецификацию — здесь на вход пошёл <b>игровой опыт сырым текстом</b>:
+    я играл в игру и описал своими словами, откуда берётся сложность. Задача модели
+    была не исполнить, а превратить наблюдение в измеримую систему.</p>
+
+    <div class="callout">
+      <p><b>Наблюдение, из которого выросло всё остальное.</b> Сложность делает не
+      редкая лексика, а структура доступа: слова нескольких групп доступны
+      одновременно, но ни одна группа не закрывается, и игрок вынужден держать
+      несколько гипотез. Если верх и низ поля почти не взаимодействуют, а слова
+      одной категории разведены по зонам — уровень сложный на совершенно обычных
+      словах.</p>
+      <p><b>Второе различение.</b> Модификаторы — половинки слов, лёд, мета-категории,
+      превращение категории в картинку, merge — почти не повышают сложность. Но
+      именно за ними игрок охотится. Значит их место в формуле <b>интереса</b>,
+      а не сложности. И механика перестаёт быть интересной, если идёт много уровней
+      подряд без развития.</p>
+    </div>
+
+    <h3>Что получилось на выходе</h3>
+    <p>Вместо одной оценки «хороший уровень» — четыре независимые оси. Уровень может
+    быть сложным и скучным, лёгким и интересным, сложным и нечестным; общий
+    суммарный балл такое различие стирает.</p>
+    <div class="axes">
+      <div class="axis">
+        <div class="axis-k"><span class="axis-l">D</span><span class="axis-r">1.0&ndash;10.0</span></div>
+        <span class="axis-n">Сложность</span>
+        <span class="axis-d">Насколько трудно восстановить структуру категорий: семантика, ловушки, структура поля, объём, лимит ходов</span>
+      </div>
+      <div class="axis">
+        <div class="axis-k"><span class="axis-l">F</span><span class="axis-r">1.0&ndash;10.0</span></div>
+        <span class="axis-n">Интерес</span>
+        <span class="axis-d">Узнаваемость, честные «ага!», новизна механики, ожидание и payoff, темп, минус повторяемость</span>
+      </div>
+      <div class="axis">
+        <div class="axis-k"><span class="axis-l">R</span><span class="axis-r">1.0&ndash;10.0</span></div>
+        <span class="axis-n">Риск фрустрации</span>
+        <span class="axis-d">Не обратная сторона интереса: нечестная двусмысленность, невыводимое слово, невидимый прогресс</span>
+      </div>
+      <div class="axis">
+        <div class="axis-k"><span class="axis-l">C</span><span class="axis-r">0&ndash;100%</span></div>
+        <span class="axis-n">Уверенность в оценке</span>
+        <span class="axis-d">Полнота данных и калибровки. Честное «мы пока не знаем» вместо ложной точности</span>
+      </div>
+    </div>
+
+    <h3>Из чего складывается сложность</h3>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Компонент</th><th>Что измеряет</th><th class="num">Вес</th></tr></thead>
+        <tbody>
+          <tr><td>Семантика</td><td>знакомость слов, очевидность связи, качество скрытого названия</td><td class="num">25%</td></tr>
+          <tr><td>Двусмысленность</td><td>честные ловушки и близкие категории, конкурирующие гипотезы</td><td class="num">25%</td></tr>
+          <tr><td>Структура поля</td><td>разделение на зоны, разорванные категории, возможность закрыть хоть одну группу</td><td class="num">25%</td></tr>
+          <tr><td>Объём</td><td>число категорий, слов, одновременно активных групп</td><td class="num">10%</td></tr>
+          <tr><td>Давление лимита</td><td>запас ходов к минимально необходимым</td><td class="num">10%</td></tr>
+          <tr><td>Нагрузка механик</td><td>сколько правил игрок держит в голове одновременно</td><td class="num">5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Три четверти сложности — семантика, двусмысленность и структура. Механики,
+    самая заметная часть уровня, дают 5%: они работают на интерес.</p>
+
+    <h3>Честность как отдельный порог</h3>
+    <p>Высокие D и F не должны прятать дефектный уровень, поэтому рядом с числами
+    стоит дискретный порог с явным решением.</p>
+    <div class="gates">
+      <div class="gate">
+        <span class="gate-k gate-fail">FAIL</span>
+        <span class="gate-b">У уровня больше одного решения, решатель не уложился в лимит,
+        ключевая связь не объясняется даже после раскрытия, механика влияет на исход,
+        но не объяснена. Интерес прижимается к 3.0, уровень не принимается.</span>
+      </div>
+      <div class="gate">
+        <span class="gate-k gate-warn">WARNING</span>
+        <span class="gate-b">Спорная связь, несколько незнакомых слов, слишком длинное
+        название, слабый первый прогресс, новая механика с неполным объяснением.
+        Уровень идёт человеку с пометкой, что смотреть.</span>
+      </div>
+      <div class="gate">
+        <span class="gate-k gate-pass">PASS</span>
+        <span class="gate-b">Единственность решения доказана, ловушки честные, связи
+        объяснимы, правила прозрачны, уровень попадает в свой профиль сложности.</span>
+      </div>
+    </div>
+
+    <h3>Что это добавляет к нашей текущей оценке</h3>
+    <ul>
+      <li><b>Ось фрустрации.</b> Сейчас «сложно» и «бесит» у нас неразличимы —
+        обе ситуации дают высокую сложность.</li>
+      <li><b>Структурная сложность.</b> Разделение поля и возможность закрыть группу
+        прямо сейчас в нашей формуле не учитываются вообще, а это ровно то, что
+        делает уровень трудным на знакомых словах.</li>
+      <li><b>Уверенность в оценке.</b> Отдельное число вместо молчаливого допущения,
+        что оценка всегда одинаково надёжна.</li>
+      <li><b>Ручная проверка — уровня целиком</b>, а не каждого слова и каждой
+        четвёрки. Человек задаёт принципы и принимает готовый уровень; автоматика
+        не выдаёт своё «проверено» за человеческое.</li>
+    </ul>
+
+    <details class="pdrop">
+      <summary>Инпут целиком<span class="pd-arrow"></span></summary>
+      <div class="prompt-box"><span class="pb-label">Level scoring input</span>На основе того, что я играл в эту игру, я могу оценить сложность уровня на
+основе таких параметров, как количество категорий, длины и сложность слов,
+сложность параметра знакомости, распространенности и дополнительной механики.
+Также сложность уровня заключается в том, что слова из нескольких групп
+доступны и не объединяются между собой. В этом я вижу уровень и оценку его
+сложности. Нужно подготовить на основе этого очень сложные уровни, потому что
+разделяют поле, становят его играбельным, верх и низ между собой не
+стартуются. Остальные модифайеры, половинки слов, мета-категории,
+превращаемые в картинку, и мержущиеся с другими, лед, закрытые и другие,
+которые мы сможем придумать, сильно не влияют на сложность уровня, но я их бы
+использовал как то, что влияет на интерес уровня. Я бы хотел представить таким
+образом: чем более нераспространены ситуации, ловушки, когда они подходят в
+две категории, когда появляется новая механика и потом пропадает, она не
+должна повторяться во многих уровнях подряд. Иначе она становится не
+интересной. А цель в том, чтобы за этими модифайерами, механиками, охотился
+игрок, когда смержатся категории, когда объединяются половинки, когда
+категории превращаются в картинки. Это все добавляет очков в формулу
+интересности уровня. опроси меня если нужно дополнительно</div>
+    </details>
+  </section>
+
+</main>
+
+</body>
+</html>
