@@ -75,6 +75,39 @@
         border:2px solid rgba(255,255,255,.8);background:rgba(255,255,255,.25);
         transition:transform .7s ease-out,opacity .7s;}
 
+  /* ===== драг: путь читается подсветкой, а не линией ===== */
+  /* Пузырь тащат, и по дороге загораются шары, над которыми он прошёл: игрок
+     видит условную траекторию и понимает, на каком шаре будет остановка.
+     Обведённый белым — точка остановки. Порядок правил важен: .tgt объявлен
+     после .pass, поэтому цель перебивает след. */
+  .bub.pass{box-shadow:0 0 0 3px rgba(130,225,255,.7),0 0 20px 7px rgba(130,225,255,.45)!important;}
+  .bub.tgt{box-shadow:0 0 0 4px #fff,0 0 28px 11px rgba(130,225,255,.8)!important;}
+  .bub.err{box-shadow:0 0 0 4px #ff5148,0 0 26px 9px rgba(255,81,72,.75)!important;animation:shk .34s;}
+  .bub.blk{box-shadow:0 0 0 4px #e8f7ff,0 0 24px 8px rgba(205,240,255,.8)!important;animation:shk .34s;}
+  @keyframes shk{0%,100%{margin-left:0;}25%{margin-left:-5px;}75%{margin-left:5px;}}
+  /* покинутое место: видно, что досыпка его не занимает, пока шар в руке */
+  #ghost{position:absolute;border-radius:50%;border:3px dashed rgba(255,255,255,.45);
+         pointer-events:none;z-index:3;display:none;}
+
+  /* ===== модификаторы (GDD §7) ===== */
+  .bub.half{border:3px dashed rgba(255,255,255,.85);
+    background:radial-gradient(circle at 35% 30%,rgba(155,235,255,.97),rgba(70,180,225,.94) 70%,rgba(38,128,175,.96));}
+  .bub.ice{cursor:not-allowed;filter:saturate(.45) brightness(1.22);
+    box-shadow:inset 0 0 0 5px rgba(255,255,255,.82),0 0 18px rgba(205,245,255,.8);}
+  .bub.hid{cursor:not-allowed;
+    background:radial-gradient(circle at 35% 30%,rgba(168,168,208,.96),rgba(98,98,150,.94) 70%,rgba(62,62,112,.96));}
+  .bub .cnt{margin-top:2px;font-size:11px;font-weight:800;color:#fff;pointer-events:none;
+            background:rgba(0,0,0,.34);padding:1px 7px;border-radius:8px;}
+  #chain{position:absolute;left:0;right:0;height:14px;margin-top:-7px;z-index:55;
+    background:repeating-linear-gradient(90deg,#d3dae4 0 10px,#69727e 10px 18px);
+    border-top:2px solid rgba(255,255,255,.55);border-bottom:2px solid rgba(0,0,0,.4);
+    box-shadow:0 4px 12px rgba(0,0,0,.5);transition:opacity .35s;}
+  #chain .cn{position:absolute;right:10px;top:-13px;background:#12213a;color:#fff;
+    font-size:11px;font-weight:800;border-radius:12px;padding:2px 9px;
+    border:2px solid #d3dae4;white-space:nowrap;}
+  #chain.hit{animation:shk .34s;
+    background:repeating-linear-gradient(90deg,#ff5148 0 10px,#8e2b22 10px 18px);}
+
   /* ===== бустеры ===== */
   #boosters{width:100%;display:flex;justify-content:center;gap:18px;padding:6px 0 16px;z-index:5;}
   .boost{position:relative;width:64px;height:64px;border:none;border-radius:18px;cursor:pointer;font-size:30px;
@@ -132,7 +165,10 @@
     <button id="gear">⚙️</button>
   </div>
 
-  <div id="stage"><div id="board"></div></div>
+  <div id="stage"><div id="board">
+    <div id="ghost"></div>
+    <div id="chain" hidden><span class="cn">0/2</span></div>
+  </div></div>
 
   <div id="boosters">
     <button class="boost" id="bPlus">➕<div class="badge" id="nPlus">2</div></button>
@@ -248,14 +284,29 @@ const W=390,H=600;
 const PRAISE=['Cool!','Great!','Splendid!','Awesome!','Nice!'];
 
 const board=document.getElementById('board');
+const chainEl=document.getElementById('chain');
+const ghostEl=document.getElementById('ghost');
+
+/* ===== модификаторы: ?mod=halves|ice|hidden|chain (GDD §7) ==================
+   Один модификатор на партию, уровень пересобирается с ним: половинки добавляют
+   склейки в лимит ходов, лёд и «?» дают по ходу форы, цепь делит поле.
+   Выбираются селектором на странице отчёта, рядом с выбором уровня. */
+const MOD=new URLSearchParams(location.search).get('mod')||'none';
+/* пузырь в руке: поле замирает целиком, чтобы структура не пересобиралась
+   и освободившееся место не занималось досыпкой до финального решения */
+let held=false;
+let chainY=null,chainNeed=0,chainDown=true,halfPairs=0,fieldNow=19,MOVES_MAX=48;
+
 let bubbles=[],queue=[],moves=0,done=0,over=false,praiseI=0,pendingPops=0;
 let boosts={plus:2,hint:2,mag:2};
 let uid=0;
 
 function rFor(n){return Math.min(38+(n-1)*12,72);}
 
-function makeBubble(val,ex,x,y){
+function makeBubble(val,ex,x,y,opt){
+  const o=opt||{};
   const b={id:uid++,val,exs:[ex],x,y,px:x,py:y-1.2,r:rFor(1),
+           half:o.half||null,ice:0,hid:0,zone:0,
            dragging:false,popping:false,el:document.createElement('div')};
   b.el.className='bub t1';
   b.el.addEventListener('pointerdown',e=>grab(e,b));
@@ -266,19 +317,35 @@ function makeBubble(val,ex,x,y){
 }
 function paint(b){
   const n=b.exs.length;
-  b.r=rFor(n);
-  b.el.className='bub t'+Math.min(n,4)+(b.el.classList.contains('hintGlow')?' hintGlow':'');
-  /* одиночка = слово; склеенный шар = ВСЕ собранные слова стопкой (как в референсе);
-     полная категория = оранжевый пузырь с ИМЕНЕМ категории (до этого имя скрыто) */
-  if(n>=(FULL[b.val]||4)){
-    const fs=Math.min(17, Math.floor((b.r*2-16)/(0.62*b.val.length)));
-    b.el.innerHTML=`<div class="ln" style="font-size:${fs}px">${b.val}</div>`;
+  b.r=b.half?32:rFor(n);
+  let cls='bub t'+Math.min(n,4);
+  if(b.half) cls+=' half';
+  if(b.ice>0) cls+=' ice';
+  if(b.hid>0) cls+=' hid';
+  if(b.el.classList.contains('hintGlow')) cls+=' hintGlow';
+  b.el.className=cls;
+  let html;
+  if(b.hid>0){
+    html='<div class="ln" style="font-size:26px">?</div>';           /* слово закрыто */
+  }else if(b.half){
+    /* половинка: точка показывает, с какой стороны прирастает вторая часть */
+    const t=b.half.side===0?b.exs[0]+'\u00b7':'\u00b7'+b.exs[0];
+    const fs=Math.min(14,Math.floor((b.r*2-12)/(0.62*t.length)));
+    html='<div class="ln" style="font-size:'+fs+'px">'+t+'</div>';
+  }else if(n>=(FULL[b.val]||4)){
+    /* полная категория = оранжевый пузырь с ИМЕНЕМ категории (до этого имя скрыто) */
+    const fs=Math.min(17,Math.floor((b.r*2-16)/(0.62*b.val.length)));
+    html='<div class="ln" style="font-size:'+fs+'px">'+b.val+'</div>';
   }else{
-    const maxLen = Math.max(...b.exs.map(e=>e.length));
-    const base = n===1 ? 15 : 14;
-    const fs = Math.min(base, Math.floor((b.r*2-14)/(0.62*maxLen)), Math.floor((b.r*2-18)/(1.3*n)));
-    b.el.innerHTML = b.exs.map(e=>`<div class="ln" style="font-size:${fs}px">${e}</div>`).join('');
+    /* одиночка = слово; склеенный шар = ВСЕ собранные слова стопкой (как в референсе) */
+    const maxLen=Math.max(...b.exs.map(e=>e.length));
+    const base=n===1?15:14;
+    const fs=Math.min(base,Math.floor((b.r*2-14)/(0.62*maxLen)),Math.floor((b.r*2-18)/(1.3*n)));
+    html=b.exs.map(e=>'<div class="ln" style="font-size:'+fs+'px">'+e+'</div>').join('');
   }
+  if(b.ice>0) html+='<div class="cnt">\u2744 '+b.ice+'</div>';
+  else if(b.hid>0) html+='<div class="cnt">'+b.hid+'</div>';
+  b.el.innerHTML=html;
   b.el.style.width=b.el.style.height=b.r*2+'px';
 }
 function place(b){
@@ -286,11 +353,112 @@ function place(b){
   b.el.style.top=(b.y-b.r)+'px';
 }
 
+/* ===== модификаторы: подготовка уровня =====================================
+   Половинки — акцент, а не фон: немного слов, только часть категорий, не больше
+   одного распила в категории. Фрагмент не имеет права быть словом уровня, иначе
+   игрок честно потащит половинку в категорию как слово. Полного словаря
+   у прототипа нет, поэтому распил вида SHR|IMP такая проверка не поймает —
+   ограничение известное. */
+function splitHalves(list){
+  const words=new Set(); TARGETS.forEach(t=>t.ex.forEach(w=>words.add(w)));
+  const usedCats=new Set(); let pairs=0,pid=0;
+  for(let i=0;i<list.length&&pairs<3;i++){
+    const it=list[i];
+    if(it.half||usedCats.has(it.v)) continue;
+    const w=it.e;
+    if(w.length<6||!/^[A-Za-zА-Яа-яЁё]+$/.test(w)) continue;
+    const mid=Math.floor(w.length/2);
+    let parts=null;
+    for(const at of [mid,mid-1,mid+1]){
+      if(at<2||w.length-at<2) continue;
+      const a=w.slice(0,at),b=w.slice(at);
+      if(words.has(a)||words.has(b)) continue;
+      parts=[a,b]; break;
+    }
+    if(!parts) continue;
+    words.add(parts[0]); words.add(parts[1]);
+    usedCats.add(it.v); pid++;
+    list.splice(i,1,{v:it.v,e:parts[0],half:{pair:pid,whole:w,side:0}},
+                    {v:it.v,e:parts[1],half:{pair:pid,whole:w,side:1}});
+    i++; pairs++;
+  }
+  return pairs;
+}
+/* Лёд и «?»: по одному пузырю на категорию, максимум два на уровень, счётчик 2-3.
+   Снимаются успешными мерджами на поле — ошибка слой не снимает. */
+function setBlockers(kind){
+  const usedCats=new Set(); let n=0;
+  for(const b of bubbles){
+    if(n>=2) break;
+    if(b.half||usedCats.has(b.val)) continue;
+    usedCats.add(b.val);
+    if(kind==='ice') b.ice=2+n; else b.hid=2+n;
+    paint(b); n++;
+  }
+  return n;
+}
+/* Цепь: линия ставится так, чтобы под ней осталась примерно треть кучи — цепь
+   отделяет именно нижнюю часть шаров. Мердж через неё запрещён, и она же
+   физическая преграда: свою зону пузыри не покидают, пока цепь висит.
+   Снимается сбором категорий, счётчик показан на самой цепи. */
+function setChain(){
+  const ys=bubbles.map(b=>b.y).sort((a,b)=>a-b);
+  if(ys.length<4) return;
+  const cut=Math.max(1,Math.floor(ys.length*0.66));
+  chainY=Math.round((ys[cut-1]+ys[cut])/2);
+  chainNeed=2; chainDown=false;
+  bubbles.forEach(b=>{ b.zone=b.y>chainY?1:0; });
+  chainEl.hidden=false; chainEl.style.opacity='1'; chainEl.style.top=chainY+'px';
+}
+function updChain(){
+  if(chainY==null) return;
+  chainEl.querySelector('.cn').textContent=chainDown
+    ? 'цепь снята' : Math.min(done,chainNeed)+'/'+chainNeed+' категорий';
+}
+function breakChain(msg){
+  if(chainDown) return;
+  chainDown=true;
+  chainEl.style.opacity='0';
+  setTimeout(()=>{ if(chainDown) chainEl.hidden=true; },400);
+  updChain();
+  toastText(msg||'ЦЕПЬ ЛОПНУЛА',true);
+}
+/* Страховка от запертой раскладки: лёд тает только от мерджей, цепь снимается
+   только сбором категорий. Если легального мерджа не осталось и досыпки уже
+   не будет, препятствие снимается само — молча показывать неразрешимое поле
+   хуже, чем признать ограничение вслух. */
+function legalMove(){
+  const act=bubbles.filter(b=>!b.popping&&b.ice<=0&&b.hid<=0);
+  for(let i=0;i<act.length;i++)for(let j=i+1;j<act.length;j++){
+    const a=act[i],c=act[j];
+    if(!chainDown&&a.zone!==c.zone) continue;
+    if(a.half||c.half){
+      if(a.half&&c.half&&a.half.pair===c.half.pair&&a.half.side!==c.half.side) return true;
+      continue;
+    }
+    if(a.val===c.val&&a.exs.length+c.exs.length<=(FULL[a.val]||4)) return true;
+  }
+  return false;
+}
+function rescueIfStuck(){
+  if(over||pendingPops>0) return;
+  if(queue.length&&bubbles.length<fieldNow) return;      /* досыпка ещё придёт */
+  if(legalMove()) return;
+  if(!chainDown){ breakChain('ЦЕПЬ СНЯТА: ХОДА НЕ БЫЛО'); return; }
+  const blocked=bubbles.filter(b=>b.ice>0||b.hid>0);
+  if(blocked.length){
+    blocked.forEach(b=>{ b.ice=0; b.hid=0; paint(b); place(b); });
+    toastText('ЛЁД РАСТАЯЛ САМ',true);
+  }
+}
+
 /* ===== инициализация уровня ===== */
 function init(){
   bubbles.forEach(b=>b.el.remove()); bubbles=[];
   board.querySelectorAll('.part,.conf').forEach(e=>e.remove());
-  moves=MOVES_START; done=0; over=false; pendingPops=0;
+  done=0; over=false; pendingPops=0; held=false; drag=null; clearMarks();
+  chainY=null; chainNeed=0; chainDown=true; halfPairs=0;
+  chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
   const start=[]; queue=[];
   TARGETS.forEach((t,ti)=>{
@@ -301,18 +469,28 @@ function init(){
   });
   for(let i=start.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[start[i],start[j]]=[start[j],start[i]];}
   for(let i=queue.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]];}
+  if(MOD==='halves') halfPairs=splitHalves(start);
+  fieldNow=FIELD_TARGET+halfPairs;
   start.forEach((it,i)=>
-    makeBubble(it.v,it.e, 46+Math.random()*(W-92), H-66-Math.floor(i/5)*80-Math.random()*30));
+    makeBubble(it.v,it.e, 46+Math.random()*(W-92), H-66-Math.floor(i/5)*80-Math.random()*30,
+               it.half?{half:it.half}:null));
   for(let k=0;k<400;k++) physStep(1/60,true);
+  /* запас ходов: склейка половинок тратит ход (слагаемое chunks в формуле лимита),
+     блокирующий модификатор получает один ход форы */
+  let bonus=halfPairs;
+  if(MOD==='ice'&&setBlockers('ice')) bonus+=1;
+  if(MOD==='hidden'&&setBlockers('hid')) bonus+=1;
+  if(MOD==='chain'){ setChain(); bonus+=1; for(let k=0;k<400;k++) physStep(1/60,true); }
+  MOVES_MAX=MOVES_START+bonus; moves=MOVES_MAX;
   bubbles.forEach(place);
-  updHud(); updBoosts();
+  updHud(); updBoosts(); updChain();
   document.getElementById('ov').classList.remove('show');
 }
 
 /* ===== HUD ===== */
 function updHud(){
   document.getElementById('movesNum').textContent=NO_LIMIT?'∞':moves;
-  document.getElementById('ring').style.strokeDashoffset=NO_LIMIT?0:219.9*(1-Math.max(0,moves)/MOVES_START);
+  document.getElementById('ring').style.strokeDashoffset=NO_LIMIT?0:219.9*(1-Math.max(0,moves)/MOVES_MAX);
   document.getElementById('pillTxt').textContent=done+'/'+CATS_TOTAL;
   document.getElementById('pillFill').style.width=(done/CATS_TOTAL*100)+'%';
 }
@@ -325,6 +503,7 @@ function updBoosts(){
 
 /* ===== физика (Verlet: упор гасит скорость сам, куча лежит спокойно) ===== */
 function physStep(dt,settle){
+  if(held) return;   /* шар в руке: куча не шевелится, его место остаётся пустым */
   const g=0.4, damp=0.9; /* терминальная скорость ~240px/с — новый набор долетает за ~2с */
   for(const b of bubbles){
     if(b.dragging||b.popping) continue;
@@ -360,6 +539,11 @@ function physStep(dt,settle){
       if(b.x>W-b.r) b.x=W-b.r;
       if(b.y>H-b.r-4){b.y=H-b.r-4;b.supported=true;}
       if(b.y<-90) b.y=-90;
+      /* цепь — физическая преграда: верхние лежат на ней, нижние заперты под ней */
+      if(!chainDown&&chainY!=null){
+        if(b.zone===0&&b.y>chainY-b.r-4){b.y=chainY-b.r-4;b.supported=true;}
+        if(b.zone===1&&b.y<chainY+b.r+4){b.y=chainY+b.r+4;}
+      }
     }
   }
   /* трение покоя: опора снизу и почти нет движения → гасим только СКОРОСТЬ.
@@ -375,49 +559,98 @@ function still(b){ b.px=b.x; b.py=b.y; } /* обнулить скорость п
 /* ===== постоянная досыпка: поле держит FIELD_TARGET пузырей, слова случайные ===== */
 let lastSpawn=0;
 function trySpawn(ts){
-  if(over||!queue.length||bubbles.length>=FIELD_TARGET) return;
+  if(over||held||!queue.length||bubbles.length>=fieldNow) return;
   if(ts-lastSpawn<420) return;
   lastSpawn=ts;
   const it=queue.shift();
   makeBubble(it.v,it.e, 56+Math.random()*(W-112), -44);
 }
 
-/* ===== драг ===== */
-let drag=null;
+/* ===== драг: путь подсветкой, точка остановки, возврат при ошибке ===== */
+let drag=null,hover=null;
+const passed=new Set();
 function boardXY(e){
   const r=board.getBoundingClientRect();
   return [(e.clientX-r.left)/boardScale,(e.clientY-r.top)/boardScale];
 }
-function grab(e,b){
-  if(over||b.popping||drag) return;
-  e.preventDefault();
-  const [x,y]=boardXY(e);
-  drag={b,ox:b.x-x,oy:b.y-y,sx:b.x,sy:b.y};
-  b.dragging=true; still(b);
-  b.el.classList.add('lift');
-  b.el.setPointerCapture&&b.el.setPointerCapture(e.pointerId);
+function clearMarks(){
+  if(hover){ hover.el.classList.remove('tgt'); hover=null; }
+  passed.forEach(c=>c.el.classList.remove('pass')); passed.clear();
+  ghostEl.style.display='none';
 }
-window.addEventListener('pointermove',e=>{
-  if(!drag) return;
-  const [x,y]=boardXY(e);
-  drag.b.x=Math.max(drag.b.r,Math.min(W-drag.b.r,x+drag.ox));
-  drag.b.y=Math.max(drag.b.r,Math.min(H-drag.b.r,y+drag.oy));
-  place(drag.b);
-});
-window.addEventListener('pointerup',()=>{
-  if(!drag) return;
-  const b=drag.b, start={x:drag.sx,y:drag.sy};
-  b.dragging=false; still(b); b.el.classList.remove('lift');
-  drag=null;
-  if(over) return;
+function pickTarget(b){
   let best=null,bd=1e9;
   for(const c of bubbles){
     if(c===b||c.popping) continue;
     const d=Math.hypot(c.x-b.x,c.y-b.y);
     if(d<(c.r+b.r)&&d<bd){bd=d;best=c;}
   }
-  if(best&&best.val===b.val){ merge(best,b,true); }
-  else if(best){ flyBack(b,start); }
+  return best;
+}
+/* Можно ли слить. Причина отказа определяет подсветку: слова не связаны —
+   красный (ошибка игрока), лёд и «?» — морозный (препятствие), цепь — красный
+   на цели и на самой цепи, чтобы было видно, что помешала именно она. */
+function canMerge(b,t){
+  if(t.ice>0) return {ok:false,why:'ice'};
+  if(t.hid>0) return {ok:false,why:'hid'};
+  if(!chainDown&&b.zone!==t.zone) return {ok:false,why:'chain'};
+  if(b.half||t.half){
+    const pair=b.half&&t.half&&b.half.pair===t.half.pair&&b.half.side!==t.half.side;
+    return pair?{ok:true}:{ok:false,why:'wrong'};
+  }
+  if(b.val!==t.val) return {ok:false,why:'wrong'};
+  if(b.exs.length+t.exs.length>(FULL[b.val]||4)) return {ok:false,why:'wrong'};
+  return {ok:true};
+}
+function flash(el,cls){ el.classList.add(cls); setTimeout(()=>el.classList.remove(cls),360); }
+function grab(e,b){
+  if(over||b.popping||drag) return;
+  if(b.ice>0||b.hid>0){ flash(b.el,'blk'); return; }   /* заморожен или закрыт: не тащится */
+  e.preventDefault();
+  const [x,y]=boardXY(e);
+  drag={b,ox:b.x-x,oy:b.y-y,sx:b.x,sy:b.y};
+  b.dragging=true; still(b);
+  b.el.classList.add('lift');
+  held=true;                     /* поле замирает до финального решения */
+  ghostEl.style.width=ghostEl.style.height=(b.r*2)+'px';
+  ghostEl.style.left=(b.x-b.r)+'px'; ghostEl.style.top=(b.y-b.r)+'px';
+  ghostEl.style.display='block';
+  /* захват: без него драг рвётся, когда курсор уходит с пузыря */
+  try{ b.el.setPointerCapture&&b.el.setPointerCapture(e.pointerId); }catch(_){}
+}
+window.addEventListener('pointermove',e=>{
+  if(!drag) return;
+  const b=drag.b;
+  const [x,y]=boardXY(e);
+  b.x=Math.max(b.r,Math.min(W-b.r,x+drag.ox));
+  b.y=Math.max(b.r,Math.min(H-b.r,y+drag.oy));
+  place(b);
+  /* след: всё, над чем пронесли шар, остаётся подсвеченным до конца жеста */
+  for(const c of bubbles){
+    if(c===b||c.popping||passed.has(c)) continue;
+    if(Math.hypot(c.x-b.x,c.y-b.y)<(c.r+b.r)){ passed.add(c); c.el.classList.add('pass'); }
+  }
+  const t=pickTarget(b);
+  if(t!==hover){
+    if(hover) hover.el.classList.remove('tgt');
+    hover=t;
+    if(hover) hover.el.classList.add('tgt');
+  }
+});
+window.addEventListener('pointerup',()=>{
+  if(!drag) return;
+  const b=drag.b, start={x:drag.sx,y:drag.sy}, t=hover;
+  clearMarks();
+  b.dragging=false; still(b); b.el.classList.remove('lift');
+  drag=null; held=false;
+  if(over||!t) return;              /* отпустили в пустоту — шар просто падает в кучу */
+  const v=canMerge(b,t);
+  if(v.ok){ merge(t,b,true); return; }
+  /* неверное действие: цель подсвечивается красным, шар возвращается на своё
+     место, ход не тратится, структура поля вообще не менялась */
+  if(v.why==='chain') flash(chainEl,'hit');
+  flash(t.el, v.why==='ice'||v.why==='hid' ? 'blk' : 'err');
+  flyBack(b,start);
 });
 function flyBack(b,to){
   b.popping=true;
@@ -428,15 +661,28 @@ function flyBack(b,to){
 
 /* ===== склейка ===== */
 function merge(a,b,costMove){
-  a.exs=a.exs.concat(b.exs);
+  if(a.half&&b.half){
+    /* две части одного слова дают обычный пузырь-слово (GDD §7): счётчик слов
+       категории от склейки половинок не растёт, зато тратится ход */
+    a.half=null; a.exs=[b.half.whole];
+  }else{
+    a.exs=a.exs.concat(b.exs);
+  }
   bubbles=bubbles.filter(x=>x!==b); b.el.remove();
   paint(a); place(a);
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   if(costMove){ moves--; updHud(); }
+  /* успешный мердж снимает слой льда и приближает раскрытие «?» на всём поле */
+  bubbles.forEach(x=>{
+    if(x.ice>0){ x.ice--; paint(x); place(x); }
+    else if(x.hid>0){ x.hid--; paint(x); place(x); }
+  });
   if(a.exs.length>=FULL[a.val]){
     pendingPops++;
     a.popping=true;
     setTimeout(()=>popGroup(a),380);
+  }else{
+    rescueIfStuck();
   }
   checkEnd();
 }
@@ -449,7 +695,7 @@ function popGroup(a){
   setTimeout(()=>{
     bubbles=bubbles.filter(x=>x!==a); a.el.remove();
     done++; pendingPops--;
-    updHud();
+    updHud(); afterCategory();
     checkEnd();
   },300);
 }
@@ -462,8 +708,14 @@ function metaTransform(a,meta){
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   a.popping=false;
   done++; pendingPops--;
-  updHud();
+  updHud(); afterCategory();
   checkEnd();
+}
+/* собранная категория двигает счётчик цепи */
+function afterCategory(){
+  updChain();
+  if(!chainDown&&done>=chainNeed) breakChain();
+  rescueIfStuck();
 }
 function particles(x,y,r){
   for(let i=0;i<9;i++){
@@ -478,9 +730,11 @@ function particles(x,y,r){
     setTimeout(()=>p.remove(),750);
   }
 }
-function toast(){
+function toast(){ toastText(PRAISE[praiseI++%PRAISE.length]); }
+function toastText(msg,small){
   const t=document.getElementById('toast');
-  t.textContent=PRAISE[praiseI++%PRAISE.length];
+  t.style.fontSize=small?'22px':'';
+  t.textContent=msg;
   t.classList.remove('show'); void t.offsetWidth; t.classList.add('show');
 }
 
@@ -527,24 +781,24 @@ document.getElementById('bPlus').addEventListener('click',()=>{
 document.getElementById('bHint').addEventListener('click',()=>{
   if(over||boosts.hint<=0) return;
   const cnt={};
-  bubbles.forEach(b=>{if(!b.popping)cnt[b.val]=(cnt[b.val]||0)+1;});
+  bubbles.forEach(b=>{if(!b.popping&&!b.half&&b.ice<=0&&b.hid<=0)cnt[b.val]=(cnt[b.val]||0)+1;});
   let best=null;
   for(const v in cnt) if(cnt[v]>=2&&(!best||cnt[v]>cnt[best])) best=v;
   if(!best) return;
   boosts.hint--; updBoosts();
-  bubbles.filter(b=>b.val==best).forEach(b=>b.el.classList.add('hintGlow'));
+  bubbles.filter(b=>b.val==best&&!b.half&&b.ice<=0&&b.hid<=0)
+         .forEach(b=>b.el.classList.add('hintGlow'));
   setTimeout(()=>bubbles.forEach(b=>b.el.classList.remove('hintGlow')),4000);
 });
 document.getElementById('bMag').addEventListener('click',()=>{
   if(over||boosts.mag<=0) return;
-  const byVal={};
-  bubbles.forEach(b=>{if(!b.popping&&!b.dragging)(byVal[b.val]=byVal[b.val]||[]).push(b);});
+  /* магнит подчиняется тем же правилам, что игрок: лёд, «?», цепь и половинки
+     он не обходит, иначе бустер «решал» бы модификатор за игрока */
+  const cand=bubbles.filter(b=>!b.popping&&!b.dragging&&b.ice<=0&&b.hid<=0);
   let pick=null;
-  for(const v in byVal){
-    const arr=byVal[v];
-    if(arr.length<2) continue;
-    arr.sort((a,b)=>b.exs.length-a.exs.length);
-    if(!pick||arr[0].exs.length>pick[0].exs.length) pick=arr;
+  for(const a of cand) for(const m of cand){
+    if(a===m||!canMerge(m,a).ok) continue;
+    if(!pick||a.exs.length>pick[0].exs.length) pick=[a,m];
   }
   if(!pick) return;
   boosts.mag--; updBoosts();
