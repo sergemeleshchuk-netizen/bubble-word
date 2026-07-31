@@ -21,19 +21,19 @@
   },
   {
    "id": "adversarial-v1",
-   "file": "pipeline/prompts/adversarial_review.txt",
+   "file": "tool/word_content_pipeline/prompts/adversarial_review.txt",
    "purpose": "критик кандидатов: ищет причину отклонить",
    "used": true
   },
   {
    "id": "expand-category-v1",
-   "file": "pipeline/prompts/expand_category.txt",
+   "file": "tool/word_content_pipeline/prompts/expand_category.txt",
    "purpose": "наполнение категории словами",
    "used": true
   },
   {
    "id": "expand-words-v1",
-   "file": "pipeline/prompts/expand_words.txt",
+   "file": "tool/word_content_pipeline/prompts/expand_words.txt",
    "purpose": "обратный проход: в какие категории годится слово",
    "used": true
   }
@@ -338,27 +338,28 @@
   }
  ],
  "content_base": {
-  "categories": 1119,
-  "words": 10110,
-  "senses": 549,
-  "memberships": 17780,
+  "categories": 1120,
+  "words": 10112,
+  "senses": 564,
+  "memberships": 17786,
   "themes": 58,
   "by_status": {
-   "alternative": 6071,
-   "approved": 9136,
-   "hard_only": 2509,
-   "rejected": 64
+   "alternative": 3994,
+   "approved": 12780,
+   "candidate": 26,
+   "hard_only": 923,
+   "rejected": 63
   },
   "by_source": {
    "ai_meta_hubs_v1": 230,
-   "seed_manual": 17550
+   "seed_manual": 17556
   },
   "relation_types": {
-   "is_a": 9553,
-   "found_in": 4027,
+   "is_a": 9562,
+   "found_in": 4026,
    "has_property": 1092,
    "used_in": 1010,
-   "does_action": 842,
+   "does_action": 840,
    "part_of": 437,
    "phrase_before": 403,
    "phrase_after": 201,
@@ -367,14 +368,14 @@
    "used_for": 16
   },
   "zipf_buckets": {
-   "2.0-2.9 редкие": 2300,
-   "3.0-3.9 нечастые": 4153,
-   "4.0-4.9 частые": 2659,
+   "2.0-2.9 редкие": 2297,
+   "3.0-3.9 нечастые": 4152,
+   "4.0-4.9 частые": 2663,
    "5.0+ бытовые": 523,
-   "< 2.0 очень редкие": 449,
+   "< 2.0 очень редкие": 451,
    "неизвестно": 26
   },
-  "multi_category_words": 3163
+  "multi_category_words": 3406
  },
  "where_ai_is_not_used": [
   "сборка уровня из проверенного контента — детерминированный алгоритм",

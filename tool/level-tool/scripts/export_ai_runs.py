@@ -20,7 +20,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 RUNS_DIR = ROOT / "data" / "runs"
-DB = ROOT / "pipeline" / "database" / "content.sqlite"
+# Источник ОДИН — канонический пайплайн tool/word_content_pipeline. Здесь стоял
+# путь на локальную копию tool/level-tool/pipeline, и это тот же способ разъехаться
+# с базой, который уже ловили в export_snapshot.py: копия не обновлялась с момента
+# subtree-импорта, а экран «База» показывал бы цифры из неё.
+PIPELINE = ROOT.parent / "word_content_pipeline"
+DB = PIPELINE / "database" / "content.sqlite"
+DB_FALLBACK = ROOT.parent.parent / "БАЗА-СЛОВ" / "база-слов.sqlite"
 OUT = ROOT / "web" / "src" / "data" / "ai_runs.json"
 
 PROMPT_LIBRARY = [
@@ -30,11 +36,11 @@ PROMPT_LIBRARY = [
      "purpose": "разбор свободного пожелания в конфиг", "used": True},
     {"id": "blind-solver-v1", "file": "prompts/blind_solver.md",
      "purpose": "слепой семантический аудит уровня, два режима", "used": True},
-    {"id": "adversarial-v1", "file": "pipeline/prompts/adversarial_review.txt",
+    {"id": "adversarial-v1", "file": "tool/word_content_pipeline/prompts/adversarial_review.txt",
      "purpose": "критик кандидатов: ищет причину отклонить", "used": True},
-    {"id": "expand-category-v1", "file": "pipeline/prompts/expand_category.txt",
+    {"id": "expand-category-v1", "file": "tool/word_content_pipeline/prompts/expand_category.txt",
      "purpose": "наполнение категории словами", "used": True},
-    {"id": "expand-words-v1", "file": "pipeline/prompts/expand_words.txt",
+    {"id": "expand-words-v1", "file": "tool/word_content_pipeline/prompts/expand_words.txt",
      "purpose": "обратный проход: в какие категории годится слово", "used": True},
 ]
 
@@ -107,9 +113,10 @@ def collect_run(run_dir: Path) -> dict:
 
 
 def db_stats() -> dict:
-    if not DB.exists():
+    db = DB if DB.exists() else DB_FALLBACK
+    if not db.exists():
         return {}
-    conn = sqlite3.connect(str(DB))
+    conn = sqlite3.connect(str(db))
     q = lambda sql: conn.execute(sql).fetchone()[0]  # noqa: E731
     stats = {
         "categories": q("select count(*) from categories"),
