@@ -1,0 +1,52 @@
+{
+  "scoring_version": "d-0.1-uncalibrated",
+  "calibrated": false,
+  "note": "Стартовые веса до калибровки. scripts/calibrate_difficulty.py перезаписывает секцию base по 199 референсным уровням и добавляет отчёт о качестве. Секции semantic и mechanical по референсу калибровать нельзя: этих признаков в выгрузке нет (SPEC_AUDIT §3).",
+  "difficulty": {
+    "base": {
+      "intercept": 1.0,
+      "start_bubbles": 0.09,
+      "rare_words": 0.12,
+      "very_rare_words": 0.15,
+      "meta_links": 0.18,
+      "meta_depth": 0.35,
+      "quickwin_categories": -0.15
+    },
+    "base_constraints": {
+      "start_bubbles": "non_negative",
+      "rare_words": "non_negative",
+      "very_rare_words": "non_negative",
+      "meta_links": "non_negative",
+      "meta_depth": "non_negative",
+      "quickwin_categories": "non_positive"
+    },
+    "semantic": {
+      "confirmed_trap": 0.6,
+      "trap_max": 2.0,
+      "adjacent_pair": 0.4,
+      "adjacent_max": 1.2,
+      "unplanned_hesitation": 0.25,
+      "unplanned_max": 1.0
+    },
+    "mechanical": {
+      "chain": 0.5,
+      "half_pair": 0.4,
+      "modifier_max": 1.5,
+      "move_tightness": 1.2
+    },
+    "headroom": {
+      "note": "Референс занимает 1-8, чтобы новым механикам осталось место 8.5-10",
+      "reference_ceiling": 8.0
+    }
+  },
+  "interest": {
+    "scoring_version": "i-0.1-uncalibrated",
+    "weights": {
+      "clarity": 1.0,
+      "variety": 1.0,
+      "aha": 1.0,
+      "freshness": 1.0
+    },
+    "composite_max": 2.5
+  }
+}
