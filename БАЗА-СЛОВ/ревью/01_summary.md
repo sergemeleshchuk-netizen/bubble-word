@@ -2,21 +2,21 @@
 
 ## Объём
 
-- категорий: **1120** в 58 темах
-- уникальных слов: **10112**
-- связей слово-категория: **17786**
+- категорий: **1276** в 58 темах
+- уникальных слов: **10441**
+- связей слово-категория: **18775**
 - значений: **564** у 222 слов
-- слов в двух и более категориях: **3527** (35%)
+- слов в двух и более категориях: **3758** (36%)
 
 ## Статусы связей
 
 | статус | связей |
 |---|---|
-| `approved` | 12780 |
-| `alternative` | 3994 |
+| `approved` | 13687 |
+| `alternative` | 4074 |
 | `hard_only` | 923 |
 | `rejected` | 63 |
-| `candidate` | 26 |
+| `candidate` | 28 |
 
 ## Четыре разные оси, которые нельзя путать
 
@@ -76,61 +76,61 @@
 
 | тема | категорий | связей |
 |---|---|---|
-| language | 47 | 783 |
-| food | 45 | 871 |
-| animals | 32 | 590 |
-| entertainment | 30 | 519 |
+| food | 57 | 960 |
+| language | 47 | 784 |
+| entertainment | 39 | 574 |
+| animals | 35 | 614 |
+| home | 33 | 559 |
+| sports | 33 | 472 |
+| nature | 32 | 551 |
+| geography | 30 | 485 |
 | properties | 30 | 506 |
-| home | 29 | 529 |
-| geography | 28 | 473 |
-| jobs | 27 | 409 |
-| nature | 27 | 514 |
-| science | 26 | 403 |
-| actions | 25 | 410 |
-| people | 24 | 415 |
-| sports | 24 | 416 |
-| clothing | 23 | 344 |
-| tools | 23 | 388 |
-| body | 21 | 341 |
+| science | 30 | 428 |
+| jobs | 28 | 418 |
+| medicine | 27 | 337 |
+| tools | 27 | 412 |
+| people | 26 | 433 |
+| places | 26 | 369 |
+| actions | 25 | 411 |
+| clothing | 25 | 359 |
+| history | 25 | 327 |
+| media | 25 | 311 |
+| body | 23 | 355 |
+| culture | 23 | 292 |
+| hobbies | 23 | 317 |
+| plants | 23 | 313 |
+| trades | 23 | 301 |
+| species | 22 | 265 |
+| technology | 22 | 335 |
 | brands | 21 | 285 |
-| places | 21 | 334 |
-| plants | 21 | 299 |
-| species | 21 | 259 |
-| descriptive | 20 | 301 |
-| education | 20 | 342 |
-| history | 20 | 298 |
-| technology | 20 | 325 |
-| transport | 20 | 378 |
-| hobbies | 19 | 296 |
-| media | 18 | 278 |
-| medicine | 18 | 278 |
-| trades | 18 | 269 |
-| world_food | 18 | 280 |
-| business | 17 | 304 |
-| nature_more | 17 | 229 |
-| sports_world | 17 | 236 |
-| farming | 16 | 229 |
-| food_more | 16 | 225 |
-| law | 16 | 243 |
-| materials | 16 | 257 |
-| ocean | 16 | 235 |
-| animals_more | 15 | 180 |
-| art | 15 | 221 |
-| culture | 15 | 248 |
-| fashion | 15 | 221 |
-| jargon | 15 | 217 |
-| mythology | 15 | 201 |
-| skills | 15 | 193 |
-| time | 15 | 242 |
+| descriptive | 21 | 311 |
+| education | 21 | 350 |
+| nature_more | 21 | 249 |
+| ocean | 21 | 261 |
+| transport | 21 | 390 |
+| art | 19 | 239 |
+| business | 19 | 322 |
+| fashion | 19 | 245 |
+| sports_world | 19 | 250 |
+| world_food | 19 | 290 |
+| farming | 18 | 240 |
+| law | 18 | 259 |
+| mythology | 18 | 216 |
+| food_more | 17 | 231 |
+| materials | 17 | 265 |
+| skills | 17 | 203 |
+| time | 17 | 255 |
+| animals_more | 16 | 186 |
+| jargon | 16 | 221 |
+| space | 16 | 186 |
+| world_more | 15 | 187 |
 | varieties | 14 | 181 |
-| space | 13 | 168 |
+| landmarks | 13 | 152 |
 | cities | 12 | 191 |
-| landmarks | 12 | 148 |
 | religion | 12 | 178 |
 | sounds | 12 | 183 |
-| world_more | 12 | 171 |
 | lists | 10 | 187 |
 | misc | 10 | 138 |
 | names | 10 | 183 |
 | names_world | 10 | 163 |
-| nature_species | 6 | 81 |
+| nature_species | 8 | 90 |

@@ -65,7 +65,7 @@
 
 ## BARK
 - **bark_sound** — The short loud sound a dog makes
-  - +animal_sounds
+  - +animal_sounds, +dog_things
 - **bark_tree** — The tough outer covering of a tree trunk
   - +things_in_the_forest, +tree_parts, ~pine_and_cones, ~plant_parts
 
@@ -73,7 +73,7 @@
 - **bass_fish** — A freshwater fish popular with anglers
   - +fish_species, +pond_fish
 - **bass_music** — The lowest instrument in a band
-  - +string_instruments
+  - +in_a_band, +singing_voices, +string_instruments, +types_of_guitars
 
 ## BAT
 - **bat_animal** — A small flying mammal active at night
@@ -95,7 +95,7 @@
 - **bench_court** — The seat and office of a judge
   - ~courtroom_things
 - **bench_seat** — A long seat for several people
-  - !gym_equipment, +furniture, ~music_practice
+  - !gym_equipment, +at_the_gym, +furniture, ~music_practice
 
 ## BILL
 - **bill_law** — A proposed law put before a legislature
@@ -125,7 +125,7 @@
 - **board_committee** — The group of people who run an organization
   - ~words_before_room
 - **board_game** — The flat surface a game is played on
-  - +board_game_pieces, ~chess_words, ~game_shows
+  - +board_game_pieces, +darts_words, ~chess_words, ~game_shows
 - **board_plank** — A long flat piece of wood or stiff material
   - !words_after_head, ~words_after_back, ~words_after_snow
 
@@ -151,7 +151,7 @@
 - **bow_ship** — The front end of a boat
   - !sailing_words
 - **bow_weapon** — A curved piece of wood strung to shoot arrows
-  - +archery_words, +weapons_of_the_past
+  - +archery_words, +knights_and_armor, +weapons_of_the_past
 
 ## BRANCH
 - **branch_office** — A local office of a bank or company
@@ -191,7 +191,7 @@
 
 ## BUTTON
 - **button_clothing** — A small disc that fastens clothing
-  - +clothing_parts, ~collecting_hobbies, ~crafting_materials, ~joining_actions, ~round_things, ~sewing_supplies, ~things_with_holes
+  - +clothing_parts, +sewing_words, ~collecting_hobbies, ~crafting_materials, ~joining_actions, ~round_things, ~sewing_supplies, ~things_with_holes
 - **button_mushroom** — The small young white mushroom
   - !mushroom_types
 
@@ -269,7 +269,7 @@
 
 ## CHALK
 - **chalk_rock** — A soft white limestone rock
-  - ~experiments, ~rocks_and_minerals
+  - +types_of_soil, ~experiments, ~rocks_and_minerals
 - **chalk_stick** — A soft white stick used for writing on a board
   - +classroom_things, ~art_class_things, ~art_supplies, ~powders, ~things_that_break, ~white_things, ~words_before_board, ~writing_tools
 - **chalk_tailor** — The marking chalk a tailor uses on cloth
@@ -309,7 +309,7 @@
 - **club_sandwich** — A tall sandwich made with three slices of bread
   - +sandwich_types
 - **club_stick** — A heavy stick used as a weapon or for hitting a ball
-  - !gym_equipment, +weapons_of_the_past, ~juggling_words
+  - !gym_equipment, +golf_words, +weapons_of_the_past, ~juggling_words
 
 ## COAT
 - **coat_fur** — The fur or hair covering an animal
@@ -319,7 +319,7 @@
 
 ## COLD
 - **cold_illness** — A mild illness with a runny nose and cough
-  - ~illnesses
+  - +feeling_sick, ~illnesses
 - **cold_temperature** — Having a low temperature
   - +temperature_words, ~opposites, ~temperature_feel
 
@@ -351,7 +351,7 @@
 - **cream_dairy** — The thick fatty part of milk
   - +baking_ingredients, +dairy_products, +dairy_words, +pie_ingredients, ~drink_mixers, ~soup_ingredients
 - **cream_ointment** — A soft medicine rubbed onto the skin
-  - ~medicine_forms
+  - +facial_care, ~medicine_forms
 
 ## CROWN
 - **crown_dental** — A cap fitted over a damaged tooth
@@ -491,7 +491,7 @@
 - **focus_lens** — The setting that makes an image sharp
   - +photography_words, ~photography_terms, ~telescope_words
 - **focus_mind** — To give all your attention to something
-  - ~thinking_actions
+  - +the_mind, ~thinking_actions
 
 ## FOOT
 - **foot_body** — The part of the leg a person stands on
@@ -597,7 +597,7 @@
 - **hood_car** — The hinged cover over a car engine
   - +car_parts
 - **hood_garment** — A soft covering for the head attached to a coat
-  - ~clothing_parts, ~diving_gear, ~hats, ~winter_clothing
+  - +rainy_day_gear, ~clothing_parts, ~diving_gear, ~hats, ~winter_clothing
 - **hood_kitchen** — The vent cover above a kitchen stove
   - !kitchen_appliances
 - **hood_lens** — The shade fitted around a camera lens
@@ -619,7 +619,7 @@
 - **horn_animal** — The hard pointed growth on an animal head
   - !things_that_are_sharp, ~animal_body_parts
 - **horn_sound** — A device that makes a loud warning sound
-  - +car_parts, ~bell_and_alarm, ~fan_things, ~loud_things
+  - +car_parts, +musical_instruments, ~bell_and_alarm, ~fan_things, ~loud_things
 
 ## HOST
 - **host_person** — The person who receives and seats guests
@@ -645,7 +645,7 @@
 - **iron_golf** — A golf club with a flat angled metal head
   - ~golf_words
 - **iron_metal** — A hard gray metal used to make steel
-  - +elements, +metals, +vitamins_and_minerals, ~hard_things
+  - +elements, +metals, +nutrients, +vitamins_and_minerals, ~hard_things
 
 ## JACK
 - **jack_animal** — The word for a male donkey
@@ -663,7 +663,7 @@
 - **key_legend** — The panel that explains the symbols on a map
   - ~map_words
 - **key_lock** — A small metal object that opens a lock
-  - !bedroom_things, !collecting_hobbies, +locksmith_words, +things_in_a_junk_drawer, +things_on_a_keychain, ~things_made_of_metal
+  - !bedroom_things, !collecting_hobbies, +at_the_hotel, +locksmith_words, +things_in_a_junk_drawer, +things_on_a_keychain, +under_lock, ~things_made_of_metal
 - **key_music** — The set of notes a piece of music is based on
   - +music_words
 
@@ -671,7 +671,7 @@
 - **keyboard_computer** — The set of keys used to type on a computer
   - !things_made_of_plastic, +computer_parts, +video_gaming, ~things_with_buttons, ~writing_tools
 - **keyboard_music** — An electric instrument played like a piano
-  - ~musical_instruments
+  - +in_a_band, ~musical_instruments
 
 ## KITE
 - **kite_bird** — A bird of prey with long narrow wings
@@ -917,7 +917,7 @@
 - **pipe_symbol** — The vertical bar symbol used in writing and code
   - !vitamins_letters
 - **pipe_tube** — A tube that carries water or gas
-  - +plumbing_words, ~irrigation, ~things_made_of_metal, ~things_made_of_plastic, ~underground_things, ~words_before_line
+  - +plumbing_words, +tubes, ~irrigation, ~things_made_of_metal, ~things_made_of_plastic, ~underground_things, ~words_before_line
 
 ## PITCH
 - **pitch_field** — The playing field used in soccer and cricket
@@ -955,7 +955,7 @@
 - **plate_base** — The flat marker a baseball batter stands beside
   - +baseball_equipment
 - **plate_dish** — A flat round dish food is served on
-  - +dishes_and_glassware, +kitchen_tools, ~party_things, ~round_things
+  - +dishes_and_glassware, +kitchen_tools, +table_setting, ~party_things, ~round_things
 - **plate_printing** — A flat metal sheet that carries an image for printing
   - !printing_words
 - **plate_tectonic** — One of the huge slabs that make up the crust of the earth
@@ -997,7 +997,7 @@
 - **pound_money** — The currency of the United Kingdom
   - +currencies
 - **pound_weight** — A unit of weight equal to sixteen ounces
-  - +things_measured_in_inches
+  - +things_measured_in_inches, +weight_units
 
 ## PRESENT
 - **present_gift** — Something given to someone as a gift
@@ -1029,7 +1029,7 @@
 
 ## QUARTER
 - **quarter_coin** — The American twenty five cent coin
-  - +coins_and_bills
+  - +coins_and_bills, +money_words
 - **quarter_fourth** — One of four equal parts
   - ~calendar_words, ~superstition_numbers, ~tide_and_moon, ~time_units
 - **quarter_lodging** — Lodging for soldiers or crew
@@ -1143,7 +1143,7 @@
 
 ## SCORE
 - **score_points** — The number of points made in a game or test
-  - +grades_and_marks, +sports_scoring, +video_game_words, ~sports_actions, ~words_before_board
+  - +darts_words, +grades_and_marks, +sports_scoring, +video_game_words, ~sports_actions, ~words_before_board
 - **score_twenty** — An old word for a group of twenty
   - ~superstition_numbers
 
@@ -1151,7 +1151,7 @@
 - **screen_basketball** — A move where a player blocks a defender for a teammate
   - !basketball_words
 - **screen_display** — The flat surface of a device that shows a picture
-  - !things_made_of_glass, !things_that_break, +computer_parts, +light_sources, +phone_words, +tv_words, ~transparent_things
+  - !things_made_of_glass, !things_that_break, +at_the_movies, +computer_parts, +light_sources, +phone_words, +tv_words, ~transparent_things
 - **screen_print** — A fine mesh stencil used to print ink onto cloth
   - ~printing_words
 - **screen_shield** — Something that shields skin or eyes from the sun
@@ -1287,7 +1287,7 @@
 - **spade_card** — One of the four suits in a deck of playing cards
   - +card_words
 - **spade_tool** — A digging tool with a flat blade
-  - +garden_tools
+  - +garden_shed, +garden_tools
 
 ## SPELL
 - **spell_letters** — To name the letters of a word in order
@@ -1297,7 +1297,7 @@
 
 ## SPONGE
 - **sponge_animal** — A simple sea animal with a soft porous body
-  - ~coral_reef, ~jellyfish_and_soft, ~ocean_products
+  - +ocean_floor, ~coral_reef, ~jellyfish_and_soft, ~ocean_products
 - **sponge_cake** — A light airy cake made without much fat
   - ~cake_types, ~words_before_cake
 - **sponge_cleaning** — A soft absorbent block used for washing
@@ -1309,7 +1309,7 @@
 - **spring_jump** — To jump suddenly upward or forward
   - ~ways_of_moving
 - **spring_season** — The season between winter and summer
-  - +calendar_words, +seasons
+  - +calendar_words, +easter, +seasons
 - **spring_water** — A place where water flows naturally out of the ground
   - ~bodies_of_water
 
@@ -1331,7 +1331,7 @@
 - **stall_engine** — To stop running suddenly, said of an engine
   - +driving_actions, ~aviation_words
 - **stall_market** — A booth where goods are sold
-  - ~world_markets
+  - +farmers_market, ~world_markets
 - **stall_parking** — A marked space for one parked car
   - ~parking_words
 
@@ -1379,7 +1379,7 @@
 - **straw_hay** — Dried stalks of grain used as bedding
   - !insulating_materials, !light_things
 - **straw_tube** — A thin tube for drinking
-  - !long_thin_things, !things_with_holes, ~things_made_of_plastic
+  - !long_thin_things, !things_with_holes, +tubes, ~things_made_of_plastic
 
 ## STRIKE
 - **strike_baseball** — A pitch counted against the batter
@@ -1509,7 +1509,7 @@
 
 ## TRAILER
 - **trailer_movie** — A short preview of a coming film
-  - +movie_words
+  - +at_the_movies, +movie_words
 - **trailer_vehicle** — An unpowered vehicle towed behind another
   - ~things_with_wheels, ~words_after_horse
 
@@ -1543,7 +1543,7 @@
 - **watch_look** — To look at something for a period of time
   - +ways_of_looking
 - **watch_object** — A small clock worn on the wrist
-  - +accessories, +fashion_accessories, +gadgets, +jewelry, ~screens, ~things_that_have_a_face, ~things_with_buttons, ~things_worn_on_hands
+  - +accessories, +fashion_accessories, +gadgets, +jewelry, +timepieces, ~screens, ~things_that_have_a_face, ~things_with_buttons, ~things_worn_on_hands
 - **watch_warning** — An official notice that severe weather is possible
   - !weather_forecast_terms
 

@@ -338,44 +338,46 @@
   }
  ],
  "content_base": {
-  "categories": 1120,
-  "words": 10112,
+  "categories": 1276,
+  "words": 10441,
   "senses": 564,
-  "memberships": 17786,
+  "memberships": 18775,
   "themes": 58,
   "by_status": {
-   "alternative": 3994,
-   "approved": 12780,
-   "candidate": 26,
+   "alternative": 4074,
+   "approved": 13687,
+   "candidate": 28,
    "hard_only": 923,
    "rejected": 63
   },
   "by_source": {
    "ai_meta_hubs_v1": 230,
+   "legacy_merge_v1": 989,
    "seed_manual": 17556
   },
   "relation_types": {
-   "is_a": 9562,
-   "found_in": 4026,
-   "has_property": 1092,
-   "used_in": 1010,
-   "does_action": 840,
-   "part_of": 437,
+   "is_a": 9819,
+   "found_in": 4289,
+   "used_in": 1173,
+   "has_property": 1099,
+   "does_action": 841,
+   "part_of": 449,
    "phrase_before": 403,
+   "associated_with": 269,
    "phrase_after": 201,
-   "made_of": 163,
-   "associated_with": 36,
-   "used_for": 16
+   "made_of": 164,
+   "used_for": 35,
+   "member_of_set": 29
   },
   "zipf_buckets": {
-   "2.0-2.9 редкие": 2297,
-   "3.0-3.9 нечастые": 4152,
-   "4.0-4.9 частые": 2663,
-   "5.0+ бытовые": 523,
-   "< 2.0 очень редкие": 451,
-   "неизвестно": 26
+   "2.0-2.9 редкие": 2439,
+   "3.0-3.9 нечастые": 4292,
+   "4.0-4.9 частые": 2698,
+   "5.0+ бытовые": 527,
+   "< 2.0 очень редкие": 457,
+   "неизвестно": 28
   },
-  "multi_category_words": 3406
+  "multi_category_words": 3633
  },
  "where_ai_is_not_used": [
   "сборка уровня из проверенного контента — детерминированный алгоритм",

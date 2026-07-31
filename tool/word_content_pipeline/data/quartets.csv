@@ -55,6 +55,7 @@ amusement_park__3,amusement_park,normal,auto_validated,unique,0.226,bumper car |
 ancient_civilizations__1,ancient_civilizations,normal,auto_validated,unique,0.225,china | egypt | rome | greece,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ancient_civilizations__2,ancient_civilizations,normal,auto_validated,unique,0.26,troy | maya | babylon | persia,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ancient_civilizations__3,ancient_civilizations,normal,auto_validated,unique,0.284,sparta | aztec | carthage | inca,четвёрка однозначна: другой категории с этими четырьмя словами нет
+ancient_greece_ideas__1,ancient_greece_ideas,normal,auto_validated,unique,0.419,democracy | mythology | olympics | oracle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ancient_wonders__1,ancient_wonders,normal,auto_validated,unique,0.33,great wall | hanging gardens | great pyramid | lighthouse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ancient_wonders__2,ancient_wonders,normal,auto_validated,unique,0.371,petra | colossus | stonehenge | taj mahal,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_actions__1,animal_actions,normal,auto_validated,unique,0.28,hunt | shed | nest | hatch,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -66,6 +67,7 @@ animal_babies__3,animal_babies,normal,auto_validated,unique,0.253,kitten | pup |
 animal_body_parts__1,animal_body_parts,normal,auto_validated,unique,0.195,wing | tail | horn#horn_animal | trunk#trunk_elephant,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_body_parts__2,animal_body_parts,normal,auto_validated,unique,0.223,fin | gill | claw | paw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_body_parts__3,animal_body_parts,normal,auto_validated,unique,0.234,hump | fang | mane | beak,четвёрка однозначна: другой категории с этими четырьмя словами нет
+animal_classes__1,animal_classes,normal,auto_validated,unique,0.263,bird | fish | insect | mammal,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_coverings__1,animal_coverings,normal,auto_validated,unique,0.266,down | hair | skin | scale#scale_skin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_coverings__2,animal_coverings,normal,auto_validated,unique,0.288,hide | shell | coat#coat_fur | fur,четвёрка однозначна: другой категории с этими четырьмя словами нет
 animal_coverings__3,animal_coverings,normal,auto_validated,unique,0.313,spine | wool | feather | fleece,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -92,6 +94,7 @@ animals_with_shells__2,animals_with_shells,normal,auto_validated,unique,0.327,oy
 antelope_and_grazers__1,antelope_and_grazers,normal,auto_validated,unique,0.344,buffalo | elk | zebra | bison,четвёрка однозначна: другой категории с этими четырьмя словами нет
 antelope_and_grazers__2,antelope_and_grazers,normal,auto_validated,unique,0.364,yak | antelope | impala | gnu,четвёрка однозначна: другой категории с этими четырьмя словами нет
 antelope_and_grazers__3,antelope_and_grazers,normal,auto_validated,unique,0.383,gazelle | springbok | oryx | wildebeest,четвёрка однозначна: другой категории с этими четырьмя словами нет
+antique_shop__1,antique_shop,normal,auto_validated,unique,0.525,auction | dusty | heirloom | curio,четвёрка однозначна: другой категории с этими четырьмя словами нет
 apple_varieties__1,apple_varieties,normal,auto_validated,unique,0.27,empire | rome | pink lady | jonathan,четвёрка однозначна: другой категории с этими четырьмя словами нет
 apple_varieties__2,apple_varieties,normal,auto_validated,unique,0.287,red delicious | golden delicious | envy | gala,четвёрка однозначна: другой категории с этими четырьмя словами нет
 apple_varieties__3,apple_varieties,normal,auto_validated,unique,0.323,granny smith | fuji | mcintosh | cortland,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -104,13 +107,14 @@ archaeology_words__2,archaeology_words,normal,auto_validated,unique,0.338,ruin |
 archaeology_words__3,archaeology_words,normal,auto_validated,unique,0.358,skeleton | pottery | excavation | artifact,четвёрка однозначна: другой категории с этими четырьмя словами нет
 archery_words__1,archery_words,normal,auto_validated,unique,0.292,range#range_shooting | release | target | draw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 archery_words__2,archery_words,normal,auto_validated,unique,0.31,sight | arm guard | string | bow#bow_weapon,четвёрка однозначна: другой категории с этими четырьмя словами нет
-archery_words__3,archery_words,normal,auto_validated,unique,0.351,arrow | shaft | quiver | bullseye,четвёрка однозначна: другой категории с этими четырьмя словами нет
+archery_words__3,archery_words,normal,auto_validated,unique,0.332,arrow | aim | shaft | archer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 architecture_words__1,architecture_words,normal,auto_validated,unique,0.322,foundation#foundation_building | column | arch#arch_structure | dome,четвёрка однозначна: другой категории с этими четырьмя словами нет
 architecture_words__2,architecture_words,normal,auto_validated,unique,0.343,vault | terrace | balcony#balcony_house | blueprint,четвёрка однозначна: другой категории с этими четырьмя словами нет
 architecture_words__3,architecture_words,normal,auto_validated,unique,0.366,facade | atrium | spire | gable,четвёрка однозначна: другой категории с этими четырьмя словами нет
 arctic_animals__1,arctic_animals,normal,auto_validated,unique,0.225,seal#seal_animal | arctic fox | polar bear | moose,четвёрка однозначна: другой категории с этими четырьмя словами нет
 arctic_animals__2,arctic_animals,normal,auto_validated,unique,0.249,wolverine | reindeer | snowy owl | husky,четвёрка однозначна: другой категории с этими четырьмя словами нет
 arctic_animals__3,arctic_animals,normal,auto_validated,unique,0.262,musk ox | walrus | caribou | orca,четвёрка однозначна: другой категории с этими четырьмя словами нет
+arctic_trek__1,arctic_trek,normal,auto_validated,unique,0.544,huskies | icebreaker | permafrost | auroras,четвёрка однозначна: другой категории с этими четырьмя словами нет
 art_class_things__1,art_class_things,normal,auto_validated,unique,0.189,construction paper | paint | clay | brush,четвёрка однозначна: другой категории с этими четырьмя словами нет
 art_class_things__2,art_class_things,normal,auto_validated,unique,0.213,canvas | marker | glue | palette,четвёрка однозначна: другой категории с этими четырьмя словами нет
 art_class_things__3,art_class_things,normal,auto_validated,unique,0.225,chalk#chalk_stick | scissors | glitter | apron#apron_garment,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -141,6 +145,18 @@ asian_dishes__3,asian_dishes,normal,auto_validated,unique,0.293,lo mein | chow m
 astronaut_gear__1,astronaut_gear,normal,auto_validated,unique,0.273,camera | boot#boot_shoe | tool belt | oxygen tank,четвёрка однозначна: другой категории с этими четырьмя словами нет
 astronaut_gear__2,astronaut_gear,normal,auto_validated,unique,0.297,helmet | backpack | glove | checklist,четвёрка однозначна: другой категории с этими четырьмя словами нет
 astronaut_gear__3,astronaut_gear,normal,auto_validated,unique,0.332,visor | communicator | tether | jetpack,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_dentist__1,at_the_dentist,normal,auto_validated,unique,0.394,braces | floss | fluoride | dentures,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_dojo__1,at_the_dojo,normal,auto_validated,unique,0.481,grappling | sparring | sumo | headlock,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_gym__1,at_the_gym,normal,auto_validated,unique,0.3,squat | trainer | treadmill | weights,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_harbor__1,at_the_harbor,normal,auto_validated,unique,0.344,port | anchor | dock | ferry,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_hospital__1,at_the_hospital,normal,auto_validated,unique,0.281,hospital | medicine | patient | bandage,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_hospital__2,at_the_hospital,normal,auto_validated,unique,0.319,clinic | nurse | ward | stethoscope,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_hotel__1,at_the_hotel,normal,auto_validated,unique,0.35,checkout | housekeeper | lobby | reception,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_movies__1,at_the_movies,normal,auto_validated,unique,0.325,admission | cinema | popcorn | usher,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_pool__1,at_the_pool,normal,auto_validated,unique,0.281,cap | lane | pool | dive,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_stables__1,at_the_stables,normal,auto_validated,unique,0.419,horseshoe | paddock | reins | bridle,четвёрка однозначна: другой категории с этими четырьмя словами нет
+at_the_theater__1,at_the_theater,normal,auto_validated,unique,0.306,actor | audience | stage | curtain,четвёрка однозначна: другой категории с этими четырьмя словами нет
+auditions__1,auditions,normal,auto_validated,unique,0.444,audition | contestant | spotlight | callback,четвёрка однозначна: другой категории с этими четырьмя словами нет
 authors__1,authors,normal,auto_validated,unique,0.3,shakespeare | fitzgerald | poe | dickens,четвёрка однозначна: другой категории с этими четырьмя словами нет
 authors__2,authors,normal,auto_validated,unique,0.313,wilde | twain | austen | hemingway,четвёрка однозначна: другой категории с этими четырьмя словами нет
 authors__3,authors,normal,auto_validated,unique,0.323,melville | tolkien | orwell | kipling,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -159,20 +175,27 @@ baby_things__3,baby_things,normal,auto_validated,unique,0.243,crib | wipes | rat
 bags__1,bags,normal,auto_validated,unique,0.203,gym bag | wallet | trunk#trunk_case | purse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bags__2,bags,normal,auto_validated,unique,0.216,messenger bag | clutch | backpack | garment bag,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bags__3,bags,normal,auto_validated,unique,0.231,suitcase | fanny pack | pouch | tote,четвёрка однозначна: другой категории с этими четырьмя словами нет
+bake_off__1,bake_off,normal,auto_validated,unique,0.444,dough | icing | piping | fondant,четвёрка однозначна: другой категории с этими четырьмя словами нет
+baked_goods__1,baked_goods,normal,auto_validated,unique,0.188,bread | cake | bagel | cookie,четвёрка однозначна: другой категории с этими четырьмя словами нет
+baked_goods__2,baked_goods,normal,auto_validated,unique,0.219,donut | muffin | pie | croissant,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baker_words__1,baker_words,normal,auto_validated,unique,0.241,display case | oven | flour | rack,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baker_words__2,baker_words,normal,auto_validated,unique,0.258,dough | tray | cooling rack | timer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baker_words__3,baker_words,normal,auto_validated,unique,0.269,icing | mixer | pastry bag | apron#apron_garment,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baking_ingredients__1,baking_ingredients,normal,auto_validated,unique,0.177,oil#oil_cooking | sugar | milk | cream#cream_dairy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baking_ingredients__2,baking_ingredients,normal,auto_validated,unique,0.187,salt | chocolate | egg | honey,четвёрка однозначна: другой категории с этими четырьмя словами нет
 baking_ingredients__3,baking_ingredients,normal,auto_validated,unique,0.207,butter | flour | vanilla | baking powder,четвёрка однозначна: другой категории с этими четырьмя словами нет
+ballet_class__1,ballet_class,normal,auto_validated,unique,0.5,barre | recital | leotard | arabesque,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bank_brands__1,bank_brands,normal,auto_validated,unique,0.337,capital one | us bank | fifth third | chase,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bank_brands__2,bank_brands,normal,auto_validated,unique,0.368,regions bank | ally | td bank | wells fargo,четвёрка однозначна: другой категории с этими четырьмя словами нет
 banking_words__1,banking_words,normal,auto_validated,unique,0.216,account | check#check_payment | interest | statement,четвёрка однозначна: другой категории с этими четырьмя словами нет
 banking_words__2,banking_words,normal,auto_validated,unique,0.225,balance | transfer | loan | branch#branch_office,четвёрка однозначна: другой категории с этими четырьмя словами нет
 banking_words__3,banking_words,normal,auto_validated,unique,0.241,mortgage | pin#pin_code | deposit | safe deposit,четвёрка однозначна: другой категории с этими четырьмя словами нет
+barbecue__1,barbecue,normal,auto_validated,unique,0.319,smoke | burger | charcoal | grill,четвёрка однозначна: другой категории с этими четырьмя словами нет
+barbershop__1,barbershop,normal,auto_validated,unique,0.45,barber | clippers | aftershave | pomade,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barbershop_words__1,barbershop_words,normal,auto_validated,unique,0.229,chair | mirror | cape | brush,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barbershop_words__2,barbershop_words,normal,auto_validated,unique,0.245,pole | powder | towel | razor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barbershop_words__3,barbershop_words,normal,auto_validated,unique,0.264,clippers | scissors | shaving cream | comb,четвёрка однозначна: другой категории с этими четырьмя словами нет
+barista_words__1,barista_words,normal,auto_validated,unique,0.531,brewing | decaf | crema | frothing,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barn_things__1,barn_things,normal,auto_validated,unique,0.233,feed | gate#gate_barrier | bucket | rope,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barn_things__2,barn_things,normal,auto_validated,unique,0.253,hay | sack#sack_bag | stall#stall_barn | saddle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 barn_things__3,barn_things,normal,auto_validated,unique,0.263,harness | bale | lantern | loft,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -206,6 +229,8 @@ beauty_tools__3,beauty_tools,normal,auto_validated,unique,0.319,comb | curling i
 bedroom_things__1,bedroom_things,normal,auto_validated,unique,0.149,bed | chest#chest_box | mirror | sheet#sheet_bed,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bedroom_things__2,bedroom_things,normal,auto_validated,unique,0.17,closet | blanket | alarm clock | lamp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bedroom_things__3,bedroom_things,normal,auto_validated,unique,0.181,pillow | curtain | rug | mattress,четвёрка однозначна: другой категории с этими четырьмя словами нет
+bedtime_things__1,bedtime_things,normal,auto_validated,unique,0.287,bed | sleep | blanket | mattress,четвёрка однозначна: другой категории с этими четырьмя словами нет
+beekeeper__1,beekeeper,normal,auto_validated,unique,0.519,smoker | beeswax | honeycomb | apiary,четвёрка однозначна: другой категории с этими четырьмя словами нет
 beekeeping__1,beekeeping,normal,auto_validated,unique,0.298,super | queen#queen_bee | frame | worker,четвёрка однозначна: другой категории с этими четырьмя словами нет
 beekeeping__2,beekeeping,normal,auto_validated,unique,0.324,honey | gloves | drone | wax#wax_substance,четвёрка однозначна: другой категории с этими четырьмя словами нет
 beekeeping__3,beekeeping,normal,auto_validated,unique,0.345,veil | comb | hive | pollen,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -225,6 +250,7 @@ bible_figures__3,bible_figures,normal,auto_validated,unique,0.272,eve | jacob | 
 biblical_names__1,biblical_names,normal,auto_validated,unique,0.256,john | mark | daniel | adam,четвёрка однозначна: другой категории с этими четырьмя словами нет
 biblical_names__2,biblical_names,normal,auto_validated,unique,0.269,sarah | simon | luke | matthew,четвёрка однозначна: другой категории с этими четырьмя словами нет
 biblical_names__3,biblical_names,normal,auto_validated,unique,0.278,eve | aaron | samuel | rachel,четвёрка однозначна: другой категории с этими четырьмя словами нет
+billiards__1,billiards,normal,auto_validated,unique,0.481,felt | snooker | chalked | potting,четвёрка однозначна: другой категории с этими четырьмя словами нет
 biomes__1,biomes,normal,auto_validated,unique,0.309,mountain | ocean | desert | marsh,четвёрка однозначна: другой категории с этими четырьмя словами нет
 biomes__2,biomes,normal,auto_validated,unique,0.347,reef | prairie | rainforest | wetland,четвёрка однозначна: другой категории с этими четырьмя словами нет
 biomes__3,biomes,normal,auto_validated,unique,0.37,tundra | grassland | savanna | steppe,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -237,12 +263,14 @@ birds_of_prey__3,birds_of_prey,normal,auto_validated,unique,0.299,osprey | buzza
 birdwatching__1,birdwatching,normal,auto_validated,unique,0.308,camera | field guide | blind | seed,четвёрка однозначна: другой категории с этими четырьмя словами нет
 birdwatching__2,birdwatching,normal,auto_validated,unique,0.332,scope | bird bath | whistle | notebook,четвёрка однозначна: другой категории с этими четырьмя словами нет
 birdwatching__3,birdwatching,normal,auto_validated,unique,0.37,checklist | feeder | binoculars | birdhouse,четвёрка однозначна: другой категории с этими четырьмя словами нет
+birthday_party__1,birthday_party,normal,auto_validated,unique,0.287,gift | wish | balloon | candles,четвёрка однозначна: другой категории с этими четырьмя словами нет
 birthday_things__1,birthday_things,normal,auto_validated,unique,0.13,card#card_greeting | party#party_event | present#present_gift | song,четвёрка однозначна: другой категории с этими четырьмя словами нет
 birthday_things__2,birthday_things,normal,auto_validated,unique,0.139,wish | surprise | guest | cake,четвёрка однозначна: другой категории с этими четырьмя словами нет
 birthday_things__3,birthday_things,normal,auto_validated,unique,0.156,hat | ice cream | invitation | balloon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 black_things__1,black_things,normal,auto_validated,unique,0.249,night | oil#oil_motor | coal | shadow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 black_things__2,black_things,normal,auto_validated,unique,0.27,bat#bat_animal | piano key | olive | ink,четвёрка однозначна: другой категории с этими четырьмя словами нет
 black_things__3,black_things,normal,auto_validated,unique,0.283,tire | crow | pupil | raven,четвёрка однозначна: другой категории с этими четырьмя словами нет
+blacksmith__1,blacksmith,normal,auto_validated,unique,0.45,anvil | bellows | forge | horseshoe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 blades__1,blades,normal,auto_validated,unique,0.277,point#point_tip | edge | teeth | knife edge,четвёрка однозначна: другой категории с этими четырьмя словами нет
 blades__2,blades,normal,auto_validated,unique,0.303,blade | saw blade | axe head | razor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 board_and_card_games__1,board_and_card_games,normal,auto_validated,unique,0.247,bridge#bridge_card | air hockey | table tennis | bowling,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -254,9 +282,9 @@ board_game_pieces__3,board_game_pieces,normal,auto_validated,unique,0.315,timer 
 board_games__1,board_games,normal,auto_validated,unique,0.171,life | risk | sorry | trouble,четвёрка однозначна: другой категории с этими четырьмя словами нет
 board_games__2,board_games,normal,auto_validated,unique,0.205,candy land | clue | chess | monopoly,четвёрка однозначна: другой категории с этими четырьмя словами нет
 board_games__3,board_games,normal,auto_validated,unique,0.239,trivial pursuit | battleship | checkers | scrabble,четвёрка однозначна: другой категории с этими четырьмя словами нет
-boats__1,boats,normal,auto_validated,unique,0.218,cruise ship | ferry | yacht | submarine,четвёрка однозначна: другой категории с этими четырьмя словами нет
-boats__2,boats,normal,auto_validated,unique,0.239,barge | canoe | raft | kayak,четвёрка однозначна: другой категории с этими четырьмя словами нет
-boats__3,boats,normal,auto_validated,unique,0.257,freighter | schooner | sailboat | gondola,четвёрка однозначна: другой категории с этими четырьмя словами нет
+boats__1,boats,normal,auto_validated,unique,0.206,boat | ship | cruise ship | ferry,четвёрка однозначна: другой категории с этими четырьмя словами нет
+boats__2,boats,normal,auto_validated,unique,0.23,yacht | submarine | barge | canoe,четвёрка однозначна: другой категории с этими четырьмя словами нет
+boats__3,boats,normal,auto_validated,unique,0.248,raft | kayak | freighter | schooner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bodies_of_water__1,bodies_of_water,normal,auto_validated,unique,0.137,river | sea | spring#spring_water | lake,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bodies_of_water__2,bodies_of_water,normal,auto_validated,unique,0.145,bay | ocean | pool | stream,четвёрка однозначна: другой категории с этими четырьмя словами нет
 bodies_of_water__3,bodies_of_water,normal,auto_validated,unique,0.163,creek | gulf | canal | harbor,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -295,6 +323,7 @@ bowling_words__3,bowling_words,normal,auto_validated,unique,0.277,score sheet | 
 boxes_and_cases__1,boxes_and_cases,normal,auto_validated,unique,0.268,case#case_box | bag | chest#chest_box | cabinet#cabinet_furniture,четвёрка однозначна: другой категории с этими четырьмя словами нет
 boxes_and_cases__2,boxes_and_cases,normal,auto_validated,unique,0.289,belt | shed | bucket | rack,четвёрка однозначна: другой категории с этими четырьмя словами нет
 boxes_and_cases__3,boxes_and_cases,normal,auto_validated,unique,0.317,drawer | tray | pouch | toolbox,четвёрка однозначна: другой категории с этими четырьмя словами нет
+boxing_gym__1,boxing_gym,normal,auto_validated,unique,0.444,clinch | spar | sparring | southpaw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 boxing_words__1,boxing_words,normal,auto_validated,unique,0.253,decision | round#round_stage | ring#ring_arena | corner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 boxing_words__2,boxing_words,normal,auto_validated,unique,0.273,bell | belt | hook#hook_boxing | bout,четвёрка однозначна: другой категории с этими четырьмя словами нет
 boxing_words__3,boxing_words,normal,auto_validated,unique,0.302,referee | glove | knockout | jab,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -308,8 +337,9 @@ breakfast_cereals_types__1,breakfast_cereals_types,normal,auto_validated,unique,
 breakfast_cereals_types__2,breakfast_cereals_types,normal,auto_validated,unique,0.356,oatmeal | shredded wheat | bran | porridge,четвёрка однозначна: другой категории с этими четырьмя словами нет
 breakfast_foods__1,breakfast_foods,normal,auto_validated,unique,0.155,egg | coffee cake | jam | bacon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 breakfast_foods__2,breakfast_foods,normal,auto_validated,unique,0.168,ham | toast#toast_bread | danish | french toast,четвёрка однозначна: другой категории с этими четырьмя словами нет
-breakfast_foods__3,breakfast_foods,normal,auto_validated,unique,0.179,sausage | cereal | yogurt | hash brown,четвёрка однозначна: другой категории с этими четырьмя словами нет
-bright_stars__1,bright_stars,normal,auto_validated,unique,0.398,vega | sirius | castor | polaris,четвёрка однозначна: другой категории с этими четырьмя словами нет
+breakfast_foods__3,breakfast_foods,normal,auto_validated,unique,0.175,sausage | bread | milk | rice,четвёрка однозначна: другой категории с этими четырьмя словами нет
+breathing__1,breathing,normal,auto_validated,unique,0.35,breathe | exhale | gasp | inhale,четвёрка однозначна: другой категории с этими четырьмя словами нет
+bright_stars__1,bright_stars,normal,auto_validated,unique,0.372,sun | vega | sirius | castor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 brightness_words__1,brightness_words,normal,auto_validated,unique,0.318,dark | bright | shining | dull,четвёрка однозначна: другой категории с этими четырьмя словами нет
 brightness_words__2,brightness_words,normal,auto_validated,unique,0.345,faint | glowing | shady | dim,четвёрка однозначна: другой категории с этими четырьмя словами нет
 brightness_words__3,brightness_words,normal,auto_validated,unique,0.358,radiant | dazzling | gloomy | luminous,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -320,16 +350,17 @@ building_materials__1,building_materials,normal,auto_validated,unique,0.175,glas
 building_materials__2,building_materials,normal,auto_validated,unique,0.2,concrete | brick | aluminum | vinyl,четвёрка однозначна: другой категории с этими четырьмя словами нет
 building_materials__3,building_materials,normal,auto_validated,unique,0.211,marble#marble_stone | cement | granite | slate,четвёрка однозначна: другой категории с этими четырьмя словами нет
 building_trades__1,building_trades,normal,auto_validated,unique,0.207,mason | contractor | painter | carpenter,четвёрка однозначна: другой категории с этими четырьмя словами нет
-building_trades__2,building_trades,normal,auto_validated,unique,0.232,foreman | plumber | surveyor | electrician,четвёрка однозначна: другой категории с этими четырьмя словами нет
-building_trades__3,building_trades,normal,auto_validated,unique,0.255,installer | laborer | welder | bricklayer,четвёрка однозначна: другой категории с этими четырьмя словами нет
+building_trades__2,building_trades,normal,auto_validated,unique,0.229,foreman | architect | plumber | surveyor,четвёрка однозначна: другой категории с этими четырьмя словами нет
+building_trades__3,building_trades,normal,auto_validated,unique,0.248,electrician | installer | laborer | welder,четвёрка однозначна: другой категории с этими четырьмя словами нет
 business_words__1,business_words,normal,auto_validated,unique,0.216,contract | loss | market | stock,четвёрка однозначна: другой категории с этими четырьмя словами нет
 business_words__2,business_words,normal,auto_validated,unique,0.222,budget | partner | profit | revenue,четвёрка однозначна: другой категории с этими четырьмя словами нет
 business_words__3,business_words,normal,auto_validated,unique,0.239,client | franchise | asset | expense,четвёрка однозначна: другой категории с этими четырьмя словами нет
 butcher_words__1,butcher_words,normal,auto_validated,unique,0.303,cut | saw | block#block_cube | wrap,четвёрка однозначна: другой категории с этими четырьмя словами нет
-butcher_words__2,butcher_words,normal,auto_validated,unique,0.346,rack | sausage | freezer | apron#apron_garment,четвёрка однозначна: другой категории с этими четырьмя словами нет
-butcher_words__3,butcher_words,normal,auto_validated,unique,0.372,grinder | cleaver | twine | brisket,четвёрка однозначна: другой категории с этими четырьмя словами нет
+butcher_words__2,butcher_words,normal,auto_validated,unique,0.344,rack | sausage | freezer | mince,четвёрка однозначна: другой категории с этими четырьмя словами нет
+butcher_words__3,butcher_words,normal,auto_validated,unique,0.367,apron#apron_garment | grinder | cleaver | twine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 butterflies_and_moths__1,butterflies_and_moths,normal,auto_validated,unique,0.338,painted lady | admiral | monarch | cabbage white,четвёрка однозначна: другой категории с этими четырьмя словами нет
 butterflies_and_moths__2,butterflies_and_moths,normal,auto_validated,unique,0.366,skipper | luna moth | viceroy | buckeye,четвёрка однозначна: другой категории с этими четырьмя словами нет
+butterfly_life__1,butterfly_life,normal,auto_validated,unique,0.469,caterpillar | cocoon | monarch | chrysalis,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cactus_and_succulents__1,cactus_and_succulents,normal,auto_validated,unique,0.356,jade | cactus | barrel cactus | hens and chicks,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cactus_and_succulents__2,cactus_and_succulents,normal,auto_validated,unique,0.38,aloe | prickly pear | agave | yucca,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cake_types__1,cake_types,normal,auto_validated,unique,0.236,wedding | birthday | chocolate | angel food,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -338,6 +369,7 @@ cake_types__3,cake_types,normal,auto_validated,unique,0.269,upside down | vanill
 calendar_words__1,calendar_words,normal,auto_validated,unique,0.17,date#date_calendar | century | day | month,четвёрка однозначна: другой категории с этими четырьмя словами нет
 calendar_words__2,calendar_words,normal,auto_validated,unique,0.17,season#season_time | spring#spring_season | term#term_period | week,четвёрка однозначна: другой категории с этими четырьмя словами нет
 calendar_words__3,calendar_words,normal,auto_validated,unique,0.173,weekend | year | birthday | quarter#quarter_fourth,четвёрка однозначна: другой категории с этими четырьмя словами нет
+calligraphy__1,calligraphy,normal,auto_validated,unique,0.512,flourish | lettering | cursive | italic,четвёрка однозначна: другой категории с этими четырьмя словами нет
 camera_and_electronics__1,camera_and_electronics,normal,auto_validated,unique,0.271,sharp | sony | canon | pioneer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 camera_and_electronics__2,camera_and_electronics,normal,auto_validated,unique,0.306,philips | nikon | kodak | bose,четвёрка однозначна: другой категории с этими четырьмя словами нет
 camera_and_electronics__3,camera_and_electronics,normal,auto_validated,unique,0.322,panasonic | toshiba | polaroid | fujifilm,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -350,6 +382,7 @@ camping_gear__3,camping_gear,normal,auto_validated,unique,0.213,cooler | bug spr
 canadian_places__1,canadian_places,normal,auto_validated,unique,0.32,toronto | vancouver | montreal | ottawa,четвёрка однозначна: другой категории с этими четырьмя словами нет
 canadian_places__2,canadian_places,normal,auto_validated,unique,0.335,quebec | alberta | calgary | halifax,четвёрка однозначна: другой категории с этими четырьмя словами нет
 canadian_places__3,canadian_places,normal,auto_validated,unique,0.348,winnipeg | niagara | manitoba | nova scotia,четвёрка однозначна: другой категории с этими четырьмя словами нет
+candle_making__1,candle_making,normal,auto_validated,unique,0.494,scented | taper | wick | paraffin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 candy__1,candy,normal,auto_validated,unique,0.171,chocolate | chocolate bar | rock candy | gum#gum_candy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 candy__2,candy,normal,auto_validated,unique,0.196,mint#mint_candy | candy cane | jelly bean | caramel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 candy__3,candy,normal,auto_validated,unique,0.213,fudge | brittle#brittle_candy | lollipop | marshmallow,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -376,6 +409,7 @@ car_parts__3,car_parts,normal,auto_validated,unique,0.174,trunk#trunk_car | tire
 card_games__1,card_games,normal,auto_validated,unique,0.216,war | go fish | bridge#bridge_card | hearts,четвёрка однозначна: другой категории с этими четырьмя словами нет
 card_games__2,card_games,normal,auto_validated,unique,0.265,poker | old maid | uno | blackjack,четвёрка однозначна: другой категории с этими четырьмя словами нет
 card_games__3,card_games,normal,auto_validated,unique,0.296,spades | solitaire | crazy eights | rummy,четвёрка однозначна: другой категории с этими четырьмя словами нет
+card_suits__1,card_suits,normal,auto_validated,unique,0.219,clubs | diamonds | hearts | spades,четвёрка однозначна: другой категории с этими четырьмя словами нет
 card_tricks__1,card_tricks,normal,auto_validated,unique,0.385,control | cut | force | pass,четвёрка однозначна: другой категории с этими четырьмя словами нет
 card_tricks__2,card_tricks,normal,auto_validated,unique,0.41,spread | reveal | double lift | flourish,четвёрка однозначна: другой категории с этими четырьмя словами нет
 card_words__1,card_words,normal,auto_validated,unique,0.21,club#club_card | heart#heart_card | cut | deal,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -384,6 +418,7 @@ card_words__3,card_words,normal,auto_validated,unique,0.215,queen#queen_card | j
 caribbean_places__1,caribbean_places,normal,auto_validated,unique,0.333,cuba | jamaica | haiti | trinidad,четвёрка однозначна: другой категории с этими четырьмя словами нет
 caribbean_places__2,caribbean_places,normal,auto_validated,unique,0.347,bahamas | bermuda | barbados | saint lucia,четвёрка однозначна: другой категории с этими четырьмя словами нет
 caribbean_places__3,caribbean_places,normal,auto_validated,unique,0.368,antigua | grenada | aruba | dominica,четвёрка однозначна: другой категории с этими четырьмя словами нет
+carpenter__1,carpenter,normal,auto_validated,unique,0.481,plywood | lathe | sander | sawdust,четвёрка однозначна: другой категории с этими четырьмя словами нет
 carpentry_words__1,carpentry_words,normal,auto_validated,unique,0.269,level | square | plane#plane_tool | beam#beam_wood,четвёрка однозначна: другой категории с этими четырьмя словами нет
 carpentry_words__2,carpentry_words,normal,auto_validated,unique,0.303,nail gun | groove | stud | lumber,четвёрка однозначна: другой категории с этими четырьмя словами нет
 carpentry_words__3,carpentry_words,normal,auto_validated,unique,0.331,plywood | molding | veneer | chisel,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -393,12 +428,14 @@ carrying_actions__3,carrying_actions,normal,auto_validated,unique,0.304,toss | h
 cartoon_characters__1,cartoon_characters,normal,auto_validated,unique,0.193,tom | donald | jerry | mickey,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cartoon_characters__2,cartoon_characters,normal,auto_validated,unique,0.222,woody | bugs bunny | goofy | garfield,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cartoon_characters__3,cartoon_characters,normal,auto_validated,unique,0.236,pluto | scooby | sylvester | yogi,четвёрка однозначна: другой категории с этими четырьмя словами нет
+castle_keep__1,castle_keep,normal,auto_validated,unique,0.531,siege | battlements | gatehouse | rampart,четвёрка однозначна: другой категории с этими четырьмя словами нет
 castle_things__1,castle_things,normal,auto_validated,unique,0.174,keep | wall | hall | tower,четвёрка однозначна: другой категории с этими четырьмя словами нет
 castle_things__2,castle_things,normal,auto_validated,unique,0.195,chamber | gate#gate_barrier | banner | throne,четвёрка однозначна: другой категории с этими четырьмя словами нет
 castle_things__3,castle_things,normal,auto_validated,unique,0.22,chapel | courtyard | dungeon | turret,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cat_breeds__1,cat_breeds,normal,auto_validated,unique,0.297,russian blue | persian | bengal | bombay,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cat_breeds__2,cat_breeds,normal,auto_validated,unique,0.333,burmese | himalayan | maine coon | siamese,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cat_breeds__3,cat_breeds,normal,auto_validated,unique,0.352,calico | tabby | manx | abyssinian,четвёрка однозначна: другой категории с этими четырьмя словами нет
+cat_things__1,cat_things,normal,auto_validated,unique,0.344,litter | meow | scratch | catnip,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cattle_and_farm_breeds__1,cattle_and_farm_breeds,normal,auto_validated,unique,0.388,jersey | angus | suffolk | berkshire,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cave_things__1,cave_things,normal,auto_validated,unique,0.307,pool | chamber | crystal | column,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cave_things__2,cave_things,normal,auto_validated,unique,0.318,bat#bat_animal | darkness | tunnel | echo,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -417,6 +454,7 @@ cheese_dishes__2,cheese_dishes,normal,auto_validated,unique,0.369,cheesecake | l
 cheese_types__1,cheese_types,normal,auto_validated,unique,0.243,american | blue cheese | cream cheese | swiss,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cheese_types__2,cheese_types,normal,auto_validated,unique,0.278,goat cheese | cottage cheese | monterey jack | cheddar,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cheese_types__3,cheese_types,normal,auto_validated,unique,0.296,colby | parmesan | mozzarella | brie,четвёрка однозначна: другой категории с этими четырьмя словами нет
+chemistry_lab__1,chemistry_lab,normal,auto_validated,unique,0.544,vial | litmus | reagent | bunsen,четвёрка однозначна: другой категории с этими четырьмя словами нет
 chemistry_words__1,chemistry_words,normal,auto_validated,unique,0.31,base | solution | reaction | salt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 chemistry_words__2,chemistry_words,normal,auto_validated,unique,0.322,bond | acid | element | formula,четвёрка однозначна: другой категории с этими четырьмя словами нет
 chemistry_words__3,chemistry_words,normal,auto_validated,unique,0.339,compound | mixture | ion | catalyst,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -434,6 +472,7 @@ church_things__3,church_things,normal,auto_validated,unique,0.259,font | stained
 circus_and_fair_jobs__1,circus_and_fair_jobs,normal,auto_validated,unique,0.296,animal trainer | clown | barker | magician,четвёрка однозначна: другой категории с этими четырьмя словами нет
 circus_and_fair_jobs__2,circus_and_fair_jobs,normal,auto_validated,unique,0.332,fire eater | acrobat | tightrope walker | trapeze artist,четвёрка однозначна: другой категории с этими четырьмя словами нет
 circus_and_fair_jobs__3,circus_and_fair_jobs,normal,auto_validated,unique,0.354,juggler | stilt walker | ringmaster | contortionist,четвёрка однозначна: другой категории с этими четырьмя словами нет
+circus_ring__1,circus_ring,normal,auto_validated,unique,0.537,cannonball | stilts | strongman | unicycle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 circus_words__1,circus_words,normal,auto_validated,unique,0.229,ring#ring_arena | net | elephant | tent,четвёрка однозначна: другой категории с этими четырьмя словами нет
 circus_words__2,circus_words,normal,auto_validated,unique,0.25,cannon | cotton candy | clown | popcorn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 circus_words__3,circus_words,normal,auto_validated,unique,0.299,stilts | acrobat | lion tamer | tightrope,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -474,9 +513,11 @@ cleanliness_words__3,cleanliness_words,normal,auto_validated,unique,0.308,muddy 
 climate_zones__1,climate_zones,normal,auto_validated,unique,0.287,desert | coastal | tropical | arctic,четвёрка однозначна: другой категории с этими четырьмя словами нет
 climate_zones__2,climate_zones,normal,auto_validated,unique,0.3,continental | mediterranean | polar | alpine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 climate_zones__3,climate_zones,normal,auto_validated,unique,0.321,humid | rainforest | arid | monsoon,четвёрка однозначна: другой категории с этими четырьмя словами нет
+climbing_wall__1,climbing_wall,normal,auto_validated,unique,0.512,ascent | foothold | belay | carabiner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clock_words__1,clock_words,normal,auto_validated,unique,0.217,face | hour hand | second hand | minute hand,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clock_words__2,clock_words,normal,auto_validated,unique,0.256,alarm | dial | tick#tick_sound | timer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clock_words__3,clock_words,normal,auto_validated,unique,0.288,pendulum | chime | cuckoo | snooze,четвёрка однозначна: другой категории с этими четырьмя словами нет
+clockwork__1,clockwork,normal,auto_validated,unique,0.494,chime | pendulum | winding | cogs,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clothing_brands__1,clothing_brands,normal,auto_validated,unique,0.229,new balance | champion | gap | nike,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clothing_brands__2,clothing_brands,normal,auto_validated,unique,0.265,adidas | vans | levi | converse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 clothing_brands__3,clothing_brands,normal,auto_validated,unique,0.285,fruit of the loom | puma | wrangler | reebok,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -492,6 +533,7 @@ clothing_sizes__3,clothing_sizes,normal,auto_validated,unique,0.283,loose | narr
 cloud_and_sky__1,cloud_and_sky,normal,auto_validated,unique,0.22,star#star_space | sun | plane#plane_aircraft | moon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cloud_and_sky__2,cloud_and_sky,normal,auto_validated,unique,0.231,smoke | bird | cloud | satellite,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cloud_and_sky__3,cloud_and_sky,normal,auto_validated,unique,0.248,lightning | helicopter | rainbow | sunset,четвёрка однозначна: другой категории с этими четырьмя словами нет
+cloud_types__1,cloud_types,normal,auto_validated,unique,0.487,cirrus | cumulus | nimbus | stratus,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cocktails__1,cocktails,normal,auto_validated,unique,0.283,bloody mary | manhattan | tom collins | old fashioned,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cocktails__2,cocktails,normal,auto_validated,unique,0.311,whiskey sour | moscow mule | cosmopolitan | margarita,четвёрка однозначна: другой категории с этими четырьмя словами нет
 cocktails__3,cocktails,normal,auto_validated,unique,0.331,martini | mai tai | mimosa | mojito,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -532,6 +574,8 @@ comedy_words__3,comedy_words,normal,auto_validated,unique,0.323,gag | pun | impr
 comic_words__1,comic_words,normal,auto_validated,unique,0.297,cover | issue | series | artist,четвёрка однозначна: другой категории с этими четырьмя словами нет
 comic_words__2,comic_words,normal,auto_validated,unique,0.311,hero | origin | panel | strip,четвёрка однозначна: другой категории с этими четырьмя словами нет
 comic_words__3,comic_words,normal,auto_validated,unique,0.329,cape | graphic novel | speech bubble | villain,четвёрка однозначна: другой категории с этими четырьмя словами нет
+common_professions__1,common_professions,normal,auto_validated,unique,0.175,doctor | engineer | lawyer | manager,четвёрка однозначна: другой категории с этими четырьмя словами нет
+common_professions__2,common_professions,normal,auto_validated,unique,0.188,pilot | teacher | chef | farmer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 common_surnames__1,common_surnames,normal,auto_validated,unique,0.21,brown | smith | white#white_surname | young,четвёрка однозначна: другой категории с этими четырьмя словами нет
 common_surnames__2,common_surnames,normal,auto_validated,unique,0.214,hall | thomas | johnson | jones,четвёрка однозначна: другой категории с этими четырьмя словами нет
 common_surnames__3,common_surnames,normal,auto_validated,unique,0.22,martin | williams | taylor | jackson,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -547,9 +591,9 @@ condiments__3,condiments,normal,auto_validated,unique,0.226,barbecue sauce | soy
 constellations__1,constellations,normal,auto_validated,unique,0.353,hercules | orion | andromeda | pegasus,четвёрка однозначна: другой категории с этими четырьмя словами нет
 constellations__2,constellations,normal,auto_validated,unique,0.37,crux | draco | lyra | big dipper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 constellations__3,constellations,normal,auto_validated,unique,0.38,little dipper | perseus | cygnus | ursa major,четвёрка однозначна: другой категории с этими четырьмя словами нет
-construction_equipment__1,construction_equipment,normal,auto_validated,unique,0.267,roller | dump truck | crane#crane_machine | drill rig,четвёрка однозначна: другой категории с этими четырьмя словами нет
-construction_equipment__2,construction_equipment,normal,auto_validated,unique,0.293,cement mixer | grader | digger | hoist,четвёрка однозначна: другой категории с этими четырьмя словами нет
-construction_equipment__3,construction_equipment,normal,auto_validated,unique,0.304,loader | scaffold | bulldozer | forklift,четвёрка однозначна: другой категории с этими четырьмя словами нет
+construction_equipment__1,construction_equipment,normal,auto_validated,unique,0.26,cement | roller | dump truck | crane#crane_machine,четвёрка однозначна: другой категории с этими четырьмя словами нет
+construction_equipment__2,construction_equipment,normal,auto_validated,unique,0.288,drill rig | cement mixer | grader | digger,четвёрка однозначна: другой категории с этими четырьмя словами нет
+construction_equipment__3,construction_equipment,normal,auto_validated,unique,0.301,hoist | loader | scaffold | bulldozer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 continents_and_oceans__1,continents_and_oceans,normal,auto_validated,unique,0.13,africa | australia | europe | indian,четвёрка однозначна: другой категории с этими четырьмя словами нет
 continents_and_oceans__2,continents_and_oceans,normal,auto_validated,unique,0.133,north america | south america | southern | asia,четвёрка однозначна: другой категории с этими четырьмя словами нет
 continents_and_oceans__3,continents_and_oceans,normal,auto_validated,unique,0.161,pacific | atlantic | arctic | antarctica,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -572,13 +616,16 @@ coral_reef__1,coral_reef,normal,auto_validated,unique,0.297,turtle | coral | ree
 coral_reef__2,coral_reef,normal,auto_validated,unique,0.317,algae | jellyfish | eel | starfish,четвёрка однозначна: другой категории с этими четырьмя словами нет
 coral_reef__3,coral_reef,normal,auto_validated,unique,0.344,urchin | anemone | grouper | seahorse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 costume_party__1,costume_party,normal,auto_validated,unique,,mask | wig | cape | superheroes,четвёрка однозначна: другой категории с этими четырьмя словами нет
+countries__1,countries,normal,auto_validated,unique,0.175,brazil | france | italy | japan,четвёрка однозначна: другой категории с этими четырьмя словами нет
+countries__2,countries,normal,auto_validated,unique,0.194,spain | austria | egypt | greece,четвёрка однозначна: другой категории с этими четырьмя словами нет
 countries_more__1,countries_more,normal,auto_validated,unique,0.317,georgia | ukraine | nepal | iceland,четвёрка однозначна: другой категории с этими четырьмя словами нет
 countries_more__2,countries_more,normal,auto_validated,unique,0.336,cyprus | monaco | kazakhstan | luxembourg,четвёрка однозначна: другой категории с этими четырьмя словами нет
 countries_more__3,countries_more,normal,auto_validated,unique,0.341,armenia | malta | lithuania | belarus,четвёрка однозначна: другой категории с этими четырьмя словами нет
 country_life__1,country_life,normal,auto_validated,unique,0.263,general store | well | creek | dirt road,четвёрка однозначна: другой категории с этими четырьмя словами нет
 country_life__2,country_life,normal,auto_validated,unique,0.288,fence post | pond | porch | pickup truck,четвёрка однозначна: другой категории с этими четырьмя словами нет
 country_life__3,country_life,normal,auto_validated,unique,0.307,tractor | chores | pasture | bonfire,четвёрка однозначна: другой категории с этими четырьмя словами нет
-courtroom__1,courtroom,normal,auto_validated,unique,,gavel | verdict | jury | crimes,четвёрка однозначна: другой категории с этими четырьмя словами нет
+courtroom__1,courtroom,normal,auto_validated,unique,0.425,objection | plaintiff | subpoena | testimony,четвёрка однозначна: другой категории с этими четырьмя словами нет
+courtroom__2,courtroom,normal,auto_validated,unique,,gavel | verdict | jury | crimes,четвёрка однозначна: другой категории с этими четырьмя словами нет
 courtroom_things__1,courtroom_things,normal,auto_validated,unique,0.212,evidence | judge | stand#stand_witness | lawyer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 courtroom_things__2,courtroom_things,normal,auto_validated,unique,0.227,sentence#sentence_punishment | witness | jury | bench#bench_court,четвёрка однозначна: другой категории с этими четырьмя словами нет
 courtroom_things__3,courtroom_things,normal,auto_validated,unique,0.243,exhibit | testimony | verdict | defendant,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -629,14 +676,17 @@ dance_moves__3,dance_moves,normal,auto_validated,unique,0.332,twist | dip | hust
 dance_styles__1,dance_styles,normal,auto_validated,unique,0.229,line dance | swing | jazz | tap#tap_dance,четвёрка однозначна: другой категории с этими четырьмя словами нет
 dance_styles__2,dance_styles,normal,auto_validated,unique,0.246,folk | hip hop | ballet | disco,четвёрка однозначна: другой категории с этими четырьмя словами нет
 dance_styles__3,dance_styles,normal,auto_validated,unique,0.267,tango | ballroom | salsa | cha cha,четвёрка однозначна: другой категории с этими четырьмя словами нет
+darts_words__1,darts_words,normal,auto_validated,unique,0.369,flight | target | throw | board#board_game,четвёрка однозначна: другой категории с этими четырьмя словами нет
 days_and_parts_of_day__1,days_and_parts_of_day,normal,auto_validated,unique,0.099,friday | morning | night | sunday,четвёрка однозначна: другой категории с этими четырьмя словами нет
 days_and_parts_of_day__2,days_and_parts_of_day,normal,auto_validated,unique,0.103,saturday | evening | monday | afternoon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 days_and_parts_of_day__3,days_and_parts_of_day,normal,auto_validated,unique,0.114,thursday | tuesday | wednesday | midnight,четвёрка однозначна: другой категории с этими четырьмя словами нет
 decorative_things__1,decorative_things,normal,auto_validated,unique,0.237,mobile | painting | banner | sculpture,четвёрка однозначна: другой категории с этими четырьмя словами нет
 decorative_things__2,decorative_things,normal,auto_validated,unique,0.26,balloon | candle | curtain | rug,четвёрка однозначна: другой категории с этими четырьмя словами нет
 decorative_things__3,decorative_things,normal,auto_validated,unique,0.272,lantern | vase | mural | garland,четвёрка однозначна: другой категории с этими четырьмя словами нет
+deep_cosmos__1,deep_cosmos,normal,auto_validated,unique,0.587,exoplanet | lightyear | pulsar | quasar,четвёрка однозначна: другой категории с этими четырьмя словами нет
 deep_sea__1,deep_sea,normal,auto_validated,unique,0.332,pressure | darkness | whale fall | submarine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 deep_sea__2,deep_sea,normal,auto_validated,unique,0.354,vent | trench | tube worm | lantern fish,четвёрка однозначна: другой категории с этими четырьмя словами нет
+deep_space__1,deep_space,normal,auto_validated,unique,0.312,moon | stars | asteroid | comets,четвёрка однозначна: другой категории с этими четырьмя словами нет
 deer_family__1,deer_family,normal,auto_validated,unique,0.291,deer | buck | doe | moose,четвёрка однозначна: другой категории с этими четырьмя словами нет
 deer_family__2,deer_family,normal,auto_validated,unique,0.313,elk | roe deer | reindeer | stag,четвёрка однозначна: другой категории с этими четырьмя словами нет
 deer_family__3,deer_family,normal,auto_validated,unique,0.326,antelope | impala | fawn | caribou,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -669,6 +719,7 @@ detective_procedures__3,detective_procedures,normal,auto_validated,unique,0.41,f
 detective_words__1,detective_words,normal,auto_validated,unique,0.258,case#case_legal | evidence | witness | suspect,четвёрка однозначна: другой категории с этими четырьмя словами нет
 detective_words__2,detective_words,normal,auto_validated,unique,0.282,warrant | clue | lineup | motive,четвёрка однозначна: другой категории с этими четырьмя словами нет
 detective_words__3,detective_words,normal,auto_validated,unique,0.305,autopsy | interrogation | footprint | fingerprint,четвёрка однозначна: другой категории с этими четырьмя словами нет
+detective_work__1,detective_work,normal,auto_validated,unique,0.356,evidence | suspect | witness | disguise,четвёрка однозначна: другой категории с этими четырьмя словами нет
 difficulty_words__1,difficulty_words,normal,auto_validated,unique,0.251,easy | hard | simple | complex,четвёрка однозначна: другой категории с этими четырьмя словами нет
 difficulty_words__2,difficulty_words,normal,auto_validated,unique,0.267,impossible | tough | challenging | demanding,четвёрка однозначна: другой категории с этими четырьмя словами нет
 difficulty_words__3,difficulty_words,normal,auto_validated,unique,0.3,tricky | straightforward | tedious | manageable,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -700,6 +751,7 @@ dog_breeds__3,dog_breeds,normal,auto_validated,unique,0.261,pug | beagle | poodl
 dog_breeds_more__1,dog_breeds_more,normal,auto_validated,unique,0.356,pointer | newfoundland | chow chow | setter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 dog_breeds_more__2,dog_breeds_more,normal,auto_validated,unique,0.382,bloodhound | dalmatian | shih tzu | pomeranian,четвёрка однозначна: другой категории с этими четырьмя словами нет
 dog_breeds_more__3,dog_breeds_more,normal,auto_validated,unique,0.393,papillon | akita | schnauzer | whippet,четвёрка однозначна: другой категории с этими четырьмя словами нет
+dog_things__1,dog_things,normal,auto_validated,unique,0.325,bone | collar | fetch | kennel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 drawing_words__1,drawing_words,normal,auto_validated,unique,0.268,line#line_drawn | perspective | highlight | trace,четвёрка однозначна: другой категории с этими четырьмя словами нет
 drawing_words__2,drawing_words,normal,auto_validated,unique,0.282,shade | curve | proportion | sketch,четвёрка однозначна: другой категории с этими четырьмя словами нет
 drawing_words__3,drawing_words,normal,auto_validated,unique,0.293,blend | outline | hatch | erase,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -711,6 +763,7 @@ driving_actions__2,driving_actions,normal,auto_validated,unique,0.245,cruise | y
 driving_actions__3,driving_actions,normal,auto_validated,unique,0.259,merge | steer | idle | accelerate,четвёрка однозначна: другой категории с этими четырьмя словами нет
 driving_skills__1,driving_skills,normal,auto_validated,unique,0.246,three point turn | u turn | hill start | lane change,четвёрка однозначна: другой категории с этими четырьмя словами нет
 driving_skills__2,driving_skills,normal,auto_validated,unique,0.268,mirror check | stopping | backing up | parallel parking,четвёрка однозначна: другой категории с этими четырьмя словами нет
+easter__1,easter,normal,auto_validated,unique,0.344,eggs | basket | bunny | chick,четвёрка однозначна: другой категории с этими четырьмя словами нет
 eating_actions__1,eating_actions,normal,auto_validated,unique,0.228,drink | taste | bite#bite_eat | feast,четвёрка однозначна: другой категории с этими четырьмя словами нет
 eating_actions__2,eating_actions,normal,auto_validated,unique,0.255,snack | swallow#swallow_throat | lick | sip,четвёрка однозначна: другой категории с этими четырьмя словами нет
 eating_actions__3,eating_actions,normal,auto_validated,unique,0.279,chew | devour | munch | gulp,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -723,6 +776,7 @@ egg_dishes__3,egg_dishes,normal,auto_validated,unique,0.357,poached | omelet | q
 egypt_things__1,egypt_things,normal,auto_validated,unique,0.249,tomb | scroll#scroll_paper | pyramid#pyramid_monument | nile,четвёрка однозначна: другой категории с этими четырьмя словами нет
 egypt_things__2,egypt_things,normal,auto_validated,unique,0.27,mummy | pharaoh | chariot | sphinx,четвёрка однозначна: другой категории с этими четырьмя словами нет
 egypt_things__3,egypt_things,normal,auto_validated,unique,0.289,papyrus | sarcophagus | obelisk | scarab,четвёрка однозначна: другой категории с этими четырьмя словами нет
+election_day__1,election_day,normal,auto_validated,unique,0.469,candidate | incumbent | manifesto | polls,четвёрка однозначна: другой категории с этими четырьмя словами нет
 electrical_words__1,electrical_words,normal,auto_validated,unique,0.269,ground | switch | panel | cable,четвёрка однозначна: другой категории с этими четырьмя словами нет
 electrical_words__2,electrical_words,normal,auto_validated,unique,0.288,wire | terminal | voltage | outlet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 electrical_words__3,electrical_words,normal,auto_validated,unique,0.306,junction box | amp | insulation | fuse,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -751,6 +805,8 @@ emergency_vehicles__3,emergency_vehicles,normal,auto_validated,unique,0.235,tow 
 emergency_words__1,emergency_words,normal,auto_validated,unique,0.221,code | response | rescue | oxygen,четвёрка однозначна: другой категории с этими четырьмя словами нет
 emergency_words__2,emergency_words,normal,auto_validated,unique,0.253,trauma | ambulance | evacuation | siren,четвёрка однозначна: другой категории с этими четырьмя словами нет
 emergency_words__3,emergency_words,normal,auto_validated,unique,0.275,cpr | hotline | stretcher | paramedic,четвёрка однозначна: другой категории с этими четырьмя словами нет
+emotions__1,emotions,normal,auto_validated,unique,0.275,angry | fear | happy | joy,четвёрка однозначна: другой категории с этими четырьмя словами нет
+emotions__2,emotions,normal,auto_validated,unique,0.281,sad | surprise | worry | pride,четвёрка однозначна: другой категории с этими четырьмя словами нет
 energy_words__1,energy_words,normal,auto_validated,unique,0.263,gas | wind | electric | fuel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 energy_words__2,energy_words,normal,auto_validated,unique,0.272,nuclear | battery | solar | steam,четвёрка однозначна: другой категории с этими четырьмя словами нет
 energy_words__3,energy_words,normal,auto_validated,unique,0.292,coal | magnetic | thermal | hydro,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -769,6 +825,8 @@ european_countries__3,european_countries,normal,auto_validated,unique,0.198,neth
 evergreens__1,evergreens,normal,auto_validated,unique,0.302,pine | holly | cedar | laurel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 evergreens__2,evergreens,normal,auto_validated,unique,0.325,fir | spruce | cypress | yew,четвёрка однозначна: другой категории с этими четырьмя словами нет
 evergreens__3,evergreens,normal,auto_validated,unique,0.332,magnolia | redwood | juniper | hemlock,четвёрка однозначна: другой категории с этими четырьмя словами нет
+everyday_drinks__1,everyday_drinks,normal,auto_validated,unique,0.181,coffee | milk | tea | cocoa,четвёрка однозначна: другой категории с этими четырьмя словами нет
+everyday_materials__1,everyday_materials,normal,auto_validated,unique,0.2,glass | metal | paper | plastic,четвёрка однозначна: другой категории с этими четырьмя словами нет
 exercise_words__1,exercise_words,normal,auto_validated,unique,0.227,press#press_push | row | stretch | jumping jack,четвёрка однозначна: другой категории с этими четырьмя словами нет
 exercise_words__2,exercise_words,normal,auto_validated,unique,0.255,dip | sprint | crunch#crunch_exercise | curl,четвёрка однозначна: другой категории с этими четырьмя словами нет
 exercise_words__3,exercise_words,normal,auto_validated,unique,0.277,squat | plank | jog | lunge,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -785,12 +843,11 @@ explorers__2,explorers,normal,auto_validated,unique,0.321,marco polo | livingsto
 explorers__3,explorers,normal,auto_validated,unique,0.342,cortes | magellan | shackleton | amundsen,четвёрка однозначна: другой категории с этими четырьмя словами нет
 extinct_and_prehistoric__1,extinct_and_prehistoric,normal,auto_validated,unique,0.305,cave bear | dire wolf | mammoth | saber tooth,четвёрка однозначна: другой категории с этими четырьмя словами нет
 extinct_and_prehistoric__2,extinct_and_prehistoric,normal,auto_validated,unique,0.34,giant sloth | dodo | mastodon | ammonite,четвёрка однозначна: другой категории с этими четырьмя словами нет
-extinct_animals__1,extinct_animals,normal,auto_validated,unique,0.287,dinosaur | mammoth | raptor | saber tooth,четвёрка однозначна: другой категории с этими четырьмя словами нет
-extinct_animals__2,extinct_animals,normal,auto_validated,unique,0.319,dodo | tyrannosaurus | mastodon | triceratops,четвёрка однозначна: другой категории с этими четырьмя словами нет
-extinct_animals__3,extinct_animals,normal,auto_validated,unique,0.334,velociraptor | pterodactyl | brontosaurus | megalodon,четвёрка однозначна: другой категории с этими четырьмя словами нет
+extinct_animals__1,extinct_animals,normal,auto_validated,unique,0.276,bones | dinosaur | mammoth | raptor,четвёрка однозначна: другой категории с этими четырьмя словами нет
+extinct_animals__2,extinct_animals,normal,auto_validated,unique,0.311,saber tooth | dodo | tyrannosaurus | mastodon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 eyewear__1,eyewear,normal,auto_validated,unique,0.235,glasses | mask | reading glasses | safety glasses,четвёрка однозначна: другой категории с этими четырьмя словами нет
-eyewear__2,eyewear,normal,auto_validated,unique,0.255,contacts | shades | sunglasses | goggles,четвёрка однозначна: другой категории с этими четырьмя словами нет
-eyewear__3,eyewear,normal,auto_validated,unique,0.306,visor | blindfold | monocle | bifocals,четвёрка однозначна: другой категории с этими четырьмя словами нет
+eyewear__2,eyewear,normal,auto_validated,unique,0.249,contacts | shades | frames | sunglasses,четвёрка однозначна: другой категории с этими четырьмя словами нет
+eyewear__3,eyewear,normal,auto_validated,unique,0.291,goggles | visor | blindfold | monocle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fabric_types__1,fabric_types,normal,auto_validated,unique,0.231,felt | jersey | cotton | terry,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fabrics__1,fabrics,normal,auto_validated,unique,0.245,cotton | leather | silk | canvas,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fabrics__2,fabrics,normal,auto_validated,unique,0.264,wool | lace | velvet | nylon,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -801,11 +858,13 @@ fabrics_at_home__3,fabrics_at_home,normal,auto_validated,unique,0.303,quilt | na
 face_parts__1,face_parts,normal,auto_validated,unique,0.093,eye | mouth#mouth_face | nose | temple#temple_head,четвёрка однозначна: другой категории с этими четырьмя словами нет
 face_parts__2,face_parts,normal,auto_validated,unique,0.115,ear | lip | chin | jaw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 face_parts__3,face_parts,normal,auto_validated,unique,0.127,cheek | forehead | pupil | iris,четвёрка однозначна: другой категории с этими четырьмя словами нет
+facial_care__1,facial_care,normal,auto_validated,unique,0.35,cleanser | patches | serum | toner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 facial_expressions__1,facial_expressions,normal,auto_validated,unique,0.286,smile | beam#beam_smile | blink | grin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 facial_expressions__2,facial_expressions,normal,auto_validated,unique,0.31,blush | wink | glare | frown,четвёрка однозначна: другой категории с этими четырьмя словами нет
 facial_expressions__3,facial_expressions,normal,auto_validated,unique,0.332,yawn | smirk | pout | sneer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 factory_words__1,factory_words,normal,auto_validated,unique,0.257,machine | quality control | shift#shift_work | assembly line,четвёрка однозначна: другой категории с этими четырьмя словами нет
 factory_words__2,factory_words,normal,auto_validated,unique,0.286,uniform | robot | whistle | foreman,четвёрка однозначна: другой категории с этими четырьмя словами нет
+fairy_tale__1,fairy_tale,normal,auto_validated,unique,0.419,gingerbread | gnome | troll | godmother,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fairy_tale_things__1,fairy_tale_things,normal,auto_validated,unique,0.194,tower | magic mirror | golden egg | red hood,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fairy_tale_things__2,fairy_tale_things,normal,auto_validated,unique,0.216,cottage | spinning wheel | pumpkin coach | harp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fairy_tale_things__3,fairy_tale_things,normal,auto_validated,unique,0.251,porridge | glass slipper | gingerbread house | beanstalk,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -880,6 +939,7 @@ farm_morning__1,farm_morning,normal,auto_validated,unique,,barn | tractor | live
 farm_products__1,farm_products,normal,auto_validated,unique,0.221,produce | milk | cheese | eggs,четвёрка однозначна: другой категории с этими четырьмя словами нет
 farm_products__2,farm_products,normal,auto_validated,unique,0.233,honey | cotton | leather | beef,четвёрка однозначна: другой категории с этими четырьмя словами нет
 farm_products__3,farm_products,normal,auto_validated,unique,0.243,corn | grain | pork | hay,четвёрка однозначна: другой категории с этими четырьмя словами нет
+farmers_market__1,farmers_market,normal,auto_validated,unique,0.4,crate | homegrown | preserves | vendor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fashion_accessories__1,fashion_accessories,normal,auto_validated,unique,0.224,watch#watch_object | hat | tie#tie_clothing | pocket square,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fashion_accessories__2,fashion_accessories,normal,auto_validated,unique,0.246,belt | gloves | necklace | sunglasses,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fashion_accessories__3,fashion_accessories,normal,auto_validated,unique,0.272,bracelet | scarf | earring | brooch,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -901,6 +961,7 @@ fast_things__3,fast_things,normal,auto_validated,unique,0.317,falcon | comet | h
 fasteners__1,fasteners,normal,auto_validated,unique,0.241,hook#hook_fastener | pin#pin_fastener | clip | screw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fasteners__2,fasteners,normal,auto_validated,unique,0.252,nail#nail_metal | bolt | anchor | bracket,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fasteners__3,fasteners,normal,auto_validated,unique,0.269,zip tie | staple | buckle | clamp,четвёрка однозначна: другой категории с этими четырьмя словами нет
+feeling_sick__1,feeling_sick,normal,auto_validated,unique,0.325,chills | cough | fever | flu,четвёрка однозначна: другой категории с этими четырьмя словами нет
 feelings__1,feelings,normal,auto_validated,unique,0.172,content | happy | sad | proud,четвёрка однозначна: другой категории с этими четырьмя словами нет
 feelings__2,feelings,normal,auto_validated,unique,0.178,excited | tired | surprised | angry,четвёрка однозначна: другой категории с этими четырьмя словами нет
 feelings__3,feelings,normal,auto_validated,unique,0.182,worried | guilty | scared | calm#calm_person,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -917,6 +978,7 @@ file_types__2,file_types,normal,auto_validated,unique,0.281,document | trash | p
 file_types__3,file_types,normal,auto_validated,unique,0.3,archive | attachment | zip | pdf,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fingers_and_toes__1,fingers_and_toes,normal,auto_validated,unique,0.277,middle finger | ring finger | index finger | big toe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 fingers_and_toes__2,fingers_and_toes,normal,auto_validated,unique,0.287,little toe | toe | thumb | digit,четвёрка однозначна: другой категории с этими четырьмя словами нет
+fire_and_smoke__1,fire_and_smoke,normal,auto_validated,unique,0.319,smoke | ash | blaze | flame,четвёрка однозначна: другой категории с этими четырьмя словами нет
 first_aid__1,first_aid,normal,auto_validated,unique,0.191,ice pack | tape | eye wash | burn cream,четвёрка однозначна: другой категории с этими четырьмя словами нет
 first_aid__2,first_aid,normal,auto_validated,unique,0.208,cotton ball | gloves | wipe | scissors,четвёрка однозначна: другой категории с этими четырьмя словами нет
 first_aid__3,first_aid,normal,auto_validated,unique,0.236,aspirin | sling | bandage | thermometer,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -942,6 +1004,7 @@ flowers_more__1,flowers_more,normal,auto_validated,unique,0.376,sweet pea | aste
 flowers_more__2,flowers_more,normal,auto_validated,unique,0.39,narcissus | anemone | chrysanthemum | wisteria,четвёрка однозначна: другой категории с этими четырьмя словами нет
 flying_animals__1,flying_animals,normal,auto_validated,unique,0.172,robin | bat#bat_animal | duck#duck_bird | eagle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 flying_animals__2,flying_animals,normal,auto_validated,unique,0.184,bee | butterfly | owl | goose,четвёрка однозначна: другой категории с этими четырьмя словами нет
+food_groups__1,food_groups,normal,auto_validated,unique,0.231,fruit | meat | protein | dairy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 football_words__1,football_words,normal,auto_validated,unique,0.219,down | safety | field goal | end zone,четвёрка однозначна: другой категории с этими четырьмя словами нет
 football_words__2,football_words,normal,auto_validated,unique,0.243,yard line | snap | tackle | receiver,четвёрка однозначна: другой категории с этими четырьмя словами нет
 football_words__3,football_words,normal,auto_validated,unique,0.254,helmet | touchdown | quarterback | sack#sack_football,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -966,6 +1029,7 @@ french_names__3,french_names,normal,auto_validated,unique,0.346,nicolas | philip
 frequency_words__1,frequency_words,normal,auto_validated,unique,0.29,always | daily | never | often,четвёрка однозначна: другой категории с этими четырьмя словами нет
 frequency_words__2,frequency_words,normal,auto_validated,unique,0.3,sometimes | weekly | frequently | constantly,четвёрка однозначна: другой категории с этими четырьмя словами нет
 frequency_words__3,frequency_words,normal,auto_validated,unique,0.312,monthly | rarely | occasionally | annually,четвёрка однозначна: другой категории с этими четырьмя словами нет
+frog_pond__1,frog_pond,normal,auto_validated,unique,0.531,amphibious | tadpole | bullfrog | croak,четвёрка однозначна: другой категории с этими четырьмя словами нет
 frogs_and_toads__1,frogs_and_toads,normal,auto_validated,unique,0.343,green frog | tree frog | wood frog | leopard frog,четвёрка однозначна: другой категории с этими четырьмя словами нет
 frogs_and_toads__2,frogs_and_toads,normal,auto_validated,unique,0.371,poison dart | toad | cane toad | bullfrog,четвёрка однозначна: другой категории с этими четырьмя словами нет
 frozen_foods__1,frozen_foods,normal,auto_validated,unique,0.236,fish stick | ice cream | pizza | corn dog,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1002,9 +1066,11 @@ garden_flowers_spring__3,garden_flowers_spring,normal,auto_validated,unique,0.35
 garden_flowers_summer__1,garden_flowers_summer,normal,auto_validated,unique,0.292,rose | lily | black eyed susan | daisy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_flowers_summer__2,garden_flowers_summer,normal,auto_validated,unique,0.325,cosmos | lavender#lavender_plant | sunflower | dahlia,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_flowers_summer__3,garden_flowers_summer,normal,auto_validated,unique,0.352,marigold | snapdragon | geranium | petunia,четвёрка однозначна: другой категории с этими четырьмя словами нет
+garden_in_bloom__1,garden_in_bloom,normal,auto_validated,unique,0.344,garden | bloom | blossom | bud,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_plants__1,garden_plants,normal,auto_validated,unique,0.213,rose | pepper | bean | mint#mint_herb,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_plants__2,garden_plants,normal,auto_validated,unique,0.23,tomato | ivy | pumpkin | strawberry,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_plants__3,garden_plants,normal,auto_validated,unique,0.237,basil | carrot | squash#squash_vegetable | lettuce,четвёрка однозначна: другой категории с этими четырьмя словами нет
+garden_shed__1,garden_shed,normal,auto_validated,unique,0.475,mulch | spade#spade_tool | trellis | wheelbarrow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_tools__1,garden_tools,normal,auto_validated,unique,0.217,gloves | hose | clippers | watering can,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_tools__2,garden_tools,normal,auto_validated,unique,0.233,shovel | rake | spade#spade_tool | hoe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 garden_tools__3,garden_tools,normal,auto_validated,unique,0.246,leaf blower | sprinkler | pitchfork | shears,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1014,6 +1080,7 @@ gardening_hobby__3,gardening_hobby,normal,auto_validated,unique,0.281,fertilizer
 gardening_words__1,gardening_words,normal,auto_validated,unique,0.218,bed | water | row | pot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 gardening_words__2,gardening_words,normal,auto_validated,unique,0.234,soil | seed | weed | shade,четвёрка однозначна: другой категории с этими четырьмя словами нет
 gardening_words__3,gardening_words,normal,auto_validated,unique,0.253,harvest | sunlight | greenhouse | hose,четвёрка однозначна: другой категории с этими четырьмя словами нет
+gardening_work__1,gardening_work,normal,auto_validated,unique,0.325,compost | pruning | seedlings | soil,четвёрка однозначна: другой категории с этими четырьмя словами нет
 gas_station_things__1,gas_station_things,normal,auto_validated,unique,0.218,gas | oil#oil_motor | coffee | map,четвёрка однозначна: другой категории с этими четырьмя словами нет
 gas_station_things__2,gas_station_things,normal,auto_validated,unique,0.237,ice machine | car wash | pump | credit card reader,четвёрка однозначна: другой категории с этими четырьмя словами нет
 gas_station_things__3,gas_station_things,normal,auto_validated,unique,0.257,diesel | receipt | snack | air hose,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1027,12 +1094,14 @@ german_dishes__2,german_dishes,normal,auto_validated,unique,0.35,pretzel | dumpl
 german_names__1,german_names,normal,auto_validated,unique,0.328,anna | karl | hans | otto,четвёрка однозначна: другой категории с этими четырьмя словами нет
 german_names__2,german_names,normal,auto_validated,unique,0.35,klaus | fritz | heidi | werner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 german_names__3,german_names,normal,auto_validated,unique,0.358,ingrid | wolfgang | greta | ursula,четвёрка однозначна: другой категории с этими четырьмя словами нет
+giant_animals__1,giant_animals,normal,auto_validated,unique,0.25,elephant | giraffe | hippo | moose,четвёрка однозначна: другой категории с этими четырьмя словами нет
 girls_names__1,girls_names,normal,auto_validated,unique,0.149,mary | grace | elizabeth | sarah,четвёрка однозначна: другой категории с этими четырьмя словами нет
 girls_names__2,girls_names,normal,auto_validated,unique,0.164,emma | susan | charlotte | jennifer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 girls_names__3,girls_names,normal,auto_validated,unique,0.168,madison | emily | rachel | linda,четвёрка однозначна: другой категории с этими четырьмя словами нет
 giving_and_taking__1,giving_and_taking,normal,auto_validated,unique,0.259,buy | give | hand#hand_give | offer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 giving_and_taking__2,giving_and_taking,normal,auto_validated,unique,0.259,return | sell | share | take,четвёрка однозначна: другой категории с этими четырьмя словами нет
 giving_and_taking__3,giving_and_taking,normal,auto_validated,unique,0.269,trade | receive | deliver | collect,четвёрка однозначна: другой категории с этими четырьмя словами нет
+gold_rush__1,gold_rush,normal,auto_validated,unique,0.562,panning | prospector | sluice | pickaxe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 golf_words__1,golf_words,normal,auto_validated,unique,0.228,course | green#green_golf | driver | iron#iron_golf,четвёрка однозначна: другой категории с этими четырьмя словами нет
 golf_words__2,golf_words,normal,auto_validated,unique,0.243,hole in one | flag | rough | eagle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 golf_words__3,golf_words,normal,auto_validated,unique,0.265,par | sand trap | tee | bunker#bunker_golf,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1067,6 +1136,7 @@ greek_heroes__3,greek_heroes,normal,auto_validated,unique,0.342,perseus | theseu
 greek_letters__1,greek_letters,normal,auto_validated,unique,0.271,alpha | beta | delta#delta_letter | xi,четвёрка однозначна: другой категории с этими четырьмя словами нет
 greek_letters__2,greek_letters,normal,auto_validated,unique,0.284,chi | pi | omega | gamma,четвёрка однозначна: другой категории с этими четырьмя словами нет
 greek_letters__3,greek_letters,normal,auto_validated,unique,0.295,mu | nu | phi | sigma,четвёрка однозначна: другой категории с этими четырьмя словами нет
+greek_myths__1,greek_myths,normal,auto_validated,unique,0.444,cyclops | olympus | titan | centaur,четвёрка однозначна: другой категории с этими четырьмя словами нет
 green_things__1,green_things,normal,auto_validated,unique,0.272,grass | leaf | mint#mint_herb | turtle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 green_things__2,green_things,normal,auto_validated,unique,0.284,frog | moss | lime | emerald,четвёрка однозначна: другой категории с этими четырьмя словами нет
 greeting_card__1,greeting_card,normal,auto_validated,unique,,envelope | stamp#stamp_postage | greetings | holidays,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1105,6 +1175,7 @@ hand_parts__3,hand_parts,normal,auto_validated,unique,0.26,thumb | wrist | pinky
 hand_tools__1,hand_tools,normal,auto_validated,unique,0.107,level | saw | square | file#file_tool,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hand_tools__2,hand_tools,normal,auto_validated,unique,0.126,plane#plane_tool | knife | tape measure | hammer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hand_tools__3,hand_tools,normal,auto_validated,unique,0.158,drill#drill_tool | socket#socket_tool | clamp | wrench,четвёрка однозначна: другой категории с этими четырьмя словами нет
+handyman__1,handyman,normal,auto_validated,unique,0.512,crowbar | caulk | stepladder | toolbelt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 harbor_things__1,harbor_things,normal,auto_validated,unique,0.236,net | boat | warehouse | rope,четвёрка однозначна: другой категории с этими четырьмя словами нет
 harbor_things__2,harbor_things,normal,auto_validated,unique,0.256,anchor | dock | pier | ramp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 harbor_things__3,harbor_things,normal,auto_validated,unique,0.282,lighthouse | wharf | jetty | buoy,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1117,7 +1188,8 @@ harvest_words__2,harvest_words,normal,auto_validated,unique,0.305,wagon | bale |
 harvest_words__3,harvest_words,normal,auto_validated,unique,0.336,silo | bushel | scythe | sheaf,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hats__1,hats,normal,auto_validated,unique,0.186,crown#crown_royal | cap | hard hat | top hat,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hats__2,hats,normal,auto_validated,unique,0.198,sun hat | baseball cap | hood#hood_garment | helmet,четвёрка однозначна: другой категории с этими четырьмя словами нет
-hats__3,hats,normal,auto_validated,unique,0.231,cowboy hat | bowler | bonnet | fedora,четвёрка однозначна: другой категории с этими четырьмя словами нет
+hats__3,hats,normal,auto_validated,unique,0.226,cowboy hat | panama | bowler | bonnet,четвёрка однозначна: другой категории с этими четырьмя словами нет
+haunted_house__1,haunted_house,normal,auto_validated,unique,0.55,banshee | cobwebs | ouija | poltergeist,четвёрка однозначна: другой категории с этими четырьмя словами нет
 heaven_and_afterlife__1,heaven_and_afterlife,normal,auto_validated,unique,0.3,soul | spirit | heaven | angel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 heaven_and_afterlife__2,heaven_and_afterlife,normal,auto_validated,unique,0.325,judgment | paradise | salvation | eternity,четвёрка однозначна: другой категории с этими четырьмя словами нет
 heaven_and_afterlife__3,heaven_and_afterlife,normal,auto_validated,unique,0.347,resurrection | ancestor | immortality | nirvana,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1129,9 +1201,11 @@ heavy_trucks__2,heavy_trucks,normal,auto_validated,unique,0.251,delivery truck |
 heavy_trucks__3,heavy_trucks,normal,auto_validated,unique,0.272,logging truck | tow truck | tanker | cement mixer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 herbs__1,herbs,normal,auto_validated,unique,0.252,bay | mint#mint_herb | sage#sage_herb | basil,четвёрка однозначна: другой категории с этими четырьмя словами нет
 herbs__2,herbs,normal,auto_validated,unique,0.279,rosemary | lavender#lavender_plant | parsley | dill,четвёрка однозначна: другой категории с этими четырьмя словами нет
+hero_hq__1,hero_hq,normal,auto_validated,unique,0.494,nemesis | sidekick | vigilante | catchphrase,четвёрка однозначна: другой категории с этими четырьмя словами нет
 high_places__1,high_places,normal,auto_validated,unique,0.27,bridge#bridge_structure | mountain | roof | tower,четвёрка однозначна: другой категории с этими четырьмя словами нет
 high_places__2,high_places,normal,auto_validated,unique,0.292,summit | cliff | ladder | crane#crane_machine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 high_places__3,high_places,normal,auto_validated,unique,0.317,balcony#balcony_house | attic | penthouse | skyscraper,четвёрка однозначна: другой категории с этими четырьмя словами нет
+highlands__1,highlands,normal,auto_validated,unique,0.531,loch | bagpipes | haggis | kilt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hiking_words__1,hiking_words,normal,auto_validated,unique,0.226,map | water bottle | trail | boots,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hiking_words__2,hiking_words,normal,auto_validated,unique,0.245,summit | ridge | elevation | poles,четвёрка однозначна: другой категории с этими четырьмя словами нет
 hiking_words__3,hiking_words,normal,auto_validated,unique,0.27,backpack | blaze | canteen | campsite,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1153,6 +1227,7 @@ hockey_words__3,hockey_words,normal,auto_validated,unique,0.312,skate | puck | i
 holidays__1,holidays,normal,auto_validated,unique,0.141,christmas | new year | labor day | independence day,четвёрка однозначна: другой категории с этими четырьмя словами нет
 holidays__2,holidays,normal,auto_validated,unique,0.16,memorial day | veterans day | mothers day | halloween,четвёрка однозначна: другой категории с этими четырьмя словами нет
 holidays__3,holidays,normal,auto_validated,unique,0.169,easter | fathers day | presidents day | columbus day,четвёрка однозначна: другой категории с этими четырьмя словами нет
+home_appliances__1,home_appliances,normal,auto_validated,unique,0.3,dishwasher | dryer | fridge | microwave,четвёрка однозначна: другой категории с этими четырьмя словами нет
 home_decor__1,home_decor,normal,auto_validated,unique,,rug | curtains | vase | furniture,четвёрка однозначна: другой категории с этими четырьмя словами нет
 home_decor__2,home_decor,normal,auto_validated,unique,,lighting | colors | patterns | fabrics,четвёрка однозначна: другой категории с этими четырьмя словами нет
 home_electronics__1,home_electronics,normal,auto_validated,unique,0.183,radio | television | smart speaker | alarm,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1201,6 +1276,10 @@ ice_cream_flavors__3,ice_cream_flavors,normal,auto_validated,unique,0.229,mint#m
 illnesses__1,illnesses,normal,auto_validated,unique,0.19,cold#cold_illness | infection | fever | diabetes,четвёрка однозначна: другой категории с этими четырьмя словами нет
 illnesses__2,illnesses,normal,auto_validated,unique,0.216,flu | pneumonia | asthma | rash,четвёрка однозначна: другой категории с этими четырьмя словами нет
 illnesses__3,illnesses,normal,auto_validated,unique,0.229,allergy | arthritis | measles | migraine,четвёрка однозначна: другой категории с этими четырьмя словами нет
+in_a_band__1,in_a_band,normal,auto_validated,unique,0.35,drummer | frontman | guitar | vocals,четвёрка однозначна: другой категории с этими четырьмя словами нет
+in_a_salad__1,in_a_salad,normal,auto_validated,unique,0.3,cucumber | dressing | lettuce | olives,четвёрка однозначна: другой категории с этими четырьмя словами нет
+in_the_classroom__1,in_the_classroom,normal,auto_validated,unique,0.294,student | blackboard | exam | homework,четвёрка однозначна: другой категории с этими четырьмя словами нет
+in_the_jungle__1,in_the_jungle,normal,auto_validated,unique,0.35,canopy | fern | jaguar | mushroom,четвёрка однозначна: другой категории с этими четырьмя словами нет
 indian_dishes__1,indian_dishes,normal,auto_validated,unique,0.319,curry | dal | masala | chutney,четвёрка однозначна: другой категории с этими четырьмя словами нет
 indian_dishes__2,indian_dishes,normal,auto_validated,unique,0.346,naan | roti | tikka | biryani,четвёрка однозначна: другой категории с этими четырьмя словами нет
 indian_dishes__3,indian_dishes,normal,auto_validated,unique,0.36,tandoori | paneer | samosa | lassi,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1244,6 +1323,7 @@ irish_names__3,irish_names,normal,auto_validated,unique,0.352,maureen | bridget 
 irrigation__1,irrigation,normal,auto_validated,unique,0.316,well | pump | pipe#pipe_tube | canal,четвёрка однозначна: другой категории с этими четырьмя словами нет
 irrigation__2,irrigation,normal,auto_validated,unique,0.332,dam | valve | ditch | reservoir,четвёрка однозначна: другой категории с этими четырьмя словами нет
 irrigation__3,irrigation,normal,auto_validated,unique,0.354,hose | drip line | pivot | sprinkler,четвёрка однозначна: другой категории с этими четырьмя словами нет
+island_luau__1,island_luau,normal,auto_validated,unique,0.475,aloha | hula | lei | tiki,четвёрка однозначна: другой категории с этими четырьмя словами нет
 island_nations__1,island_nations,normal,auto_validated,unique,0.351,japan | philippines | indonesia | cuba,четвёрка однозначна: другой категории с этими четырьмя словами нет
 island_nations__2,island_nations,normal,auto_validated,unique,0.376,jamaica | iceland | cyprus | sri lanka,четвёрка однозначна: другой категории с этими четырьмя словами нет
 island_nations__3,island_nations,normal,auto_validated,unique,0.386,bahrain | fiji | malta | madagascar,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1291,9 +1371,13 @@ jungle_animals__2,jungle_animals,normal,auto_validated,unique,0.196,python | pan
 jungle_animals__3,jungle_animals,normal,auto_validated,unique,0.209,jaguar | parrot | boa | sloth,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kids_clothing__1,kids_clothing,normal,auto_validated,unique,0.267,sun hat | jumper | diaper | overalls,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kids_clothing__2,kids_clothing,normal,auto_validated,unique,0.3,bib | mittens | booties | onesie,четвёрка однозначна: другой категории с этими четырьмя словами нет
+kinds_of_books__1,kinds_of_books,normal,auto_validated,unique,0.294,novel | biography | essay | fable,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kinds_of_buildings__1,kinds_of_buildings,normal,auto_validated,unique,0.136,church | hospital | hotel | house,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kinds_of_buildings__2,kinds_of_buildings,normal,auto_validated,unique,0.141,school | library | museum | apartment,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kinds_of_buildings__3,kinds_of_buildings,normal,auto_validated,unique,0.151,stadium | factory | tower | castle,четвёрка однозначна: другой категории с этими четырьмя словами нет
+kinds_of_doctors__1,kinds_of_doctors,normal,auto_validated,unique,0.344,dentist | pediatrician | surgeon | dietitian,четвёрка однозначна: другой категории с этими четырьмя словами нет
+kinds_of_humor__1,kinds_of_humor,normal,auto_validated,unique,0.319,joke | irony | parody | prank,четвёрка однозначна: другой категории с этими четырьмя словами нет
+kinds_of_plants__1,kinds_of_plants,normal,auto_validated,unique,0.219,tree | bush | flower | grass,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kitchen_appliances__1,kitchen_appliances,normal,auto_validated,unique,0.163,range#range_stove | coffee maker | oven | can opener,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kitchen_appliances__2,kitchen_appliances,normal,auto_validated,unique,0.18,food processor | grill | microwave | warmer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 kitchen_appliances__3,kitchen_appliances,normal,auto_validated,unique,0.19,freezer | refrigerator | kettle | mixer,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1321,6 +1405,7 @@ knights_and_armor__3,knights_and_armor,normal,auto_validated,unique,0.266,crest 
 knitting_words__1,knitting_words,normal,auto_validated,unique,0.313,ball#ball_sphere | cast on | row | pattern,четвёрка однозначна: другой категории с этими четырьмя словами нет
 knitting_words__2,knitting_words,normal,auto_validated,unique,0.34,loop | gauge | needle#needle_sewing | marker,четвёрка однозначна: другой категории с этими четырьмя словами нет
 knitting_words__3,knitting_words,normal,auto_validated,unique,0.37,bind off | stitch | yarn | purl,четвёрка однозначна: другой категории с этими четырьмя словами нет
+knot_tying__1,knot_tying,normal,auto_validated,unique,0.512,hitch | tangle | lasso | slipknot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 knots__1,knots,normal,auto_validated,unique,0.376,figure eight | sheet bend | square knot | slip knot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 knots__2,knots,normal,auto_validated,unique,0.403,half hitch | granny knot | timber hitch | fisherman knot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 lab_actions__1,lab_actions,normal,auto_validated,unique,0.262,record | test | heat | mix,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1332,6 +1417,7 @@ lab_equipment__3,lab_equipment,normal,auto_validated,unique,0.33,clamp | goggles
 landforms__1,landforms,normal,auto_validated,unique,0.214,island | hill | mountain | valley,четвёрка однозначна: другой категории с этими четырьмя словами нет
 landforms__2,landforms,normal,auto_validated,unique,0.236,plain | summit | cave | delta#delta_river,четвёрка однозначна: другой категории с этими четырьмя словами нет
 landforms__3,landforms,normal,auto_validated,unique,0.243,ridge | basin | cliff | peninsula,четвёрка однозначна: другой категории с этими четырьмя словами нет
+landscape_features__1,landscape_features,normal,auto_validated,unique,0.281,hill | sky | valley | cliff,четвёрка однозначна: другой категории с этими четырьмя словами нет
 landscaping_words__1,landscaping_words,normal,auto_validated,unique,0.287,seed | stake | hedge | gravel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 landscaping_words__2,landscaping_words,normal,auto_validated,unique,0.317,fertilizer | blower | sod | mower,четвёрка однозначна: другой категории с этими четырьмя словами нет
 landscaping_words__3,landscaping_words,normal,auto_validated,unique,0.328,planter | sprinkler | mulch | shears,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1346,6 +1432,7 @@ latin_phrases__3,latin_phrases,normal,auto_validated,unique,0.418,alma mater | q
 laundry_care__1,laundry_care,normal,auto_validated,unique,0.263,press#press_push | sort | dry | iron#iron_appliance,четвёрка однозначна: другой категории с этими четырьмя словами нет
 laundry_care__2,laundry_care,normal,auto_validated,unique,0.274,hang | dry clean | steam | wash,четвёрка однозначна: другой категории с этими четырьмя словами нет
 laundry_care__3,laundry_care,normal,auto_validated,unique,0.309,fold | soak | bleach | rinse,четвёрка однозначна: другой категории с этими четырьмя словами нет
+laundry_day__1,laundry_day,normal,auto_validated,unique,0.325,bleach | detergent | hamper | rinse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 laundry_things__1,laundry_things,normal,auto_validated,unique,0.208,iron#iron_appliance | basket | dryer | bleach,четвёрка однозначна: другой категории с этими четырьмя словами нет
 laundry_things__2,laundry_things,normal,auto_validated,unique,0.233,dryer sheet | washer | starch | hamper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 laundry_things__3,laundry_things,normal,auto_validated,unique,0.242,hanger | detergent | ironing board | lint trap,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1376,8 +1463,8 @@ library_words__1,library_words,normal,auto_validated,unique,0.21,book | due date
 library_words__2,library_words,normal,auto_validated,unique,0.227,magazine | reference | silence | stack#stack_shelves,четвёрка однозначна: другой категории с этими четырьмя словами нет
 library_words__3,library_words,normal,auto_validated,unique,0.249,shelf#shelf_furniture | archive | catalog | atlas#atlas_book,четвёрка однозначна: другой категории с этими четырьмя словами нет
 life_stages__1,life_stages,normal,auto_validated,unique,0.17,baby | child | middle age | senior,четвёрка однозначна: другой категории с этими четырьмя словами нет
-life_stages__2,life_stages,normal,auto_validated,unique,0.189,adult | youth | teenager | elder#elder_person,четвёрка однозначна: другой категории с этими четырьмя словами нет
-life_stages__3,life_stages,normal,auto_validated,unique,0.215,infant | toddler | newborn | adolescent,четвёрка однозначна: другой категории с этими четырьмя словами нет
+life_stages__2,life_stages,normal,auto_validated,unique,0.188,adult | youth | kid | teenager,четвёрка однозначна: другой категории с этими четырьмя словами нет
+life_stages__3,life_stages,normal,auto_validated,unique,0.21,elder#elder_person | infant | toddler | newborn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 light_sources__1,light_sources,normal,auto_validated,unique,0.21,fire | match | star#star_space | sun,четвёрка однозначна: другой категории с этими четырьмя словами нет
 light_sources__2,light_sources,normal,auto_validated,unique,0.227,screen#screen_display | moon | lightning | laser,четвёрка однозначна: другой категории с этими четырьмя словами нет
 light_sources__3,light_sources,normal,auto_validated,unique,0.254,lamp | candle | torch | bulb,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1406,6 +1493,9 @@ loud_noises__3,loud_noises,normal,auto_validated,unique,0.315,roar | rumble | sh
 loud_things__1,loud_things,normal,auto_validated,unique,0.281,crowd | bell | speaker | alarm,четвёрка однозначна: другой категории с этими четырьмя словами нет
 loud_things__2,loud_things,normal,auto_validated,unique,0.294,jet | explosion | horn#horn_sound | thunder,четвёрка однозначна: другой категории с этими четырьмя словами нет
 loud_things__3,loud_things,normal,auto_validated,unique,0.306,drum | motorcycle | whistle | gunshot,четвёрка однозначна: другой категории с этими четырьмя словами нет
+lumber_camp__1,lumber_camp,normal,auto_validated,unique,0.425,chainsaw | flannel | stump | timber,четвёрка однозначна: другой категории с этими четырьмя словами нет
+lunch_menu__1,lunch_menu,normal,auto_validated,unique,0.2,burger | fries | pizza | salad,четвёрка однозначна: другой категории с этими четырьмя словами нет
+lunch_menu__2,lunch_menu,normal,auto_validated,unique,0.219,sandwich | steak | taco | hotdog,четвёрка однозначна: другой категории с этими четырьмя словами нет
 machine_sounds__1,machine_sounds,normal,auto_validated,unique,0.317,click | rev | buzz | grind,четвёрка однозначна: другой категории с этими четырьмя словами нет
 machine_sounds__2,machine_sounds,normal,auto_validated,unique,0.343,roar | ding | hum | beep,четвёрка однозначна: другой категории с этими четырьмя словами нет
 machine_sounds__3,machine_sounds,normal,auto_validated,unique,0.363,rattle#rattle_sound | whine | chug | screech,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1439,6 +1529,7 @@ map_legend__1,map_legend,normal,auto_validated,unique,,symbol | scale#scale_rati
 map_words__1,map_words,normal,auto_validated,unique,0.21,east | key#key_legend | north | south,четвёрка однозначна: другой категории с этими четырьмя словами нет
 map_words__2,map_words,normal,auto_validated,unique,0.215,west | scale#scale_ratio | border | route,четвёрка однозначна: другой категории с этими четырьмя словами нет
 map_words__3,map_words,normal,auto_validated,unique,0.234,legend | symbol | globe | grid,четвёрка однозначна: другой категории с этими четырьмя словами нет
+marathon_day__1,marathon_day,normal,auto_validated,unique,0.469,finisher | jog | stamina | pacer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 marsupials__1,marsupials,normal,auto_validated,unique,0.359,kangaroo | tasmanian devil | sugar glider | koala,четвёрка однозначна: другой категории с этими четырьмя словами нет
 marsupials__2,marsupials,normal,auto_validated,unique,0.386,wallaby | wombat | bandicoot | opossum,четвёрка однозначна: другой категории с этими четырьмя словами нет
 martial_arts__1,martial_arts,normal,auto_validated,unique,0.259,boxing | wrestling | fencing | karate,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1453,6 +1544,7 @@ math_operations__3,math_operations,normal,auto_validated,unique,0.206,estimate |
 math_words__1,math_words,normal,auto_validated,unique,0.21,area | average | percent | product,четвёрка однозначна: другой категории с этими четырьмя словами нет
 math_words__2,math_words,normal,auto_validated,unique,0.223,prime | volume | angle | ratio,четвёрка однозначна: другой категории с этими четырьмя словами нет
 math_words__3,math_words,normal,auto_validated,unique,0.238,sum | square root | variable | diameter,четвёрка однозначна: другой категории с этими четырьмя словами нет
+meals_of_the_day__1,meals_of_the_day,normal,auto_validated,unique,0.181,breakfast | dinner | lunch | brunch,четвёрка однозначна: другой категории с этими четырьмя словами нет
 measurement_devices__1,measurement_devices,normal,auto_validated,unique,0.293,scale#scale_weigh | meter | gauge | altimeter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 measurement_devices__2,measurement_devices,normal,auto_validated,unique,0.322,compass | thermometer | barometer | sundial,четвёрка однозначна: другой категории с этими четырьмя словами нет
 measurement_devices__3,measurement_devices,normal,auto_validated,unique,0.349,speedometer | stopwatch | odometer | tachometer,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1483,14 +1575,16 @@ medicine_cabinet__3,medicine_cabinet,normal,auto_validated,unique,0.258,thermome
 medicine_forms__1,medicine_forms,normal,auto_validated,unique,0.267,drop | cream#cream_ointment | powder | patch,четвёрка однозначна: другой категории с этими четырьмя словами нет
 medicine_forms__2,medicine_forms,normal,auto_validated,unique,0.284,spray | pill | tablet | injection,четвёрка однозначна: другой категории с этими четырьмя словами нет
 medicine_forms__3,medicine_forms,normal,auto_validated,unique,0.304,gel | syrup | capsule | ointment,четвёрка однозначна: другой категории с этими четырьмя словами нет
+medicines__1,medicines,normal,auto_validated,unique,0.3,antibiotic | injection | insulin | pill,четвёрка однозначна: другой категории с этими четырьмя словами нет
+medieval_fair__1,medieval_fair,normal,auto_validated,unique,0.488,banquet | bard | falconer | jester,четвёрка однозначна: другой категории с этими четырьмя словами нет
 melons_and_squash__1,melons_and_squash,normal,auto_validated,unique,0.306,pumpkin | spaghetti | watermelon | hubbard,четвёрка однозначна: другой категории с этими четырьмя словами нет
 melons_and_squash__2,melons_and_squash,normal,auto_validated,unique,0.335,acorn | zucchini | butternut | cantaloupe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 metals__1,metals,normal,auto_validated,unique,0.173,gold | lead#lead_metal | silver | steel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 metals__2,metals,normal,auto_validated,unique,0.194,iron#iron_metal | copper | bronze | brass,четвёрка однозначна: другой категории с этими четырьмя словами нет
 metals__3,metals,normal,auto_validated,unique,0.206,tin#tin_metal | aluminum | mercury#mercury_metal | platinum,четвёрка однозначна: другой категории с этими четырьмя словами нет
-mexican_dishes__1,mexican_dishes,normal,auto_validated,unique,0.272,taco | salsa | burrito | nacho,четвёрка однозначна: другой категории с этими четырьмя словами нет
-mexican_dishes__2,mexican_dishes,normal,auto_validated,unique,0.304,guacamole | queso | flan | tamale,четвёрка однозначна: другой категории с этими четырьмя словами нет
-mexican_dishes__3,mexican_dishes,normal,auto_validated,unique,0.319,enchilada | quesadilla | churro | fajita,четвёрка однозначна: другой категории с этими четырьмя словами нет
+mexican_dishes__1,mexican_dishes,normal,auto_validated,unique,0.263,tortilla | taco | salsa | burrito,четвёрка однозначна: другой категории с этими четырьмя словами нет
+mexican_dishes__2,mexican_dishes,normal,auto_validated,unique,0.298,nacho | guacamole | queso | flan,четвёрка однозначна: другой категории с этими четырьмя словами нет
+mexican_dishes__3,mexican_dishes,normal,auto_validated,unique,0.315,tamale | enchilada | quesadilla | churro,четвёрка однозначна: другой категории с этими четырьмя словами нет
 microscope_things__1,microscope_things,normal,auto_validated,unique,0.313,cell#cell_body | dna | virus | bacteria,четвёрка однозначна: другой категории с этими четырьмя словами нет
 microscope_things__2,microscope_things,normal,auto_validated,unique,0.342,particle | electron | atom | molecule,четвёрка однозначна: другой категории с этими четырьмя словами нет
 microscope_things__3,microscope_things,normal,auto_validated,unique,0.365,pollen | germ | mite | dust mite,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1538,8 +1632,10 @@ monsters__2,monsters,normal,auto_validated,unique,0.213,vampire | zombie | phant
 monsters__3,monsters,normal,auto_validated,unique,0.244,werewolf | goblin | ghoul | banshee,четвёрка однозначна: другой категории с этими четырьмя словами нет
 months__1,months,normal,auto_validated,unique,0.065,april | august | december | february,четвёрка однозначна: другой категории с этими четырьмя словами нет
 months__2,months,normal,auto_validated,unique,0.065,january | july | june | march#march_month,четвёрка однозначна: другой категории с этими четырьмя словами нет
+months__3,months,normal,auto_validated,unique,0.08,november | october | september | may,четвёрка однозначна: другой категории с этими четырьмя словами нет
 moons__1,moons,normal,auto_validated,unique,0.379,miranda | titan | luna | europa,четвёрка однозначна: другой категории с этими четырьмя словами нет
 moons__2,moons,normal,auto_validated,unique,0.409,io | rhea | triton | ganymede,четвёрка однозначна: другой категории с этими четырьмя словами нет
+morning_routine__1,morning_routine,normal,auto_validated,unique,0.325,breakfast | coffee | shower | wake,четвёрка однозначна: другой категории с этими четырьмя словами нет
 mountain_ranges__1,mountain_ranges,normal,auto_validated,unique,0.309,sierra nevada | alps | rockies | andes,четвёрка однозначна: другой категории с этими четырьмя словами нет
 mountain_ranges__2,mountain_ranges,normal,auto_validated,unique,0.333,himalayas | cascades | pyrenees | ozarks,четвёрка однозначна: другой категории с этими четырьмя словами нет
 mountain_things__1,mountain_things,normal,auto_validated,unique,0.236,valley | snow | stream | peak,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1556,6 +1652,7 @@ movie_words__2,movie_words,normal,auto_validated,unique,0.216,scene | take | box
 movie_words__3,movie_words,normal,auto_validated,unique,0.231,cast#cast_people | actor | script | trailer#trailer_movie,четвёрка однозначна: другой категории с этими четырьмя словами нет
 muscles__1,muscles,normal,auto_validated,unique,0.345,core | trap | abs | calf#calf_leg,четвёрка однозначна: другой категории с этими четырьмя словами нет
 muscles__2,muscles,normal,auto_validated,unique,0.379,quad | forearm | hamstring | lat,четвёрка однозначна: другой категории с этими четырьмя словами нет
+museum_hall__1,museum_hall,normal,auto_validated,unique,0.475,display | antiquity | archive | diorama,четвёрка однозначна: другой категории с этими четырьмя словами нет
 museum_words__1,museum_words,normal,auto_validated,unique,0.218,collection | guide | painting | frame,четвёрка однозначна: другой категории с этими четырьмя словами нет
 museum_words__2,museum_words,normal,auto_validated,unique,0.231,gift shop | gallery | audio tour | portrait,четвёрка однозначна: другой категории с этими четырьмя словами нет
 museum_words__3,museum_words,normal,auto_validated,unique,0.244,exhibit | admission | rope | sculpture,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1599,6 +1696,7 @@ natural_disasters__1,natural_disasters,normal,auto_validated,unique,0.236,flood 
 natural_disasters__2,natural_disasters,normal,auto_validated,unique,0.254,tornado | volcano | famine | blizzard,четвёрка однозначна: другой категории с этими четырьмя словами нет
 natural_disasters__3,natural_disasters,normal,auto_validated,unique,0.261,eruption | tsunami | cyclone | avalanche,четвёрка однозначна: другой категории с этими четырьмя словами нет
 natural_history_museum__1,natural_history_museum,normal,auto_validated,unique,,fossil | skeleton | bones | diorama,четвёрка однозначна: другой категории с этими четырьмя словами нет
+natural_wonders__1,natural_wonders,normal,auto_validated,unique,0.231,island | mountains | ocean | canyon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nature_names__1,nature_names,normal,auto_validated,unique,0.253,river | summer | rose | sky,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nature_names__2,nature_names,normal,auto_validated,unique,0.278,rain | autumn | amber | lily,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nature_names__3,nature_names,normal,auto_validated,unique,0.293,heather | violet | ivy | sage#sage_name,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1618,6 +1716,7 @@ new_year_things__3,new_year_things,normal,auto_validated,unique,0.288,countdown 
 newspaper_parts__1,newspaper_parts,normal,auto_validated,unique,0.25,front page | review | sports | advice,четвёрка однозначна: другой категории с этими четырьмя словами нет
 newspaper_parts__2,newspaper_parts,normal,auto_validated,unique,0.266,weather | letters | column | comics,четвёрка однозначна: другой категории с этими четырьмя словами нет
 newspaper_parts__3,newspaper_parts,normal,auto_validated,unique,0.3,editorial | headline | obituary | crossword,четвёрка однозначна: другой категории с этими четырьмя словами нет
+newsroom__1,newsroom,normal,auto_validated,unique,0.444,columnist | reporter | tabloid | byline,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nicknames__1,nicknames,normal,auto_validated,unique,0.262,bill#bill_name | tom | chris | mike,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nicknames__2,nicknames,normal,auto_validated,unique,0.268,joe | ben | bob | jim,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nicknames__3,nicknames,normal,auto_validated,unique,0.275,sam | nick | andy | dave,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1639,6 +1738,7 @@ norse_gods__1,norse_gods,normal,auto_validated,unique,0.316,thor | loki | odin |
 norse_gods__2,norse_gods,normal,auto_validated,unique,0.35,hel | tyr | balder | heimdall,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nursery_rhymes__1,nursery_rhymes,normal,auto_validated,unique,0.278,london bridge | row your boat | mary had a little lamb | three blind mice,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nursery_rhymes__2,nursery_rhymes,normal,auto_validated,unique,0.311,jack and jill | old macdonald | little bo peep | twinkle twinkle,четвёрка однозначна: другой категории с этими четырьмя словами нет
+nutrients__1,nutrients,normal,auto_validated,unique,0.319,protein | calcium | fiber | magnesium,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nutrition_words__1,nutrition_words,normal,auto_validated,unique,0.259,fat | sugar | serving | diet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nutrition_words__2,nutrition_words,normal,auto_validated,unique,0.27,portion | protein | organic | whole grain,четвёрка однозначна: другой категории с этими четырьмя словами нет
 nutrition_words__3,nutrition_words,normal,auto_validated,unique,0.287,fiber | mineral | vitamin | sodium,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1648,6 +1748,7 @@ nuts_world__1,nuts_world,normal,auto_validated,unique,0.295,brazil nut | peanut 
 nuts_world__2,nuts_world,normal,auto_validated,unique,0.327,almond | chestnut | pecan | filbert,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ocean_animals__1,ocean_animals,normal,auto_validated,unique,0.139,seal#seal_animal | shark | whale | turtle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ocean_animals__2,ocean_animals,normal,auto_validated,unique,0.151,coral | shrimp | crab | dolphin,четвёрка однозначна: другой категории с этими четырьмя словами нет
+ocean_floor__1,ocean_floor,normal,auto_validated,unique,0.35,anchor | coral | reef | seaweed,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ocean_products__1,ocean_products,normal,auto_validated,unique,0.309,fish | salt | sand | shell,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ocean_products__2,ocean_products,normal,auto_validated,unique,0.337,pearl | amber | coral | sponge#sponge_animal,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ocean_zones__1,ocean_zones,normal,auto_validated,unique,0.269,current#current_water | bay | wave#wave_water | shore,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1678,6 +1779,8 @@ olive_types__1,olive_types,normal,auto_validated,unique,0.347,black | light#ligh
 olympic_sports__1,olympic_sports,normal,auto_validated,unique,0.205,shot put | swimming | boxing | marathon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 olympic_sports__2,olympic_sports,normal,auto_validated,unique,0.222,wrestling | diving | sailing | skating,четвёрка однозначна: другой категории с этими четырьмя словами нет
 olympic_sports__3,olympic_sports,normal,auto_validated,unique,0.236,skiing | gymnastics | fencing | hurdles,четвёрка однозначна: другой категории с этими четырьмя словами нет
+on_the_road__1,on_the_road,normal,auto_validated,unique,0.275,lane | road | signal | traffic,четвёрка однозначна: другой категории с этими четырьмя словами нет
+on_the_skyline__1,on_the_skyline,normal,auto_validated,unique,0.494,spire | obelisk | pagoda | minaret,четвёрка однозначна: другой категории с этими четырьмя словами нет
 onomatopoeia__1,onomatopoeia,normal,auto_validated,unique,0.246,pop#pop_sound | click | ring#ring_sound | crash,четвёрка однозначна: другой категории с этими четырьмя словами нет
 onomatopoeia__2,onomatopoeia,normal,auto_validated,unique,0.269,boom | bang | snap | buzz,четвёрка однозначна: другой категории с этими четырьмя словами нет
 onomatopoeia__3,onomatopoeia,normal,auto_validated,unique,0.292,splash | ping | drip#drip_water | beep,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1687,6 +1790,7 @@ opening_actions__3,opening_actions,normal,auto_validated,unique,0.359,unwrap | u
 orchard_words__1,orchard_words,normal,auto_validated,unique,0.279,tree | row | bee | basket,четвёрка однозначна: другой категории с этими четырьмя словами нет
 orchard_words__2,orchard_words,normal,auto_validated,unique,0.304,harvest | ladder | blossom | cider press,четвёрка однозначна: другой категории с этими четырьмя словами нет
 orchard_words__3,orchard_words,normal,auto_validated,unique,0.331,crate | netting | picker | mulch,четвёрка однозначна: другой категории с этими четырьмя словами нет
+orchestra_words__1,orchestra_words,normal,auto_validated,unique,0.45,concerto | maestro | overture | symphony,четвёрка однозначна: другой категории с этими четырьмя словами нет
 order_words__1,order_words,normal,auto_validated,unique,0.241,final | first | following | former,четвёрка однозначна: другой категории с этими четырьмя словами нет
 order_words__2,order_words,normal,auto_validated,unique,0.241,last | middle | next | previous,четвёрка однозначна: другой категории с этими четырьмя словами нет
 order_words__3,order_words,normal,auto_validated,unique,0.246,second#second_order | third | initial | latter,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1717,12 +1821,14 @@ parrots_and_exotic_birds__1,parrots_and_exotic_birds,normal,auto_validated,uniqu
 parts_of_a_bike__1,parts_of_a_bike,normal,auto_validated,unique,0.226,seat | chain | spoke | bell,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_a_bike__2,parts_of_a_bike,normal,auto_validated,unique,0.236,frame | wheel | gear | basket,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_a_bike__3,parts_of_a_bike,normal,auto_validated,unique,0.254,fork | tire | brake | rim,четвёрка однозначна: другой категории с этими четырьмя словами нет
+parts_of_a_bird__1,parts_of_a_bird,normal,auto_validated,unique,0.275,beak | crest | feathers | tail,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_a_house__1,parts_of_a_house,normal,auto_validated,unique,0.137,door | floor | wall | foundation#foundation_building,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_a_house__2,parts_of_a_house,normal,auto_validated,unique,0.151,window | roof | deck | column,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_a_house__3,parts_of_a_house,normal,auto_validated,unique,0.168,ceiling | beam#beam_wood | stairs | threshold,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_speech__1,parts_of_speech,normal,auto_validated,unique,0.285,article | conjunction | verb | noun,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_speech__2,parts_of_speech,normal,auto_validated,unique,0.33,adjective | pronoun | participle | preposition,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_speech__3,parts_of_speech,normal,auto_validated,unique,0.359,adverb | interjection | determiner | gerund,четвёрка однозначна: другой категории с этими четырьмя словами нет
+parts_of_the_americas__1,parts_of_the_americas,normal,auto_validated,unique,0.431,central | north | south | latin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_the_eye__1,parts_of_the_eye,normal,auto_validated,unique,0.349,lens | pupil | iris | brow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 parts_of_the_eye__2,parts_of_the_eye,normal,auto_validated,unique,0.362,optic nerve | socket#socket_eye | tear duct | retina,четвёрка однозначна: другой категории с этими четырьмя словами нет
 party_things__1,party_things,normal,auto_validated,unique,0.139,game | music | present#present_gift | favor,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1733,8 +1839,11 @@ past_and_future__2,past_and_future,normal,auto_validated,unique,0.21,early | lat
 past_and_future__3,past_and_future,normal,auto_validated,unique,0.21,now | once | recently | soon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pasta_dishes__1,pasta_dishes,normal,auto_validated,unique,0.271,mac and cheese | alfredo | lasagna | spaghetti and meatballs,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pasta_dishes__2,pasta_dishes,normal,auto_validated,unique,0.304,pesto pasta | bolognese | marinara | primavera,четвёрка однозначна: другой категории с этими четырьмя словами нет
-pasta_shapes__1,pasta_shapes,normal,auto_validated,unique,0.311,angel hair | shells | spaghetti | lasagna,четвёрка однозначна: другой категории с этими четырьмя словами нет
-pasta_shapes__2,pasta_shapes,normal,auto_validated,unique,0.353,macaroni | ravioli | gnocchi | penne,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pasta_dishes__3,pasta_dishes,normal,auto_validated,unique,0.329,carbonara | pesto | baked ziti | puttanesca,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pasta_shapes__1,pasta_shapes,normal,auto_validated,unique,0.296,noodle | angel hair | shells | spaghetti,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pasta_shapes__2,pasta_shapes,normal,auto_validated,unique,0.347,lasagna | macaroni | ravioli | gnocchi,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pastries__1,pastries,normal,auto_validated,unique,0.275,biscuit | cupcake | donut | muffin,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pastries__2,pastries,normal,auto_validated,unique,0.344,tart | croissant | scone | eclair,четвёрка однозначна: другой категории с этими четырьмя словами нет
 patterns__1,patterns,normal,auto_validated,unique,0.259,animal print | floral | tie dye | stripe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 patterns__2,patterns,normal,auto_validated,unique,0.28,camouflage | plaid | paisley | chevron,четвёрка однозначна: другой категории с этими четырьмя словами нет
 patterns__3,patterns,normal,auto_validated,unique,0.294,polka dot | argyle | tartan | checkered,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1757,6 +1866,7 @@ percussion__3,percussion,normal,auto_validated,unique,0.321,cowbell | xylophone 
 perfume_words__1,perfume_words,normal,auto_validated,unique,0.307,sweet | fresh#fresh_scent | rose | amber,четвёрка однозначна: другой категории с этими четырьмя словами нет
 perfume_words__2,perfume_words,normal,auto_validated,unique,0.341,vanilla | woody | spicy | floral,четвёрка однозначна: другой категории с этими четырьмя словами нет
 perfume_words__3,perfume_words,normal,auto_validated,unique,0.35,mist | citrus | cologne | musk,четвёрка однозначна: другой категории с этими четырьмя словами нет
+personality_traits__1,personality_traits,normal,auto_validated,unique,0.287,honest | kind | brave | curious,четвёрка однозначна: другой категории с этими четырьмя словами нет
 personality_words__1,personality_words,normal,auto_validated,unique,0.253,funny | serious | patient | honest,четвёрка однозначна: другой категории с этими четырьмя словами нет
 personality_words__2,personality_words,normal,auto_validated,unique,0.264,quiet | careful | calm#calm_person | curious,четвёрка однозначна: другой категории с этими четырьмя словами нет
 personality_words__3,personality_words,normal,auto_validated,unique,0.277,brave | bold#bold_brave | clever | generous,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1774,7 +1884,7 @@ pet_supplies__2,pet_supplies,normal,auto_validated,unique,0.23,tank#tank_contain
 pet_supplies__3,pet_supplies,normal,auto_validated,unique,0.245,brush | cage | collar | litter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pets__1,pets,normal,auto_validated,unique,0.104,dog | cat | mouse#mouse_animal | snake,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pets__2,pets,normal,auto_validated,unique,0.131,rabbit | turtle | guinea pig | pony,четвёрка однозначна: другой категории с этими четырьмя словами нет
-pets__3,pets,normal,auto_validated,unique,0.148,lizard | parrot | canary | hamster,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pets__3,pets,normal,auto_validated,unique,0.14,bird | fish | lizard | parrot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 phone_words__1,phone_words,normal,auto_validated,unique,0.171,contact | text | camera | app,четвёрка однозначна: другой категории с этими четырьмя словами нет
 phone_words__2,phone_words,normal,auto_validated,unique,0.181,screen#screen_display | signal | battery | speaker,четвёрка однозначна: другой категории с этими четырьмя словами нет
 phone_words__3,phone_words,normal,auto_validated,unique,0.208,alarm | notification | headphones | sim card,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1789,6 +1899,7 @@ photography_terms__2,photography_terms,normal,auto_validated,unique,0.385,exposu
 photography_words__1,photography_words,normal,auto_validated,unique,0.221,album | focus#focus_lens | negative | frame,четвёрка однозначна: другой категории с этими четырьмя словами нет
 photography_words__2,photography_words,normal,auto_validated,unique,0.237,flash | exposure | angle | filter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 photography_words__3,photography_words,normal,auto_validated,unique,0.249,portrait | lens | crop | zoom,четвёрка однозначна: другой категории с этими четырьмя словами нет
+picnic__1,picnic,normal,auto_validated,unique,0.3,basket | blanket | cooler | hamper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 picnic_basket__1,picnic_basket,normal,auto_validated,unique,,blanket | thermos | napkins | fruits,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pie_ingredients__1,pie_ingredients,normal,auto_validated,unique,0.195,apple#apple_fruit | sugar | cream#cream_dairy | salt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pie_ingredients__2,pie_ingredients,normal,auto_validated,unique,0.206,chocolate | egg | butter | cherry,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1799,6 +1910,7 @@ pie_types__3,pie_types,normal,auto_validated,unique,0.281,blueberry | shepherds 
 pine_and_cones__1,pine_and_cones,normal,auto_validated,unique,0.418,seed | timber | cluster | needle#needle_pine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pine_and_cones__2,pine_and_cones,normal,auto_validated,unique,0.431,bark#bark_tree | cone | scent | resin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pine_and_cones__3,pine_and_cones,normal,auto_validated,unique,0.444,sap | fir | evergreen | spruce,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pirate_cove__1,pirate_cove,normal,auto_validated,unique,0.556,plunder | marooned | buccaneer | spyglass,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pirate_words__1,pirate_words,normal,auto_validated,unique,0.173,island | ship | map | crew,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pirate_words__2,pirate_words,normal,auto_validated,unique,0.188,flag | chest#chest_box | sword | hook#hook_pirate,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pirate_words__3,pirate_words,normal,auto_validated,unique,0.207,treasure | anchor | cannon | compass,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1833,6 +1945,7 @@ plant_parts__3,plant_parts,normal,auto_validated,unique,0.222,bark#bark_tree | v
 playground_games__1,playground_games,normal,auto_validated,unique,0.23,four square | simon says | hide and seek | capture the flag,четвёрка однозначна: другой категории с этими четырьмя словами нет
 playground_games__2,playground_games,normal,auto_validated,unique,0.249,hot potato | jump rope | freeze tag | red rover,четвёрка однозначна: другой категории с этими четырьмя словами нет
 playground_games__3,playground_games,normal,auto_validated,unique,0.289,duck duck goose | marbles | dodgeball | hopscotch,четвёрка однозначна: другой категории с этими четырьмя словами нет
+plumber_visit__1,plumber_visit,normal,auto_validated,unique,0.475,pipeline | sewer | plunger | unclog,четвёрка однозначна: другой категории с этими четырьмя словами нет
 plumbing_words__1,plumbing_words,normal,auto_validated,unique,0.285,trap | pipe#pipe_tube | snake | sink#sink_basin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 plumbing_words__2,plumbing_words,normal,auto_validated,unique,0.294,valve | fitting | drain | elbow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 plumbing_words__3,plumbing_words,normal,auto_validated,unique,0.318,sewer | coupling | wrench | washer,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1857,6 +1970,8 @@ potato_dishes__2,potato_dishes,normal,auto_validated,unique,0.263,potato salad |
 potato_dishes__3,potato_dishes,normal,auto_validated,unique,0.304,wedges | scalloped | tater tots | au gratin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 potato_varieties__1,potato_varieties,normal,auto_validated,unique,0.302,baby | red | white#white_food | purple,четвёрка однозначна: другой категории с этими четырьмя словами нет
 potato_varieties__2,potato_varieties,normal,auto_validated,unique,0.34,new potato | sweet potato | idaho#idaho_potato | yukon gold,четвёрка однозначна: другой категории с этими четырьмя словами нет
+potions_class__1,potions_class,normal,auto_validated,unique,0.475,antidote | bubbling | elixir | vial,четвёрка однозначна: другой категории с этими четырьмя словами нет
+pottery_studio__1,pottery_studio,normal,auto_validated,unique,0.488,ceramic | urn | earthenware | terracotta,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pottery_words__1,pottery_words,normal,auto_validated,unique,0.317,fire | bowl | wheel | pot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pottery_words__2,pottery_words,normal,auto_validated,unique,0.341,clay | slip | mold#mold_form | tile,четвёрка однозначна: другой категории с этими четырьмя словами нет
 pottery_words__3,pottery_words,normal,auto_validated,unique,0.367,vase | plaster | glaze | kiln,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1921,9 +2036,12 @@ racing_sports__3,racing_sports,normal,auto_validated,unique,0.261,relay | speed 
 racing_words__1,racing_words,normal,auto_validated,unique,0.26,track | driver | crew | pit stop,четвёрка однозначна: другой категории с этими четырьмя словами нет
 racing_words__2,racing_words,normal,auto_validated,unique,0.281,grid | lap#lap_race | pole position | helmet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 racing_words__3,racing_words,normal,auto_validated,unique,0.291,qualifying | tire | caution | spoiler,четвёрка однозначна: другой категории с этими четырьмя словами нет
+radio_station__1,radio_station,normal,auto_validated,unique,0.494,broadcaster | static | transmitter | airwaves,четвёрка однозначна: другой категории с этими четырьмя словами нет
 radio_words__1,radio_words,normal,auto_validated,unique,0.258,call sign | station#station_place | studio | broadcast,четвёрка однозначна: другой категории с этими четырьмя словами нет
 radio_words__2,radio_words,normal,auto_validated,unique,0.281,frequency | dj | static | dial,четвёрка однозначна: другой категории с этими четырьмя словами нет
 radio_words__3,radio_words,normal,auto_validated,unique,0.305,antenna | playlist | transmitter | jingle,четвёрка однозначна: другой категории с этими четырьмя словами нет
+rainforest__1,rainforest,normal,auto_validated,unique,0.537,howler | liana | undergrowth | macaw,четвёрка однозначна: другой категории с этими четырьмя словами нет
+rainy_day_gear__1,rainy_day_gear,normal,auto_validated,unique,0.319,boots | puddle | umbrella | hood#hood_garment,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ranch_words__1,ranch_words,normal,auto_validated,unique,0.267,brand#brand_cattle | horse | fence | boot#boot_shoe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ranch_words__2,ranch_words,normal,auto_validated,unique,0.292,cattle | cowboy | herd | saddle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 ranch_words__3,ranch_words,normal,auto_validated,unique,0.312,spur | trough | roundup | stampede,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -1963,12 +2081,14 @@ reptiles__3,reptiles,normal,auto_validated,unique,0.257,tortoise | boa | chamele
 resort_towns__1,resort_towns,normal,auto_validated,unique,0.325,key west | palm springs | bali | monaco,четвёрка однозначна: другой категории с этими четырьмя словами нет
 resort_towns__2,resort_towns,normal,auto_validated,unique,0.352,aspen | maldives | maui | myrtle beach,четвёрка однозначна: другой категории с этими четырьмя словами нет
 resort_towns__3,resort_towns,normal,auto_validated,unique,0.36,napa | ibiza | lake tahoe | vail,четвёрка однозначна: другой категории с этими четырьмя словами нет
+restaurant_courses__1,restaurant_courses,normal,auto_validated,unique,0.275,dessert | salad | soup | starter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 restaurant_words__1,restaurant_words,normal,auto_validated,unique,0.17,bar#bar_pub | bill#bill_money | order | special,четвёрка однозначна: другой категории с этими четырьмя словами нет
 restaurant_words__2,restaurant_words,normal,auto_validated,unique,0.177,table | host#host_person | kitchen | counter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 restaurant_words__3,restaurant_words,normal,auto_validated,unique,0.195,tip#tip_money | menu | chef | booth,четвёрка однозначна: другой категории с этими четырьмя словами нет
 retail_stores__1,retail_stores,normal,auto_validated,unique,0.218,best buy | target | dollar general | home depot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 retail_stores__2,retail_stores,normal,auto_validated,unique,0.258,walmart | staples | sears | costco,четвёрка однозначна: другой категории с этими четырьмя словами нет
 retail_stores__3,retail_stores,normal,auto_validated,unique,0.283,kroger | nordstrom | aldi | safeway,четвёрка однозначна: другой категории с этими четырьмя словами нет
+retro_music__1,retro_music,normal,auto_validated,unique,0.469,mixtape | stereo | vinyl | walkman,четвёрка однозначна: другой категории с этими четырьмя словами нет
 rice_types__1,rice_types,normal,auto_validated,unique,0.297,black | brown | red | wild,четвёрка однозначна: другой категории с этими четырьмя словами нет
 rice_types__2,rice_types,normal,auto_validated,unique,0.323,white#white_food | long grain | short grain | sticky,четвёрка однозначна: другой категории с этими четырьмя словами нет
 rights_and_freedoms__1,rights_and_freedoms,normal,auto_validated,unique,0.291,due process | vote | trial | speech,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2002,6 +2122,7 @@ rodent_species__2,rodent_species,normal,auto_validated,unique,0.372,gray squirre
 rodents__1,rodents,normal,auto_validated,unique,0.262,mouse#mouse_animal | rat | guinea pig | squirrel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 rodents__2,rodents,normal,auto_validated,unique,0.287,prairie dog | beaver | hamster | groundhog,четвёрка однозначна: другой категории с этими четырьмя словами нет
 rodents__3,rodents,normal,auto_validated,unique,0.311,gopher | porcupine | chipmunk | vole,четвёрка однозначна: другой категории с этими четырьмя словами нет
+rodeo__1,rodeo,normal,auto_validated,unique,0.506,stampede | bronco | cowgirl | lasso,четвёрка однозначна: другой категории с этими четырьмя словами нет
 roman_gods__1,roman_gods,normal,auto_validated,unique,0.285,mars | diana | mercury#mercury_god | apollo,четвёрка однозначна: другой категории с этими четырьмя словами нет
 roman_gods__2,roman_gods,normal,auto_validated,unique,0.304,venus | jupiter | saturn | vulcan,четвёрка однозначна: другой категории с этими четырьмя словами нет
 roman_gods__3,roman_gods,normal,auto_validated,unique,0.319,neptune | pluto | juno | minerva,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2047,6 +2168,7 @@ salads__3,salads,normal,auto_validated,unique,0.276,cobb | spinach salad | waldo
 saltwater_fish__1,saltwater_fish,normal,auto_validated,unique,0.326,sole#sole_fish | sea bass | cod | tuna,четвёрка однозначна: другой категории с этими четырьмя словами нет
 saltwater_fish__2,saltwater_fish,normal,auto_validated,unique,0.376,mackerel | snapper | wahoo | grouper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 saltwater_fish__3,saltwater_fish,normal,auto_validated,unique,0.391,bonito | mahi mahi | hake | pompano,четвёрка однозначна: другой категории с этими четырьмя словами нет
+salty_snacks__1,salty_snacks,normal,auto_validated,unique,0.25,chips | crackers | peanut | popcorn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sandwich_breads__1,sandwich_breads,normal,auto_validated,unique,0.276,white#white_food | roll#roll_bread | wheat | english muffin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sandwich_breads__2,sandwich_breads,normal,auto_validated,unique,0.316,texas toast | rye | bagel | brioche bun,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sandwich_breads__3,sandwich_breads,normal,auto_validated,unique,0.341,pita | croissant | sourdough | hoagie roll,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2056,9 +2178,9 @@ sandwich_fillings__3,sandwich_fillings,normal,auto_validated,unique,0.232,jelly 
 sandwich_types__1,sandwich_types,normal,auto_validated,unique,0.229,club#club_sandwich | hero | wrap | po boy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sandwich_types__2,sandwich_types,normal,auto_validated,unique,0.269,grilled cheese | sloppy joe | patty melt | reuben,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sandwich_types__3,sandwich_types,normal,auto_validated,unique,0.306,monte cristo | panini | blt | philly cheesesteak,четвёрка однозначна: другой категории с этими четырьмя словами нет
-sauces__1,sauces,normal,auto_validated,unique,0.254,ranch | curry | barbecue | soy,четвёрка однозначна: другой категории с этими четырьмя словами нет
-sauces__2,sauces,normal,auto_validated,unique,0.275,salsa | gravy | alfredo | roux,четвёрка однозначна: другой категории с этими четырьмя словами нет
-sauces__3,sauces,normal,auto_validated,unique,0.297,pesto | tartar | marinade | vinaigrette,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sauces__1,sauces,normal,auto_validated,unique,0.248,ranch | curry | ketchup | mayonnaise,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sauces__2,sauces,normal,auto_validated,unique,0.256,mustard | relish | barbecue | soy,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sauces__3,sauces,normal,auto_validated,unique,0.275,salsa | gravy | alfredo | roux,четвёрка однозначна: другой категории с этими четырьмя словами нет
 scandinavian_names__1,scandinavian_names,normal,auto_validated,unique,0.385,thor | erik | magnus | elsa,четвёрка однозначна: другой категории с этими четырьмя словами нет
 scandinavian_names__2,scandinavian_names,normal,auto_validated,unique,0.396,lars | ingrid | odin | sven,четвёрка однозначна: другой категории с этими четырьмя словами нет
 scary_sounds__1,scary_sounds,normal,auto_validated,unique,0.364,snap | scratch | scream | whisper,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2096,9 +2218,11 @@ science_jobs__3,science_jobs,normal,auto_validated,unique,0.29,archaeologist | m
 scientists__1,scientists,normal,auto_validated,unique,0.297,newton | darwin | einstein | fleming,четвёрка однозначна: другой категории с этими четырьмя словами нет
 scientists__2,scientists,normal,auto_validated,unique,0.322,hawking | galileo | kepler | faraday,четвёрка однозначна: другой категории с этими четырьмя словами нет
 scientists__3,scientists,normal,auto_validated,unique,0.336,curie | pasteur | mendel | copernicus,четвёрка однозначна: другой категории с этими четырьмя словами нет
+scrapbooking__1,scrapbooking,normal,auto_validated,unique,0.506,stickers | cutouts | keepsake | laminate,четвёрка однозначна: другой категории с этими четырьмя словами нет
 screens__1,screens,normal,auto_validated,unique,0.211,phone | watch#watch_object | camera | television,четвёрка однозначна: другой категории с этими четырьмя словами нет
 screens__2,screens,normal,auto_validated,unique,0.237,monitor#monitor_screen | e-reader | laptop | console,четвёрка однозначна: другой категории с этими четырьмя словами нет
 screens__3,screens,normal,auto_validated,unique,0.249,gps | tablet | atm | microwave,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sculptors_studio__1,sculptors_studio,normal,auto_validated,unique,0.512,mould | pedestal | figurine | plinth,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sculpture_materials__1,sculpture_materials,normal,auto_validated,unique,0.261,ice | glass | metal | stone,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sculpture_materials__2,sculpture_materials,normal,auto_validated,unique,0.276,wood | concrete | sand | clay,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sculpture_materials__3,sculpture_materials,normal,auto_validated,unique,0.296,bronze | marble#marble_stone | wax#wax_substance | granite,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2148,11 +2272,14 @@ security_tech__3,security_tech,normal,auto_validated,unique,0.314,motion detecto
 seeds_and_bulbs__1,seeds_and_bulbs,normal,auto_validated,unique,0.287,cutting | seed | pit | bulb,четвёрка однозначна: другой категории с этими четырьмя словами нет
 seeds_and_bulbs__2,seeds_and_bulbs,normal,auto_validated,unique,0.329,kernel | sprout | acorn | spore,четвёрка однозначна: другой категории с этими четырьмя словами нет
 seeds_and_bulbs__3,seeds_and_bulbs,normal,auto_validated,unique,0.349,clove | seedling | tuber | sapling,четвёрка однозначна: другой категории с этими четырьмя словами нет
+seismology__1,seismology,normal,auto_validated,unique,0.537,magnitude | tectonic | aftershock | epicenter,четвёрка однозначна: другой категории с этими четырьмя словами нет
+self_care__1,self_care,normal,auto_validated,unique,0.394,massage | skincare | spa | manicure,четвёрка однозначна: другой категории с этими четырьмя словами нет
 self_defense_moves__1,self_defense_moves,normal,auto_validated,unique,0.345,throw | roll#roll_turn | kick | strike#strike_hit,четвёрка однозначна: другой категории с этими четырьмя словами нет
 self_defense_moves__2,self_defense_moves,normal,auto_validated,unique,0.361,escape | grab release | knee | palm strike,четвёрка однозначна: другой категории с этими четырьмя словами нет
 senses_and_perception__1,senses_and_perception,normal,auto_validated,unique,0.196,pain | pressure | touch | hearing,четвёрка однозначна: другой категории с этими четырьмя словами нет
 senses_and_perception__2,senses_and_perception,normal,auto_validated,unique,0.205,balance | taste | temperature | sight,четвёрка однозначна: другой категории с этими четырьмя словами нет
 senses_and_perception__3,senses_and_perception,normal,auto_validated,unique,0.236,smell | hunger | thirst | itch,четвёрка однозначна: другой категории с этими четырьмя словами нет
+set_sail__1,set_sail,normal,auto_validated,unique,0.475,helm | mast | jib | spinnaker,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sewing_and_repair__1,sewing_and_repair,normal,auto_validated,unique,0.241,level | tape | wire | screw,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sewing_and_repair__2,sewing_and_repair,normal,auto_validated,unique,0.256,nail#nail_metal | patch | hammer | bolt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sewing_and_repair__3,sewing_and_repair,normal,auto_validated,unique,0.279,bracket | glue | wrench | washer,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2164,6 +2291,7 @@ sewing_supplies__2,sewing_supplies,normal,auto_validated,unique,0.237,pin#pin_fa
 sewing_supplies__3,sewing_supplies,normal,auto_validated,unique,0.259,needle#needle_sewing | elastic | yarn | scissors,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sewing_words__1,sewing_words,normal,auto_validated,unique,0.288,pattern | thread | pin#pin_fastener | alter,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sewing_words__2,sewing_words,normal,auto_validated,unique,0.311,needle#needle_sewing | lining | stitch | tuck,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sewing_words__3,sewing_words,normal,auto_validated,unique,0.323,dart#dart_sew | cuff | seam | yarn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 shakespeare_plays__1,shakespeare_plays,normal,auto_validated,unique,0.314,as you like it | richard iii | merchant of venice | hamlet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 shakespeare_plays__2,shakespeare_plays,normal,auto_validated,unique,0.345,twelfth night | julius caesar | romeo and juliet | macbeth,четвёрка однозначна: другой категории с этими четырьмя словами нет
 shakespeare_plays__3,shakespeare_plays,normal,auto_validated,unique,0.353,tempest | king lear | much ado | midsummer night,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2201,6 +2329,8 @@ signals_and_codes__2,signals_and_codes,normal,auto_validated,unique,0.359,beacon
 silverware__1,silverware,normal,auto_validated,unique,0.169,knife | butter knife | fork | spoon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 silverware__2,silverware,normal,auto_validated,unique,0.186,serving spoon | salad fork | soup spoon | carving knife,четвёрка однозначна: другой категории с этими четырьмя словами нет
 silverware__3,silverware,normal,auto_validated,unique,0.216,teaspoon | chopsticks | tongs | ladle,четвёрка однозначна: другой категории с этими четырьмя словами нет
+singing_voices__1,singing_voices,normal,auto_validated,unique,0.319,solo | alto | choir | soprano,четвёрка однозначна: другой категории с этими четырьмя словами нет
+skate_park__1,skate_park,normal,auto_validated,unique,0.531,kicker | vert | griptape | halfpipe,четвёрка однозначна: другой категории с этими четырьмя словами нет
 skateboarding__1,skateboarding,normal,auto_validated,unique,0.313,bowl | nose | deck | rail,четвёрка однозначна: другой категории с этими четырьмя словами нет
 skateboarding__2,skateboarding,normal,auto_validated,unique,0.326,wheels | bearing | trucks | helmet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 skateboarding__3,skateboarding,normal,auto_validated,unique,0.343,grind | grip tape | ramp | ollie,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2209,10 +2339,9 @@ skiing_words__2,skiing_words,normal,auto_validated,unique,0.286,powder | lodge |
 skiing_words__3,skiing_words,normal,auto_validated,unique,0.33,goggles | gondola | bindings | moguls,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleep_and_rest__1,sleep_and_rest,normal,auto_validated,unique,0.264,dream | rest#rest_sleep | alarm | nightmare,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleep_and_rest__2,sleep_and_rest,normal,auto_validated,unique,0.297,pillow | nap | mattress | bedtime,четвёрка однозначна: другой категории с этими четырьмя словами нет
-sleep_and_rest__3,sleep_and_rest,normal,auto_validated,unique,0.327,insomnia | apnea | drowsy | snore,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sleep_and_rest__3,sleep_and_rest,normal,auto_validated,unique,0.321,insomnia | lullaby | slumber | yawn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleeping_actions__1,sleeping_actions,normal,auto_validated,unique,0.256,dream | rest#rest_sleep | turn | stretch,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleeping_actions__2,sleeping_actions,normal,auto_validated,unique,0.299,toss | drift off | nap | slumber,четвёрка однозначна: другой категории с этими четырьмя словами нет
-sleeping_actions__3,sleeping_actions,normal,auto_validated,unique,0.342,yawn | snore | doze | sleepwalk,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleepwear__1,sleepwear,normal,auto_validated,unique,0.217,sleep mask | lounge pants | robe | boxers,четвёрка однозначна: другой категории с этими четырьмя словами нет
 sleepwear__2,sleepwear,normal,auto_validated,unique,0.248,slippers | pajamas | onesie | nightgown,четвёрка однозначна: другой категории с этими четырьмя словами нет
 slow_things__1,slow_things,normal,auto_validated,unique,0.294,traffic | parade | turtle | tractor,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2271,6 +2400,7 @@ southern_cities__3,southern_cities,normal,auto_validated,unique,0.243,charlotte 
 southern_dishes__1,southern_dishes,normal,auto_validated,unique,0.254,sweet tea | fried chicken | pulled pork | black eyed peas,четвёрка однозначна: другой категории с этими четырьмя словами нет
 southern_dishes__2,southern_dishes,normal,auto_validated,unique,0.277,gravy | biscuit | catfish | hush puppy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 southern_dishes__3,southern_dishes,normal,auto_validated,unique,0.3,grits | pecan pie | cobbler | cornbread,четвёрка однозначна: другой категории с этими четырьмя словами нет
+spa_day__1,spa_day,normal,auto_validated,unique,0.5,aromatherapy | jacuzzi | masseuse | pampering,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_agencies_and_places__1,space_agencies_and_places,normal,auto_validated,unique,0.351,mission control | houston | nasa | kennedy space center,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_agencies_and_places__2,space_agencies_and_places,normal,auto_validated,unique,0.383,launch pad | observatory | iss | jet propulsion lab,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_measurements__1,space_measurements,normal,auto_validated,unique,0.353,light year | mile | revolution | gravity,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2281,6 +2411,7 @@ space_objects__3,space_objects,normal,auto_validated,unique,0.184,cluster | dwar
 space_phenomena__1,space_phenomena,normal,auto_validated,unique,0.318,black hole | big bang | gravity well | eclipse,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_phenomena__2,space_phenomena,normal,auto_validated,unique,0.343,aurora | solar flare | comet tail | meteor shower,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_phenomena__3,space_phenomena,normal,auto_validated,unique,0.374,nebula | supernova | sunspot | quasar,четвёрка однозначна: другой категории с этими четырьмя словами нет
+space_station__1,space_station,normal,auto_validated,unique,0.488,docking | module | airlock | cosmonaut,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_travel__1,space_travel,normal,auto_validated,unique,0.218,station#station_place | mission | launch | satellite,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_travel__2,space_travel,normal,auto_validated,unique,0.242,rocket | gravity | orbit | module,четвёрка однозначна: другой категории с этими четырьмя словами нет
 space_travel__3,space_travel,normal,auto_validated,unique,0.256,shuttle | rover | telescope | capsule,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2292,9 +2423,9 @@ spanish_dishes__2,spanish_dishes,normal,auto_validated,unique,0.354,sangria | fl
 spanish_names__1,spanish_names,normal,auto_validated,unique,0.276,diego | maria | jose | antonio,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spanish_names__2,spanish_names,normal,auto_validated,unique,0.288,carlos | luis | ana | manuel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spanish_names__3,spanish_names,normal,auto_validated,unique,0.296,pablo | rosa | miguel | elena,четвёрка однозначна: другой категории с этими четырьмя словами нет
-speed_adjectives__1,speed_adjectives,normal,auto_validated,unique,0.256,fast | quick | slow | sudden,четвёрка однозначна: другой категории с этими четырьмя словами нет
-speed_adjectives__2,speed_adjectives,normal,auto_validated,unique,0.282,rapid | steady | swift | gradual,четвёрка однозначна: другой категории с этими четырьмя словами нет
-speed_adjectives__3,speed_adjectives,normal,auto_validated,unique,0.31,speedy | creeping | hasty | sluggish,четвёрка однозначна: другой категории с этими четырьмя словами нет
+speed_adjectives__1,speed_adjectives,normal,auto_validated,unique,0.251,medium | fast | quick | slow,четвёрка однозначна: другой категории с этими четырьмя словами нет
+speed_adjectives__2,speed_adjectives,normal,auto_validated,unique,0.273,sudden | rapid | steady | turbo,четвёрка однозначна: другой категории с этими четырьмя словами нет
+speed_adjectives__3,speed_adjectives,normal,auto_validated,unique,0.297,swift | gradual | speedy | creeping,четвёрка однозначна: другой категории с этими четырьмя словами нет
 speed_of_time__1,speed_of_time,normal,auto_validated,unique,0.305,at once | immediately | quickly | right away,четвёрка однозначна: другой категории с этими четырьмя словами нет
 speed_of_time__2,speed_of_time,normal,auto_validated,unique,0.329,suddenly | shortly | instantly | promptly,четвёрка однозначна: другой категории с этими четырьмя словами нет
 speed_of_time__3,speed_of_time,normal,auto_validated,unique,0.366,abruptly | swiftly | hastily | momentarily,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2339,6 +2470,8 @@ sports_venues__2,sports_venues,normal,auto_validated,unique,0.225,pool | stadium
 sports_venues__3,sports_venues,normal,auto_validated,unique,0.241,diamond#diamond_field | arena | dome | alley,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spotted_and_striped__1,spotted_and_striped,normal,auto_validated,unique,0.356,tiger | snake | bee | badger,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spotted_and_striped__2,spotted_and_striped,normal,auto_validated,unique,0.386,zebra | wasp | raccoon | skunk,четвёрка однозначна: другой категории с этими четырьмя словами нет
+spring_season__1,spring_season,normal,auto_validated,unique,0.344,rain | nest | puddle | thaw,четвёрка однозначна: другой категории с этими четырьмя словами нет
+spy_mission__1,spy_mission,normal,auto_validated,unique,0.45,alias | decoy | dossier | infiltrate,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spy_words__1,spy_words,normal,auto_validated,unique,0.291,code | safe house | mission | agent,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spy_words__2,spy_words,normal,auto_validated,unique,0.323,tail | bug | surveillance | disguise,четвёрка однозначна: другой категории с этими четырьмя словами нет
 spy_words__3,spy_words,normal,auto_validated,unique,0.35,mole#mole_spy | alias | informant | dossier,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2373,6 +2506,7 @@ storms__3,storms,normal,auto_validated,unique,0.276,monsoon | tempest | thunders
 storybook_characters__1,storybook_characters,normal,auto_validated,unique,0.175,king | queen#queen_royal | prince | giant,четвёрка однозначна: другой категории с этими четырьмя словами нет
 storybook_characters__2,storybook_characters,normal,auto_validated,unique,0.191,princess | dragon | wolf | knight,четвёрка однозначна: другой категории с этими четырьмя словами нет
 storybook_characters__3,storybook_characters,normal,auto_validated,unique,0.207,witch | fairy | wizard | frog,четвёрка однозначна: другой категории с этими четырьмя словами нет
+street_art__1,street_art,normal,auto_validated,unique,0.394,graffiti | mural | tagging | stencil,четвёрка однозначна: другой категории с этими четырьмя словами нет
 street_food__1,street_food,normal,auto_validated,unique,0.239,hot dog | corn dog | cotton candy | popcorn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 street_food__2,street_food,normal,auto_validated,unique,0.271,taco | roasted nuts | waffle | kebab,четвёрка однозначна: другой категории с этими четырьмя словами нет
 street_food__3,street_food,normal,auto_validated,unique,0.294,pretzel | crepe | gyro | dumpling,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2388,18 +2522,24 @@ string_instruments__3,string_instruments,normal,auto_validated,unique,0.301,ukul
 striped_things__1,striped_things,normal,auto_validated,unique,0.322,road | flag | tiger | prison uniform,четвёрка однозначна: другой категории с этими четырьмя словами нет
 striped_things__2,striped_things,normal,auto_validated,unique,0.348,bee | referee shirt | ribbon | barber pole,четвёрка однозначна: другой категории с этими четырьмя словами нет
 striped_things__3,striped_things,normal,auto_validated,unique,0.374,candy cane | zebra | skunk | awning,четвёрка однозначна: другой категории с этими четырьмя словами нет
+submarine_duty__1,submarine_duty,normal,auto_validated,unique,0.537,ballast | nautical | seabed | submerge,четвёрка однозначна: другой категории с этими четырьмя словами нет
+summer_season__1,summer_season,normal,auto_validated,unique,0.3,august | beach | heat | july,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superheroes__1,superheroes,normal,auto_validated,unique,0.177,wonder woman | captain america | iron man | storm,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superheroes__2,superheroes,normal,auto_validated,unique,0.196,flash | robin | batman | black widow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superheroes__3,superheroes,normal,auto_validated,unique,0.214,superman | ant man | hulk | thor,четвёрка однозначна: другой категории с этими четырьмя словами нет
+supermarket__1,supermarket,normal,auto_validated,unique,0.375,aisle | cart | grocer | trolley,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstition_numbers__1,superstition_numbers,normal,auto_validated,unique,0.195,couple | eight | few | five,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstition_numbers__2,superstition_numbers,normal,auto_validated,unique,0.195,four | half | million | one,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstition_numbers__3,superstition_numbers,normal,auto_validated,unique,0.195,seven | single#single_one | six | ten,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstitions__1,superstitions,normal,auto_validated,unique,0.305,cross | black cat | salt | mirror,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstitions__2,superstitions,normal,auto_validated,unique,0.326,broken mirror | knock on wood | penny | ladder,четвёрка однозначна: другой категории с этими четырьмя словами нет
 superstitions__3,superstitions,normal,auto_validated,unique,0.35,rabbit foot | umbrella | four leaf clover | horseshoe,четвёрка однозначна: другой категории с этими четырьмя словами нет
+supplements__1,supplements,normal,auto_validated,unique,0.369,collagen | vitamin | zinc | biotin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 survival_skills__1,survival_skills,normal,auto_validated,unique,0.303,fire starting | first aid | fishing | tracking,четвёрка однозначна: другой категории с этими четырьмя словами нет
 survival_skills__2,survival_skills,normal,auto_validated,unique,0.334,shelter building | navigation | signaling | knot tying,четвёрка однозначна: другой категории с этими четырьмя словами нет
 survival_skills__3,survival_skills,normal,auto_validated,unique,0.366,trapping | water purification | foraging | orienteering,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sushi_bar__1,sushi_bar,normal,auto_validated,unique,0.5,bento | maki | sashimi | teriyaki,четвёрка однозначна: другой категории с этими четырьмя словами нет
+sweets__1,sweets,normal,auto_validated,unique,0.2,brownie | candy | caramel | cookie,четвёрка однозначна: другой категории с этими четырьмя словами нет
 swimming_skills__1,swimming_skills,normal,auto_validated,unique,0.269,turning | rescue | breathing | stroke#stroke_swim,четвёрка однозначна: другой категории с этими четырьмя словами нет
 swimming_skills__2,swimming_skills,normal,auto_validated,unique,0.281,jumping | floating | kicking | diving,четвёрка однозначна: другой категории с этими четырьмя словами нет
 swimming_skills__3,swimming_skills,normal,auto_validated,unique,0.333,gliding | treading | bobbing | backstroke,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2410,12 +2550,15 @@ swimwear__2,swimwear,normal,auto_validated,unique,0.226,bikini | rash guard | tr
 symptoms__1,symptoms,normal,auto_validated,unique,0.247,fever | headache | cough | fatigue,четвёрка однозначна: другой категории с этими четырьмя словами нет
 symptoms__2,symptoms,normal,auto_validated,unique,0.259,sore throat | rash | swelling | congestion,четвёрка однозначна: другой категории с этими четырьмя словами нет
 symptoms__3,symptoms,normal,auto_validated,unique,0.27,nausea | ache | chills | itching,четвёрка однозначна: другой категории с этими четырьмя словами нет
+table_setting__1,table_setting,normal,auto_validated,unique,0.231,bowl | cup | glass | fork,четвёрка однозначна: другой категории с этими четырьмя словами нет
+table_setting__2,table_setting,normal,auto_validated,unique,0.263,knife | napkin | spoon | plate#plate_dish,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tailor_words__1,tailor_words,normal,auto_validated,unique,0.306,machine | iron#iron_appliance | pattern | thread,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tailor_words__2,tailor_words,normal,auto_validated,unique,0.331,pin#pin_fastener | tape measure | needle#needle_sewing | chalk#chalk_tailor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tailor_words__3,tailor_words,normal,auto_validated,unique,0.371,hem | mannequin | seam ripper | shears,четвёрка однозначна: другой категории с этими четырьмя словами нет
 taste_words__1,taste_words,normal,auto_validated,unique,0.225,rich | sweet | bitter | mild,четвёрка однозначна: другой категории с этими четырьмя словами нет
 taste_words__2,taste_words,normal,auto_validated,unique,0.256,sour | spicy | salty | crisp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 taste_words__3,taste_words,normal,auto_validated,unique,0.271,bland | creamy | hearty | tart,четвёрка однозначна: другой категории с этими четырьмя словами нет
+tea_ceremony__1,tea_ceremony,normal,auto_validated,unique,0.494,steep | darjeeling | teapot | infuser,четвёрка однозначна: другой категории с этими четырьмя словами нет
 team_sports__1,team_sports,normal,auto_validated,unique,0.111,football | basketball | baseball | soccer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 team_sports__2,team_sports,normal,auto_validated,unique,0.12,hockey | rugby | cricket | field hockey,четвёрка однозначна: другой категории с этими четырьмя словами нет
 team_sports__3,team_sports,normal,auto_validated,unique,0.146,volleyball | polo | water polo | softball,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2446,6 +2589,8 @@ textures__3,textures,normal,auto_validated,unique,0.364,coarse | silky | bumpy |
 thanksgiving_foods__1,thanksgiving_foods,normal,auto_validated,unique,0.22,turkey#turkey_meat | rolls | corn | pie,четвёрка однозначна: другой категории с этими четырьмя словами нет
 thanksgiving_foods__2,thanksgiving_foods,normal,auto_validated,unique,0.237,ham | sweet potato | pumpkin pie | squash#squash_vegetable,четвёрка однозначна: другой категории с этими четырьмя словами нет
 thanksgiving_foods__3,thanksgiving_foods,normal,auto_validated,unique,0.253,apple cider | gravy | stuffing | biscuit,четвёрка однозначна: другой категории с этими четырьмя словами нет
+the_heist__1,the_heist,normal,auto_validated,unique,0.45,getaway | heist | lookout | loot,четвёрка однозначна: другой категории с этими четырьмя словами нет
+the_mind__1,the_mind,normal,auto_validated,unique,0.331,memory | reason | thought | emotion,четвёрка однозначна: другой категории с этими четырьмя словами нет
 theater_arts__1,theater_arts,normal,auto_validated,unique,0.215,dance | play | magic | concert,четвёрка однозначна: другой категории с этими четырьмя словами нет
 theater_arts__2,theater_arts,normal,auto_validated,unique,0.23,comedy | musical | poetry reading | opera,четвёрка однозначна: другой категории с этими четырьмя словами нет
 theater_arts__3,theater_arts,normal,auto_validated,unique,0.263,circus | ballet | recital | improv,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2613,6 +2758,7 @@ things_you_tie__3,things_you_tie,normal,auto_validated,unique,0.354,laces | band
 thinking_actions__1,thinking_actions,normal,auto_validated,unique,0.25,consider | doubt | focus#focus_mind | forget,четвёрка однозначна: другой категории с этими четырьмя словами нет
 thinking_actions__2,thinking_actions,normal,auto_validated,unique,0.25,guess | imagine | judge | learn,четвёрка однозначна: другой категории с этими четырьмя словами нет
 thinking_actions__3,thinking_actions,normal,auto_validated,unique,0.25,plan | remember | think | wonder,четвёрка однозначна: другой категории с этими четырьмя словами нет
+tickets_and_passes__1,tickets_and_passes,normal,auto_validated,unique,0.388,entry | pass | fare | receipt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tide_and_moon__1,tide_and_moon,normal,auto_validated,unique,0.293,quarter#quarter_fourth | new moon | full moon | half moon,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tide_and_moon__2,tide_and_moon,normal,auto_validated,unique,0.322,blue moon | harvest moon | eclipse | crescent,четвёрка однозначна: другой категории с этими четырьмя словами нет
 time_capsule_things__1,time_capsule_things,normal,auto_validated,unique,0.341,pocket watch | oil lamp | spinning wheel | wagon wheel,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2620,6 +2766,7 @@ time_capsule_things__2,time_capsule_things,normal,auto_validated,unique,0.372,te
 time_units__1,time_units,normal,auto_validated,unique,0.13,century | day | hour | minute#minute_time,четвёрка однозначна: другой категории с этими четырьмя словами нет
 time_units__2,time_units,normal,auto_validated,unique,0.13,moment | month | second#second_time | week,четвёрка однозначна: другой категории с этими четырьмя словами нет
 time_units__3,time_units,normal,auto_validated,unique,0.135,year | generation | quarter#quarter_fourth | era,четвёрка однозначна: другой категории с этими четырьмя словами нет
+timepieces__1,timepieces,normal,auto_validated,unique,0.4,clock | watch#watch_object | hourglass | metronome,четвёрка однозначна: другой категории с этими четырьмя словами нет
 titles_of_address__1,titles_of_address,normal,auto_validated,unique,0.204,captain | chief | coach | doctor,четвёрка однозначна: другой категории с этими четырьмя словами нет
 titles_of_address__2,titles_of_address,normal,auto_validated,unique,0.204,judge | lady | lord | miss,четвёрка однозначна: другой категории с этими четырьмя словами нет
 titles_of_address__3,titles_of_address,normal,auto_validated,unique,0.207,officer | professor | sir | senator,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2642,6 +2789,7 @@ toys__3,toys,normal,auto_validated,unique,0.171,yo-yo | doll | jump rope | marbl
 track_events__1,track_events,normal,auto_validated,unique,0.256,shot put | race walk | high jump | long jump,четвёрка однозначна: другой категории с этими четырьмя словами нет
 track_events__2,track_events,normal,auto_validated,unique,0.285,marathon | triple jump | sprint | relay,четвёрка однозначна: другой категории с этими четырьмя словами нет
 track_events__3,track_events,normal,auto_validated,unique,0.318,pole vault | hurdles | javelin | discus,четвёрка однозначна: другой категории с этими четырьмя словами нет
+trading_floor__1,trading_floor,normal,auto_validated,unique,0.475,broker | bullish | dividend | portfolio,четвёрка однозначна: другой категории с этими четырьмя словами нет
 traditional_clothing__1,traditional_clothing,normal,auto_validated,unique,0.376,sari | kimono | turban | kilt,четвёрка однозначна: другой категории с этими четырьмя словами нет
 traffic_signs__1,traffic_signs,normal,auto_validated,unique,0.21,dead end | one way | stop | slow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 traffic_signs__2,traffic_signs,normal,auto_validated,unique,0.222,do not enter | school zone | speed limit | no parking,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2684,6 +2832,7 @@ tropical_fruits__2,tropical_fruits,normal,auto_validated,unique,0.296,pineapple 
 tropical_plants__1,tropical_plants,normal,auto_validated,unique,0.283,coffee | palm#palm_tree | rubber tree | banana,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tropical_plants__2,tropical_plants,normal,auto_validated,unique,0.318,bamboo | cocoa | orchid | fern,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tropical_plants__3,tropical_plants,normal,auto_validated,unique,0.346,mangrove | papaya | hibiscus | banyan,четвёрка однозначна: другой категории с этими четырьмя словами нет
+tubes__1,tubes,normal,auto_validated,unique,0.3,chute | duct | funnel | hose,четвёрка однозначна: другой категории с этими четырьмя словами нет
 turtles_and_tortoises__1,turtles_and_tortoises,normal,auto_validated,unique,0.333,box turtle | green turtle | sea turtle | painted turtle,четвёрка однозначна: другой категории с этими четырьмя словами нет
 turtles_and_tortoises__2,turtles_and_tortoises,normal,auto_validated,unique,0.367,snapping turtle | tortoise | slider | terrapin,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tv_genres__1,tv_genres,normal,auto_validated,unique,0.21,game show | news | reality | sports,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2692,9 +2841,13 @@ tv_genres__3,tv_genres,normal,auto_validated,unique,0.229,talent show | cooking 
 tv_words__1,tv_words,normal,auto_validated,unique,0.216,commercial | episode | network | channel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tv_words__2,tv_words,normal,auto_validated,unique,0.229,screen#screen_display | cable | pilot | remote#remote_device,четвёрка однозначна: другой категории с этими четырьмя словами нет
 tv_words__3,tv_words,normal,auto_validated,unique,0.244,broadcast | ratings | streaming | finale,четвёрка однозначна: другой категории с этими четырьмя словами нет
+types_of_guitars__1,types_of_guitars,normal,auto_validated,unique,0.294,electric | acoustic | banjo | classical,четвёрка однозначна: другой категории с этими четырьмя словами нет
+types_of_soil__1,types_of_soil,normal,auto_validated,unique,0.369,clay | peat | sand | chalk#chalk_rock,четвёрка однозначна: другой категории с этими четырьмя словами нет
 typing_and_office_skills__1,typing_and_office_skills,normal,auto_validated,unique,0.317,note taking | data entry | presenting | filing,четвёрка однозначна: другой категории с этими четырьмя словами нет
 typing_and_office_skills__2,typing_and_office_skills,normal,auto_validated,unique,0.339,organizing | answering phones | typing | scheduling,четвёрка однозначна: другой категории с этими четырьмя словами нет
 typing_and_office_skills__3,typing_and_office_skills,normal,auto_validated,unique,0.376,budgeting | emailing | spreadsheets | proofreading,четвёрка однозначна: другой категории с этими четырьмя словами нет
+ufo_sighting__1,ufo_sighting,normal,auto_validated,unique,0.475,hovering | martian | roswell | sighting,четвёрка однозначна: другой категории с этими четырьмя словами нет
+under_lock__1,under_lock,normal,auto_validated,unique,0.306,code | lock | safe | alarm,четвёрка однозначна: другой категории с этими четырьмя словами нет
 underground_places__1,underground_places,normal,auto_validated,unique,0.271,mine | tunnel | basement | cave,четвёрка однозначна: другой категории с этими четырьмя словами нет
 underground_places__2,underground_places,normal,auto_validated,unique,0.293,parking garage | subway | bunker#bunker_shelter | sewer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 underground_places__3,underground_places,normal,auto_validated,unique,0.309,cellar | dungeon | root cellar | burrow,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2734,6 +2887,7 @@ vehicles__3,vehicles,normal,auto_validated,unique,0.097,taxi | helicopter | ambu
 vending_machine_items__1,vending_machine_items,normal,auto_validated,unique,0.254,water | coffee | juice | chips,четвёрка однозначна: другой категории с этими четырьмя словами нет
 vending_machine_items__2,vending_machine_items,normal,auto_validated,unique,0.273,candy bar | sandwich | cookies | soda,четвёрка однозначна: другой категории с этими четырьмя словами нет
 vending_machine_items__3,vending_machine_items,normal,auto_validated,unique,0.301,gum#gum_candy | popcorn | mints | granola bar,четвёрка однозначна: другой категории с этими четырьмя словами нет
+vet_clinic__1,vet_clinic,normal,auto_validated,unique,0.494,muzzle | checkup | microchip | neutering,четвёрка однозначна: другой категории с этими четырьмя словами нет
 video_game_classics__1,video_game_classics,normal,auto_validated,unique,0.29,mario | pac man | sonic | donkey kong,четвёрка однозначна: другой категории с этими четырьмя словами нет
 video_game_classics__2,video_game_classics,normal,auto_validated,unique,0.311,zelda | pong | space invaders | asteroids,четвёрка однозначна: другой категории с этими четырьмя словами нет
 video_game_classics__3,video_game_classics,normal,auto_validated,unique,0.329,pinball | solitaire | tetris | centipede,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2743,6 +2897,7 @@ video_game_words__3,video_game_words,normal,auto_validated,unique,0.258,console 
 video_gaming__1,video_gaming,normal,auto_validated,unique,0.225,chair | memory card | cable | monitor#monitor_screen,четвёрка однозначна: другой категории с этими четырьмя словами нет
 video_gaming__2,video_gaming,normal,auto_validated,unique,0.239,mouse#mouse_computer | controller | disc | keyboard#keyboard_computer,четвёрка однозначна: другой категории с этими четырьмя словами нет
 video_gaming__3,video_gaming,normal,auto_validated,unique,0.258,console | microphone | cartridge | headset,четвёрка однозначна: другой категории с этими четырьмя словами нет
+vikings__1,vikings,normal,auto_validated,unique,0.525,mead | norse | fjord | berserker,четвёрка однозначна: другой категории с этими четырьмя словами нет
 vines__1,vines,normal,auto_validated,unique,0.33,morning glory | passion flower | bean | ivy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 vines__2,vines,normal,auto_validated,unique,0.346,pumpkin | grape | jasmine | pea,четвёрка однозначна: другой категории с этими четырьмя словами нет
 vines__3,vines,normal,auto_validated,unique,0.373,cucumber | hops | honeysuckle | wisteria,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2761,6 +2916,7 @@ vitamins_letters__3,vitamins_letters,normal,auto_validated,unique,0.328,hashtag 
 voice_sounds__1,voice_sounds,normal,auto_validated,unique,0.272,laugh | cry | scream | shout,четвёрка однозначна: другой категории с этими четырьмя словами нет
 voice_sounds__2,voice_sounds,normal,auto_validated,unique,0.293,cough | sigh | whistle | hum,четвёрка однозначна: другой категории с этими четырьмя словами нет
 voice_sounds__3,voice_sounds,normal,auto_validated,unique,0.313,gasp | giggle | moan | sob,четвёрка однозначна: другой категории с этими четырьмя словами нет
+volcano_watch__1,volcano_watch,normal,auto_validated,unique,0.519,dormant | molten | vent | caldera,четвёрка однозначна: другой категории с этими четырьмя словами нет
 volcanoes__1,volcanoes,normal,auto_validated,unique,0.364,fuji | st helens | rainier | vesuvius,четвёрка однозначна: другой категории с этими четырьмя словами нет
 volcanoes__2,volcanoes,normal,auto_validated,unique,0.387,etna | mauna loa | kilauea | stromboli,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wading_birds__1,wading_birds,normal,auto_validated,unique,0.364,crane#crane_bird | heron | flamingo | stork,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2788,8 +2944,8 @@ water_sounds__3,water_sounds,normal,auto_validated,unique,0.379,babble | patter 
 water_sports__1,water_sports,normal,auto_validated,unique,0.213,swimming | diving | sailing | water skiing,четвёрка однозначна: другой категории с этими четырьмя словами нет
 water_sports__2,water_sports,normal,auto_validated,unique,0.236,water polo | surfing | rowing | synchronized swimming,четвёрка однозначна: другой категории с этими четырьмя словами нет
 water_states__1,water_states,normal,auto_validated,unique,0.224,ice | rain | snow | steam,четвёрка однозначна: другой категории с этими четырьмя словами нет
-water_states__2,water_states,normal,auto_validated,unique,0.254,cloud | frost | hail | glacier,четвёрка однозначна: другой категории с этими четырьмя словами нет
-water_states__3,water_states,normal,auto_validated,unique,0.264,fog | humidity | mist | vapor,четвёрка однозначна: другой категории с этими четырьмя словами нет
+water_states__2,water_states,normal,auto_validated,unique,0.249,cloud | liquid | frost | hail,четвёрка однозначна: другой категории с этими четырьмя словами нет
+water_states__3,water_states,normal,auto_validated,unique,0.263,fog | humidity | mist | glacier,четвёрка однозначна: другой категории с этими четырьмя словами нет
 waterfalls__1,waterfalls,normal,auto_validated,unique,0.324,victoria | angel falls | niagara | sutherland,четвёрка однозначна: другой категории с этими четырьмя словами нет
 waterfalls__2,waterfalls,normal,auto_validated,unique,0.377,yosemite falls | multnomah | shoshone | havasu,четвёрка однозначна: другой категории с этими четырьмя словами нет
 waterfowl__1,waterfowl,normal,auto_validated,unique,0.295,duck#duck_bird | goose | swan | teal,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2825,19 +2981,23 @@ weather_science__3,weather_science,normal,auto_validated,unique,0.327,dew point 
 weather_words__1,weather_words,normal,auto_validated,unique,0.113,wind | rain | snow | storm,четвёрка однозначна: другой категории с этими четырьмя словами нет
 weather_words__2,weather_words,normal,auto_validated,unique,0.126,shower | cloud | heat wave | lightning,четвёрка однозначна: другой категории с этими четырьмя словами нет
 weather_words__3,weather_words,normal,auto_validated,unique,0.138,sunshine | thunder | hurricane | frost,четвёрка однозначна: другой категории с этими четырьмя словами нет
+weaving__1,weaving,normal,auto_validated,unique,0.45,loom | spindle | tapestry | warp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wedding_things__1,wedding_things,normal,auto_validated,unique,0.176,best man | ring#ring_jewelry | dress | rice,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wedding_things__2,wedding_things,normal,auto_validated,unique,0.193,cake | ceremony | reception | invitation,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wedding_things__3,wedding_things,normal,auto_validated,unique,0.214,bride | altar | aisle | vows,четвёрка однозначна: другой категории с этими четырьмя словами нет
 weeds__1,weeds,normal,auto_validated,unique,0.309,moss | ivy | poison ivy | clover,четвёрка однозначна: другой категории с этими четырьмя словами нет
 weeds__2,weeds,normal,auto_validated,unique,0.342,thistle | dandelion | nettle | plantain,четвёрка однозначна: другой категории с этими четырьмя словами нет
+weight_units__1,weight_units,normal,auto_validated,unique,0.275,carat | gram | kilogram | ounce,четвёрка однозначна: другой категории с этими четырьмя словами нет
 welding_words__1,welding_words,normal,auto_validated,unique,0.369,gas | arc | rod | helmet,четвёрка однозначна: другой категории с этими четырьмя словами нет
 welding_words__2,welding_words,normal,auto_validated,unique,0.394,spark | torch | flux | clamp,четвёрка однозначна: другой категории с этими четырьмя словами нет
 welding_words__3,welding_words,normal,auto_validated,unique,0.408,bead | filler | tack#tack_pin | slag,четвёрка однозначна: другой категории с этими четырьмя словами нет
+wellness__1,wellness,normal,auto_validated,unique,0.312,balance | diet | detox | hydration,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wetness_words__1,wetness_words,normal,auto_validated,unique,0.28,dry | wet | crisp | moist,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wetness_words__2,wetness_words,normal,auto_validated,unique,0.303,saturated | soaked | damp | humid,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wetness_words__3,wetness_words,normal,auto_validated,unique,0.315,dripping | arid | drenched | soggy,четвёрка однозначна: другой категории с этими четырьмя словами нет
 whale_types__1,whale_types,normal,auto_validated,unique,0.33,right whale | blue whale | pilot whale | gray whale,четвёрка однозначна: другой категории с этими четырьмя словами нет
 whale_types__2,whale_types,normal,auto_validated,unique,0.358,sperm whale | fin whale | orca | humpback,четвёрка однозначна: другой категории с этими четырьмя словами нет
+whale_watch__1,whale_watch,normal,auto_validated,unique,0.575,breaching | krill | baleen | blowhole,четвёрка однозначна: другой категории с этими четырьмя словами нет
 whaling_and_fishing__1,whaling_and_fishing,normal,auto_validated,unique,0.311,hold | line#line_cord | net | pot,четвёрка однозначна: другой категории с этими четырьмя словами нет
 whaling_and_fishing__2,whaling_and_fishing,normal,auto_validated,unique,0.349,hook#hook_fishing | trap | crate | seine,четвёрка однозначна: другой категории с этими четырьмя словами нет
 whaling_and_fishing__3,whaling_and_fishing,normal,auto_validated,unique,0.384,dredge | winch | buoy | harpoon,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2847,6 +3007,7 @@ white_things__3,white_things,normal,auto_validated,unique,0.264,ghost | sheet#sh
 wild_cats__1,wild_cats,normal,auto_validated,unique,0.224,tiger | lion | panther | leopard,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wild_cats__2,wild_cats,normal,auto_validated,unique,0.249,jaguar | cougar | cheetah | puma,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wild_cats_small__1,wild_cats_small,normal,auto_validated,unique,0.392,fishing cat | sand cat | lynx | bobcat,четвёрка однозначна: другой категории с этими четырьмя словами нет
+wild_cattle__1,wild_cattle,normal,auto_validated,unique,0.35,angus | bison | buffalo | ox,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wild_dogs__1,wild_dogs,normal,auto_validated,unique,0.27,fox | red fox | wolf | gray wolf,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wild_dogs__2,wild_dogs,normal,auto_validated,unique,0.318,arctic fox | coyote | jackal | hyena,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wild_plants__1,wild_plants,normal,auto_validated,unique,0.316,weed | reed | moss | ivy,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2865,12 +3026,15 @@ wind_words__3,wind_words,normal,auto_validated,unique,0.347,zephyr | squall | he
 wines_and_drinks__1,wines_and_drinks,normal,auto_validated,unique,0.283,rose | porter | champagne | ale,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wines_and_drinks__2,wines_and_drinks,normal,auto_validated,unique,0.313,cider | stout | ipa | lager,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wines_and_drinks__3,wines_and_drinks,normal,auto_validated,unique,0.331,pinot | chardonnay | cabernet | merlot,четвёрка однозначна: другой категории с этими четырьмя словами нет
+winter_cabin__1,winter_cabin,normal,auto_validated,unique,0.575,earmuffs | snowshoe | thermals | toboggan,четвёрка однозначна: другой категории с этими четырьмя словами нет
 winter_clothing__1,winter_clothing,normal,auto_validated,unique,0.17,coat#coat_garment | down jacket | snow pants | hood#hood_garment,четвёрка однозначна: другой категории с этими четырьмя словами нет
 winter_clothing__2,winter_clothing,normal,auto_validated,unique,0.186,boot#boot_shoe | ski mask | sweater | glove,четвёрка однозначна: другой категории с этими четырьмя словами нет
 winter_clothing__3,winter_clothing,normal,auto_validated,unique,0.204,scarf | wool socks | fleece | shawl,четвёрка однозначна: другой категории с этими четырьмя словами нет
+winter_fun__1,winter_fun,normal,auto_validated,unique,0.3,skates | skis | sled | snowman,четвёрка однозначна: другой категории с этими четырьмя словами нет
 winter_sports__1,winter_sports,normal,auto_validated,unique,0.205,hockey | ice climbing | skating | skiing,четвёрка однозначна: другой категории с этими четырьмя словами нет
-winter_sports__2,winter_sports,normal,auto_validated,unique,0.225,figure skating | speed skating | curling | snowboarding,четвёрка однозначна: другой категории с этими четырьмя словами нет
-winter_sports__3,winter_sports,normal,auto_validated,unique,0.264,luge | biathlon | sledding | bobsled,четвёрка однозначна: другой категории с этими четырьмя словами нет
+winter_sports__2,winter_sports,normal,auto_validated,unique,0.22,figure skating | speed skating | sled | snowboard,четвёрка однозначна: другой категории с этими четырьмя словами нет
+winter_sports__3,winter_sports,normal,auto_validated,unique,0.247,curling | snowboarding | luge | biathlon,четвёрка однозначна: другой категории с этими четырьмя словами нет
+wizard_tower__1,wizard_tower,normal,auto_validated,unique,0.525,conjure | enchanted | incantation | grimoire,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wizards_and_spells__1,wizards_and_spells,normal,auto_validated,unique,0.257,book | staff | familiar | hat,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wizards_and_spells__2,wizards_and_spells,normal,auto_validated,unique,0.275,tower | crystal | spell#spell_magic | scroll#scroll_paper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 wizards_and_spells__3,wizards_and_spells,normal,auto_validated,unique,0.307,apprentice | robe | wand | potion,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2973,9 +3137,9 @@ world_breakfasts__2,world_breakfasts,normal,auto_validated,unique,0.418,pastry |
 world_capitals__1,world_capitals,normal,auto_validated,unique,0.22,london | paris | rome | moscow,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_capitals__2,world_capitals,normal,auto_validated,unique,0.236,berlin | madrid | tokyo | beijing,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_capitals__3,world_capitals,normal,auto_validated,unique,0.245,dublin | amsterdam | ottawa | vienna,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_cities__1,world_cities,normal,auto_validated,unique,0.221,manchester | sydney | toronto | melbourne,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_cities__2,world_cities,normal,auto_validated,unique,0.235,barcelona | vancouver | dubai | milan,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_cities__3,world_cities,normal,auto_validated,unique,0.241,shanghai | geneva | mumbai | munich,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_cities__1,world_cities,normal,auto_validated,unique,0.221,manchester | sydney | toronto | london,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_cities__2,world_cities,normal,auto_validated,unique,0.229,paris | melbourne | barcelona | vancouver,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_cities__3,world_cities,normal,auto_validated,unique,0.239,dubai | milan | shanghai | geneva,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_currencies_more__1,world_currencies_more,normal,auto_validated,unique,0.374,real | rand | yen | yuan,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_currencies_more__2,world_currencies_more,normal,auto_validated,unique,0.419,rupee | peso | lira | kroner,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_dances__1,world_dances,normal,auto_validated,unique,0.336,square dance | tango | salsa | waltz,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -2994,9 +3158,9 @@ world_lakes__3,world_lakes,normal,auto_validated,unique,0.359,como | loch ness |
 world_markets__1,world_markets,normal,auto_validated,unique,0.253,cash | sign | produce | crowd,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_markets__2,world_markets,normal,auto_validated,unique,0.281,sample | basket | cart | spice,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_markets__3,world_markets,normal,auto_validated,unique,0.301,stall#stall_market | vendor | canopy | crate,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_mountains__1,world_mountains,normal,auto_validated,unique,0.345,whitney | everest | olympus | fuji,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_mountains__2,world_mountains,normal,auto_validated,unique,0.371,rainier | shasta | kilimanjaro | vesuvius,четвёрка однозначна: другой категории с этими четырьмя словами нет
-world_mountains__3,world_mountains,normal,auto_validated,unique,0.38,etna | denali | ararat | matterhorn,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_mountains__1,world_mountains,normal,auto_validated,unique,0.308,alps | andes | rockies | whitney,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_mountains__2,world_mountains,normal,auto_validated,unique,0.354,everest | olympus | fuji | rainier,четвёрка однозначна: другой категории с этими четырьмя словами нет
+world_mountains__3,world_mountains,normal,auto_validated,unique,0.373,shasta | kilimanjaro | vesuvius | etna,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_religions__1,world_religions,normal,auto_validated,unique,0.243,islam | christianity | buddhism | judaism,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_religions__2,world_religions,normal,auto_validated,unique,0.292,hinduism | confucianism | shinto | taoism,четвёрка однозначна: другой категории с этими четырьмя словами нет
 world_religions__3,world_religions,normal,auto_validated,unique,0.314,jainism | sikhism | zoroastrianism | bahá'í,четвёрка однозначна: другой категории с этими четырьмя словами нет
@@ -3032,5 +3196,6 @@ zodiac_signs__3,zodiac_signs,normal,auto_validated,unique,0.321,capricorn | pisc
 zoo_animals__1,zoo_animals,normal,auto_validated,unique,0.126,bear | seal#seal_animal | tiger | lion,четвёрка однозначна: другой категории с этими четырьмя словами нет
 zoo_animals__2,zoo_animals,normal,auto_validated,unique,0.146,elephant | monkey | penguin | camel,четвёрка однозначна: другой категории с этими четырьмя словами нет
 zoo_animals__3,zoo_animals,normal,auto_validated,unique,0.159,panda | gorilla | rhino | kangaroo,четвёрка однозначна: другой категории с этими четырьмя словами нет
+zoo_visit__1,zoo_visit,normal,auto_validated,unique,0.406,enclosure | feeding | petting | zookeeper,четвёрка однозначна: другой категории с этими четырьмя словами нет
 zoos_and_aquariums__1,zoos_and_aquariums,normal,auto_validated,unique,0.408,lincoln park | london zoo | national zoo | toronto zoo,четвёрка однозначна: другой категории с этими четырьмя словами нет
 zoos_and_aquariums__2,zoos_and_aquariums,normal,auto_validated,unique,0.424,berlin zoo | san diego zoo | bronx zoo | georgia aquarium,четвёрка однозначна: другой категории с этими четырьмя словами нет

@@ -8,12 +8,13 @@
 
 | readiness | что значит | категорий |
 |---|---|---|
-| `ready` | 4+ слов уровня, пул не перекошен — годится для автогенерации | 816 |
-| `constrained` | годится, но пул тонкий, перекошен в hard_only или мало approved | 295 |
+| `ready` | 4+ слов уровня, пул не перекошен — годится для автогенерации | 818 |
+| `constrained` | годится, но пул тонкий, перекошен в hard_only или мало approved | 448 |
 | `hard_only` | нормальных слов меньше четырёх: только сложные уровни | 5 |
 | `curated_only` | правило парное или субъективное: только ручные четвёрки | 4 |
+| `blocked` | четвёрку не собрать даже с hard_only: категория отключена | 1 |
 
-## 2. Конфликты категорий (517)
+## 2. Конфликты категорий (567)
 
 Пары, которые нельзя ставить в один уровень: их пулы пересекаются так, что
 четвёрка из одной целиком лежит в другой, и у уровня появляется второй
@@ -23,10 +24,10 @@
 | A | B | общих слов | серьёзность | источник |
 |---|---|---|---|---|
 | JEWELRY STONES (`jewelry_stones`) | GEMSTONES (`gemstones`) | 15 | P0 | derived |
+| SCHOOL SUPPLIES (`school_supplies`) | OFFICE SUPPLIES (`office_supplies`) | 14 | P0 | derived |
 | BIRDS (`birds`) | FLYING ANIMALS (`flying_animals`) | 13 | P0 | derived |
 | FABRICS (`fabrics`) | FABRIC TYPES (`fabric_types`) | 13 | P0 | derived |
 | FOOTWEAR (`footwear`) | SHOE STYLES (`shoe_styles`) | 13 | P0 | derived |
-| SCHOOL SUPPLIES (`school_supplies`) | OFFICE SUPPLIES (`office_supplies`) | 13 | P0 | derived |
 | ART CLASS (`art_class_things`) | ART SUPPLIES (`art_supplies`) | 12 | P0 | derived |
 | FARM ANIMALS (`farm_animals`) | LIVESTOCK (`livestock`) | 12 | P0 | derived |
 | LANGUAGES (`languages`) | NATIONALITIES (`nationalities`) | 12 | P0 | derived |
@@ -70,6 +71,7 @@
 | PARTY THINGS (`party_things`) | BIRTHDAY THINGS (`birthday_things`) | 9 | P0 | derived |
 | PIZZA TOPPINGS (`pizza_toppings`) | SALAD INGREDIENTS (`salad_ingredients`) | 9 | P0 | derived |
 | SEWING SUPPLIES (`sewing_supplies`) | TAILOR SHOP (`tailor_words`) | 9 | P0 | derived |
+| SEWING WORDS (`sewing_words`) | SEWING SUPPLIES (`sewing_supplies`) | 9 | P0 | derived |
 | TALE CHARACTERS (`storybook_characters`) | MYTHICAL CREATURES (`fantasy_creatures`) | 9 | P0 | derived |
 | POINTED THINGS (`things_that_are_sharp`) | SHARP THINGS (`things_that_cut`) | 9 | P0 | derived |
 | VEGETABLES (`vegetables`) | SOUP INGREDIENTS (`soup_ingredients`) | 9 | P0 | derived |
@@ -92,6 +94,7 @@
 | PIZZA TOPPINGS (`pizza_toppings`) | SOUP INGREDIENTS (`soup_ingredients`) | 8 | P0 | derived |
 | SALAD INGREDIENTS (`salad_ingredients`) | SOUP INGREDIENTS (`soup_ingredients`) | 8 | P0 | derived |
 | SEAFOOD (`seafood`) | SHELLFISH (`shellfish`) | 8 | P0 | derived |
+| SLEEP ACTIONS (`sleeping_actions`) | SLEEP WORDS (`sleep_and_rest`) | 8 | P0 | derived |
 | SOUTHERN CITIES (`southern_cities`) | US CITIES (`us_cities`) | 8 | P0 | derived |
 | SPACE OBJECTS (`space_objects`) | SOLAR SYSTEM (`solar_system_words`) | 8 | P0 | derived |
 | TALE CHARACTERS (`storybook_characters`) | MAGICAL BEINGS (`magic_creatures`) | 8 | P0 | derived |
@@ -106,7 +109,9 @@
 | ART CLASS (`art_class_things`) | PAINTING SUPPLIES (`painting_supplies`) | 7 | P1 | derived |
 | BIBLE BOOKS (`bible_books`) | BIBLICAL NAMES (`biblical_names`) | 7 | P1 | derived |
 | BUILDING ACTIONS (`building_actions`) | HOME REPAIR (`sewing_and_repair`) | 7 | P1 | derived |
+| CONDIMENTS (`condiments`) | SAUCES (`sauces`) | 7 | P1 | derived |
 | FARM CROPS (`crops`) | GRASSES (`grasses`) | 7 | P1 | derived |
+| MORE ELEMENTS (`elements_more`) | METALS (`metals`) | 7 | P1 | derived |
 | EXTINCT ANIMALS (`extinct_animals`) | DINOSAURS (`dinosaurs`) | 7 | P0 | derived |
 | FARM BUILDINGS (`farm_buildings`) | FARM THINGS (`things_on_a_farm`) | 7 | P1 | derived |
 | FARM JOBS (`farm_jobs`) | JOBS WITH ANIMALS (`jobs_with_animals`) | 7 | P1 | derived |
@@ -130,7 +135,6 @@
 | SANDWICH FILLINGS (`sandwich_fillings`) | MEATS (`meats`) | 7 | P1 | derived |
 | SCULPTURE MATERIALS (`sculpture_materials`) | BUILDING MATERIALS (`building_materials`) | 7 | P1 | derived |
 | SCULPTURE MATERIALS (`sculpture_materials`) | HARD THINGS (`hard_things`) | 7 | P1 | derived |
-| SEWING WORDS (`sewing_words`) | SEWING SUPPLIES (`sewing_supplies`) | 7 | P1 | derived |
 | SEWING WORDS (`sewing_words`) | TAILOR SHOP (`tailor_words`) | 7 | P1 | derived |
 | SHELLFISH (`shellfish`) | SEASHELLS (`shells`) | 7 | P1 | derived |
 | SOUPS AND STEWS (`soups`) | WORLD SOUPS (`world_soups`) | 7 | P0 | derived |
@@ -151,7 +155,6 @@
 | CLEANING TOOLS (`cleaning_tools`) | JANITORIAL WORDS (`cleaning_trade`) | 6 | P1 | derived |
 | SKY WORDS (`cloud_and_sky`) | SPACE OBJECTS (`space_objects`) | 6 | P1 | derived |
 | DENTIST THINGS (`dentist_things`) | DENTAL WORDS (`dental_words`) | 6 | P1 | derived |
-| MORE ELEMENTS (`elements_more`) | METALS (`metals`) | 6 | P1 | derived |
 | EXTINCT ANIMALS (`extinct_animals`) | PREHISTORIC ANIMALS (`extinct_and_prehistoric`) | 6 | P1 | derived |
 | FARM ANIMALS (`farm_animals`) | POULTRY (`farm_bird_words`) | 6 | P1 | derived |
 | FRUITS (`fruits`) | ICE CREAM (`ice_cream_flavors`) | 6 | P1 | derived |
@@ -164,6 +167,9 @@
 | IRRIGATION THINGS (`irrigation`) | WATER FEATURES (`body_of_water_types`) | 6 | P1 | derived |
 | ISLANDS (`islands`) | ISLAND NATIONS (`island_nations`) | 6 | P1 | derived |
 | LANDFORMS (`landforms`) | MOUNTAIN THINGS (`mountain_things`) | 6 | P1 | derived |
+| MEDICAL TOOLS (`medical_tools`) | FIRST AID (`first_aid`) | 6 | P1 | derived |
+| MONEY WORDS (`money_words`) | BANKING WORDS (`banking_words`) | 6 | P1 | derived |
+| MONEY WORDS (`money_words`) | US MONEY (`coins_and_bills`) | 6 | P1 | derived |
 | MOVIE GENRES (`movie_genres`) | BOOK GENRES (`book_genres`) | 6 | P1 | derived |
 | MUSICAL INSTRUMENTS (`musical_instruments`) | THINGS WITH STRINGS (`instruments_you_strum`) | 6 | P1 | derived |
 | NAME SHORTENINGS (`nicknames_for_names`) | NICKNAMES (`nicknames`) | 6 | P1 | derived |
@@ -187,7 +193,6 @@
 | HOME REPAIR (`sewing_and_repair`) | FASTENERS (`fasteners`) | 6 | P1 | derived |
 | HOME REPAIR (`sewing_and_repair`) | TOOLBOX THINGS (`things_in_a_toolbox`) | 6 | P1 | derived |
 | SEWING WORDS (`sewing_words`) | GARMENT DETAILS (`sewing_patterns`) | 6 | P1 | derived |
-| SLEEP ACTIONS (`sleeping_actions`) | SLEEP WORDS (`sleep_and_rest`) | 6 | P1 | derived |
 | CONTAINERS (`storage_containers`) | TOOL STORAGE (`boxes_and_cases`) | 6 | P1 | derived |
 | TOOLBOX THINGS (`things_in_a_toolbox`) | HAND TOOLS (`hand_tools`) | 6 | P1 | derived |
 | PAPER THINGS (`things_made_of_paper`) | TRASH ITEMS (`things_you_recycle`) | 6 | P1 | derived |
@@ -198,7 +203,10 @@
 | TREE PARTS (`tree_parts`) | CONIFER WORDS (`pine_and_cones`) | 6 | P1 | derived |
 | UNDERGROUND THINGS (`underground_things`) | UNDERGROUND PLACES (`underground_places`) | 6 | P1 | derived |
 | US CITIES (`us_cities`) | STATE CAPITALS (`state_capitals`) | 6 | P1 | derived |
+| VEHICLES (`vehicles`) | WORLD TRANSPORT (`world_transport`) | 6 | P1 | derived |
 | WATER SPORTS (`water_sports`) | OUTDOOR ACTIVITIES (`camping_and_outdoors`) | 6 | P1 | derived |
+| FORMS OF WATER (`water_states`) | STATES OF MATTER (`states_of_matter`) | 6 | P1 | derived |
+| WORLD CAPITALS (`world_capitals`) | WORLD CITIES (`world_cities`) | 6 | P1 | derived |
 | WORLD DANCES (`world_dances`) | DANCE STYLES (`dance_styles`) | 6 | P1 | derived |
 | LAKES (`world_lakes`) | US WATERS (`great_lakes_and_us_water`) | 6 | P1 | derived |
 | AFRICAN ANIMALS (`african_animals`) | GRAZING ANIMALS (`antelope_and_grazers`) | 5 | P1 | derived |
@@ -215,15 +223,8 @@
 | BATHROOM ITEMS (`bathroom_items`) | BARBERSHOP WORDS (`barbershop_words`) | 5 | P1 | derived |
 | BEAUTY TOOLS (`beauty_tools`) | BATHROOM ITEMS (`bathroom_items`) | 5 | P1 | derived |
 | BIBLICAL NAMES (`biblical_names`) | BIBLE FIGURES (`bible_figures`) | 5 | P1 | derived |
-| BIBLICAL NAMES (`biblical_names`) | BOYS NAMES (`boys_names`) | 5 | P1 | derived |
-| BIRDS (`birds`) | POULTRY (`farm_bird_words`) | 5 | P1 | derived |
-| BODIES OF WATER (`bodies_of_water`) | SHORE FEATURES (`ocean_zones`) | 5 | P1 | derived |
-| BODY MOVEMENTS (`body_movements`) | BODY LANGUAGE (`body_language`) | 5 | P1 | derived |
-| BOYS NAMES (`boys_names`) | BIBLE FIGURES (`bible_figures`) | 5 | P1 | derived |
-| BREAKFAST FOODS (`breakfast_foods`) | BREAD TYPES (`bread_types`) | 5 | P1 | derived |
-| BUSINESS WORDS (`business_words`) | ACCOUNTING WORDS (`accounting_words`) | 5 | P1 | derived |
 
-Показано 200 из 517. Полный список — в базе, таблица `category_conflicts`.
+Показано 200 из 567. Полный список — в базе, таблица `category_conflicts`.
 
 Самое крупное пересечение:
 
@@ -257,7 +258,7 @@ solver подтвердил: этих четырёх слов нет целик�
 
 | review_state | solver_state | четвёрок |
 |---|---|---|
-| auto_validated | unique | 3006 |
+| auto_validated | unique | 3200 |
 
 `auto_validated` значит «solver прошёл, человек не смотрел». Статус
 `human_approved` ставится только вручную — это и есть следующий шаг ревью.

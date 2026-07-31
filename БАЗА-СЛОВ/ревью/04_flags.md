@@ -2,7 +2,7 @@
 
 Все разделы полные. Где показана часть строк, под таблицей сказано, сколько всего.
 
-## 1. Редкие слова (572)
+## 1. Редкие слова (583)
 
 Частотность ниже 0.3 по шкале wordfreq. Формально связи верны,
 но слово может быть незнакомо среднему американцу. Частотность измеряет
@@ -36,12 +36,14 @@
 | timpanist | 0.166 |
 | hornwort | 0.167 |
 | timeclock | 0.167 |
+| toolbelt | 0.167 |
 | crustose | 0.169 |
 | meeple | 0.169 |
 | cremini | 0.170 |
 | ushanka | 0.170 |
 | foliose | 0.173 |
 | frisee | 0.173 |
+| griptape | 0.173 |
 | zester | 0.173 |
 | bresaola | 0.174 |
 | margay | 0.176 |
@@ -56,6 +58,7 @@
 | parcheesi | 0.183 |
 | OHare | 0.184 |
 | espadrille | 0.187 |
+| aglet | 0.189 |
 | labneh | 0.189 |
 | Triscuit | 0.189 |
 | Talenti | 0.190 |
@@ -224,6 +227,7 @@
 | cummerbund | 0.246 |
 | dirndl | 0.246 |
 | KeyBank | 0.246 |
+| outsole | 0.246 |
 | Reeses | 0.246 |
 | boysenberry | 0.247 |
 | herbes de provence | 0.247 |
@@ -270,6 +274,7 @@
 | Juneteenth | 0.254 |
 | lamplighter | 0.254 |
 | sunbird | 0.254 |
+| zebu | 0.254 |
 | cancan | 0.256 |
 | chickweed | 0.256 |
 | Daguerre | 0.256 |
@@ -406,15 +411,10 @@
 | spectacled bear | 0.276 |
 | azurite | 0.277 |
 | bifocals | 0.277 |
-| crouton | 0.277 |
-| delphinium | 0.277 |
-| esthetician | 0.277 |
-| glovebox | 0.277 |
-| hanbok | 0.277 |
 
-Показано 400 строк из 572. Полный список — в `05_memberships.csv` и `07_readiness_and_conflicts.md`.
+Показано 400 строк из 583. Полный список — в `05_memberships.csv` и `07_readiness_and_conflicts.md`.
 
-## 2. Слова без частотности (26)
+## 2. Слова без частотности (28)
 
 Частотность посчитать не удалось: `wordfreq` не знает слова. Такие связи
 автоматически закрыты в `candidate` и в игру не идут — это исправление по аудиту,
@@ -439,6 +439,8 @@
 | harira | WORLD SOUPS (`world_soups`) | candidate |
 | jaguarundi | SMALL CATS (`wild_cats_small`) | candidate |
 | jutti | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) | candidate |
+| kilnfire | POTTERY STUDIO (`pottery_studio`) | candidate |
+| nailfile | NAIL SALON (`nail_salon`) | candidate |
 | papadum | INDIAN DISHES (`indian_dishes`) | candidate |
 | scorepad | GAME PIECES (`board_game_pieces`) | candidate |
 | screwgun | HAND TOOLS (`hand_tools`) | candidate |
@@ -457,7 +459,7 @@
 
 F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba ganoush, bloodworm, bresaola, cacio e pepe, caecilian, capicola, casaba, castelvetrano, chiffonade, chile relleno, cremini, crustose, cutman, degu, elver, espadrille, fattoush, flambe, foliose, frigatebird, frisee, harvestman, hornwort, kufi, labneh, leveret, liverwort, margay, marionberry, meeple, mesclun, months, moons, mudpuppy, muffuletta, mukluk, mulligatawny, numbat, otoscope, panpipe, parcheesi, patatas bravas, poult, ritardando, rotini, sepak takraw, shishito, shoat, taramasalata, teas, timeclock, timpanist, ushanka, zester
 
-## 4. Тонкие категории (96)
+## 4. Тонкие категории (250)
 
 Меньше 12 играбельных слов. Часть конечна по природе (сезонов правда
 четыре), часть просто недобрана. Колонка readiness показывает, что с этим сделал
@@ -465,39 +467,194 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 
 | категория | играбельных слов | readiness |
 |---|---|---|
+| NAIL SALON (`nail_salon`) | 3 | blocked |
+| ANTIQUE SHOP (`antique_shop`) | 4 | constrained |
+| AUDITIONS (`auditions`) | 4 | constrained |
+| BARBERSHOP (`barbershop`) | 4 | constrained |
+| BARISTA WORDS (`barista_words`) | 4 | constrained |
+| BEEKEEPER (`beekeeper`) | 4 | constrained |
+| BILLIARDS (`billiards`) | 4 | constrained |
+| CANDLE MAKING (`candle_making`) | 4 | constrained |
+| CARD SUITS (`card_suits`) | 4 | constrained |
+| CIRCUS RING (`circus_ring`) | 4 | constrained |
+| CLOCKWORK (`clockwork`) | 4 | constrained |
+| CLOUD TYPES (`cloud_types`) | 4 | constrained |
+| FROG POND (`frog_pond`) | 4 | constrained |
+| GARDEN SHED (`garden_shed`) | 4 | constrained |
+| GOLD RUSH (`gold_rush`) | 4 | constrained |
+| HANDYMAN (`handyman`) | 4 | constrained |
+| HERO HQ (`hero_hq`) | 4 | constrained |
+| MARATHON DAY (`marathon_day`) | 4 | constrained |
+| ON THE SKYLINE (`on_the_skyline`) | 4 | constrained |
+| PARTS OF THE AMERICAS (`parts_of_the_americas`) | 4 | constrained |
+| PIRATE COVE (`pirate_cove`) | 4 | constrained |
+| PLUMBER VISIT (`plumber_visit`) | 4 | constrained |
+| POTTERY STUDIO (`pottery_studio`) | 4 | constrained |
+| RADIO STATION (`radio_station`) | 4 | constrained |
+| RETRO MUSIC (`retro_music`) | 4 | constrained |
+| SCRAPBOOKING (`scrapbooking`) | 4 | constrained |
+| SCULPTORS STUDIO (`sculptors_studio`) | 4 | constrained |
+| SEISMOLOGY (`seismology`) | 4 | constrained |
+| SET SAIL (`set_sail`) | 4 | constrained |
+| STREET ART (`street_art`) | 4 | constrained |
+| SUBMARINE DUTY (`submarine_duty`) | 4 | constrained |
+| THE HEIST (`the_heist`) | 4 | constrained |
+| UFO SIGHTING (`ufo_sighting`) | 4 | constrained |
+| VET CLINIC (`vet_clinic`) | 4 | constrained |
+| WINTER CABIN (`winter_cabin`) | 4 | constrained |
+| WIZARD TOWER (`wizard_tower`) | 4 | constrained |
+| ZOO VISIT (`zoo_visit`) | 4 | constrained |
+| ARCTIC TREK (`arctic_trek`) | 5 | constrained |
+| AT THE DENTIST (`at_the_dentist`) | 5 | constrained |
+| BAKE OFF (`bake_off`) | 5 | constrained |
+| BALLET CLASS (`ballet_class`) | 5 | constrained |
+| BOXING GYM (`boxing_gym`) | 5 | constrained |
+| BUTTERFLY LIFE (`butterfly_life`) | 5 | constrained |
+| CALLIGRAPHY (`calligraphy`) | 5 | constrained |
+| CARPENTER (`carpenter`) | 5 | constrained |
+| CHEMISTRY LAB (`chemistry_lab`) | 5 | constrained |
+| CLIMBING WALL (`climbing_wall`) | 5 | constrained |
+| DEEP COSMOS (`deep_cosmos`) | 5 | constrained |
+| ELECTION DAY (`election_day`) | 5 | constrained |
+| FAIRY TALE (`fairy_tale`) | 5 | constrained |
+| FARMERS MARKET (`farmers_market`) | 5 | constrained |
+| GREEK MYTHS (`greek_myths`) | 5 | constrained |
+| HAUNTED HOUSE (`haunted_house`) | 5 | constrained |
+| HIGHLANDS (`highlands`) | 5 | constrained |
+| KNOT TYING (`knot_tying`) | 5 | constrained |
+| MUSEUM HALL (`museum_hall`) | 5 | constrained |
+| NEWSROOM (`newsroom`) | 5 | constrained |
+| RAINFOREST (`rainforest`) | 5 | constrained |
+| RODEO (`rodeo`) | 5 | constrained |
 | SEASONS (`seasons`) | 5 | constrained |
+| SPA DAY (`spa_day`) | 5 | constrained |
+| SPACE STATION (`space_station`) | 5 | constrained |
+| SPY MISSION (`spy_mission`) | 5 | constrained |
+| SUPERMARKET (`supermarket`) | 5 | constrained |
+| TEA CEREMONY (`tea_ceremony`) | 5 | constrained |
+| TRADING FLOOR (`trading_floor`) | 5 | constrained |
+| VIKINGS (`vikings`) | 5 | constrained |
+| VOLCANO WATCH (`volcano_watch`) | 5 | constrained |
+| WEAVING (`weaving`) | 5 | constrained |
+| WHALE WATCH (`whale_watch`) | 5 | constrained |
+| ANCIENT GREECE IDEAS (`ancient_greece_ideas`) | 6 | constrained |
+| ANIMAL CLASSES (`animal_classes`) | 6 | constrained |
+| AT THE DOJO (`at_the_dojo`) | 6 | constrained |
+| AT THE HARBOR (`at_the_harbor`) | 6 | constrained |
+| AT THE THEATER (`at_the_theater`) | 6 | constrained |
+| BARBECUE (`barbecue`) | 6 | constrained |
+| BIRTHDAY PARTY (`birthday_party`) | 6 | constrained |
+| BLACKSMITH (`blacksmith`) | 6 | constrained |
+| BREATHING (`breathing`) | 6 | constrained |
+| CASTLE KEEP (`castle_keep`) | 6 | constrained |
+| CAT THINGS (`cat_things`) | 6 | constrained |
+| DARTS WORDS (`darts_words`) | 6 | constrained |
+| DETECTIVE WORK (`detective_work`) | 6 | constrained |
+| FACIAL CARE (`facial_care`) | 6 | constrained |
+| FOOD GROUPS (`food_groups`) | 6 | constrained |
+| HOME APPLIANCES (`home_appliances`) | 6 | constrained |
+| IN A BAND (`in_a_band`) | 6 | constrained |
+| IN A SALAD (`in_a_salad`) | 6 | constrained |
+| IN THE CLASSROOM (`in_the_classroom`) | 6 | constrained |
+| IN THE JUNGLE (`in_the_jungle`) | 6 | constrained |
+| ISLAND LUAU (`island_luau`) | 6 | constrained |
+| KINDS OF DOCTORS (`kinds_of_doctors`) | 6 | constrained |
+| LUMBER CAMP (`lumber_camp`) | 6 | constrained |
+| MEDIEVAL FAIR (`medieval_fair`) | 6 | constrained |
+| MORNING ROUTINE (`morning_routine`) | 6 | constrained |
 | MOSS & LICHEN (`mosses_and_lichens`) | 6 | hard_only |
+| NUTRIENTS (`nutrients`) | 6 | constrained |
+| OCEAN FLOOR (`ocean_floor`) | 6 | constrained |
+| ORCHESTRA WORDS (`orchestra_words`) | 6 | constrained |
+| PARTS OF A BIRD (`parts_of_a_bird`) | 6 | constrained |
+| POTIONS CLASS (`potions_class`) | 6 | constrained |
+| RAINY DAY GEAR (`rainy_day_gear`) | 6 | constrained |
+| RESTAURANT COURSES (`restaurant_courses`) | 6 | constrained |
+| SALTY SNACKS (`salty_snacks`) | 6 | constrained |
+| SELF CARE (`self_care`) | 6 | constrained |
+| SINGING VOICES (`singing_voices`) | 6 | constrained |
+| SKATE PARK (`skate_park`) | 6 | constrained |
+| SPRING SEASON (`spring_season`) | 6 | constrained |
+| SUMMER SEASON (`summer_season`) | 6 | constrained |
+| SUPPLEMENTS (`supplements`) | 6 | constrained |
+| SUSHI BAR (`sushi_bar`) | 6 | constrained |
+| TICKETS AND PASSES (`tickets_and_passes`) | 6 | constrained |
+| TIMEPIECES (`timepieces`) | 6 | constrained |
+| TYPES OF GUITARS (`types_of_guitars`) | 6 | constrained |
+| TYPES OF SOIL (`types_of_soil`) | 6 | constrained |
 | WEATHER REPORT (`weather_report`) | 6 | constrained |
+| WEIGHT UNITS (`weight_units`) | 6 | constrained |
+| WELLNESS (`wellness`) | 6 | constrained |
+| WILD CATTLE (`wild_cattle`) | 6 | constrained |
+| WINTER FUN (`winter_fun`) | 6 | constrained |
 | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) | 6 | hard_only |
 | AQUARIUM (`aquarium_tank`) | 7 | constrained |
+| AT THE GYM (`at_the_gym`) | 7 | constrained |
+| AT THE HOTEL (`at_the_hotel`) | 7 | constrained |
+| AT THE MOVIES (`at_the_movies`) | 7 | constrained |
+| AT THE POOL (`at_the_pool`) | 7 | constrained |
+| AT THE STABLES (`at_the_stables`) | 7 | constrained |
 | BEACH DAY (`beach_day`) | 7 | constrained |
+| BEDTIME THINGS (`bedtime_things`) | 7 | constrained |
 | BIRD WATCHING (`bird_watching`) | 7 | constrained |
 | COSTUME PARTY (`costume_party`) | 7 | constrained |
-| COURTROOM (`courtroom`) | 7 | constrained |
+| DEEP SPACE (`deep_space`) | 7 | constrained |
+| DOG THINGS (`dog_things`) | 7 | constrained |
+| EASTER (`easter`) | 7 | constrained |
 | EMERGENCY ROOM (`emergency_room`) | 7 | constrained |
+| EVERYDAY MATERIALS (`everyday_materials`) | 7 | constrained |
 | FARM (`farm_morning`) | 7 | constrained |
+| FEELING SICK (`feeling_sick`) | 7 | constrained |
+| FIRE AND SMOKE (`fire_and_smoke`) | 7 | constrained |
 | GARDEN CENTER (`garden_center`) | 7 | constrained |
+| GARDEN IN BLOOM (`garden_in_bloom`) | 7 | constrained |
+| GARDENING WORK (`gardening_work`) | 7 | constrained |
 | GEOGRAPHY CLASS (`geography_class`) | 7 | constrained |
+| GIANT ANIMALS (`giant_animals`) | 7 | constrained |
 | GREETING CARD (`greeting_card`) | 7 | constrained |
 | GROCERY AISLES (`grocery_aisles`) | 7 | constrained |
 | HALL OF FAME (`hall_of_fame`) | 7 | constrained |
 | HARDWARE STORE (`hardware_store`) | 7 | constrained |
 | JEWELRY BOX (`jewelry_box`) | 7 | constrained |
+| KINDS OF BOOKS (`kinds_of_books`) | 7 | constrained |
+| KINDS OF HUMOR (`kinds_of_humor`) | 7 | constrained |
+| KINDS OF PLANTS (`kinds_of_plants`) | 7 | constrained |
 | KITCHEN DRAWER (`kitchen_drawer`) | 7 | constrained |
+| LANDSCAPE (`landscape_features`) | 7 | constrained |
+| LAUNDRY DAY (`laundry_day`) | 7 | constrained |
 | MAP LEGEND (`map_legend`) | 7 | constrained |
+| MEALS OF THE DAY (`meals_of_the_day`) | 7 | constrained |
+| MEDICINES (`medicines`) | 7 | constrained |
 | NATURAL HISTORY MUSEUM (`natural_history_museum`) | 7 | constrained |
+| NATURAL WONDERS (`natural_wonders`) | 7 | constrained |
+| ON THE ROAD (`on_the_road`) | 7 | constrained |
+| PERSONALITY TRAITS (`personality_traits`) | 7 | constrained |
 | PET STORE (`pet_store`) | 7 | constrained |
+| PICNIC (`picnic`) | 7 | constrained |
 | PICNIC BASKET (`picnic_basket`) | 7 | constrained |
 | STARGAZING (`stargazing`) | 7 | constrained |
+| SWEETS (`sweets`) | 7 | constrained |
+| THE MIND (`the_mind`) | 7 | constrained |
 | TOY CHEST (`toy_chest`) | 7 | constrained |
 | TRAVEL ABROAD (`travel_abroad`) | 7 | constrained |
+| TUBES (`tubes`) | 7 | constrained |
+| UNDER LOCK (`under_lock`) | 7 | constrained |
 | WARDROBE (`wardrobe`) | 7 | constrained |
+| AT THE HOSPITAL (`at_the_hospital`) | 8 | constrained |
 | YOUNG ANIMALS (`baby_animal_words_more`) | 8 | hard_only |
+| BAKED GOODS (`baked_goods`) | 8 | constrained |
+| COMMON PROFESSIONS (`common_professions`) | 8 | constrained |
+| COUNTRIES (`countries`) | 8 | constrained |
 | DINNER PARTY (`dinner_party`) | 8 | constrained |
+| EMOTIONS (`emotions`) | 8 | constrained |
+| EVERYDAY DRINKS (`everyday_drinks`) | 8 | constrained |
 | FROZEN TREATS (`frozen_treat_brands`) | 8 | constrained |
 | HISTORIC DOCUMENTS (`historic_documents`) | 8 | constrained |
 | HOME DECOR (`home_decor`) | 8 | constrained |
+| LUNCH MENU (`lunch_menu`) | 8 | constrained |
+| PASTRIES (`pastries`) | 8 | constrained |
 | SCIENCE FAIR (`science_fair`) | 8 | constrained |
+| TABLE SETTING (`table_setting`) | 8 | constrained |
 | SMALL CATS (`wild_cats_small`) | 8 | constrained |
 | FOLK HEROES (`american_legends`) | 9 | constrained |
 | CHICKEN BREEDS (`farm_poultry_breeds`) | 9 | hard_only |
@@ -531,6 +688,7 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | BERRY VARIETIES (`berry_varieties`) | 11 | constrained |
 | BLADES (`blades`) | 11 | constrained |
 | COFFEE BRANDS (`coffee_brands`) | 11 | constrained |
+| COURTROOM (`courtroom`) | 11 | constrained |
 | CRUSTACEANS (`crustaceans`) | 11 | constrained |
 | DINOSAURS (`dinosaurs`) | 11 | constrained |
 | DRIVING SKILLS (`driving_skills`) | 11 | constrained |
@@ -543,12 +701,10 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | LIZARDS (`lizards`) | 11 | constrained |
 | MELONS & SQUASH (`melons_and_squash`) | 11 | constrained |
 | MIDDLE EASTERN (`middle_eastern_dishes`) | 11 | constrained |
-| MONTHS (`months`) | 11 | constrained |
 | MUSHROOM TYPES (`mushroom_types`) | 11 | constrained |
 | NORSE GODS (`norse_gods`) | 11 | constrained |
 | OLIVE TYPES (`olive_types`) | 11 | constrained |
 | HARDWARE BRANDS (`paint_and_home`) | 11 | constrained |
-| PASTA DISHES (`pasta_dishes`) | 11 | constrained |
 | SEA LEGENDS (`sea_myths`) | 11 | constrained |
 | SIGNALS AND CODES (`signals_and_codes`) | 11 | constrained |
 | SPACE PLACES (`space_agencies_and_places`) | 11 | constrained |
@@ -580,8 +736,8 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | ___ BERRY (`words_before_berry`) | 9 / 14 | constrained |
 | MUSHROOM TYPES (`mushroom_types`) | 7 / 11 | constrained |
 | YOUNG ANIMALS (`baby_animal_words_more`) | 5 / 8 | hard_only |
-| STARS (`bright_stars`) | 10 / 16 | constrained |
 | ___ BAG (`words_before_bag`) | 11 / 18 | constrained |
+| STARS (`bright_stars`) | 10 / 17 | constrained |
 | ___ GROUND (`words_before_ground`) | 8 / 14 | constrained |
 | ___ MASTER (`words_before_master`) | 8 / 14 | constrained |
 | WORLD INSTRUMENTS (`world_instruments`) | 8 / 14 | constrained |
@@ -592,7 +748,7 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | TRADITIONAL CLOTHING (`traditional_clothing`) | 8 / 15 | constrained |
 | TRADITIONAL DRINKS (`world_teas_and_drinks`) | 8 / 15 | constrained |
 
-## 6. Категории с меньше чем четырьмя approved (221)
+## 6. Категории с меньше чем четырьмя approved (248)
 
 Четвёрку из одних только очевидных связей не собрать — придётся брать ловушки
 `alternative`. Не ошибка сама по себе, но уровень будет сложнее задуманного.
@@ -718,6 +874,7 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | FISHING FLEET (`whaling_and_fishing`) | 0 | constrained |
 | SMALL CATS (`wild_cats_small`) | 0 | constrained |
 | WILD PLANTS (`wild_plants`) | 0 | constrained |
+| WINTER CABIN (`winter_cabin`) | 0 | constrained |
 | AIR ___ (`words_after_air`) | 0 | constrained |
 | BACK ___ (`words_after_back`) | 0 | constrained |
 | WORDS AFTER BOOK (`words_after_book`) | 0 | constrained |
@@ -765,6 +922,7 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | COLD PLACES (`cold_places`) | 1 | constrained |
 | KINDS OF FOREST (`forest_types`) | 1 | constrained |
 | FULLNESS WORDS (`fullness_words`) | 1 | constrained |
+| HANDYMAN (`handyman`) | 1 | constrained |
 | IRRIGATION THINGS (`irrigation`) | 1 | constrained |
 | THIN THINGS (`long_thin_things`) | 1 | constrained |
 | LOUD THINGS (`loud_things`) | 1 | constrained |
@@ -789,17 +947,23 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | UNDERGROUND PLACES (`underground_places`) | 1 | constrained |
 | UNDERGROUND THINGS (`underground_things`) | 1 | constrained |
 | ___ SAUCE (`words_before_sauce`) | 1 | constrained |
+| BARISTA WORDS (`barista_words`) | 2 | constrained |
 | BODY FLUIDS (`body_fluids`) | 2 | constrained |
 | CITY SOUNDS (`city_sounds`) | 2 | constrained |
+| CLIMBING WALL (`climbing_wall`) | 2 | constrained |
 | FAST THINGS (`fast_things`) | 2 | constrained |
 | FORTUNE TELLING (`fortune_telling`) | 2 | constrained |
+| FROG POND (`frog_pond`) | 2 | constrained |
 | AFTERLIFE WORDS (`heaven_and_afterlife`) | 2 | constrained |
 | HEAVY THINGS (`heavy_things`) | 2 | constrained |
 | HIGH PLACES (`high_places`) | 2 | constrained |
 | LIGHT THINGS (`light_things`) | 2 | constrained |
 | MAGIC PROPS (`magic_tricks`) | 2 | constrained |
+| NAIL SALON (`nail_salon`) | 2 | blocked |
 | FRAGRANCE WORDS (`perfume_words`) | 2 | constrained |
+| PIRATE COVE (`pirate_cove`) | 2 | constrained |
 | RIVER FEATURES (`river_features`) | 2 | constrained |
+| SKATE PARK (`skate_park`) | 2 | constrained |
 | SQUARE THINGS (`square_things`) | 2 | constrained |
 | THERAPY WORDS (`therapy_words`) | 2 | constrained |
 | GLOVE BOX (`things_in_a_glove_box`) | 2 | constrained |
@@ -808,18 +972,37 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | SHARP THINGS (`things_that_cut`) | 2 | constrained |
 | BODY GROWTHS (`things_that_grow_on_you`) | 2 | constrained |
 | RINGING THINGS (`things_that_ring`) | 2 | constrained |
+| WHALE WATCH (`whale_watch`) | 2 | constrained |
+| ANTIQUE SHOP (`antique_shop`) | 3 | constrained |
+| ARCTIC TREK (`arctic_trek`) | 3 | constrained |
+| AT THE DOJO (`at_the_dojo`) | 3 | constrained |
+| BALLET CLASS (`ballet_class`) | 3 | constrained |
+| BARBERSHOP (`barbershop`) | 3 | constrained |
+| BEEKEEPER (`beekeeper`) | 3 | constrained |
+| CHEMISTRY LAB (`chemistry_lab`) | 3 | constrained |
+| CIRCUS RING (`circus_ring`) | 3 | constrained |
 | COLD THINGS (`cold_things`) | 3 | constrained |
+| DEEP COSMOS (`deep_cosmos`) | 3 | constrained |
+| GOLD RUSH (`gold_rush`) | 3 | constrained |
 | HOT PLACES (`hot_places`) | 3 | constrained |
 | UNIFORMED JOBS (`jobs_that_wear_uniforms`) | 3 | constrained |
+| MUSEUM HALL (`museum_hall`) | 3 | constrained |
+| PLUMBER VISIT (`plumber_visit`) | 3 | constrained |
+| RAINFOREST (`rainforest`) | 3 | constrained |
 | RED THINGS (`red_things`) | 3 | constrained |
+| TEA CEREMONY (`tea_ceremony`) | 3 | constrained |
 | FRAGILE THINGS (`things_that_break`) | 3 | constrained |
 | FLOATING THINGS (`things_that_float`) | 3 | constrained |
 | GROWING THINGS (`things_that_grow`) | 3 | constrained |
 | WATER HOLDERS (`things_that_hold_water`) | 3 | constrained |
 | MELTING THINGS (`things_that_melt`) | 3 | constrained |
 | THINGS WITH BUTTONS (`things_with_buttons`) | 3 | constrained |
+| VET CLINIC (`vet_clinic`) | 3 | constrained |
+| VIKINGS (`vikings`) | 3 | constrained |
+| WIZARD TOWER (`wizard_tower`) | 3 | constrained |
 | WORLD INSTRUMENTS (`world_instruments`) | 3 | constrained |
 | YELLOW THINGS (`yellow_things`) | 3 | constrained |
+| ZOO VISIT (`zoo_visit`) | 3 | constrained |
 
 ## 7. Культурные и терминологические риски (18)
 

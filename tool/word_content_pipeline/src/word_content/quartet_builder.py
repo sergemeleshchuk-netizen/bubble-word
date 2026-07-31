@@ -134,7 +134,10 @@ def to_rows(built: list[BuiltQuartet]) -> list[dict[str, object]]:
             "tier": item.tier,
             "review_state": "auto_validated",
             "solver_state": "unique",
-            "difficulty": item.difficulty if item.difficulty is not None else "",
+            # None, а не "": эти же строки идут и в валидацию QuartetInput, а пустая
+            # строка не парсится как число — четвёрка молча уезжала в «пропущено».
+            # В CSV None всё равно печатается пустой ячейкой (csv.DictWriter).
+            "difficulty": item.difficulty,
             "words": " | ".join(item.words),
             "note": item.note,
         }

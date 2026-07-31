@@ -99,7 +99,7 @@
 | SOFT CREATURES (`jellyfish_and_soft`) | Правило субъективное: под «soft bodied sea creature» подходит слишком много морских беспозвоночных. |
 | OPPOSITES (`opposites`) | Правило парное: четвёрка обязана быть двумя полными парами противоположностей. |
 
-## 3. Категории, которые не собирают нормальную четвёрку (5)
+## 3. Категории, которые не собирают нормальную четвёрку (6)
 
 Пул есть, но он целиком или почти целиком `hard_only`: обычный уровень из такой
 категории не собрать. Нужно решение: добрать понятных слов или оставить категорию
@@ -107,13 +107,14 @@
 
 | категория | почему |
 |---|---|
+| NAIL SALON (`nail_salon`) | четвёрку не собрать: играбельных слов 3 из нужных 4 |
 | YOUNG ANIMALS (`baby_animal_words_more`) | нормальную четвёрку не собрать: слов уровня 3, весь остальной пул hard_only (5) |
 | CHICKEN BREEDS (`farm_poultry_breeds`) | нормальную четвёрку не собрать: слов уровня 3, весь остальной пул hard_only (6) |
 | FRENCH COOKING (`french_cooking_terms`) | нормальную четвёрку не собрать: слов уровня 1, весь остальной пул hard_only (11) |
 | MOSS & LICHEN (`mosses_and_lichens`) | нормальную четвёрку не собрать: слов уровня 3, весь остальной пул hard_only (3) |
 | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) | нормальную четвёрку не собрать: слов уровня 2, весь остальной пул hard_only (4) |
 
-## 4. Слова без частотности, закрытые в candidate (26)
+## 4. Слова без частотности, закрытые в candidate (28)
 
 `wordfreq` не знает этих слов, поэтому утверждать, что средний игрок их узнает,
 нельзя. Связи закрыты и в игру не идут. Решение по каждому: слово настоящее
@@ -137,6 +138,8 @@
 | harira | WORLD SOUPS (`world_soups`) |
 | jaguarundi | SMALL CATS (`wild_cats_small`) |
 | jutti | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) |
+| kilnfire | POTTERY STUDIO (`pottery_studio`) |
+| nailfile | NAIL SALON (`nail_salon`) |
 | papadum | INDIAN DISHES (`indian_dishes`) |
 | scorepad | GAME PIECES (`board_game_pieces`) |
 | screwgun | HAND TOOLS (`hand_tools`) |

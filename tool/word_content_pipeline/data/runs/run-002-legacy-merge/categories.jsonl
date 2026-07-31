@@ -1,0 +1,156 @@
+{"category_key": "parts_of_the_americas", "label": "PARTS OF THE AMERICAS", "rule": "A word that names a region when placed before America", "relation_type": "wordplay", "theme": "geography", "base_difficulty": 0.45}
+{"category_key": "ancient_greece_ideas", "label": "ANCIENT GREECE IDEAS", "rule": "An idea or institution that ancient Greece is remembered for", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.5}
+{"category_key": "animal_classes", "label": "ANIMAL CLASSES", "rule": "One of the broad classes animals are sorted into", "relation_type": "member_of_set", "theme": "species", "base_difficulty": 0.35}
+{"category_key": "antique_shop", "label": "ANTIQUE SHOP", "rule": "A word belonging to old objects sold as antiques", "relation_type": "associated_with", "theme": "places", "base_difficulty": 0.6}
+{"category_key": "arctic_trek", "label": "ARCTIC TREK", "rule": "Something met crossing the frozen Arctic", "relation_type": "found_in", "theme": "nature_more", "base_difficulty": 0.65}
+{"category_key": "auditions", "label": "AUDITIONS", "rule": "A word belonging to trying out for a part", "relation_type": "associated_with", "theme": "entertainment", "base_difficulty": 0.5}
+{"category_key": "bake_off", "label": "BAKE OFF", "rule": "A step or topping used in competitive baking", "relation_type": "used_in", "theme": "food_more", "base_difficulty": 0.55}
+{"category_key": "baked_goods", "label": "BAKED GOODS", "rule": "Something baked from dough or batter in an oven", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "ballet_class", "label": "BALLET CLASS", "rule": "A move, garment or fixture of a ballet class", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.6}
+{"category_key": "in_a_band", "label": "IN A BAND", "rule": "A part played by a member of a music band", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.4}
+{"category_key": "barbecue", "label": "BARBECUE", "rule": "Something you cook with or over at a barbecue", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.35}
+{"category_key": "barbershop", "label": "BARBERSHOP", "rule": "A person or product found in a barbershop", "relation_type": "found_in", "theme": "trades", "base_difficulty": 0.5}
+{"category_key": "barista_words", "label": "BARISTA WORDS", "rule": "A term a barista uses making coffee", "relation_type": "used_in", "theme": "jargon", "base_difficulty": 0.6}
+{"category_key": "bedtime_things", "label": "BEDTIME THINGS", "rule": "Something you associate with going to bed", "relation_type": "associated_with", "theme": "home", "base_difficulty": 0.25}
+{"category_key": "beekeeper", "label": "BEEKEEPER", "rule": "A place, product or tool of keeping bees", "relation_type": "used_in", "theme": "farming", "base_difficulty": 0.6}
+{"category_key": "billiards", "label": "BILLIARDS", "rule": "A term belonging to billiards and snooker", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.6}
+{"category_key": "parts_of_a_bird", "label": "PARTS OF A BIRD", "rule": "A body part belonging to a bird", "relation_type": "part_of", "theme": "body", "base_difficulty": 0.3}
+{"category_key": "birthday_party", "label": "BIRTHDAY PARTY", "rule": "Something you associate with a birthday party", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.25}
+{"category_key": "blacksmith", "label": "BLACKSMITH", "rule": "A tool, place or step of working metal by hand", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.6}
+{"category_key": "kinds_of_books", "label": "KINDS OF BOOKS", "rule": "A kind of book classed by how it is written", "relation_type": "is_a", "theme": "media", "base_difficulty": 0.4}
+{"category_key": "wild_cattle", "label": "WILD CATTLE", "rule": "A large hoofed animal of the cattle family", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.5}
+{"category_key": "boxing_gym", "label": "BOXING GYM", "rule": "A term or piece of kit used in boxing training", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.55}
+{"category_key": "breathing", "label": "BREATHING", "rule": "An act or substance belonging to breathing", "relation_type": "associated_with", "theme": "body", "base_difficulty": 0.35}
+{"category_key": "butterfly_life", "label": "BUTTERFLY LIFE", "rule": "A stage or thing in the life of a butterfly", "relation_type": "associated_with", "theme": "nature_species", "base_difficulty": 0.55}
+{"category_key": "calligraphy", "label": "CALLIGRAPHY", "rule": "A term belonging to fine handwriting", "relation_type": "associated_with", "theme": "art", "base_difficulty": 0.6}
+{"category_key": "candle_making", "label": "CANDLE MAKING", "rule": "A word belonging to making candles", "relation_type": "associated_with", "theme": "hobbies", "base_difficulty": 0.6}
+{"category_key": "card_suits", "label": "CARD SUITS", "rule": "One of the four suits in a deck of playing cards", "relation_type": "member_of_set", "theme": "hobbies", "base_difficulty": 0.25}
+{"category_key": "carpenter", "label": "CARPENTER", "rule": "A material, tool or joint used working wood", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.55}
+{"category_key": "castle_keep", "label": "CASTLE KEEP", "rule": "A word belonging to a castle and its defence", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.6}
+{"category_key": "cat_things", "label": "CAT THINGS", "rule": "Something you associate with keeping a cat", "relation_type": "associated_with", "theme": "animals", "base_difficulty": 0.3}
+{"category_key": "chemistry_lab", "label": "CHEMISTRY LAB", "rule": "A tool or method used in a chemistry lab", "relation_type": "used_in", "theme": "science", "base_difficulty": 0.65}
+{"category_key": "at_the_movies", "label": "AT THE MOVIES", "rule": "Something you meet at a cinema", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.35}
+{"category_key": "circus_ring", "label": "CIRCUS RING", "rule": "A circus act or prop beyond the obvious ones", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.6}
+{"category_key": "in_the_classroom", "label": "IN THE CLASSROOM", "rule": "A person, task or fixture found in a classroom", "relation_type": "found_in", "theme": "education", "base_difficulty": 0.3}
+{"category_key": "climbing_wall", "label": "CLIMBING WALL", "rule": "A term or piece of kit used in climbing", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.6}
+{"category_key": "clockwork", "label": "CLOCKWORK", "rule": "A word belonging to the workings of a clock", "relation_type": "associated_with", "theme": "technology", "base_difficulty": 0.6}
+{"category_key": "cloud_types", "label": "CLOUD TYPES", "rule": "A named type of cloud", "relation_type": "is_a", "theme": "nature_more", "base_difficulty": 0.6}
+{"category_key": "countries", "label": "COUNTRIES", "rule": "A country of the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.2}
+{"category_key": "table_setting", "label": "TABLE SETTING", "rule": "An item laid on the table for one person at a meal", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.2}
+{"category_key": "darts_words", "label": "DARTS WORDS", "rule": "A term or piece of equipment used in darts", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.45}
+{"category_key": "deep_cosmos", "label": "DEEP COSMOS", "rule": "An object or measure of the far cosmos", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.7}
+{"category_key": "at_the_dentist", "label": "AT THE DENTIST", "rule": "Something a dentist fits, treats or hands out", "relation_type": "found_in", "theme": "medicine", "base_difficulty": 0.45}
+{"category_key": "detective_work", "label": "DETECTIVE WORK", "rule": "Something a detective works with while solving a case", "relation_type": "used_in", "theme": "law", "base_difficulty": 0.45}
+{"category_key": "kinds_of_doctors", "label": "KINDS OF DOCTORS", "rule": "A doctor named for the field they specialise in", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45}
+{"category_key": "dog_things", "label": "DOG THINGS", "rule": "Something you associate with keeping a dog", "relation_type": "associated_with", "theme": "animals", "base_difficulty": 0.3}
+{"category_key": "at_the_dojo", "label": "AT THE DOJO", "rule": "A martial art or practice found in a dojo", "relation_type": "found_in", "theme": "sports_world", "base_difficulty": 0.6}
+{"category_key": "everyday_drinks", "label": "EVERYDAY DRINKS", "rule": "A common non alcoholic drink", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "easter", "label": "EASTER", "rule": "Something you associate with Easter", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.35}
+{"category_key": "election_day", "label": "ELECTION DAY", "rule": "A term belonging to a political election", "relation_type": "associated_with", "theme": "law", "base_difficulty": 0.6}
+{"category_key": "emotions", "label": "EMOTIONS", "rule": "A word naming or describing a feeling a person has", "relation_type": "associated_with", "theme": "people", "base_difficulty": 0.25}
+{"category_key": "facial_care", "label": "FACIAL CARE", "rule": "A product applied to the face to care for the skin", "relation_type": "used_for", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "fairy_tale", "label": "FAIRY TALE", "rule": "A character or object out of a fairy tale", "relation_type": "found_in", "theme": "culture", "base_difficulty": 0.5}
+{"category_key": "farmers_market", "label": "FARMERS MARKET", "rule": "Something you see at a farmers market", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.5}
+{"category_key": "lunch_menu", "label": "LUNCH MENU", "rule": "A quick hot dish ordered for lunch", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "fire_and_smoke", "label": "FIRE AND SMOKE", "rule": "Something given off by or belonging to a burning fire", "relation_type": "associated_with", "theme": "nature", "base_difficulty": 0.3}
+{"category_key": "food_groups", "label": "FOOD GROUPS", "rule": "One of the food groups a balanced diet is divided into", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.3}
+{"category_key": "frog_pond", "label": "FROG POND", "rule": "A word belonging to frogs and their pond", "relation_type": "associated_with", "theme": "nature_species", "base_difficulty": 0.55}
+{"category_key": "garden_in_bloom", "label": "GARDEN IN BLOOM", "rule": "A word belonging to a garden in bloom", "relation_type": "associated_with", "theme": "plants", "base_difficulty": 0.35}
+{"category_key": "garden_shed", "label": "GARDEN SHED", "rule": "A tool or material kept in a garden shed", "relation_type": "found_in", "theme": "tools", "base_difficulty": 0.5}
+{"category_key": "gardening_work", "label": "GARDENING WORK", "rule": "A task or tool belonging to working a garden", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.35}
+{"category_key": "gold_rush", "label": "GOLD RUSH", "rule": "A person or tool of the gold rush", "relation_type": "used_in", "theme": "history", "base_difficulty": 0.65}
+{"category_key": "greek_myths", "label": "GREEK MYTHS", "rule": "A creature or place from Greek mythology", "relation_type": "found_in", "theme": "mythology", "base_difficulty": 0.55}
+{"category_key": "types_of_guitars", "label": "TYPES OF GUITARS", "rule": "A kind of guitar or a close relative of the guitar", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.4}
+{"category_key": "at_the_gym", "label": "AT THE GYM", "rule": "A machine, weight or person found in a gym", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3}
+{"category_key": "handyman", "label": "HANDYMAN", "rule": "A tool or material a handyman carries", "relation_type": "used_in", "theme": "tools", "base_difficulty": 0.5}
+{"category_key": "at_the_harbor", "label": "AT THE HARBOR", "rule": "A structure or vessel found in a harbour", "relation_type": "found_in", "theme": "ocean", "base_difficulty": 0.4}
+{"category_key": "haunted_house", "label": "HAUNTED HOUSE", "rule": "A word belonging to ghost stories and hauntings", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6}
+{"category_key": "the_heist", "label": "THE HEIST", "rule": "A word belonging to robbing a place in a film", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.55}
+{"category_key": "hero_hq", "label": "HERO HQ", "rule": "A word belonging to comic book superheroes", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.6}
+{"category_key": "highlands", "label": "HIGHLANDS", "rule": "A word belonging to the Scottish Highlands", "relation_type": "associated_with", "theme": "world_more", "base_difficulty": 0.6}
+{"category_key": "home_appliances", "label": "HOME APPLIANCES", "rule": "A large electrical appliance kept in a home", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.3}
+{"category_key": "at_the_hospital", "label": "AT THE HOSPITAL", "rule": "Someone or something found in a hospital", "relation_type": "found_in", "theme": "medicine", "base_difficulty": 0.3}
+{"category_key": "at_the_hotel", "label": "AT THE HOTEL", "rule": "A place or service a guest meets at a hotel", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.4}
+{"category_key": "kinds_of_humor", "label": "KINDS OF HUMOR", "rule": "A form of humor or a way of being funny", "relation_type": "is_a", "theme": "culture", "base_difficulty": 0.45}
+{"category_key": "feeling_sick", "label": "FEELING SICK", "rule": "A symptom or minor illness a person complains of", "relation_type": "associated_with", "theme": "medicine", "base_difficulty": 0.3}
+{"category_key": "island_luau", "label": "ISLAND LUAU", "rule": "A word belonging to a Hawaiian island party", "relation_type": "associated_with", "theme": "world_more", "base_difficulty": 0.6}
+{"category_key": "in_the_jungle", "label": "IN THE JUNGLE", "rule": "Something found in a tropical jungle", "relation_type": "found_in", "theme": "nature", "base_difficulty": 0.4}
+{"category_key": "knot_tying", "label": "KNOT TYING", "rule": "A named knot or a way rope behaves", "relation_type": "associated_with", "theme": "skills", "base_difficulty": 0.6}
+{"category_key": "landscape_features", "label": "LANDSCAPE", "rule": "A natural feature seen in an open landscape", "relation_type": "found_in", "theme": "nature", "base_difficulty": 0.3}
+{"category_key": "giant_animals", "label": "GIANT ANIMALS", "rule": "An animal known for its very large size", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.3}
+{"category_key": "laundry_day", "label": "LAUNDRY DAY", "rule": "Something used or done when washing clothes", "relation_type": "used_in", "theme": "home", "base_difficulty": 0.35}
+{"category_key": "lumber_camp", "label": "LUMBER CAMP", "rule": "A person, tool or product of felling trees", "relation_type": "found_in", "theme": "trades", "base_difficulty": 0.55}
+{"category_key": "marathon_day", "label": "MARATHON DAY", "rule": "A word belonging to running a long distance race", "relation_type": "associated_with", "theme": "sports", "base_difficulty": 0.55}
+{"category_key": "everyday_materials", "label": "EVERYDAY MATERIALS", "rule": "A material everyday objects are made of", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.25}
+{"category_key": "meals_of_the_day", "label": "MEALS OF THE DAY", "rule": "A meal or course eaten at a set time of day", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "weight_units", "label": "WEIGHT UNITS", "rule": "A unit used to measure weight or mass", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.35}
+{"category_key": "medicines", "label": "MEDICINES", "rule": "A form in which medicine is given to a patient", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.4}
+{"category_key": "medieval_fair", "label": "MEDIEVAL FAIR", "rule": "A performer or event at a medieval fair", "relation_type": "found_in", "theme": "history", "base_difficulty": 0.6}
+{"category_key": "restaurant_courses", "label": "RESTAURANT COURSES", "rule": "A course listed in order on a restaurant menu", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.35}
+{"category_key": "the_mind", "label": "THE MIND", "rule": "A faculty or activity of the thinking mind", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.5}
+{"category_key": "morning_routine", "label": "MORNING ROUTINE", "rule": "Something a person does first thing in the morning", "relation_type": "associated_with", "theme": "people", "base_difficulty": 0.35}
+{"category_key": "museum_hall", "label": "MUSEUM HALL", "rule": "A display or person found in a museum hall", "relation_type": "found_in", "theme": "culture", "base_difficulty": 0.6}
+{"category_key": "nail_salon", "label": "NAIL SALON", "rule": "A tool or product used in a nail salon", "relation_type": "used_in", "theme": "fashion", "base_difficulty": 0.55}
+{"category_key": "natural_wonders", "label": "NATURAL WONDERS", "rule": "A large natural landform or body of water", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.3}
+{"category_key": "newsroom", "label": "NEWSROOM", "rule": "A person or item of a working newsroom", "relation_type": "found_in", "theme": "media", "base_difficulty": 0.55}
+{"category_key": "nutrients", "label": "NUTRIENTS", "rule": "A nutrient the body needs from food", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45}
+{"category_key": "ocean_floor", "label": "OCEAN FLOOR", "rule": "Something resting or growing on the ocean floor", "relation_type": "found_in", "theme": "ocean", "base_difficulty": 0.4}
+{"category_key": "orchestra_words", "label": "ORCHESTRA WORDS", "rule": "A term belonging to an orchestra and its music", "relation_type": "associated_with", "theme": "entertainment", "base_difficulty": 0.55}
+{"category_key": "pastries", "label": "PASTRIES", "rule": "A small sweet baked pastry sold in a bakery", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.35}
+{"category_key": "personality_traits", "label": "PERSONALITY TRAITS", "rule": "An adjective describing a person's character", "relation_type": "has_property", "theme": "descriptive", "base_difficulty": 0.3}
+{"category_key": "picnic", "label": "PICNIC", "rule": "Something you pack or spread out for a picnic", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.3}
+{"category_key": "pirate_cove", "label": "PIRATE COVE", "rule": "A word from pirate tales beyond the obvious ones", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6}
+{"category_key": "kinds_of_plants", "label": "KINDS OF PLANTS", "rule": "A broad kind of plant that grows from the ground", "relation_type": "is_a", "theme": "plants", "base_difficulty": 0.25}
+{"category_key": "plumber_visit", "label": "PLUMBER VISIT", "rule": "Something a plumber works with or on", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.55}
+{"category_key": "potions_class", "label": "POTIONS CLASS", "rule": "A word belonging to brewing magic potions", "relation_type": "associated_with", "theme": "mythology", "base_difficulty": 0.6}
+{"category_key": "pottery_studio", "label": "POTTERY STUDIO", "rule": "A material or ware made in a pottery studio", "relation_type": "found_in", "theme": "art", "base_difficulty": 0.6}
+{"category_key": "common_professions", "label": "COMMON PROFESSIONS", "rule": "A common job a person does for a living", "relation_type": "is_a", "theme": "jobs", "base_difficulty": 0.2}
+{"category_key": "radio_station", "label": "RADIO STATION", "rule": "A term belonging to radio broadcasting", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.6}
+{"category_key": "rainy_day_gear", "label": "RAINY DAY GEAR", "rule": "Something you wear or meet on a rainy day", "relation_type": "used_in", "theme": "clothing", "base_difficulty": 0.3}
+{"category_key": "rainforest", "label": "RAINFOREST", "rule": "A plant, animal or layer of the rainforest", "relation_type": "found_in", "theme": "nature_more", "base_difficulty": 0.6}
+{"category_key": "retro_music", "label": "RETRO MUSIC", "rule": "A way music was played or carried before streaming", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.55}
+{"category_key": "on_the_road", "label": "ON THE ROAD", "rule": "Something a driver meets on the road", "relation_type": "found_in", "theme": "transport", "base_difficulty": 0.3}
+{"category_key": "rodeo", "label": "RODEO", "rule": "A person, animal or event of a rodeo", "relation_type": "found_in", "theme": "sports_world", "base_difficulty": 0.6}
+{"category_key": "set_sail", "label": "SET SAIL", "rule": "A part of a sailing boat above the deck", "relation_type": "part_of", "theme": "ocean", "base_difficulty": 0.6}
+{"category_key": "in_a_salad", "label": "IN A SALAD", "rule": "An ingredient tossed into a green salad", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.3}
+{"category_key": "scrapbooking", "label": "SCRAPBOOKING", "rule": "A material or keepsake used making a scrapbook", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.6}
+{"category_key": "sculptors_studio", "label": "SCULPTORS STUDIO", "rule": "Something a sculptor makes or mounts work on", "relation_type": "used_in", "theme": "art", "base_difficulty": 0.65}
+{"category_key": "under_lock", "label": "UNDER LOCK", "rule": "Something used to lock things away or guard them", "relation_type": "used_for", "theme": "tools", "base_difficulty": 0.35}
+{"category_key": "seismology", "label": "SEISMOLOGY", "rule": "A term used measuring earthquakes", "relation_type": "used_in", "theme": "science", "base_difficulty": 0.7}
+{"category_key": "self_care", "label": "SELF CARE", "rule": "A way people look after their appearance and body", "relation_type": "associated_with", "theme": "fashion", "base_difficulty": 0.4}
+{"category_key": "singing_voices", "label": "SINGING VOICES", "rule": "A named singing range or singing group", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.45}
+{"category_key": "skate_park", "label": "SKATE PARK", "rule": "A ramp or piece of kit found at a skate park", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.6}
+{"category_key": "on_the_skyline", "label": "ON THE SKYLINE", "rule": "A tall structure that stands out on a skyline", "relation_type": "is_a", "theme": "landmarks", "base_difficulty": 0.65}
+{"category_key": "salty_snacks", "label": "SALTY SNACKS", "rule": "A salty snack eaten from a packet or bowl", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.3}
+{"category_key": "types_of_soil", "label": "TYPES OF SOIL", "rule": "A type of soil or ground classed by what it is made of", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.5}
+{"category_key": "spa_day", "label": "SPA DAY", "rule": "A treatment or fixture of a day at the spa", "relation_type": "found_in", "theme": "fashion", "base_difficulty": 0.55}
+{"category_key": "deep_space", "label": "DEEP SPACE", "rule": "An object seen in deep space beyond the earth", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.35}
+{"category_key": "space_station", "label": "SPACE STATION", "rule": "A part of a space station or a task done aboard it", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.6}
+{"category_key": "spring_season", "label": "SPRING SEASON", "rule": "Something you associate with the spring season", "relation_type": "associated_with", "theme": "time", "base_difficulty": 0.35}
+{"category_key": "spy_mission", "label": "SPY MISSION", "rule": "A trick or item used by a spy", "relation_type": "used_in", "theme": "media", "base_difficulty": 0.6}
+{"category_key": "at_the_stables", "label": "AT THE STABLES", "rule": "A piece of tack, animal or fixture found at stables", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.5}
+{"category_key": "street_art", "label": "STREET ART", "rule": "A form or technique of street art", "relation_type": "is_a", "theme": "art", "base_difficulty": 0.55}
+{"category_key": "submarine_duty", "label": "SUBMARINE DUTY", "rule": "A word belonging to serving aboard a submarine", "relation_type": "associated_with", "theme": "ocean", "base_difficulty": 0.65}
+{"category_key": "summer_season", "label": "SUMMER SEASON", "rule": "Something you associate with the summer season", "relation_type": "associated_with", "theme": "time", "base_difficulty": 0.3}
+{"category_key": "supermarket", "label": "SUPERMARKET", "rule": "A fixture or worker found in a supermarket", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.45}
+{"category_key": "supplements", "label": "SUPPLEMENTS", "rule": "A substance sold as a dietary or beauty supplement", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.5}
+{"category_key": "sushi_bar", "label": "SUSHI BAR", "rule": "A dish or utensil served at a sushi bar", "relation_type": "found_in", "theme": "world_food", "base_difficulty": 0.55}
+{"category_key": "sweets", "label": "SWEETS", "rule": "A sweet treat eaten as a snack", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2}
+{"category_key": "at_the_pool", "label": "AT THE POOL", "rule": "Something you find at a swimming pool", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3}
+{"category_key": "tea_ceremony", "label": "TEA CEREMONY", "rule": "A vessel, leaf or step of making tea properly", "relation_type": "used_in", "theme": "world_more", "base_difficulty": 0.55}
+{"category_key": "at_the_theater", "label": "AT THE THEATER", "rule": "A part of a theatre or the people in it", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.35}
+{"category_key": "tickets_and_passes", "label": "TICKETS AND PASSES", "rule": "A word belonging to paying to enter or travel", "relation_type": "associated_with", "theme": "business", "base_difficulty": 0.45}
+{"category_key": "timepieces", "label": "TIMEPIECES", "rule": "A device that measures or shows the passing of time", "relation_type": "used_for", "theme": "technology", "base_difficulty": 0.4}
+{"category_key": "trading_floor", "label": "TRADING FLOOR", "rule": "A term used trading shares", "relation_type": "used_in", "theme": "business", "base_difficulty": 0.65}
+{"category_key": "tubes", "label": "TUBES", "rule": "A hollow tube that something flows through", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.4}
+{"category_key": "ufo_sighting", "label": "UFO SIGHTING", "rule": "A word belonging to stories of flying saucers", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6}
+{"category_key": "vet_clinic", "label": "VET CLINIC", "rule": "A procedure or item used treating animals", "relation_type": "used_in", "theme": "medicine", "base_difficulty": 0.55}
+{"category_key": "vikings", "label": "VIKINGS", "rule": "A word belonging to the Vikings and their world", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.6}
+{"category_key": "volcano_watch", "label": "VOLCANO WATCH", "rule": "A term used describing a volcano", "relation_type": "associated_with", "theme": "nature_more", "base_difficulty": 0.65}
+{"category_key": "weaving", "label": "WEAVING", "rule": "A tool, worker or product of weaving cloth", "relation_type": "used_in", "theme": "skills", "base_difficulty": 0.6}
+{"category_key": "wellness", "label": "WELLNESS", "rule": "A practice people take up to feel healthier", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45}
+{"category_key": "whale_watch", "label": "WHALE WATCH", "rule": "A word belonging to whales and watching them", "relation_type": "associated_with", "theme": "ocean", "base_difficulty": 0.6}
+{"category_key": "winter_cabin", "label": "WINTER CABIN", "rule": "Something warm you wear or use in deep winter", "relation_type": "used_in", "theme": "clothing", "base_difficulty": 0.6}
+{"category_key": "winter_fun", "label": "WINTER FUN", "rule": "Something you play with or wear for fun in the snow", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.3}
+{"category_key": "wizard_tower", "label": "WIZARD TOWER", "rule": "A word belonging to wizards and spellcasting", "relation_type": "associated_with", "theme": "mythology", "base_difficulty": 0.6}
+{"category_key": "zoo_visit", "label": "ZOO VISIT", "rule": "A person, place or activity at a zoo", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.45}

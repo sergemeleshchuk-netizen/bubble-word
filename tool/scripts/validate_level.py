@@ -18,10 +18,22 @@ BLOCKLIST = ROOT / "tool" / "data" / "blocklist.txt"
 
 
 def load_base():
+    """Пулы категорий, доступные и по нынешнему ключу, и по прежним именам.
+
+    Сданные пакеты (etalon, volume1, volume2, демо) ссылаются на id
+    допайплайновой базы: `ages`, `cities`, `gems`. В SQLite те же категории
+    называются иначе (`life_stages`, `world_cities`, `gemstones`), поэтому
+    выгрузка несёт прежние имена в `legacy_ids`, и валидатор их принимает.
+    Без этого уровни сданных пакетов выглядели бы как ссылки на несуществующие
+    категории.
+    """
     data = json.loads(BASE.read_text())
     cats = {}
     for c in data["categories"]:
-        cats[c["id"]] = {w["w"] for w in c["words"]}
+        pool = {w["w"] for w in c["words"]}
+        cats[c["id"]] = pool
+        for legacy_id in c.get("legacy_ids", ()):
+            cats.setdefault(legacy_id, pool)
     return cats
 
 

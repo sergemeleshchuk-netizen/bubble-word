@@ -3,10 +3,8 @@
 
 Зачем этот файл существует. Скиллы `level-generator`, `word-associations-generator`
 и скрипты `assemble_pack.py`, `validate_level.py`, `eval_metrics.py` читают
-`tool/data/categories.json` — курированную базу на 306 категорий и 1751 слово.
-Настоящая база живёт в SQLite (1120 категорий, 10112 слов, прошла внешний аудит),
-и до этого скрипта они друг о друге не знали: большая база работала только на
-веб-инструмент, а скиллы собирали уровни из маленькой.
+`tool/data/categories.json`. Настоящая база живёт в SQLite и одна — этот скрипт
+её выгружает в формат, к которому привыкли потребители.
 
 Формат выхода — ровно тот же, что был у `build_base.py`, чтобы ни один потребитель
 не пришлось переписывать:
@@ -19,11 +17,15 @@
     readiness   готовность категории из базы: ready | constrained | …
     conflicts   категории, которые НЕЛЬЗЯ ставить на один уровень с этой
     alt         слова со статусом alternative — материал для ловушек, не для дома
-    source      db | legacy
+    source      всегда db: второго слоя в выгрузке больше нет
+    legacy_ids  прежние id этой категории, если они были
+    aliases     в корне: карта «прежний id -> нынешний ключ»
 
-Про legacy. Категории прежней базы, которых в SQLite нет, переносятся как есть
-с `source: legacy`. Иначе сданные пакеты (etalon, volume1, volume2) перестали бы
-проверяться валидатором: их уровни ссылаются на прежние id категорий.
+Про прежние id. Сданные пакеты (etalon, volume1, volume2, демо) ссылаются на id
+допайплайновой базы. Раньше ради них в выгрузку подмешивали сами те категории, и
+в файле жили два слоя качества — проверенный и никакой. Теперь их содержимое
+втянуто в SQLite (прогон run-002-legacy-merge), а старые имена разрешаются через
+`aliases` и `legacy_ids`.
 
 Запуск:  python3 tool/scripts/export_base_json.py [--db путь] [--out путь]
 """
@@ -39,9 +41,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DB = ROOT / "tool" / "word_content_pipeline" / "database" / "content.sqlite"
-DB_FALLBACK = ROOT / "БАЗА-СЛОВ" / "база-слов.sqlite"
 OUT = ROOT / "tool" / "data" / "categories.json"
-LEGACY = ROOT / "tool" / "data" / "categories_legacy.json"
+ALIASES = ROOT / "tool" / "data" / "category_aliases.json"
 
 # Статусы, из которых собирается «дом» слова. alternative идёт отдельным полем:
 # это ловушка, а не дом, и складывать их в один пул нельзя — на этом ловится
@@ -54,10 +55,8 @@ def resolve_db(explicit: str | None) -> Path | None:
     if explicit:
         path = Path(explicit)
         return path if path.exists() else None
-    for candidate in (DB, DB_FALLBACK):
-        if candidate.exists():
-            return candidate
-    return None
+    # База одна и лежит в git; запасной путь на копию в БАЗА-СЛОВ убран.
+    return DB if DB.exists() else None
 
 
 def connect(path: Path) -> sqlite3.Connection:
@@ -190,23 +189,35 @@ def build(conn: sqlite3.Connection) -> list[dict]:
 
 
 def merge_legacy(categories: list[dict]) -> tuple[list[dict], int]:
-    """Добавляет категории прежней базы, которых нет в SQLite."""
-    if not LEGACY.exists():
+    """Привязывает прежние id категорий к нынешним ключам базы.
+
+    Раньше эта функция ДОБАВЛЯЛА в выгрузку категории прежней базы, которых не
+    было в SQLite. Из-за этого в файле жили два слоя качества: 1275 категорий,
+    прошедших пайплайн, и 242 — без готовности, без запретов на сочетание, без
+    четвёрок, проверенных solver'ом. Отличить их можно было только по полю
+    `source`, а генератор по нему не смотрел.
+
+    Теперь содержимое прежней базы втянуто в SQLite (прогон run-002-legacy-merge),
+    и здесь остаётся только разрешение старых имён: сданные пакеты ссылаются на
+    прежние id, поэтому каждая категория несёт список своих прежних имён в
+    `legacy_ids`, а в корне выгрузки лежит общая карта `aliases`.
+
+    Возвращает (категории, сколько прежних id не удалось разрешить). Ненулевое
+    второе значение — повод разбираться: значит часть прежней базы потеряна.
+    """
+    if not ALIASES.exists():
         return categories, 0
-    legacy = json.loads(LEGACY.read_text(encoding="utf-8"))["categories"]
-    present = {c["id"] for c in categories}
-    added = 0
-    for cat in legacy:
-        if cat["id"] in present:
+    aliases = json.loads(ALIASES.read_text(encoding="utf-8"))["aliases"]
+    by_key = {c["id"]: c for c in categories}
+    unresolved = 0
+    for legacy_id, key in sorted(aliases.items()):
+        target = by_key.get(key)
+        if target is None:
+            unresolved += 1
             continue
-        entry = dict(cat)
-        entry.setdefault("readiness", "unknown")
-        entry.setdefault("conflicts", [])
-        entry.setdefault("alt", [])
-        entry["source"] = "legacy"
-        categories.append(entry)
-        added += 1
-    return sorted(categories, key=lambda c: c["id"]), added
+        if legacy_id != key:
+            target.setdefault("legacy_ids", []).append(legacy_id)
+    return categories, unresolved
 
 
 def main() -> int:
@@ -226,12 +237,16 @@ def main() -> int:
     from_db = len(categories)
     conn.close()
 
-    categories, legacy_added = merge_legacy(categories)
+    categories, unresolved = merge_legacy(categories)
+    aliases = (json.loads(ALIASES.read_text(encoding="utf-8"))["aliases"]
+               if ALIASES.exists() else {})
 
     payload = {
-        "version": 2,
+        "version": 3,
         "language": "en",
-        "built_from": f"{db_path.name} (export_base_json.py) + categories_legacy.json",
+        "built_from": f"{db_path.name} (export_base_json.py)",
+        # прежний id категории -> нынешний ключ: сданные пакеты ссылаются на старые имена
+        "aliases": aliases,
         "categories": categories,
     }
     out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
@@ -240,7 +255,13 @@ def main() -> int:
     words = {w["w"] for c in categories for w in c["words"]}
     traps = sum(1 for c in categories for _ in c.get("shared_words", {}))
     print(f"источник: {db_path}")
-    print(f"категорий: {len(categories)} (из базы {from_db}, legacy {legacy_added})")
+    print(f"категорий: {len(categories)} (все из базы)")
+    print(f"прежних id разрешено псевдонимами: {len(aliases) - unresolved} из {len(aliases)}")
+    if unresolved:
+        # Обычная причина — категория в базе есть, но отключена: пул не собирает
+        # четвёрку, и в выгрузку идут только активные. Это не потеря данных.
+        print(f"ИНФО: прежних id без активной категории: {unresolved} "
+              f"(категория в базе есть, но отключена — пул не собирает четвёрку)")
     print(f"уникальных слов-домов: {len(words)}")
     print(f"связей слово-в-двух-категориях: {traps}")
     print(f"запретов пар: {sum(len(c.get('conflicts', [])) for c in categories) // 2}")

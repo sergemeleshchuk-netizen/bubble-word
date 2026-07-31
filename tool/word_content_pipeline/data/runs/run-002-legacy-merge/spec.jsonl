@@ -1,0 +1,412 @@
+{"type": "merge", "legacy": "accessories", "into": "accessories"}
+{"type": "merge", "legacy": "ages", "into": "life_stages"}
+{"type": "merge", "legacy": "airport", "into": "airport_words"}
+{"type": "merge", "legacy": "ancient-egypt", "into": "egypt_things"}
+{"type": "merge", "legacy": "ancient-rome", "into": "roman_things"}
+{"type": "merge", "legacy": "archery", "into": "archery_words"}
+{"type": "merge", "legacy": "astronomy", "into": "things_in_the_sky_science"}
+{"type": "merge", "legacy": "autumn", "into": "seasons_fall"}
+{"type": "merge", "legacy": "aviation", "into": "aircraft"}
+{"type": "merge", "legacy": "baby-items", "into": "baby_things"}
+{"type": "merge", "legacy": "banking", "into": "money_words"}
+{"type": "merge", "legacy": "baseball", "into": "baseball_words"}
+{"type": "merge", "legacy": "basketball", "into": "basketball_words"}
+{"type": "merge", "legacy": "bathroom-items", "into": "bathroom_items"}
+{"type": "merge", "legacy": "beach", "into": "sea_shore_things"}
+{"type": "merge", "legacy": "berries", "into": "berries"}
+{"type": "merge", "legacy": "birds", "into": "birds"}
+{"type": "merge", "legacy": "board-games", "into": "board_games"}
+{"type": "merge", "legacy": "boats", "into": "boats"}
+{"type": "merge", "legacy": "body-parts", "into": "body_parts"}
+{"type": "merge", "legacy": "body-systems", "into": "body_systems"}
+{"type": "merge", "legacy": "bowling", "into": "bowling_words"}
+{"type": "merge", "legacy": "breads", "into": "bread_types"}
+{"type": "merge", "legacy": "breakfast-foods", "into": "breakfast_foods"}
+{"type": "merge", "legacy": "building-materials", "into": "building_materials"}
+{"type": "merge", "legacy": "butcher-shop", "into": "butcher_words"}
+{"type": "merge", "legacy": "calendar-units", "into": "calendar_words"}
+{"type": "merge", "legacy": "camera", "into": "photography_words"}
+{"type": "merge", "legacy": "camping", "into": "camping_gear"}
+{"type": "merge", "legacy": "cat-breeds", "into": "cat_breeds"}
+{"type": "merge", "legacy": "cheeses", "into": "cheese_types"}
+{"type": "merge", "legacy": "chess-pieces", "into": "chess_words"}
+{"type": "merge", "legacy": "circus", "into": "circus_words"}
+{"type": "merge", "legacy": "cities", "into": "world_cities"}
+{"type": "merge", "legacy": "cleaning-tools", "into": "cleaning_tools"}
+{"type": "merge", "legacy": "clothes", "into": "clothing_items"}
+{"type": "merge", "legacy": "coffee-drinks", "into": "coffee_drinks"}
+{"type": "merge", "legacy": "colors", "into": "colors"}
+{"type": "merge", "legacy": "compass", "into": "map_words"}
+{"type": "merge", "legacy": "construction", "into": "construction_equipment"}
+{"type": "merge", "legacy": "continents", "into": "continents_and_oceans"}
+{"type": "merge", "legacy": "cooking-verbs", "into": "cooking_actions"}
+{"type": "merge", "legacy": "courtroom", "into": "courtroom"}
+{"type": "merge", "legacy": "creative-professions", "into": "creative_jobs"}
+{"type": "merge", "legacy": "cured-meats", "into": "cured_meats"}
+{"type": "merge", "legacy": "dairy", "into": "dairy_products"}
+{"type": "merge", "legacy": "dances", "into": "dance_styles"}
+{"type": "merge", "legacy": "desserts", "into": "desserts"}
+{"type": "merge", "legacy": "dino-dig", "into": "extinct_animals"}
+{"type": "merge", "legacy": "dive-shop", "into": "diving_gear"}
+{"type": "merge", "legacy": "dog-breeds", "into": "dog_breeds"}
+{"type": "merge", "legacy": "eyewear", "into": "eyewear"}
+{"type": "merge", "legacy": "fabrics", "into": "fabrics"}
+{"type": "merge", "legacy": "face-parts", "into": "face_parts"}
+{"type": "merge", "legacy": "family", "into": "family_members"}
+{"type": "merge", "legacy": "farm-animals", "into": "farm_animals"}
+{"type": "merge", "legacy": "farm-work", "into": "things_on_a_farm"}
+{"type": "merge", "legacy": "female-names", "into": "girls_names"}
+{"type": "merge", "legacy": "first-aid", "into": "first_aid"}
+{"type": "merge", "legacy": "fish-types", "into": "fish_species"}
+{"type": "merge", "legacy": "fishing", "into": "fishing_things"}
+{"type": "merge", "legacy": "flowers", "into": "flowers"}
+{"type": "merge", "legacy": "fresh-herbs", "into": "spices_and_herbs"}
+{"type": "merge", "legacy": "fruits", "into": "fruits"}
+{"type": "merge", "legacy": "furniture", "into": "furniture"}
+{"type": "merge", "legacy": "garden-vegetables", "into": "vegetables"}
+{"type": "merge", "legacy": "gems", "into": "gemstones"}
+{"type": "merge", "legacy": "golf", "into": "golf_words"}
+{"type": "merge", "legacy": "grains", "into": "grains_and_beans"}
+{"type": "merge", "legacy": "hairstyles-new", "into": "hairstyles"}
+{"type": "merge", "legacy": "halloween", "into": "halloween_things"}
+{"type": "merge", "legacy": "hats", "into": "hats"}
+{"type": "merge", "legacy": "house-parts", "into": "parts_of_a_house"}
+{"type": "merge", "legacy": "house-types", "into": "kinds_of_buildings"}
+{"type": "merge", "legacy": "ice-cream", "into": "ice_cream_flavors"}
+{"type": "merge", "legacy": "indian-kitchen", "into": "indian_dishes"}
+{"type": "merge", "legacy": "insects", "into": "insects"}
+{"type": "merge", "legacy": "instruments", "into": "musical_instruments"}
+{"type": "merge", "legacy": "italian-sauces", "into": "pasta_dishes"}
+{"type": "merge", "legacy": "jewelry", "into": "jewelry"}
+{"type": "merge", "legacy": "kitchen-tools", "into": "kitchen_tools"}
+{"type": "merge", "legacy": "languages", "into": "languages"}
+{"type": "merge", "legacy": "mail", "into": "mail_words"}
+{"type": "merge", "legacy": "makeup", "into": "makeup"}
+{"type": "merge", "legacy": "measurements-length", "into": "things_measured_in_inches"}
+{"type": "merge", "legacy": "meats", "into": "meats"}
+{"type": "merge", "legacy": "metals", "into": "metals"}
+{"type": "merge", "legacy": "mexican-food", "into": "mexican_dishes"}
+{"type": "merge", "legacy": "money", "into": "money_words"}
+{"type": "merge", "legacy": "months", "into": "months"}
+{"type": "merge", "legacy": "mountains", "into": "world_mountains"}
+{"type": "merge", "legacy": "movie-genres", "into": "movie_genres"}
+{"type": "merge", "legacy": "music-genres", "into": "music_genres"}
+{"type": "merge", "legacy": "numbers", "into": "superstition_numbers"}
+{"type": "merge", "legacy": "nuts", "into": "nuts_and_seeds"}
+{"type": "merge", "legacy": "odd-numbers", "into": "superstition_numbers"}
+{"type": "merge", "legacy": "organs", "into": "internal_organs"}
+{"type": "merge", "legacy": "pasta", "into": "pasta_shapes"}
+{"type": "merge", "legacy": "pets", "into": "pets"}
+{"type": "merge", "legacy": "pirates", "into": "pirate_words"}
+{"type": "merge", "legacy": "planets", "into": "planets"}
+{"type": "merge", "legacy": "police", "into": "police_things"}
+{"type": "merge", "legacy": "polygons", "into": "shapes"}
+{"type": "merge", "legacy": "reptiles", "into": "reptiles"}
+{"type": "merge", "legacy": "rooms", "into": "home_rooms"}
+{"type": "merge", "legacy": "royalty", "into": "royalty"}
+{"type": "merge", "legacy": "safari-animals", "into": "african_animals"}
+{"type": "merge", "legacy": "sauces", "into": "sauces"}
+{"type": "merge", "legacy": "savanna", "into": "african_animals"}
+{"type": "merge", "legacy": "school-subjects", "into": "school_subjects"}
+{"type": "merge", "legacy": "school-supplies", "into": "school_supplies"}
+{"type": "merge", "legacy": "sea-animals", "into": "ocean_animals"}
+{"type": "merge", "legacy": "seasons", "into": "seasons"}
+{"type": "merge", "legacy": "senses", "into": "senses_and_perception"}
+{"type": "merge", "legacy": "sewing", "into": "sewing_words"}
+{"type": "merge", "legacy": "shapes", "into": "shapes"}
+{"type": "merge", "legacy": "shoe-parts", "into": "shoe_parts"}
+{"type": "merge", "legacy": "sleep-things", "into": "sleep_and_rest"}
+{"type": "merge", "legacy": "solid-shapes", "into": "shapes"}
+{"type": "merge", "legacy": "speed", "into": "speed_adjectives"}
+{"type": "merge", "legacy": "spices", "into": "spices_and_herbs"}
+{"type": "merge", "legacy": "stars-named", "into": "bright_stars"}
+{"type": "merge", "legacy": "stationery", "into": "office_supplies"}
+{"type": "merge", "legacy": "storms", "into": "storms"}
+{"type": "merge", "legacy": "tailor-shop", "into": "tailor_words"}
+{"type": "merge", "legacy": "tastes", "into": "taste_words"}
+{"type": "merge", "legacy": "teas", "into": "teas"}
+{"type": "merge", "legacy": "temperature", "into": "temperature_words"}
+{"type": "merge", "legacy": "tennis", "into": "tennis_words"}
+{"type": "merge", "legacy": "time-units", "into": "time_units"}
+{"type": "merge", "legacy": "times-of-day", "into": "days_and_parts_of_day"}
+{"type": "merge", "legacy": "tools", "into": "hand_tools"}
+{"type": "merge", "legacy": "toys", "into": "toys"}
+{"type": "merge", "legacy": "trade-professions", "into": "building_trades"}
+{"type": "merge", "legacy": "tree-parts", "into": "tree_parts"}
+{"type": "merge", "legacy": "us-states", "into": "us_states"}
+{"type": "merge", "legacy": "vegetables", "into": "vegetables"}
+{"type": "merge", "legacy": "vehicles", "into": "vehicles"}
+{"type": "merge", "legacy": "water-bodies", "into": "bodies_of_water"}
+{"type": "merge", "legacy": "water-states", "into": "water_states"}
+{"type": "merge", "legacy": "weapons-medieval", "into": "knights_and_armor"}
+{"type": "merge", "legacy": "weather", "into": "weather_words"}
+{"type": "merge", "legacy": "weather-days", "into": "weather_adjectives"}
+{"type": "merge", "legacy": "wedding", "into": "wedding_things"}
+{"type": "merge", "legacy": "weekdays", "into": "days_and_parts_of_day"}
+{"type": "merge", "legacy": "wild-cats", "into": "wild_cats"}
+{"type": "merge", "legacy": "winter", "into": "seasons_winter"}
+{"type": "merge", "legacy": "winter-sports", "into": "winter_sports"}
+{"type": "merge", "legacy": "writing-tools", "into": "writing_tools"}
+{"type": "merge", "legacy": "zodiac", "into": "zodiac_signs"}
+{"type": "new", "legacy": "americas", "key": "parts_of_the_americas", "label": "PARTS OF THE AMERICAS", "rule": "A word that names a region when placed before America", "relation_type": "wordplay", "theme": "geography", "base_difficulty": 0.45, "reason": "{W} forms a region name before the word America"}
+{"type": "new", "legacy": "ancient-greece", "key": "ancient_greece_ideas", "label": "ANCIENT GREECE IDEAS", "rule": "An idea or institution that ancient Greece is remembered for", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.5, "reason": "{W} is something ancient Greece is remembered for"}
+{"type": "new", "legacy": "animal-classes", "key": "animal_classes", "label": "ANIMAL CLASSES", "rule": "One of the broad classes animals are sorted into", "relation_type": "member_of_set", "theme": "species", "base_difficulty": 0.35, "reason": "{W} is one of the broad classes of animals"}
+{"type": "new", "legacy": "antique-shop", "key": "antique_shop", "label": "ANTIQUE SHOP", "rule": "A word belonging to old objects sold as antiques", "relation_type": "associated_with", "theme": "places", "base_difficulty": 0.6, "reason": "{W} belongs to an antique shop"}
+{"type": "new", "legacy": "arctic-trek", "key": "arctic_trek", "label": "ARCTIC TREK", "rule": "Something met crossing the frozen Arctic", "relation_type": "found_in", "theme": "nature_more", "base_difficulty": 0.65, "reason": "{W} is met on an Arctic trek"}
+{"type": "new", "legacy": "auditions", "key": "auditions", "label": "AUDITIONS", "rule": "A word belonging to trying out for a part", "relation_type": "associated_with", "theme": "entertainment", "base_difficulty": 0.5, "reason": "{W} belongs to an audition"}
+{"type": "new", "legacy": "bake-off", "key": "bake_off", "label": "BAKE OFF", "rule": "A step or topping used in competitive baking", "relation_type": "used_in", "theme": "food_more", "base_difficulty": 0.55, "reason": "{W} belongs to a baking contest"}
+{"type": "new", "legacy": "baked-goods", "key": "baked_goods", "label": "BAKED GOODS", "rule": "Something baked from dough or batter in an oven", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2, "reason": "{W} is baked from dough or batter"}
+{"type": "new", "legacy": "ballet-class", "key": "ballet_class", "label": "BALLET CLASS", "rule": "A move, garment or fixture of a ballet class", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.6, "reason": "{W} belongs to a ballet class"}
+{"type": "new", "legacy": "band-members", "key": "in_a_band", "label": "IN A BAND", "rule": "A part played by a member of a music band", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.4, "reason": "{W} is a part played in a band"}
+{"type": "new", "legacy": "barbecue", "key": "barbecue", "label": "BARBECUE", "rule": "Something you cook with or over at a barbecue", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.35, "reason": "{W} belongs to a barbecue"}
+{"type": "new", "legacy": "barbershop", "key": "barbershop", "label": "BARBERSHOP", "rule": "A person or product found in a barbershop", "relation_type": "found_in", "theme": "trades", "base_difficulty": 0.5, "reason": "{W} is found in a barbershop"}
+{"type": "new", "legacy": "barista", "key": "barista_words", "label": "BARISTA WORDS", "rule": "A term a barista uses making coffee", "relation_type": "used_in", "theme": "jargon", "base_difficulty": 0.6, "reason": "{W} is a term a barista uses"}
+{"type": "new", "legacy": "bedding", "key": "bedtime_things", "label": "BEDTIME THINGS", "rule": "Something you associate with going to bed", "relation_type": "associated_with", "theme": "home", "base_difficulty": 0.25, "reason": "{W} is associated with going to bed"}
+{"type": "new", "legacy": "beekeeper", "key": "beekeeper", "label": "BEEKEEPER", "rule": "A place, product or tool of keeping bees", "relation_type": "used_in", "theme": "farming", "base_difficulty": 0.6, "reason": "{W} belongs to keeping bees"}
+{"type": "new", "legacy": "billiards", "key": "billiards", "label": "BILLIARDS", "rule": "A term belonging to billiards and snooker", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.6, "reason": "{W} belongs to billiards"}
+{"type": "new", "legacy": "bird-parts", "key": "parts_of_a_bird", "label": "PARTS OF A BIRD", "rule": "A body part belonging to a bird", "relation_type": "part_of", "theme": "body", "base_difficulty": 0.3, "reason": "{W} is a part of a bird's body"}
+{"type": "new", "legacy": "birthday", "key": "birthday_party", "label": "BIRTHDAY PARTY", "rule": "Something you associate with a birthday party", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.25, "reason": "{W} is associated with a birthday party"}
+{"type": "new", "legacy": "blacksmith", "key": "blacksmith", "label": "BLACKSMITH", "rule": "A tool, place or step of working metal by hand", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.6, "reason": "{W} belongs to a blacksmith's work"}
+{"type": "new", "legacy": "books", "key": "kinds_of_books", "label": "KINDS OF BOOKS", "rule": "A kind of book classed by how it is written", "relation_type": "is_a", "theme": "media", "base_difficulty": 0.4, "reason": "{W} is a kind of book"}
+{"type": "new", "legacy": "bovines", "key": "wild_cattle", "label": "WILD CATTLE", "rule": "A large hoofed animal of the cattle family", "relation_type": "is_a", "theme": "animals_more", "base_difficulty": 0.5, "reason": "{W} is an animal of the cattle family"}
+{"type": "new", "legacy": "boxing-gym", "key": "boxing_gym", "label": "BOXING GYM", "rule": "A term or piece of kit used in boxing training", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.55, "reason": "{W} belongs to boxing training"}
+{"type": "new", "legacy": "breathing", "key": "breathing", "label": "BREATHING", "rule": "An act or substance belonging to breathing", "relation_type": "associated_with", "theme": "body", "base_difficulty": 0.35, "reason": "{W} belongs to breathing"}
+{"type": "new", "legacy": "butterfly-life", "key": "butterfly_life", "label": "BUTTERFLY LIFE", "rule": "A stage or thing in the life of a butterfly", "relation_type": "associated_with", "theme": "nature_species", "base_difficulty": 0.55, "reason": "{W} belongs to the life of a butterfly"}
+{"type": "new", "legacy": "calligraphy", "key": "calligraphy", "label": "CALLIGRAPHY", "rule": "A term belonging to fine handwriting", "relation_type": "associated_with", "theme": "art", "base_difficulty": 0.6, "reason": "{W} belongs to fine handwriting"}
+{"type": "new", "legacy": "candle-making", "key": "candle_making", "label": "CANDLE MAKING", "rule": "A word belonging to making candles", "relation_type": "associated_with", "theme": "hobbies", "base_difficulty": 0.6, "reason": "{W} belongs to making candles"}
+{"type": "new", "legacy": "card-suits", "key": "card_suits", "label": "CARD SUITS", "rule": "One of the four suits in a deck of playing cards", "relation_type": "member_of_set", "theme": "hobbies", "base_difficulty": 0.25, "reason": "{W} is one of the four suits in a deck of cards"}
+{"type": "new", "legacy": "carpenter", "key": "carpenter", "label": "CARPENTER", "rule": "A material, tool or joint used working wood", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.55, "reason": "{W} belongs to working wood"}
+{"type": "new", "legacy": "castle-keep", "key": "castle_keep", "label": "CASTLE KEEP", "rule": "A word belonging to a castle and its defence", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.6, "reason": "{W} belongs to a castle and its defence"}
+{"type": "new", "legacy": "cat-things", "key": "cat_things", "label": "CAT THINGS", "rule": "Something you associate with keeping a cat", "relation_type": "associated_with", "theme": "animals", "base_difficulty": 0.3, "reason": "{W} is associated with cats"}
+{"type": "new", "legacy": "chemistry-lab", "key": "chemistry_lab", "label": "CHEMISTRY LAB", "rule": "A tool or method used in a chemistry lab", "relation_type": "used_in", "theme": "science", "base_difficulty": 0.65, "reason": "{W} is used in a chemistry lab"}
+{"type": "new", "legacy": "cinema", "key": "at_the_movies", "label": "AT THE MOVIES", "rule": "Something you meet at a cinema", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.35, "reason": "{W} is something you meet at the cinema"}
+{"type": "new", "legacy": "circus-ring", "key": "circus_ring", "label": "CIRCUS RING", "rule": "A circus act or prop beyond the obvious ones", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.6, "reason": "{W} is an act or prop of the circus ring"}
+{"type": "new", "legacy": "classroom", "key": "in_the_classroom", "label": "IN THE CLASSROOM", "rule": "A person, task or fixture found in a classroom", "relation_type": "found_in", "theme": "education", "base_difficulty": 0.3, "reason": "{W} is found in a classroom"}
+{"type": "new", "legacy": "climbing-wall", "key": "climbing_wall", "label": "CLIMBING WALL", "rule": "A term or piece of kit used in climbing", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.6, "reason": "{W} belongs to climbing"}
+{"type": "new", "legacy": "clockwork", "key": "clockwork", "label": "CLOCKWORK", "rule": "A word belonging to the workings of a clock", "relation_type": "associated_with", "theme": "technology", "base_difficulty": 0.6, "reason": "{W} belongs to the workings of a clock"}
+{"type": "new", "legacy": "cloud-types", "key": "cloud_types", "label": "CLOUD TYPES", "rule": "A named type of cloud", "relation_type": "is_a", "theme": "nature_more", "base_difficulty": 0.6, "reason": "{W} is a named type of cloud"}
+{"type": "new", "legacy": "countries", "key": "countries", "label": "COUNTRIES", "rule": "A country of the world", "relation_type": "is_a", "theme": "geography", "base_difficulty": 0.2, "reason": "{W} is a country"}
+{"type": "new", "legacy": "cutlery", "key": "table_setting", "label": "TABLE SETTING", "rule": "An item laid on the table for one person at a meal", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.2, "reason": "{W} is part of a place setting laid for a meal"}
+{"type": "new", "legacy": "darts", "key": "darts_words", "label": "DARTS WORDS", "rule": "A term or piece of equipment used in darts", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.45, "reason": "{W} is a term used in darts"}
+{"type": "new", "legacy": "deep-cosmos", "key": "deep_cosmos", "label": "DEEP COSMOS", "rule": "An object or measure of the far cosmos", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.7, "reason": "{W} belongs to the far cosmos"}
+{"type": "new", "legacy": "dentist", "key": "at_the_dentist", "label": "AT THE DENTIST", "rule": "Something a dentist fits, treats or hands out", "relation_type": "found_in", "theme": "medicine", "base_difficulty": 0.45, "reason": "{W} belongs to a visit to the dentist"}
+{"type": "new", "legacy": "detective", "key": "detective_work", "label": "DETECTIVE WORK", "rule": "Something a detective works with while solving a case", "relation_type": "used_in", "theme": "law", "base_difficulty": 0.45, "reason": "{W} belongs to detective work"}
+{"type": "new", "legacy": "doctors", "key": "kinds_of_doctors", "label": "KINDS OF DOCTORS", "rule": "A doctor named for the field they specialise in", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45, "reason": "{W} is a doctor of a particular specialty"}
+{"type": "new", "legacy": "dog-things", "key": "dog_things", "label": "DOG THINGS", "rule": "Something you associate with keeping a dog", "relation_type": "associated_with", "theme": "animals", "base_difficulty": 0.3, "reason": "{W} is associated with dogs"}
+{"type": "new", "legacy": "dojo", "key": "at_the_dojo", "label": "AT THE DOJO", "rule": "A martial art or practice found in a dojo", "relation_type": "found_in", "theme": "sports_world", "base_difficulty": 0.6, "reason": "{W} belongs to a martial arts dojo"}
+{"type": "new", "legacy": "drinks", "key": "everyday_drinks", "label": "EVERYDAY DRINKS", "rule": "A common non alcoholic drink", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2, "reason": "{W} is a common everyday drink"}
+{"type": "new", "legacy": "easter", "key": "easter", "label": "EASTER", "rule": "Something you associate with Easter", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.35, "reason": "{W} is associated with Easter"}
+{"type": "new", "legacy": "election-day", "key": "election_day", "label": "ELECTION DAY", "rule": "A term belonging to a political election", "relation_type": "associated_with", "theme": "law", "base_difficulty": 0.6, "reason": "{W} belongs to an election"}
+{"type": "new", "legacy": "emotions", "key": "emotions", "label": "EMOTIONS", "rule": "A word naming or describing a feeling a person has", "relation_type": "associated_with", "theme": "people", "base_difficulty": 0.25, "reason": "{W} names or describes a feeling"}
+{"type": "new", "legacy": "facial-care", "key": "facial_care", "label": "FACIAL CARE", "rule": "A product applied to the face to care for the skin", "relation_type": "used_for", "theme": "fashion", "base_difficulty": 0.4, "reason": "{W} is a product used to care for facial skin"}
+{"type": "new", "legacy": "fairy-tale", "key": "fairy_tale", "label": "FAIRY TALE", "rule": "A character or object out of a fairy tale", "relation_type": "found_in", "theme": "culture", "base_difficulty": 0.5, "reason": "{W} comes out of a fairy tale"}
+{"type": "new", "legacy": "farmers-market", "key": "farmers_market", "label": "FARMERS MARKET", "rule": "Something you see at a farmers market", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.5, "reason": "{W} is seen at a farmers market"}
+{"type": "new", "legacy": "fast-food", "key": "lunch_menu", "label": "LUNCH MENU", "rule": "A quick hot dish ordered for lunch", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2, "reason": "{W} is a dish ordered for lunch"}
+{"type": "new", "legacy": "fire", "key": "fire_and_smoke", "label": "FIRE AND SMOKE", "rule": "Something given off by or belonging to a burning fire", "relation_type": "associated_with", "theme": "nature", "base_difficulty": 0.3, "reason": "{W} belongs to a burning fire"}
+{"type": "new", "legacy": "food-groups", "key": "food_groups", "label": "FOOD GROUPS", "rule": "One of the food groups a balanced diet is divided into", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.3, "reason": "{W} is one of the basic food groups"}
+{"type": "new", "legacy": "frog-pond", "key": "frog_pond", "label": "FROG POND", "rule": "A word belonging to frogs and their pond", "relation_type": "associated_with", "theme": "nature_species", "base_difficulty": 0.55, "reason": "{W} belongs to frogs and their pond"}
+{"type": "new", "legacy": "garden-bloom", "key": "garden_in_bloom", "label": "GARDEN IN BLOOM", "rule": "A word belonging to a garden in bloom", "relation_type": "associated_with", "theme": "plants", "base_difficulty": 0.35, "reason": "{W} belongs to a garden in bloom"}
+{"type": "new", "legacy": "garden-shed", "key": "garden_shed", "label": "GARDEN SHED", "rule": "A tool or material kept in a garden shed", "relation_type": "found_in", "theme": "tools", "base_difficulty": 0.5, "reason": "{W} is kept in a garden shed"}
+{"type": "new", "legacy": "gardening", "key": "gardening_work", "label": "GARDENING WORK", "rule": "A task or tool belonging to working a garden", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.35, "reason": "{W} belongs to working a garden"}
+{"type": "new", "legacy": "gold-rush", "key": "gold_rush", "label": "GOLD RUSH", "rule": "A person or tool of the gold rush", "relation_type": "used_in", "theme": "history", "base_difficulty": 0.65, "reason": "{W} belongs to the gold rush"}
+{"type": "new", "legacy": "greek-myths", "key": "greek_myths", "label": "GREEK MYTHS", "rule": "A creature or place from Greek mythology", "relation_type": "found_in", "theme": "mythology", "base_difficulty": 0.55, "reason": "{W} comes from Greek mythology"}
+{"type": "new", "legacy": "guitars", "key": "types_of_guitars", "label": "TYPES OF GUITARS", "rule": "A kind of guitar or a close relative of the guitar", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.4, "reason": "{W} is a kind of guitar or its close relative"}
+{"type": "new", "legacy": "gym", "key": "at_the_gym", "label": "AT THE GYM", "rule": "A machine, weight or person found in a gym", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3, "reason": "{W} is found in a gym"}
+{"type": "new", "legacy": "handyman", "key": "handyman", "label": "HANDYMAN", "rule": "A tool or material a handyman carries", "relation_type": "used_in", "theme": "tools", "base_difficulty": 0.5, "reason": "{W} is carried by a handyman"}
+{"type": "new", "legacy": "harbor", "key": "at_the_harbor", "label": "AT THE HARBOR", "rule": "A structure or vessel found in a harbour", "relation_type": "found_in", "theme": "ocean", "base_difficulty": 0.4, "reason": "{W} is found in a harbour"}
+{"type": "new", "legacy": "haunted-house", "key": "haunted_house", "label": "HAUNTED HOUSE", "rule": "A word belonging to ghost stories and hauntings", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6, "reason": "{W} belongs to a haunted house"}
+{"type": "new", "legacy": "heist", "key": "the_heist", "label": "THE HEIST", "rule": "A word belonging to robbing a place in a film", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.55, "reason": "{W} belongs to a heist"}
+{"type": "new", "legacy": "hero-hq", "key": "hero_hq", "label": "HERO HQ", "rule": "A word belonging to comic book superheroes", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.6, "reason": "{W} belongs to comic book heroes"}
+{"type": "new", "legacy": "highlands", "key": "highlands", "label": "HIGHLANDS", "rule": "A word belonging to the Scottish Highlands", "relation_type": "associated_with", "theme": "world_more", "base_difficulty": 0.6, "reason": "{W} belongs to the Scottish Highlands"}
+{"type": "new", "legacy": "home-appliances", "key": "home_appliances", "label": "HOME APPLIANCES", "rule": "A large electrical appliance kept in a home", "relation_type": "found_in", "theme": "home", "base_difficulty": 0.3, "reason": "{W} is an appliance kept in a home"}
+{"type": "new", "legacy": "hospital", "key": "at_the_hospital", "label": "AT THE HOSPITAL", "rule": "Someone or something found in a hospital", "relation_type": "found_in", "theme": "medicine", "base_difficulty": 0.3, "reason": "{W} is found in a hospital"}
+{"type": "new", "legacy": "hotel", "key": "at_the_hotel", "label": "AT THE HOTEL", "rule": "A place or service a guest meets at a hotel", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.4, "reason": "{W} is met at a hotel"}
+{"type": "new", "legacy": "humor", "key": "kinds_of_humor", "label": "KINDS OF HUMOR", "rule": "A form of humor or a way of being funny", "relation_type": "is_a", "theme": "culture", "base_difficulty": 0.45, "reason": "{W} is a form of humor"}
+{"type": "new", "legacy": "illness", "key": "feeling_sick", "label": "FEELING SICK", "rule": "A symptom or minor illness a person complains of", "relation_type": "associated_with", "theme": "medicine", "base_difficulty": 0.3, "reason": "{W} is a symptom of feeling unwell"}
+{"type": "new", "legacy": "island-luau", "key": "island_luau", "label": "ISLAND LUAU", "rule": "A word belonging to a Hawaiian island party", "relation_type": "associated_with", "theme": "world_more", "base_difficulty": 0.6, "reason": "{W} belongs to a Hawaiian luau"}
+{"type": "new", "legacy": "jungle", "key": "in_the_jungle", "label": "IN THE JUNGLE", "rule": "Something found in a tropical jungle", "relation_type": "found_in", "theme": "nature", "base_difficulty": 0.4, "reason": "{W} is found in a tropical jungle"}
+{"type": "new", "legacy": "knot-tying", "key": "knot_tying", "label": "KNOT TYING", "rule": "A named knot or a way rope behaves", "relation_type": "associated_with", "theme": "skills", "base_difficulty": 0.6, "reason": "{W} belongs to tying knots"}
+{"type": "new", "legacy": "landscape", "key": "landscape_features", "label": "LANDSCAPE", "rule": "A natural feature seen in an open landscape", "relation_type": "found_in", "theme": "nature", "base_difficulty": 0.3, "reason": "{W} is a feature of a natural landscape"}
+{"type": "new", "legacy": "large-animals", "key": "giant_animals", "label": "GIANT ANIMALS", "rule": "An animal known for its very large size", "relation_type": "is_a", "theme": "animals", "base_difficulty": 0.3, "reason": "{W} is an animal known for its size"}
+{"type": "new", "legacy": "laundry", "key": "laundry_day", "label": "LAUNDRY DAY", "rule": "Something used or done when washing clothes", "relation_type": "used_in", "theme": "home", "base_difficulty": 0.35, "reason": "{W} belongs to washing clothes"}
+{"type": "new", "legacy": "lumber-camp", "key": "lumber_camp", "label": "LUMBER CAMP", "rule": "A person, tool or product of felling trees", "relation_type": "found_in", "theme": "trades", "base_difficulty": 0.55, "reason": "{W} belongs to a lumber camp"}
+{"type": "new", "legacy": "marathon-day", "key": "marathon_day", "label": "MARATHON DAY", "rule": "A word belonging to running a long distance race", "relation_type": "associated_with", "theme": "sports", "base_difficulty": 0.55, "reason": "{W} belongs to running a marathon"}
+{"type": "new", "legacy": "materials", "key": "everyday_materials", "label": "EVERYDAY MATERIALS", "rule": "A material everyday objects are made of", "relation_type": "is_a", "theme": "materials", "base_difficulty": 0.25, "reason": "{W} is a material things are made of"}
+{"type": "new", "legacy": "meals", "key": "meals_of_the_day", "label": "MEALS OF THE DAY", "rule": "A meal or course eaten at a set time of day", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.2, "reason": "{W} is a meal eaten at a particular time of day"}
+{"type": "new", "legacy": "measurements-weight", "key": "weight_units", "label": "WEIGHT UNITS", "rule": "A unit used to measure weight or mass", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.35, "reason": "{W} is a unit of weight"}
+{"type": "new", "legacy": "medicines", "key": "medicines", "label": "MEDICINES", "rule": "A form in which medicine is given to a patient", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.4, "reason": "{W} is a form in which medicine is given"}
+{"type": "new", "legacy": "medieval-fair", "key": "medieval_fair", "label": "MEDIEVAL FAIR", "rule": "A performer or event at a medieval fair", "relation_type": "found_in", "theme": "history", "base_difficulty": 0.6, "reason": "{W} is found at a medieval fair"}
+{"type": "new", "legacy": "menu-courses", "key": "restaurant_courses", "label": "RESTAURANT COURSES", "rule": "A course listed in order on a restaurant menu", "relation_type": "member_of_set", "theme": "food", "base_difficulty": 0.35, "reason": "{W} is a course on a restaurant menu"}
+{"type": "new", "legacy": "mind", "key": "the_mind", "label": "THE MIND", "rule": "A faculty or activity of the thinking mind", "relation_type": "is_a", "theme": "science", "base_difficulty": 0.5, "reason": "{W} is a faculty of the mind"}
+{"type": "new", "legacy": "morning-routine", "key": "morning_routine", "label": "MORNING ROUTINE", "rule": "Something a person does first thing in the morning", "relation_type": "associated_with", "theme": "people", "base_difficulty": 0.35, "reason": "{W} belongs to a morning routine"}
+{"type": "new", "legacy": "museum-hall", "key": "museum_hall", "label": "MUSEUM HALL", "rule": "A display or person found in a museum hall", "relation_type": "found_in", "theme": "culture", "base_difficulty": 0.6, "reason": "{W} is found in a museum hall"}
+{"type": "new", "legacy": "nail-salon", "key": "nail_salon", "label": "NAIL SALON", "rule": "A tool or product used in a nail salon", "relation_type": "used_in", "theme": "fashion", "base_difficulty": 0.55, "reason": "{W} is used in a nail salon"}
+{"type": "new", "legacy": "nature-places", "key": "natural_wonders", "label": "NATURAL WONDERS", "rule": "A large natural landform or body of water", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.3, "reason": "{W} is a large natural landform"}
+{"type": "new", "legacy": "newsroom", "key": "newsroom", "label": "NEWSROOM", "rule": "A person or item of a working newsroom", "relation_type": "found_in", "theme": "media", "base_difficulty": 0.55, "reason": "{W} belongs to a newsroom"}
+{"type": "new", "legacy": "nutrients", "key": "nutrients", "label": "NUTRIENTS", "rule": "A nutrient the body needs from food", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45, "reason": "{W} is a nutrient the body needs"}
+{"type": "new", "legacy": "ocean-floor", "key": "ocean_floor", "label": "OCEAN FLOOR", "rule": "Something resting or growing on the ocean floor", "relation_type": "found_in", "theme": "ocean", "base_difficulty": 0.4, "reason": "{W} is found on the ocean floor"}
+{"type": "new", "legacy": "orchestra", "key": "orchestra_words", "label": "ORCHESTRA WORDS", "rule": "A term belonging to an orchestra and its music", "relation_type": "associated_with", "theme": "entertainment", "base_difficulty": 0.55, "reason": "{W} belongs to an orchestra"}
+{"type": "new", "legacy": "pastries", "key": "pastries", "label": "PASTRIES", "rule": "A small sweet baked pastry sold in a bakery", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.35, "reason": "{W} is a sweet pastry from a bakery"}
+{"type": "new", "legacy": "personality", "key": "personality_traits", "label": "PERSONALITY TRAITS", "rule": "An adjective describing a person's character", "relation_type": "has_property", "theme": "descriptive", "base_difficulty": 0.3, "reason": "{W} describes a person's character"}
+{"type": "new", "legacy": "picnic", "key": "picnic", "label": "PICNIC", "rule": "Something you pack or spread out for a picnic", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.3, "reason": "{W} belongs to a picnic"}
+{"type": "new", "legacy": "pirate-cove", "key": "pirate_cove", "label": "PIRATE COVE", "rule": "A word from pirate tales beyond the obvious ones", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6, "reason": "{W} belongs to pirate tales"}
+{"type": "new", "legacy": "plants", "key": "kinds_of_plants", "label": "KINDS OF PLANTS", "rule": "A broad kind of plant that grows from the ground", "relation_type": "is_a", "theme": "plants", "base_difficulty": 0.25, "reason": "{W} is a kind of plant"}
+{"type": "new", "legacy": "plumber-visit", "key": "plumber_visit", "label": "PLUMBER VISIT", "rule": "Something a plumber works with or on", "relation_type": "used_in", "theme": "trades", "base_difficulty": 0.55, "reason": "{W} belongs to a plumber's work"}
+{"type": "new", "legacy": "potions", "key": "potions_class", "label": "POTIONS CLASS", "rule": "A word belonging to brewing magic potions", "relation_type": "associated_with", "theme": "mythology", "base_difficulty": 0.6, "reason": "{W} belongs to brewing potions"}
+{"type": "new", "legacy": "pottery-studio", "key": "pottery_studio", "label": "POTTERY STUDIO", "rule": "A material or ware made in a pottery studio", "relation_type": "found_in", "theme": "art", "base_difficulty": 0.6, "reason": "{W} belongs to a pottery studio"}
+{"type": "new", "legacy": "professions", "key": "common_professions", "label": "COMMON PROFESSIONS", "rule": "A common job a person does for a living", "relation_type": "is_a", "theme": "jobs", "base_difficulty": 0.2, "reason": "{W} is a job a person does for a living"}
+{"type": "new", "legacy": "radio-station", "key": "radio_station", "label": "RADIO STATION", "rule": "A term belonging to radio broadcasting", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.6, "reason": "{W} belongs to radio broadcasting"}
+{"type": "new", "legacy": "rain-gear", "key": "rainy_day_gear", "label": "RAINY DAY GEAR", "rule": "Something you wear or meet on a rainy day", "relation_type": "used_in", "theme": "clothing", "base_difficulty": 0.3, "reason": "{W} belongs to a rainy day"}
+{"type": "new", "legacy": "rainforest", "key": "rainforest", "label": "RAINFOREST", "rule": "A plant, animal or layer of the rainforest", "relation_type": "found_in", "theme": "nature_more", "base_difficulty": 0.6, "reason": "{W} is found in the rainforest"}
+{"type": "new", "legacy": "retro-music", "key": "retro_music", "label": "RETRO MUSIC", "rule": "A way music was played or carried before streaming", "relation_type": "associated_with", "theme": "media", "base_difficulty": 0.55, "reason": "{W} is how music was played before streaming"}
+{"type": "new", "legacy": "road", "key": "on_the_road", "label": "ON THE ROAD", "rule": "Something a driver meets on the road", "relation_type": "found_in", "theme": "transport", "base_difficulty": 0.3, "reason": "{W} is something a driver meets on the road"}
+{"type": "new", "legacy": "rodeo", "key": "rodeo", "label": "RODEO", "rule": "A person, animal or event of a rodeo", "relation_type": "found_in", "theme": "sports_world", "base_difficulty": 0.6, "reason": "{W} belongs to a rodeo"}
+{"type": "new", "legacy": "sail-away", "key": "set_sail", "label": "SET SAIL", "rule": "A part of a sailing boat above the deck", "relation_type": "part_of", "theme": "ocean", "base_difficulty": 0.6, "reason": "{W} is part of a sailing boat"}
+{"type": "new", "legacy": "salad-things", "key": "in_a_salad", "label": "IN A SALAD", "rule": "An ingredient tossed into a green salad", "relation_type": "used_in", "theme": "food", "base_difficulty": 0.3, "reason": "{W} goes into a green salad"}
+{"type": "new", "legacy": "scrapbooking", "key": "scrapbooking", "label": "SCRAPBOOKING", "rule": "A material or keepsake used making a scrapbook", "relation_type": "used_in", "theme": "hobbies", "base_difficulty": 0.6, "reason": "{W} is used making a scrapbook"}
+{"type": "new", "legacy": "sculptor", "key": "sculptors_studio", "label": "SCULPTORS STUDIO", "rule": "Something a sculptor makes or mounts work on", "relation_type": "used_in", "theme": "art", "base_difficulty": 0.65, "reason": "{W} belongs to a sculptor's studio"}
+{"type": "new", "legacy": "security", "key": "under_lock", "label": "UNDER LOCK", "rule": "Something used to lock things away or guard them", "relation_type": "used_for", "theme": "tools", "base_difficulty": 0.35, "reason": "{W} is used to lock or guard something"}
+{"type": "new", "legacy": "seismology", "key": "seismology", "label": "SEISMOLOGY", "rule": "A term used measuring earthquakes", "relation_type": "used_in", "theme": "science", "base_difficulty": 0.7, "reason": "{W} is a term used about earthquakes"}
+{"type": "new", "legacy": "self-care", "key": "self_care", "label": "SELF CARE", "rule": "A way people look after their appearance and body", "relation_type": "associated_with", "theme": "fashion", "base_difficulty": 0.4, "reason": "{W} belongs to looking after yourself"}
+{"type": "new", "legacy": "singing-voices", "key": "singing_voices", "label": "SINGING VOICES", "rule": "A named singing range or singing group", "relation_type": "is_a", "theme": "entertainment", "base_difficulty": 0.45, "reason": "{W} is a named singing range or group"}
+{"type": "new", "legacy": "skate-park", "key": "skate_park", "label": "SKATE PARK", "rule": "A ramp or piece of kit found at a skate park", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.6, "reason": "{W} is found at a skate park"}
+{"type": "new", "legacy": "skyline", "key": "on_the_skyline", "label": "ON THE SKYLINE", "rule": "A tall structure that stands out on a skyline", "relation_type": "is_a", "theme": "landmarks", "base_difficulty": 0.65, "reason": "{W} is a tall structure on a skyline"}
+{"type": "new", "legacy": "snacks-salty", "key": "salty_snacks", "label": "SALTY SNACKS", "rule": "A salty snack eaten from a packet or bowl", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.3, "reason": "{W} is a salty snack"}
+{"type": "new", "legacy": "soils", "key": "types_of_soil", "label": "TYPES OF SOIL", "rule": "A type of soil or ground classed by what it is made of", "relation_type": "is_a", "theme": "nature", "base_difficulty": 0.5, "reason": "{W} is a type of soil"}
+{"type": "new", "legacy": "spa-day", "key": "spa_day", "label": "SPA DAY", "rule": "A treatment or fixture of a day at the spa", "relation_type": "found_in", "theme": "fashion", "base_difficulty": 0.55, "reason": "{W} belongs to a day at the spa"}
+{"type": "new", "legacy": "space", "key": "deep_space", "label": "DEEP SPACE", "rule": "An object seen in deep space beyond the earth", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.35, "reason": "{W} is an object found in deep space"}
+{"type": "new", "legacy": "space-station", "key": "space_station", "label": "SPACE STATION", "rule": "A part of a space station or a task done aboard it", "relation_type": "found_in", "theme": "space", "base_difficulty": 0.6, "reason": "{W} belongs to a space station"}
+{"type": "new", "legacy": "spring", "key": "spring_season", "label": "SPRING SEASON", "rule": "Something you associate with the spring season", "relation_type": "associated_with", "theme": "time", "base_difficulty": 0.35, "reason": "{W} is associated with spring"}
+{"type": "new", "legacy": "spy-mission", "key": "spy_mission", "label": "SPY MISSION", "rule": "A trick or item used by a spy", "relation_type": "used_in", "theme": "media", "base_difficulty": 0.6, "reason": "{W} belongs to a spy mission"}
+{"type": "new", "legacy": "stables", "key": "at_the_stables", "label": "AT THE STABLES", "rule": "A piece of tack, animal or fixture found at stables", "relation_type": "found_in", "theme": "farming", "base_difficulty": 0.5, "reason": "{W} is found at the stables"}
+{"type": "new", "legacy": "street-art", "key": "street_art", "label": "STREET ART", "rule": "A form or technique of street art", "relation_type": "is_a", "theme": "art", "base_difficulty": 0.55, "reason": "{W} is a form of street art"}
+{"type": "new", "legacy": "submarine-duty", "key": "submarine_duty", "label": "SUBMARINE DUTY", "rule": "A word belonging to serving aboard a submarine", "relation_type": "associated_with", "theme": "ocean", "base_difficulty": 0.65, "reason": "{W} belongs to submarine duty"}
+{"type": "new", "legacy": "summer", "key": "summer_season", "label": "SUMMER SEASON", "rule": "Something you associate with the summer season", "relation_type": "associated_with", "theme": "time", "base_difficulty": 0.3, "reason": "{W} is associated with summer"}
+{"type": "new", "legacy": "supermarket", "key": "supermarket", "label": "SUPERMARKET", "rule": "A fixture or worker found in a supermarket", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.45, "reason": "{W} is found in a supermarket"}
+{"type": "new", "legacy": "supplements", "key": "supplements", "label": "SUPPLEMENTS", "rule": "A substance sold as a dietary or beauty supplement", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.5, "reason": "{W} is sold as a supplement"}
+{"type": "new", "legacy": "sushi-bar", "key": "sushi_bar", "label": "SUSHI BAR", "rule": "A dish or utensil served at a sushi bar", "relation_type": "found_in", "theme": "world_food", "base_difficulty": 0.55, "reason": "{W} is served at a sushi bar"}
+{"type": "new", "legacy": "sweets", "key": "sweets", "label": "SWEETS", "rule": "A sweet treat eaten as a snack", "relation_type": "is_a", "theme": "food", "base_difficulty": 0.2, "reason": "{W} is a sweet treat"}
+{"type": "new", "legacy": "swimming", "key": "at_the_pool", "label": "AT THE POOL", "rule": "Something you find at a swimming pool", "relation_type": "found_in", "theme": "sports", "base_difficulty": 0.3, "reason": "{W} is found at a swimming pool"}
+{"type": "new", "legacy": "tea-ceremony", "key": "tea_ceremony", "label": "TEA CEREMONY", "rule": "A vessel, leaf or step of making tea properly", "relation_type": "used_in", "theme": "world_more", "base_difficulty": 0.55, "reason": "{W} belongs to making tea properly"}
+{"type": "new", "legacy": "theater", "key": "at_the_theater", "label": "AT THE THEATER", "rule": "A part of a theatre or the people in it", "relation_type": "found_in", "theme": "entertainment", "base_difficulty": 0.35, "reason": "{W} is found in a theatre"}
+{"type": "new", "legacy": "tickets", "key": "tickets_and_passes", "label": "TICKETS AND PASSES", "rule": "A word belonging to paying to enter or travel", "relation_type": "associated_with", "theme": "business", "base_difficulty": 0.45, "reason": "{W} belongs to paying to enter or travel"}
+{"type": "new", "legacy": "timepieces", "key": "timepieces", "label": "TIMEPIECES", "rule": "A device that measures or shows the passing of time", "relation_type": "used_for", "theme": "technology", "base_difficulty": 0.4, "reason": "{W} is a device that measures time"}
+{"type": "new", "legacy": "trading-floor", "key": "trading_floor", "label": "TRADING FLOOR", "rule": "A term used trading shares", "relation_type": "used_in", "theme": "business", "base_difficulty": 0.65, "reason": "{W} is a term used trading shares"}
+{"type": "new", "legacy": "tubes", "key": "tubes", "label": "TUBES", "rule": "A hollow tube that something flows through", "relation_type": "is_a", "theme": "tools", "base_difficulty": 0.4, "reason": "{W} is a hollow tube something flows through"}
+{"type": "new", "legacy": "ufo-sighting", "key": "ufo_sighting", "label": "UFO SIGHTING", "rule": "A word belonging to stories of flying saucers", "relation_type": "associated_with", "theme": "culture", "base_difficulty": 0.6, "reason": "{W} belongs to UFO stories"}
+{"type": "new", "legacy": "vet-clinic", "key": "vet_clinic", "label": "VET CLINIC", "rule": "A procedure or item used treating animals", "relation_type": "used_in", "theme": "medicine", "base_difficulty": 0.55, "reason": "{W} belongs to a vet clinic"}
+{"type": "new", "legacy": "vikings", "key": "vikings", "label": "VIKINGS", "rule": "A word belonging to the Vikings and their world", "relation_type": "associated_with", "theme": "history", "base_difficulty": 0.6, "reason": "{W} belongs to the Vikings"}
+{"type": "new", "legacy": "volcano-watch", "key": "volcano_watch", "label": "VOLCANO WATCH", "rule": "A term used describing a volcano", "relation_type": "associated_with", "theme": "nature_more", "base_difficulty": 0.65, "reason": "{W} is a term used about volcanoes"}
+{"type": "new", "legacy": "weaving", "key": "weaving", "label": "WEAVING", "rule": "A tool, worker or product of weaving cloth", "relation_type": "used_in", "theme": "skills", "base_difficulty": 0.6, "reason": "{W} belongs to weaving cloth"}
+{"type": "new", "legacy": "wellness", "key": "wellness", "label": "WELLNESS", "rule": "A practice people take up to feel healthier", "relation_type": "is_a", "theme": "medicine", "base_difficulty": 0.45, "reason": "{W} is a wellness practice"}
+{"type": "new", "legacy": "whale-watch", "key": "whale_watch", "label": "WHALE WATCH", "rule": "A word belonging to whales and watching them", "relation_type": "associated_with", "theme": "ocean", "base_difficulty": 0.6, "reason": "{W} belongs to whales"}
+{"type": "new", "legacy": "winter-cabin", "key": "winter_cabin", "label": "WINTER CABIN", "rule": "Something warm you wear or use in deep winter", "relation_type": "used_in", "theme": "clothing", "base_difficulty": 0.6, "reason": "{W} belongs to a winter cabin"}
+{"type": "new", "legacy": "winter-fun", "key": "winter_fun", "label": "WINTER FUN", "rule": "Something you play with or wear for fun in the snow", "relation_type": "used_in", "theme": "sports", "base_difficulty": 0.3, "reason": "{W} belongs to playing in the snow"}
+{"type": "new", "legacy": "wizard-tower", "key": "wizard_tower", "label": "WIZARD TOWER", "rule": "A word belonging to wizards and spellcasting", "relation_type": "associated_with", "theme": "mythology", "base_difficulty": 0.6, "reason": "{W} belongs to wizards and spells"}
+{"type": "new", "legacy": "zoo-visit", "key": "zoo_visit", "label": "ZOO VISIT", "rule": "A person, place or activity at a zoo", "relation_type": "found_in", "theme": "places", "base_difficulty": 0.45, "reason": "{W} belongs to a visit to the zoo"}
+{"type": "sense", "legacy": "accessories", "word": "tie", "sense": "tie_clothing"}
+{"type": "sense", "legacy": "accessories", "word": "watch", "sense": "watch_object"}
+{"type": "sense", "legacy": "ages", "word": "elder", "sense": "elder_person"}
+{"type": "sense", "legacy": "airport", "word": "gate", "sense": "gate_airport"}
+{"type": "sense", "legacy": "ancient-egypt", "word": "pyramid", "sense": "pyramid_monument"}
+{"type": "sense", "legacy": "baby-items", "word": "rattle", "sense": "rattle_toy"}
+{"type": "sense", "legacy": "band-members", "word": "bass", "sense": "bass_music"}
+{"type": "sense", "legacy": "band-members", "word": "keyboard", "sense": "keyboard_music"}
+{"type": "sense", "legacy": "baseball", "word": "pitcher", "sense": "pitcher_baseball"}
+{"type": "sense", "legacy": "basketball", "word": "dunk", "sense": "dunk_basketball"}
+{"type": "sense", "legacy": "bathroom-items", "word": "sponge", "sense": "sponge_cleaning"}
+{"type": "sense", "legacy": "beach", "word": "wave", "sense": "wave_water"}
+{"type": "sense", "legacy": "birds", "word": "crane", "sense": "crane_bird"}
+{"type": "sense", "legacy": "body-parts", "word": "hand", "sense": "hand_body"}
+{"type": "sense", "legacy": "body-parts", "word": "shoulder", "sense": "shoulder_body"}
+{"type": "sense", "legacy": "bowling", "word": "ball", "sense": "ball_sphere"}
+{"type": "sense", "legacy": "bowling", "word": "strike", "sense": "strike_bowling"}
+{"type": "sense", "legacy": "breakfast-foods", "word": "toast", "sense": "toast_bread"}
+{"type": "sense", "legacy": "cinema", "word": "screen", "sense": "screen_display"}
+{"type": "sense", "legacy": "cinema", "word": "trailer", "sense": "trailer_movie"}
+{"type": "sense", "legacy": "cleaning-tools", "word": "sponge", "sense": "sponge_cleaning"}
+{"type": "sense", "legacy": "colors", "word": "green", "sense": "green_color"}
+{"type": "sense", "legacy": "colors", "word": "orange", "sense": "orange_color"}
+{"type": "sense", "legacy": "construction", "word": "crane", "sense": "crane_machine"}
+{"type": "sense", "legacy": "cutlery", "word": "plate", "sense": "plate_dish"}
+{"type": "sense", "legacy": "dairy", "word": "cream", "sense": "cream_dairy"}
+{"type": "sense", "legacy": "darts", "word": "board", "sense": "board_game"}
+{"type": "sense", "legacy": "darts", "word": "score", "sense": "score_points"}
+{"type": "sense", "legacy": "dog-things", "word": "bark", "sense": "bark_sound"}
+{"type": "sense", "legacy": "easter", "word": "spring", "sense": "spring_season"}
+{"type": "sense", "legacy": "face-parts", "word": "mouth", "sense": "mouth_face"}
+{"type": "sense", "legacy": "facial-care", "word": "cream", "sense": "cream_ointment"}
+{"type": "sense", "legacy": "farm-animals", "word": "duck", "sense": "duck_bird"}
+{"type": "sense", "legacy": "farmers-market", "word": "stall", "sense": "stall_market"}
+{"type": "sense", "legacy": "fishing", "word": "hook", "sense": "hook_fishing"}
+{"type": "sense", "legacy": "fishing", "word": "reel", "sense": "reel_fishing"}
+{"type": "sense", "legacy": "fresh-herbs", "word": "sage", "sense": "sage_herb"}
+{"type": "sense", "legacy": "fruits", "word": "apple", "sense": "apple_fruit"}
+{"type": "sense", "legacy": "fruits", "word": "orange", "sense": "orange_fruit"}
+{"type": "sense", "legacy": "garden-shed", "word": "spade", "sense": "spade_tool"}
+{"type": "sense", "legacy": "gems", "word": "diamond", "sense": "diamond_gem"}
+{"type": "sense", "legacy": "golf", "word": "club", "sense": "club_stick"}
+{"type": "sense", "legacy": "guitars", "word": "bass", "sense": "bass_music"}
+{"type": "sense", "legacy": "gym", "word": "bench", "sense": "bench_seat"}
+{"type": "sense", "legacy": "hotel", "word": "key", "sense": "key_lock"}
+{"type": "sense", "legacy": "house-types", "word": "cabin", "sense": "cabin_house"}
+{"type": "sense", "legacy": "ice-cream", "word": "mint", "sense": "mint_herb"}
+{"type": "sense", "legacy": "illness", "word": "cold", "sense": "cold_illness"}
+{"type": "sense", "legacy": "insects", "word": "fly", "sense": "fly_insect"}
+{"type": "sense", "legacy": "instruments", "word": "horn", "sense": "horn_sound"}
+{"type": "sense", "legacy": "jewelry", "word": "ring", "sense": "ring_jewelry"}
+{"type": "sense", "legacy": "mail", "word": "stamp", "sense": "stamp_postage"}
+{"type": "sense", "legacy": "makeup", "word": "foundation", "sense": "foundation_makeup"}
+{"type": "sense", "legacy": "measurements-length", "word": "foot", "sense": "foot_measure"}
+{"type": "sense", "legacy": "measurements-length", "word": "yard", "sense": "yard_measure"}
+{"type": "sense", "legacy": "measurements-weight", "word": "pound", "sense": "pound_weight"}
+{"type": "sense", "legacy": "metals", "word": "lead", "sense": "lead_metal"}
+{"type": "sense", "legacy": "metals", "word": "tin", "sense": "tin_metal"}
+{"type": "sense", "legacy": "mind", "word": "focus", "sense": "focus_mind"}
+{"type": "sense", "legacy": "money", "word": "quarter", "sense": "quarter_coin"}
+{"type": "sense", "legacy": "months", "word": "march", "sense": "march_month"}
+{"type": "sense", "legacy": "music-genres", "word": "pop", "sense": "pop_music"}
+{"type": "sense", "legacy": "music-genres", "word": "rock", "sense": "rock_music"}
+{"type": "sense", "legacy": "nutrients", "word": "iron", "sense": "iron_metal"}
+{"type": "sense", "legacy": "ocean-floor", "word": "sponge", "sense": "sponge_animal"}
+{"type": "sense", "legacy": "organs", "word": "heart", "sense": "heart_organ"}
+{"type": "sense", "legacy": "pirates", "word": "hook", "sense": "hook_pirate"}
+{"type": "sense", "legacy": "planets", "word": "mercury", "sense": "mercury_planet"}
+{"type": "sense", "legacy": "rain-gear", "word": "hood", "sense": "hood_garment"}
+{"type": "sense", "legacy": "royalty", "word": "crown", "sense": "crown_royal"}
+{"type": "sense", "legacy": "royalty", "word": "queen", "sense": "queen_royal"}
+{"type": "sense", "legacy": "school-supplies", "word": "pen", "sense": "pen_writing"}
+{"type": "sense", "legacy": "sea-animals", "word": "seal", "sense": "seal_animal"}
+{"type": "sense", "legacy": "seasons", "word": "spring", "sense": "spring_season"}
+{"type": "sense", "legacy": "security", "word": "key", "sense": "key_lock"}
+{"type": "sense", "legacy": "sewing", "word": "button", "sense": "button_clothing"}
+{"type": "sense", "legacy": "sewing", "word": "needle", "sense": "needle_sewing"}
+{"type": "sense", "legacy": "shapes", "word": "diamond", "sense": "diamond_shape"}
+{"type": "sense", "legacy": "shapes", "word": "heart", "sense": "heart_shape"}
+{"type": "sense", "legacy": "shapes", "word": "star", "sense": "star_shape"}
+{"type": "sense", "legacy": "shoe-parts", "word": "sole", "sense": "sole_shoe"}
+{"type": "sense", "legacy": "singing-voices", "word": "bass", "sense": "bass_music"}
+{"type": "sense", "legacy": "soils", "word": "chalk", "sense": "chalk_rock"}
+{"type": "sense", "legacy": "solid-shapes", "word": "pyramid", "sense": "pyramid_shape"}
+{"type": "sense", "legacy": "spices", "word": "ginger", "sense": "ginger_spice"}
+{"type": "sense", "legacy": "stationery", "word": "pen", "sense": "pen_writing"}
+{"type": "sense", "legacy": "teas", "word": "green", "sense": "green_color"}
+{"type": "sense", "legacy": "teas", "word": "mint", "sense": "mint_herb"}
+{"type": "sense", "legacy": "temperature", "word": "cold", "sense": "cold_temperature"}
+{"type": "sense", "legacy": "temperature", "word": "hot", "sense": "hot_temperature"}
+{"type": "sense", "legacy": "time-units", "word": "minute", "sense": "minute_time"}
+{"type": "sense", "legacy": "time-units", "word": "second", "sense": "second_time"}
+{"type": "sense", "legacy": "timepieces", "word": "watch", "sense": "watch_object"}
+{"type": "sense", "legacy": "tools", "word": "drill", "sense": "drill_tool"}
+{"type": "sense", "legacy": "toys", "word": "ball", "sense": "ball_sphere"}
+{"type": "sense", "legacy": "toys", "word": "kite", "sense": "kite_toy"}
+{"type": "sense", "legacy": "tree-parts", "word": "bark", "sense": "bark_tree"}
+{"type": "sense", "legacy": "tree-parts", "word": "branch", "sense": "branch_tree"}
+{"type": "sense", "legacy": "tree-parts", "word": "crown", "sense": "crown_tree"}
+{"type": "sense", "legacy": "tree-parts", "word": "trunk", "sense": "trunk_tree"}
+{"type": "sense", "legacy": "tubes", "word": "pipe", "sense": "pipe_tube"}
+{"type": "sense", "legacy": "tubes", "word": "straw", "sense": "straw_tube"}
+{"type": "sense", "legacy": "weapons-medieval", "word": "bow", "sense": "bow_weapon"}
+{"type": "sense", "legacy": "wedding", "word": "groom", "sense": "groom_wedding"}
+{"type": "sense", "legacy": "writing-tools", "word": "chalk", "sense": "chalk_stick"}
+{"type": "sense", "legacy": "writing-tools", "word": "pen", "sense": "pen_writing"}

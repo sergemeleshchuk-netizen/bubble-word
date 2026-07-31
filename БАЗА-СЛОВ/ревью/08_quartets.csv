@@ -49,7 +49,6 @@ school_actions__2,school_actions,SCHOOL ACTIONS,Actions done at school,normal,au
 school_actions__3,school_actions,SCHOOL ACTIONS,Actions done at school,normal,auto_validated,unique,0.243,spell | quiz | submit | calculate
 sleeping_actions__1,sleeping_actions,SLEEP ACTIONS,Things a person does while sleeping or falling asleep,normal,auto_validated,unique,0.256,rest | dream | turn | stretch
 sleeping_actions__2,sleeping_actions,SLEEP ACTIONS,Things a person does while sleeping or falling asleep,normal,auto_validated,unique,0.299,toss | nap | drift off | slumber
-sleeping_actions__3,sleeping_actions,SLEEP ACTIONS,Things a person does while sleeping or falling asleep,normal,auto_validated,unique,0.342,snore | doze | yawn | sleepwalk
 sports_actions__1,sports_actions,SPORTS ACTIONS,Actions done while playing sports,normal,auto_validated,unique,0.211,score | catch | serve | pass
 sports_actions__2,sports_actions,SPORTS ACTIONS,Actions done while playing sports,normal,auto_validated,unique,0.219,pitch | throw | kick | shoot
 sports_actions__3,sports_actions,SPORTS ACTIONS,Actions done while playing sports,normal,auto_validated,unique,0.241,dive | tackle | swing | spike
@@ -100,23 +99,26 @@ animal_verbs__2,animal_verbs,ANIMAL MOVEMENTS,Verbs for the way particular anima
 animal_verbs__3,animal_verbs,ANIMAL MOVEMENTS,Verbs for the way particular animals move,normal,auto_validated,unique,0.377,burrow | trot | swoop | flutter
 animals_with_shells__1,animals_with_shells,ANIMALS WITH SHELLS,Animals whose body is protected by a hard shell,normal,auto_validated,unique,0.312,crab | lobster | turtle | snail
 animals_with_shells__2,animals_with_shells,ANIMALS WITH SHELLS,Animals whose body is protected by a hard shell,normal,auto_validated,unique,0.327,clam | oyster | beetle | tortoise
+aquarium_tank__1,aquarium_tank,AQUARIUM,What lives in or belongs to a glass tank of water,normal,auto_validated,unique,,coral | fish | filter | gravel
 arctic_animals__1,arctic_animals,ARCTIC ANIMALS,Animals that live in the Arctic north,normal,auto_validated,unique,0.225,seal | polar bear | arctic fox | moose
 arctic_animals__2,arctic_animals,ARCTIC ANIMALS,Animals that live in the Arctic north,normal,auto_validated,unique,0.249,reindeer | snowy owl | husky | wolverine
 arctic_animals__3,arctic_animals,ARCTIC ANIMALS,Animals that live in the Arctic north,normal,auto_validated,unique,0.262,walrus | orca | caribou | musk ox
 birds__1,birds,BIRDS,Bird species an average American can name,normal,auto_validated,unique,0.102,turkey | chicken | robin | blue jay
 birds__2,birds,BIRDS,Bird species an average American can name,normal,auto_validated,unique,0.119,crane | cardinal | duck | eagle
+cat_things__1,cat_things,CAT THINGS,Something you associate with keeping a cat,normal,auto_validated,unique,0.344,scratch | meow | litter | catnip
 dog_breeds__1,dog_breeds,DOG BREEDS,Breeds of domestic dog recognized by an average American,normal,auto_validated,unique,0.239,bulldog | boxer | shepherd | labrador
 dog_breeds__2,dog_breeds,DOG BREEDS,Breeds of domestic dog recognized by an average American,normal,auto_validated,unique,0.254,husky | terrier | chihuahua | greyhound
 dog_breeds__3,dog_breeds,DOG BREEDS,Breeds of domestic dog recognized by an average American,normal,auto_validated,unique,0.261,poodle | beagle | collie | pug
-extinct_animals__1,extinct_animals,EXTINCT ANIMALS,Extinct animals and animal groups people recognize by name,normal,auto_validated,unique,0.287,dinosaur | mammoth | saber tooth | raptor
-extinct_animals__2,extinct_animals,EXTINCT ANIMALS,Extinct animals and animal groups people recognize by name,normal,auto_validated,unique,0.319,dodo | tyrannosaurus | triceratops | mastodon
-extinct_animals__3,extinct_animals,EXTINCT ANIMALS,Extinct animals and animal groups people recognize by name,normal,auto_validated,unique,0.334,velociraptor | pterodactyl | brontosaurus | megalodon
+dog_things__1,dog_things,DOG THINGS,Something you associate with keeping a dog,normal,auto_validated,unique,0.325,kennel | collar | bone | fetch
+extinct_animals__1,extinct_animals,EXTINCT ANIMALS,Extinct animals and animal groups people recognize by name,normal,auto_validated,unique,0.276,dinosaur | mammoth | raptor | bones
+extinct_animals__2,extinct_animals,EXTINCT ANIMALS,Extinct animals and animal groups people recognize by name,normal,auto_validated,unique,0.311,dodo | saber tooth | tyrannosaurus | mastodon
 farm_animals__1,farm_animals,FARM ANIMALS,Animals commonly kept on an ordinary farm,normal,auto_validated,unique,0.071,horse | chicken | cat | dog
 farm_animals__2,farm_animals,FARM ANIMALS,Animals commonly kept on an ordinary farm,normal,auto_validated,unique,0.088,turkey | duck | sheep | bull
 farm_bird_words__1,farm_bird_words,POULTRY,Birds raised for meat or eggs on a farm,normal,auto_validated,unique,0.286,turkey | duck | chicken | chick
 farm_bird_words__2,farm_bird_words,POULTRY,Birds raised for meat or eggs on a farm,normal,auto_validated,unique,0.319,rooster | hen | goose | pigeon
 flying_animals__1,flying_animals,FLYING ANIMALS,Animals that can fly under their own power,normal,auto_validated,unique,0.172,bat | duck | robin | eagle
 flying_animals__2,flying_animals,FLYING ANIMALS,Animals that can fly under their own power,normal,auto_validated,unique,0.184,goose | owl | bee | butterfly
+giant_animals__1,giant_animals,GIANT ANIMALS,An animal known for its very large size,normal,auto_validated,unique,0.25,elephant | giraffe | hippo | moose
 horse_words__1,horse_words,HORSE WORDS,Words for kinds of horses and horse gear,normal,auto_validated,unique,0.305,pony | saddle | harness | stable
 horse_words__2,horse_words,HORSE WORDS,Words for kinds of horses and horse gear,normal,auto_validated,unique,0.318,groom | colt | mare | jockey
 horse_words__3,horse_words,HORSE WORDS,Words for kinds of horses and horse gear,normal,auto_validated,unique,0.332,stallion | mane | trot | reins
@@ -133,9 +135,10 @@ ocean_animals__1,ocean_animals,OCEAN ANIMALS,Animals that live in the ocean,norm
 ocean_animals__2,ocean_animals,OCEAN ANIMALS,Animals that live in the ocean,normal,auto_validated,unique,0.151,dolphin | crab | coral | shrimp
 pests__1,pests,PESTS,Animals treated as household or garden pests,normal,auto_validated,unique,0.3,mouse | tick | ant | rat
 pests__2,pests,PESTS,Animals treated as household or garden pests,normal,auto_validated,unique,0.317,mole | pigeon | mosquito | snail
+pet_store__1,pet_store,PET STORE,What a pet store sells or keeps in stock,normal,auto_validated,unique,,leash | cage | pets | birds
 pets__1,pets,PETS,Animals commonly kept as household pets in the United States,normal,auto_validated,unique,0.104,mouse | cat | dog | snake
 pets__2,pets,PETS,Animals commonly kept as household pets in the United States,normal,auto_validated,unique,0.131,rabbit | turtle | guinea pig | pony
-pets__3,pets,PETS,Animals commonly kept as household pets in the United States,normal,auto_validated,unique,0.148,parrot | canary | hamster | lizard
+pets__3,pets,PETS,Animals commonly kept as household pets in the United States,normal,auto_validated,unique,0.14,parrot | lizard | fish | bird
 pond_animals__1,pond_animals,POND ANIMALS,Animals that live in or around a freshwater pond,normal,auto_validated,unique,0.24,duck | turtle | fish | water bug
 pond_animals__2,pond_animals,POND ANIMALS,Animals that live in or around a freshwater pond,normal,auto_validated,unique,0.26,goose | swan | frog | snail
 pond_animals__3,pond_animals,POND ANIMALS,Animals that live in or around a freshwater pond,normal,auto_validated,unique,0.275,mosquito | beaver | newt | otter
@@ -177,6 +180,7 @@ wading_birds__2,wading_birds,WADING BIRDS,Birds with long legs that wade in shal
 waterfowl__1,waterfowl,WATERFOWL,Birds that swim on lakes and ponds,normal,auto_validated,unique,0.295,duck | goose | swan | teal
 waterfowl__2,waterfowl,WATERFOWL,Birds that swim on lakes and ponds,normal,auto_validated,unique,0.334,pelican | loon | coot | mallard
 wild_cats_small__1,wild_cats_small,SMALL CATS,Smaller members of the wild cat family,normal,auto_validated,unique,0.392,lynx | bobcat | sand cat | fishing cat
+wild_cattle__1,wild_cattle,WILD CATTLE,A large hoofed animal of the cattle family,normal,auto_validated,unique,0.35,ox | buffalo | bison | angus
 worms_and_crawlers__1,worms_and_crawlers,WORMS,Long soft bodied crawlers commonly called worms in English,normal,auto_validated,unique,0.381,earthworm | tapeworm | leech | nightcrawler
 art_styles__1,art_styles,ART STYLES,Named styles of visual art,normal,auto_validated,unique,0.286,abstract | pop art | renaissance | folk art
 art_styles__2,art_styles,ART STYLES,Named styles of visual art,normal,auto_validated,unique,0.316,realism | baroque | gothic | art deco
@@ -184,6 +188,7 @@ art_styles__3,art_styles,ART STYLES,Named styles of visual art,normal,auto_valid
 art_tools__1,art_tools,ART TOOLS,Tools an artist uses to make art,normal,auto_validated,unique,0.196,pen | brush | knife | roller
 art_tools__2,art_tools,ART TOOLS,Tools an artist uses to make art,normal,auto_validated,unique,0.212,mold | palette | canvas | pencil
 art_tools__3,art_tools,ART TOOLS,Tools an artist uses to make art,normal,auto_validated,unique,0.231,sponge | charcoal | kiln | loom
+calligraphy__1,calligraphy,CALLIGRAPHY,A term belonging to fine handwriting,normal,auto_validated,unique,0.512,italic | flourish | cursive | lettering
 color_words_advanced__1,color_words_advanced,SHADES OF COLOR,Words for particular shades of color,normal,auto_validated,unique,0.297,mint | coral | amber | olive
 color_words_advanced__2,color_words_advanced,SHADES OF COLOR,Words for particular shades of color,normal,auto_validated,unique,0.304,sage | ivory | jade | rust
 color_words_advanced__3,color_words_advanced,SHADES OF COLOR,Words for particular shades of color,normal,auto_validated,unique,0.311,charcoal | scarlet | crimson | mustard
@@ -209,12 +214,15 @@ paint_types__2,paint_types,KINDS OF PAINT,Kinds of paint used by artists and dec
 photography_styles__1,photography_styles,PHOTO SUBJECTS,Kinds of pictures a photographer takes,normal,auto_validated,unique,0.259,still life | close up | group shot | action shot
 photography_styles__2,photography_styles,PHOTO SUBJECTS,Kinds of pictures a photographer takes,normal,auto_validated,unique,0.285,portrait | landscape | aerial | wedding photo
 photography_styles__3,photography_styles,PHOTO SUBJECTS,Kinds of pictures a photographer takes,normal,auto_validated,unique,0.313,selfie | panorama | candid | macro
+pottery_studio__1,pottery_studio,POTTERY STUDIO,A material or ware made in a pottery studio,normal,auto_validated,unique,0.488,ceramic | urn | terracotta | earthenware
 pottery_words__1,pottery_words,POTTERY WORDS,Things used in making pottery,normal,auto_validated,unique,0.317,wheel | bowl | pot | fire
 pottery_words__2,pottery_words,POTTERY WORDS,Things used in making pottery,normal,auto_validated,unique,0.341,mold | tile | clay | slip
 pottery_words__3,pottery_words,POTTERY WORDS,Things used in making pottery,normal,auto_validated,unique,0.367,plaster | kiln | glaze | vase
+sculptors_studio__1,sculptors_studio,SCULPTORS STUDIO,Something a sculptor makes or mounts work on,normal,auto_validated,unique,0.512,pedestal | figurine | plinth | mould
 sculpture_materials__1,sculpture_materials,SCULPTURE MATERIALS,Materials sculptors carve or cast,normal,auto_validated,unique,0.261,stone | ice | metal | glass
 sculpture_materials__2,sculpture_materials,SCULPTURE MATERIALS,Materials sculptors carve or cast,normal,auto_validated,unique,0.276,sand | clay | wood | concrete
 sculpture_materials__3,sculpture_materials,SCULPTURE MATERIALS,Materials sculptors carve or cast,normal,auto_validated,unique,0.296,wax | marble | bronze | granite
+street_art__1,street_art,STREET ART,A form or technique of street art,normal,auto_validated,unique,0.394,mural | stencil | graffiti | tagging
 textures__1,textures,TEXTURES,Words describing how a surface feels,normal,auto_validated,unique,0.328,smooth | rough | sticky | polished
 textures__2,textures,TEXTURES,Words describing how a surface feels,normal,auto_validated,unique,0.35,fuzzy | slick | glossy | matte
 textures__3,textures,TEXTURES,Words describing how a surface feels,normal,auto_validated,unique,0.364,bumpy | silky | coarse | prickly
@@ -235,6 +243,7 @@ body_systems__2,body_systems,BODY SYSTEMS,Systems that make up the human body,no
 bones__1,bones,BONES,Bones of the human skeleton,normal,auto_validated,unique,0.251,spine | skull | shoulder blade | hip bone
 bones__2,bones,BONES,Bones of the human skeleton,normal,auto_validated,unique,0.264,rib | shin bone | wrist bone | ankle bone
 bones__3,bones,BONES,Bones of the human skeleton,normal,auto_validated,unique,0.295,femur | collarbone | pelvis | vertebra
+breathing__1,breathing,BREATHING,An act or substance belonging to breathing,normal,auto_validated,unique,0.35,breathe | gasp | inhale | exhale
 dentist_things__1,dentist_things,DENTIST THINGS,Things found at a dentist office,normal,auto_validated,unique,0.223,crown | X-ray | mirror | chair
 dentist_things__2,dentist_things,DENTIST THINGS,Things found at a dentist office,normal,auto_validated,unique,0.25,drill | plaque | filling | brace
 dentist_things__3,dentist_things,DENTIST THINGS,Things found at a dentist office,normal,auto_validated,unique,0.269,rinse | toothbrush | cavity | suction
@@ -266,6 +275,7 @@ medicine_cabinet__2,medicine_cabinet,MEDICINE CABINET,Things kept in a home medi
 medicine_cabinet__3,medicine_cabinet,MEDICINE CABINET,Things kept in a home medicine cabinet,normal,auto_validated,unique,0.258,thermometer | ointment | gauze | cotton swab
 muscles__1,muscles,MUSCLES,Muscles an average person can name,normal,auto_validated,unique,0.345,calf | abs | trap | core
 muscles__2,muscles,MUSCLES,Muscles an average person can name,normal,auto_validated,unique,0.379,quad | hamstring | lat | forearm
+parts_of_a_bird__1,parts_of_a_bird,PARTS OF A BIRD,A body part belonging to a bird,normal,auto_validated,unique,0.275,tail | beak | crest | feathers
 parts_of_the_eye__1,parts_of_the_eye,EYE PARTS,Parts of the human eye,normal,auto_validated,unique,0.349,iris | pupil | brow | lens
 parts_of_the_eye__2,parts_of_the_eye,EYE PARTS,Parts of the human eye,normal,auto_validated,unique,0.362,socket | retina | tear duct | optic nerve
 senses_and_perception__1,senses_and_perception,THE SENSES,Ways the human body senses the world,normal,auto_validated,unique,0.196,hearing | touch | pain | pressure
@@ -382,6 +392,8 @@ store_types__3,store_types,KINDS OF STORES,Kinds of shops found in a town or mal
 tech_companies__1,tech_companies,TECH COMPANIES,Well-known technology companies or consumer technology brands,normal,auto_validated,unique,0.181,apple | Google | Microsoft | Amazon
 tech_companies__2,tech_companies,TECH COMPANIES,Well-known technology companies or consumer technology brands,normal,auto_validated,unique,0.201,Samsung | Sony | Netflix | Nintendo
 tech_companies__3,tech_companies,TECH COMPANIES,Well-known technology companies or consumer technology brands,normal,auto_validated,unique,0.209,Intel | IBM | Uber | Zoom
+tickets_and_passes__1,tickets_and_passes,TICKETS AND PASSES,A word belonging to paying to enter or travel,normal,auto_validated,unique,0.388,pass | receipt | fare | entry
+trading_floor__1,trading_floor,TRADING FLOOR,A term used trading shares,normal,auto_validated,unique,0.475,portfolio | dividend | bullish | broker
 african_cities__1,african_cities,AFRICAN CITIES,Well known cities in Africa,normal,auto_validated,unique,0.338,Cairo | Lagos | Cape Town | Alexandria
 african_cities__2,african_cities,AFRICAN CITIES,Well known cities in Africa,normal,auto_validated,unique,0.361,Nairobi | Casablanca | Durban | Pretoria
 african_cities__3,african_cities,AFRICAN CITIES,Well known cities in Africa,normal,auto_validated,unique,0.373,Accra | Dakar | Tunis | Khartoum
@@ -439,17 +451,20 @@ formal_wear__2,formal_wear,FORMAL WEAR,Clothing worn to a formal occasion,normal
 formal_wear__3,formal_wear,FORMAL WEAR,Clothing worn to a formal occasion,normal,auto_validated,unique,0.299,bowtie | cufflinks | tuxedo | waistcoat
 hats__1,hats,HATS,Things worn on the head,normal,auto_validated,unique,0.186,crown | cap | top hat | hard hat
 hats__2,hats,HATS,Things worn on the head,normal,auto_validated,unique,0.198,hood | helmet | sun hat | baseball cap
-hats__3,hats,HATS,Things worn on the head,normal,auto_validated,unique,0.231,fedora | bonnet | cowboy hat | bowler
+hats__3,hats,HATS,Things worn on the head,normal,auto_validated,unique,0.226,bonnet | cowboy hat | bowler | panama
 jewelry__1,jewelry,JEWELRY,Decorative items worn on the body as jewelry,normal,auto_validated,unique,0.148,ring | watch | chain | charm
 jewelry__2,jewelry,JEWELRY,Decorative items worn on the body as jewelry,normal,auto_validated,unique,0.186,pendant | necklace | bracelet | stud
 jewelry__3,jewelry,JEWELRY,Decorative items worn on the body as jewelry,normal,auto_validated,unique,0.208,earring | brooch | hoop | tiara
+jewelry_box__1,jewelry_box,JEWELRY BOX,What is kept in a jewelry box or what it is made of,normal,auto_validated,unique,,clasp | velvet | gemstones | jewelry
 kids_clothing__1,kids_clothing,KIDS CLOTHING,Clothing made especially for babies and children,normal,auto_validated,unique,0.267,overalls | sun hat | jumper | diaper
 kids_clothing__2,kids_clothing,KIDS CLOTHING,Clothing made especially for babies and children,normal,auto_validated,unique,0.3,bib | onesie | booties | mittens
 laundry_care__1,laundry_care,LAUNDRY CARE,Things done to clothes to keep them clean and neat,normal,auto_validated,unique,0.263,iron | press | dry | sort
 laundry_care__2,laundry_care,LAUNDRY CARE,Things done to clothes to keep them clean and neat,normal,auto_validated,unique,0.274,steam | wash | hang | dry clean
 laundry_care__3,laundry_care,LAUNDRY CARE,Things done to clothes to keep them clean and neat,normal,auto_validated,unique,0.309,rinse | soak | fold | bleach
+rainy_day_gear__1,rainy_day_gear,RAINY DAY GEAR,Something you wear or meet on a rainy day,normal,auto_validated,unique,0.319,hood | umbrella | boots | puddle
 sewing_words__1,sewing_words,SEWING WORDS,Words used when sewing or altering clothes,normal,auto_validated,unique,0.288,pin | thread | pattern | alter
 sewing_words__2,sewing_words,SEWING WORDS,Words used when sewing or altering clothes,normal,auto_validated,unique,0.311,needle | stitch | lining | tuck
+sewing_words__3,sewing_words,SEWING WORDS,Words used when sewing or altering clothes,normal,auto_validated,unique,0.323,dart | cuff | seam | yarn
 shoe_parts__1,shoe_parts,SHOE PARTS,Parts of a shoe,normal,auto_validated,unique,0.281,sole | toe | tongue | upper
 shoe_parts__2,shoe_parts,SHOE PARTS,Parts of a shoe,normal,auto_validated,unique,0.301,arch | heel | lace | strap
 shoe_parts__3,shoe_parts,SHOE PARTS,Parts of a shoe,normal,auto_validated,unique,0.32,buckle | tread | cushion | shank
@@ -468,23 +483,32 @@ things_you_button__2,things_you_button,BUTTONED THINGS,Clothes and objects faste
 things_you_tie__1,things_you_tie,TIED THINGS,Things fastened by tying a knot or bow,normal,auto_validated,unique,0.287,tie | rope | belt | hair tie
 things_you_tie__2,things_you_tie,TIED THINGS,Things fastened by tying a knot or bow,normal,auto_validated,unique,0.318,knot | scarf | sash | ribbon
 things_you_tie__3,things_you_tie,TIED THINGS,Things fastened by tying a knot or bow,normal,auto_validated,unique,0.354,bowtie | bandana | drawstring | laces
+wardrobe__1,wardrobe,WARDROBE,"What hangs, sits or is stored in the place you keep clothes",normal,auto_validated,unique,,hanger | closet | footwear | hats
+winter_cabin__1,winter_cabin,WINTER CABIN,Something warm you wear or use in deep winter,normal,auto_validated,unique,0.575,thermals | snowshoe | earmuffs | toboggan
 winter_clothing__1,winter_clothing,WINTER CLOTHING,Clothing worn specifically to stay warm in cold weather,normal,auto_validated,unique,0.17,hood | coat | snow pants | down jacket
 winter_clothing__2,winter_clothing,WINTER CLOTHING,Clothing worn specifically to stay warm in cold weather,normal,auto_validated,unique,0.186,boot | sweater | glove | ski mask
 winter_clothing__3,winter_clothing,WINTER CLOTHING,Clothing worn specifically to stay warm in cold weather,normal,auto_validated,unique,0.204,fleece | scarf | wool socks | shawl
 work_uniforms__1,work_uniforms,UNIFORMS,Outfits worn as a required uniform for work or school,normal,auto_validated,unique,0.241,badge | hard hat | lab coat | chef coat
 work_uniforms__2,work_uniforms,UNIFORMS,Outfits worn as a required uniform for work or school,normal,auto_validated,unique,0.272,apron | scrubs | vest | blazer
 work_uniforms__3,work_uniforms,UNIFORMS,Outfits worn as a required uniform for work or school,normal,auto_validated,unique,0.292,jumpsuit | kilt | tunic | smock
+birthday_party__1,birthday_party,BIRTHDAY PARTY,Something you associate with a birthday party,normal,auto_validated,unique,0.287,balloon | gift | wish | candles
+easter__1,easter,EASTER,Something you associate with Easter,normal,auto_validated,unique,0.344,chick | bunny | basket | eggs
+fairy_tale__1,fairy_tale,FAIRY TALE,A character or object out of a fairy tale,normal,auto_validated,unique,0.419,troll | gnome | gingerbread | godmother
 festivals__1,festivals,WORLD FESTIVALS,Festivals celebrated around the world,normal,auto_validated,unique,0.331,Carnival | Lunar New Year | Day of the Dead | Bastille Day
 festivals__2,festivals,WORLD FESTIVALS,Festivals celebrated around the world,normal,auto_validated,unique,0.374,Oktoberfest | Mardi Gras | Diwali | Cinco de Mayo
 greek_letters__1,greek_letters,GREEK LETTERS,Letters of the Greek alphabet,normal,auto_validated,unique,0.271,delta | alpha | beta | xi
 greek_letters__2,greek_letters,GREEK LETTERS,Letters of the Greek alphabet,normal,auto_validated,unique,0.284,Omega | gamma | pi | chi
 greek_letters__3,greek_letters,GREEK LETTERS,Letters of the Greek alphabet,normal,auto_validated,unique,0.295,mu | nu | sigma | phi
+haunted_house__1,haunted_house,HAUNTED HOUSE,A word belonging to ghost stories and hauntings,normal,auto_validated,unique,0.55,banshee | poltergeist | cobwebs | ouija
+kinds_of_humor__1,kinds_of_humor,KINDS OF HUMOR,A form of humor or a way of being funny,normal,auto_validated,unique,0.319,joke | parody | irony | prank
 latin_phrases__1,latin_phrases,LATIN PHRASES,Latin phrases used in everyday English,normal,auto_validated,unique,0.375,versus | per se | agenda | per capita
 latin_phrases__2,latin_phrases,LATIN PHRASES,Latin phrases used in everyday English,normal,auto_validated,unique,0.397,status quo | vice versa | ad hoc | alter ego
 latin_phrases__3,latin_phrases,LATIN PHRASES,Latin phrases used in everyday English,normal,auto_validated,unique,0.418,bona fide | alma mater | alibi | quid pro quo
 manners__1,manners,MANNERS WORDS,Words used when teaching good manners,normal,auto_validated,unique,0.25,please | sorry | may I | respect
 manners__2,manners,MANNERS WORDS,Words used when teaching good manners,normal,auto_validated,unique,0.253,thank you | waiting | listening | turn taking
 manners__3,manners,MANNERS WORDS,Words used when teaching good manners,normal,auto_validated,unique,0.271,excuse me | sharing | apologize | patience
+museum_hall__1,museum_hall,MUSEUM HALL,A display or person found in a museum hall,normal,auto_validated,unique,0.475,archive | Antiquity | diorama | display
+pirate_cove__1,pirate_cove,PIRATE COVE,A word from pirate tales beyond the obvious ones,normal,auto_validated,unique,0.556,spyglass | buccaneer | marooned | plunder
 playground_games__1,playground_games,PLAYGROUND GAMES,Games children play at recess,normal,auto_validated,unique,0.23,hide and seek | four square | simon says | capture the flag
 playground_games__2,playground_games,PLAYGROUND GAMES,Games children play at recess,normal,auto_validated,unique,0.249,jump rope | red rover | freeze tag | hot potato
 playground_games__3,playground_games,PLAYGROUND GAMES,Games children play at recess,normal,auto_validated,unique,0.289,marbles | hopscotch | dodgeball | duck duck goose
@@ -492,6 +516,7 @@ superstition_numbers__1,superstition_numbers,NUMBER WORDS,Words for numbers and 
 superstition_numbers__2,superstition_numbers,NUMBER WORDS,Words for numbers and counting,normal,auto_validated,unique,0.195,one | four | million | half
 superstition_numbers__3,superstition_numbers,NUMBER WORDS,Words for numbers and counting,normal,auto_validated,unique,0.195,single | ten | six | seven
 traditional_clothing__1,traditional_clothing,TRADITIONAL CLOTHING,Traditional garments from world cultures,normal,auto_validated,unique,0.376,turban | kilt | kimono | sari
+ufo_sighting__1,ufo_sighting,UFO SIGHTING,A word belonging to stories of flying saucers,normal,auto_validated,unique,0.475,martian | roswell | sighting | hovering
 video_game_classics__1,video_game_classics,RETRO GAMES,Video games known across generations,normal,auto_validated,unique,0.29,Sonic | Pac Man | Mario | Donkey Kong
 video_game_classics__2,video_game_classics,RETRO GAMES,Video games known across generations,normal,auto_validated,unique,0.311,Zelda | Space Invaders | Pong | Asteroids
 video_game_classics__3,video_game_classics,RETRO GAMES,Video games known across generations,normal,auto_validated,unique,0.329,centipede | Tetris | Pinball | Solitaire
@@ -532,6 +557,7 @@ noise_adjectives__3,noise_adjectives,VOLUME WORDS,Words describing how loud some
 order_words__1,order_words,ORDER WORDS,Words describing position in a sequence,normal,auto_validated,unique,0.241,first | final | following | former
 order_words__2,order_words,ORDER WORDS,Words describing position in a sequence,normal,auto_validated,unique,0.241,last | next | previous | middle
 order_words__3,order_words,ORDER WORDS,Words describing position in a sequence,normal,auto_validated,unique,0.246,second | third | initial | latter
+personality_traits__1,personality_traits,PERSONALITY TRAITS,An adjective describing a person's character,normal,auto_validated,unique,0.287,curious | honest | brave | kind
 quantity_words__1,quantity_words,QUANTITY WORDS,Words describing how much of something there is,normal,auto_validated,unique,0.241,few | many | several | none
 quantity_words__2,quantity_words,QUANTITY WORDS,Words describing how much of something there is,normal,auto_validated,unique,0.249,load | plenty | some | bunch
 quantity_words__3,quantity_words,QUANTITY WORDS,Words describing how much of something there is,normal,auto_validated,unique,0.271,dozens | handful | pile | ton
@@ -541,9 +567,9 @@ shape_adjectives__3,shape_adjectives,SHAPE ADJECTIVES,Words describing the shape
 smell_words__1,smell_words,SMELL WORDS,Words describing how something smells,normal,auto_validated,unique,0.312,fresh | sweet | sour | spicy
 smell_words__2,smell_words,SMELL WORDS,Words describing how something smells,normal,auto_validated,unique,0.35,smoky | fragrant | floral | stale
 smell_words__3,smell_words,SMELL WORDS,Words describing how something smells,normal,auto_validated,unique,0.372,musty | pungent | earthy | rancid
-speed_adjectives__1,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.256,fast | slow | quick | sudden
-speed_adjectives__2,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.282,rapid | swift | gradual | steady
-speed_adjectives__3,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.31,sluggish | hasty | creeping | speedy
+speed_adjectives__1,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.251,medium | fast | slow | quick
+speed_adjectives__2,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.273,rapid | steady | sudden | turbo
+speed_adjectives__3,speed_adjectives,SPEED WORDS,Words describing how fast something moves,normal,auto_validated,unique,0.297,swift | gradual | creeping | speedy
 strength_words__1,strength_words,STRENGTH WORDS,Words describing strength,normal,auto_validated,unique,0.256,solid | tough | strong | weak
 strength_words__2,strength_words,STRENGTH WORDS,Words describing strength,normal,auto_validated,unique,0.288,fragile | mighty | robust | delicate
 strength_words__3,strength_words,STRENGTH WORDS,Words describing strength,normal,auto_validated,unique,0.31,brittle | sturdy | frail | durable
@@ -586,6 +612,7 @@ grades_and_marks__3,grades_and_marks,GRADING WORDS,Words used to grade and evalu
 gym_class_things__1,gym_class_things,GYM CLASS,Things used in a school gym class,normal,auto_validated,unique,0.187,ball | jump rope | uniform | net
 gym_class_things__2,gym_class_things,GYM CLASS,Things used in a school gym class,normal,auto_validated,unique,0.212,whistle | locker | mat | cone
 gym_class_things__3,gym_class_things,GYM CLASS,Things used in a school gym class,normal,auto_validated,unique,0.229,hoop | sneakers | parachute | hurdle
+in_the_classroom__1,in_the_classroom,IN THE CLASSROOM,"A person, task or fixture found in a classroom",normal,auto_validated,unique,0.294,exam | homework | student | blackboard
 learning_actions__1,learning_actions,LEARNING ACTIONS,Things students do while learning,normal,auto_validated,unique,0.21,note | practice | listen | question
 learning_actions__2,learning_actions,LEARNING ACTIONS,Things students do while learning,normal,auto_validated,unique,0.212,read | review | research | discuss
 learning_actions__3,learning_actions,LEARNING ACTIONS,Things students do while learning,normal,auto_validated,unique,0.233,drill | write | solve | outline
@@ -627,6 +654,10 @@ amusement_park__3,amusement_park,AMUSEMENT PARK,Rides and things found at an amu
 art_forms__1,art_forms,ART FORMS,Forms of visual and performing art,normal,auto_validated,unique,0.213,painting | dance | music | film
 art_forms__2,art_forms,ART FORMS,Forms of visual and performing art,normal,auto_validated,unique,0.229,theater | drawing | photography | poetry
 art_forms__3,art_forms,ART FORMS,Forms of visual and performing art,normal,auto_validated,unique,0.26,pottery | weaving | sculpture | mosaic
+at_the_movies__1,at_the_movies,AT THE MOVIES,Something you meet at a cinema,normal,auto_validated,unique,0.325,admission | usher | popcorn | cinema
+at_the_theater__1,at_the_theater,AT THE THEATER,A part of a theatre or the people in it,normal,auto_validated,unique,0.306,curtain | stage | actor | audience
+auditions__1,auditions,AUDITIONS,A word belonging to trying out for a part,normal,auto_validated,unique,0.444,spotlight | contestant | audition | callback
+ballet_class__1,ballet_class,BALLET CLASS,"A move, garment or fixture of a ballet class",normal,auto_validated,unique,0.5,recital | barre | leotard | arabesque
 board_games__1,board_games,BOARD GAMES,Games played on a printed board with pieces,normal,auto_validated,unique,0.171,Life | sorry | risk | trouble
 board_games__2,board_games,BOARD GAMES,Games played on a printed board with pieces,normal,auto_validated,unique,0.205,chess | monopoly | clue | candy land
 board_games__3,board_games,BOARD GAMES,Games played on a printed board with pieces,normal,auto_validated,unique,0.239,checkers | scrabble | battleship | trivial pursuit
@@ -636,12 +667,14 @@ card_games__3,card_games,CARD GAMES,Games played with a deck of cards,normal,aut
 card_words__1,card_words,CARD WORDS,"Words for the cards, suits and parts of a standard deck of playing cards",normal,auto_validated,unique,0.21,heart | club | cut | deal
 card_words__2,card_words,CARD WORDS,"Words for the cards, suits and parts of a standard deck of playing cards",normal,auto_validated,unique,0.21,straight | king | trump | face card
 card_words__3,card_words,CARD WORDS,"Words for the cards, suits and parts of a standard deck of playing cards",normal,auto_validated,unique,0.215,suit | queen | jack | pair
+circus_ring__1,circus_ring,CIRCUS RING,A circus act or prop beyond the obvious ones,normal,auto_validated,unique,0.537,unicycle | stilts | cannonball | strongman
 circus_words__1,circus_words,CIRCUS WORDS,"People, animals and objects you see at a traditional circus",normal,auto_validated,unique,0.229,ring | elephant | net | tent
 circus_words__2,circus_words,CIRCUS WORDS,"People, animals and objects you see at a traditional circus",normal,auto_validated,unique,0.25,clown | cannon | popcorn | cotton candy
 circus_words__3,circus_words,CIRCUS WORDS,"People, animals and objects you see at a traditional circus",normal,auto_validated,unique,0.299,acrobat | tightrope | stilts | lion tamer
 comedy_words__1,comedy_words,COMEDY WORDS,Words used about comedy performances,normal,auto_validated,unique,0.282,sketch | joke | timing | routine
 comedy_words__2,comedy_words,COMEDY WORDS,Words used about comedy performances,normal,auto_validated,unique,0.305,roast | satire | parody | one liner
 comedy_words__3,comedy_words,COMEDY WORDS,Words used about comedy performances,normal,auto_validated,unique,0.323,improv | gag | standup | pun
+costume_party__1,costume_party,COSTUME PARTY,What you put on or need for a costume party,normal,auto_validated,unique,,wig | cape | mask | superheroes
 dance_styles__1,dance_styles,DANCE STYLES,Styles of dance,normal,auto_validated,unique,0.229,tap | swing | jazz | line dance
 dance_styles__2,dance_styles,DANCE STYLES,Styles of dance,normal,auto_validated,unique,0.246,ballet | folk | disco | hip hop
 dance_styles__3,dance_styles,DANCE STYLES,Styles of dance,normal,auto_validated,unique,0.267,tango | salsa | ballroom | cha cha
@@ -651,6 +684,7 @@ famous_composers__3,famous_composers,COMPOSERS,Famous classical composers,normal
 fantasy_creatures__1,fantasy_creatures,MYTHICAL CREATURES,Creatures from myth and legend,normal,auto_validated,unique,0.233,phoenix | dragon | giant | fairy
 fantasy_creatures__2,fantasy_creatures,MYTHICAL CREATURES,Creatures from myth and legend,normal,auto_validated,unique,0.254,troll | elf | griffin | vampire
 fantasy_creatures__3,fantasy_creatures,MYTHICAL CREATURES,Creatures from myth and legend,normal,auto_validated,unique,0.271,mermaid | goblin | unicorn | werewolf
+in_a_band__1,in_a_band,IN A BAND,A part played by a member of a music band,normal,auto_validated,unique,0.35,guitar | vocals | drummer | frontman
 instruments_in_an_orchestra__1,instruments_in_an_orchestra,ORCHESTRA SECTIONS,Sections and roles in a symphony orchestra,normal,auto_validated,unique,0.334,conductor | strings | brass | section
 instruments_in_an_orchestra__2,instruments_in_an_orchestra,ORCHESTRA SECTIONS,Sections and roles in a symphony orchestra,normal,auto_validated,unique,0.364,percussion | soloist | first violin | ensemble
 instruments_you_strum__1,instruments_you_strum,THINGS WITH STRINGS,Objects that have strings as an essential part,normal,auto_validated,unique,0.329,bow | piano | guitar | yo-yo
@@ -674,6 +708,7 @@ music_words__3,music_words,MUSIC WORDS,Words used to describe how a piece of mus
 musical_instruments__1,musical_instruments,MUSICAL INSTRUMENTS,Instruments played to produce music,normal,auto_validated,unique,0.125,organ | piano | drum | guitar
 musical_instruments__2,musical_instruments,MUSICAL INSTRUMENTS,Instruments played to produce music,normal,auto_validated,unique,0.146,keyboard | violin | flute | trumpet
 musical_instruments__3,musical_instruments,MUSICAL INSTRUMENTS,Instruments played to produce music,normal,auto_validated,unique,0.165,cello | harp | banjo | saxophone
+orchestra_words__1,orchestra_words,ORCHESTRA WORDS,A term belonging to an orchestra and its music,normal,auto_validated,unique,0.45,symphony | maestro | overture | concerto
 party_things__1,party_things,PARTY THINGS,Things found at a birthday party,normal,auto_validated,unique,0.139,present | music | game | favor
 party_things__2,party_things,PARTY THINGS,Things found at a birthday party,normal,auto_validated,unique,0.15,plate | prize | cake | guest
 party_things__3,party_things,PARTY THINGS,Things found at a birthday party,normal,auto_validated,unique,0.162,banner | invitation | party hat | candy
@@ -683,6 +718,7 @@ percussion__3,percussion,PERCUSSION INSTRUMENTS,Musical instruments played by st
 reading_material__1,reading_material,READING MATTER,Things people read,normal,auto_validated,unique,0.17,letter | book | sign | article
 reading_material__2,reading_material,READING MATTER,Things people read,normal,auto_validated,unique,0.178,map | magazine | blog | novel
 reading_material__3,reading_material,READING MATTER,Things people read,normal,auto_validated,unique,0.186,ticket | label | newspaper | comic
+singing_voices__1,singing_voices,SINGING VOICES,A named singing range or singing group,normal,auto_validated,unique,0.319,choir | solo | soprano | alto
 storybook_characters__1,storybook_characters,TALE CHARACTERS,Characters that appear in classic fairy tales,normal,auto_validated,unique,0.175,queen | Prince | king | giant
 storybook_characters__2,storybook_characters,TALE CHARACTERS,Characters that appear in classic fairy tales,normal,auto_validated,unique,0.191,wolf | dragon | princess | knight
 storybook_characters__3,storybook_characters,TALE CHARACTERS,Characters that appear in classic fairy tales,normal,auto_validated,unique,0.207,frog | witch | fairy | wizard
@@ -692,20 +728,24 @@ string_instruments__3,string_instruments,STRING INSTRUMENTS,Musical instruments 
 theater_words__1,theater_words,THEATER WORDS,Words for the parts and people of a live theater production,normal,auto_validated,unique,0.217,cast | stage | box office | act
 theater_words__2,theater_words,THEATER WORDS,Words for the parts and people of a live theater production,normal,auto_validated,unique,0.247,curtain | script | spotlight | wings
 theater_words__3,theater_words,THEATER WORDS,Words for the parts and people of a live theater production,normal,auto_validated,unique,0.264,balcony | aisle | prop | rehearsal
+toy_chest__1,toy_chest,TOY CHEST,What gets thrown into a child's toy chest,normal,auto_validated,unique,,doll | blocks | toys | balls
 toys__1,toys,TOYS,Things children play with,normal,auto_validated,unique,0.137,top | ball | train set | action figure
 toys__2,toys,TOYS,Things children play with,normal,auto_validated,unique,0.158,blocks | robot | jack in the box | bubble
 toys__3,toys,TOYS,Things children play with,normal,auto_validated,unique,0.171,marble | jump rope | doll | yo-yo
 tv_words__1,tv_words,TELEVISION WORDS,Words used about television programs,normal,auto_validated,unique,0.216,commercial | channel | episode | network
 tv_words__2,tv_words,TELEVISION WORDS,Words used about television programs,normal,auto_validated,unique,0.229,screen | remote | cable | pilot
 tv_words__3,tv_words,TELEVISION WORDS,Words used about television programs,normal,auto_validated,unique,0.244,ratings | finale | broadcast | streaming
+types_of_guitars__1,types_of_guitars,TYPES OF GUITARS,A kind of guitar or a close relative of the guitar,normal,auto_validated,unique,0.294,banjo | classical | electric | acoustic
 video_game_words__1,video_game_words,GAMING WORDS,Words used when playing video games,normal,auto_validated,unique,0.217,level | save | power up | health bar
 video_game_words__2,video_game_words,GAMING WORDS,Words used when playing video games,normal,auto_validated,unique,0.232,score | boss | controller | quest
 video_game_words__3,video_game_words,GAMING WORDS,Words used when playing video games,normal,auto_validated,unique,0.258,arcade | avatar | console | cheat code
 wind_instruments__1,wind_instruments,WIND INSTRUMENTS,Musical instruments played by blowing air,normal,auto_validated,unique,0.261,whistle | recorder | trumpet | french horn
 wind_instruments__2,wind_instruments,WIND INSTRUMENTS,Musical instruments played by blowing air,normal,auto_validated,unique,0.285,flute | clarinet | saxophone | piccolo
+at_the_stables__1,at_the_stables,AT THE STABLES,"A piece of tack, animal or fixture found at stables",normal,auto_validated,unique,0.419,bridle | reins | horseshoe | paddock
 barn_things__1,barn_things,BARN THINGS,Things found inside a barn,normal,auto_validated,unique,0.233,gate | rope | bucket | feed
 barn_things__2,barn_things,BARN THINGS,Things found inside a barn,normal,auto_validated,unique,0.253,sack | stall | saddle | hay
 barn_things__3,barn_things,BARN THINGS,Things found inside a barn,normal,auto_validated,unique,0.263,harness | lantern | bale | loft
+beekeeper__1,beekeeper,BEEKEEPER,"A place, product or tool of keeping bees",normal,auto_validated,unique,0.519,smoker | apiary | honeycomb | beeswax
 beekeeping__1,beekeeping,BEEKEEPING THINGS,Things used in beekeeping,normal,auto_validated,unique,0.298,queen | frame | worker | super
 beekeeping__2,beekeeping,BEEKEEPING THINGS,Things used in beekeeping,normal,auto_validated,unique,0.324,wax | gloves | honey | drone
 beekeeping__3,beekeeping,BEEKEEPING THINGS,Things used in beekeeping,normal,auto_validated,unique,0.345,hive | veil | comb | pollen
@@ -721,6 +761,7 @@ farm_buildings__3,farm_buildings,FARM BUILDINGS,Buildings and structures on a fa
 farm_machines__1,farm_machines,FARM MACHINES,Machines used on a modern farm,normal,auto_validated,unique,0.26,tractor | combine | plow | irrigation pump
 farm_machines__2,farm_machines,FARM MACHINES,Machines used on a modern farm,normal,auto_validated,unique,0.287,harvester | tiller | mower | harrow
 farm_machines__3,farm_machines,FARM MACHINES,Machines used on a modern farm,normal,auto_validated,unique,0.305,sprayer | thresher | spreader | silo loader
+farm_morning__1,farm_morning,FARM,"What a farm has, keeps or fights",normal,auto_validated,unique,,barn | tractor | silo | livestock
 farm_products__1,farm_products,FARM PRODUCTS,Things a farm produces to sell,normal,auto_validated,unique,0.221,milk | cheese | eggs | produce
 farm_products__2,farm_products,FARM PRODUCTS,Things a farm produces to sell,normal,auto_validated,unique,0.233,cotton | leather | honey | beef
 farm_products__3,farm_products,FARM PRODUCTS,Things a farm produces to sell,normal,auto_validated,unique,0.243,hay | grain | corn | pork
@@ -752,8 +793,9 @@ beauty_tools__1,beauty_tools,BEAUTY TOOLS,"Tools used for hair, nails and makeup
 beauty_tools__2,beauty_tools,BEAUTY TOOLS,"Tools used for hair, nails and makeup",normal,auto_validated,unique,0.3,sponge | dryer | buffer | razor
 beauty_tools__3,beauty_tools,BEAUTY TOOLS,"Tools used for hair, nails and makeup",normal,auto_validated,unique,0.319,tweezers | comb | clipper | curling iron
 eyewear__1,eyewear,EYEWEAR,Things worn over the eyes,normal,auto_validated,unique,0.235,glasses | mask | safety glasses | reading glasses
-eyewear__2,eyewear,EYEWEAR,Things worn over the eyes,normal,auto_validated,unique,0.255,sunglasses | goggles | contacts | shades
-eyewear__3,eyewear,EYEWEAR,Things worn over the eyes,normal,auto_validated,unique,0.306,visor | monocle | bifocals | blindfold
+eyewear__2,eyewear,EYEWEAR,Things worn over the eyes,normal,auto_validated,unique,0.249,sunglasses | contacts | shades | frames
+eyewear__3,eyewear,EYEWEAR,Things worn over the eyes,normal,auto_validated,unique,0.291,visor | goggles | monocle | blindfold
+facial_care__1,facial_care,FACIAL CARE,A product applied to the face to care for the skin,normal,auto_validated,unique,0.35,cleanser | serum | toner | patches
 fashion_accessories__1,fashion_accessories,FASHION ACCESSORIES,Items added to complete a look,normal,auto_validated,unique,0.224,watch | tie | hat | pocket square
 fashion_accessories__2,fashion_accessories,FASHION ACCESSORIES,Items added to complete a look,normal,auto_validated,unique,0.246,necklace | belt | sunglasses | gloves
 fashion_accessories__3,fashion_accessories,FASHION ACCESSORIES,Items added to complete a look,normal,auto_validated,unique,0.272,scarf | bracelet | earring | brooch
@@ -778,20 +820,25 @@ patterns__3,patterns,PATTERNS,Patterns printed on cloth,normal,auto_validated,un
 perfume_words__1,perfume_words,FRAGRANCE WORDS,Words used to describe perfumes and scents,normal,auto_validated,unique,0.307,fresh | amber | rose | sweet
 perfume_words__2,perfume_words,FRAGRANCE WORDS,Words used to describe perfumes and scents,normal,auto_validated,unique,0.341,spicy | floral | woody | vanilla
 perfume_words__3,perfume_words,FRAGRANCE WORDS,Words used to describe perfumes and scents,normal,auto_validated,unique,0.35,Cologne | musk | citrus | mist
+self_care__1,self_care,SELF CARE,A way people look after their appearance and body,normal,auto_validated,unique,0.394,massage | skincare | manicure | spa
 sewing_patterns__1,sewing_patterns,GARMENT DETAILS,Details sewn into a garment design,normal,auto_validated,unique,0.323,trim | collar | pocket | panel
 sewing_patterns__2,sewing_patterns,GARMENT DETAILS,Details sewn into a garment design,normal,auto_validated,unique,0.353,dart | cuff | lining | yoke
 sewing_patterns__3,sewing_patterns,GARMENT DETAILS,Details sewn into a garment design,normal,auto_validated,unique,0.371,hem | seam | lapel | ruffle
 shoe_styles__1,shoe_styles,SHOE STYLES,Styles of shoe,normal,auto_validated,unique,0.231,pump | oxford | flat | platform
 shoe_styles__2,shoe_styles,SHOE STYLES,Styles of shoe,normal,auto_validated,unique,0.262,boot | mule | heel | wedge
+spa_day__1,spa_day,SPA DAY,A treatment or fixture of a day at the spa,normal,auto_validated,unique,0.5,masseuse | jacuzzi | pampering | aromatherapy
 wardrobe_care__1,wardrobe_care,WARDROBE CARE,Things used to store and care for clothes,normal,auto_validated,unique,0.312,iron | hook | brush | closet
 wardrobe_care__2,wardrobe_care,WARDROBE CARE,Things used to store and care for clothes,normal,auto_validated,unique,0.33,shelf | shoe tree | drawer | cedar block
 wardrobe_care__3,wardrobe_care,WARDROBE CARE,Things used to store and care for clothes,normal,auto_validated,unique,0.356,garment bag | hanger | steamer | lint roller
 asian_dishes__1,asian_dishes,ASIAN DISHES,Dishes from East and Southeast Asian cuisines eaten in the United States,normal,auto_validated,unique,0.245,fried rice | spring roll | curry | egg roll
 asian_dishes__2,asian_dishes,ASIAN DISHES,Dishes from East and Southeast Asian cuisines eaten in the United States,normal,auto_validated,unique,0.27,sushi | ramen | pad thai | dim sum
 asian_dishes__3,asian_dishes,ASIAN DISHES,Dishes from East and Southeast Asian cuisines eaten in the United States,normal,auto_validated,unique,0.293,lo mein | pho | chow mein | kimchi
+baked_goods__1,baked_goods,BAKED GOODS,Something baked from dough or batter in an oven,normal,auto_validated,unique,0.188,cake | bagel | cookie | bread
+baked_goods__2,baked_goods,BAKED GOODS,Something baked from dough or batter in an oven,normal,auto_validated,unique,0.219,muffin | croissant | pie | donut
 baking_ingredients__1,baking_ingredients,BAKING INGREDIENTS,"Ingredients commonly used to bake cakes, bread or cookies",normal,auto_validated,unique,0.177,oil | cream | milk | sugar
 baking_ingredients__2,baking_ingredients,BAKING INGREDIENTS,"Ingredients commonly used to bake cakes, bread or cookies",normal,auto_validated,unique,0.187,honey | egg | salt | chocolate
 baking_ingredients__3,baking_ingredients,BAKING INGREDIENTS,"Ingredients commonly used to bake cakes, bread or cookies",normal,auto_validated,unique,0.207,vanilla | butter | flour | baking powder
+barbecue__1,barbecue,BARBECUE,Something you cook with or over at a barbecue,normal,auto_validated,unique,0.319,grill | charcoal | smoke | burger
 bbq_foods__1,bbq_foods,BARBECUE FOODS,Foods cooked or served at an American backyard barbecue,normal,auto_validated,unique,0.228,chicken | corn | hot dog | chips
 bbq_foods__2,bbq_foods,BARBECUE FOODS,Foods cooked or served at an American backyard barbecue,normal,auto_validated,unique,0.251,ribs | burger | potato salad | pulled pork
 bbq_foods__3,bbq_foods,BARBECUE FOODS,Foods cooked or served at an American backyard barbecue,normal,auto_validated,unique,0.259,mustard | bun | sausage | baked beans
@@ -802,7 +849,7 @@ bread_types__2,bread_types,BREAD TYPES,Kinds of bread and baked goods made from 
 bread_types__3,bread_types,BREAD TYPES,Kinds of bread and baked goods made from dough,normal,auto_validated,unique,0.256,bagel | muffin | pita | tortilla
 breakfast_foods__1,breakfast_foods,BREAKFAST FOODS,Foods typically eaten at breakfast in the United States,normal,auto_validated,unique,0.155,egg | bacon | coffee cake | jam
 breakfast_foods__2,breakfast_foods,BREAKFAST FOODS,Foods typically eaten at breakfast in the United States,normal,auto_validated,unique,0.168,toast | french toast | danish | ham
-breakfast_foods__3,breakfast_foods,BREAKFAST FOODS,Foods typically eaten at breakfast in the United States,normal,auto_validated,unique,0.179,cereal | sausage | yogurt | hash brown
+breakfast_foods__3,breakfast_foods,BREAKFAST FOODS,Foods typically eaten at breakfast in the United States,normal,auto_validated,unique,0.175,milk | rice | sausage | bread
 cake_types__1,cake_types,CAKE TYPES,Kinds of cake baked and sold in the United States,normal,auto_validated,unique,0.236,chocolate | angel food | birthday | wedding
 cake_types__2,cake_types,CAKE TYPES,Kinds of cake baked and sold in the United States,normal,auto_validated,unique,0.249,pound | layer | coffee cake | ice cream cake
 cake_types__3,cake_types,CAKE TYPES,Kinds of cake baked and sold in the United States,normal,auto_validated,unique,0.269,vanilla | red velvet | upside down | lava
@@ -832,9 +879,11 @@ desserts__3,desserts,DESSERTS,Sweet dishes served at the end of a meal,normal,au
 egg_dishes__1,egg_dishes,EGG DISHES,Ways eggs are cooked and served,normal,auto_validated,unique,0.291,fried | over easy | sunny side up | egg salad
 egg_dishes__2,egg_dishes,EGG DISHES,Ways eggs are cooked and served,normal,auto_validated,unique,0.322,custard | scrambled | boiled | benedict
 egg_dishes__3,egg_dishes,EGG DISHES,Ways eggs are cooked and served,normal,auto_validated,unique,0.357,omelet | poached | deviled | quiche
+everyday_drinks__1,everyday_drinks,EVERYDAY DRINKS,A common non alcoholic drink,normal,auto_validated,unique,0.181,milk | cocoa | coffee | tea
 fast_food_items__1,fast_food_items,DRIVE THRU,Items ordered at an American fast food counter,normal,auto_validated,unique,0.151,wrap | hot dog | pizza | sub
 fast_food_items__2,fast_food_items,DRIVE THRU,Items ordered at an American fast food counter,normal,auto_validated,unique,0.17,soda | burger | chicken sandwich | corn dog
 fast_food_items__3,fast_food_items,DRIVE THRU,Items ordered at an American fast food counter,normal,auto_validated,unique,0.182,chili | fries | taco | onion ring
+food_groups__1,food_groups,FOOD GROUPS,One of the food groups a balanced diet is divided into,normal,auto_validated,unique,0.231,dairy | fruit | meat | protein
 frozen_foods__1,frozen_foods,FROZEN FOODS,Foods normally bought from the freezer aisle,normal,auto_validated,unique,0.236,ice cream | pizza | corn dog | fish stick
 frozen_foods__2,frozen_foods,FROZEN FOODS,Foods normally bought from the freezer aisle,normal,auto_validated,unique,0.263,hash brown | peas | french fries | pot pie
 frozen_foods__3,frozen_foods,FROZEN FOODS,Foods normally bought from the freezer aisle,normal,auto_validated,unique,0.277,spinach | waffle | burrito | berries
@@ -844,42 +893,53 @@ fruits__3,fruits,FRUITS,Common edible fruits familiar to an average American adu
 grains_and_beans__1,grains_and_beans,GRAINS AND BEANS,"Grains, beans and other dried staples cooked as food",normal,auto_validated,unique,0.254,corn | rice | wheat | black bean
 grains_and_beans__2,grains_and_beans,GRAINS AND BEANS,"Grains, beans and other dried staples cooked as food",normal,auto_validated,unique,0.284,barley | kidney bean | soybean | rye
 grains_and_beans__3,grains_and_beans,GRAINS AND BEANS,"Grains, beans and other dried staples cooked as food",normal,auto_validated,unique,0.303,oat | quinoa | pinto bean | millet
+grocery_aisles__1,grocery_aisles,GROCERY AISLES,The sections a supermarket is divided into,normal,auto_validated,unique,,bakery | dairy | fruits | vegetables
 hot_drinks__1,hot_drinks,HOT DRINKS,Drinks normally served hot,normal,auto_validated,unique,0.115,coffee | tea | hot chocolate | green tea
 hot_drinks__2,hot_drinks,HOT DRINKS,Drinks normally served hot,normal,auto_validated,unique,0.163,cider | cocoa | broth | espresso
 hot_drinks__3,hot_drinks,HOT DRINKS,Drinks normally served hot,normal,auto_validated,unique,0.173,latte | chai | mocha | herbal tea
 ice_cream_flavors__1,ice_cream_flavors,ICE CREAM,Flavors of ice cream sold in American shops,normal,auto_validated,unique,0.203,cherry | chocolate | coffee | birthday cake
 ice_cream_flavors__2,ice_cream_flavors,ICE CREAM,Flavors of ice cream sold in American shops,normal,auto_validated,unique,0.22,banana | lemon | rocky road | cookies and cream
 ice_cream_flavors__3,ice_cream_flavors,ICE CREAM,Flavors of ice cream sold in American shops,normal,auto_validated,unique,0.229,mint | vanilla | peach | strawberry
+in_a_salad__1,in_a_salad,IN A SALAD,An ingredient tossed into a green salad,normal,auto_validated,unique,0.3,lettuce | cucumber | dressing | olives
 italian_dishes__1,italian_dishes,ITALIAN DISHES,Dishes from Italian cuisine widely eaten in the United States,normal,auto_validated,unique,0.263,spaghetti | lasagna | pizza | alfredo
 italian_dishes__2,italian_dishes,ITALIAN DISHES,Dishes from Italian cuisine widely eaten in the United States,normal,auto_validated,unique,0.293,meatball | ravioli | pesto | risotto
 italian_dishes__3,italian_dishes,ITALIAN DISHES,Dishes from Italian cuisine widely eaten in the United States,normal,auto_validated,unique,0.304,gelato | gnocchi | tiramisu | panini
 leafy_greens__1,leafy_greens,LEAFY GREENS,Vegetables eaten for their leaves,normal,auto_validated,unique,0.284,lettuce | spinach | cabbage | parsley
 leafy_greens__2,leafy_greens,LEAFY GREENS,Vegetables eaten for their leaves,normal,auto_validated,unique,0.309,kale | chard | collard | romaine
 leafy_greens__3,leafy_greens,LEAFY GREENS,Vegetables eaten for their leaves,normal,auto_validated,unique,0.328,arugula | watercress | endive | bok choy
+lunch_menu__1,lunch_menu,LUNCH MENU,A quick hot dish ordered for lunch,normal,auto_validated,unique,0.2,burger | fries | pizza | salad
+lunch_menu__2,lunch_menu,LUNCH MENU,A quick hot dish ordered for lunch,normal,auto_validated,unique,0.219,steak | taco | sandwich | hotdog
+meals_of_the_day__1,meals_of_the_day,MEALS OF THE DAY,A meal or course eaten at a set time of day,normal,auto_validated,unique,0.181,lunch | breakfast | dinner | brunch
 meats__1,meats,MEATS,Kinds of meat sold at an American butcher counter,normal,auto_validated,unique,0.158,turkey | chicken | beef | hot dog
 meats__2,meats,MEATS,Kinds of meat sold at an American butcher counter,normal,auto_validated,unique,0.175,liver | bacon | ham | ground beef
 meats__3,meats,MEATS,Kinds of meat sold at an American butcher counter,normal,auto_validated,unique,0.183,roast | lamb | pork | steak
-mexican_dishes__1,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.272,salsa | taco | burrito | nacho
-mexican_dishes__2,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.304,flan | tamale | guacamole | queso
-mexican_dishes__3,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.319,quesadilla | enchilada | fajita | churro
+mexican_dishes__1,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.263,salsa | tortilla | taco | burrito
+mexican_dishes__2,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.298,flan | nacho | guacamole | queso
+mexican_dishes__3,mexican_dishes,MEXICAN DISHES,Dishes from Mexican cuisine widely eaten in the United States,normal,auto_validated,unique,0.315,quesadilla | enchilada | tamale | churro
 nuts_and_seeds__1,nuts_and_seeds,NUTS AND SEEDS,Edible nuts and seeds sold as food,normal,auto_validated,unique,0.233,walnut | peanut | pumpkin seed | pine nut
 nuts_and_seeds__2,nuts_and_seeds,NUTS AND SEEDS,Edible nuts and seeds sold as food,normal,auto_validated,unique,0.245,almond | chestnut | sunflower seed | sesame
 pantry_staples__1,pantry_staples,PANTRY STAPLES,Basic foods kept in a kitchen pantry for a long time,normal,auto_validated,unique,0.23,oil | sugar | coffee | tea
 pantry_staples__2,pantry_staples,PANTRY STAPLES,Basic foods kept in a kitchen pantry for a long time,normal,auto_validated,unique,0.245,honey | rice | salt | beans
 pantry_staples__3,pantry_staples,PANTRY STAPLES,Basic foods kept in a kitchen pantry for a long time,normal,auto_validated,unique,0.268,flour | cereal | peanut butter | pasta
-pasta_shapes__1,pasta_shapes,PASTA SHAPES,Shapes of pasta sold in American stores,normal,auto_validated,unique,0.311,spaghetti | lasagna | angel hair | shells
-pasta_shapes__2,pasta_shapes,PASTA SHAPES,Shapes of pasta sold in American stores,normal,auto_validated,unique,0.353,penne | macaroni | ravioli | gnocchi
+pasta_shapes__1,pasta_shapes,PASTA SHAPES,Shapes of pasta sold in American stores,normal,auto_validated,unique,0.296,noodle | spaghetti | angel hair | shells
+pasta_shapes__2,pasta_shapes,PASTA SHAPES,Shapes of pasta sold in American stores,normal,auto_validated,unique,0.347,macaroni | lasagna | ravioli | gnocchi
+pastries__1,pastries,PASTRIES,A small sweet baked pastry sold in a bakery,normal,auto_validated,unique,0.275,muffin | biscuit | donut | cupcake
+pastries__2,pastries,PASTRIES,A small sweet baked pastry sold in a bakery,normal,auto_validated,unique,0.344,tart | croissant | scone | eclair
+picnic__1,picnic,PICNIC,Something you pack or spread out for a picnic,normal,auto_validated,unique,0.3,basket | cooler | blanket | hamper
+picnic_basket__1,picnic_basket,PICNIC BASKET,What you pack or bring for a picnic,normal,auto_validated,unique,,thermos | blanket | napkins | fruits
 pie_ingredients__1,pie_ingredients,PIE INGREDIENTS,Ingredients commonly used in pie fillings or pie preparation,normal,auto_validated,unique,0.195,apple | cream | sugar | salt
 pie_ingredients__2,pie_ingredients,PIE INGREDIENTS,Ingredients commonly used in pie fillings or pie preparation,normal,auto_validated,unique,0.206,cherry | butter | egg | chocolate
 pie_ingredients__3,pie_ingredients,PIE INGREDIENTS,Ingredients commonly used in pie fillings or pie preparation,normal,auto_validated,unique,0.224,vanilla | lemon | coconut | flour
 pizza_toppings__1,pizza_toppings,PIZZA TOPPINGS,Ingredients commonly put on top of a pizza,normal,auto_validated,unique,0.163,chicken | cheese | egg | bacon
 pizza_toppings__2,pizza_toppings,PIZZA TOPPINGS,Ingredients commonly put on top of a pizza,normal,auto_validated,unique,0.179,olive | garlic | ham | pepper
 pizza_toppings__3,pizza_toppings,PIZZA TOPPINGS,Ingredients commonly put on top of a pizza,normal,auto_validated,unique,0.189,shrimp | onion | tomato | sausage
+restaurant_courses__1,restaurant_courses,RESTAURANT COURSES,A course listed in order on a restaurant menu,normal,auto_validated,unique,0.275,dessert | starter | salad | soup
 root_vegetables__1,root_vegetables,ROOT VEGETABLES,Vegetables eaten for the part that grows underground,normal,auto_validated,unique,0.262,ginger | potato | garlic | sweet potato
 root_vegetables__2,root_vegetables,ROOT VEGETABLES,Vegetables eaten for the part that grows underground,normal,auto_validated,unique,0.286,carrot | onion | beet | yam
 root_vegetables__3,root_vegetables,ROOT VEGETABLES,Vegetables eaten for the part that grows underground,normal,auto_validated,unique,0.316,radish | turnip | parsnip | horseradish
 salad_ingredients__1,salad_ingredients,SALAD INGREDIENTS,Ingredients tossed into an ordinary green salad,normal,auto_validated,unique,0.208,cheese | corn | egg | dressing
 salad_ingredients__2,salad_ingredients,SALAD INGREDIENTS,Ingredients tossed into an ordinary green salad,normal,auto_validated,unique,0.222,olive | onion | pepper | bacon bits
+salty_snacks__1,salty_snacks,SALTY SNACKS,A salty snack eaten from a packet or bowl,normal,auto_validated,unique,0.25,popcorn | peanut | chips | crackers
 sandwich_fillings__1,sandwich_fillings,SANDWICH FILLINGS,Things commonly put inside a sandwich,normal,auto_validated,unique,0.202,turkey | chicken | cheese | bacon
 sandwich_fillings__2,sandwich_fillings,SANDWICH FILLINGS,Things commonly put inside a sandwich,normal,auto_validated,unique,0.223,onion | tomato | ham | egg salad
 sandwich_fillings__3,sandwich_fillings,SANDWICH FILLINGS,Things commonly put inside a sandwich,normal,auto_validated,unique,0.232,peanut butter | jelly | mayo | roast beef
@@ -895,6 +955,7 @@ soup_ingredients__3,soup_ingredients,SOUP INGREDIENTS,Ingredients commonly simme
 spices_and_herbs__1,spices_and_herbs,SPICES AND HERBS,Plant-based seasonings used to flavor food,normal,auto_validated,unique,0.261,mint | ginger | pepper | bay leaf
 spices_and_herbs__2,spices_and_herbs,SPICES AND HERBS,Plant-based seasonings used to flavor food,normal,auto_validated,unique,0.275,sage | cinnamon | basil | rosemary
 spices_and_herbs__3,spices_and_herbs,SPICES AND HERBS,Plant-based seasonings used to flavor food,normal,auto_validated,unique,0.296,parsley | thyme | dill | saffron
+sweets__1,sweets,SWEETS,A sweet treat eaten as a snack,normal,auto_validated,unique,0.2,candy | cookie | brownie | caramel
 thanksgiving_foods__1,thanksgiving_foods,THANKSGIVING FOODS,Foods traditionally served at an American Thanksgiving dinner,normal,auto_validated,unique,0.22,turkey | corn | pie | rolls
 thanksgiving_foods__2,thanksgiving_foods,THANKSGIVING FOODS,Foods traditionally served at an American Thanksgiving dinner,normal,auto_validated,unique,0.237,squash | sweet potato | ham | pumpkin pie
 thanksgiving_foods__3,thanksgiving_foods,THANKSGIVING FOODS,Foods traditionally served at an American Thanksgiving dinner,normal,auto_validated,unique,0.253,biscuit | stuffing | gravy | apple cider
@@ -909,6 +970,7 @@ tropical_fruits__2,tropical_fruits,TROPICAL FRUITS,Fruits that grow in tropical 
 vegetables__1,vegetables,VEGETABLES,Common edible vegetables sold in an ordinary American grocery store,normal,auto_validated,unique,0.113,squash | corn | potato | bean
 vegetables__2,vegetables,VEGETABLES,Common edible vegetables sold in an ordinary American grocery store,normal,auto_validated,unique,0.123,carrot | onion | tomato | pea
 vegetables__3,vegetables,VEGETABLES,Common edible vegetables sold in an ordinary American grocery store,normal,auto_validated,unique,0.131,lettuce | broccoli | spinach | cabbage
+bake_off__1,bake_off,BAKE OFF,A step or topping used in competitive baking,normal,auto_validated,unique,0.444,icing | dough | piping | fondant
 breakfast_cereals_types__1,breakfast_cereals_types,CEREAL TYPES,Kinds of breakfast cereal by form,normal,auto_validated,unique,0.343,flakes | loops | squares | clusters
 breakfast_cereals_types__2,breakfast_cereals_types,CEREAL TYPES,Kinds of breakfast cereal by form,normal,auto_validated,unique,0.356,oatmeal | porridge | shredded wheat | bran
 candy_shapes__1,candy_shapes,CANDY TYPES,Forms candy is sold in,normal,auto_validated,unique,0.217,stick | bar | chocolate square | drop
@@ -936,6 +998,7 @@ egg_and_dairy_dishes__2,egg_and_dairy_dishes,BRUNCH DISHES,Dishes served at brun
 egg_and_dairy_dishes__3,egg_and_dairy_dishes,BRUNCH DISHES,Dishes served at brunch,normal,auto_validated,unique,0.343,omelet | quiche | mimosa | bagel and lox
 pasta_dishes__1,pasta_dishes,PASTA DISHES,Named pasta dishes,normal,auto_validated,unique,0.271,lasagna | alfredo | spaghetti and meatballs | mac and cheese
 pasta_dishes__2,pasta_dishes,PASTA DISHES,Named pasta dishes,normal,auto_validated,unique,0.304,pesto pasta | bolognese | primavera | marinara
+pasta_dishes__3,pasta_dishes,PASTA DISHES,Named pasta dishes,normal,auto_validated,unique,0.329,pesto | carbonara | puttanesca | baked ziti
 pie_types__1,pie_types,PIE TYPES,Kinds of pie,normal,auto_validated,unique,0.236,apple | chess | cherry | chicken pot
 pie_types__2,pie_types,PIE TYPES,Kinds of pie,normal,auto_validated,unique,0.253,peach | pumpkin | key lime | banana cream
 pie_types__3,pie_types,PIE TYPES,Kinds of pie,normal,auto_validated,unique,0.281,mince | blueberry | custard | shepherds
@@ -972,6 +1035,8 @@ cold_places__3,cold_places,COLD PLACES,Places that are typically cold,normal,aut
 continents_and_oceans__1,continents_and_oceans,CONTINENTS AND OCEANS,The continents and the world oceans,normal,auto_validated,unique,0.13,Africa | Europe | Australia | Indian
 continents_and_oceans__2,continents_and_oceans,CONTINENTS AND OCEANS,The continents and the world oceans,normal,auto_validated,unique,0.133,Asia | North America | South America | Southern
 continents_and_oceans__3,continents_and_oceans,CONTINENTS AND OCEANS,The continents and the world oceans,normal,auto_validated,unique,0.161,Antarctica | Pacific | Atlantic | Arctic
+countries__1,countries,COUNTRIES,A country of the world,normal,auto_validated,unique,0.175,France | Italy | Japan | Brazil
+countries__2,countries,COUNTRIES,A country of the world,normal,auto_validated,unique,0.194,Spain | Greece | Austria | Egypt
 deserts_and_wild_places__1,deserts_and_wild_places,DESERTS,Major deserts of the world,normal,auto_validated,unique,0.269,Arabian | Death Valley | Painted Desert | Great Basin
 deserts_and_wild_places__2,deserts_and_wild_places,DESERTS,Major deserts of the world,normal,auto_validated,unique,0.318,Sahara | Gobi | Mojave | Kalahari
 directions__1,directions,DIRECTIONS,Words used to give directions,normal,auto_validated,unique,0.13,back | around | across | behind
@@ -983,6 +1048,7 @@ european_countries__3,european_countries,EUROPEAN COUNTRIES,Countries located in
 famous_landmarks__1,famous_landmarks,FAMOUS LANDMARKS,World landmarks most people can recognize,normal,auto_validated,unique,0.21,Big Ben | Great Wall | White House | Empire State
 famous_landmarks__2,famous_landmarks,FAMOUS LANDMARKS,World landmarks most people can recognize,normal,auto_validated,unique,0.244,pyramid | Statue of Liberty | Golden Gate | Leaning Tower
 famous_landmarks__3,famous_landmarks,FAMOUS LANDMARKS,World landmarks most people can recognize,normal,auto_validated,unique,0.28,sphinx | Eiffel Tower | Stonehenge | Taj Mahal
+geography_class__1,geography_class,GEOGRAPHY CLASS,What you are asked to name or point at in a geography lesson,normal,auto_validated,unique,,atlas | globe | latitude | rivers
 hot_places__1,hot_places,HOT PLACES,Places that are typically hot,normal,auto_validated,unique,0.268,kitchen | beach | engine | sun
 hot_places__2,hot_places,HOT PLACES,Places that are typically hot,normal,auto_validated,unique,0.298,greenhouse | desert | oven | jungle
 hot_places__3,hot_places,HOT PLACES,Places that are typically hot,normal,auto_validated,unique,0.32,volcano | furnace | equator | attic
@@ -995,6 +1061,7 @@ landforms__3,landforms,LANDFORMS,Natural features of the land surface,normal,aut
 latin_american_countries__1,latin_american_countries,LATIN AMERICA,Countries of Central and South America,normal,auto_validated,unique,0.229,Mexico | Brazil | Argentina | Cuba
 latin_american_countries__2,latin_american_countries,LATIN AMERICA,Countries of Central and South America,normal,auto_validated,unique,0.248,Chile | Peru | Colombia | Venezuela
 latin_american_countries__3,latin_american_countries,LATIN AMERICA,Countries of Central and South America,normal,auto_validated,unique,0.259,panama | Ecuador | Uruguay | Guatemala
+map_legend__1,map_legend,MAP LEGEND,What a map marks with a symbol or a colour,normal,auto_validated,unique,,scale | contour | symbol | landforms
 map_words__1,map_words,MAP WORDS,Words used to read and describe a map,normal,auto_validated,unique,0.21,key | north | south | east
 map_words__2,map_words,MAP WORDS,Words used to read and describe a map,normal,auto_validated,unique,0.215,scale | border | west | route
 map_words__3,map_words,MAP WORDS,Words used to read and describe a map,normal,auto_validated,unique,0.234,globe | legend | grid | symbol
@@ -1003,6 +1070,7 @@ mountain_ranges__2,mountain_ranges,MOUNTAIN RANGES,Major mountain ranges of the 
 national_parks__1,national_parks,PARK WORDS,Things found in a national park or campground,normal,auto_validated,unique,0.228,map | trail | bear box | path
 national_parks__2,national_parks,PARK WORDS,Things found in a national park or campground,normal,auto_validated,unique,0.246,cabin | lodge | tent | wildlife
 national_parks__3,national_parks,PARK WORDS,Things found in a national park or campground,normal,auto_validated,unique,0.257,Ranger | canyon | picnic table | visitor center
+parts_of_the_americas__1,parts_of_the_americas,PARTS OF THE AMERICAS,A word that names a region when placed before America,normal,auto_validated,unique,0.431,north | south | Latin | central
 places_you_wait__1,places_you_wait,WAITING PLACES,Places where people commonly stand in line,normal,auto_validated,unique,0.269,post office | airport | bus stop | doctor office
 places_you_wait__2,places_you_wait,WAITING PLACES,Places where people commonly stand in line,normal,auto_validated,unique,0.291,theater | grocery store | restaurant | ticket booth
 places_you_wait__3,places_you_wait,WAITING PLACES,Places where people commonly stand in line,normal,auto_validated,unique,0.314,pharmacy | checkout | buffet | amusement park
@@ -1017,6 +1085,7 @@ things_on_a_farm__3,things_on_a_farm,FARM THINGS,Things found on a working farm,
 town_places__1,town_places,TOWN PLACES,Public buildings and places found in an ordinary American town,normal,auto_validated,unique,0.105,bank | market | hospital | church
 town_places__2,town_places,TOWN PLACES,Public buildings and places found in an ordinary American town,normal,auto_validated,unique,0.105,park | school | post office | library
 town_places__3,town_places,TOWN PLACES,Public buildings and places found in an ordinary American town,normal,auto_validated,unique,0.114,museum | city hall | jail | stadium
+travel_abroad__1,travel_abroad,TRAVEL ABROAD,What changes about daily life when you cross a border,normal,auto_validated,unique,,Visa | souvenir | currencies | languages
 us_cities__1,us_cities,US CITIES,Large cities in the United States,normal,auto_validated,unique,0.182,Boston | Chicago | Dallas | Miami
 us_cities__2,us_cities,US CITIES,Large cities in the United States,normal,auto_validated,unique,0.191,Philadelphia | Seattle | Atlanta | Houston
 us_cities__3,us_cities,US CITIES,Large cities in the United States,normal,auto_validated,unique,0.195,Detroit | Cleveland | Austin | Denver
@@ -1029,11 +1098,13 @@ world_capitals__3,world_capitals,WORLD CAPITALS,Capital cities of countries arou
 ancient_civilizations__1,ancient_civilizations,ANCIENT CIVILIZATIONS,Civilizations of the ancient world,normal,auto_validated,unique,0.225,Rome | Greece | China | Egypt
 ancient_civilizations__2,ancient_civilizations,ANCIENT CIVILIZATIONS,Civilizations of the ancient world,normal,auto_validated,unique,0.26,Maya | Persia | Babylon | Troy
 ancient_civilizations__3,ancient_civilizations,ANCIENT CIVILIZATIONS,Civilizations of the ancient world,normal,auto_validated,unique,0.284,Inca | Aztec | Carthage | Sparta
+ancient_greece_ideas__1,ancient_greece_ideas,ANCIENT GREECE IDEAS,An idea or institution that ancient Greece is remembered for,normal,auto_validated,unique,0.419,Oracle | Olympics | mythology | democracy
 ancient_wonders__1,ancient_wonders,WORLD WONDERS,Structures known as wonders of the world,normal,auto_validated,unique,0.33,Great Wall | Great Pyramid | Lighthouse | Hanging Gardens
 ancient_wonders__2,ancient_wonders,WORLD WONDERS,Structures known as wonders of the world,normal,auto_validated,unique,0.371,Stonehenge | Taj Mahal | Colossus | Petra
 archaeology_words__1,archaeology_words,ARCHAEOLOGY WORDS,Things involved in digging up the past,normal,auto_validated,unique,0.32,layer | bone | site | carbon dating
 archaeology_words__2,archaeology_words,ARCHAEOLOGY WORDS,Things involved in digging up the past,normal,auto_validated,unique,0.338,dig | tomb | fossil | ruin
 archaeology_words__3,archaeology_words,ARCHAEOLOGY WORDS,Things involved in digging up the past,normal,auto_validated,unique,0.358,pottery | artifact | excavation | skeleton
+castle_keep__1,castle_keep,CASTLE KEEP,A word belonging to a castle and its defence,normal,auto_validated,unique,0.531,rampart | battlements | gatehouse | siege
 castle_things__1,castle_things,CASTLE THINGS,Parts and features of a medieval castle,normal,auto_validated,unique,0.174,tower | keep | wall | hall
 castle_things__2,castle_things,CASTLE THINGS,Parts and features of a medieval castle,normal,auto_validated,unique,0.195,gate | banner | throne | chamber
 castle_things__3,castle_things,CASTLE THINGS,Parts and features of a medieval castle,normal,auto_validated,unique,0.22,courtyard | dungeon | turret | chapel
@@ -1046,6 +1117,7 @@ egypt_things__3,egypt_things,ANCIENT EGYPT,Things associated with ancient Egypt,
 exploration_words__1,exploration_words,AGE OF EXPLORATION,Things associated with sea exploration in the age of sail,normal,auto_validated,unique,0.273,map | crew | trade route | charter
 exploration_words__2,exploration_words,AGE OF EXPLORATION,Things associated with sea exploration in the age of sail,normal,auto_validated,unique,0.291,sail | colony | harbor | cargo
 exploration_words__3,exploration_words,AGE OF EXPLORATION,Things associated with sea exploration in the age of sail,normal,auto_validated,unique,0.3,compass | voyage | spice | expedition
+gold_rush__1,gold_rush,GOLD RUSH,A person or tool of the gold rush,normal,auto_validated,unique,0.562,prospector | pickaxe | sluice | panning
 historic_documents__1,historic_documents,HISTORIC DOCUMENTS,Famous documents from history,normal,auto_validated,unique,0.28,Constitution | Declaration of Independence | Bill of Rights | Treaty of Versailles
 historic_documents__2,historic_documents,HISTORIC DOCUMENTS,Famous documents from history,normal,auto_validated,unique,0.328,Magna Carta | Emancipation Proclamation | Gettysburg Address | Rosetta Stone
 historic_ships__1,historic_ships,FAMOUS SHIPS,Ships famous from history,normal,auto_validated,unique,0.32,Constitution | Santa Maria | Victory | Nina
@@ -1056,6 +1128,7 @@ industrial_revolution__3,industrial_revolution,INDUSTRIAL AGE,Things associated 
 knights_and_armor__1,knights_and_armor,KNIGHT THINGS,Things a medieval knight used or wore,normal,auto_validated,unique,0.231,horse | banner | sword | shield
 knights_and_armor__2,knights_and_armor,KNIGHT THINGS,Things a medieval knight used or wore,normal,auto_validated,unique,0.25,saddle | helmet | armor | lance
 knights_and_armor__3,knights_and_armor,KNIGHT THINGS,Things a medieval knight used or wore,normal,auto_validated,unique,0.266,spur | dagger | crest | squire
+medieval_fair__1,medieval_fair,MEDIEVAL FAIR,A performer or event at a medieval fair,normal,auto_validated,unique,0.488,falconer | jester | banquet | bard
 old_professions__1,old_professions,HISTORIC TRADES,Trades that were common in past centuries,normal,auto_validated,unique,0.335,cooper | miller | mason | fletcher
 old_professions__2,old_professions,HISTORIC TRADES,Trades that were common in past centuries,normal,auto_validated,unique,0.352,weaver | tanner | chandler | potter
 old_professions__3,old_professions,HISTORIC TRADES,Trades that were common in past centuries,normal,auto_validated,unique,0.376,cobbler | blacksmith | scribe | thatcher
@@ -1073,6 +1146,7 @@ time_capsule_things__2,time_capsule_things,BYGONE THINGS,Everyday objects that a
 transportation_history__1,transportation_history,HISTORIC TRANSPORT,Ways people traveled before cars,normal,auto_validated,unique,0.27,foot | horse | sailing ship | ferry
 transportation_history__2,transportation_history,HISTORIC TRANSPORT,Ways people traveled before cars,normal,auto_validated,unique,0.298,camel | wagon | carriage | canoe
 transportation_history__3,transportation_history,HISTORIC TRANSPORT,Ways people traveled before cars,normal,auto_validated,unique,0.314,mule | chariot | sled | trolley
+vikings__1,vikings,VIKINGS,A word belonging to the Vikings and their world,normal,auto_validated,unique,0.525,fjord | mead | berserker | norse
 wars__1,wars,FAMOUS WARS,Wars widely known from history,normal,auto_validated,unique,0.213,Civil War | World War | Cold War | Hundred Years War
 wars__2,wars,FAMOUS WARS,Wars widely known from history,normal,auto_validated,unique,0.243,Vietnam | Revolutionary War | Korean War | Trojan War
 weapons_of_the_past__1,weapons_of_the_past,OLD WEAPONS,Weapons used before modern firearms,normal,auto_validated,unique,0.229,club | bow | sword | arrow
@@ -1090,6 +1164,8 @@ board_game_pieces__3,board_game_pieces,GAME PIECES,Pieces and parts used in boar
 camping_gear__1,camping_gear,CAMPING GEAR,Gear packed for a camping trip,normal,auto_validated,unique,0.185,map | sleeping bag | matches | camp chair
 camping_gear__2,camping_gear,CAMPING GEAR,Gear packed for a camping trip,normal,auto_validated,unique,0.201,rope | tent | first aid kit | mess kit
 camping_gear__3,camping_gear,CAMPING GEAR,Gear packed for a camping trip,normal,auto_validated,unique,0.213,backpack | compass | cooler | bug spray
+candle_making__1,candle_making,CANDLE MAKING,A word belonging to making candles,normal,auto_validated,unique,0.494,wick | taper | paraffin | scented
+card_suits__1,card_suits,CARD SUITS,One of the four suits in a deck of playing cards,normal,auto_validated,unique,0.219,hearts | spades | clubs | diamonds
 chess_words__1,chess_words,CHESS WORDS,Pieces and moves in a game of chess,normal,auto_validated,unique,0.25,board | check | opening | king
 chess_words__2,chess_words,CHESS WORDS,Pieces and moves in a game of chess,normal,auto_validated,unique,0.265,queen | castle | capture | promotion
 chess_words__3,chess_words,CHESS WORDS,Pieces and moves in a game of chess,normal,auto_validated,unique,0.294,knight | pawn | bishop | gambit
@@ -1111,6 +1187,7 @@ fishing_hobby__3,fishing_hobby,FISHING TRIP,Things taken on a fishing trip,norma
 gardening_hobby__1,gardening_hobby,GARDEN HOBBY,Things a hobby gardener uses,normal,auto_validated,unique,0.236,pot | gloves | soil | stake
 gardening_hobby__2,gardening_hobby,GARDEN HOBBY,Things a hobby gardener uses,normal,auto_validated,unique,0.26,hose | greenhouse | seed packet | watering can
 gardening_hobby__3,gardening_hobby,GARDEN HOBBY,Things a hobby gardener uses,normal,auto_validated,unique,0.281,fertilizer | compost bin | planter | twine
+gardening_work__1,gardening_work,GARDENING WORK,A task or tool belonging to working a garden,normal,auto_validated,unique,0.325,compost | pruning | soil | seedlings
 hiking_words__1,hiking_words,HIKING WORDS,Things involved in hiking a trail,normal,auto_validated,unique,0.226,map | trail | boots | water bottle
 hiking_words__2,hiking_words,HIKING WORDS,Things involved in hiking a trail,normal,auto_validated,unique,0.245,ridge | summit | elevation | poles
 hiking_words__3,hiking_words,HIKING WORDS,Things involved in hiking a trail,normal,auto_validated,unique,0.27,backpack | campsite | canteen | blaze
@@ -1134,6 +1211,7 @@ photography_hobby__3,photography_hobby,PHOTOGRAPHY GEAR,Gear a hobby photographe
 puzzle_types__1,puzzle_types,PUZZLES,Kinds of puzzle people solve for fun,normal,auto_validated,unique,0.25,maze | riddle | word search | logic puzzle
 puzzle_types__2,puzzle_types,PUZZLES,Kinds of puzzle people solve for fun,normal,auto_validated,unique,0.291,crossword | jigsaw | sudoku | anagram
 puzzle_types__3,puzzle_types,PUZZLES,Kinds of puzzle people solve for fun,normal,auto_validated,unique,0.329,rubiks cube | cryptogram | acrostic | rebus
+scrapbooking__1,scrapbooking,SCRAPBOOKING,A material or keepsake used making a scrapbook,normal,auto_validated,unique,0.506,stickers | keepsake | cutouts | laminate
 video_gaming__1,video_gaming,GAMING SETUP,Things in a video gaming setup,normal,auto_validated,unique,0.225,monitor | chair | cable | memory card
 video_gaming__2,video_gaming,GAMING SETUP,Things in a video gaming setup,normal,auto_validated,unique,0.239,keyboard | mouse | controller | disc
 video_gaming__3,video_gaming,GAMING SETUP,Things in a video gaming setup,normal,auto_validated,unique,0.258,console | headset | cartridge | microphone
@@ -1146,9 +1224,12 @@ bathroom_items__3,bathroom_items,BATHROOM ITEMS,Objects normally found in a home
 bedroom_things__1,bedroom_things,BEDROOM THINGS,Objects normally found in a bedroom,normal,auto_validated,unique,0.149,chest | sheet | bed | mirror
 bedroom_things__2,bedroom_things,BEDROOM THINGS,Objects normally found in a bedroom,normal,auto_validated,unique,0.17,closet | blanket | lamp | alarm clock
 bedroom_things__3,bedroom_things,BEDROOM THINGS,Objects normally found in a bedroom,normal,auto_validated,unique,0.181,rug | curtain | pillow | mattress
+bedtime_things__1,bedtime_things,BEDTIME THINGS,Something you associate with going to bed,normal,auto_validated,unique,0.287,sleep | bed | blanket | mattress
 cleaning_supplies__1,cleaning_supplies,CLEANING SUPPLIES,Tools and products used to clean a house,normal,auto_validated,unique,0.163,polish | brush | soap | trash bag
 cleaning_supplies__2,cleaning_supplies,CLEANING SUPPLIES,Tools and products used to clean a house,normal,auto_validated,unique,0.175,sponge | vacuum | gloves | bucket
 cleaning_supplies__3,cleaning_supplies,CLEANING SUPPLIES,Tools and products used to clean a house,normal,auto_validated,unique,0.194,bleach | broom | rag | wipes
+dinner_party__1,dinner_party,DINNER PARTY,"What is set out, served or worried about at a dinner party",normal,auto_validated,unique,,toast | centerpiece | silverware | dishes
+dinner_party__2,dinner_party,DINNER PARTY,"What is set out, served or worried about at a dinner party",normal,auto_validated,unique,,desserts | sauces | cocktails | seating
 dishes_and_glassware__1,dishes_and_glassware,DISHES,Things you eat and drink from at a table,normal,auto_validated,unique,0.151,bowl | glass | cup | bottle
 dishes_and_glassware__2,dishes_and_glassware,DISHES,Things you eat and drink from at a table,normal,auto_validated,unique,0.171,plate | jar | dish | sugar bowl
 dishes_and_glassware__3,dishes_and_glassware,DISHES,Things you eat and drink from at a table,normal,auto_validated,unique,0.193,pitcher | mug | tray | cereal bowl
@@ -1158,15 +1239,20 @@ fabrics_at_home__3,fabrics_at_home,HOME TEXTILES,Cloth things used around the ho
 furniture__1,furniture,FURNITURE,Movable household furniture,normal,auto_validated,unique,0.09,cabinet | bed | chair | table
 furniture__2,furniture,FURNITURE,Movable household furniture,normal,auto_validated,unique,0.113,bench | desk | sofa | couch
 furniture__3,furniture,FURNITURE,Movable household furniture,normal,auto_validated,unique,0.134,stool | ottoman | wardrobe | vanity
+home_appliances__1,home_appliances,HOME APPLIANCES,A large electrical appliance kept in a home,normal,auto_validated,unique,0.3,dryer | microwave | dishwasher | fridge
+home_decor__1,home_decor,HOME DECOR,What you choose when you decorate a room,normal,auto_validated,unique,,vase | rug | furniture | curtains
+home_decor__2,home_decor,HOME DECOR,What you choose when you decorate a room,normal,auto_validated,unique,,colors | patterns | lighting | fabrics
 home_rooms__1,home_rooms,HOUSE ROOMS,Rooms and spaces inside an ordinary house,normal,auto_validated,unique,0.111,study | kitchen | bathroom | living room
 home_rooms__2,home_rooms,HOUSE ROOMS,Rooms and spaces inside an ordinary house,normal,auto_validated,unique,0.131,closet | basement | bedroom | garage
 home_rooms__3,home_rooms,HOUSE ROOMS,Rooms and spaces inside an ordinary house,normal,auto_validated,unique,0.141,den | nursery | laundry room | dining room
 kitchen_appliances__1,kitchen_appliances,KITCHEN APPLIANCES,Electric machines used in a kitchen,normal,auto_validated,unique,0.163,range | oven | coffee maker | can opener
 kitchen_appliances__2,kitchen_appliances,KITCHEN APPLIANCES,Electric machines used in a kitchen,normal,auto_validated,unique,0.18,grill | microwave | food processor | warmer
 kitchen_appliances__3,kitchen_appliances,KITCHEN APPLIANCES,Electric machines used in a kitchen,normal,auto_validated,unique,0.19,freezer | refrigerator | mixer | kettle
+kitchen_drawer__1,kitchen_drawer,KITCHEN DRAWER,What you find when you open a kitchen drawer,normal,auto_validated,unique,,whisk | peeler | corkscrew | silverware
 kitchen_tools__1,kitchen_tools,KITCHEN TOOLS,Handheld tools and utensils used to prepare food in a kitchen,normal,auto_validated,unique,0.128,plate | knife | pot | cutting board
 kitchen_tools__2,kitchen_tools,KITCHEN TOOLS,Handheld tools and utensils used to prepare food in a kitchen,normal,auto_validated,unique,0.142,rolling pin | measuring cup | fork | pan
 kitchen_tools__3,kitchen_tools,KITCHEN TOOLS,Handheld tools and utensils used to prepare food in a kitchen,normal,auto_validated,unique,0.159,spoon | timer | mixer | opener
+laundry_day__1,laundry_day,LAUNDRY DAY,Something used or done when washing clothes,normal,auto_validated,unique,0.325,rinse | bleach | detergent | hamper
 laundry_things__1,laundry_things,LAUNDRY THINGS,Things used to wash and dry clothes,normal,auto_validated,unique,0.208,iron | basket | bleach | dryer
 laundry_things__2,laundry_things,LAUNDRY THINGS,Things used to wash and dry clothes,normal,auto_validated,unique,0.233,starch | hamper | washer | dryer sheet
 laundry_things__3,laundry_things,LAUNDRY THINGS,Things used to wash and dry clothes,normal,auto_validated,unique,0.242,hanger | detergent | lint trap | ironing board
@@ -1191,6 +1277,8 @@ silverware__3,silverware,SILVERWARE,Eating utensils laid out at a table setting,
 storage_containers__1,storage_containers,CONTAINERS,Things made to store or carry other things,normal,auto_validated,unique,0.184,chest | case | bag | box
 storage_containers__2,storage_containers,CONTAINERS,Things made to store or carry other things,normal,auto_validated,unique,0.21,basket | bucket | barrel | bin
 storage_containers__3,storage_containers,CONTAINERS,Things made to store or carry other things,normal,auto_validated,unique,0.216,trunk | tin | cooler | jar
+table_setting__1,table_setting,TABLE SETTING,An item laid on the table for one person at a meal,normal,auto_validated,unique,0.231,bowl | glass | cup | fork
+table_setting__2,table_setting,TABLE SETTING,An item laid on the table for one person at a meal,normal,auto_validated,unique,0.263,plate | knife | napkin | spoon
 things_in_a_garage__1,things_in_a_garage,GARAGE THINGS,Things stored in an ordinary home garage,normal,auto_validated,unique,0.186,jack | oil | car | gas can
 things_in_a_garage__2,things_in_a_garage,GARAGE THINGS,Things stored in an ordinary home garage,normal,auto_validated,unique,0.21,shelf | paint | ladder | bike
 things_in_a_garage__3,things_in_a_garage,GARAGE THINGS,Things stored in an ordinary home garage,normal,auto_validated,unique,0.226,hose | cooler | tire | extension cord
@@ -1224,6 +1312,7 @@ architecture_words__3,architecture_words,ARCHITECTURE WORDS,Words used to descri
 aviation_words__1,aviation_words,AVIATION WORDS,Words used by pilots and air crew,normal,auto_validated,unique,0.314,cruise | tower | radar | call sign
 aviation_words__2,aviation_words,AVIATION WORDS,Words used by pilots and air crew,normal,auto_validated,unique,0.331,runway | altitude | taxi | landing gear
 aviation_words__3,aviation_words,AVIATION WORDS,Words used by pilots and air crew,normal,auto_validated,unique,0.349,stall | cockpit | throttle | turbulence
+barista_words__1,barista_words,BARISTA WORDS,A term a barista uses making coffee,normal,auto_validated,unique,0.531,crema | frothing | decaf | brewing
 detective_procedures__1,detective_procedures,FORENSICS WORDS,Words used in forensic investigation,normal,auto_validated,unique,0.351,cast | dna | sample | evidence bag
 detective_procedures__2,detective_procedures,FORENSICS WORDS,Words used in forensic investigation,normal,auto_validated,unique,0.369,tape | trace | lab | autopsy
 detective_procedures__3,detective_procedures,FORENSICS WORDS,Words used in forensic investigation,normal,auto_validated,unique,0.41,fingerprint | ballistics | toxicology | dusting
@@ -1253,11 +1342,13 @@ beauty_jobs__1,beauty_jobs,BEAUTY JOBS,"Jobs held by people who work on hair, na
 beauty_jobs__2,beauty_jobs,BEAUTY JOBS,"Jobs held by people who work on hair, nails and appearance",normal,auto_validated,unique,0.292,hairdresser | stylist | masseuse | groomer
 beauty_jobs__3,beauty_jobs,BEAUTY JOBS,"Jobs held by people who work on hair, nails and appearance",normal,auto_validated,unique,0.327,manicurist | cosmetologist | esthetician | colorist
 building_trades__1,building_trades,BUILDING TRADES,Skilled trades that build and repair buildings,normal,auto_validated,unique,0.207,mason | carpenter | painter | contractor
-building_trades__2,building_trades,BUILDING TRADES,Skilled trades that build and repair buildings,normal,auto_validated,unique,0.232,plumber | electrician | surveyor | foreman
-building_trades__3,building_trades,BUILDING TRADES,Skilled trades that build and repair buildings,normal,auto_validated,unique,0.255,welder | bricklayer | laborer | installer
+building_trades__2,building_trades,BUILDING TRADES,Skilled trades that build and repair buildings,normal,auto_validated,unique,0.229,plumber | surveyor | foreman | architect
+building_trades__3,building_trades,BUILDING TRADES,Skilled trades that build and repair buildings,normal,auto_validated,unique,0.248,electrician | welder | laborer | installer
 circus_and_fair_jobs__1,circus_and_fair_jobs,CIRCUS JOBS,Jobs held by performers and workers at a circus or fair,normal,auto_validated,unique,0.296,clown | animal trainer | magician | barker
 circus_and_fair_jobs__2,circus_and_fair_jobs,CIRCUS JOBS,Jobs held by performers and workers at a circus or fair,normal,auto_validated,unique,0.332,acrobat | trapeze artist | fire eater | tightrope walker
 circus_and_fair_jobs__3,circus_and_fair_jobs,CIRCUS JOBS,Jobs held by performers and workers at a circus or fair,normal,auto_validated,unique,0.354,juggler | ringmaster | stilt walker | contortionist
+common_professions__1,common_professions,COMMON PROFESSIONS,A common job a person does for a living,normal,auto_validated,unique,0.175,engineer | doctor | manager | lawyer
+common_professions__2,common_professions,COMMON PROFESSIONS,A common job a person does for a living,normal,auto_validated,unique,0.188,chef | teacher | pilot | farmer
 creative_jobs__1,creative_jobs,CREATIVE JOBS,Jobs held by people who make art or entertainment,normal,auto_validated,unique,0.176,director | actor | artist | writer
 creative_jobs__2,creative_jobs,CREATIVE JOBS,Jobs held by people who make art or entertainment,normal,auto_validated,unique,0.186,designer | editor | singer | producer
 creative_jobs__3,creative_jobs,CREATIVE JOBS,Jobs held by people who make art or entertainment,normal,auto_validated,unique,0.202,musician | dancer | photographer | poet
@@ -1343,6 +1434,7 @@ famous_towers__2,famous_towers,FAMOUS TOWERS,Famous towers around the world,norm
 famous_towers__3,famous_towers,FAMOUS TOWERS,Famous towers around the world,normal,auto_validated,unique,0.383,Burj Khalifa | Petronas | Belfry | Minaret
 famous_trains__1,famous_trains,FAMOUS TRAINS,Famous trains and railway lines,normal,auto_validated,unique,0.404,Orient Express | Bullet Train | Union Pacific | Metro
 famous_trains__2,famous_trains,FAMOUS TRAINS,Famous trains and railway lines,normal,auto_validated,unique,0.446,Trans Siberian | Amtrak | Flying Scotsman | Rocky Mountaineer
+on_the_skyline__1,on_the_skyline,ON THE SKYLINE,A tall structure that stands out on a skyline,normal,auto_validated,unique,0.494,obelisk | spire | Minaret | pagoda
 sports_teams__1,sports_teams,TEAM NAMES,Names of long standing American sports teams,normal,auto_validated,unique,0.276,Giants | Bears | Rangers | Eagles
 sports_teams__2,sports_teams,TEAM NAMES,Names of long standing American sports teams,normal,auto_validated,unique,0.286,Yankees | Cowboys | Bulls | Tigers
 sports_teams__3,sports_teams,TEAM NAMES,Names of long standing American sports teams,normal,auto_validated,unique,0.292,Dodgers | Lakers | Red Sox | Cubs
@@ -1358,6 +1450,7 @@ zoos_and_aquariums__2,zoos_and_aquariums,FAMOUS ZOOS,Well known zoos and aquariu
 alphabet_code__1,alphabet_code,RADIO ALPHABET,Code words used to spell letters over a radio,normal,auto_validated,unique,0.321,India | Hotel | Mike | November
 alphabet_code__2,alphabet_code,RADIO ALPHABET,Code words used to spell letters over a radio,normal,auto_validated,unique,0.341,alpha | Charlie | Golf | Oscar
 alphabet_code__3,alphabet_code,RADIO ALPHABET,Code words used to spell letters over a radio,normal,auto_validated,unique,0.352,delta | Echo | Sierra | Victor
+greeting_card__1,greeting_card,GREETING CARD,"What is printed on, drawn on or sent with a greeting card",normal,auto_validated,unique,,stamp | envelope | greetings | holidays
 greetings_and_farewells__1,greetings_and_farewells,GREETINGS,Words and phrases used to greet or say goodbye,normal,auto_validated,unique,0.17,hi | morning | later | so long
 greetings_and_farewells__2,greetings_and_farewells,GREETINGS,Words and phrases used to greet or say goodbye,normal,auto_validated,unique,0.177,hello | bye | welcome | evening
 greetings_and_farewells__3,greetings_and_farewells,GREETINGS,Words and phrases used to greet or say goodbye,normal,auto_validated,unique,0.207,cheers | goodbye | farewell | salute
@@ -1463,6 +1556,8 @@ words_before_work__3,words_before_work,___ WORK,Words that form a familiar Engli
 writing_words__1,writing_words,WRITING WORDS,Words for the parts and marks of written text,normal,auto_validated,unique,0.21,letter | page | title | period
 writing_words__2,writing_words,WRITING WORDS,Words for the parts and marks of written text,normal,auto_validated,unique,0.215,capital | draft | chapter | word
 writing_words__3,writing_words,WRITING WORDS,Words for the parts and marks of written text,normal,auto_validated,unique,0.227,sentence | index | column | heading
+courtroom__1,courtroom,COURTROOM,"What is heard, handed down or worn in a courtroom",normal,auto_validated,unique,0.425,testimony | objection | plaintiff | subpoena
+courtroom__2,courtroom,COURTROOM,"What is heard, handed down or worn in a courtroom",normal,auto_validated,unique,,verdict | jury | gavel | crimes
 courtroom_things__1,courtroom_things,COURTROOM THINGS,Things and people found in a courtroom,normal,auto_validated,unique,0.212,stand | judge | lawyer | evidence
 courtroom_things__2,courtroom_things,COURTROOM THINGS,Things and people found in a courtroom,normal,auto_validated,unique,0.227,sentence | bench | witness | jury
 courtroom_things__3,courtroom_things,COURTROOM THINGS,Things and people found in a courtroom,normal,auto_validated,unique,0.243,exhibit | verdict | testimony | defendant
@@ -1472,6 +1567,8 @@ crimes__3,crimes,CRIMES,Acts that are against the law,normal,auto_validated,uniq
 detective_words__1,detective_words,DETECTIVE WORDS,Words used in a criminal investigation,normal,auto_validated,unique,0.258,case | witness | evidence | suspect
 detective_words__2,detective_words,DETECTIVE WORDS,Words used in a criminal investigation,normal,auto_validated,unique,0.282,clue | warrant | motive | lineup
 detective_words__3,detective_words,DETECTIVE WORDS,Words used in a criminal investigation,normal,auto_validated,unique,0.305,fingerprint | autopsy | interrogation | footprint
+detective_work__1,detective_work,DETECTIVE WORK,Something a detective works with while solving a case,normal,auto_validated,unique,0.356,witness | evidence | disguise | suspect
+election_day__1,election_day,ELECTION DAY,A term belonging to a political election,normal,auto_validated,unique,0.469,candidate | polls | incumbent | manifesto
 emergency_services__1,emergency_services,EMERGENCY SERVICES,Public services that respond to emergencies,normal,auto_validated,unique,0.172,hospital | police | fire department | animal control
 emergency_services__2,emergency_services,EMERGENCY SERVICES,Public services that respond to emergencies,normal,auto_validated,unique,0.195,ambulance | coast guard | rescue squad | search and rescue
 emergency_services__3,emergency_services,EMERGENCY SERVICES,Public services that respond to emergencies,normal,auto_validated,unique,0.222,Ranger | dispatch | hazmat | poison control
@@ -1537,6 +1634,7 @@ weather_instruments__1,weather_instruments,WEATHER INSTRUMENTS,Instruments used 
 building_materials__1,building_materials,BUILDING MATERIALS,Materials used to construct buildings,normal,auto_validated,unique,0.175,wood | stone | glass | steel
 building_materials__2,building_materials,BUILDING MATERIALS,Materials used to construct buildings,normal,auto_validated,unique,0.2,concrete | brick | aluminum | vinyl
 building_materials__3,building_materials,BUILDING MATERIALS,Materials used to construct buildings,normal,auto_validated,unique,0.211,marble | granite | cement | slate
+everyday_materials__1,everyday_materials,EVERYDAY MATERIALS,A material everyday objects are made of,normal,auto_validated,unique,0.2,metal | glass | paper | plastic
 fabric_types__1,fabric_types,FABRIC TYPES,Kinds of cloth used to make things,normal,auto_validated,unique,0.231,cotton | felt | jersey | terry
 insulating_materials__1,insulating_materials,INSULATING MATERIALS,Materials used to keep heat or sound in or out,normal,auto_validated,unique,0.355,cotton | plastic | felt | air
 insulating_materials__2,insulating_materials,INSULATING MATERIALS,Materials used to keep heat or sound in or out,normal,auto_validated,unique,0.386,wool | cork | foam | rubber
@@ -1609,6 +1707,8 @@ famous_musicians__3,famous_musicians,MUSIC LEGENDS,Musicians widely known across
 game_shows__1,game_shows,GAME SHOWS,Things found on a television game show,normal,auto_validated,unique,0.291,round | board | host | question
 game_shows__2,game_shows,GAME SHOWS,Things found on a television game show,normal,auto_validated,unique,0.302,wheel | prize | category | audience
 game_shows__3,game_shows,GAME SHOWS,Things found on a television game show,normal,auto_validated,unique,0.33,spin | trophy | podium | jackpot
+hero_hq__1,hero_hq,HERO HQ,A word belonging to comic book superheroes,normal,auto_validated,unique,0.494,sidekick | vigilante | nemesis | catchphrase
+kinds_of_books__1,kinds_of_books,KINDS OF BOOKS,A kind of book classed by how it is written,normal,auto_validated,unique,0.294,essay | novel | biography | fable
 magazines__1,magazines,MAGAZINE TYPES,Kinds of magazine sold at a newsstand,normal,auto_validated,unique,0.25,science | business | sports | news
 magazines__2,magazines,MAGAZINE TYPES,Kinds of magazine sold at a newsstand,normal,auto_validated,unique,0.255,trade | travel | fashion | cooking
 magazines__3,magazines,MAGAZINE TYPES,Kinds of magazine sold at a newsstand,normal,auto_validated,unique,0.281,gossip | comic | hobby | teen
@@ -1618,20 +1718,28 @@ movie_roles__3,movie_roles,FILM CREW,Jobs in the crew of a film production,norma
 newspaper_parts__1,newspaper_parts,NEWSPAPER PARTS,Sections and parts of a newspaper,normal,auto_validated,unique,0.25,review | sports | front page | advice
 newspaper_parts__2,newspaper_parts,NEWSPAPER PARTS,Sections and parts of a newspaper,normal,auto_validated,unique,0.266,column | weather | comics | letters
 newspaper_parts__3,newspaper_parts,NEWSPAPER PARTS,Sections and parts of a newspaper,normal,auto_validated,unique,0.3,crossword | headline | editorial | obituary
+newsroom__1,newsroom,NEWSROOM,A person or item of a working newsroom,normal,auto_validated,unique,0.444,reporter | columnist | byline | tabloid
 nursery_rhymes__1,nursery_rhymes,NURSERY RHYMES,Nursery rhymes American children learn,normal,auto_validated,unique,0.278,London Bridge | Mary Had a Little Lamb | Three Blind Mice | Row Your Boat
 nursery_rhymes__2,nursery_rhymes,NURSERY RHYMES,Nursery rhymes American children learn,normal,auto_validated,unique,0.311,Jack and Jill | Little Bo Peep | Old MacDonald | Twinkle Twinkle
+radio_station__1,radio_station,RADIO STATION,A term belonging to radio broadcasting,normal,auto_validated,unique,0.494,broadcaster | static | transmitter | airwaves
 radio_words__1,radio_words,RADIO WORDS,Things and roles in radio broadcasting,normal,auto_validated,unique,0.258,station | broadcast | call sign | studio
 radio_words__2,radio_words,RADIO WORDS,Things and roles in radio broadcasting,normal,auto_validated,unique,0.281,DJ | dial | frequency | static
 radio_words__3,radio_words,RADIO WORDS,Things and roles in radio broadcasting,normal,auto_validated,unique,0.305,jingle | antenna | transmitter | playlist
+retro_music__1,retro_music,RETRO MUSIC,A way music was played or carried before streaming,normal,auto_validated,unique,0.469,vinyl | stereo | walkman | mixtape
 shakespeare_plays__1,shakespeare_plays,SHAKESPEARE PLAYS,Plays written by Shakespeare,normal,auto_validated,unique,0.314,Hamlet | Merchant of Venice | As You Like It | Richard III
 shakespeare_plays__2,shakespeare_plays,SHAKESPEARE PLAYS,Plays written by Shakespeare,normal,auto_validated,unique,0.345,Macbeth | Romeo and Juliet | Julius Caesar | Twelfth Night
 shakespeare_plays__3,shakespeare_plays,SHAKESPEARE PLAYS,Plays written by Shakespeare,normal,auto_validated,unique,0.353,King Lear | Tempest | Midsummer Night | Much Ado
+spy_mission__1,spy_mission,SPY MISSION,A trick or item used by a spy,normal,auto_validated,unique,0.45,dossier | alias | decoy | infiltrate
 superheroes__1,superheroes,SUPERHEROES,Comic book superheroes most people can name,normal,auto_validated,unique,0.177,storm | Wonder Woman | Iron Man | Captain America
 superheroes__2,superheroes,SUPERHEROES,Comic book superheroes most people can name,normal,auto_validated,unique,0.196,robin | flash | Batman | Black Widow
 superheroes__3,superheroes,SUPERHEROES,Comic book superheroes most people can name,normal,auto_validated,unique,0.214,Superman | Hulk | Thor | Ant Man
+the_heist__1,the_heist,THE HEIST,A word belonging to robbing a place in a film,normal,auto_validated,unique,0.45,loot | lookout | heist | getaway
 tv_genres__1,tv_genres,TV GENRES,Kinds of television program,normal,auto_validated,unique,0.21,sports | news | game show | reality
 tv_genres__2,tv_genres,TV GENRES,Kinds of television program,normal,auto_validated,unique,0.215,drama | talk show | crime show | variety show
 tv_genres__3,tv_genres,TV GENRES,Kinds of television program,normal,auto_validated,unique,0.229,talent show | documentary | cooking show | mini series
+at_the_dentist__1,at_the_dentist,AT THE DENTIST,"Something a dentist fits, treats or hands out",normal,auto_validated,unique,0.394,floss | braces | dentures | fluoride
+at_the_hospital__1,at_the_hospital,AT THE HOSPITAL,Someone or something found in a hospital,normal,auto_validated,unique,0.281,bandage | hospital | patient | medicine
+at_the_hospital__2,at_the_hospital,AT THE HOSPITAL,Someone or something found in a hospital,normal,auto_validated,unique,0.319,stethoscope | ward | nurse | clinic
 body_fluids__1,body_fluids,BODY FLUIDS,Fluids produced by the human body,normal,auto_validated,unique,0.306,tear | milk | blood | sweat
 body_fluids__2,body_fluids,BODY FLUIDS,Fluids produced by the human body,normal,auto_validated,unique,0.338,saliva | plasma | urine | serum
 body_fluids__3,body_fluids,BODY FLUIDS,Fluids produced by the human body,normal,auto_validated,unique,0.368,mucus | bile | lymph | sputum
@@ -1641,9 +1749,11 @@ dental_words__3,dental_words,DENTAL WORDS,Words used at a dental office,normal,a
 diseases__1,diseases,DISEASES,Diseases an average person can name,normal,auto_validated,unique,0.239,flu | pneumonia | diabetes | cancer
 diseases__2,diseases,DISEASES,Diseases an average person can name,normal,auto_validated,unique,0.262,asthma | arthritis | malaria | tuberculosis
 diseases__3,diseases,DISEASES,Diseases an average person can name,normal,auto_validated,unique,0.273,measles | hepatitis | cholera | polio
+emergency_room__1,emergency_room,EMERGENCY ROOM,"What is treated, seen or used in a hospital emergency room",normal,auto_validated,unique,,stretcher | triage | injuries | symptoms
 emergency_words__1,emergency_words,EMERGENCY WORDS,Words used during a medical emergency,normal,auto_validated,unique,0.221,code | oxygen | response | rescue
 emergency_words__2,emergency_words,EMERGENCY WORDS,Words used during a medical emergency,normal,auto_validated,unique,0.253,ambulance | siren | trauma | evacuation
 emergency_words__3,emergency_words,EMERGENCY WORDS,Words used during a medical emergency,normal,auto_validated,unique,0.275,paramedic | stretcher | CPR | hotline
+feeling_sick__1,feeling_sick,FEELING SICK,A symptom or minor illness a person complains of,normal,auto_validated,unique,0.325,cough | flu | fever | chills
 first_aid__1,first_aid,FIRST AID,Things kept in a first aid kit,normal,auto_validated,unique,0.191,tape | ice pack | burn cream | eye wash
 first_aid__2,first_aid,FIRST AID,Things kept in a first aid kit,normal,auto_validated,unique,0.208,wipe | gloves | scissors | cotton ball
 first_aid__3,first_aid,FIRST AID,Things kept in a first aid kit,normal,auto_validated,unique,0.236,aspirin | bandage | thermometer | sling
@@ -1655,6 +1765,7 @@ hygiene__2,hygiene,HYGIENE THINGS,Things used to keep the body clean,normal,auto
 injuries__1,injuries,INJURIES,Kinds of physical injury,normal,auto_validated,unique,0.18,bite | break | burn | cut
 injuries__2,injuries,INJURIES,Kinds of physical injury,normal,auto_validated,unique,0.219,scrape | fracture | concussion | strain
 injuries__3,injuries,INJURIES,Kinds of physical injury,normal,auto_validated,unique,0.24,puncture | bruise | splinter | whiplash
+kinds_of_doctors__1,kinds_of_doctors,KINDS OF DOCTORS,A doctor named for the field they specialise in,normal,auto_validated,unique,0.344,surgeon | dentist | pediatrician | dietitian
 medical_specialties__1,medical_specialties,MEDICAL SPECIALTIES,Branches of medical practice,normal,auto_validated,unique,0.341,surgery | anesthesia | psychiatry | pathology
 medical_specialties__2,medical_specialties,MEDICAL SPECIALTIES,Branches of medical practice,normal,auto_validated,unique,0.363,pediatrics | neurology | oncology | radiology
 medical_specialties__3,medical_specialties,MEDICAL SPECIALTIES,Branches of medical practice,normal,auto_validated,unique,0.372,cardiology | dermatology | obstetrics | immunology
@@ -1664,6 +1775,8 @@ medical_tools__3,medical_tools,MEDICAL TOOLS,Instruments a doctor or nurse uses,
 medicine_forms__1,medicine_forms,FORMS OF MEDICINE,Forms in which medicine is taken,normal,auto_validated,unique,0.267,cream | powder | drop | patch
 medicine_forms__2,medicine_forms,FORMS OF MEDICINE,Forms in which medicine is taken,normal,auto_validated,unique,0.284,spray | injection | pill | tablet
 medicine_forms__3,medicine_forms,FORMS OF MEDICINE,Forms in which medicine is taken,normal,auto_validated,unique,0.304,ointment | gel | syrup | capsule
+medicines__1,medicines,MEDICINES,A form in which medicine is given to a patient,normal,auto_validated,unique,0.3,injection | pill | antibiotic | insulin
+nutrients__1,nutrients,NUTRIENTS,A nutrient the body needs from food,normal,auto_validated,unique,0.319,calcium | magnesium | protein | fiber
 nutrition_words__1,nutrition_words,NUTRITION WORDS,Words used to talk about diet and nutrition,normal,auto_validated,unique,0.259,sugar | fat | diet | serving
 nutrition_words__2,nutrition_words,NUTRITION WORDS,Words used to talk about diet and nutrition,normal,auto_validated,unique,0.27,protein | portion | organic | whole grain
 nutrition_words__3,nutrition_words,NUTRITION WORDS,Words used to talk about diet and nutrition,normal,auto_validated,unique,0.287,vitamin | sodium | fiber | mineral
@@ -1672,16 +1785,19 @@ pregnancy_words__2,pregnancy_words,BIRTH WORDS,Words used about pregnancy and ch
 pregnancy_words__3,pregnancy_words,BIRTH WORDS,Words used about pregnancy and childbirth,normal,auto_validated,unique,0.353,incubator | crib | ultrasound | midwife
 sleep_and_rest__1,sleep_and_rest,SLEEP WORDS,Words about sleep and its problems,normal,auto_validated,unique,0.264,rest | dream | alarm | nightmare
 sleep_and_rest__2,sleep_and_rest,SLEEP WORDS,Words about sleep and its problems,normal,auto_validated,unique,0.297,nap | pillow | mattress | bedtime
-sleep_and_rest__3,sleep_and_rest,SLEEP WORDS,Words about sleep and its problems,normal,auto_validated,unique,0.327,snore | insomnia | drowsy | apnea
+sleep_and_rest__3,sleep_and_rest,SLEEP WORDS,Words about sleep and its problems,normal,auto_validated,unique,0.321,yawn | slumber | insomnia | lullaby
+supplements__1,supplements,SUPPLEMENTS,A substance sold as a dietary or beauty supplement,normal,auto_validated,unique,0.369,vitamin | zinc | biotin | collagen
 therapy_words__1,therapy_words,THERAPY WORDS,Words used in physical and mental therapy,normal,auto_validated,unique,0.299,session | progress | treatment | goal
 therapy_words__2,therapy_words,THERAPY WORDS,Words used in physical and mental therapy,normal,auto_validated,unique,0.311,recovery | exercise | walker | appointment
 therapy_words__3,therapy_words,THERAPY WORDS,Words used in physical and mental therapy,normal,auto_validated,unique,0.333,stretch | counselor | rehab | massage
+vet_clinic__1,vet_clinic,VET CLINIC,A procedure or item used treating animals,normal,auto_validated,unique,0.494,muzzle | checkup | microchip | neutering
 vision_words__1,vision_words,VISION WORDS,Words used about eyesight and glasses,normal,auto_validated,unique,0.268,frame | glasses | blind | eye chart
 vision_words__2,vision_words,VISION WORDS,Words used about eyesight and glasses,normal,auto_validated,unique,0.286,pupil | lens | contacts | prescription
 vision_words__3,vision_words,VISION WORDS,Words used about eyesight and glasses,normal,auto_validated,unique,0.341,squint | cornea | optometrist | astigmatism
 vitamins_and_minerals__1,vitamins_and_minerals,VITAMINS AND MINERALS,Nutrients the body needs in small amounts,normal,auto_validated,unique,0.281,iron | vitamin C | vitamin D | sodium
 vitamins_and_minerals__2,vitamins_and_minerals,VITAMINS AND MINERALS,Nutrients the body needs in small amounts,normal,auto_validated,unique,0.301,calcium | zinc | magnesium | potassium
 vitamins_and_minerals__3,vitamins_and_minerals,VITAMINS AND MINERALS,Nutrients the body needs in small amounts,normal,auto_validated,unique,0.335,iodine | folate | biotin | selenium
+wellness__1,wellness,WELLNESS,A practice people take up to feel healthier,normal,auto_validated,unique,0.312,balance | diet | hydration | detox
 things_in_a_glove_box__1,things_in_a_glove_box,GLOVE BOX,Things kept in a car glove compartment,normal,auto_validated,unique,0.303,map | manual | registration | insurance
 things_in_a_glove_box__2,things_in_a_glove_box,GLOVE BOX,Things kept in a car glove compartment,normal,auto_validated,unique,0.338,Charger | sunglasses | tire gauge | tissues
 things_in_a_purse__1,things_in_a_purse,PURSE THINGS,Things carried in a purse,normal,auto_validated,unique,0.225,pen | mirror | phone | keys
@@ -1724,6 +1840,7 @@ greek_gods__3,greek_gods,GREEK GODS,Gods and goddesses of Greek mythology,normal
 greek_heroes__1,greek_heroes,MYTHOLOGICAL HEROES,Heroes of classical mythology,normal,auto_validated,unique,0.282,Paris | Hercules | Jason | Hector
 greek_heroes__2,greek_heroes,MYTHOLOGICAL HEROES,Heroes of classical mythology,normal,auto_validated,unique,0.321,Achilles | Odysseus | Orpheus | Ajax
 greek_heroes__3,greek_heroes,MYTHOLOGICAL HEROES,Heroes of classical mythology,normal,auto_validated,unique,0.342,Perseus | Theseus | Atalanta | Aeneas
+greek_myths__1,greek_myths,GREEK MYTHS,A creature or place from Greek mythology,normal,auto_validated,unique,0.444,centaur | cyclops | Olympus | Titan
 legendary_places__1,legendary_places,LEGENDARY PLACES,Places known only from myth and legend,normal,auto_validated,unique,0.349,Troy | Atlantis | Olympus | Eden
 legendary_places__2,legendary_places,LEGENDARY PLACES,Places known only from myth and legend,normal,auto_validated,unique,0.37,Hades | Camelot | Avalon | El Dorado
 legendary_places__3,legendary_places,LEGENDARY PLACES,Places known only from myth and legend,normal,auto_validated,unique,0.383,Valhalla | Shangri-La | Asgard | Xanadu
@@ -1741,12 +1858,14 @@ mythical_monsters__2,mythical_monsters,MYTHICAL MONSTERS,Monsters from myth and 
 mythical_monsters__3,mythical_monsters,MYTHICAL MONSTERS,Monsters from myth and legend,normal,auto_validated,unique,0.301,minotaur | cerberus | harpy | gorgon
 norse_gods__1,norse_gods,NORSE GODS,Gods of Norse mythology,normal,auto_validated,unique,0.316,Thor | Odin | Loki | Freya
 norse_gods__2,norse_gods,NORSE GODS,Gods of Norse mythology,normal,auto_validated,unique,0.35,Balder | Heimdall | Tyr | Hel
+potions_class__1,potions_class,POTIONS CLASS,A word belonging to brewing magic potions,normal,auto_validated,unique,0.475,elixir | vial | antidote | bubbling
 roman_gods__1,roman_gods,ROMAN GODS,Gods and goddesses of Roman mythology,normal,auto_validated,unique,0.285,mercury | Apollo | Mars | Diana
 roman_gods__2,roman_gods,ROMAN GODS,Gods and goddesses of Roman mythology,normal,auto_validated,unique,0.304,Jupiter | Venus | Vulcan | Saturn
 roman_gods__3,roman_gods,ROMAN GODS,Gods and goddesses of Roman mythology,normal,auto_validated,unique,0.319,Pluto | Juno | Neptune | Minerva
 superstitions__1,superstitions,SUPERSTITION THINGS,Objects tied to common superstitions,normal,auto_validated,unique,0.305,mirror | salt | black cat | cross
 superstitions__2,superstitions,SUPERSTITION THINGS,Objects tied to common superstitions,normal,auto_validated,unique,0.326,penny | ladder | knock on wood | broken mirror
 superstitions__3,superstitions,SUPERSTITION THINGS,Objects tied to common superstitions,normal,auto_validated,unique,0.35,umbrella | horseshoe | four leaf clover | rabbit foot
+wizard_tower__1,wizard_tower,WIZARD TOWER,A word belonging to wizards and spellcasting,normal,auto_validated,unique,0.525,incantation | grimoire | enchanted | conjure
 wizards_and_spells__1,wizards_and_spells,WIZARD WORDS,Things belonging to a wizard in stories,normal,auto_validated,unique,0.257,hat | book | staff | familiar
 wizards_and_spells__2,wizards_and_spells,WIZARD WORDS,Things belonging to a wizard in stories,normal,auto_validated,unique,0.275,scroll | spell | tower | crystal
 wizards_and_spells__3,wizards_and_spells,WIZARD WORDS,Things belonging to a wizard in stories,normal,auto_validated,unique,0.307,robe | wand | potion | apprentice
@@ -1824,6 +1943,7 @@ cloud_and_sky__3,cloud_and_sky,SKY WORDS,Things you can see in the sky,normal,au
 desert_things__1,desert_things,DESERT THINGS,Things found in a hot desert,normal,auto_validated,unique,0.237,sand | snake | canyon | heat
 desert_things__2,desert_things,DESERT THINGS,Things found in a hot desert,normal,auto_validated,unique,0.266,lizard | camel | drought | oasis
 desert_things__3,desert_things,DESERT THINGS,Things found in a hot desert,normal,auto_validated,unique,0.279,coyote | dune | cactus | scorpion
+fire_and_smoke__1,fire_and_smoke,FIRE AND SMOKE,Something given off by or belonging to a burning fire,normal,auto_validated,unique,0.319,smoke | blaze | ash | flame
 flower_parts__1,flower_parts,FLOWER PARTS,Parts of a flowering plant,normal,auto_validated,unique,0.294,seed | bulb | root | stem
 flower_parts__2,flower_parts,FLOWER PARTS,Parts of a flowering plant,normal,auto_validated,unique,0.308,blossom | pollen | leaf | bud
 flower_parts__3,flower_parts,FLOWER PARTS,Parts of a flowering plant,normal,auto_validated,unique,0.33,thorn | petal | nectar | stalk
@@ -1835,6 +1955,8 @@ garden_plants__2,garden_plants,GARDEN PLANTS,Plants people grow in a home garden
 garden_plants__3,garden_plants,GARDEN PLANTS,Plants people grow in a home garden,normal,auto_validated,unique,0.237,squash | carrot | lettuce | basil
 gemstones__1,gemstones,GEMSTONES,Precious or semi-precious stones used in jewelry,normal,auto_validated,unique,0.212,diamond | coral | ruby | pearl
 gemstones__2,gemstones,GEMSTONES,Precious or semi-precious stones used in jewelry,normal,auto_validated,unique,0.231,jade | emerald | sapphire | quartz
+in_the_jungle__1,in_the_jungle,IN THE JUNGLE,Something found in a tropical jungle,normal,auto_validated,unique,0.35,jaguar | mushroom | Fern | canopy
+landscape_features__1,landscape_features,LANDSCAPE,A natural feature seen in an open landscape,normal,auto_validated,unique,0.281,valley | hill | cliff | sky
 light_sources__1,light_sources,LIGHT SOURCES,Things that give off light,normal,auto_validated,unique,0.21,star | fire | sun | match
 light_sources__2,light_sources,LIGHT SOURCES,Things that give off light,normal,auto_validated,unique,0.227,moon | screen | lightning | laser
 light_sources__3,light_sources,LIGHT SOURCES,Things that give off light,normal,auto_validated,unique,0.254,candle | lamp | bulb | torch
@@ -1845,6 +1967,7 @@ mushrooms_and_fungi__1,mushrooms_and_fungi,FUNGI,Mushrooms and other fungi,norma
 natural_disasters__1,natural_disasters,NATURAL DISASTERS,Destructive natural events,normal,auto_validated,unique,0.236,flood | hurricane | earthquake | drought
 natural_disasters__2,natural_disasters,NATURAL DISASTERS,Destructive natural events,normal,auto_validated,unique,0.254,volcano | blizzard | tornado | famine
 natural_disasters__3,natural_disasters,NATURAL DISASTERS,Destructive natural events,normal,auto_validated,unique,0.261,cyclone | tsunami | avalanche | eruption
+natural_wonders__1,natural_wonders,NATURAL WONDERS,A large natural landform or body of water,normal,auto_validated,unique,0.231,canyon | island | ocean | mountains
 river_features__1,river_features,RIVER FEATURES,Parts and features of a river described in everyday English,normal,auto_validated,unique,0.295,bank | current | bed | source
 river_features__2,river_features,RIVER FEATURES,Parts and features of a river described in everyday English,normal,auto_validated,unique,0.306,mouth | ford | channel | shore
 river_features__3,river_features,RIVER FEATURES,Parts and features of a river described in everyday English,normal,auto_validated,unique,0.332,delta | bend | basin | rapids
@@ -1875,18 +1998,21 @@ tree_parts__3,tree_parts,TREE PARTS,Physical parts of a living tree,normal,auto_
 trees__1,trees,TREES,Kinds of trees an average American can name,normal,auto_validated,unique,0.168,apple | palm | cherry | oak
 trees__2,trees,TREES,Kinds of trees an average American can name,normal,auto_validated,unique,0.183,maple | pine | cedar | ash
 trees__3,trees,TREES,Kinds of trees an average American can name,normal,auto_validated,unique,0.2,walnut | Willow | birch | fir
+types_of_soil__1,types_of_soil,TYPES OF SOIL,A type of soil or ground classed by what it is made of,normal,auto_validated,unique,0.369,chalk | sand | clay | peat
 underground_things__1,underground_things,UNDERGROUND THINGS,Things found under the surface of the ground,normal,auto_validated,unique,0.28,seed | coal | root | mine
 underground_things__2,underground_things,UNDERGROUND THINGS,Things found under the surface of the ground,normal,auto_validated,unique,0.293,pipe | cave | treasure | tunnel
 underground_things__3,underground_things,UNDERGROUND THINGS,Things found under the surface of the ground,normal,auto_validated,unique,0.303,Subway | fossil | worm | ore
 water_states__1,water_states,FORMS OF WATER,Forms water takes in nature,normal,auto_validated,unique,0.224,steam | rain | snow | ice
-water_states__2,water_states,FORMS OF WATER,Forms water takes in nature,normal,auto_validated,unique,0.254,hail | glacier | cloud | frost
-water_states__3,water_states,FORMS OF WATER,Forms water takes in nature,normal,auto_validated,unique,0.264,mist | fog | humidity | vapor
+water_states__2,water_states,FORMS OF WATER,Forms water takes in nature,normal,auto_validated,unique,0.249,hail | cloud | frost | liquid
+water_states__3,water_states,FORMS OF WATER,Forms water takes in nature,normal,auto_validated,unique,0.263,mist | glacier | fog | humidity
+weather_report__1,weather_report,WEATHER REPORT,What a weather report names or predicts,normal,auto_validated,unique,,radar | forecast | humidity | storms
 weather_words__1,weather_words,WEATHER WORDS,Words describing weather conditions or events in the sky,normal,auto_validated,unique,0.113,rain | snow | storm | wind
 weather_words__2,weather_words,WEATHER WORDS,Words describing weather conditions or events in the sky,normal,auto_validated,unique,0.126,shower | cloud | lightning | heat wave
 weather_words__3,weather_words,WEATHER WORDS,Words describing weather conditions or events in the sky,normal,auto_validated,unique,0.138,thunder | frost | hurricane | sunshine
 wild_plants__1,wild_plants,WILD PLANTS,Plants that grow wild in fields and woods,normal,auto_validated,unique,0.316,weed | reed | Ivy | moss
 wild_plants__2,wild_plants,WILD PLANTS,Plants that grow wild in fields and woods,normal,auto_validated,unique,0.342,thistle | vine | Fern | clover
 wild_plants__3,wild_plants,WILD PLANTS,Plants that grow wild in fields and woods,normal,auto_validated,unique,0.366,dandelion | nettle | bracken | lichen
+arctic_trek__1,arctic_trek,ARCTIC TREK,Something met crossing the frozen Arctic,normal,auto_validated,unique,0.544,permafrost | icebreaker | auroras | huskies
 biomes__1,biomes,BIOMES,Major natural regions of the earth,normal,auto_validated,unique,0.309,mountain | marsh | desert | ocean
 biomes__2,biomes,BIOMES,Major natural regions of the earth,normal,auto_validated,unique,0.347,prairie | rainforest | wetland | reef
 biomes__3,biomes,BIOMES,Major natural regions of the earth,normal,auto_validated,unique,0.37,tundra | grassland | savanna | steppe
@@ -1895,6 +2021,7 @@ canyons_and_valleys__2,canyons_and_valleys,CANYONS AND VALLEYS,Famous canyons an
 cave_things__1,cave_things,CAVE THINGS,Things found inside a cave,normal,auto_validated,unique,0.307,chamber | column | pool | crystal
 cave_things__2,cave_things,CAVE THINGS,Things found inside a cave,normal,auto_validated,unique,0.318,bat | Echo | tunnel | darkness
 cave_things__3,cave_things,CAVE THINGS,Things found inside a cave,normal,auto_validated,unique,0.342,drip | fossil | moss | cavern
+cloud_types__1,cloud_types,CLOUD TYPES,A named type of cloud,normal,auto_validated,unique,0.487,cumulus | cirrus | stratus | nimbus
 erosion_words__1,erosion_words,EROSION WORDS,Ways water shapes the land over time,normal,auto_validated,unique,0.375,delta | flood | deposit | canyon
 erosion_words__2,erosion_words,EROSION WORDS,Ways water shapes the land over time,normal,auto_validated,unique,0.402,erosion | carve | sediment | runoff
 erosion_words__3,erosion_words,EROSION WORDS,Ways water shapes the land over time,normal,auto_validated,unique,0.421,silt | gully | weathering | undercut
@@ -1906,6 +2033,7 @@ national_parks_us__2,national_parks_us,NATIONAL PARKS,American national parks,no
 national_parks_us__3,national_parks_us,NATIONAL PARKS,American national parks,normal,auto_validated,unique,0.321,redwood | Everglades | Badlands | Shenandoah
 night_sky_things__1,night_sky_things,NIGHT SKY,Things visible in the night sky,normal,auto_validated,unique,0.21,star | moon | plane | planet
 night_sky_things__2,night_sky_things,NIGHT SKY,Things visible in the night sky,normal,auto_validated,unique,0.223,cloud | satellite | shooting star | galaxy
+rainforest__1,rainforest,RAINFOREST,"A plant, animal or layer of the rainforest",normal,auto_validated,unique,0.537,macaw | undergrowth | howler | liana
 rock_formations__1,rock_formations,ROCK FORMATIONS,Natural rock shapes and formations,normal,auto_validated,unique,0.331,arch | cave | terrace | cliff
 rock_formations__2,rock_formations,ROCK FORMATIONS,Natural rock shapes and formations,normal,auto_validated,unique,0.353,mesa | spire | boulder | pillar
 rock_formations__3,rock_formations,ROCK FORMATIONS,Natural rock shapes and formations,normal,auto_validated,unique,0.379,butte | sinkhole | outcrop | monolith
@@ -1923,6 +2051,7 @@ seasons_winter__2,seasons_winter,WINTER THINGS,Things associated with winter,nor
 seasons_winter__3,seasons_winter,WINTER THINGS,Things associated with winter,normal,auto_validated,unique,0.229,shovel | sled | fireplace | blizzard
 tide_and_moon__1,tide_and_moon,MOON PHASES,Phases and states of the moon,normal,auto_validated,unique,0.293,quarter | full moon | new moon | half moon
 tide_and_moon__2,tide_and_moon,MOON PHASES,Phases and states of the moon,normal,auto_validated,unique,0.322,crescent | eclipse | harvest moon | blue moon
+volcano_watch__1,volcano_watch,VOLCANO WATCH,A term used describing a volcano,normal,auto_validated,unique,0.519,vent | molten | caldera | dormant
 volcanoes__1,volcanoes,VOLCANOES,Famous volcanoes,normal,auto_validated,unique,0.364,Vesuvius | Fuji | St Helens | Rainier
 volcanoes__2,volcanoes,VOLCANOES,Famous volcanoes,normal,auto_validated,unique,0.387,Etna | Kilauea | Mauna Loa | Stromboli
 waterfalls__1,waterfalls,WATERFALLS,Famous waterfalls,normal,auto_validated,unique,0.324,Victoria | Niagara | Angel Falls | Sutherland
@@ -1935,6 +2064,8 @@ world_lakes__2,world_lakes,LAKES,Well known lakes of the world,normal,auto_valid
 world_lakes__3,world_lakes,LAKES,Well known lakes of the world,normal,auto_validated,unique,0.359,Tahoe | Loch Ness | Huron | Como
 beetles__1,beetles,BEETLES,Kinds of beetle,normal,auto_validated,unique,0.396,june bug | click beetle | water beetle | carpet beetle
 beetles__2,beetles,BEETLES,Kinds of beetle,normal,auto_validated,unique,0.422,firefly | scarab | dung beetle | stag beetle
+butterfly_life__1,butterfly_life,BUTTERFLY LIFE,A stage or thing in the life of a butterfly,normal,auto_validated,unique,0.469,caterpillar | cocoon | monarch | chrysalis
+frog_pond__1,frog_pond,FROG POND,A word belonging to frogs and their pond,normal,auto_validated,unique,0.531,tadpole | croak | bullfrog | amphibious
 garden_bugs__1,garden_bugs,GARDEN BUGS,Small creatures found in a garden,normal,auto_validated,unique,0.323,bee | cricket | spider | snail
 garden_bugs__2,garden_bugs,GARDEN BUGS,Small creatures found in a garden,normal,auto_validated,unique,0.346,ant | beetle | caterpillar | slug
 garden_bugs__3,garden_bugs,GARDEN BUGS,Small creatures found in a garden,normal,auto_validated,unique,0.371,ladybug | centipede | grub | praying mantis
@@ -1946,6 +2077,7 @@ saltwater_fish__2,saltwater_fish,SALTWATER FISH,Fish that live in salt water,nor
 saltwater_fish__3,saltwater_fish,SALTWATER FISH,Fish that live in salt water,normal,auto_validated,unique,0.391,mahi mahi | pompano | hake | bonito
 wildflowers__1,wildflowers,WILDFLOWERS,Flowers that grow wild in fields and roadsides,normal,auto_validated,unique,0.352,black eyed susan | columbine | wild rose | primrose
 wildflowers__2,wildflowers,WILDFLOWERS,Flowers that grow wild in fields and roadsides,normal,auto_validated,unique,0.391,aster | milkweed | indian paintbrush | trillium
+at_the_harbor__1,at_the_harbor,AT THE HARBOR,A structure or vessel found in a harbour,normal,auto_validated,unique,0.344,anchor | ferry | port | dock
 coral_reef__1,coral_reef,CORAL REEF,Things found on a coral reef,normal,auto_validated,unique,0.297,sponge | turtle | coral | reef shark
 coral_reef__2,coral_reef,CORAL REEF,Things found on a coral reef,normal,auto_validated,unique,0.317,jellyfish | starfish | eel | algae
 coral_reef__3,coral_reef,CORAL REEF,Things found on a coral reef,normal,auto_validated,unique,0.344,seahorse | urchin | anemone | grouper
@@ -1963,6 +2095,7 @@ harbor_things__3,harbor_things,HARBOR THINGS,Things found in a harbor or marina,
 navigation_tools__1,navigation_tools,NAVIGATION TOOLS,Tools used to find the way at sea,normal,auto_validated,unique,0.27,star | chart | map | log
 navigation_tools__2,navigation_tools,NAVIGATION TOOLS,Tools used to find the way at sea,normal,auto_validated,unique,0.298,compass | radar | gps | beacon
 navigation_tools__3,navigation_tools,NAVIGATION TOOLS,Tools used to find the way at sea,normal,auto_validated,unique,0.32,telescope | Lighthouse | buoy | sonar
+ocean_floor__1,ocean_floor,OCEAN FLOOR,Something resting or growing on the ocean floor,normal,auto_validated,unique,0.35,coral | anchor | seaweed | reef
 ocean_products__1,ocean_products,SEA HARVEST,Useful things people harvest from the sea,normal,auto_validated,unique,0.309,sand | shell | fish | salt
 ocean_products__2,ocean_products,SEA HARVEST,Useful things people harvest from the sea,normal,auto_validated,unique,0.337,sponge | coral | amber | pearl
 ocean_zones__1,ocean_zones,SHORE FEATURES,Features of the ocean and its shoreline,normal,auto_validated,unique,0.269,current | wave | shore | bay
@@ -1979,6 +2112,7 @@ sea_weather__3,sea_weather,SEA CONDITIONS,Words describing conditions at sea,nor
 seabirds__1,seabirds,SEABIRDS,Birds that live along the coast or at sea,normal,auto_validated,unique,0.326,seagull | pelican | heron | booby
 seabirds__2,seabirds,SEABIRDS,Birds that live along the coast or at sea,normal,auto_validated,unique,0.336,puffin | albatross | tern | osprey
 seabirds__3,seabirds,SEABIRDS,Birds that live along the coast or at sea,normal,auto_validated,unique,0.356,cormorant | sandpiper | gannet | petrel
+set_sail__1,set_sail,SET SAIL,A part of a sailing boat above the deck,normal,auto_validated,unique,0.475,mast | spinnaker | helm | jib
 sharks_and_rays__1,sharks_and_rays,SHARKS AND RAYS,Kinds of shark and ray,normal,auto_validated,unique,0.28,great white | tiger shark | nurse shark | bull shark
 sharks_and_rays__2,sharks_and_rays,SHARKS AND RAYS,Kinds of shark and ray,normal,auto_validated,unique,0.315,stingray | whale shark | mako | reef shark
 shellfish__1,shellfish,SHELLFISH,Sea animals with a shell that people eat,normal,auto_validated,unique,0.258,crab | lobster | shrimp | snail
@@ -1986,6 +2120,8 @@ shellfish__2,shellfish,SHELLFISH,Sea animals with a shell that people eat,normal
 shellfish__3,shellfish,SHELLFISH,Sea animals with a shell that people eat,normal,auto_validated,unique,0.302,barnacle | scallop | crawfish | abalone
 shells__1,shells,SEASHELLS,Kinds of seashell found on a beach,normal,auto_validated,unique,0.344,clam | oyster | sand dollar | olive shell
 shells__2,shells,SEASHELLS,Kinds of seashell found on a beach,normal,auto_validated,unique,0.382,mussel | nautilus | conch | auger
+submarine_duty__1,submarine_duty,SUBMARINE DUTY,A word belonging to serving aboard a submarine,normal,auto_validated,unique,0.537,ballast | nautical | seabed | submerge
+whale_watch__1,whale_watch,WHALE WATCH,A word belonging to whales and watching them,normal,auto_validated,unique,0.575,krill | blowhole | baleen | breaching
 whaling_and_fishing__1,whaling_and_fishing,FISHING FLEET,Things used in commercial fishing,normal,auto_validated,unique,0.311,line | hold | pot | net
 whaling_and_fishing__2,whaling_and_fishing,FISHING FLEET,Things used in commercial fishing,normal,auto_validated,unique,0.349,hook | trap | crate | Seine
 whaling_and_fishing__3,whaling_and_fishing,FISHING FLEET,Things used in commercial fishing,normal,auto_validated,unique,0.384,buoy | harpoon | winch | dredge
@@ -2003,6 +2139,8 @@ boys_names__2,boys_names,BOYS NAMES,Common first names given to boys in the Unit
 boys_names__3,boys_names,BOYS NAMES,Common first names given to boys in the United States,normal,auto_validated,unique,0.147,Daniel | Henry | Andrew | Ryan
 crowd_words__1,crowd_words,AUDIENCE WORDS,Words for people watching an event,normal,auto_validated,unique,0.316,witness | guest | audience | crowd
 crowd_words__2,crowd_words,AUDIENCE WORDS,Words for people watching an event,normal,auto_validated,unique,0.356,viewer | listener | patron | subscriber
+emotions__1,emotions,EMOTIONS,A word naming or describing a feeling a person has,normal,auto_validated,unique,0.275,happy | angry | fear | joy
+emotions__2,emotions,EMOTIONS,A word naming or describing a feeling a person has,normal,auto_validated,unique,0.281,pride | sad | surprise | worry
 explorers__1,explorers,EXPLORERS,Famous explorers from history,normal,auto_validated,unique,0.277,Columbus | Hudson | Clark | Lewis
 explorers__2,explorers,EXPLORERS,Famous explorers from history,normal,auto_validated,unique,0.321,Marco Polo | Livingstone | Cabot | Balboa
 explorers__3,explorers,EXPLORERS,Famous explorers from history,normal,auto_validated,unique,0.342,Magellan | Cortes | Amundsen | Shackleton
@@ -2024,12 +2162,14 @@ girls_names__3,girls_names,GIRLS NAMES,Common first names given to girls in the 
 groups_of_people__1,groups_of_people,GROUPS OF PEOPLE,Words for gatherings of people,normal,auto_validated,unique,0.216,band | class | committee | council
 groups_of_people__2,groups_of_people,GROUPS OF PEOPLE,Words for gatherings of people,normal,auto_validated,unique,0.219,cast | staff | team | audience
 groups_of_people__3,groups_of_people,GROUPS OF PEOPLE,Words for gatherings of people,normal,auto_validated,unique,0.226,panel | crew | squad | crowd
+hall_of_fame__1,hall_of_fame,HALL OF FAME,Who gets remembered and what marks the honour,normal,auto_validated,unique,,plaque | legend | awards | bust
 inventors__1,inventors,INVENTORS,Famous inventors,normal,auto_validated,unique,0.272,ford | Franklin | bell | Wright
 inventors__2,inventors,INVENTORS,Famous inventors,normal,auto_validated,unique,0.294,Tesla | diesel | Watt | Whitney
 inventors__3,inventors,INVENTORS,Famous inventors,normal,auto_validated,unique,0.319,Edison | Morse | Marconi | Goodyear
 life_stages__1,life_stages,STAGES OF LIFE,Words for the stages of a human life,normal,auto_validated,unique,0.17,senior | child | baby | middle age
-life_stages__2,life_stages,STAGES OF LIFE,Words for the stages of a human life,normal,auto_validated,unique,0.189,elder | teenager | adult | youth
-life_stages__3,life_stages,STAGES OF LIFE,Words for the stages of a human life,normal,auto_validated,unique,0.215,newborn | infant | toddler | adolescent
+life_stages__2,life_stages,STAGES OF LIFE,Words for the stages of a human life,normal,auto_validated,unique,0.188,kid | teenager | adult | youth
+life_stages__3,life_stages,STAGES OF LIFE,Words for the stages of a human life,normal,auto_validated,unique,0.21,elder | newborn | infant | toddler
+morning_routine__1,morning_routine,MORNING ROUTINE,Something a person does first thing in the morning,normal,auto_validated,unique,0.325,coffee | shower | breakfast | wake
 nationalities__1,nationalities,NATIONALITIES,Words for people from a particular country,normal,auto_validated,unique,0.21,American | French | Chinese | Australian
 nationalities__2,nationalities,NATIONALITIES,Words for people from a particular country,normal,auto_validated,unique,0.211,Indian | German | Japanese | Russian
 nationalities__3,nationalities,NATIONALITIES,Words for people from a particular country,normal,auto_validated,unique,0.22,spanish | Italian | Canadian | Irish
@@ -2057,6 +2197,9 @@ titles_of_address__3,titles_of_address,TITLES,Titles put before a person name,no
 us_presidents__1,us_presidents,US PRESIDENTS,Presidents of the United States,normal,auto_validated,unique,0.208,Washington | Johnson | Grant | Obama
 us_presidents__2,us_presidents,US PRESIDENTS,Presidents of the United States,normal,auto_validated,unique,0.218,Wilson | Jackson | Clinton | Bush
 us_presidents__3,us_presidents,US PRESIDENTS,Presidents of the United States,normal,auto_validated,unique,0.229,Lincoln | Kennedy | Adams | Carter
+antique_shop__1,antique_shop,ANTIQUE SHOP,A word belonging to old objects sold as antiques,normal,auto_validated,unique,0.525,dusty | heirloom | auction | curio
+at_the_hotel__1,at_the_hotel,AT THE HOTEL,A place or service a guest meets at a hotel,normal,auto_validated,unique,0.35,checkout | lobby | reception | housekeeper
+beach_day__1,beach_day,BEACH DAY,What you bring to the beach or find while you are there,normal,auto_validated,unique,,sunscreen | umbrella | towel | swimwear
 canadian_places__1,canadian_places,CANADIAN PLACES,Well known places in Canada,normal,auto_validated,unique,0.32,Ottawa | Toronto | Vancouver | Montreal
 canadian_places__2,canadian_places,CANADIAN PLACES,Well known places in Canada,normal,auto_validated,unique,0.335,Quebec | Calgary | Alberta | Halifax
 canadian_places__3,canadian_places,CANADIAN PLACES,Well known places in Canada,normal,auto_validated,unique,0.348,Niagara | Manitoba | Winnipeg | Nova Scotia
@@ -2066,6 +2209,7 @@ caribbean_places__3,caribbean_places,CARIBBEAN PLACES,Islands and countries of t
 famous_buildings__1,famous_buildings,FAMOUS BUILDINGS,Famous buildings around the world,normal,auto_validated,unique,0.286,Empire State | Sydney Opera House | Pentagon | Vatican
 famous_buildings__2,famous_buildings,FAMOUS BUILDINGS,Famous buildings around the world,normal,auto_validated,unique,0.312,Louvre | Notre Dame | Kremlin | Buckingham Palace
 famous_buildings__3,famous_buildings,FAMOUS BUILDINGS,Famous buildings around the world,normal,auto_validated,unique,0.336,Taj Mahal | Burj Khalifa | Guggenheim | Parthenon
+farmers_market__1,farmers_market,FARMERS MARKET,Something you see at a farmers market,normal,auto_validated,unique,0.4,vendor | crate | homegrown | preserves
 great_lakes_and_us_water__1,great_lakes_and_us_water,US WATERS,Famous lakes and rivers in the United States,normal,auto_validated,unique,0.306,Ohio | Colorado | Michigan | Superior
 great_lakes_and_us_water__2,great_lakes_and_us_water,US WATERS,Famous lakes and rivers in the United States,normal,auto_validated,unique,0.32,Mississippi | Hudson | Missouri | Ontario
 great_lakes_and_us_water__3,great_lakes_and_us_water,US WATERS,Famous lakes and rivers in the United States,normal,auto_validated,unique,0.341,Rio Grande | Erie | Potomac | Powell
@@ -2102,21 +2246,23 @@ state_capitals__3,state_capitals,STATE CAPITALS,Capital cities of American state
 streets_and_roads__1,streets_and_roads,KINDS OF ROADS,Kinds of road and pathway,normal,auto_validated,unique,0.214,street | route | path | road
 streets_and_roads__2,streets_and_roads,KINDS OF ROADS,Kinds of road and pathway,normal,auto_validated,unique,0.227,avenue | trail | highway | lane
 streets_and_roads__3,streets_and_roads,KINDS OF ROADS,Kinds of road and pathway,normal,auto_validated,unique,0.257,alley | boulevard | driveway | bypass
+supermarket__1,supermarket,SUPERMARKET,A fixture or worker found in a supermarket,normal,auto_validated,unique,0.375,cart | aisle | trolley | grocer
 underground_places__1,underground_places,UNDERGROUND PLACES,Places that are below ground level,normal,auto_validated,unique,0.271,cave | basement | tunnel | mine
 underground_places__2,underground_places,UNDERGROUND PLACES,Places that are below ground level,normal,auto_validated,unique,0.293,bunker | Subway | sewer | parking garage
 underground_places__3,underground_places,UNDERGROUND PLACES,Places that are below ground level,normal,auto_validated,unique,0.309,burrow | cellar | dungeon | root cellar
 us_landmarks__1,us_landmarks,US LANDMARKS,Famous landmarks in the United States,normal,auto_validated,unique,0.216,Golden Gate | White House | Times Square | Hollywood
 us_landmarks__2,us_landmarks,US LANDMARKS,Famous landmarks in the United States,normal,auto_validated,unique,0.241,Statue of Liberty | Space Needle | Grand Canyon | Liberty Bell
 us_landmarks__3,us_landmarks,US LANDMARKS,Famous landmarks in the United States,normal,auto_validated,unique,0.265,Yellowstone | Yosemite | Niagara Falls | Gateway Arch
-world_cities__1,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.221,Manchester | Sydney | Toronto | Melbourne
-world_cities__2,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.235,Barcelona | Milan | Dubai | Vancouver
-world_cities__3,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.241,Munich | Geneva | Shanghai | Mumbai
-world_mountains__1,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.345,Olympus | Fuji | Whitney | Everest
-world_mountains__2,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.371,Vesuvius | Rainier | Kilimanjaro | Shasta
-world_mountains__3,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.38,Etna | Denali | Matterhorn | Ararat
+world_cities__1,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.221,Manchester | London | Sydney | Toronto
+world_cities__2,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.229,Barcelona | Paris | Vancouver | Melbourne
+world_cities__3,world_cities,WORLD CITIES,Large well known cities around the world,normal,auto_validated,unique,0.239,Milan | Geneva | Shanghai | Dubai
+world_mountains__1,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.308,Alps | Andes | Rockies | Whitney
+world_mountains__2,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.354,Olympus | Fuji | Rainier | Everest
+world_mountains__3,world_mountains,FAMOUS MOUNTAINS,Famous individual mountains,normal,auto_validated,unique,0.373,Vesuvius | Etna | Kilimanjaro | Shasta
 world_rivers__1,world_rivers,WORLD RIVERS,Major rivers outside the United States,normal,auto_validated,unique,0.287,Amazon | Thames | Congo | Po
 world_rivers__2,world_rivers,WORLD RIVERS,Major rivers outside the United States,normal,auto_validated,unique,0.318,Nile | Rhine | Seine | Mekong
 world_rivers__3,world_rivers,WORLD RIVERS,Major rivers outside the United States,normal,auto_validated,unique,0.331,Danube | Ganges | Euphrates | Tigris
+zoo_visit__1,zoo_visit,ZOO VISIT,"A person, place or activity at a zoo",normal,auto_validated,unique,0.406,zookeeper | enclosure | feeding | petting
 cactus_and_succulents__1,cactus_and_succulents,CACTUS AND SUCCULENTS,Desert plants that store water in thick leaves or stems,normal,auto_validated,unique,0.356,jade | cactus | barrel cactus | hens and chicks
 cactus_and_succulents__2,cactus_and_succulents,CACTUS AND SUCCULENTS,Desert plants that store water in thick leaves or stems,normal,auto_validated,unique,0.38,aloe | agave | prickly pear | yucca
 crops__1,crops,FARM CROPS,Plants grown on farms for food or material,normal,auto_validated,unique,0.195,cotton | corn | potato | rice
@@ -2127,12 +2273,14 @@ evergreens__2,evergreens,EVERGREEN TREES,Trees that keep their leaves or needles
 evergreens__3,evergreens,EVERGREEN TREES,Trees that keep their leaves or needles all year,normal,auto_validated,unique,0.332,hemlock | redwood | magnolia | juniper
 fruit_trees__1,fruit_trees,FRUIT TREES,Trees grown for their edible fruit,normal,auto_validated,unique,0.236,apple | orange | olive | cherry
 fruit_trees__2,fruit_trees,FRUIT TREES,Trees grown for their edible fruit,normal,auto_validated,unique,0.252,banana | lemon | coconut | fig
+garden_center__1,garden_center,GARDEN CENTER,What a garden center sells or what you buy there,normal,auto_validated,unique,,soil | seedling | houseplants | flowers
 garden_flowers_spring__1,garden_flowers_spring,SPRING FLOWERS,Flowers that bloom in spring,normal,auto_validated,unique,0.32,iris | tulip | magnolia | cherry blossom
 garden_flowers_spring__2,garden_flowers_spring,SPRING FLOWERS,Flowers that bloom in spring,normal,auto_validated,unique,0.338,pansy | lilac | azalea | primrose
 garden_flowers_spring__3,garden_flowers_spring,SPRING FLOWERS,Flowers that bloom in spring,normal,auto_validated,unique,0.354,daffodil | hyacinth | crocus | bluebell
 garden_flowers_summer__1,garden_flowers_summer,SUMMER FLOWERS,Flowers that bloom in summer,normal,auto_validated,unique,0.292,rose | Lily | Daisy | black eyed susan
 garden_flowers_summer__2,garden_flowers_summer,SUMMER FLOWERS,Flowers that bloom in summer,normal,auto_validated,unique,0.325,lavender | sunflower | dahlia | cosmos
 garden_flowers_summer__3,garden_flowers_summer,SUMMER FLOWERS,Flowers that bloom in summer,normal,auto_validated,unique,0.352,snapdragon | marigold | petunia | geranium
+garden_in_bloom__1,garden_in_bloom,GARDEN IN BLOOM,A word belonging to a garden in bloom,normal,auto_validated,unique,0.344,blossom | garden | bud | bloom
 gardening_words__1,gardening_words,GARDENING WORDS,Words used when growing a garden,normal,auto_validated,unique,0.218,water | pot | bed | row
 gardening_words__2,gardening_words,GARDENING WORDS,Words used when growing a garden,normal,auto_validated,unique,0.234,weed | seed | shade | soil
 gardening_words__3,gardening_words,GARDENING WORDS,Words used when growing a garden,normal,auto_validated,unique,0.253,harvest | hose | greenhouse | sunlight
@@ -2143,6 +2291,7 @@ herbs__2,herbs,COOKING HERBS,Leafy plants grown to flavor food,normal,auto_valid
 houseplants__1,houseplants,HOUSEPLANTS,Plants commonly kept indoors in pots,normal,auto_validated,unique,0.246,palm | spider plant | snake plant | rubber plant
 houseplants__2,houseplants,HOUSEPLANTS,Plants commonly kept indoors in pots,normal,auto_validated,unique,0.259,jade | Ivy | Violet | peace lily
 houseplants__3,houseplants,HOUSEPLANTS,Plants commonly kept indoors in pots,normal,auto_validated,unique,0.277,cactus | Fern | orchid | bamboo
+kinds_of_plants__1,kinds_of_plants,KINDS OF PLANTS,A broad kind of plant that grows from the ground,normal,auto_validated,unique,0.219,tree | flower | grass | Bush
 leaf_shapes__1,leaf_shapes,LEAF WORDS,Words describing leaves and how they grow,normal,auto_validated,unique,0.376,needle | bud | stem | blade
 leaf_shapes__2,leaf_shapes,LEAF WORDS,Words describing leaves and how they grow,normal,auto_validated,unique,0.401,vein | stalk | evergreen | canopy
 leaf_shapes__3,leaf_shapes,LEAF WORDS,Words describing leaves and how they grow,normal,auto_validated,unique,0.414,sprout | foliage | deciduous | lobe
@@ -2293,6 +2442,7 @@ world_religions__3,world_religions,WORLD RELIGIONS,Major religions of the world,
 body_science__1,body_science,HUMAN BIOLOGY,Scientific words about how the human body works,normal,auto_validated,unique,0.313,cell | bone | blood | protein
 body_science__2,body_science,HUMAN BIOLOGY,Scientific words about how the human body works,normal,auto_validated,unique,0.326,tissue | dna | muscle | gene
 body_science__3,body_science,HUMAN BIOLOGY,Scientific words about how the human body works,normal,auto_validated,unique,0.337,organ | plasma | oxygen | nerve
+chemistry_lab__1,chemistry_lab,CHEMISTRY LAB,A tool or method used in a chemistry lab,normal,auto_validated,unique,0.544,litmus | bunsen | reagent | vial
 chemistry_words__1,chemistry_words,CHEMISTRY WORDS,Words used in chemistry class,normal,auto_validated,unique,0.31,salt | base | reaction | solution
 chemistry_words__2,chemistry_words,CHEMISTRY WORDS,Words used in chemistry class,normal,auto_validated,unique,0.322,formula | element | acid | bond
 chemistry_words__3,chemistry_words,CHEMISTRY WORDS,Words used in chemistry class,normal,auto_validated,unique,0.339,compound | catalyst | ion | mixture
@@ -2334,14 +2484,17 @@ metals__3,metals,METALS,Metals and metal alloys used in everyday objects,normal,
 microscope_things__1,microscope_things,TINY THINGS,Things too small to see with the naked eye,normal,auto_validated,unique,0.313,cell | dna | virus | bacteria
 microscope_things__2,microscope_things,TINY THINGS,Things too small to see with the naked eye,normal,auto_validated,unique,0.342,atom | molecule | electron | particle
 microscope_things__3,microscope_things,TINY THINGS,Things too small to see with the naked eye,normal,auto_validated,unique,0.365,pollen | mite | germ | dust mite
+natural_history_museum__1,natural_history_museum,NATURAL HISTORY MUSEUM,What is displayed in a natural history museum case,normal,auto_validated,unique,,fossil | skeleton | bones | diorama
 planets__1,planets,PLANETS,Planets of our solar system,normal,auto_validated,unique,0.157,mercury | Mars | Venus | Earth
 planets__2,planets,PLANETS,Planets of our solar system,normal,auto_validated,unique,0.191,Jupiter | Neptune | Saturn | Uranus
 rock_cycle_words__1,rock_cycle_words,GEOLOGY WORDS,Words used to describe the earth and its rocks,normal,auto_validated,unique,0.331,plate | core | mineral | fault
 rock_cycle_words__2,rock_cycle_words,GEOLOGY WORDS,Words used to describe the earth and its rocks,normal,auto_validated,unique,0.359,crust | lava | volcano | fossil
 rock_cycle_words__3,rock_cycle_words,GEOLOGY WORDS,Words used to describe the earth and its rocks,normal,auto_validated,unique,0.366,erosion | glacier | mantle | quarry
+science_fair__1,science_fair,SCIENCE FAIR,What a school science fair project is about or made of,normal,auto_validated,unique,,poster | beaker | volcanoes | hypothesis
 science_fields__1,science_fields,BRANCHES OF SCIENCE,Fields of scientific study,normal,auto_validated,unique,0.229,chemistry | physics | psychology | medicine
 science_fields__2,science_fields,BRANCHES OF SCIENCE,Fields of scientific study,normal,auto_validated,unique,0.249,biology | ecology | genetics | anatomy
 science_fields__3,science_fields,BRANCHES OF SCIENCE,Fields of scientific study,normal,auto_validated,unique,0.262,geology | astronomy | archaeology | robotics
+seismology__1,seismology,SEISMOLOGY,A term used measuring earthquakes,normal,auto_validated,unique,0.537,tectonic | magnitude | aftershock | epicenter
 shapes__1,shapes,SHAPES,Geometric shapes taught in school,normal,auto_validated,unique,0.103,heart | star | Square | circle
 shapes__2,shapes,SHAPES,Geometric shapes taught in school,normal,auto_validated,unique,0.132,diamond | arch | oval | cylinder
 shapes__3,shapes,SHAPES,Geometric shapes taught in school,normal,auto_validated,unique,0.141,cone | triangle | cube | sphere
@@ -2354,12 +2507,14 @@ states_of_matter__3,states_of_matter,STATES OF MATTER,Physical states matter can
 temperature_words__1,temperature_words,TEMPERATURE WORDS,Words describing how hot or cold something is,normal,auto_validated,unique,0.212,cold | hot | warm | cool
 temperature_words__2,temperature_words,TEMPERATURE WORDS,Words describing how hot or cold something is,normal,auto_validated,unique,0.252,mild | freezing | icy | boiling
 temperature_words__3,temperature_words,TEMPERATURE WORDS,Words describing how hot or cold something is,normal,auto_validated,unique,0.275,lukewarm | chilly | frosty | blazing
+the_mind__1,the_mind,THE MIND,A faculty or activity of the thinking mind,normal,auto_validated,unique,0.331,memory | thought | emotion | reason
 things_in_the_sky_science__1,things_in_the_sky_science,ASTRONOMY WORDS,Words used by astronomers,normal,auto_validated,unique,0.269,light year | solar system | phase | universe
 things_in_the_sky_science__2,things_in_the_sky_science,ASTRONOMY WORDS,Words used by astronomers,normal,auto_validated,unique,0.282,satellite | galaxy | gravity | atmosphere
 things_in_the_sky_science__3,things_in_the_sky_science,ASTRONOMY WORDS,Words used by astronomers,normal,auto_validated,unique,0.299,telescope | eclipse | orbit | rotation
 weather_science__1,weather_science,WEATHER SCIENCE,Scientific words used to describe weather,normal,auto_validated,unique,0.268,pressure | radar | front | air mass
 weather_science__2,weather_science,WEATHER SCIENCE,Scientific words used to describe weather,normal,auto_validated,unique,0.299,precipitation | forecast | humidity | jet stream
 weather_science__3,weather_science,WEATHER SCIENCE,Scientific words used to describe weather,normal,auto_validated,unique,0.327,dew point | barometer | evaporation | condensation
+weight_units__1,weight_units,WEIGHT UNITS,A unit used to measure weight or mass,normal,auto_validated,unique,0.275,carat | ounce | gram | kilogram
 card_tricks__1,card_tricks,CARD TRICKS,Terms used in performing card tricks,normal,auto_validated,unique,0.385,pass | cut | force | control
 card_tricks__2,card_tricks,CARD TRICKS,Terms used in performing card tricks,normal,auto_validated,unique,0.41,reveal | double lift | flourish | spread
 cocktails__1,cocktails,COCKTAILS,Named mixed drinks,normal,auto_validated,unique,0.283,manhattan | old fashioned | bloody mary | tom collins
@@ -2378,6 +2533,7 @@ juggling_words__2,juggling_words,JUGGLING WORDS,Words used in juggling,normal,au
 kitchen_skills__1,kitchen_skills,KITCHEN SKILLS,Practical skills used in cooking,normal,auto_validated,unique,0.293,timing | chopping | measuring | folding
 kitchen_skills__2,kitchen_skills,KITCHEN SKILLS,Practical skills used in cooking,normal,auto_validated,unique,0.328,plating | seasoning | tempering | sharpening
 kitchen_skills__3,kitchen_skills,KITCHEN SKILLS,Practical skills used in cooking,normal,auto_validated,unique,0.358,kneading | whisking | basting | garnishing
+knot_tying__1,knot_tying,KNOT TYING,A named knot or a way rope behaves,normal,auto_validated,unique,0.512,lasso | hitch | slipknot | tangle
 knots__1,knots,KNOTS,Named knots tied in rope,normal,auto_validated,unique,0.376,square knot | sheet bend | figure eight | slip knot
 knots__2,knots,KNOTS,Named knots tied in rope,normal,auto_validated,unique,0.403,half hitch | granny knot | timber hitch | fisherman knot
 pizza_styles__1,pizza_styles,PIZZA STYLES,Regional styles of pizza,normal,auto_validated,unique,0.304,Detroit | California | new york | chicago deep dish
@@ -2395,6 +2551,7 @@ swimming_skills__3,swimming_skills,SWIMMING SKILLS,Skills learned in swimming le
 typing_and_office_skills__1,typing_and_office_skills,OFFICE SKILLS,Practical skills useful in an office job,normal,auto_validated,unique,0.317,filing | note taking | presenting | data entry
 typing_and_office_skills__2,typing_and_office_skills,OFFICE SKILLS,Practical skills useful in an office job,normal,auto_validated,unique,0.339,typing | scheduling | answering phones | organizing
 typing_and_office_skills__3,typing_and_office_skills,OFFICE SKILLS,Practical skills useful in an office job,normal,auto_validated,unique,0.376,proofreading | spreadsheets | budgeting | emailing
+weaving__1,weaving,WEAVING,"A tool, worker or product of weaving cloth",normal,auto_validated,unique,0.45,loom | tapestry | warp | spindle
 yoga_poses__1,yoga_poses,YOGA POSES,Named poses used in yoga,normal,auto_validated,unique,0.343,tree | mountain | boat | child
 yoga_poses__2,yoga_poses,YOGA POSES,Named poses used in yoga,normal,auto_validated,unique,0.37,crow | triangle | half moon | warrior
 yoga_poses__3,yoga_poses,YOGA POSES,Named poses used in yoga,normal,auto_validated,unique,0.392,pigeon | cobra | lotus | downward dog
@@ -2436,10 +2593,12 @@ water_sounds__3,water_sounds,WATER SOUNDS,Sounds that water makes,normal,auto_va
 astronaut_gear__1,astronaut_gear,ASTRONAUT GEAR,Equipment an astronaut uses,normal,auto_validated,unique,0.273,boot | camera | oxygen tank | tool belt
 astronaut_gear__2,astronaut_gear,ASTRONAUT GEAR,Equipment an astronaut uses,normal,auto_validated,unique,0.297,glove | helmet | backpack | checklist
 astronaut_gear__3,astronaut_gear,ASTRONAUT GEAR,Equipment an astronaut uses,normal,auto_validated,unique,0.332,visor | tether | jetpack | communicator
-bright_stars__1,bright_stars,STARS,Individual stars people can name,normal,auto_validated,unique,0.398,Sirius | Polaris | Vega | Castor
+bright_stars__1,bright_stars,STARS,Individual stars people can name,normal,auto_validated,unique,0.372,sun | Sirius | Vega | Castor
 constellations__1,constellations,CONSTELLATIONS,Constellations in the night sky,normal,auto_validated,unique,0.353,pegasus | Hercules | Orion | Andromeda
 constellations__2,constellations,CONSTELLATIONS,Constellations in the night sky,normal,auto_validated,unique,0.37,Big Dipper | Draco | Lyra | Crux
 constellations__3,constellations,CONSTELLATIONS,Constellations in the night sky,normal,auto_validated,unique,0.38,Perseus | Little Dipper | Ursa Major | Cygnus
+deep_cosmos__1,deep_cosmos,DEEP COSMOS,An object or measure of the far cosmos,normal,auto_validated,unique,0.587,quasar | pulsar | lightyear | exoplanet
+deep_space__1,deep_space,DEEP SPACE,An object seen in deep space beyond the earth,normal,auto_validated,unique,0.312,moon | stars | asteroid | comets
 moons__1,moons,MOONS,Named moons of the solar system,normal,auto_validated,unique,0.379,Luna | Europa | Titan | Miranda
 moons__2,moons,MOONS,Named moons of the solar system,normal,auto_validated,unique,0.409,triton | Ganymede | Io | Rhea
 rocket_parts__1,rocket_parts,ROCKET PARTS,Parts of a rocket,normal,auto_validated,unique,0.304,stage | engine | fuel tank | heat shield
@@ -2457,14 +2616,18 @@ space_measurements__2,space_measurements,SPACE MEASUREMENTS,Units used to measur
 space_phenomena__1,space_phenomena,SPACE PHENOMENA,Events and phenomena seen in space,normal,auto_validated,unique,0.318,eclipse | black hole | big bang | gravity well
 space_phenomena__2,space_phenomena,SPACE PHENOMENA,Events and phenomena seen in space,normal,auto_validated,unique,0.343,aurora | meteor shower | solar flare | comet tail
 space_phenomena__3,space_phenomena,SPACE PHENOMENA,Events and phenomena seen in space,normal,auto_validated,unique,0.374,nebula | quasar | supernova | sunspot
+space_station__1,space_station,SPACE STATION,A part of a space station or a task done aboard it,normal,auto_validated,unique,0.488,module | docking | airlock | cosmonaut
 spacecraft__1,spacecraft,SPACECRAFT,Famous spacecraft and space missions,normal,auto_validated,unique,0.313,Pioneer | Columbia | Discovery | Curiosity
 spacecraft__2,spacecraft,SPACECRAFT,Famous spacecraft and space missions,normal,auto_validated,unique,0.335,Apollo | Atlantis | Challenger | Viking
 spacecraft__3,spacecraft,SPACECRAFT,Famous spacecraft and space missions,normal,auto_validated,unique,0.353,Juno | Galileo | Voyager | Hubble
+stargazing__1,stargazing,STARGAZING,What you look at or name when you look up on a clear night,normal,auto_validated,unique,,telescope | stars | comet | eclipse
 telescope_words__1,telescope_words,TELESCOPE WORDS,Parts and words used with a telescope,normal,auto_validated,unique,0.311,focus | mount | mirror | filter
 telescope_words__2,telescope_words,TELESCOPE WORDS,Parts and words used with a telescope,normal,auto_validated,unique,0.341,lens | dome | aperture | observatory
 telescope_words__3,telescope_words,TELESCOPE WORDS,Parts and words used with a telescope,normal,auto_validated,unique,0.369,tripod | reflector | finder | magnification
+animal_classes__1,animal_classes,ANIMAL CLASSES,One of the broad classes animals are sorted into,normal,auto_validated,unique,0.263,fish | bird | mammal | insect
 bears_and_big_animals__1,bears_and_big_animals,BEARS,Kinds of bear,normal,auto_validated,unique,0.224,polar | black bear | brown bear | sun bear
 bears_and_big_animals__2,bears_and_big_animals,BEARS,Kinds of bear,normal,auto_validated,unique,0.271,panda | koala | grizzly | sloth bear
+bird_watching__1,bird_watching,BIRD WATCHING,What a birdwatcher looks for and looks through,normal,auto_validated,unique,,nest | binoculars | feeder | songbirds
 birds_of_prey__1,birds_of_prey,BIRDS OF PREY,Birds that hunt other animals,normal,auto_validated,unique,0.253,kite | eagle | owl | hawk
 birds_of_prey__2,birds_of_prey,BIRDS OF PREY,Birds that hunt other animals,normal,auto_validated,unique,0.274,falcon | vulture | condor | merlin
 birds_of_prey__3,birds_of_prey,BIRDS OF PREY,Birds that hunt other animals,normal,auto_validated,unique,0.299,osprey | harrier | kestrel | buzzard
@@ -2507,6 +2670,8 @@ whale_types__1,whale_types,WHALE TYPES,Kinds of whale,normal,auto_validated,uniq
 whale_types__2,whale_types,WHALE TYPES,Kinds of whale,normal,auto_validated,unique,0.358,orca | humpback | sperm whale | fin whale
 wild_dogs__1,wild_dogs,WILD DOGS,Wild members of the dog family,normal,auto_validated,unique,0.27,fox | wolf | red fox | gray wolf
 wild_dogs__2,wild_dogs,WILD DOGS,Wild members of the dog family,normal,auto_validated,unique,0.318,coyote | hyena | arctic fox | jackal
+at_the_gym__1,at_the_gym,AT THE GYM,"A machine, weight or person found in a gym",normal,auto_validated,unique,0.3,squat | trainer | treadmill | weights
+at_the_pool__1,at_the_pool,AT THE POOL,Something you find at a swimming pool,normal,auto_validated,unique,0.281,dive | cap | pool | lane
 baseball_equipment__1,baseball_equipment,BASEBALL EQUIPMENT,Physical equipment used to play a game of baseball,normal,auto_validated,unique,0.177,plate | ball | cap | base
 baseball_equipment__2,baseball_equipment,BASEBALL EQUIPMENT,Physical equipment used to play a game of baseball,normal,auto_validated,unique,0.203,bat | glove | helmet | mask
 baseball_equipment__3,baseball_equipment,BASEBALL EQUIPMENT,Physical equipment used to play a game of baseball,normal,auto_validated,unique,0.225,chest protector | batting glove | pine tar | shin guard
@@ -2516,15 +2681,19 @@ baseball_words__3,baseball_words,BASEBALL WORDS,"Words used to describe plays, p
 basketball_words__1,basketball_words,BASKETBALL WORDS,Words used to describe plays and roles in basketball,normal,auto_validated,unique,0.21,court | forward | travel | center
 basketball_words__2,basketball_words,BASKETBALL WORDS,Words used to describe plays and roles in basketball,normal,auto_validated,unique,0.222,guard | free throw | assist | jump ball
 basketball_words__3,basketball_words,BASKETBALL WORDS,Words used to describe plays and roles in basketball,normal,auto_validated,unique,0.26,dunk | foul | rebound | three pointer
+billiards__1,billiards,BILLIARDS,A term belonging to billiards and snooker,normal,auto_validated,unique,0.481,felt | snooker | chalked | potting
 board_and_card_games__1,board_and_card_games,GAMES OF SKILL,Competitive indoor games of skill,normal,auto_validated,unique,0.247,bridge | bowling | table tennis | air hockey
 board_and_card_games__2,board_and_card_games,GAMES OF SKILL,Competitive indoor games of skill,normal,auto_validated,unique,0.278,chess | checkers | poker | darts
 board_and_card_games__3,board_and_card_games,GAMES OF SKILL,Competitive indoor games of skill,normal,auto_validated,unique,0.318,dominoes | backgammon | billiards | foosball
+boxing_gym__1,boxing_gym,BOXING GYM,A term or piece of kit used in boxing training,normal,auto_validated,unique,0.444,clinch | southpaw | spar | sparring
 camping_and_outdoors__1,camping_and_outdoors,OUTDOOR ACTIVITIES,Recreational activities done outdoors,normal,auto_validated,unique,0.187,fishing | running | climbing | hunting
 camping_and_outdoors__2,camping_and_outdoors,OUTDOOR ACTIVITIES,Recreational activities done outdoors,normal,auto_validated,unique,0.21,hiking | camping | skiing | sailing
 camping_and_outdoors__3,camping_and_outdoors,OUTDOOR ACTIVITIES,Recreational activities done outdoors,normal,auto_validated,unique,0.236,surfing | kayaking | biking | backpacking
+climbing_wall__1,climbing_wall,CLIMBING WALL,A term or piece of kit used in climbing,normal,auto_validated,unique,0.512,carabiner | belay | foothold | ascent
 cycling_words__1,cycling_words,CYCLING WORDS,Words used about riding and racing bicycles,normal,auto_validated,unique,0.273,chain | jersey | tour | spoke
 cycling_words__2,cycling_words,CYCLING WORDS,Words used about riding and racing bicycles,normal,auto_validated,unique,0.292,helmet | trail | tire | gear
 cycling_words__3,cycling_words,CYCLING WORDS,Words used about riding and racing bicycles,normal,auto_validated,unique,0.309,sprint | brake | saddle | drafting
+darts_words__1,darts_words,DARTS WORDS,A term or piece of equipment used in darts,normal,auto_validated,unique,0.369,board | throw | Target | flight
 fishing_things__1,fishing_things,FISHING THINGS,Things used to catch fish,normal,auto_validated,unique,0.221,line | fly | net | boat
 fishing_things__2,fishing_things,FISHING THINGS,Things used to catch fish,normal,auto_validated,unique,0.242,hook | trap | rod | pole
 fishing_things__3,fishing_things,FISHING THINGS,Things used to catch fish,normal,auto_validated,unique,0.256,cooler | tackle box | bait | worm
@@ -2540,6 +2709,7 @@ gym_equipment__3,gym_equipment,GYM EQUIPMENT,Equipment used for exercise in a fi
 hockey_words__1,hockey_words,HOCKEY WORDS,Words used to describe plays and gear in ice hockey,normal,auto_validated,unique,0.261,net | period | power play | blue line
 hockey_words__2,hockey_words,HOCKEY WORDS,Words used to describe plays and gear in ice hockey,normal,auto_validated,unique,0.284,stick | helmet | penalty box | pad
 hockey_words__3,hockey_words,HOCKEY WORDS,Words used to describe plays and gear in ice hockey,normal,auto_validated,unique,0.312,icing | skate | puck | goalie
+marathon_day__1,marathon_day,MARATHON DAY,A word belonging to running a long distance race,normal,auto_validated,unique,0.469,jog | stamina | pacer | finisher
 martial_arts__1,martial_arts,MARTIAL ARTS,Fighting sports and self defense disciplines,normal,auto_validated,unique,0.259,fencing | boxing | wrestling | karate
 martial_arts__2,martial_arts,MARTIAL ARTS,Fighting sports and self defense disciplines,normal,auto_validated,unique,0.287,judo | kung fu | kickboxing | sumo
 martial_arts__3,martial_arts,MARTIAL ARTS,Fighting sports and self defense disciplines,normal,auto_validated,unique,0.305,taekwondo | aikido | muay thai | kendo
@@ -2549,6 +2719,7 @@ olympic_sports__3,olympic_sports,OLYMPIC SPORTS,Sports contested at the modern O
 racing_sports__1,racing_sports,RACING SPORTS,Sports where competitors race to finish first,normal,auto_validated,unique,0.229,swimming | marathon | horse racing | cross country
 racing_sports__2,racing_sports,RACING SPORTS,Sports where competitors race to finish first,normal,auto_validated,unique,0.245,sprint | cycling | sailing | drag racing
 racing_sports__3,racing_sports,RACING SPORTS,Sports where competitors race to finish first,normal,auto_validated,unique,0.261,rowing | hurdles | speed skating | relay
+skate_park__1,skate_park,SKATE PARK,A ramp or piece of kit found at a skate park,normal,auto_validated,unique,0.531,halfpipe | kicker | vert | griptape
 soccer_words__1,soccer_words,SOCCER WORDS,Words used to describe plays and roles in soccer,normal,auto_validated,unique,0.219,net | goal | red card | throw in
 soccer_words__2,soccer_words,SOCCER WORDS,Words used to describe plays and roles in soccer,normal,auto_validated,unique,0.231,penalty | corner kick | free kick | yellow card
 soccer_words__3,soccer_words,SOCCER WORDS,Words used to describe plays and roles in soccer,normal,auto_validated,unique,0.244,pitch | defender | assist | striker
@@ -2574,12 +2745,14 @@ tennis_words__2,tennis_words,TENNIS WORDS,Words used to describe play and scorin
 tennis_words__3,tennis_words,TENNIS WORDS,Words used to describe play and scoring in tennis,normal,auto_validated,unique,0.268,Ace | umpire | racket | baseline
 water_sports__1,water_sports,WATER SPORTS,Sports played in or on the water,normal,auto_validated,unique,0.213,diving | swimming | sailing | water skiing
 water_sports__2,water_sports,WATER SPORTS,Sports played in or on the water,normal,auto_validated,unique,0.236,water polo | rowing | surfing | synchronized swimming
+winter_fun__1,winter_fun,WINTER FUN,Something you play with or wear for fun in the snow,normal,auto_validated,unique,0.3,sled | skis | snowman | skates
 winter_sports__1,winter_sports,WINTER SPORTS,Sports played on snow or ice,normal,auto_validated,unique,0.205,hockey | skiing | skating | ice climbing
-winter_sports__2,winter_sports,WINTER SPORTS,Sports played on snow or ice,normal,auto_validated,unique,0.225,curling | snowboarding | figure skating | speed skating
-winter_sports__3,winter_sports,WINTER SPORTS,Sports played on snow or ice,normal,auto_validated,unique,0.264,luge | biathlon | bobsled | sledding
+winter_sports__2,winter_sports,WINTER SPORTS,Sports played on snow or ice,normal,auto_validated,unique,0.22,sled | figure skating | speed skating | snowboard
+winter_sports__3,winter_sports,WINTER SPORTS,Sports played on snow or ice,normal,auto_validated,unique,0.247,curling | luge | biathlon | snowboarding
 archery_words__1,archery_words,ARCHERY WORDS,Words used in archery,normal,auto_validated,unique,0.292,range | Target | release | draw
 archery_words__2,archery_words,ARCHERY WORDS,Words used in archery,normal,auto_validated,unique,0.31,bow | sight | string | arm guard
-archery_words__3,archery_words,ARCHERY WORDS,Words used in archery,normal,auto_validated,unique,0.351,arrow | quiver | bullseye | shaft
+archery_words__3,archery_words,ARCHERY WORDS,Words used in archery,normal,auto_validated,unique,0.332,arrow | Archer | shaft | aim
+at_the_dojo__1,at_the_dojo,AT THE DOJO,A martial art or practice found in a dojo,normal,auto_validated,unique,0.481,sumo | sparring | grappling | headlock
 bowling_words__1,bowling_words,BOWLING WORDS,Words used in bowling,normal,auto_validated,unique,0.246,strike | ball | split | approach
 bowling_words__2,bowling_words,BOWLING WORDS,Words used in bowling,normal,auto_validated,unique,0.26,pin | frame | lane | spare
 bowling_words__3,bowling_words,BOWLING WORDS,Words used in bowling,normal,auto_validated,unique,0.277,rack | alley | foul line | score sheet
@@ -2601,6 +2774,7 @@ gymnastics_events__3,gymnastics_events,GYMNASTICS EVENTS,Events and moves in gym
 racing_words__1,racing_words,MOTOR RACING,Words used in motor racing,normal,auto_validated,unique,0.26,crew | driver | track | pit stop
 racing_words__2,racing_words,MOTOR RACING,Words used in motor racing,normal,auto_validated,unique,0.281,lap | helmet | grid | pole position
 racing_words__3,racing_words,MOTOR RACING,Words used in motor racing,normal,auto_validated,unique,0.291,tire | caution | qualifying | spoiler
+rodeo__1,rodeo,RODEO,"A person, animal or event of a rodeo",normal,auto_validated,unique,0.506,lasso | stampede | bronco | cowgirl
 skateboarding__1,skateboarding,SKATEBOARDING WORDS,Words used in skateboarding,normal,auto_validated,unique,0.313,bowl | nose | deck | rail
 skateboarding__2,skateboarding,SKATEBOARDING WORDS,Words used in skateboarding,normal,auto_validated,unique,0.326,helmet | trucks | wheels | bearing
 skateboarding__3,skateboarding,SKATEBOARDING WORDS,Words used in skateboarding,normal,auto_validated,unique,0.343,ramp | grind | grip tape | ollie
@@ -2626,6 +2800,7 @@ training_words__2,training_words,TRAINING WORDS,Words used in athletic training,
 training_words__3,training_words,TRAINING WORDS,Words used in athletic training,normal,auto_validated,unique,0.306,warmup | endurance | interval | conditioning
 wrestling_words__1,wrestling_words,WRESTLING WORDS,Words used in wrestling,normal,auto_validated,unique,0.291,hold | throw | period | weight class
 wrestling_words__2,wrestling_words,WRESTLING WORDS,Words used in wrestling,normal,auto_validated,unique,0.328,mat | referee | escape | reversal
+clockwork__1,clockwork,CLOCKWORK,A word belonging to the workings of a clock,normal,auto_validated,unique,0.494,chime | pendulum | cogs | winding
 computer_actions__1,computer_actions,COMPUTER ACTIONS,Actions done while using a computer,normal,auto_validated,unique,0.17,share | save | close | search
 computer_actions__2,computer_actions,COMPUTER ACTIONS,Actions done while using a computer,normal,auto_validated,unique,0.174,click | type | copy | download
 computer_actions__3,computer_actions,COMPUTER ACTIONS,Actions done while using a computer,normal,auto_validated,unique,0.193,drag | print | delete | log in
@@ -2685,6 +2860,7 @@ sound_devices__3,sound_devices,SOUND DEVICES,Devices that record or play sound,n
 things_with_screens_history__1,things_with_screens_history,OLD TECHNOLOGY,Technology that has mostly been replaced,normal,auto_validated,unique,0.343,fax | rotary phone | dial up | film camera
 things_with_screens_history__2,things_with_screens_history,OLD TECHNOLOGY,Technology that has mostly been replaced,normal,auto_validated,unique,0.367,telegram | vhs | cassette | overhead projector
 things_with_screens_history__3,things_with_screens_history,OLD TECHNOLOGY,Technology that has mostly been replaced,normal,auto_validated,unique,0.385,typewriter | phonograph | pager | floppy disk
+timepieces__1,timepieces,TIMEPIECES,A device that measures or shows the passing of time,normal,auto_validated,unique,0.4,watch | clock | metronome | hourglass
 birthday_things__1,birthday_things,BIRTHDAY THINGS,Things associated with a birthday celebration,normal,auto_validated,unique,0.13,card | present | party | song
 birthday_things__2,birthday_things,BIRTHDAY THINGS,Things associated with a birthday celebration,normal,auto_validated,unique,0.139,cake | guest | wish | surprise
 birthday_things__3,birthday_things,BIRTHDAY THINGS,Things associated with a birthday celebration,normal,auto_validated,unique,0.156,balloon | hat | invitation | ice cream
@@ -2711,6 +2887,7 @@ holidays__2,holidays,HOLIDAYS,Holidays widely celebrated in the United States,no
 holidays__3,holidays,HOLIDAYS,Holidays widely celebrated in the United States,normal,auto_validated,unique,0.169,Easter | Fathers Day | Presidents Day | Columbus Day
 months__1,months,MONTHS,Months of the Gregorian calendar year,normal,auto_validated,unique,0.065,February | April | August | December
 months__2,months,MONTHS,Months of the Gregorian calendar year,normal,auto_validated,unique,0.065,march | January | June | July
+months__3,months,MONTHS,Months of the Gregorian calendar year,normal,auto_validated,unique,0.08,may | November | September | October
 new_year_things__1,new_year_things,NEW YEAR,Things associated with New Year celebrations,normal,auto_validated,unique,0.218,party | resolution | ball drop | kiss
 new_year_things__2,new_year_things,NEW YEAR,Things associated with New Year celebrations,normal,auto_validated,unique,0.243,calendar | midnight | fireworks | champagne
 new_year_things__3,new_year_things,NEW YEAR,Things associated with New Year celebrations,normal,auto_validated,unique,0.288,streamer | confetti | countdown | sparkler
@@ -2721,6 +2898,8 @@ seasons__1,seasons,SEASONS,The four seasons of the year,normal,auto_validated,un
 speed_of_time__1,speed_of_time,QUICK WORDS,Words meaning that something happens without delay,normal,auto_validated,unique,0.305,immediately | quickly | at once | right away
 speed_of_time__2,speed_of_time,QUICK WORDS,Words meaning that something happens without delay,normal,auto_validated,unique,0.329,instantly | promptly | suddenly | shortly
 speed_of_time__3,speed_of_time,QUICK WORDS,Words meaning that something happens without delay,normal,auto_validated,unique,0.366,swiftly | abruptly | momentarily | hastily
+spring_season__1,spring_season,SPRING SEASON,Something you associate with the spring season,normal,auto_validated,unique,0.344,rain | thaw | nest | puddle
+summer_season__1,summer_season,SUMMER SEASON,Something you associate with the summer season,normal,auto_validated,unique,0.3,beach | heat | July | August
 time_units__1,time_units,UNITS OF TIME,Units used to measure time,normal,auto_validated,unique,0.13,minute | day | century | hour
 time_units__2,time_units,UNITS OF TIME,Units used to measure time,normal,auto_validated,unique,0.13,second | month | week | moment
 time_units__3,time_units,UNITS OF TIME,Units used to measure time,normal,auto_validated,unique,0.135,quarter | year | era | generation
@@ -2747,12 +2926,15 @@ cutting_tools__3,cutting_tools,CUTTING TOOLS,Tools used to cut material,normal,a
 fasteners__1,fasteners,FASTENERS,Small parts used to hold things together,normal,auto_validated,unique,0.241,hook | pin | screw | clip
 fasteners__2,fasteners,FASTENERS,Small parts used to hold things together,normal,auto_validated,unique,0.252,nail | bolt | anchor | bracket
 fasteners__3,fasteners,FASTENERS,Small parts used to hold things together,normal,auto_validated,unique,0.269,staple | buckle | clamp | zip tie
+garden_shed__1,garden_shed,GARDEN SHED,A tool or material kept in a garden shed,normal,auto_validated,unique,0.475,spade | mulch | trellis | wheelbarrow
 garden_tools__1,garden_tools,GARDEN TOOLS,Tools used for gardening and yard work,normal,auto_validated,unique,0.217,gloves | hose | watering can | clippers
 garden_tools__2,garden_tools,GARDEN TOOLS,Tools used for gardening and yard work,normal,auto_validated,unique,0.233,spade | rake | shovel | hoe
 garden_tools__3,garden_tools,GARDEN TOOLS,Tools used for gardening and yard work,normal,auto_validated,unique,0.246,pitchfork | sprinkler | shears | leaf blower
 hand_tools__1,hand_tools,HAND TOOLS,Tools held in the hand and used for building or repair work,normal,auto_validated,unique,0.107,file | saw | level | Square
 hand_tools__2,hand_tools,HAND TOOLS,Tools held in the hand and used for building or repair work,normal,auto_validated,unique,0.126,plane | hammer | knife | tape measure
 hand_tools__3,hand_tools,HAND TOOLS,Tools held in the hand and used for building or repair work,normal,auto_validated,unique,0.158,drill | socket | clamp | wrench
+handyman__1,handyman,HANDYMAN,A tool or material a handyman carries,normal,auto_validated,unique,0.512,caulk | crowbar | toolbelt | stepladder
+hardware_store__1,hardware_store,HARDWARE STORE,What a hardware store keeps in its bins and aisles,normal,auto_validated,unique,,hose | ladder | sandpaper | fasteners
 kitchen_gadgets__1,kitchen_gadgets,KITCHEN GADGETS,Small specialized gadgets used in a kitchen,normal,auto_validated,unique,0.262,timer | can opener | garlic press | scoop
 kitchen_gadgets__2,kitchen_gadgets,KITCHEN GADGETS,Small specialized gadgets used in a kitchen,normal,auto_validated,unique,0.282,thermometer | funnel | melon baller | pizza cutter
 kitchen_gadgets__3,kitchen_gadgets,KITCHEN GADGETS,Small specialized gadgets used in a kitchen,normal,auto_validated,unique,0.31,peeler | strainer | corkscrew | egg slicer
@@ -2789,6 +2971,8 @@ things_that_stick_out__3,things_that_stick_out,HAMMERED THINGS,Things a hammer i
 things_with_handles__1,things_with_handles,THINGS WITH HANDLES,Everyday objects gripped by a handle,normal,auto_validated,unique,0.283,hammer | knife | pan | door
 things_with_handles__2,things_with_handles,THINGS WITH HANDLES,Everyday objects gripped by a handle,normal,auto_validated,unique,0.302,basket | purse | umbrella | bucket
 things_with_handles__3,things_with_handles,THINGS WITH HANDLES,Everyday objects gripped by a handle,normal,auto_validated,unique,0.311,pitcher | drawer | axe | mug
+tubes__1,tubes,TUBES,A hollow tube that something flows through,normal,auto_validated,unique,0.3,hose | funnel | duct | chute
+under_lock__1,under_lock,UNDER LOCK,Something used to lock things away or guard them,normal,auto_validated,unique,0.306,alarm | safe | lock | code
 workshop_things__1,workshop_things,WORKSHOP THINGS,Things found in a home workshop,normal,auto_validated,unique,0.239,drill | nail | hammer | oil can
 workshop_things__2,workshop_things,WORKSHOP THINGS,Things found in a home workshop,normal,auto_validated,unique,0.258,shelf | bucket | lumber | extension cord
 workshop_things__3,workshop_things,WORKSHOP THINGS,Things found in a home workshop,normal,auto_validated,unique,0.279,apron | goggles | clamp | grinder
@@ -2798,12 +2982,15 @@ auto_repair__3,auto_repair,AUTO REPAIR,Things a mechanic works with,normal,auto_
 baker_words__1,baker_words,BAKERY WORDS,Things found in a bakery,normal,auto_validated,unique,0.241,rack | flour | oven | display case
 baker_words__2,baker_words,BAKERY WORDS,Things found in a bakery,normal,auto_validated,unique,0.258,timer | cooling rack | tray | dough
 baker_words__3,baker_words,BAKERY WORDS,Things found in a bakery,normal,auto_validated,unique,0.269,apron | icing | mixer | pastry bag
+barbershop__1,barbershop,BARBERSHOP,A person or product found in a barbershop,normal,auto_validated,unique,0.45,barber | clippers | pomade | aftershave
 barbershop_words__1,barbershop_words,BARBERSHOP WORDS,Things found in a barbershop,normal,auto_validated,unique,0.229,brush | mirror | chair | cape
 barbershop_words__2,barbershop_words,BARBERSHOP WORDS,Things found in a barbershop,normal,auto_validated,unique,0.245,powder | razor | towel | pole
 barbershop_words__3,barbershop_words,BARBERSHOP WORDS,Things found in a barbershop,normal,auto_validated,unique,0.264,scissors | comb | clippers | shaving cream
+blacksmith__1,blacksmith,BLACKSMITH,"A tool, place or step of working metal by hand",normal,auto_validated,unique,0.45,horseshoe | anvil | forge | bellows
 butcher_words__1,butcher_words,BUTCHER SHOP,Things found in a butcher shop,normal,auto_validated,unique,0.303,block | saw | cut | wrap
-butcher_words__2,butcher_words,BUTCHER SHOP,Things found in a butcher shop,normal,auto_validated,unique,0.346,apron | rack | sausage | freezer
-butcher_words__3,butcher_words,BUTCHER SHOP,Things found in a butcher shop,normal,auto_validated,unique,0.372,brisket | twine | grinder | cleaver
+butcher_words__2,butcher_words,BUTCHER SHOP,Things found in a butcher shop,normal,auto_validated,unique,0.344,mince | rack | sausage | freezer
+butcher_words__3,butcher_words,BUTCHER SHOP,Things found in a butcher shop,normal,auto_validated,unique,0.367,apron | twine | grinder | cleaver
+carpenter__1,carpenter,CARPENTER,"A material, tool or joint used working wood",normal,auto_validated,unique,0.481,plywood | sander | sawdust | lathe
 carpentry_words__1,carpentry_words,CARPENTRY WORDS,Things a carpenter works with,normal,auto_validated,unique,0.269,plane | beam | level | Square
 carpentry_words__2,carpentry_words,CARPENTRY WORDS,Things a carpenter works with,normal,auto_validated,unique,0.303,stud | lumber | nail gun | groove
 carpentry_words__3,carpentry_words,CARPENTRY WORDS,Things a carpenter works with,normal,auto_validated,unique,0.331,chisel | plywood | veneer | molding
@@ -2821,12 +3008,14 @@ landscaping_words__3,landscaping_words,LANDSCAPING WORDS,Things a landscaper wor
 locksmith_words__1,locksmith_words,LOCKS & KEYS,Things involved with locks and keys,normal,auto_validated,unique,0.3,key | chain | safe | master key
 locksmith_words__2,locksmith_words,LOCKS & KEYS,Things involved with locks and keys,normal,auto_validated,unique,0.321,bolt | lock | cylinder | combination
 locksmith_words__3,locksmith_words,LOCKS & KEYS,Things involved with locks and keys,normal,auto_validated,unique,0.37,tumbler | hinge | keypad | latch
+lumber_camp__1,lumber_camp,LUMBER CAMP,"A person, tool or product of felling trees",normal,auto_validated,unique,0.425,flannel | stump | timber | chainsaw
 masonry_words__1,masonry_words,MASONRY WORDS,Things a mason works with,normal,auto_validated,unique,0.348,block | level | stone | joint
 masonry_words__2,masonry_words,MASONRY WORDS,Things a mason works with,normal,auto_validated,unique,0.392,brick | cement | mortar | scaffold
 masonry_words__3,masonry_words,MASONRY WORDS,Things a mason works with,normal,auto_validated,unique,0.434,chisel | trowel | wheelbarrow | grout
 painting_trade__1,painting_trade,HOUSE PAINTING,Things a house painter uses,normal,auto_validated,unique,0.279,tape | brush | ladder | extension pole
 painting_trade__2,painting_trade,HOUSE PAINTING,Things a house painter uses,normal,auto_validated,unique,0.29,roller | tray | drop cloth | stir stick
 painting_trade__3,painting_trade,HOUSE PAINTING,Things a house painter uses,normal,auto_validated,unique,0.329,primer | sandpaper | putty | scraper
+plumber_visit__1,plumber_visit,PLUMBER VISIT,Something a plumber works with or on,normal,auto_validated,unique,0.475,plunger | sewer | pipeline | unclog
 plumbing_words__1,plumbing_words,PLUMBING WORDS,Things a plumber works with,normal,auto_validated,unique,0.285,pipe | sink | snake | trap
 plumbing_words__2,plumbing_words,PLUMBING WORDS,Things a plumber works with,normal,auto_validated,unique,0.294,drain | elbow | valve | fitting
 plumbing_words__3,plumbing_words,PLUMBING WORDS,Things a plumber works with,normal,auto_validated,unique,0.318,washer | wrench | sewer | coupling
@@ -2851,15 +3040,15 @@ aircraft__3,aircraft,AIRCRAFT,Machines that fly through the air carrying people 
 airport_words__1,airport_words,AIRPORT WORDS,"Words for things, places or roles you encounter at an airport",normal,auto_validated,unique,0.179,ticket | pilot | security | duty free
 airport_words__2,airport_words,AIRPORT WORDS,"Words for things, places or roles you encounter at an airport",normal,auto_validated,unique,0.192,gate | terminal | customs | control tower
 airport_words__3,airport_words,AIRPORT WORDS,"Words for things, places or roles you encounter at an airport",normal,auto_validated,unique,0.21,runway | luggage | passport | boarding pass
-boats__1,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.218,ferry | submarine | yacht | cruise ship
-boats__2,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.239,canoe | raft | kayak | barge
-boats__3,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.257,gondola | sailboat | freighter | schooner
+boats__1,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.206,ship | ferry | boat | cruise ship
+boats__2,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.23,canoe | submarine | yacht | barge
+boats__3,boats,BOATS AND SHIPS,Kinds of watercraft,normal,auto_validated,unique,0.248,raft | kayak | freighter | schooner
 car_parts__1,car_parts,CAR PARTS,Physical parts of an ordinary passenger car,normal,auto_validated,unique,0.141,engine | battery | door | seat
 car_parts__2,car_parts,CAR PARTS,Physical parts of an ordinary passenger car,normal,auto_validated,unique,0.159,hood | horn | wheel | mirror
 car_parts__3,car_parts,CAR PARTS,Physical parts of an ordinary passenger car,normal,auto_validated,unique,0.174,trunk | brake | clutch | tire
-construction_equipment__1,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.267,crane | roller | dump truck | drill rig
-construction_equipment__2,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.293,hoist | cement mixer | digger | grader
-construction_equipment__3,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.304,scaffold | forklift | bulldozer | loader
+construction_equipment__1,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.26,crane | roller | cement | dump truck
+construction_equipment__2,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.288,cement mixer | digger | grader | drill rig
+construction_equipment__3,construction_equipment,CONSTRUCTION EQUIPMENT,Large machines used on a building or road construction site,normal,auto_validated,unique,0.301,hoist | scaffold | bulldozer | loader
 emergency_vehicles__1,emergency_vehicles,EMERGENCY VEHICLES,Vehicles used by emergency services,normal,auto_validated,unique,0.183,fire truck | police car | rescue boat | squad car
 emergency_vehicles__2,emergency_vehicles,EMERGENCY VEHICLES,Vehicles used by emergency services,normal,auto_validated,unique,0.204,ambulance | helicopter | patrol car | ladder truck
 emergency_vehicles__3,emergency_vehicles,EMERGENCY VEHICLES,Vehicles used by emergency services,normal,auto_validated,unique,0.235,cruiser | tow truck | paramedic van | hazmat truck
@@ -2872,6 +3061,7 @@ heavy_trucks__3,heavy_trucks,TRUCKS,Kinds of truck used to move goods and materi
 hotel_words__1,hotel_words,HOTEL WORDS,Things and roles found at a hotel,normal,auto_validated,unique,0.188,pool | key card | room service | front desk
 hotel_words__2,hotel_words,HOTEL WORDS,Things and roles found at a hotel,normal,auto_validated,unique,0.211,elevator | lobby | reception | suite
 hotel_words__3,hotel_words,HOTEL WORDS,Things and roles found at a hotel,normal,auto_validated,unique,0.23,balcony | checkout | vacancy | luggage cart
+on_the_road__1,on_the_road,ON THE ROAD,Something a driver meets on the road,normal,auto_validated,unique,0.275,signal | traffic | road | lane
 parking_words__1,parking_words,PARKING WORDS,Words used about parking a car,normal,auto_validated,unique,0.265,sign | spot | space | lot
 parking_words__2,parking_words,PARKING WORDS,Words used about parking a car,normal,auto_validated,unique,0.29,ticket | garage | permit | meter
 parking_words__3,parking_words,PARKING WORDS,Words used about parking a car,normal,auto_validated,unique,0.31,stall | tow | curb | ramp
@@ -2959,9 +3149,9 @@ middle_eastern_dishes__1,middle_eastern_dishes,MIDDLE EASTERN,Dishes from Middle
 middle_eastern_dishes__2,middle_eastern_dishes,MIDDLE EASTERN,Dishes from Middle Eastern cuisine,normal,auto_validated,unique,0.349,couscous | shawarma | tahini | lentil soup
 nuts_world__1,nuts_world,SNACK NUTS,Nuts sold as snacks,normal,auto_validated,unique,0.295,walnut | peanut | pine nut | brazil nut
 nuts_world__2,nuts_world,SNACK NUTS,Nuts sold as snacks,normal,auto_validated,unique,0.327,almond | pecan | chestnut | filbert
-sauces__1,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.254,ranch | curry | barbecue | soy
-sauces__2,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.275,salsa | alfredo | gravy | roux
-sauces__3,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.297,pesto | tartar | vinaigrette | marinade
+sauces__1,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.248,ketchup | ranch | curry | mayonnaise
+sauces__2,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.256,mustard | relish | barbecue | soy
+sauces__3,sauces,SAUCES,Sauces used in cooking,normal,auto_validated,unique,0.275,salsa | alfredo | gravy | roux
 soups__1,soups,SOUPS AND STEWS,Kinds of soup and stew,normal,auto_validated,unique,0.219,chili | tomato | split pea | onion soup
 soups__2,soups,SOUPS AND STEWS,Kinds of soup and stew,normal,auto_validated,unique,0.231,broth | ramen | chicken noodle | stew
 soups__3,soups,SOUPS AND STEWS,Kinds of soup and stew,normal,auto_validated,unique,0.257,pho | miso | gumbo | chowder
@@ -2973,6 +3163,7 @@ spanish_dishes__2,spanish_dishes,SPANISH DISHES,Dishes from Spanish cuisine,norm
 street_food__1,street_food,STREET FOOD,Foods sold from street carts and stands,normal,auto_validated,unique,0.239,popcorn | cotton candy | hot dog | corn dog
 street_food__2,street_food,STREET FOOD,Foods sold from street carts and stands,normal,auto_validated,unique,0.271,waffle | taco | kebab | roasted nuts
 street_food__3,street_food,STREET FOOD,Foods sold from street carts and stands,normal,auto_validated,unique,0.294,dumpling | pretzel | crepe | gyro
+sushi_bar__1,sushi_bar,SUSHI BAR,A dish or utensil served at a sushi bar,normal,auto_validated,unique,0.5,teriyaki | sashimi | bento | maki
 teas__1,teas,TEAS,Kinds of tea,normal,auto_validated,unique,0.218,green | white | lemon | black
 teas__2,teas,TEAS,Kinds of tea,normal,auto_validated,unique,0.253,mint | ginger | Jasmine | earl grey
 teas__3,teas,TEAS,Kinds of tea,normal,auto_validated,unique,0.287,chai | hibiscus | herbal | matcha
@@ -2984,9 +3175,12 @@ world_breads__2,world_breads,WORLD BREADS,Breads from cuisines around the world,
 countries_more__1,countries_more,MORE COUNTRIES,Countries less often named in lists,normal,auto_validated,unique,0.317,Georgia | Iceland | Nepal | Ukraine
 countries_more__2,countries_more,MORE COUNTRIES,Countries less often named in lists,normal,auto_validated,unique,0.336,Monaco | Kazakhstan | Cyprus | Luxembourg
 countries_more__3,countries_more,MORE COUNTRIES,Countries less often named in lists,normal,auto_validated,unique,0.341,Malta | Armenia | Lithuania | Belarus
+highlands__1,highlands,HIGHLANDS,A word belonging to the Scottish Highlands,normal,auto_validated,unique,0.531,kilt | bagpipes | loch | haggis
+island_luau__1,island_luau,ISLAND LUAU,A word belonging to a Hawaiian island party,normal,auto_validated,unique,0.475,hula | aloha | lei | tiki
 island_nations__1,island_nations,ISLAND NATIONS,Countries made up of islands,normal,auto_validated,unique,0.351,Japan | Indonesia | Philippines | Cuba
 island_nations__2,island_nations,ISLAND NATIONS,Countries made up of islands,normal,auto_validated,unique,0.376,Iceland | Jamaica | Cyprus | Sri Lanka
 island_nations__3,island_nations,ISLAND NATIONS,Countries made up of islands,normal,auto_validated,unique,0.386,Madagascar | Fiji | Malta | Bahrain
+tea_ceremony__1,tea_ceremony,TEA CEREMONY,"A vessel, leaf or step of making tea properly",normal,auto_validated,unique,0.494,teapot | darjeeling | infuser | steep
 tropical_birds__1,tropical_birds,TROPICAL BIRDS,Colorful birds of tropical regions,normal,auto_validated,unique,0.357,parrot | flamingo | hummingbird | bird of paradise
 tropical_flowers__1,tropical_flowers,TROPICAL FLOWERS,Flowers that grow in tropical places,normal,auto_validated,unique,0.342,Jasmine | lotus | bird of paradise | ginger flower
 world_breakfasts__1,world_breakfasts,WORLD BREAKFAST,Breakfast foods eaten in other countries,normal,auto_validated,unique,0.366,dim sum | full english | cheese plate | fruit plate
