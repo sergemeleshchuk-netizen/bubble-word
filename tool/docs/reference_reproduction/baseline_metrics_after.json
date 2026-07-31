@@ -1,0 +1,54 @@
+{
+  "version": "reference-coverage/2.0",
+  "max_level": 10,
+  "reference_word_slot_coverage": 1.0,
+  "reference_sense_coverage": 1.0,
+  "reference_group_rule_coverage": 1.0,
+  "reference_membership_coverage": 1.0,
+  "reference_exact_quartet_coverage": 1.0,
+  "reference_meta_edge_coverage": 1.0,
+  "reference_token_form_coverage": 1.0,
+  "fully_reconstructable_reference_levels": 10,
+  "counts": {
+    "word_slot": {
+      "done": 380,
+      "total": 380
+    },
+    "sense_slot": {
+      "done": 380,
+      "total": 380
+    },
+    "group_rule": {
+      "done": 95,
+      "total": 95
+    },
+    "slot_membership": {
+      "done": 380,
+      "total": 380
+    },
+    "exact_quartet": {
+      "done": 95,
+      "total": 95
+    },
+    "observed_label": {
+      "done": 24,
+      "total": 24
+    },
+    "inferred_label": {
+      "done": 71,
+      "total": 71
+    },
+    "meta_dependency": {
+      "done": 17,
+      "total": 17
+    },
+    "form_match": {
+      "done": 380,
+      "total": 380
+    },
+    "level_reconstructable": {
+      "done": 10,
+      "total": 10
+    }
+  }
+}

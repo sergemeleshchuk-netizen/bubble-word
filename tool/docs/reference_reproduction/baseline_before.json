@@ -1,0 +1,442 @@
+{
+  "version": "reference-coverage/2.0",
+  "max_level": 10,
+  "fixture_totals": {
+    "levels": 10,
+    "levels_fully_recorded": 10,
+    "groups_expected": 95,
+    "groups_recorded": 95,
+    "slots": 380,
+    "observed_labels": 24,
+    "inferred_labels": 71,
+    "meta_links": 17,
+    "unseen_slots": 0,
+    "picture_tokens": 12,
+    "chunked_tokens": 5,
+    "category_output_tokens": 17,
+    "distinct_quartets": 95,
+    "distinct_labels": 88,
+    "distinct_tokens": 345
+  },
+  "metrics": {
+    "word_slot": {
+      "done": 375,
+      "total": 380,
+      "ratio": 0.9868,
+      "complete": false,
+      "misses": [
+        "L3 «school»: слова «school subjects» нет в базе",
+        "L6 «pyramid»: слова «steps» нет в базе",
+        "L6 «face»: слова «cheeks» нет в базе",
+        "L7 «measurements»: слова «scales» нет в базе",
+        "L7 «landmass»: слова «americas» нет в базе"
+      ],
+      "misses_total": 5
+    },
+    "sense_slot": {
+      "done": 379,
+      "total": 380,
+      "ratio": 0.9974,
+      "complete": false,
+      "misses": [
+        "L6 «face»: «mouth» многозначно, значение для правила не выбрано"
+      ],
+      "misses_total": 1
+    },
+    "group_rule": {
+      "done": 83,
+      "total": 95,
+      "ratio": 0.8737,
+      "complete": false,
+      "misses": [
+        "L2 «house»: правило things_made_of_wood не держит всю четвёрку (3/4)",
+        "L2 «driving»: правило on_the_road не держит всю четвёрку (3/4)",
+        "L3 «school»: правило school_supplies не держит всю четвёрку (3/4)",
+        "L4 «clothes»: правило clothing_items не держит всю четвёрку (3/4)",
+        "L6 «pyramid»: правило ref_pyramid не держит всю четвёрку (0/4)",
+        "L6 «face»: правило ref_face не держит всю четвёрку (0/4)",
+        "L6 «sleep»: правило bedtime_things не держит всю четвёрку (3/4)",
+        "L7 «measurements»: правило ref_measurements не держит всю четвёрку (0/4)",
+        "L7 «landmass»: правило continents_and_oceans не держит всю четвёрку (3/4)",
+        "L7 «space»: правило deep_space не держит всю четвёрку (3/4)",
+        "L9 «forest»: правило ref_forest не держит всю четвёрку (0/4)",
+        "L10 «weapon»: правило weapons_of_the_past не держит всю четвёрку (3/4)"
+      ],
+      "misses_total": 12
+    },
+    "slot_membership": {
+      "done": 356,
+      "total": 380,
+      "ratio": 0.9368,
+      "complete": false,
+      "misses": [
+        "L2 «house»: нет связи «bed» -> things_made_of_wood",
+        "L2 «driving»: нет связи «car» -> on_the_road",
+        "L3 «school»: нет связи «school subjects» -> school_supplies",
+        "L4 «clothes»: нет связи «shoes» -> clothing_items",
+        "L6 «pyramid»: нет связи «pharaoh» -> ref_pyramid",
+        "L6 «pyramid»: нет связи «tomb» -> ref_pyramid",
+        "L6 «pyramid»: нет связи «egypt» -> ref_pyramid",
+        "L6 «pyramid»: нет связи «steps» -> ref_pyramid",
+        "L6 «face»: нет связи «nose» -> ref_face",
+        "L6 «face»: нет связи «eyes» -> ref_face",
+        "L6 «face»: нет связи «mouth» -> ref_face",
+        "L6 «face»: нет связи «cheeks» -> ref_face",
+        "L6 «sleep»: нет связи «dream» -> bedtime_things",
+        "L7 «measurements»: нет связи «time» -> ref_measurements",
+        "L7 «measurements»: нет связи «ruler» -> ref_measurements",
+        "L7 «measurements»: нет связи «scales» -> ref_measurements",
+        "L7 «measurements»: нет связи «thermometer» -> ref_measurements",
+        "L7 «landmass»: нет связи «americas» -> continents_and_oceans",
+        "L7 «space»: нет связи «planets» -> deep_space",
+        "L9 «forest»: нет связи «mushroom» -> ref_forest",
+        "L9 «forest»: нет связи «jaguar» -> ref_forest",
+        "L9 «forest»: нет связи «tree» -> ref_forest",
+        "L9 «forest»: нет связи «bird» -> ref_forest",
+        "L10 «weapon»: нет связи «shield» -> weapons_of_the_past"
+      ],
+      "misses_total": 24
+    },
+    "exact_quartet": {
+      "done": 8,
+      "total": 95,
+      "ratio": 0.0842,
+      "complete": false,
+      "misses": [
+        "L1 «farm animals»: точной четвёрки в правиле farm_animals нет",
+        "L1 «colors»: точной четвёрки в правиле colors нет",
+        "L1 «vehicles»: точной четвёрки в правиле vehicles нет",
+        "L1 «compass»: точной четвёрки в правиле directions нет",
+        "L1 «days of the week»: точной четвёрки в правиле days_and_parts_of_day нет",
+        "L2 «vegetables»: точной четвёрки в правиле vegetables нет",
+        "L2 «fruits»: точной четвёрки в правиле fruits нет",
+        "L2 «kitchen tools»: точной четвёрки в правиле kitchen_tools нет",
+        "L2 «shapes»: точной четвёрки в правиле shapes нет",
+        "L2 «house»: точной четвёрки в правиле things_made_of_wood нет",
+        "L2 «nature»: точной четвёрки в правиле landscape_features нет",
+        "L2 «dessert»: точной четвёрки в правиле sweets нет",
+        "L2 «driving»: точной четвёрки в правиле on_the_road нет",
+        "L3 «school»: точной четвёрки в правиле school_supplies нет",
+        "L3 «body parts»: точной четвёрки в правиле body_parts нет",
+        "L3 «school subjects»: точной четвёрки в правиле school_subjects нет",
+        "L3 «toys»: точной четвёрки в правиле toys нет",
+        "L3 «accessories»: точной четвёрки в правиле accessories нет",
+        "L3 «music»: точной четвёрки в правиле music_genres нет",
+        "L3 «bodies of water»: точной четвёрки в правиле bodies_of_water нет",
+        "L4 «weather»: точной четвёрки в правиле weather_words нет",
+        "L4 «jobs»: точной четвёрки в правиле common_professions нет",
+        "L4 «clothes»: точной четвёрки в правиле clothing_items нет",
+        "L4 «shoes»: точной четвёрки в правиле shoe_parts нет",
+        "L4 «doctor»: точной четвёрки в правиле at_the_hospital нет",
+        "L4 «furniture»: точной четвёрки в правиле furniture нет",
+        "L4 «planets»: точной четвёрки в правиле planets нет",
+        "L4 «senses»: точной четвёрки в правиле senses_and_perception нет",
+        "L4 «meals»: точной четвёрки в правиле meals_of_the_day нет",
+        "L4 «numbers»: точной четвёрки в правиле superstition_numbers нет",
+        "L5 «cat»: точной четвёрки в правиле cat_things нет",
+        "L5 «beverages»: точной четвёрки в правиле everyday_drinks нет",
+        "L5 «coffee»: точной четвёрки в правиле coffee_drinks нет",
+        "L5 «flowers»: точной четвёрки в правиле flowers нет",
+        "L5 «insects»: точной четвёрки в правиле insects нет",
+        "L5 «dairy»: точной четвёрки в правиле dairy_products нет",
+        "L5 «polygons»: точной четвёрки в правиле shapes нет",
+        "L5 «nuts»: точной четвёрки в правиле nuts_world нет",
+        "L5 «illness»: точной четвёрки в правиле feeling_sick нет",
+        "L6 «sea animals»: точной четвёрки в правиле ocean_animals нет"
+      ],
+      "misses_total": 87
+    },
+    "observed_label": {
+      "done": 9,
+      "total": 24,
+      "ratio": 0.375,
+      "complete": false,
+      "misses": [
+        "L1 «compass»: прочитанная надпись не значится у правила directions",
+        "L2 «house»: прочитанная надпись не значится у правила things_made_of_wood",
+        "L4 «weather»: прочитанная надпись не значится у правила weather_words",
+        "L4 «clothes»: прочитанная надпись не значится у правила clothing_items",
+        "L4 «shoes»: прочитанная надпись не значится у правила shoe_parts",
+        "L5 «illness»: прочитанная надпись не значится у правила feeling_sick",
+        "L7 «measurements»: прочитанная надпись не значится у правила ref_measurements",
+        "L7 «space»: прочитанная надпись не значится у правила deep_space",
+        "L7 «royalty»: прочитанная надпись не значится у правила royalty",
+        "L8 «bird»: прочитанная надпись не значится у правила birds",
+        "L9 «bird»: прочитанная надпись не значится у правила parts_of_a_bird",
+        "L9 «forest»: прочитанная надпись не значится у правила ref_forest",
+        "L9 «baby»: прочитанная надпись не значится у правила baby_things",
+        "L10 «jobs»: прочитанная надпись не значится у правила common_professions",
+        "L10 «weapon»: прочитанная надпись не значится у правила weapons_of_the_past"
+      ],
+      "misses_total": 15
+    },
+    "inferred_label": {
+      "done": 7,
+      "total": 71,
+      "ratio": 0.0986,
+      "complete": false,
+      "misses": [
+        "L1 «farm animals»: наша формулировка не разрешается (четвёрка/правило/надпись у farm_animals)",
+        "L1 «colors»: наша формулировка не разрешается (четвёрка/правило/надпись у colors)",
+        "L1 «vehicles»: наша формулировка не разрешается (четвёрка/правило/надпись у vehicles)",
+        "L1 «days of the week»: наша формулировка не разрешается (четвёрка/правило/надпись у days_and_parts_of_day)",
+        "L2 «vegetables»: наша формулировка не разрешается (четвёрка/правило/надпись у vegetables)",
+        "L2 «kitchen tools»: наша формулировка не разрешается (четвёрка/правило/надпись у kitchen_tools)",
+        "L2 «nature»: наша формулировка не разрешается (четвёрка/правило/надпись у landscape_features)",
+        "L2 «dessert»: наша формулировка не разрешается (четвёрка/правило/надпись у sweets)",
+        "L2 «driving»: наша формулировка не разрешается (четвёрка/правило/надпись у on_the_road)",
+        "L3 «school»: наша формулировка не разрешается (четвёрка/правило/надпись у school_supplies)",
+        "L3 «body parts»: наша формулировка не разрешается (четвёрка/правило/надпись у body_parts)",
+        "L3 «toys»: наша формулировка не разрешается (четвёрка/правило/надпись у toys)",
+        "L3 «accessories»: наша формулировка не разрешается (четвёрка/правило/надпись у accessories)",
+        "L3 «music»: наша формулировка не разрешается (четвёрка/правило/надпись у music_genres)",
+        "L4 «jobs»: наша формулировка не разрешается (четвёрка/правило/надпись у common_professions)",
+        "L4 «doctor»: наша формулировка не разрешается (четвёрка/правило/надпись у at_the_hospital)",
+        "L4 «furniture»: наша формулировка не разрешается (четвёрка/правило/надпись у furniture)",
+        "L4 «planets»: наша формулировка не разрешается (четвёрка/правило/надпись у planets)",
+        "L4 «senses»: наша формулировка не разрешается (четвёрка/правило/надпись у senses_and_perception)",
+        "L4 «meals»: наша формулировка не разрешается (четвёрка/правило/надпись у meals_of_the_day)",
+        "L4 «numbers»: наша формулировка не разрешается (четвёрка/правило/надпись у superstition_numbers)",
+        "L5 «cat»: наша формулировка не разрешается (четвёрка/правило/надпись у cat_things)",
+        "L5 «beverages»: наша формулировка не разрешается (четвёрка/правило/надпись у everyday_drinks)",
+        "L5 «coffee»: наша формулировка не разрешается (четвёрка/правило/надпись у coffee_drinks)",
+        "L5 «insects»: наша формулировка не разрешается (четвёрка/правило/надпись у insects)",
+        "L5 «dairy»: наша формулировка не разрешается (четвёрка/правило/надпись у dairy_products)",
+        "L5 «polygons»: наша формулировка не разрешается (четвёрка/правило/надпись у shapes)",
+        "L5 «nuts»: наша формулировка не разрешается (четвёрка/правило/надпись у nuts_world)",
+        "L6 «sea animals»: наша формулировка не разрешается (четвёрка/правило/надпись у ocean_animals)",
+        "L6 «music»: наша формулировка не разрешается (четвёрка/правило/надпись у musical_instruments)",
+        "L6 «pyramid»: наша формулировка не разрешается (четвёрка/правило/надпись у ref_pyramid)",
+        "L6 «drinks»: наша формулировка не разрешается (четвёрка/правило/надпись у everyday_drinks)",
+        "L6 «mountains»: наша формулировка не разрешается (четвёрка/правило/надпись у world_mountains)",
+        "L6 «dog»: наша формулировка не разрешается (четвёрка/правило/надпись у dog_things)",
+        "L6 «fire»: наша формулировка не разрешается (четвёрка/правило/надпись у fire_and_smoke)",
+        "L6 «face»: наша формулировка не разрешается (четвёрка/правило/надпись у ref_face)",
+        "L6 «sleep»: наша формулировка не разрешается (четвёрка/правило/надпись у bedtime_things)",
+        "L6 «personality»: наша формулировка не разрешается (четвёрка/правило/надпись у personality_traits)",
+        "L7 «length»: наша формулировка не разрешается (четвёрка/правило/надпись у things_measured_in_inches)",
+        "L7 «weight»: наша формулировка не разрешается (четвёрка/правило/надпись у weight_units)"
+      ],
+      "misses_total": 64
+    },
+    "meta_dependency": {
+      "done": 0,
+      "total": 17,
+      "ratio": 0.0,
+      "complete": false,
+      "misses": [
+        "L3: мета-ссылка «school subjects» (school subjects -> school) не записана",
+        "L4: мета-ссылка «doctor» (doctor -> jobs) не записана",
+        "L4: мета-ссылка «shoes» (shoes -> clothes) не записана",
+        "L5: мета-ссылка «cat» (cat -> pets) не записана",
+        "L5: мета-ссылка «coffee» (coffee -> beverages) не записана",
+        "L6: мета-ссылка «pyramid» (pyramid -> shapes) не записана",
+        "L7: мета-ссылка «time» (time -> measurements) не записана",
+        "L7: мета-ссылка «ruler» (length -> measurements) не записана",
+        "L7: мета-ссылка «scales» (weight -> measurements) не записана",
+        "L7: мета-ссылка «thermometer» (temperature -> measurements) не записана",
+        "L7: мета-ссылка «americas» (americas -> landmass) не записана",
+        "L7: мета-ссылка «planets» (planets -> space) не записана",
+        "L8: мета-ссылка «reptile» (reptile -> species) не записана",
+        "L8: мета-ссылка «bird» (bird -> species) не записана",
+        "L9: мета-ссылка «tree» (tree -> forest) не записана",
+        "L9: мета-ссылка «bird» (bird -> forest) не записана",
+        "L9: мета-ссылка «baby» (baby -> stages of life) не записана"
+      ],
+      "misses_total": 17
+    },
+    "form_match": {
+      "done": 0,
+      "total": 380,
+      "ratio": 0.0,
+      "complete": false,
+      "misses": [
+        "L1 «farm animals»: форма токена «cow» не записана",
+        "L1 «farm animals»: форма токена «horse» не записана",
+        "L1 «farm animals»: форма токена «goat» не записана",
+        "L1 «farm animals»: форма токена «pig» не записана",
+        "L1 «colors»: форма токена «red» не записана",
+        "L1 «colors»: форма токена «blue» не записана",
+        "L1 «colors»: форма токена «green» не записана",
+        "L1 «colors»: форма токена «yellow» не записана",
+        "L1 «vehicles»: форма токена «car» не записана",
+        "L1 «vehicles»: форма токена «bus» не записана",
+        "L1 «vehicles»: форма токена «bicycle» не записана",
+        "L1 «vehicles»: форма токена «truck» не записана",
+        "L1 «compass»: форма токена «north» не записана",
+        "L1 «compass»: форма токена «south» не записана",
+        "L1 «compass»: форма токена «east» не записана",
+        "L1 «compass»: форма токена «west» не записана",
+        "L1 «days of the week»: форма токена «monday» не записана",
+        "L1 «days of the week»: форма токена «tuesday» не записана",
+        "L1 «days of the week»: форма токена «friday» не записана",
+        "L1 «days of the week»: форма токена «sunday» не записана",
+        "L2 «vegetables»: форма токена «carrot» не записана",
+        "L2 «vegetables»: форма токена «potato» не записана",
+        "L2 «vegetables»: форма токена «onion» не записана",
+        "L2 «vegetables»: форма токена «lettuce» не записана",
+        "L2 «fruits»: форма токена «apple» не записана",
+        "L2 «fruits»: форма токена «banana» не записана",
+        "L2 «fruits»: форма токена «orange» не записана",
+        "L2 «fruits»: форма токена «grape» не записана",
+        "L2 «kitchen tools»: форма токена «spoon» не записана",
+        "L2 «kitchen tools»: форма токена «fork» не записана",
+        "L2 «kitchen tools»: форма токена «knife» не записана",
+        "L2 «kitchen tools»: форма токена «plate» не записана",
+        "L2 «shapes»: форма токена «circle» не записана",
+        "L2 «shapes»: форма токена «square» не записана",
+        "L2 «shapes»: форма токена «triangle» не записана",
+        "L2 «shapes»: форма токена «rectangle» не записана",
+        "L2 «house»: форма токена «bed» не записана",
+        "L2 «house»: форма токена «chair» не записана",
+        "L2 «house»: форма токена «table» не записана",
+        "L2 «house»: форма токена «door» не записана"
+      ],
+      "misses_total": 380
+    },
+    "level_reconstructable": {
+      "done": 0,
+      "total": 10,
+      "ratio": 0.0,
+      "complete": false,
+      "misses": [
+        "L1: расхождений 1",
+        "L2: расхождений 1",
+        "L3: расхождений 1",
+        "L4: расхождений 1",
+        "L5: расхождений 1",
+        "L6: расхождений 1",
+        "L7: расхождений 1",
+        "L8: расхождений 1",
+        "L9: расхождений 1",
+        "L10: расхождений 1"
+      ],
+      "misses_total": 10
+    }
+  },
+  "levels": [
+    {
+      "level": 1,
+      "completeness": "full",
+      "groups_expected": 5,
+      "groups_recorded": 5,
+      "reconstructable": false,
+      "diff": [
+        "уровень 1 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 2,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": false,
+      "diff": [
+        "уровень 2 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 3,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": false,
+      "diff": [
+        "уровень 3 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 4,
+      "completeness": "full",
+      "groups_expected": 10,
+      "groups_recorded": 10,
+      "reconstructable": false,
+      "diff": [
+        "уровень 4 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 5,
+      "completeness": "full",
+      "groups_expected": 11,
+      "groups_recorded": 11,
+      "reconstructable": false,
+      "diff": [
+        "уровень 5 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 6,
+      "completeness": "full",
+      "groups_expected": 11,
+      "groups_recorded": 11,
+      "reconstructable": false,
+      "diff": [
+        "уровень 6 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 7,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": false,
+      "diff": [
+        "уровень 7 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 8,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": false,
+      "diff": [
+        "уровень 8 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 9,
+      "completeness": "full",
+      "groups_expected": 10,
+      "groups_recorded": 10,
+      "reconstructable": false,
+      "diff": [
+        "уровень 9 в базе отсутствует"
+      ],
+      "diff_total": 1
+    },
+    {
+      "level": 10,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": false,
+      "diff": [
+        "уровень 10 в базе отсутствует"
+      ],
+      "diff_total": 1
+    }
+  ],
+  "summary": {
+    "reference_word_slot_coverage": 0.9868,
+    "reference_sense_coverage": 0.9974,
+    "reference_group_rule_coverage": 0.8737,
+    "reference_membership_coverage": 0.9368,
+    "reference_exact_quartet_coverage": 0.0842,
+    "reference_meta_edge_coverage": 0.0,
+    "reference_token_form_coverage": 0.0,
+    "fully_reconstructable_reference_levels": 0,
+    "observed_label_match": 0.375,
+    "inferred_label_resolution": 0.0986,
+    "normalized_export_diff": 10
+  }
+}

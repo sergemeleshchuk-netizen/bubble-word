@@ -1,0 +1,311 @@
+{
+  "version": "reference-coverage/2.0",
+  "max_level": null,
+  "fixture_totals": {
+    "levels": 20,
+    "levels_fully_recorded": 19,
+    "groups_expected": 192,
+    "groups_recorded": 188,
+    "slots": 752,
+    "observed_labels": 43,
+    "inferred_labels": 145,
+    "meta_links": 56,
+    "unseen_slots": 4,
+    "picture_tokens": 38,
+    "chunked_tokens": 43,
+    "category_output_tokens": 56,
+    "distinct_quartets": 188,
+    "distinct_labels": 168,
+    "distinct_tokens": 660
+  },
+  "metrics": {
+    "word_slot": {
+      "done": 752,
+      "total": 752,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "sense_slot": {
+      "done": 752,
+      "total": 752,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "group_rule": {
+      "done": 188,
+      "total": 188,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "slot_membership": {
+      "done": 752,
+      "total": 752,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "exact_quartet": {
+      "done": 188,
+      "total": 188,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "observed_label": {
+      "done": 43,
+      "total": 43,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "inferred_label": {
+      "done": 145,
+      "total": 145,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "meta_dependency": {
+      "done": 52,
+      "total": 56,
+      "ratio": 0.9286,
+      "complete": false,
+      "misses": [
+        "L18: мета-ссылка «dessert» (dessert -> menu) не записана",
+        "L18: мета-ссылка «money» (money -> bank) не записана",
+        "L18: мета-ссылка «mountains» (mountains -> geographical objects) не записана",
+        "L18: мета-ссылка «islands» (islands -> geographical objects) не записана"
+      ],
+      "misses_total": 4
+    },
+    "form_match": {
+      "done": 752,
+      "total": 752,
+      "ratio": 1.0,
+      "complete": true,
+      "misses": [],
+      "misses_total": 0
+    },
+    "level_reconstructable": {
+      "done": 19,
+      "total": 20,
+      "ratio": 0.95,
+      "complete": false,
+      "misses": [
+        "L18: расхождений 5"
+      ],
+      "misses_total": 1
+    }
+  },
+  "levels": [
+    {
+      "level": 1,
+      "completeness": "full",
+      "groups_expected": 5,
+      "groups_recorded": 5,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 2,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 3,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 4,
+      "completeness": "full",
+      "groups_expected": 10,
+      "groups_recorded": 10,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 5,
+      "completeness": "full",
+      "groups_expected": 11,
+      "groups_recorded": 11,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 6,
+      "completeness": "full",
+      "groups_expected": 11,
+      "groups_recorded": 11,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 7,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 8,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 9,
+      "completeness": "full",
+      "groups_expected": 10,
+      "groups_recorded": 10,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 10,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 11,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 12,
+      "completeness": "full",
+      "groups_expected": 12,
+      "groups_recorded": 12,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 13,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 14,
+      "completeness": "full",
+      "groups_expected": 10,
+      "groups_recorded": 10,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 15,
+      "completeness": "full",
+      "groups_expected": 7,
+      "groups_recorded": 7,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 16,
+      "completeness": "full",
+      "groups_expected": 9,
+      "groups_recorded": 9,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 17,
+      "completeness": "full",
+      "groups_expected": 11,
+      "groups_recorded": 11,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 18,
+      "completeness": "partial",
+      "groups_expected": 11,
+      "groups_recorded": 7,
+      "reconstructable": false,
+      "diff": [
+        "группа 2 «menu», слот 4 «dessert»: emitted_by = '', ожидалось 'dessert'",
+        "группа 6 «bank», слот 3 «money»: emitted_by = '', ожидалось 'money'",
+        "группа 7 «geographical objects», слот 2 «mountains»: emitted_by = '', ожидалось 'mountains'",
+        "группа 7 «geographical objects», слот 4 «islands»: emitted_by = '', ожидалось 'islands'",
+        "мета-ссылок записано 5, в базе 1"
+      ],
+      "diff_total": 5
+    },
+    {
+      "level": 19,
+      "completeness": "full",
+      "groups_expected": 9,
+      "groups_recorded": 9,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    },
+    {
+      "level": 20,
+      "completeness": "full",
+      "groups_expected": 8,
+      "groups_recorded": 8,
+      "reconstructable": true,
+      "diff": [],
+      "diff_total": 0
+    }
+  ],
+  "summary": {
+    "reference_word_slot_coverage": 1.0,
+    "reference_sense_coverage": 1.0,
+    "reference_group_rule_coverage": 1.0,
+    "reference_membership_coverage": 1.0,
+    "reference_exact_quartet_coverage": 1.0,
+    "reference_meta_edge_coverage": 0.9286,
+    "reference_token_form_coverage": 1.0,
+    "fully_reconstructable_reference_levels": 19,
+    "observed_label_match": 1.0,
+    "inferred_label_resolution": 1.0,
+    "normalized_export_diff": 5
+  }
+}

@@ -14,7 +14,7 @@ accessories,fashion_accessories,do_not_pair,derived,11,belt | bowtie | brooch | 
 bread_types,sandwich_breads,do_not_pair,derived,11,bagel | ciabatta | croissant | focaccia | pita | roll | rye | sourdough | texas toast | wheat | white,P0,общих играбельных слов 11; пулы 25 и 14
 bread_types,world_breads,do_not_pair,derived,11,baguette | brioche | challah | ciabatta | focaccia | naan | pita | pumpernickel | rye | sourdough | tortilla,P0,общих играбельных слов 11; пулы 25 и 16
 cleaning_supplies,cleaning_tools,do_not_pair,derived,11,broom | brush | bucket | duster | dustpan | mop | rag | scrubber | sponge | squeegee | vacuum,P0,общих играбельных слов 11; пулы 20 и 16
-clothing_items,things_you_button,do_not_pair,derived,11,blouse | cardigan | coat | glove | jacket | jeans | overalls | pants | shirt | sweater | vest,P0,общих играбельных слов 11; пулы 25 и 14
+clothing_items,things_you_button,do_not_pair,derived,11,blouse | cardigan | coat | glove | jacket | jeans | overalls | pants | shirt | sweater | vest,P0,общих играбельных слов 11; пулы 26 и 14
 fishing_hobby,fishing_things,do_not_pair,derived,11,bait | boat | cooler | hook | line | lure | net | reel | rod | tackle box | waders,P0,общих играбельных слов 11; пулы 16 и 18
 fruit_trees,fruits,do_not_pair,derived,11,apple | apricot | banana | cherry | lemon | lime | mango | orange | peach | pear | plum,P0,общих играбельных слов 11; пулы 18 и 27
 herbs,spices_and_herbs,do_not_pair,derived,11,basil | chive | cilantro | dill | mint | oregano | parsley | rosemary | sage | tarragon | thyme,P0,общих играбельных слов 11; пулы 15 и 25
@@ -34,8 +34,8 @@ animals_with_shells,shellfish,do_not_pair,derived,9,barnacle | clam | cockle | c
 berries,berry_varieties,do_not_pair,derived,9,blackberry | blueberry | boysenberry | cranberry | currant | elderberry | gooseberry | raspberry | strawberry,P0,общих играбельных слов 9; пулы 13 и 11
 birthday_things,party_things,do_not_pair,derived,9,balloon | cake | candle | confetti | guest | invitation | piñata | present | streamer,P0,общих играбельных слов 9; пулы 16 и 20
 cleaning_supplies,cleaning_trade,do_not_pair,derived,9,broom | bucket | disinfectant | dustpan | gloves | mop | squeegee | trash bag | vacuum,P0,общих играбельных слов 9; пулы 20 и 15
-clothing_items,things_with_pockets,do_not_pair,derived,9,blazer | coat | hoodie | jacket | jeans | overalls | robe | shirt | vest,P0,общих играбельных слов 9; пулы 25 и 14
-cloud_and_sky,night_sky_things,do_not_pair,derived,9,aurora | cloud | comet | eclipse | meteor | moon | plane | satellite | star,P0,общих играбельных слов 9; пулы 20 и 14
+clothing_items,things_with_pockets,do_not_pair,derived,9,blazer | coat | hoodie | jacket | jeans | overalls | robe | shirt | vest,P0,общих играбельных слов 9; пулы 26 и 14
+cloud_and_sky,night_sky_things,do_not_pair,derived,9,aurora | cloud | comet | eclipse | meteor | moon | plane | satellite | star,P0,общих играбельных слов 9; пулы 20 и 15
 currencies,world_currencies_more,do_not_pair,derived,9,baht | dinar | lira | peso | real | ruble | rupee | shekel | yen,P0,общих играбельных слов 9; пулы 15 и 18
 diseases,illnesses,do_not_pair,derived,9,arthritis | asthma | bronchitis | chickenpox | diabetes | flu | measles | mumps | pneumonia,P0,общих играбельных слов 9; пулы 20 и 19
 electricity_words,power_and_batteries,do_not_pair,derived,9,battery | fuse | generator | outlet | plug | socket | switch | voltage | watt,P0,общих играбельных слов 9; пулы 18 и 16
@@ -71,7 +71,7 @@ historic_jobs,old_professions,do_not_pair,derived,8,blacksmith | cobbler | coope
 injuries,things_that_hurt,do_not_pair,derived,8,blister | bruise | burn | cut | scrape | splinter | sprain | sunburn,P0,общих играбельных слов 8; пулы 18 и 15
 magic_creatures,storybook_characters,do_not_pair,derived,8,dwarf | elf | fairy | genie | goblin | troll | witch | wizard,P0,общих играбельных слов 8; пулы 16 и 20
 magic_tricks,magic_words,do_not_pair,derived,8,box | coin | dove | hat | mirror | rope | scarf | wand,P0,общих играбельных слов 8; пулы 14 и 18
-night_sky_things,space_objects,do_not_pair,derived,8,comet | constellation | galaxy | meteor | moon | planet | satellite | star,P0,общих играбельных слов 8; пулы 14 и 20
+night_sky_things,space_objects,do_not_pair,derived,8,comet | constellation | galaxy | meteor | moon | planet | satellite | star,P0,общих играбельных слов 8; пулы 15 и 20
 pie_ingredients,pie_types,do_not_pair,derived,8,apple | blueberry | cherry | custard | peach | pecan | pumpkin | rhubarb,P0,общих играбельных слов 8; пулы 25 и 15
 pizza_toppings,sandwich_fillings,do_not_pair,derived,8,bacon | cheese | chicken | ham | meatball | onion | salami | tomato,P0,общих играбельных слов 8; пулы 25 и 25
 pizza_toppings,soup_ingredients,do_not_pair,derived,8,bacon | chicken | garlic | ham | mushroom | onion | pepper | tomato,P0,общих играбельных слов 8; пулы 25 и 25
@@ -130,7 +130,7 @@ art_supplies,school_supplies,do_not_pair,derived,6,crayon | glue | marker | pape
 art_tools,painting_supplies,do_not_pair,derived,6,brush | canvas | easel | palette | roller | sponge,P1,общих играбельных слов 6; пулы 16 и 16
 baking_ingredients,pantry_staples,do_not_pair,derived,6,baking soda | flour | honey | oil | salt | sugar,P1,общих играбельных слов 6; пулы 25 и 20
 baking_ingredients,powders,do_not_pair,derived,6,baking soda | cinnamon | cocoa | flour | salt | sugar,P1,общих играбельных слов 6; пулы 25 и 15
-banking_words,money_words,do_not_pair,derived,6,account | check | deposit | interest | loan | teller,P1,общих играбельных слов 6; пулы 18 и 34
+banking_words,money_words,do_not_pair,derived,6,account | check | deposit | interest | loan | teller,P1,общих играбельных слов 6; пулы 19 и 34
 bedroom_things,fabrics_at_home,do_not_pair,derived,6,blanket | comforter | curtain | quilt | rug | sheet,P1,общих играбельных слов 6; пулы 21 и 17
 body_of_water_types,irrigation,do_not_pair,derived,6,aqueduct | canal | dam | reservoir | sprinkler | well,P1,общих играбельных слов 6; пулы 14 и 14
 book_genres,movie_genres,do_not_pair,derived,6,fantasy | horror | mystery | romance | thriller | western,P1,общих играбельных слов 6; пулы 18 и 18
@@ -164,6 +164,7 @@ learning_actions,school_actions,do_not_pair,derived,6,memorize | quiz | read | r
 livestock,pack_animals,do_not_pair,derived,6,alpaca | donkey | horse | llama | mule | ox,P1,общих играбельных слов 6; пулы 17 и 13
 nature_surnames,old_professions,do_not_pair,derived,6,chandler | cooper | mason | miller | potter | weaver,P1,общих играбельных слов 6; пулы 18 и 15
 nicknames,nicknames_for_names,do_not_pair,derived,6,bob | jim | meg | sue | ted | tom,P1,общих играбельных слов 6; пулы 20 и 18
+night_sky_things,things_in_the_sky_science,do_not_pair,derived,6,comet | constellation | eclipse | galaxy | satellite | telescope,P1,общих играбельных слов 6; пулы 15 и 17
 ocean_animals,sea_mammals,do_not_pair,derived,6,dolphin | manatee | orca | seal | walrus | whale,P1,общих играбельных слов 6; пулы 25 и 14
 ocean_animals,shellfish,do_not_pair,derived,6,barnacle | clam | crab | lobster | oyster | shrimp,P1,общих играбельных слов 6; пулы 25 и 15
 olympic_sports,racing_sports,do_not_pair,derived,6,hurdles | marathon | rowing | sailing | swimming | triathlon,P1,общих играбельных слов 6; пулы 25 и 15
@@ -238,7 +239,7 @@ cured_meats,pizza_toppings,do_not_pair,derived,5,bacon | ham | pepperoni | salam
 cured_meats,sandwich_fillings,do_not_pair,derived,5,bacon | corned beef | ham | pastrami | salami,P1,общих играбельных слов 5; пулы 12 и 25
 cutting_tools,things_that_cut,do_not_pair,derived,5,blade | knife | razor | saw | scissors,P1,общих играбельных слов 5; пулы 16 и 18
 dance_styles,music_genres,do_not_pair,derived,5,disco | folk | hip hop | jazz | swing,P1,общих играбельных слов 5; пулы 18 и 20
-deep_space,space_objects,do_not_pair,derived,5,asteroid | galaxy | meteor | moon | nebula,P0,общих играбельных слов 5; пулы 7 и 20
+deep_space,space_objects,do_not_pair,derived,5,asteroid | galaxy | meteor | moon | nebula,P0,общих играбельных слов 5; пулы 8 и 20
 elements,vitamins_and_minerals,do_not_pair,derived,5,calcium | iron | potassium | sodium | zinc,P1,общих играбельных слов 5; пулы 20 и 15
 everyday_drinks,liquids,do_not_pair,derived,5,coffee | juice | milk | soda | tea,P0,общих играбельных слов 5; пулы 8 и 20
 exotic_pets,pets,do_not_pair,derived,5,chinchilla | ferret | hedgehog | iguana | parrot,P1,общих играбельных слов 5; пулы 12 и 22
@@ -274,6 +275,7 @@ kinds_of_buildings,quiet_places,do_not_pair,derived,5,church | hospital | librar
 kitchen_appliances,things_that_plug_in,do_not_pair,derived,5,blender | freezer | kettle | microwave | toaster,P1,общих играбельных слов 5; пулы 20 и 20
 kitchen_gadgets,kitchen_tools,do_not_pair,derived,5,corkscrew | peeler | strainer | thermometer | timer,P1,общих играбельных слов 5; пулы 15 и 26
 kitchen_tools,silverware,do_not_pair,derived,5,fork | knife | ladle | spoon | tongs,P1,общих играбельных слов 5; пулы 26 и 14
+knights_and_armor,weapons_of_the_past,do_not_pair,derived,5,bow | dagger | shield | spear | sword,P1,общих играбельных слов 5; пулы 18 и 17
 leafy_greens,lettuce_and_greens,do_not_pair,derived,5,arugula | endive | romaine | spinach | watercress,P1,общих играбельных слов 5; пулы 12 и 11
 light_sources,lighting,do_not_pair,derived,5,bulb | candle | flashlight | lamp | lantern,P1,общих играбельных слов 5; пулы 20 и 16
 light_sources,words_before_light,do_not_pair,derived,5,candle | fire | moon | star | sun,P1,общих играбельных слов 5; пулы 20 и 20
@@ -283,8 +285,7 @@ lizards,reptiles,do_not_pair,derived,5,chameleon | gecko | iguana | monitor | sk
 martial_arts,olympic_sports,do_not_pair,derived,5,boxing | fencing | judo | taekwondo | wrestling,P1,общих играбельных слов 5; пулы 14 и 25
 money_actions,money_words,do_not_pair,derived,5,bill | budget | deposit | refund | tip,P1,общих играбельных слов 5; пулы 16 и 34
 music_class_things,percussion,do_not_pair,derived,5,drum | maraca | tambourine | triangle | xylophone,P1,общих играбельных слов 5; пулы 14 и 14
-night_sky_things,solar_system_words,do_not_pair,derived,5,comet | eclipse | meteor | moon | planet,P1,общих играбельных слов 5; пулы 14 и 14
-night_sky_things,things_in_the_sky_science,do_not_pair,derived,5,comet | constellation | eclipse | galaxy | satellite,P1,общих играбельных слов 5; пулы 14 и 17
+night_sky_things,solar_system_words,do_not_pair,derived,5,comet | eclipse | meteor | moon | planet,P1,общих играбельных слов 5; пулы 15 и 14
 office_supplies,things_in_a_junk_drawer,do_not_pair,derived,5,paper clip | pen | rubber band | scissors | tape,P1,общих играбельных слов 5; пулы 26 и 18
 olympic_sports,water_sports,do_not_pair,derived,5,canoeing | diving | rowing | sailing | swimming,P1,общих играбельных слов 5; пулы 25 и 15
 onomatopoeia,water_sounds,do_not_pair,derived,5,drip | hiss | plop | splash | whoosh,P1,общих играбельных слов 5; пулы 25 и 14
@@ -317,7 +318,7 @@ transportation_history,vehicles,do_not_pair,derived,5,canoe | ferry | sled | tro
 transportation_history,world_transport,do_not_pair,derived,5,camel | canoe | ferry | rickshaw | sled,P1,общих играбельных слов 5; пулы 15 и 14
 water_states,weather_actions,do_not_pair,derived,5,drizzle | hail | rain | sleet | snow,P1,общих играбельных слов 5; пулы 19 и 15
 weather_forecast_terms,weather_science,do_not_pair,derived,5,dew point | forecast | front | precipitation | pressure,P1,общих играбельных слов 5; пулы 14 и 14
-wild_cats,wild_cats_small,do_not_pair,derived,5,bobcat | caracal | lynx | ocelot | serval,P0,общих играбельных слов 5; пулы 13 и 8
+wild_cats,wild_cats_small,do_not_pair,derived,5,bobcat | caracal | lynx | ocelot | serval,P0,общих играбельных слов 5; пулы 14 и 8
 accessories,bags,do_not_pair,derived,4,backpack | clutch | purse | wallet,P1,общих играбельных слов 4; пулы 21 и 15
 accessories,things_you_tie,do_not_pair,derived,4,belt | bowtie | scarf | tie,P1,общих играбельных слов 4; пулы 21 и 14
 accounting_words,money_words,do_not_pair,derived,4,credit | debit | invoice | receipt,P1,общих играбельных слов 4; пулы 14 и 34
@@ -349,7 +350,7 @@ barbershop_words,beauty_tools,do_not_pair,derived,4,brush | comb | mirror | razo
 barn_things,things_on_a_farm,do_not_pair,derived,4,bale | gate | hay | trough,P1,общих играбельных слов 4; пулы 16 и 20
 bathroom_items,cleaning_tools,do_not_pair,derived,4,brush | plunger | sponge | toothbrush,P1,общих играбельных слов 4; пулы 25 и 16
 bbq_foods,sandwich_fillings,do_not_pair,derived,4,chicken | coleslaw | mustard | pickle,P1,общих играбельных слов 4; пулы 20 и 25
-bedroom_things,bedtime_things,do_not_pair,derived,4,bed | blanket | mattress | pillow,P1,общих играбельных слов 4; пулы 21 и 7
+bedroom_things,bedtime_things,do_not_pair,derived,4,bed | blanket | mattress | pillow,P1,общих играбельных слов 4; пулы 21 и 8
 bedroom_things,living_room_things,do_not_pair,derived,4,blanket | curtain | lamp | rug,P1,общих играбельных слов 4; пулы 21 и 20
 bell_and_alarm,loud_things,do_not_pair,derived,4,bell | horn | siren | whistle,P1,общих играбельных слов 4; пулы 14 и 16
 biomes,landforms,do_not_pair,derived,4,marsh | mountain | prairie | tundra,P1,общих играбельных слов 4; пулы 14 и 27
@@ -358,7 +359,7 @@ birds,birds_of_prey,do_not_pair,derived,4,eagle | falcon | hawk | owl,P1,общ�
 birds,farm_animals,do_not_pair,derived,4,chicken | duck | goose | turkey,P1,общих играбельных слов 4; пулы 31 и 20
 birds,songbirds,do_not_pair,derived,4,canary | cardinal | robin | sparrow,P1,общих играбельных слов 4; пулы 31 и 17
 birds,waterfowl,do_not_pair,derived,4,duck | goose | pelican | swan,P1,общих играбельных слов 4; пулы 31 и 14
-board_and_card_games,board_games,do_not_pair,derived,4,backgammon | checkers | chess | dominoes,P1,общих играбельных слов 4; пулы 14 и 17
+board_and_card_games,board_games,do_not_pair,derived,4,backgammon | checkers | chess | dominoes,P1,общих играбельных слов 4; пулы 14 и 18
 bodies_of_water,body_of_water_types,do_not_pair,derived,4,canal | pond | pool | reservoir,P1,общих играбельных слов 4; пулы 25 и 14
 body_movements,dance_moves,do_not_pair,derived,4,jump | kick | twist | wave,P1,общих играбельных слов 4; пулы 20 и 15
 body_movements,hand_actions,do_not_pair,derived,4,clap | point | twist | wave,P1,общих играбельных слов 4; пулы 20 и 20
@@ -366,6 +367,7 @@ bread_types,pastries,do_not_pair,derived,4,biscuit | croissant | muffin | scone,
 breakfast_foods,egg_and_dairy_dishes,do_not_pair,derived,4,french toast | omelet | scone | waffle,P1,общих играбельных слов 4; пулы 28 и 14
 breakfast_foods,pastries,do_not_pair,derived,4,biscuit | croissant | muffin | scone,P1,общих играбельных слов 4; пулы 28 и 8
 breakfast_foods,pizza_toppings,do_not_pair,derived,4,bacon | egg | ham | sausage,P1,общих играбельных слов 4; пулы 28 и 25
+breakfast_foods,ref_food_staples,do_not_pair,derived,4,bread | egg | milk | rice,P0,общих играбельных слов 4; пулы 28 и 4
 building_actions,hand_tools,do_not_pair,derived,4,drill | hammer | level | saw,P1,общих играбельных слов 4; пулы 18 и 24
 building_materials,rocks_and_minerals,do_not_pair,derived,4,granite | gravel | marble | slate,P1,общих играбельных слов 4; пулы 21 и 20
 building_trades,jobs_with_tools,do_not_pair,derived,4,carpenter | electrician | plumber | welder,P1,общих играбельных слов 4; пулы 18 и 15
@@ -381,7 +383,7 @@ chess_words,royalty,do_not_pair,derived,4,castle | king | knight | queen,P1,об
 city_words,road_things,do_not_pair,derived,4,bridge | curb | intersection | sidewalk,P1,общих играбельных слов 4; пулы 20 и 20
 city_words,streets_and_roads,do_not_pair,derived,4,alley | avenue | boulevard | street,P1,общих играбельных слов 4; пулы 20 и 18
 classroom_things,things_on_a_wall,do_not_pair,derived,4,calendar | clock | poster | whiteboard,P1,общих играбельных слов 4; пулы 20 и 20
-clothing_items,winter_clothing,do_not_pair,derived,4,coat | glove | scarf | sweater,P1,общих играбельных слов 4; пулы 25 и 18
+clothing_items,winter_clothing,do_not_pair,derived,4,coat | glove | scarf | sweater,P1,общих играбельных слов 4; пулы 26 и 18
 cloud_and_sky,light_sources,do_not_pair,derived,4,lightning | moon | star | sun,P1,общих играбельных слов 4; пулы 20 и 20
 cloud_and_sky,weather_words,do_not_pair,derived,4,cloud | fog | lightning | sun,P1,общих играбельных слов 4; пулы 20 и 26
 cold_drinks,drink_mixers,do_not_pair,derived,4,cola | ginger ale | juice | lemonade,P1,общих играбельных слов 4; пулы 18 и 14
@@ -451,7 +453,7 @@ government_jobs,office_jobs,do_not_pair,derived,4,auditor | clerk | secretary | 
 grains_and_beans,soup_ingredients,do_not_pair,derived,4,barley | corn | lentil | rice,P1,общих играбельных слов 4; пулы 15 и 25
 green_things,salad_ingredients,do_not_pair,derived,4,avocado | cucumber | lettuce | spinach,P1,общих играбельных слов 4; пулы 20 и 25
 green_things,sandwich_fillings,do_not_pair,derived,4,avocado | cucumber | lettuce | pickle,P1,общих играбельных слов 4; пулы 20 и 25
-halloween_things,monsters,do_not_pair,derived,4,ghost | vampire | witch | zombie,P1,общих играбельных слов 4; пулы 20 и 15
+halloween_things,monsters,do_not_pair,derived,4,ghost | vampire | witch | zombie,P1,общих играбельных слов 4; пулы 21 и 15
 hand_tools,workshop_things,do_not_pair,derived,4,clamp | drill | hammer | vise,P1,общих играбельных слов 4; пулы 24 и 18
 harvest_words,things_on_a_farm,do_not_pair,derived,4,bale | crop | field | silo,P1,общих играбельных слов 4; пулы 15 и 20
 holidays,religious_holidays,do_not_pair,derived,4,christmas | easter | hanukkah | passover,P1,общих играбельных слов 4; пулы 20 и 16
@@ -462,16 +464,17 @@ italian_dishes,pasta_shapes,do_not_pair,derived,4,gnocchi | lasagna | ravioli | 
 japanese_dishes,sushi_bar,do_not_pair,derived,4,bento | edamame | sashimi | teriyaki,P0,общих играбельных слов 4; пулы 16 и 6
 jungle_animals,monkeys_and_apes,do_not_pair,derived,4,chimpanzee | gorilla | lemur | orangutan,P1,общих играбельных слов 4; пулы 20 и 14
 jungle_animals,reptiles,do_not_pair,derived,4,boa | iguana | python | snake,P1,общих играбельных слов 4; пулы 20 и 21
-jungle_animals,wild_cats,do_not_pair,derived,4,jaguar | leopard | panther | tiger,P1,общих играбельных слов 4; пулы 20 и 13
+jungle_animals,wild_cats,do_not_pair,derived,4,jaguar | leopard | panther | tiger,P1,общих играбельных слов 4; пулы 20 и 14
 jungle_animals,zoo_animals,do_not_pair,derived,4,gorilla | monkey | sloth | tiger,P1,общих играбельных слов 4; пулы 20 и 20
 kinds_of_doctors,medical_jobs,do_not_pair,derived,4,cardiologist | dentist | pediatrician | surgeon,P0,общих играбельных слов 4; пулы 6 и 20
 kinds_of_plants,things_that_grow,do_not_pair,derived,4,flower | grass | moss | tree,P1,общих играбельных слов 4; пулы 7 и 18
 kitchen_tools,table_setting,do_not_pair,derived,4,fork | knife | plate | spoon,P1,общих играбельных слов 4; пулы 26 и 8
-knights_and_armor,weapons_of_the_past,do_not_pair,derived,4,bow | dagger | spear | sword,P1,общих играбельных слов 4; пулы 18 и 16
 knitting_words,sewing_supplies,do_not_pair,derived,4,hook | needle | pattern | yarn,P1,общих играбельных слов 4; пулы 14 и 18
 knitting_words,sewing_words,do_not_pair,derived,4,needle | pattern | stitch | yarn,P1,общих играбельных слов 4; пулы 14 и 18
+landforms,natural_wonders,do_not_pair,derived,4,canyon | glacier | island | islands,P1,общих играбельных слов 4; пулы 27 и 8
 landforms,rock_formations,do_not_pair,derived,4,butte | cave | cliff | mesa,P1,общих играбельных слов 4; пулы 27 и 14
-laundry_day,laundry_things,do_not_pair,derived,4,bleach | detergent | hamper | softener,P1,общих играбельных слов 4; пулы 7 и 16
+landscape_features,ref_nature,do_not_pair,derived,4,cloud | hill | sky | soil,P0,общих играбельных слов 4; пулы 7 и 4
+laundry_day,laundry_things,do_not_pair,derived,4,bleach | detergent | hamper | softener,P1,общих играбельных слов 4; пулы 8 и 16
 leaf_shapes,plant_parts,do_not_pair,derived,4,bud | sprout | stalk | stem,P1,общих играбельных слов 4; пулы 14 и 16
 leafy_greens,salad_ingredients,do_not_pair,derived,4,arugula | cabbage | lettuce | spinach,P1,общих играбельных слов 4; пулы 12 и 25
 leafy_greens,vegetables,do_not_pair,derived,4,cabbage | kale | lettuce | spinach,P1,общих играбельных слов 4; пулы 12 и 26
@@ -523,6 +526,9 @@ racing_sports,track_events,do_not_pair,derived,4,hurdles | marathon | relay | sp
 ranch_words,wild_west,do_not_pair,derived,4,corral | cowboy | horse | lasso,P1,общих играбельных слов 4; пулы 15 и 20
 reading_material,things_made_of_paper,do_not_pair,derived,4,book | map | newspaper | ticket,P1,общих играбельных слов 4; пулы 20 и 16
 red_things,things_with_seeds,do_not_pair,derived,4,apple | cherry | strawberry | tomato,P1,общих играбельных слов 4; пулы 20 и 25
+ref_length_units,things_measured_in_inches,do_not_pair,derived,4,centimeter | inch | meter | mile,P0,общих играбельных слов 4; пулы 4 и 21
+ref_numbers,superstition_numbers,do_not_pair,derived,4,eight | five | four | three,P0,общих играбельных слов 4; пулы 4 и 25
+ref_polygons,shapes,do_not_pair,derived,4,hexagon | octagon | pentagon | square,P0,общих играбельных слов 4; пулы 4 и 21
 root_vegetables,salad_ingredients,do_not_pair,derived,4,beet | carrot | onion | radish,P1,общих играбельных слов 4; пулы 13 и 25
 root_vegetables,soup_ingredients,do_not_pair,derived,4,carrot | garlic | onion | potato,P1,общих играбельных слов 4; пулы 13 и 25
 safety_gear,sports_gear_worn,do_not_pair,derived,4,goggles | harness | helmet | mask,P1,общих играбельных слов 4; пулы 14 и 14
