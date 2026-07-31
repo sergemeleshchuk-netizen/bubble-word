@@ -1,0 +1,215 @@
+{
+  "level_id": 8,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 35,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "categories": [
+    {
+      "key": "rodents",
+      "label": "RODENTS",
+      "words": [
+        {
+          "text": "rat",
+          "kind": "word"
+        },
+        {
+          "text": "chipmunk",
+          "kind": "word"
+        },
+        {
+          "text": "beaver",
+          "kind": "word"
+        },
+        {
+          "text": "squirrel",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pet_store",
+      "label": "PET STORE",
+      "words": [
+        {
+          "text": "rodents",
+          "kind": "meta",
+          "meta_child": "rodents"
+        },
+        {
+          "text": "pets",
+          "kind": "word"
+        },
+        {
+          "text": "cage",
+          "kind": "word"
+        },
+        {
+          "text": "birds",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "joining_actions",
+      "label": "JOINING ACTIONS",
+      "words": [
+        {
+          "text": "tape",
+          "kind": "word"
+        },
+        {
+          "text": "clip",
+          "kind": "word"
+        },
+        {
+          "text": "zip",
+          "kind": "word"
+        },
+        {
+          "text": "glue",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sandwich_fillings",
+      "label": "SANDWICH FILLINGS",
+      "words": [
+        {
+          "text": "mayo",
+          "kind": "word"
+        },
+        {
+          "text": "jelly",
+          "kind": "word"
+        },
+        {
+          "text": "tomato",
+          "kind": "word"
+        },
+        {
+          "text": "onion",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sea_shore_things",
+      "label": "BEACH THINGS",
+      "words": [
+        {
+          "text": "shell",
+          "kind": "word"
+        },
+        {
+          "text": "sand",
+          "kind": "word"
+        },
+        {
+          "text": "cooler",
+          "kind": "word"
+        },
+        {
+          "text": "wave",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tennis_words",
+      "label": "TENNIS WORDS",
+      "words": [
+        {
+          "text": "rally",
+          "kind": "word"
+        },
+        {
+          "text": "fault",
+          "kind": "word"
+        },
+        {
+          "text": "Ace",
+          "kind": "word"
+        },
+        {
+          "text": "net",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "harbor_things",
+      "label": "HARBOR THINGS",
+      "words": [
+        {
+          "text": "anchor",
+          "kind": "word"
+        },
+        {
+          "text": "warehouse",
+          "kind": "word"
+        },
+        {
+          "text": "dock",
+          "kind": "word"
+        },
+        {
+          "text": "rope",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bedroom_things",
+      "label": "BEDROOM THINGS",
+      "words": [
+        {
+          "text": "sheet",
+          "kind": "word"
+        },
+        {
+          "text": "closet",
+          "kind": "word"
+        },
+        {
+          "text": "lamp",
+          "kind": "word"
+        },
+        {
+          "text": "pillow",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "rocks_and_minerals",
+      "label": "ROCKS AND MINERALS",
+      "words": [
+        {
+          "text": "coal",
+          "kind": "word"
+        },
+        {
+          "text": "granite",
+          "kind": "word"
+        },
+        {
+          "text": "limestone",
+          "kind": "word"
+        },
+        {
+          "text": "slate",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

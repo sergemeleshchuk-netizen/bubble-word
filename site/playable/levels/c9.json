@@ -1,56 +1,56 @@
 {
   "level_id": 9,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "sleepwear",
-      "name": "Sleepwear",
+      "id": "vegetables",
+      "name": "Vegetables",
       "words": [
-        "nightgown",
-        "pajamas",
-        "robe",
-        "slippers"
+        "bean",
+        "corn",
+        "potato",
+        "squash"
       ]
     },
     {
-      "id": "wardrobe",
-      "name": "Wardrobe",
+      "id": "grocery-aisles",
+      "name": "Grocery Aisles",
       "words": [
-        "sleepwear",
-        "closet",
-        "hats",
-        "accessories"
+        "vegetables",
+        "frozen",
+        "fruits",
+        "dairy"
       ]
     },
     {
-      "id": "things-that-burn",
-      "name": "Fuels",
+      "id": "metals",
+      "name": "Metals",
       "words": [
-        "diesel",
-        "coal",
-        "gasoline",
-        "ethanol"
+        "copper",
+        "brass",
+        "platinum",
+        "bronze"
       ]
     },
     {
-      "id": "hardware-store",
-      "name": "Hardware Store",
+      "id": "jewelry-box",
+      "name": "Jewelry Box",
       "words": [
-        "fuels",
-        "ladder",
-        "blades",
-        "hose"
+        "metals",
+        "jewelry",
+        "velvet",
+        "gemstones"
       ]
     },
     {
-      "id": "equestrian-words",
-      "name": "Horse Riding",
+      "id": "water-actions",
+      "name": "Water Actions",
       "words": [
-        "jumping",
-        "saddle",
-        "jockey",
-        "tack"
+        "swim",
+        "spray",
+        "flood",
+        "dive"
       ]
     },
     {
@@ -59,48 +59,48 @@
       "words": [
         "weed",
         "seed",
-        "pot",
-        "fertilizer"
+        "harvest",
+        "soil"
       ]
     },
     {
-      "id": "garden-center",
-      "name": "Garden Center",
+      "id": "illnesses",
+      "name": "Illnesses",
       "words": [
-        "soil",
-        "flowers",
-        "trees",
-        "houseplants"
+        "infection",
+        "diseases",
+        "diabetes",
+        "fever"
       ]
     },
     {
-      "id": "christmas-things",
-      "name": "Christmas Things",
+      "id": "weapons-of-the-past",
+      "name": "Old Weapons",
       "words": [
-        "lights",
-        "gift",
-        "carol",
-        "stocking"
+        "sword",
+        "arrow",
+        "bow",
+        "spear"
       ]
     },
     {
-      "id": "word-fast",
-      "name": "Fast Words",
+      "id": "jungle-animals",
+      "name": "Jungle Animals",
       "words": [
-        "fleet",
-        "rapid",
-        "express",
-        "prompt"
+        "tiger",
+        "snake",
+        "frog",
+        "monkey"
       ]
     },
     {
-      "id": "shapes",
-      "name": "Shapes",
+      "id": "wild-west",
+      "name": "Wild West",
       "words": [
-        "circle",
-        "arch",
-        "cylinder",
-        "cone"
+        "boots",
+        "spurs",
+        "marshal",
+        "sheriff"
       ]
     }
   ],

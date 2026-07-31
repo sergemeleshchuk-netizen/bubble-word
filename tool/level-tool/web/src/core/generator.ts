@@ -126,6 +126,8 @@ interface PoolEntry {
   /** сколько approved-слов редкие — потенциал редкости */
   rareCount: number;
   canQuickwin: boolean;
+  /** базовая сложность категории из базы; null, если поле не заполнено */
+  difficulty: number | null;
   /**
    * Узнаваемость категории: медиана частотности четырёх самых частотных годных
    * слов, то есть «насколько понятной эта категория может быть, если брать из неё
@@ -149,6 +151,26 @@ export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGa
   return true;
 }
 
+/**
+ * Категория проходит по базовой сложности — жёстко только на туториале.
+ *
+ * Сложность самой группы живёт в базе (`base_difficulty`), и генератор её не
+ * спрашивал вовсе: на уровень 1 приезжали UNIVERSITIES и LOCKSMITH WORDS при
+ * наличии COLORS, WEATHER WORDS и SCHOOL SUPPLIES. На туториале это запрет,
+ * на остальных уровнях — предпочтение при отборе (см. simpleBonus ниже):
+ * жёсткий фильтр на всю декаду сужал пул так, что к концу декады кончались
+ * мета-пары. Категории без `d` пропускаем: иначе снимок с незаполненным полем
+ * перестал бы генерироваться.
+ */
+export function categoryFitsGates(
+  index: ContentIndex, category: number, gates: DecadeGates | null, isTutorial: boolean,
+): boolean {
+  if (!gates || !isTutorial) return true;
+  const difficulty = index.categories[category].d;
+  if (difficulty === null) return true;
+  return difficulty <= gates.tutorialCategoryDifficultyMax + 1e-9;
+}
+
 function buildPool(
   index: ContentIndex, plan: LevelPlan, c: Constraints, history: PackHistory,
   excluded?: Set<number>,
@@ -161,6 +183,7 @@ function buildPool(
     // curated_only — парное правило вроде OPPOSITES, четвёрка собирается руками;
     // hard_only и blocked — нормальной четвёрки нет вообще.
     if (!index.isAutoUsable(cat)) continue;
+    if (!categoryFitsGates(index, cat, c.gates, plan.role === 'tutorial')) continue;
     if (c.themesExcluded.has(meta.th)) continue;
     if (c.themesAllowed && !c.themesAllowed.has(meta.th)) continue;
 
@@ -191,6 +214,7 @@ function buildPool(
       category: cat,
       key: meta.k,
       theme: meta.th,
+      difficulty: meta.d,
       approved,
       frequentCount,
       rareCount,
@@ -517,9 +541,21 @@ function selectCategories(
       const fitBonus = c.gates
         ? 1.3 * Math.max(0, 1 - Math.max(0, c.gates.zipfMedianTarget - entry.recognizability) / 1.2)
         : 0;
+      /**
+       * Простая категория ценнее сложной, и тем сильнее, чем раньше декада.
+       * `base_difficulty` — оценка самой группы на стороне базы: COLORS 0.1,
+       * UNIVERSITIES 0.4. Цель декады приезжает в гейтах; превышение не
+       * запрещено, но дешевле. Вес 0.5 подобран замером: при 0.2 уровень 1
+       * оставался на категориях d=0.4, при 1.0 блок 1-10 садился на одни и те же
+       * простейшие темы и терял разнообразие (штраф за тему 0.35 переставал
+       * работать).
+       */
+      const simpleBonus = c.gates && entry.difficulty !== null
+        ? 0.5 * Math.max(0, Math.min(1, (c.gates.categoryDifficultyTarget - entry.difficulty) / 0.25))
+        : 0;
       return {
         entry,
-        score: rareBonus + depthBonus + fitBonus - themePenalty
+        score: rareBonus + depthBonus + fitBonus + simpleBonus - themePenalty
           + rng.stableWeight(entry.key) * 0.3,
       };
     })

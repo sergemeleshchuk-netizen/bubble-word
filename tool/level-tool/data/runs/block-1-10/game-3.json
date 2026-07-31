@@ -1,0 +1,170 @@
+{
+  "level_id": 3,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 28,
+    "board_capacity": 24,
+    "move_limit": 29
+  },
+  "categories": [
+    {
+      "key": "storage_containers",
+      "label": "CONTAINERS",
+      "words": [
+        {
+          "text": "bin",
+          "kind": "word"
+        },
+        {
+          "text": "barrel",
+          "kind": "word"
+        },
+        {
+          "text": "bucket",
+          "kind": "word"
+        },
+        {
+          "text": "chest",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_supplies",
+      "label": "SCHOOL SUPPLIES",
+      "words": [
+        {
+          "text": "protractor",
+          "kind": "word"
+        },
+        {
+          "text": "textbook",
+          "kind": "word"
+        },
+        {
+          "text": "pencil",
+          "kind": "word"
+        },
+        {
+          "text": "folder",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "car_parts",
+      "label": "CAR PARTS",
+      "words": [
+        {
+          "text": "mirror",
+          "kind": "word"
+        },
+        {
+          "text": "horn",
+          "kind": "word"
+        },
+        {
+          "text": "battery",
+          "kind": "word"
+        },
+        {
+          "text": "brake",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "footwear",
+      "label": "FOOTWEAR",
+      "words": [
+        {
+          "text": "oxford",
+          "kind": "word"
+        },
+        {
+          "text": "pump",
+          "kind": "word"
+        },
+        {
+          "text": "boot",
+          "kind": "word"
+        },
+        {
+          "text": "flat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pets",
+      "label": "PETS",
+      "words": [
+        {
+          "text": "mouse",
+          "kind": "word"
+        },
+        {
+          "text": "snake",
+          "kind": "word"
+        },
+        {
+          "text": "cat",
+          "kind": "word"
+        },
+        {
+          "text": "pony",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds",
+      "label": "BIRDS",
+      "words": [
+        {
+          "text": "robin",
+          "kind": "word"
+        },
+        {
+          "text": "duck",
+          "kind": "word"
+        },
+        {
+          "text": "turkey",
+          "kind": "word"
+        },
+        {
+          "text": "eagle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "vehicles",
+      "label": "VEHICLES",
+      "words": [
+        {
+          "text": "bike",
+          "kind": "word"
+        },
+        {
+          "text": "boat",
+          "kind": "word"
+        },
+        {
+          "text": "trucks",
+          "kind": "word"
+        },
+        {
+          "text": "Subway",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

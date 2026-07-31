@@ -1,0 +1,837 @@
+{
+  "level_spec": {
+    "levelId": 5,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 12,
+      "wordsPerCategory": 4,
+      "startBubbles": 46,
+      "boardCapacity": 24,
+      "moveFloor": 36,
+      "moveLimit": 45,
+      "moveLimitK": 1.25,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "crimes",
+        "label": "CRIMES",
+        "rule": "Acts that are against the law",
+        "theme": "law",
+        "words": [
+          {
+            "text": "fraud",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "theft",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "littering",
+            "kind": "word",
+            "zipf": 2.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "shoplifting",
+            "kind": "word",
+            "zipf": 2.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 2,
+        "parentKey": "courtroom",
+        "isQuickwin": false
+      },
+      {
+        "key": "courtroom",
+        "label": "COURTROOM",
+        "rule": "What is heard, handed down or worn in a courtroom",
+        "theme": "law",
+        "words": [
+          {
+            "text": "crimes",
+            "kind": "meta",
+            "metaChild": "crimes",
+            "zipf": 4.43,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "jury",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "penalties",
+            "kind": "word",
+            "zipf": 4.08,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.6
+          },
+          {
+            "text": "verdict",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.96,
+            "obviousness": 0.86
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "quiet_places",
+        "isQuickwin": false
+      },
+      {
+        "key": "quiet_places",
+        "label": "QUIET PLACES",
+        "rule": "Places where people are expected to stay quiet",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "courtroom",
+            "kind": "meta",
+            "metaChild": "courtroom",
+            "zipf": 3.58,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "library",
+            "kind": "word",
+            "zipf": 4.86,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "museum",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "church",
+            "kind": "word",
+            "zipf": 5.16,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "cured_meats",
+        "label": "CURED MEATS",
+        "rule": "Meats preserved by curing or smoking",
+        "theme": "world_food",
+        "words": [
+          {
+            "text": "bacon",
+            "kind": "word",
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "sausage",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "bologna",
+            "kind": "word",
+            "zipf": 3.25,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "jerky",
+            "kind": "word",
+            "zipf": 3.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "kitchen_tools",
+        "label": "KITCHEN TOOLS",
+        "rule": "Handheld tools and utensils used to prepare food in a kitchen",
+        "theme": "home",
+        "words": [
+          {
+            "text": "pot",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "pan",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "fork",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "opener",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "insects",
+        "label": "BUGS",
+        "rule": "Insects and other small bugs an average person recognizes",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "spider",
+            "kind": "word",
+            "zipf": 4.25,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "bee",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "tick",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "butterfly",
+            "kind": "word",
+            "zipf": 3.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "christmas_things",
+        "label": "CHRISTMAS THINGS",
+        "rule": "Things associated with an American Christmas",
+        "theme": "time",
+        "words": [
+          {
+            "text": "carol",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "lights",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "gift",
+            "kind": "word",
+            "zipf": 4.78,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "tree",
+            "kind": "word",
+            "zipf": 4.85,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "school_subjects",
+        "label": "SCHOOL SUBJECTS",
+        "rule": "Subjects taught in an American school",
+        "theme": "education",
+        "words": [
+          {
+            "text": "physics",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "economics",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "biology",
+            "kind": "word",
+            "zipf": 4.22,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "math",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "family_members",
+        "label": "FAMILY MEMBERS",
+        "rule": "Words for members of a family",
+        "theme": "people",
+        "words": [
+          {
+            "text": "uncle",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "grandfather",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cousin",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "twin",
+            "kind": "word",
+            "zipf": 4.34,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "pie_ingredients",
+        "label": "PIE INGREDIENTS",
+        "rule": "Ingredients commonly used in pie fillings or pie preparation",
+        "theme": "food",
+        "words": [
+          {
+            "text": "chocolate",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "salt",
+            "kind": "word",
+            "zipf": 4.6,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "vanilla",
+            "kind": "word",
+            "zipf": 3.84,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "flour",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "cleaning_supplies",
+        "label": "CLEANING SUPPLIES",
+        "rule": "Tools and products used to clean a house",
+        "theme": "home",
+        "words": [
+          {
+            "text": "polish",
+            "kind": "word",
+            "zipf": 4.29,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "brush",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "vacuum",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "soap",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "musical_instruments",
+        "label": "MUSICAL INSTRUMENTS",
+        "rule": "Instruments played to produce music",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "piano",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "organ",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "drum",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "guitar",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+    "level_spec_hash": "398b8f6d63f90eb12fd15d80a669d48c20c4e57cc79d7f0704b11e03090e48df",
+    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 5,
+    "position": 5,
+    "role": "peak",
+    "categoryCount": 12,
+    "metaCount": 1,
+    "metaDepthTarget": 2,
+    "rareTarget": 2,
+    "trapTarget": 2,
+    "chainCount": 0,
+    "targetDifficulty": [
+      8,
+      9
+    ],
+    "targetInterest": [
+      6.5,
+      8
+    ],
+    "moveLimitK": 1.25
+  },
+  "scoring": {
+    "difficulty": 6.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 4.1814,
+        "редкие слова (zipf < 3)": 0.1894,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.44,
+        "глубина мета сверх 1 (объявлено)": 0.55,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.9
+      },
+      "totals": {
+        "base": 4.3935,
+        "declared": 0.39,
+        "semantic": 0.8,
+        "mechanical": 0.9
+      }
+    },
+    "difficulty_explanation": [
+      "46 пузырей на старте при 12 категориях",
+      "2 редких слов, из них 0 очень редких",
+      "2 мета-связей, максимальная глубина 2. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "9 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 45 при минимуме 36 (K = 1.25)"
+    ],
+    "interest": 8,
+    "interest_breakdown": {
+      "clarity": 2.32,
+      "variety": 2.5,
+      "aha": 0.9,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.32: узнаваемых слов 100%, средняя очевидность связи 0.84",
+      "Variety 2.50: 5 типов связи, 10 тематических сфер",
+      "Aha 0.90: 0 честных ловушек, 2 мета-связей, глубина 2",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 12 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (49 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 2"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 2, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 46, по формуле 4 × 12 − 2 = 46"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 45, минимум мерджей 36, K = 1.25 → ожидалось 45"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 9: cured_meats, kitchen_tools, insects, christmas_things, school_subjects, family_members, pie_ingredients, cleaning_supplies, musical_instruments"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.24 (цель декады 4.35), p25 4.03 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 2, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 50.0% уровня (24 из 48), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 49
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "12 категорий, 2 мета-связей, 2 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

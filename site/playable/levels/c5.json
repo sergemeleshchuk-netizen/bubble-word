@@ -1,126 +1,126 @@
 {
   "level_id": 5,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "bones",
-      "name": "Bones",
+      "id": "crimes",
+      "name": "Crimes",
       "words": [
-        "skull",
-        "spine",
-        "vertebra",
-        "rib"
+        "fraud",
+        "theft",
+        "littering",
+        "shoplifting"
       ]
     },
     {
-      "id": "emergency-room",
-      "name": "Emergency Room",
+      "id": "courtroom",
+      "name": "Courtroom",
       "words": [
-        "bones",
-        "injuries",
-        "symptoms",
-        "triage"
-      ]
-    },
-    {
-      "id": "lab-equipment",
-      "name": "Lab Equipment",
-      "words": [
-        "magnet",
-        "burner",
-        "microscope",
-        "flask"
-      ]
-    },
-    {
-      "id": "currencies",
-      "name": "Currencies",
-      "words": [
-        "pound",
-        "dollar",
-        "euro",
-        "won"
-      ]
-    },
-    {
-      "id": "locksmith-words",
-      "name": "Locks & Keys",
-      "words": [
-        "lock",
-        "combination",
-        "bolt",
-        "safe"
-      ]
-    },
-    {
-      "id": "baseball-words",
-      "name": "Baseball Words",
-      "words": [
-        "triple",
-        "pitch",
-        "strike",
-        "lineup"
-      ]
-    },
-    {
-      "id": "courtroom-things",
-      "name": "Courtroom Things",
-      "words": [
+        "crimes",
         "jury",
-        "lawyer",
-        "oath",
-        "witness"
+        "penalties",
+        "verdict"
       ]
     },
     {
-      "id": "monsters",
-      "name": "Scary Creatures",
+      "id": "quiet-places",
+      "name": "Quiet Places",
       "words": [
-        "ghost",
-        "zombie",
-        "vampire",
-        "monster"
+        "courtroom",
+        "library",
+        "museum",
+        "church"
       ]
     },
     {
-      "id": "sea-shore-things",
-      "name": "Beach Things",
+      "id": "cured-meats",
+      "name": "Cured Meats",
       "words": [
-        "shell",
-        "sand",
-        "tide",
-        "wave"
+        "bacon",
+        "sausage",
+        "bologna",
+        "jerky"
       ]
     },
     {
-      "id": "phone-words",
-      "name": "Phone Words",
+      "id": "kitchen-tools",
+      "name": "Kitchen Tools",
       "words": [
-        "notification",
-        "app",
-        "camera",
-        "headphones"
+        "pot",
+        "pan",
+        "fork",
+        "opener"
       ]
     },
     {
-      "id": "hot-drinks",
-      "name": "Hot Drinks",
+      "id": "insects",
+      "name": "Bugs",
       "words": [
-        "coffee",
-        "tea",
-        "cocoa",
-        "espresso"
+        "spider",
+        "bee",
+        "tick",
+        "butterfly"
       ]
     },
     {
-      "id": "driving-actions",
-      "name": "Driving Actions",
+      "id": "christmas-things",
+      "name": "Christmas Things",
       "words": [
-        "reverse",
-        "yield",
-        "shift",
-        "stall"
+        "carol",
+        "lights",
+        "gift",
+        "tree"
+      ]
+    },
+    {
+      "id": "school-subjects",
+      "name": "School Subjects",
+      "words": [
+        "physics",
+        "economics",
+        "biology",
+        "math"
+      ]
+    },
+    {
+      "id": "family-members",
+      "name": "Family Members",
+      "words": [
+        "uncle",
+        "grandfather",
+        "cousin",
+        "twin"
+      ]
+    },
+    {
+      "id": "pie-ingredients",
+      "name": "Pie Ingredients",
+      "words": [
+        "chocolate",
+        "salt",
+        "vanilla",
+        "flour"
+      ]
+    },
+    {
+      "id": "cleaning-supplies",
+      "name": "Cleaning Supplies",
+      "words": [
+        "polish",
+        "brush",
+        "vacuum",
+        "soap"
+      ]
+    },
+    {
+      "id": "musical-instruments",
+      "name": "Musical Instruments",
+      "words": [
+        "piano",
+        "organ",
+        "drum",
+        "guitar"
       ]
     }
   ],

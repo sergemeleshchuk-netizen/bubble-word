@@ -1,76 +1,76 @@
 {
   "level_id": 3,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "elements",
-      "name": "Chemical Elements",
+      "id": "storage-containers",
+      "name": "Containers",
       "words": [
-        "carbon",
-        "oxygen",
-        "hydrogen",
-        "nitrogen"
+        "bin",
+        "barrel",
+        "bucket",
+        "chest"
       ]
     },
     {
-      "id": "kitchen-tools",
-      "name": "Kitchen Tools",
+      "id": "school-supplies",
+      "name": "School Supplies",
       "words": [
-        "pot",
-        "pan",
-        "spoon",
-        "plate"
+        "protractor",
+        "textbook",
+        "pencil",
+        "folder"
       ]
     },
     {
-      "id": "dishes-and-glassware",
-      "name": "Dishes",
+      "id": "car-parts",
+      "name": "Car Parts",
       "words": [
-        "dish",
-        "bowl",
-        "bottle",
-        "jar"
+        "mirror",
+        "horn",
+        "battery",
+        "brake"
       ]
     },
     {
-      "id": "cleaning-actions",
-      "name": "Cleaning Actions",
+      "id": "footwear",
+      "name": "Footwear",
       "words": [
-        "polish",
-        "wash",
-        "wipe",
-        "vacuum"
+        "oxford",
+        "pump",
+        "boot",
+        "flat"
       ]
     },
     {
-      "id": "weapons-of-the-past",
-      "name": "Old Weapons",
+      "id": "pets",
+      "name": "Pets",
       "words": [
-        "bow",
-        "sword",
-        "dagger",
-        "axe"
+        "mouse",
+        "snake",
+        "cat",
+        "pony"
       ]
     },
     {
-      "id": "furniture",
-      "name": "Furniture",
+      "id": "birds",
+      "name": "Birds",
       "words": [
-        "desk",
-        "bench",
-        "couch",
-        "chair"
+        "robin",
+        "duck",
+        "turkey",
+        "eagle"
       ]
     },
     {
-      "id": "noise-adjectives",
-      "name": "Volume Words",
+      "id": "vehicles",
+      "name": "Vehicles",
       "words": [
-        "loud",
-        "silent",
-        "deafening",
-        "quiet"
+        "bike",
+        "boat",
+        "trucks",
+        "subway"
       ]
     }
   ],

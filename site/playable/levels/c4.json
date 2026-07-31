@@ -1,96 +1,96 @@
 {
   "level_id": 4,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "evergreens",
-      "name": "Evergreen Trees",
+      "id": "color-words-advanced",
+      "name": "Shades Of Color",
       "words": [
-        "pine",
-        "holly",
-        "cedar",
-        "fir"
+        "olive",
+        "amber",
+        "coral",
+        "ivory"
       ]
     },
     {
-      "id": "tennis-words",
-      "name": "Tennis Words",
+      "id": "furniture",
+      "name": "Furniture",
       "words": [
-        "deuce",
-        "serve",
-        "baseline",
-        "racket"
+        "bench",
+        "couch",
+        "sofa",
+        "wardrobe"
       ]
     },
     {
-      "id": "temperature-words",
-      "name": "Temperature Words",
+      "id": "hot-drinks",
+      "name": "Hot Drinks",
       "words": [
-        "warm",
-        "freezing",
-        "mild",
-        "boiling"
+        "tea",
+        "coffee",
+        "cocoa",
+        "cider"
       ]
     },
     {
-      "id": "sleep-and-rest",
-      "name": "Sleep Words",
+      "id": "classroom-things",
+      "name": "Classroom Things",
       "words": [
-        "nightmare",
-        "nap",
-        "dream",
-        "pillow"
+        "globe",
+        "desk",
+        "map",
+        "chair"
       ]
     },
     {
-      "id": "airport-words",
-      "name": "Airport Words",
+      "id": "jewelry",
+      "name": "Jewelry",
       "words": [
-        "terminal",
-        "pilot",
-        "customs",
-        "airlines"
+        "chain",
+        "charm",
+        "ring",
+        "stud"
       ]
     },
     {
-      "id": "theater-words",
-      "name": "Theater Words",
+      "id": "team-sports",
+      "name": "Team Sports",
       "words": [
-        "script",
-        "spotlight",
-        "curtain",
-        "rehearsal"
+        "rugby",
+        "baseball",
+        "hockey",
+        "cricket"
       ]
     },
     {
-      "id": "cutting-tools",
-      "name": "Cutting Tools",
+      "id": "baby-things",
+      "name": "Baby Things",
       "words": [
-        "knife",
-        "blade",
-        "razor",
-        "scissors"
+        "swing",
+        "formula",
+        "bib",
+        "blanket"
       ]
     },
     {
-      "id": "fruits",
-      "name": "Fruits",
+      "id": "medical-jobs",
+      "name": "Medical Jobs",
       "words": [
-        "cherry",
-        "banana",
-        "orange",
-        "lemon"
+        "nurse",
+        "surgeon",
+        "therapist",
+        "dentist"
       ]
     },
     {
-      "id": "restaurant-words",
-      "name": "Restaurant Words",
+      "id": "pizza-toppings",
+      "name": "Pizza Toppings",
       "words": [
-        "chef",
-        "reservation",
-        "booth",
-        "menu"
+        "egg",
+        "pepper",
+        "chicken",
+        "ham"
       ]
     }
   ],

@@ -1,0 +1,193 @@
+{
+  "level_id": 2,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 31,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "categories": [
+    {
+      "key": "trees",
+      "label": "TREES",
+      "words": [
+        {
+          "text": "oak",
+          "kind": "word"
+        },
+        {
+          "text": "ash",
+          "kind": "word"
+        },
+        {
+          "text": "pine",
+          "kind": "word"
+        },
+        {
+          "text": "palm",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "garden_center",
+      "label": "GARDEN CENTER",
+      "words": [
+        {
+          "text": "trees",
+          "kind": "meta",
+          "meta_child": "trees"
+        },
+        {
+          "text": "soil",
+          "kind": "word"
+        },
+        {
+          "text": "flowers",
+          "kind": "word"
+        },
+        {
+          "text": "seedling",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "airlines",
+      "label": "AIRLINES",
+      "words": [
+        {
+          "text": "Alaska",
+          "kind": "word"
+        },
+        {
+          "text": "Frontier",
+          "kind": "word"
+        },
+        {
+          "text": "Southwest",
+          "kind": "word"
+        },
+        {
+          "text": "Spirit",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
+      "words": [
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "tape",
+          "kind": "word"
+        },
+        {
+          "text": "calendar",
+          "kind": "word"
+        },
+        {
+          "text": "label",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hand_tools",
+      "label": "HAND TOOLS",
+      "words": [
+        {
+          "text": "hammer",
+          "kind": "word"
+        },
+        {
+          "text": "drill",
+          "kind": "word"
+        },
+        {
+          "text": "knife",
+          "kind": "word"
+        },
+        {
+          "text": "Square",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "shapes",
+      "label": "SHAPES",
+      "words": [
+        {
+          "text": "circle",
+          "kind": "word"
+        },
+        {
+          "text": "triangle",
+          "kind": "word"
+        },
+        {
+          "text": "sphere",
+          "kind": "word"
+        },
+        {
+          "text": "cylinder",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "face_parts",
+      "label": "FACE PARTS",
+      "words": [
+        {
+          "text": "ear",
+          "kind": "word"
+        },
+        {
+          "text": "temple",
+          "kind": "word"
+        },
+        {
+          "text": "lip",
+          "kind": "word"
+        },
+        {
+          "text": "nose",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dairy_products",
+      "label": "DAIRY PRODUCTS",
+      "words": [
+        {
+          "text": "butter",
+          "kind": "word"
+        },
+        {
+          "text": "cheese",
+          "kind": "word"
+        },
+        {
+          "text": "cream",
+          "kind": "word"
+        },
+        {
+          "text": "milk",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

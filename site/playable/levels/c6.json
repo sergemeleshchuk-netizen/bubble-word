@@ -1,76 +1,76 @@
 {
   "level_id": 6,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "nature-surnames",
-      "name": "Surnames From Trades",
+      "id": "girls-names",
+      "name": "Girls Names",
       "words": [
-        "miller",
-        "turner",
-        "potter",
-        "taylor"
+        "charlotte",
+        "grace",
+        "elizabeth",
+        "rachel"
       ]
     },
     {
-      "id": "tv-words",
-      "name": "Television Words",
+      "id": "town-places",
+      "name": "Town Places",
       "words": [
-        "ratings",
-        "remote",
-        "streaming",
-        "broadcast"
+        "mall",
+        "stadium",
+        "theater",
+        "pharmacy"
       ]
     },
     {
-      "id": "movie-genres",
-      "name": "Movie Genres",
+      "id": "body-parts",
+      "name": "Body Parts",
       "words": [
-        "horror",
-        "documentary",
-        "comedy",
-        "drama"
+        "knee",
+        "stomach",
+        "finger",
+        "hip"
       ]
     },
     {
-      "id": "feelings",
-      "name": "Feelings",
+      "id": "clothing-items",
+      "name": "Clothing Items",
       "words": [
-        "lonely",
-        "grateful",
-        "frustrated",
-        "excited"
+        "jacket",
+        "pants",
+        "coat",
+        "skirt"
       ]
     },
     {
-      "id": "things-measured-in-inches",
-      "name": "Measuring Units",
+      "id": "school-places",
+      "name": "School Places",
       "words": [
-        "inch",
-        "ton",
-        "gram",
-        "mile"
+        "gym",
+        "lab",
+        "bathroom",
+        "classroom"
       ]
     },
     {
-      "id": "team-sports",
-      "name": "Team Sports",
+      "id": "party-things",
+      "name": "Party Things",
       "words": [
-        "cricket",
-        "basketball",
-        "rugby",
-        "hockey"
+        "candy",
+        "favor",
+        "banner",
+        "invitation"
       ]
     },
     {
-      "id": "fruit-trees",
-      "name": "Fruit Trees",
+      "id": "directions",
+      "name": "Directions",
       "words": [
-        "fig",
-        "olive",
-        "lime",
-        "apple"
+        "beside",
+        "forward",
+        "north",
+        "east"
       ]
     }
   ],

@@ -1,0 +1,192 @@
+{
+  "level_id": 10,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 32,
+    "board_capacity": 24,
+    "move_limit": 36
+  },
+  "categories": [
+    {
+      "key": "internal_organs",
+      "label": "INTERNAL ORGANS",
+      "words": [
+        {
+          "text": "lung",
+          "kind": "word"
+        },
+        {
+          "text": "kidney",
+          "kind": "word"
+        },
+        {
+          "text": "womb",
+          "kind": "word"
+        },
+        {
+          "text": "colon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "meats",
+      "label": "MEATS",
+      "words": [
+        {
+          "text": "beef",
+          "kind": "word"
+        },
+        {
+          "text": "lamb",
+          "kind": "word"
+        },
+        {
+          "text": "pork",
+          "kind": "word"
+        },
+        {
+          "text": "liver",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "art_tools",
+      "label": "ART TOOLS",
+      "words": [
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "canvas",
+          "kind": "word"
+        },
+        {
+          "text": "roller",
+          "kind": "word"
+        },
+        {
+          "text": "knife",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "phone_words",
+      "label": "PHONE WORDS",
+      "words": [
+        {
+          "text": "alarm",
+          "kind": "word"
+        },
+        {
+          "text": "speaker",
+          "kind": "word"
+        },
+        {
+          "text": "app",
+          "kind": "word"
+        },
+        {
+          "text": "signal",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "livestock",
+      "label": "LIVESTOCK",
+      "words": [
+        {
+          "text": "cow",
+          "kind": "word"
+        },
+        {
+          "text": "goat",
+          "kind": "word"
+        },
+        {
+          "text": "sheep",
+          "kind": "word"
+        },
+        {
+          "text": "duck",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "breakfast_foods",
+      "label": "BREAKFAST FOODS",
+      "words": [
+        {
+          "text": "egg",
+          "kind": "word"
+        },
+        {
+          "text": "danish",
+          "kind": "word"
+        },
+        {
+          "text": "jam",
+          "kind": "word"
+        },
+        {
+          "text": "toast",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "gym_class_things",
+      "label": "GYM CLASS",
+      "words": [
+        {
+          "text": "uniform",
+          "kind": "word"
+        },
+        {
+          "text": "locker",
+          "kind": "word"
+        },
+        {
+          "text": "whistle",
+          "kind": "word"
+        },
+        {
+          "text": "stopwatch",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "circus_words",
+      "label": "CIRCUS WORDS",
+      "words": [
+        {
+          "text": "elephant",
+          "kind": "word"
+        },
+        {
+          "text": "clown",
+          "kind": "word"
+        },
+        {
+          "text": "tent",
+          "kind": "word"
+        },
+        {
+          "text": "cannon",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

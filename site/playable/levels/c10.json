@@ -1,86 +1,86 @@
 {
   "level_id": 10,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "military-words",
-      "name": "Military Words",
+      "id": "internal-organs",
+      "name": "Internal Organs",
       "words": [
-        "squad",
-        "rank",
-        "formation",
-        "base"
+        "lung",
+        "kidney",
+        "womb",
+        "colon"
       ]
     },
     {
-      "id": "school-supplies",
-      "name": "School Supplies",
+      "id": "meats",
+      "name": "Meats",
       "words": [
-        "backpack",
+        "beef",
+        "lamb",
+        "pork",
+        "liver"
+      ]
+    },
+    {
+      "id": "art-tools",
+      "name": "Art Tools",
+      "words": [
         "pen",
-        "notebook",
-        "folder"
+        "canvas",
+        "roller",
+        "knife"
       ]
     },
     {
-      "id": "camping-and-outdoors",
-      "name": "Outdoor Activities",
+      "id": "phone-words",
+      "name": "Phone Words",
       "words": [
-        "fishing",
-        "canoeing",
-        "climbing",
-        "skiing"
+        "alarm",
+        "speaker",
+        "app",
+        "signal"
       ]
     },
     {
-      "id": "fabric-types",
-      "name": "Fabric Types",
+      "id": "livestock",
+      "name": "Livestock",
       "words": [
-        "cotton",
-        "velvet",
-        "silk",
-        "felt"
+        "cow",
+        "goat",
+        "sheep",
+        "duck"
       ]
     },
     {
-      "id": "weather-actions",
-      "name": "Weather Actions",
+      "id": "breakfast-foods",
+      "name": "Breakfast Foods",
       "words": [
-        "pour",
-        "melt",
-        "hail",
-        "freeze"
+        "egg",
+        "danish",
+        "jam",
+        "toast"
       ]
     },
     {
-      "id": "destroying-actions",
-      "name": "Breaking Actions",
+      "id": "gym-class-things",
+      "name": "Gym Class",
       "words": [
-        "tear",
-        "crush",
-        "smash",
-        "burst"
+        "uniform",
+        "locker",
+        "whistle",
+        "stopwatch"
       ]
     },
     {
-      "id": "light-sources",
-      "name": "Light Sources",
+      "id": "circus-words",
+      "name": "Circus Words",
       "words": [
-        "laser",
-        "candle",
-        "lamp",
-        "bulb"
-      ]
-    },
-    {
-      "id": "royalty",
-      "name": "Royal Words",
-      "words": [
-        "princess",
-        "knight",
-        "throne",
-        "empire"
+        "elephant",
+        "clown",
+        "tent",
+        "cannon"
       ]
     }
   ],

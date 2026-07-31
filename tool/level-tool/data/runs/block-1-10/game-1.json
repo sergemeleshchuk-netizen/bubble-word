@@ -1,0 +1,126 @@
+{
+  "level_id": 1,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 5,
+    "words_per_category": 4,
+    "start_bubbles": 20,
+    "board_capacity": 24,
+    "move_limit": null
+  },
+  "categories": [
+    {
+      "key": "dishes_and_glassware",
+      "label": "DISHES",
+      "words": [
+        {
+          "text": "plate",
+          "kind": "word"
+        },
+        {
+          "text": "bottle",
+          "kind": "word"
+        },
+        {
+          "text": "jar",
+          "kind": "word"
+        },
+        {
+          "text": "dish",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruits",
+      "label": "FRUITS",
+      "words": [
+        {
+          "text": "orange",
+          "kind": "word"
+        },
+        {
+          "text": "cherry",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        },
+        {
+          "text": "apple",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_animals",
+      "label": "FARM ANIMALS",
+      "words": [
+        {
+          "text": "sheep",
+          "kind": "word"
+        },
+        {
+          "text": "bull",
+          "kind": "word"
+        },
+        {
+          "text": "pig",
+          "kind": "word"
+        },
+        {
+          "text": "rabbit",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "months",
+      "label": "MONTHS",
+      "words": [
+        {
+          "text": "November",
+          "kind": "word"
+        },
+        {
+          "text": "October",
+          "kind": "word"
+        },
+        {
+          "text": "September",
+          "kind": "word"
+        },
+        {
+          "text": "August",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_words",
+      "label": "WEATHER WORDS",
+      "words": [
+        {
+          "text": "sunshine",
+          "kind": "word"
+        },
+        {
+          "text": "lightning",
+          "kind": "word"
+        },
+        {
+          "text": "thunder",
+          "kind": "word"
+        },
+        {
+          "text": "shower",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "level_id": 7,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 40,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "categories": [
+    {
+      "key": "ice_cream_flavors",
+      "label": "ICE CREAM",
+      "words": [
+        {
+          "text": "banana",
+          "kind": "word"
+        },
+        {
+          "text": "mint",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        },
+        {
+          "text": "peach",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bathroom_items",
+      "label": "BATHROOM ITEMS",
+      "words": [
+        {
+          "text": "tissue",
+          "kind": "word"
+        },
+        {
+          "text": "toilet",
+          "kind": "word"
+        },
+        {
+          "text": "sink",
+          "kind": "word"
+        },
+        {
+          "text": "curtain",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "art_class_things",
+      "label": "ART CLASS",
+      "words": [
+        {
+          "text": "patterns",
+          "kind": "word"
+        },
+        {
+          "text": "clay",
+          "kind": "word"
+        },
+        {
+          "text": "colors",
+          "kind": "word"
+        },
+        {
+          "text": "shapes",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "camping_and_outdoors",
+      "label": "OUTDOOR ACTIVITIES",
+      "words": [
+        {
+          "text": "fishing",
+          "kind": "word"
+        },
+        {
+          "text": "hunting",
+          "kind": "word"
+        },
+        {
+          "text": "camping",
+          "kind": "word"
+        },
+        {
+          "text": "climbing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "building_materials",
+      "label": "BUILDING MATERIALS",
+      "words": [
+        {
+          "text": "concrete",
+          "kind": "word"
+        },
+        {
+          "text": "vinyl",
+          "kind": "word"
+        },
+        {
+          "text": "brick",
+          "kind": "word"
+        },
+        {
+          "text": "aluminum",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "injuries",
+      "label": "INJURIES",
+      "words": [
+        {
+          "text": "burn",
+          "kind": "word"
+        },
+        {
+          "text": "strain",
+          "kind": "word"
+        },
+        {
+          "text": "cut",
+          "kind": "word"
+        },
+        {
+          "text": "fracture",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "things_in_a_garage",
+      "label": "GARAGE THINGS",
+      "words": [
+        {
+          "text": "tire",
+          "kind": "word"
+        },
+        {
+          "text": "toolbox",
+          "kind": "word"
+        },
+        {
+          "text": "paint",
+          "kind": "word"
+        },
+        {
+          "text": "shelf",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "home_rooms",
+      "label": "HOUSE ROOMS",
+      "words": [
+        {
+          "text": "basement",
+          "kind": "word"
+        },
+        {
+          "text": "bedroom",
+          "kind": "word"
+        },
+        {
+          "text": "garage",
+          "kind": "word"
+        },
+        {
+          "text": "den",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "taste_words",
+      "label": "TASTE WORDS",
+      "words": [
+        {
+          "text": "bitter",
+          "kind": "word"
+        },
+        {
+          "text": "sour",
+          "kind": "word"
+        },
+        {
+          "text": "mild",
+          "kind": "word"
+        },
+        {
+          "text": "rich",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "flying_animals",
+      "label": "FLYING ANIMALS",
+      "words": [
+        {
+          "text": "bat",
+          "kind": "word"
+        },
+        {
+          "text": "swan",
+          "kind": "word"
+        },
+        {
+          "text": "goose",
+          "kind": "word"
+        },
+        {
+          "text": "hawk",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

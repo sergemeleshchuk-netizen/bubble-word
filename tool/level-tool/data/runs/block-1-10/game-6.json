@@ -1,0 +1,170 @@
+{
+  "level_id": 6,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 28,
+    "board_capacity": 24,
+    "move_limit": 34
+  },
+  "categories": [
+    {
+      "key": "girls_names",
+      "label": "GIRLS NAMES",
+      "words": [
+        {
+          "text": "Charlotte",
+          "kind": "word"
+        },
+        {
+          "text": "Grace",
+          "kind": "word"
+        },
+        {
+          "text": "Elizabeth",
+          "kind": "word"
+        },
+        {
+          "text": "Rachel",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "town_places",
+      "label": "TOWN PLACES",
+      "words": [
+        {
+          "text": "mall",
+          "kind": "word"
+        },
+        {
+          "text": "stadium",
+          "kind": "word"
+        },
+        {
+          "text": "theater",
+          "kind": "word"
+        },
+        {
+          "text": "pharmacy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "body_parts",
+      "label": "BODY PARTS",
+      "words": [
+        {
+          "text": "knee",
+          "kind": "word"
+        },
+        {
+          "text": "stomach",
+          "kind": "word"
+        },
+        {
+          "text": "finger",
+          "kind": "word"
+        },
+        {
+          "text": "hip",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "clothing_items",
+      "label": "CLOTHING ITEMS",
+      "words": [
+        {
+          "text": "jacket",
+          "kind": "word"
+        },
+        {
+          "text": "pants",
+          "kind": "word"
+        },
+        {
+          "text": "coat",
+          "kind": "word"
+        },
+        {
+          "text": "skirt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_places",
+      "label": "SCHOOL PLACES",
+      "words": [
+        {
+          "text": "gym",
+          "kind": "word"
+        },
+        {
+          "text": "lab",
+          "kind": "word"
+        },
+        {
+          "text": "bathroom",
+          "kind": "word"
+        },
+        {
+          "text": "classroom",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "party_things",
+      "label": "PARTY THINGS",
+      "words": [
+        {
+          "text": "candy",
+          "kind": "word"
+        },
+        {
+          "text": "favor",
+          "kind": "word"
+        },
+        {
+          "text": "banner",
+          "kind": "word"
+        },
+        {
+          "text": "invitation",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "directions",
+      "label": "DIRECTIONS",
+      "words": [
+        {
+          "text": "beside",
+          "kind": "word"
+        },
+        {
+          "text": "forward",
+          "kind": "word"
+        },
+        {
+          "text": "north",
+          "kind": "word"
+        },
+        {
+          "text": "east",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

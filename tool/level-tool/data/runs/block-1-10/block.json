@@ -1,0 +1,170 @@
+{
+  "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+  "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+  "generator_version": "gen-1.0",
+  "config": {
+    "levelRange": [
+      1,
+      10
+    ],
+    "categoryCorridor": [
+      5,
+      12
+    ],
+    "spikePositions": [
+      5
+    ],
+    "recoveryPositions": [
+      6
+    ],
+    "rarityRange": [
+      0,
+      2
+    ],
+    "maxMetaDepth": 2,
+    "allowedModifiers": [],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 5,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "final-03",
+    "categoryPlan": [
+      5,
+      8,
+      7,
+      9,
+      12,
+      7,
+      10,
+      9,
+      10,
+      8
+    ],
+    "metaPlan": [
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      2,
+      0
+    ],
+    "decadeGates": {
+      "categoryDifficultyTarget": 0.35,
+      "tutorialCategoryDifficultyMax": 0.2,
+      "maxTokens": 1,
+      "maxWordLen": 12,
+      "minProperNounZipf": 3.2,
+      "zipfMedianTarget": 4.35,
+      "zipfP25Target": 3.8,
+      "visibleShareMin": 0.5,
+      "repeatRange": [
+        0,
+        4
+      ],
+      "tutorialFirstLevel": true
+    }
+  },
+  "rhythm": {
+    "passed": true,
+    "issues": []
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "role": "tutorial",
+      "difficulty": 1.5,
+      "interest": 5,
+      "level_spec_hash": "59a0b8e5c60f129d76e4f4486ffd68ce9b29d399a2b00e1fe685c08434467225",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 2,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 6.5,
+      "level_spec_hash": "11814e052bb1ef3961a934f9edd301d55bc5993d3f6494566e1b58bde5f10d24",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 3,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 6,
+      "level_spec_hash": "2ba6fc6036b4aafd7fcd21ec6b21ec8d289a5a81bf93993a4a7aa7ccb5e62663",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 4,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6,
+      "level_spec_hash": "9ec46e2207958963da96816439a62d15a3949cff39ec3fdb98cf612f7b8cea2d",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 5,
+      "role": "peak",
+      "difficulty": 6.5,
+      "interest": 8,
+      "level_spec_hash": "398b8f6d63f90eb12fd15d80a669d48c20c4e57cc79d7f0704b11e03090e48df",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 6,
+      "role": "recovery",
+      "difficulty": 2.5,
+      "interest": 6.5,
+      "level_spec_hash": "f5a9029134d2ea72eed95e9da15d8af39439cb1f56bcdc3748621afa0859ce44",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 7,
+      "role": "growth",
+      "difficulty": 5,
+      "interest": 7,
+      "level_spec_hash": "9b8eb6f9c03c9a84a1aae701ff1f7b93c7b6b4ecbde4b558ef8ec8dcec1c9ef4",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 8,
+      "role": "growth",
+      "difficulty": 4.5,
+      "interest": 6.5,
+      "level_spec_hash": "a287aefbef943e017f4db973a66c6b5605aad42bbc0cf655ccb384a39111f8a4",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 9,
+      "role": "growth",
+      "difficulty": 5,
+      "interest": 7,
+      "level_spec_hash": "ac6cd37aa1891291802cddec9997a36f7325285e27fab5a25f5000e973bb799f",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 10,
+      "role": "exit",
+      "difficulty": 3,
+      "interest": 6.5,
+      "level_spec_hash": "771c74693d78ef178dbb74a489cbd663b017200b2845031c2461fe3fbd449dc3",
+      "validation_passed": true,
+      "solution_count": 1
+    }
+  ],
+  "failures": []
+}

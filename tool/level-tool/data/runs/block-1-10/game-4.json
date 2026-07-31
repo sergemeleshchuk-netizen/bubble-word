@@ -1,0 +1,214 @@
+{
+  "level_id": 4,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 36,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "categories": [
+    {
+      "key": "color_words_advanced",
+      "label": "SHADES OF COLOR",
+      "words": [
+        {
+          "text": "olive",
+          "kind": "word"
+        },
+        {
+          "text": "amber",
+          "kind": "word"
+        },
+        {
+          "text": "coral",
+          "kind": "word"
+        },
+        {
+          "text": "ivory",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "couch",
+          "kind": "word"
+        },
+        {
+          "text": "sofa",
+          "kind": "word"
+        },
+        {
+          "text": "wardrobe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "cocoa",
+          "kind": "word"
+        },
+        {
+          "text": "cider",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "classroom_things",
+      "label": "CLASSROOM THINGS",
+      "words": [
+        {
+          "text": "globe",
+          "kind": "word"
+        },
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "map",
+          "kind": "word"
+        },
+        {
+          "text": "chair",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jewelry",
+      "label": "JEWELRY",
+      "words": [
+        {
+          "text": "chain",
+          "kind": "word"
+        },
+        {
+          "text": "charm",
+          "kind": "word"
+        },
+        {
+          "text": "ring",
+          "kind": "word"
+        },
+        {
+          "text": "stud",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "team_sports",
+      "label": "TEAM SPORTS",
+      "words": [
+        {
+          "text": "rugby",
+          "kind": "word"
+        },
+        {
+          "text": "baseball",
+          "kind": "word"
+        },
+        {
+          "text": "hockey",
+          "kind": "word"
+        },
+        {
+          "text": "cricket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baby_things",
+      "label": "BABY THINGS",
+      "words": [
+        {
+          "text": "swing",
+          "kind": "word"
+        },
+        {
+          "text": "formula",
+          "kind": "word"
+        },
+        {
+          "text": "bib",
+          "kind": "word"
+        },
+        {
+          "text": "blanket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "medical_jobs",
+      "label": "MEDICAL JOBS",
+      "words": [
+        {
+          "text": "nurse",
+          "kind": "word"
+        },
+        {
+          "text": "surgeon",
+          "kind": "word"
+        },
+        {
+          "text": "therapist",
+          "kind": "word"
+        },
+        {
+          "text": "dentist",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pizza_toppings",
+      "label": "PIZZA TOPPINGS",
+      "words": [
+        {
+          "text": "egg",
+          "kind": "word"
+        },
+        {
+          "text": "pepper",
+          "kind": "word"
+        },
+        {
+          "text": "chicken",
+          "kind": "word"
+        },
+        {
+          "text": "ham",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

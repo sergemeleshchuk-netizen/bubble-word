@@ -61,6 +61,30 @@ export function visibleShareMin(profile: DecadeProfile, wordsPerCategory = 4): n
 }
 
 /**
+ * Целевая базовая сложность категории для декады.
+ *
+ * `base_difficulty` — поле базы (шкала 0.1-0.6, медиана 0.35): насколько трудна
+ * сама группа, независимо от того, какие четыре слова из неё взяли. Генератор
+ * это поле не читал, и уровень 1 собирался из UNIVERSITIES и LOCKSMITH WORDS
+ * (d=0.4), хотя в базе лежат COLORS, FARM ANIMALS, FAMILY MEMBERS (d≤0.15).
+ *
+ * Числа здесь — не замер референса, а решение: у референсных категорий нашего
+ * `d` не существует, сравнивать не с чем. Логика простая: первая декада берёт
+ * нижнюю половину шкалы, к поздним потолок открывается до максимума. Отдельно
+ * туториал: пять самых простых групп, как на L1 оригинала (коровы, цвета,
+ * машины, компас, дни недели).
+ */
+const DIFFICULTY_CEILING_FIRST = 0.35;
+const DIFFICULTY_CEILING_LAST = 0.6;
+const TUTORIAL_DIFFICULTY_CEILING = 0.2;
+
+export function categoryDifficultyCeiling(profile: DecadeProfile): number {
+  const decadeIndex = Math.floor((profile.from - 1) / 10);       // 0 … 19
+  const span = DIFFICULTY_CEILING_LAST - DIFFICULTY_CEILING_FIRST;
+  return Math.round((DIFFICULTY_CEILING_FIRST + (span * decadeIndex) / 19) * 100) / 100;
+}
+
+/**
  * Таблица §2 из docs/DECADE_CALIBRATION.md.
  *
  * Коридоры чуть шире наблюдённых мин-макс там, где выборка декады всего 10
@@ -296,6 +320,8 @@ export function configForRange(
     categoryPlan,
     metaPlan,
     decadeGates: {
+      categoryDifficultyTarget: categoryDifficultyCeiling(profile),
+      tutorialCategoryDifficultyMax: TUTORIAL_DIFFICULTY_CEILING,
       maxTokens: profile.maxTokens,
       maxWordLen: profile.maxWordLen,
       minProperNounZipf: profile.minProperNounZipf,

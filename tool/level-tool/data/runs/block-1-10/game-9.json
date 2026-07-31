@@ -1,0 +1,238 @@
+{
+  "level_id": 9,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 38,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "categories": [
+    {
+      "key": "vegetables",
+      "label": "VEGETABLES",
+      "words": [
+        {
+          "text": "bean",
+          "kind": "word"
+        },
+        {
+          "text": "corn",
+          "kind": "word"
+        },
+        {
+          "text": "potato",
+          "kind": "word"
+        },
+        {
+          "text": "squash",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "grocery_aisles",
+      "label": "GROCERY AISLES",
+      "words": [
+        {
+          "text": "vegetables",
+          "kind": "meta",
+          "meta_child": "vegetables"
+        },
+        {
+          "text": "Frozen",
+          "kind": "word"
+        },
+        {
+          "text": "fruits",
+          "kind": "word"
+        },
+        {
+          "text": "dairy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "metals",
+      "label": "METALS",
+      "words": [
+        {
+          "text": "copper",
+          "kind": "word"
+        },
+        {
+          "text": "brass",
+          "kind": "word"
+        },
+        {
+          "text": "platinum",
+          "kind": "word"
+        },
+        {
+          "text": "bronze",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jewelry_box",
+      "label": "JEWELRY BOX",
+      "words": [
+        {
+          "text": "metals",
+          "kind": "meta",
+          "meta_child": "metals"
+        },
+        {
+          "text": "jewelry",
+          "kind": "word"
+        },
+        {
+          "text": "velvet",
+          "kind": "word"
+        },
+        {
+          "text": "gemstones",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "water_actions",
+      "label": "WATER ACTIONS",
+      "words": [
+        {
+          "text": "swim",
+          "kind": "word"
+        },
+        {
+          "text": "spray",
+          "kind": "word"
+        },
+        {
+          "text": "flood",
+          "kind": "word"
+        },
+        {
+          "text": "dive",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "gardening_words",
+      "label": "GARDENING WORDS",
+      "words": [
+        {
+          "text": "weed",
+          "kind": "word"
+        },
+        {
+          "text": "seed",
+          "kind": "word"
+        },
+        {
+          "text": "harvest",
+          "kind": "word"
+        },
+        {
+          "text": "soil",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "illnesses",
+      "label": "ILLNESSES",
+      "words": [
+        {
+          "text": "infection",
+          "kind": "word"
+        },
+        {
+          "text": "diseases",
+          "kind": "word"
+        },
+        {
+          "text": "diabetes",
+          "kind": "word"
+        },
+        {
+          "text": "fever",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weapons_of_the_past",
+      "label": "OLD WEAPONS",
+      "words": [
+        {
+          "text": "sword",
+          "kind": "word"
+        },
+        {
+          "text": "arrow",
+          "kind": "word"
+        },
+        {
+          "text": "bow",
+          "kind": "word"
+        },
+        {
+          "text": "spear",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jungle_animals",
+      "label": "JUNGLE ANIMALS",
+      "words": [
+        {
+          "text": "tiger",
+          "kind": "word"
+        },
+        {
+          "text": "snake",
+          "kind": "word"
+        },
+        {
+          "text": "frog",
+          "kind": "word"
+        },
+        {
+          "text": "monkey",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wild_west",
+      "label": "WILD WEST",
+      "words": [
+        {
+          "text": "boots",
+          "kind": "word"
+        },
+        {
+          "text": "spurs",
+          "kind": "word"
+        },
+        {
+          "text": "marshal",
+          "kind": "word"
+        },
+        {
+          "text": "sheriff",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "level_id": 5,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 46,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "categories": [
+    {
+      "key": "crimes",
+      "label": "CRIMES",
+      "words": [
+        {
+          "text": "fraud",
+          "kind": "word"
+        },
+        {
+          "text": "theft",
+          "kind": "word"
+        },
+        {
+          "text": "littering",
+          "kind": "word"
+        },
+        {
+          "text": "shoplifting",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "courtroom",
+      "label": "COURTROOM",
+      "words": [
+        {
+          "text": "crimes",
+          "kind": "meta",
+          "meta_child": "crimes"
+        },
+        {
+          "text": "jury",
+          "kind": "word"
+        },
+        {
+          "text": "penalties",
+          "kind": "word"
+        },
+        {
+          "text": "verdict",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "quiet_places",
+      "label": "QUIET PLACES",
+      "words": [
+        {
+          "text": "courtroom",
+          "kind": "meta",
+          "meta_child": "courtroom"
+        },
+        {
+          "text": "library",
+          "kind": "word"
+        },
+        {
+          "text": "museum",
+          "kind": "word"
+        },
+        {
+          "text": "church",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cured_meats",
+      "label": "CURED MEATS",
+      "words": [
+        {
+          "text": "bacon",
+          "kind": "word"
+        },
+        {
+          "text": "sausage",
+          "kind": "word"
+        },
+        {
+          "text": "bologna",
+          "kind": "word"
+        },
+        {
+          "text": "jerky",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
+      "words": [
+        {
+          "text": "pot",
+          "kind": "word"
+        },
+        {
+          "text": "pan",
+          "kind": "word"
+        },
+        {
+          "text": "fork",
+          "kind": "word"
+        },
+        {
+          "text": "opener",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "insects",
+      "label": "BUGS",
+      "words": [
+        {
+          "text": "spider",
+          "kind": "word"
+        },
+        {
+          "text": "bee",
+          "kind": "word"
+        },
+        {
+          "text": "tick",
+          "kind": "word"
+        },
+        {
+          "text": "butterfly",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "christmas_things",
+      "label": "CHRISTMAS THINGS",
+      "words": [
+        {
+          "text": "carol",
+          "kind": "word"
+        },
+        {
+          "text": "lights",
+          "kind": "word"
+        },
+        {
+          "text": "gift",
+          "kind": "word"
+        },
+        {
+          "text": "tree",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_subjects",
+      "label": "SCHOOL SUBJECTS",
+      "words": [
+        {
+          "text": "physics",
+          "kind": "word"
+        },
+        {
+          "text": "economics",
+          "kind": "word"
+        },
+        {
+          "text": "biology",
+          "kind": "word"
+        },
+        {
+          "text": "math",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "family_members",
+      "label": "FAMILY MEMBERS",
+      "words": [
+        {
+          "text": "uncle",
+          "kind": "word"
+        },
+        {
+          "text": "grandfather",
+          "kind": "word"
+        },
+        {
+          "text": "cousin",
+          "kind": "word"
+        },
+        {
+          "text": "twin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pie_ingredients",
+      "label": "PIE INGREDIENTS",
+      "words": [
+        {
+          "text": "chocolate",
+          "kind": "word"
+        },
+        {
+          "text": "salt",
+          "kind": "word"
+        },
+        {
+          "text": "vanilla",
+          "kind": "word"
+        },
+        {
+          "text": "flour",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cleaning_supplies",
+      "label": "CLEANING SUPPLIES",
+      "words": [
+        {
+          "text": "polish",
+          "kind": "word"
+        },
+        {
+          "text": "brush",
+          "kind": "word"
+        },
+        {
+          "text": "vacuum",
+          "kind": "word"
+        },
+        {
+          "text": "soap",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
+      "words": [
+        {
+          "text": "piano",
+          "kind": "word"
+        },
+        {
+          "text": "organ",
+          "kind": "word"
+        },
+        {
+          "text": "drum",
+          "kind": "word"
+        },
+        {
+          "text": "guitar",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

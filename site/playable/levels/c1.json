@@ -1,56 +1,56 @@
 {
   "level_id": 1,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "directions",
-      "name": "Directions",
+      "id": "dishes-and-glassware",
+      "name": "Dishes",
       "words": [
-        "beside",
-        "behind",
-        "forward",
-        "north"
+        "plate",
+        "bottle",
+        "jar",
+        "dish"
       ]
     },
     {
-      "id": "streets-and-roads",
-      "name": "Kinds Of Roads",
+      "id": "fruits",
+      "name": "Fruits",
       "words": [
-        "avenue",
-        "lane",
-        "trail",
-        "alley"
+        "orange",
+        "cherry",
+        "lemon",
+        "apple"
       ]
     },
     {
-      "id": "bodies-of-water",
-      "name": "Bodies Of Water",
+      "id": "farm-animals",
+      "name": "Farm Animals",
       "words": [
-        "creek",
-        "canal",
-        "delta",
-        "stream"
+        "sheep",
+        "bull",
+        "pig",
+        "rabbit"
       ]
     },
     {
-      "id": "math-words",
-      "name": "Math Words",
+      "id": "months",
+      "name": "Months",
       "words": [
-        "sum",
-        "angle",
-        "ratio",
-        "diameter"
+        "november",
+        "october",
+        "september",
+        "august"
       ]
     },
     {
-      "id": "photography-words",
-      "name": "Photography Words",
+      "id": "weather-words",
+      "name": "Weather Words",
       "words": [
-        "portrait",
-        "lens",
-        "exposure",
-        "frame"
+        "sunshine",
+        "lightning",
+        "thunder",
+        "shower"
       ]
     }
   ],

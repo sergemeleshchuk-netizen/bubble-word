@@ -1,96 +1,96 @@
 {
   "level_id": 8,
   "difficulty_target": null,
-  "source": "calibrated-1-10",
+  "source": "block-1-10",
   "categories": [
     {
-      "id": "pests",
-      "name": "Pests",
+      "id": "rodents",
+      "name": "Rodents",
       "words": [
-        "mouse",
-        "insects",
-        "ant",
-        "termite"
+        "rat",
+        "chipmunk",
+        "beaver",
+        "squirrel"
       ]
     },
     {
-      "id": "farm-morning",
-      "name": "Farm",
+      "id": "pet-store",
+      "name": "Pet Store",
       "words": [
-        "pests",
-        "barn",
-        "livestock",
-        "tractor"
+        "rodents",
+        "pets",
+        "cage",
+        "birds"
       ]
     },
     {
-      "id": "home-rooms",
-      "name": "House Rooms",
+      "id": "joining-actions",
+      "name": "Joining Actions",
       "words": [
-        "bedroom",
-        "kitchen",
-        "basement",
-        "den"
+        "tape",
+        "clip",
+        "zip",
+        "glue"
       ]
     },
     {
-      "id": "wild-west",
-      "name": "Wild West",
+      "id": "sandwich-fillings",
+      "name": "Sandwich Fillings",
       "words": [
-        "boots",
-        "horse",
-        "marshal",
-        "spurs"
+        "mayo",
+        "jelly",
+        "tomato",
+        "onion"
       ]
     },
     {
-      "id": "car-parts",
-      "name": "Car Parts",
+      "id": "sea-shore-things",
+      "name": "Beach Things",
       "words": [
-        "hood",
-        "trunk",
-        "horn",
-        "brake"
+        "shell",
+        "sand",
+        "cooler",
+        "wave"
       ]
     },
     {
-      "id": "video-game-words",
-      "name": "Gaming Words",
+      "id": "tennis-words",
+      "name": "Tennis Words",
       "words": [
-        "quest",
-        "console",
-        "controller",
-        "avatar"
+        "rally",
+        "fault",
+        "ace",
+        "net"
       ]
     },
     {
-      "id": "meats",
-      "name": "Meats",
+      "id": "harbor-things",
+      "name": "Harbor Things",
       "words": [
-        "beef",
-        "bacon",
-        "ham",
-        "steak"
+        "anchor",
+        "warehouse",
+        "dock",
+        "rope"
       ]
     },
     {
-      "id": "calendar-words",
-      "name": "Calendar Words",
+      "id": "bedroom-things",
+      "name": "Bedroom Things",
       "words": [
-        "decade",
-        "era",
-        "holiday",
-        "anniversary"
+        "sheet",
+        "closet",
+        "lamp",
+        "pillow"
       ]
     },
     {
-      "id": "medical-jobs",
-      "name": "Medical Jobs",
+      "id": "rocks-and-minerals",
+      "name": "Rocks And Minerals",
       "words": [
-        "nurse",
-        "therapist",
-        "vet",
-        "surgeon"
+        "coal",
+        "granite",
+        "limestone",
+        "slate"
       ]
     }
   ],

@@ -1,0 +1,707 @@
+{
+  "level_spec": {
+    "levelId": 8,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 9,
+      "wordsPerCategory": 4,
+      "startBubbles": 35,
+      "boardCapacity": 24,
+      "moveFloor": 27,
+      "moveLimit": 37,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "rodents",
+        "label": "RODENTS",
+        "rule": "Small gnawing mammals classed as rodents",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "rat",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "chipmunk",
+            "kind": "word",
+            "zipf": 2.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "beaver",
+            "kind": "word",
+            "zipf": 3.61,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "squirrel",
+            "kind": "word",
+            "zipf": 3.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "pet_store",
+        "isQuickwin": false
+      },
+      {
+        "key": "pet_store",
+        "label": "PET STORE",
+        "rule": "What a pet store sells or keeps in stock",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "rodents",
+            "kind": "meta",
+            "metaChild": "rodents",
+            "zipf": 3.32,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "pets",
+            "kind": "word",
+            "zipf": 4.08,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.98,
+            "obviousness": 0.85
+          },
+          {
+            "text": "cage",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.88,
+            "obviousness": 0.76
+          },
+          {
+            "text": "birds",
+            "kind": "word",
+            "zipf": 4.6,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.62
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "joining_actions",
+        "label": "JOINING ACTIONS",
+        "rule": "Actions that join two things together",
+        "theme": "actions",
+        "words": [
+          {
+            "text": "tape",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "clip",
+            "kind": "word",
+            "zipf": 4.26,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "zip",
+            "kind": "word",
+            "zipf": 3.87,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "glue",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "sandwich_fillings",
+        "label": "SANDWICH FILLINGS",
+        "rule": "Things commonly put inside a sandwich",
+        "theme": "food",
+        "words": [
+          {
+            "text": "mayo",
+            "kind": "word",
+            "zipf": 3.72,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "jelly",
+            "kind": "word",
+            "zipf": 3.77,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "tomato",
+            "kind": "word",
+            "zipf": 3.85,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "onion",
+            "kind": "word",
+            "zipf": 3.89,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "sea_shore_things",
+        "label": "BEACH THINGS",
+        "rule": "Things you find on an ocean beach",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "shell",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "sand",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "cooler",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "wave",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "tennis_words",
+        "label": "TENNIS WORDS",
+        "rule": "Words used to describe play and scoring in tennis",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "rally",
+            "kind": "word",
+            "zipf": 4.34,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "fault",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "Ace",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "net",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "harbor_things",
+        "label": "HARBOR THINGS",
+        "rule": "Things found in a harbor or marina",
+        "theme": "ocean",
+        "words": [
+          {
+            "text": "anchor",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "warehouse",
+            "kind": "word",
+            "zipf": 4.08,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "dock",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "rope",
+            "kind": "word",
+            "zipf": 4.06,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "bedroom_things",
+        "label": "BEDROOM THINGS",
+        "rule": "Objects normally found in a bedroom",
+        "theme": "home",
+        "words": [
+          {
+            "text": "sheet",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "closet",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "lamp",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "pillow",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "rocks_and_minerals",
+        "label": "ROCKS AND MINERALS",
+        "rule": "Common rocks and minerals from the ground",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "coal",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "granite",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "limestone",
+            "kind": "word",
+            "zipf": 3.75,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "slate",
+            "kind": "word",
+            "zipf": 3.82,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "traps": [
+      {
+        "word": "net",
+        "home": "tennis_words",
+        "decoy": "harbor_things",
+        "homeObviousness": 0.78,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.78
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T13:53:04.126Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "99b9c1072463313fbc9e9e7b2351fe821862eaa7de678e7eec0101e0f3ac7f28",
+    "level_spec_hash": "a287aefbef943e017f4db973a66c6b5605aad42bbc0cf655ccb384a39111f8a4",
+    "pack_hash": "d0c6aaabed7082131e68c11e9697744e463e4e4628acf056e918d9cdbbd302c5",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 8,
+    "position": 8,
+    "role": "growth",
+    "categoryCount": 9,
+    "metaCount": 1,
+    "metaDepthTarget": 1,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 4.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.1814999999999998,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.22,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 3.2988999999999997,
+        "declared": -0.38,
+        "semantic": 0.8,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "35 пузырей на старте при 9 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 37 при минимуме 27 (K = 1.35)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.26,
+      "variety": 2.16,
+      "aha": 0.2,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.26: узнаваемых слов 100%, средняя очевидность связи 0.78",
+      "Variety 2.16: 4 типов связи, 7 тематических сфер, но 56% категорий однотипны",
+      "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 97%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 9 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (37 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 1"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 35, по формуле 4 × 9 − 1 = 35"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 37, минимум мерджей 27, K = 1.35 → ожидалось 37"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 7: joining_actions, sandwich_fillings, sea_shore_things, tennis_words, harbor_things, bedroom_things, rocks_and_minerals"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.06 (цель декады 4.35), p25 3.85 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 66.7% уровня (24 из 36), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 1, коридор декады 0-4"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 37
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "9 категорий, 1 мета-связей, 1 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}
