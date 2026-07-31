@@ -32,6 +32,18 @@ from swow_status import SWOW_AGG, build_vectors, canon, category_profiles, score
 
 MIN_WORD_SCORE = 0.04  # слово должно уверенно подходить обеим категориям
 MAX_CATEGORY_OVERLAP = 0.12  # профили категорий почти не пересекаются
+CHECKED = PIPE / "data" / "seed" / "_not_homonyms.txt"
+
+
+def load_checked() -> set[str]:
+    """Слова, уже проверенные вручную и признанные однозначными."""
+    if not CHECKED.exists():
+        return set()
+    return {
+        line.split("#", 1)[0].strip().lower()
+        for line in CHECKED.read_text(encoding="utf-8").splitlines()
+        if line.split("#", 1)[0].strip()
+    }
 
 
 def profile_cosine(profiles: dict, a: str, b: str) -> float | None:
@@ -72,9 +84,10 @@ def main() -> None:
     vectors = build_vectors(data["fwd"], data["bwd"], words)
     profiles = category_profiles(vectors, pool)
 
+    checked = load_checked()
     found = []
     for word, keys in cats_of.items():
-        if word in has_sense or len(keys) < 2 or word not in vectors:
+        if word in has_sense or word in checked or len(keys) < 2 or word not in vectors:
             continue
         scored = []
         for key in set(keys):
