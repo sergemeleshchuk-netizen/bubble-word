@@ -16,6 +16,8 @@ import {
 import {
   parseCount, parseNumberList, parseOptionalList, parseRange,
 } from '../core/fieldParse.ts';
+import { buildBlockPlan, checkBlockRhythm } from '../core/blockPlan.ts';
+import { canonicalJson } from '../core/hashing.ts';
 
 /**
  * Поле ввода с черновиком.
@@ -187,25 +189,50 @@ export function RhythmChart({ plans, levels }: {
 // экран 2: настройка
 // --------------------------------------------------------------------------- //
 
-export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThemes }: {
+/**
+ * Экран настройки работает с ЧЕРНОВИКОМ конфига, а не с применённым.
+ *
+ * Раньше каждое поле применялось сразу, и заполнение формы означало череду
+ * промежуточных конфигов. Это плохо по двум причинам, и вторая серьёзнее первой.
+ *
+ * Первая: пока набираешь одно поле, требования к уровням уже пересчитаны по
+ * половине формы, и график ритма скачет от незаконченного ввода.
+ *
+ * Вторая: смена диапазона уровней пересобирает ВЕСЬ профиль декады. Заполнив
+ * коридор и редкость, а потом поправив диапазон, вы теряли только что введённое —
+ * профиль перезаписывал его молча. Порядок заполнения формы влиял на результат.
+ *
+ * Поэтому: правки идут в черновик, применяются кнопкой, и до кнопки не влияют
+ * ни на что. График под формой считается по черновику — это предпросмотр того,
+ * что будет собрано, а не состояние генератора.
+ */
+export function Composer({ config, onGenerate, knownThemes }: {
   config: BlockConfig;
-  onChange: (c: BlockConfig) => void;
-  plans: LevelPlan[];
-  rhythm: { passed: boolean; issues: string[] };
-  onGenerate: () => void;
+  onGenerate: (config: BlockConfig) => void;
   knownThemes: string[];
 }) {
   const [text, setText] = useState(
     'Еда и путешествия, без спорта, два пика, передышка после каждого пика, '
     + 'несколько честных ловушек на цветах, побольше редких слов.');
   const [parsed, setParsed] = useState<ParsedIntent | null>(null);
-  const decade = profileForRange(config.levelRange);
+  /**
+   * Черновик. Инициализируется применённым конфигом при каждом открытии
+   * закладки: компонент размонтируется при уходе с неё, поэтому вернувшись,
+   * человек видит то, что реально применено, а не забытый черновик.
+   */
+  const [draft, setDraft] = useState<BlockConfig>(config);
 
-  const patch = (p: Partial<BlockConfig>) => onChange({ ...config, ...p });
+  const decade = profileForRange(draft.levelRange);
+  const patch = (p: Partial<BlockConfig>) => setDraft((d) => ({ ...d, ...p }));
+
+  // предпросмотр считается по черновику, а не по применённому конфигу
+  const plans = buildBlockPlan(draft);
+  const rhythm = checkBlockRhythm(plans);
+  const dirty = canonicalJson(draft) !== canonicalJson(config);
 
   const interpret = () => setParsed(parseIntent(text));
   const applyParsed = () => {
-    if (parsed) onChange({ ...config, ...parsed.patch });
+    if (parsed) setDraft((d) => ({ ...d, ...parsed.patch }));
     setParsed(null);
   };
 
@@ -322,13 +349,13 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             </span>
           </div>
         </div>
-        {config.levelRange[0] === 1 && (
+        {draft.levelRange[0] === 1 && (
           <p className="small" style={{ color: 'var(--ok)', marginTop: 8 }}>
             Уровень 1 — туториал: 5 категорий, весь уровень на поле, лимита ходов нет,
             мета-пар и модификаторов ноль (как L1 оригинала).
           </p>
         )}
-        {!config.decadeGates && (
+        {!draft.decadeGates && (
           <p className="small" style={{ color: 'var(--warn)', marginTop: 8 }}>
             Гейты декады выключены: это пресет блока 201–210, он воспроизводит
             сдаваемый пакет байт-в-байт. Поменяйте диапазон, чтобы включить калибровку.
@@ -342,7 +369,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
           <DraftField
             label="диапазон уровней"
             hint="меняет весь профиль декады"
-            value={config.levelRange.join('–')}
+            value={draft.levelRange.join('–')}
             commit={(raw) => {
               const range = parseRange(raw, 1);
               if (!range) return false;
@@ -352,12 +379,12 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
                * с контентом уровней ~150: диапазон поменяли, а коридор
                * категорий, редкость и модификаторы остались от пресета 201-210.
                */
-              onChange(configForRange(range, config.seed));
+              setDraft(configForRange(range, draft.seed));
               return true;
             }} />
           <DraftField
             label="коридор по категориям"
-            value={config.categoryCorridor.join('–')}
+            value={draft.categoryCorridor.join('–')}
             commit={(raw) => {
               const range = parseRange(raw, 1);
               if (!range) return false;
@@ -366,7 +393,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             }} />
           <DraftField
             label="редких слов на уровень"
-            value={config.rarityRange.join('–')}
+            value={draft.rarityRange.join('–')}
             commit={(raw) => {
               const range = parseRange(raw, 0);
               if (!range) return false;
@@ -376,18 +403,18 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
           <DraftField
             label="позиции спайков"
             hint="через запятую"
-            value={config.spikePositions.join(', ')}
+            value={draft.spikePositions.join(', ')}
             commit={(raw) => { patch({ spikePositions: parseNumberList(raw) }); return true; }} />
           <DraftField
             label="позиции передышек"
             hint="через запятую"
-            value={config.recoveryPositions.join(', ')}
+            value={draft.recoveryPositions.join(', ')}
             commit={(raw) => { patch({ recoveryPositions: parseNumberList(raw) }); return true; }} />
           <DraftField
             label="максимальная глубина мета"
             hint="0–4"
             numeric
-            value={String(config.maxMetaDepth)}
+            value={String(draft.maxMetaDepth)}
             commit={(raw) => {
               const value = parseCount(raw, 0, 4);
               if (value === null) return false;
@@ -397,16 +424,16 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
           <DraftField
             label="план по категориям (10 чисел)"
             hint="пусто — берётся коридор"
-            value={(config.categoryPlan ?? []).join(', ')}
+            value={(draft.categoryPlan ?? []).join(', ')}
             commit={(raw) => { patch({ categoryPlan: parseOptionalList(raw) }); return true; }} />
           <DraftField
             label="план по мета-связям"
             hint="пусто — берётся профиль декады"
-            value={(config.metaPlan ?? []).join(', ')}
+            value={(draft.metaPlan ?? []).join(', ')}
             commit={(raw) => { patch({ metaPlan: parseOptionalList(raw) }); return true; }} />
           <DraftField
             label="seed генерации"
-            value={config.seed}
+            value={draft.seed}
             commit={(raw) => {
               // пустой seed сделал бы генерацию невоспроизводимой
               if (!raw.trim()) return false;
@@ -417,7 +444,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             label="окно свежести слов"
             hint="уровней"
             numeric
-            value={String(config.wordFreshnessWindow)}
+            value={String(draft.wordFreshnessWindow)}
             commit={(raw) => {
               const value = parseCount(raw, 0, 999);
               if (value === null) return false;
@@ -428,7 +455,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             label="окно свежести категорий"
             hint="уровней"
             numeric
-            value={String(config.categoryFreshnessWindow)}
+            value={String(draft.categoryFreshnessWindow)}
             commit={(raw) => {
               const value = parseCount(raw, 0, 999);
               if (value === null) return false;
@@ -437,7 +464,7 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
             }} />
           <label className="field">
             <span className="lbl">модификаторы</span>
-            <select value={config.allowedModifiers.join(',')}
+            <select value={draft.allowedModifiers.join(',')}
               onChange={(e) => patch({
                 allowedModifiers: e.target.value ? e.target.value.split(',') as never : [],
               })}>
@@ -449,17 +476,32 @@ export function Composer({ config, onChange, plans, rhythm, onGenerate, knownThe
 
         <div className="grid c2" style={{ marginTop: 4 }}>
           <ThemePicker label="включить только эти сферы" themes={knownThemes}
-            selected={config.includeThemes}
+            selected={draft.includeThemes}
             onChange={(v) => patch({ includeThemes: v })} />
           <ThemePicker label="исключить сферы" themes={knownThemes}
-            selected={config.excludeThemes}
+            selected={draft.excludeThemes}
             onChange={(v) => patch({ excludeThemes: v })} />
         </div>
 
-        <div className="row" style={{ marginTop: 14 }}>
-          <button className="primary" onClick={onGenerate}>Собрать блок</button>
+        {/*
+          Единственная точка, где заполненная форма превращается в требования
+          к уровням. До нажатия ничего не применено — ни к генератору, ни к
+          проверкам; выше только предпросмотр по черновику.
+        */}
+        <div className="row" style={{ marginTop: 14, alignItems: 'center' }}>
+          <button className="primary" onClick={() => onGenerate(draft)}>
+            Применить и собрать блок
+          </button>
+          {dirty && (
+            <button className="ghost" onClick={() => setDraft(config)}>
+              Вернуть применённое
+            </button>
+          )}
           <span className="muted small">
-            генерация целиком в браузере на снимке базы: без сервера и без ключа
+            {dirty
+              ? 'форма изменена и пока не применена — требования к уровням возьмутся '
+                + 'из неё в момент нажатия'
+              : 'генерация целиком в браузере на снимке базы: без сервера и без ключа'}
           </span>
         </div>
       </div>

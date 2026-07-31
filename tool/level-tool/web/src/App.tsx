@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { BlockConfig, BlockResult } from './core/types.ts';
-import { DEFAULT_BLOCK_CONFIG, buildBlockPlan, checkBlockRhythm } from './core/blockPlan.ts';
+import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
 import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
@@ -41,12 +41,21 @@ export function App() {
   // самостоятельным словом (SPEC §4), а проверить это можно только по списку слов
   const lexicon = useMemo(
     () => new Set(snapshot.words.map((w) => w.n.toLowerCase())), []);
+  // план применённого конфига нужен экрану генерации; экран настройки считает
+  // свой собственный по черновику формы
   const plans = useMemo(() => buildBlockPlan(config), [config]);
-  const rhythm = useMemo(() => checkBlockRhythm(plans), [plans]);
 
-  const generate = () => {
+  /**
+   * Собирает блок по переданному конфигу и одновременно делает его применённым.
+   *
+   * Конфиг приходит параметром, а не берётся из состояния, потому что кнопка на
+   * экране настройки отдаёт черновик формы: `setConfig` асинхронный, и генерация
+   * по состоянию собрала бы блок по предыдущему конфигу — на один клик позади.
+   */
+  const generate = (next: BlockConfig = config) => {
+    setConfig(next);
     const started = performance.now();
-    const result = generateBlock({ snapshot, config, scoring });
+    const result = generateBlock({ snapshot, config: next, scoring });
     setElapsed(Math.round(performance.now() - started));
     setBlock(result);
     setSelectedLevel(result.levels[0]?.spec.levelId ?? null);
@@ -90,9 +99,6 @@ export function App() {
       {tab === 'compose' && (
         <Composer
           config={config}
-          onChange={setConfig}
-          plans={plans}
-          rhythm={rhythm}
           onGenerate={generate}
           knownThemes={Array.from(new Set(snapshot.categories.map((c) => c.th))).sort()}
         />
