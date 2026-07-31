@@ -14,3 +14,6 @@ data/generated_*.jsonl
 data/gen_*.jsonl
 data/checkpoint*.txt
 data/ai_review.jsonl
+
+# пакет для ревью: markdown коммитим, машинный CSV регенерируется одной командой
+review/05_memberships.csv
