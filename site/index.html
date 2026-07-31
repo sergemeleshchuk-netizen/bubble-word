@@ -144,13 +144,6 @@
   }
   .study-said b{color:var(--ink);font-weight:600;}
   .study-h{margin:28px 0 12px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);}
-  .shots{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;}
-  /* кадры обрезаны по-разному (у части срезан рекламный баннер), поэтому
-     выравниваем по ВЫСОТЕ: иначе подписи встают на разных уровнях */
-  .shots figure{flex:0 0 auto;max-width:210px;}
-  .shots img{height:300px;width:auto;display:block;border-radius:10px;border:1px solid var(--line);}
-  .shots figcaption{margin-top:8px;font-size:11.5px;font-weight:500;line-height:1.45;color:var(--ink-soft);}
-  .shots figcaption b{display:block;color:var(--ink);font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px;}
   .study-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:24px;}
   .study-cols h4{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);margin-bottom:10px;}
   .study-cols ul{list-style:none;}
@@ -432,7 +425,7 @@
             <div class="kpi">
               <span class="kpi-v">8</span>
               <span class="kpi-k">Verified by hand</span>
-              <span class="kpi-note">кадры-доказательства ниже, с таймкодами</span>
+              <span class="kpi-note">спорные выводы перепроверены по секундам записи</span>
             </div>
             <div class="kpi">
               <span class="kpi-v">10<small> / 11</small></span>
@@ -455,42 +448,6 @@
             собрали <b>короткое ТЗ игрового продукта</b> (блок <b>05 GDD Readme MD</b> ниже).
             Дальше это ТЗ работает как вход для трёх вещей: генератора уровней, валидатора
             решаемости и playable-прототипа.</p>
-
-            <p class="study-h">Кадры-доказательства: запись и секунда</p>
-            <div class="shots">
-            <figure>
-              <img src="assets/reference/r0-l1-no-move-limit.jpg" alt="счётчика ходов нет вовсе, бустеры под замками с подписями LVL 3 / 4 / 7" loading="lazy">
-              <figcaption><b>L1 · 0:06</b>счётчика ходов нет вовсе, бустеры под замками с подписями LVL 3 / 4 / 7</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l2-move-limit-39.jpg" alt="попап вводит лимит: 39 ходов на 8 категорий" loading="lazy">
-              <figcaption><b>L2 · 0:36</b>попап вводит лимит: 39 ходов на 8 категорий</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l4-category-name-revealed.jpg" alt="имя категории (JOBS) появляется только в момент схлопывания" loading="lazy">
-              <figcaption><b>L4 · 5:07</b>имя категории (JOBS) появляется только в момент схлопывания</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l10-chunks-and-merge-tiers.jpg" alt="четыре яруса цвета в одном кадре и кусочки слов TOR, ORD" loading="lazy">
-              <figcaption><b>L10 · 13:38</b>четыре яруса цвета в одном кадре и кусочки слов TOR, ORD</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l19-hard-level.jpg" alt="hard-плашка: 41 ход на 9 категорий, фрагменты VAM+PIRE, ELE+PHANT" loading="lazy">
-              <figcaption><b>L19 · 2:56</b>hard-плашка: 41 ход на 9 категорий, фрагменты VAM+PIRE, ELE+PHANT</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l19-three-moves-left.jpg" alt="3 хода при прогрессе 5/9 — насколько тесен спайк" loading="lazy">
-              <figcaption><b>L19 · 5:16</b>3 хода при прогрессе 5/9 — насколько тесен спайк</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l19-out-of-moves.jpg" alt="ходы кончились: +5 за рекламу, +15 за 900 монет" loading="lazy">
-              <figcaption><b>L19 · 5:21</b>ходы кончились: +5 за рекламу, +15 за 900 монет</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/reference/r0-l20-chains.jpg" alt="цепь делит поле, на замке счётчик 3 категории" loading="lazy">
-              <figcaption><b>L20 · 6:32</b>цепь делит поле, на замке счётчик 3 категории</figcaption>
-            </figure>
-            </div>
 
             <p class="study-h">Что удалось подтвердить, а что осталось вопросом</p>
             <div class="study-cols">
