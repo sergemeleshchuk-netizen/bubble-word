@@ -7,6 +7,13 @@
 
 Запуск (venv пайплайна, там есть wordfreq):
   level-generator/bubble_jam_pipeline/.venv/bin/python tool/scripts/build_base.py
+
+УСТАРЕЛО (31.07). Этот скрипт собирает ПРЕЖНЮЮ базу на 306 категорий. Источник
+правды теперь — SQLite-пайплайн `tool/word_content_pipeline` (1120 категорий,
+внешний аудит), а `tool/data/categories.json` создаётся из него скриптом
+`export_base_json.py`. Скрипт оставлен, чтобы прежнюю базу можно было пересобрать
+и сверить: она лежит рядом как `categories_legacy.json` и нужна для проверки
+сданных пакетов, чьи уровни ссылаются на её id категорий.
 """
 
 from __future__ import annotations
