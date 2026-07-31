@@ -667,6 +667,185 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,line,line,line_kitchen,kitchen_brigade,candidate,hard_only,"SWOW: оценка 0.003, доля от лучшей категории слова 0.03"
 ,carbon,carbon,carbon_element,elements,candidate,approved,"SWOW: оценка 0.155, доля от лучшей категории слова 1.00"
 ,carbon,carbon,carbon_paper,paper_types,candidate,alternative,"SWOW: оценка 0.062, доля от лучшей категории слова 0.40"
+,hand,hand,hand_body,body_parts,candidate,approved,"SWOW: оценка 0.166, доля от лучшей категории слова 1.00"
+,hand,hand,hand_body,words_after_back,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.19"
+,hand,hand,hand_body,words_before_bag,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.19"
+,hand,hand,hand_body,words_before_book,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.13"
+,hand,hand,hand_body,words_before_work,candidate,hard_only,"SWOW: оценка 0.017, доля от лучшей категории слова 0.10"
+,hand,hand,hand_cards,card_words,candidate,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
+,hand,hand,hand_clock,clock_words,candidate,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.11; прозрачная категория, игрок доходит рассудком"
+,hand,hand,hand_worker,farm_jobs,candidate,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
+,hand,hand,hand_give,giving_and_taking,candidate,alternative,"SWOW: оценка 0.090, доля от лучшей категории слова 0.54"
+,dice,dice,dice_game,board_game_pieces,candidate,approved,"SWOW: оценка 0.097, доля от лучшей категории слова 1.00"
+,dice,dice,dice_game,fortune_telling,candidate,alternative,"SWOW: оценка 0.059, доля от лучшей категории слова 0.61; категория неочевидная"
+,dice,dice,dice_game,square_things,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.12"
+,dice,dice,dice_game,things_that_come_in_pairs,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.19"
+,dice,dice,dice_game,things_that_have_a_face,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.09"
+,dice,dice,dice_cut,cooking_actions,candidate,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.50"
+,cabin,cabin,cabin_house,kinds_of_buildings,candidate,alternative,"SWOW: оценка 0.104, доля от лучшей категории слова 0.51"
+,cabin,cabin,cabin_house,mountain_things,candidate,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 0.14"
+,cabin,cabin,cabin_house,national_parks,candidate,approved,"SWOW: оценка 0.202, доля от лучшей категории слова 1.00"
+,cabin,cabin,cabin_house,places_you_sleep,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 0.65; категория неочевидная"
+,cabin,cabin,cabin_ship,sailing_words,candidate,alternative,"SWOW: оценка 0.100, доля от лучшей категории слова 0.49"
+,cheers,cheers,cheers_greeting,greetings_and_farewells,candidate,approved,"SWOW: оценка 0.064, доля от лучшей категории слова 1.00"
+,cheers,cheers,cheers_show,classic_tv_shows,candidate,approved,"SWOW: оценка 0.051, доля от лучшей категории слова 0.80"
+,oil,oil,oil_cooking,baking_ingredients,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.14"
+,oil,oil,oil_cooking,liquids,candidate,alternative,"SWOW: оценка 0.101, доля от лучшей категории слова 0.46"
+,oil,oil,oil_cooking,pantry_staples,candidate,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 0.20"
+,oil,oil,oil_cooking,things_that_float,candidate,hard_only,"SWOW: оценка 0.018, доля от лучшей категории слова 0.08"
+,oil,oil,oil_motor,auto_repair,candidate,alternative,"SWOW: оценка 0.071, доля от лучшей категории слова 0.33"
+,oil,oil,oil_motor,black_things,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 0.61; категория неочевидная"
+,oil,oil,oil_motor,gas_station_things,candidate,approved,"SWOW: оценка 0.207, доля от лучшей категории слова 0.95"
+,oil,oil,oil_motor,things_in_a_garage,candidate,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.21"
+,oil,oil,oil_motor,things_that_burn,candidate,approved,"SWOW: оценка 0.217, доля от лучшей категории слова 1.00"
+,oil,oil,oil_crude,ocean_products,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.09"
+,oil,oil,oil_paint,paint_types,candidate,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
+,link,link,link_chain,joining_actions,candidate,approved,"SWOW: оценка 0.068, доля от лучшей категории слова 0.57"
+,link,link,link_web,internet_words,candidate,approved,"SWOW: оценка 0.121, доля от лучшей категории слова 1.00"
+,dart,dart,dart_throw,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.146, доля от лучшей категории слова 1.00; категория неочевидная"
+,dart,dart,dart_throw,things_that_cut,candidate,alternative,"SWOW: оценка 0.141, доля от лучшей категории слова 0.96; категория неочевидная"
+,dart,dart,dart_move,animal_verbs,candidate,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.18"
+,dart,dart,dart_move,ways_of_moving,candidate,approved,"SWOW: оценка 0.145, доля от лучшей категории слова 0.99"
+,dart,dart,dart_sew,sewing_patterns,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.29"
+,dart,dart,dart_sew,sewing_words,candidate,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.22"
+,round,round,round_shape,shape_adjectives,candidate,approved,"SWOW: оценка 0.158, доля от лучшей категории слова 1.00"
+,round,round,round_stage,boxing_words,candidate,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.28"
+,round,round,round_stage,game_shows,candidate,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 0.27"
+,round,round,round_meat,cuts_of_meat,candidate,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
+,round,round,round_math,math_operations,candidate,alternative,"SWOW: оценка 0.073, доля от лучшей категории слова 0.46"
+,scroll,scroll,scroll_paper,egypt_things,candidate,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 0.43"
+,scroll,scroll,scroll_paper,wizards_and_spells,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.12"
+,scroll,scroll,scroll_screen,computer_actions,candidate,approved,"SWOW: оценка 0.188, доля от лучшей категории слова 1.00"
+,hot,hot,hot_temperature,opposites,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.16"
+,hot,hot,hot_temperature,temperature_words,candidate,approved,"SWOW: оценка 0.324, доля от лучшей категории слова 1.00"
+,hot,hot,hot_temperature,words_before_cake,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.16"
+,hot,hot,hot_temperature,words_before_line,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.08"
+,hot,hot,hot_spicy,words_before_sauce,candidate,alternative,"SWOW: оценка 0.098, доля от лучшей категории слова 0.30"
+,board,board,board_game,board_game_pieces,candidate,approved,"SWOW: оценка 0.136, доля от лучшей категории слова 1.00"
+,board,board,board_game,chess_words,candidate,alternative,"SWOW: оценка 0.071, доля от лучшей категории слова 0.52"
+,board,board,board_game,game_shows,candidate,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.29"
+,board,board,board_plank,words_after_back,candidate,alternative,"SWOW: оценка 0.077, доля от лучшей категории слова 0.56; категория неочевидная"
+,board,board,board_plank,words_after_head,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.08"
+,board,board,board_plank,words_after_snow,candidate,alternative,"SWOW: оценка 0.063, доля от лучшей категории слова 0.46"
+,board,board,board_committee,words_before_room,candidate,alternative,"SWOW: оценка 0.091, доля от лучшей категории слова 0.67; категория неочевидная"
+,drip,drip,drip_water,cave_things,candidate,alternative,"SWOW: оценка 0.087, доля от лучшей категории слова 0.13"
+,drip,drip,drip_water,onomatopoeia,candidate,alternative,"SWOW: оценка 0.146, доля от лучшей категории слова 0.22"
+,drip,drip,drip_water,quiet_sounds,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
+,drip,drip,drip_water,water_actions,candidate,approved,"SWOW: оценка 0.657, доля от лучшей категории слова 1.00"
+,drip,drip,drip_water,water_sounds,candidate,alternative,"SWOW: оценка 0.332, доля от лучшей категории слова 0.51; категория неочевидная"
+,drip,drip,drip_coffee,coffee_drinks,candidate,alternative,"SWOW: оценка 0.072, доля от лучшей категории слова 0.11"
+,calm,calm,calm_person,feelings,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.27"
+,calm,calm,calm_person,personality_words,candidate,approved,"SWOW: оценка 0.080, доля от лучшей категории слова 1.00"
+,calm,calm,calm_sea,sea_weather,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.57"
+,set,set,set_film,movie_words,candidate,alternative,"SWOW: оценка 0.018, доля от лучшей категории слова 0.12; прозрачная категория, игрок доходит рассудком"
+,set,set,set_tennis,tennis_words,candidate,approved,"SWOW: оценка 0.149, доля от лучшей категории слова 1.00"
+,set,set,set_exercise,training_words,candidate,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
+,set,set,set_sun,words_after_sun,candidate,alternative,"SWOW: оценка 0.052, доля от лучшей категории слова 0.35"
+,station,station,station_place,radio_words,candidate,alternative,"SWOW: оценка 0.061, доля от лучшей категории слова 0.07"
+,station,station,station_place,space_travel,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.06"
+,station,station,station_place,town_places,candidate,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
+,station,station,station_place,train_words,candidate,approved,"SWOW: оценка 0.822, доля от лучшей категории слова 1.00"
+,station,station,station_place,words_before_master,candidate,hard_only,"SWOW: оценка 0.013, доля от лучшей категории слова 0.02"
+,station,station,station_kitchen,kitchen_brigade,candidate,alternative,"SWOW: оценка 0.086, доля от лучшей категории слова 0.10"
+,shoulder,shoulder,shoulder_body,body_parts,candidate,approved,"SWOW: оценка 0.302, доля от лучшей категории слова 1.00"
+,shoulder,shoulder,shoulder_meat,cuts_of_meat,candidate,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.08"
+,shoulder,shoulder,shoulder_road,road_things,candidate,alternative,"SWOW: оценка 0.057, доля от лучшей категории слова 0.19"
+,secretary,secretary,secretary_office,office_jobs,candidate,approved,"SWOW: оценка 0.225, доля от лучшей категории слова 1.00"
+,secretary,secretary,secretary_office,school_jobs,candidate,alternative,"SWOW: оценка 0.094, доля от лучшей категории слова 0.42"
+,secretary,secretary,secretary_minister,government_jobs,candidate,alternative,"SWOW: оценка 0.074, доля от лучшей категории слова 0.33"
+,sentence,sentence,sentence_writing,writing_words,candidate,approved,"SWOW: оценка 0.222, доля от лучшей категории слова 1.00"
+,sentence,sentence,sentence_punishment,courtroom_things,candidate,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 0.13"
+,sentence,sentence,sentence_punishment,prison_words,candidate,alternative,"SWOW: оценка 0.061, доля от лучшей категории слова 0.27"
+,fresh,fresh,fresh_new,age_words,candidate,approved,"SWOW: оценка 0.138, доля от лучшей категории слова 1.00"
+,fresh,fresh,fresh_scent,perfume_words,candidate,alternative,"SWOW: оценка 0.081, доля от лучшей категории слова 0.59; категория неочевидная"
+,fresh,fresh,fresh_scent,smell_words,candidate,alternative,"SWOW: оценка 0.067, доля от лучшей категории слова 0.49"
+,light,light,light_bright,opposites,candidate,approved,"SWOW: оценка 0.073, доля от лучшей категории слова 0.57"
+,light,light,light_bright,words_after_head,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.05"
+,light,light,light_bright,words_after_sun,candidate,alternative,"SWOW: оценка 0.128, доля от лучшей категории слова 1.00; категория неочевидная"
+,light,light,light_bright,words_before_house,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.15"
+,light,light,light_mild,olive_types,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.36"
+,case,case,case_box,boxes_and_cases,candidate,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.22"
+,case,case,case_box,butcher_words,candidate,alternative,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
+,case,case,case_box,computer_parts,candidate,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
+,case,case,case_box,music_practice,candidate,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
+,case,case,case_box,phone_words,candidate,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.10; прозрачная категория, игрок доходит рассудком"
+,case,case,case_box,storage_containers,candidate,approved,"SWOW: оценка 0.174, доля от лучшей категории слова 1.00"
+,case,case,case_box,words_after_book,candidate,alternative,"SWOW: оценка 0.143, доля от лучшей категории слова 0.82; категория неочевидная"
+,case,case,case_legal,detective_words,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.12"
+,draft,draft,draft_document,email_words,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.10"
+,draft,draft,draft_document,file_types,candidate,approved,"SWOW: оценка 0.226, доля от лучшей категории слова 0.97"
+,draft,draft,draft_document,writing_words,candidate,approved,"SWOW: оценка 0.167, доля от лучшей категории слова 0.72"
+,draft,draft,draft_wind,wind_words,candidate,approved,"SWOW: оценка 0.233, доля от лучшей категории слова 1.00"
+,draft,draft,draft_boat,sailing_terms,candidate,alternative,"SWOW: оценка 0.167, доля от лучшей категории слова 0.72; категория неочевидная"
+,note,note,note_music,music_words,candidate,approved,"SWOW: оценка 0.344, доля от лучшей категории слова 1.00"
+,note,note,note_written,learning_actions,candidate,approved,"SWOW: оценка 0.222, доля от лучшей категории слова 0.64"
+,note,note,note_written,words_after_foot,candidate,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.20"
+,note,note,note_written,words_before_book,candidate,alternative,"SWOW: оценка 0.214, доля от лучшей категории слова 0.62; категория неочевидная"
+,note,note,note_written,words_before_paper,candidate,alternative,"SWOW: оценка 0.237, доля от лучшей категории слова 0.69; категория неочевидная"
+,note,note,note_money,coins_and_bills,candidate,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
+,note,note,note_money,things_in_a_wallet,candidate,alternative,"SWOW: оценка 0.114, доля от лучшей категории слова 0.33"
+,note,note,note_scent,perfume_words,candidate,hard_only,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00"
+,range,range,range_stove,kitchen_appliances,candidate,approved,"SWOW: оценка 0.117, доля от лучшей категории слова 1.00"
+,range,range,range_shooting,archery_words,candidate,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.20"
+,rock,rock,rock_stone,collecting_hobbies,candidate,alternative,"SWOW: оценка 0.126, доля от лучшей категории слова 0.40"
+,rock,rock,rock_stone,desert_things,candidate,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
+,rock,rock,rock_stone,hard_things,candidate,alternative,"SWOW: оценка 0.311, доля от лучшей категории слова 1.00; категория неочевидная"
+,rock,rock,rock_music,music_genres,candidate,alternative,"SWOW: оценка 0.141, доля от лучшей категории слова 0.45"
+,roll,roll,roll_bread,bread_types,candidate,approved,"SWOW: оценка 0.242, доля от лучшей категории слова 1.00"
+,roll,roll,roll_bread,sandwich_breads,candidate,approved,"SWOW: оценка 0.234, доля от лучшей категории слова 0.97"
+,roll,roll,roll_turn,carrying_actions,candidate,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.07; прозрачная категория, игрок доходит рассудком"
+,roll,roll,roll_turn,self_defense_moves,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.17"
+,second,second,second_time,time_units,candidate,approved,"SWOW: оценка 0.248, доля от лучшей категории слова 0.76"
+,second,second,second_order,order_words,candidate,approved,"SWOW: оценка 0.326, доля от лучшей категории слова 1.00"
+,sound,sound,sound_noise,alphabet_and_numbers,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 1.00"
+,sound,sound,sound_noise,words_before_proof,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.34"
+,sound,sound,sound_water,bodies_of_water,candidate,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.30; прозрачная категория, игрок доходит рассудком"
+,spell,spell,spell_letters,school_actions,candidate,alternative,"SWOW: оценка 0.100, доля от лучшей категории слова 0.52"
+,spell,spell,spell_magic,wizards_and_spells,candidate,approved,"SWOW: оценка 0.191, доля от лучшей категории слова 1.00"
+,stick,stick,stick_candy,candy_shapes,candidate,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.26"
+,stick,stick,stick_hockey,hockey_words,candidate,approved,"SWOW: оценка 0.112, доля от лучшей категории слова 1.00"
+,story,story,story_tale,words_before_book,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 1.00; категория неочевидная"
+,story,story,story_tale,words_before_time,candidate,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 0.27"
+,story,story,story_post,social_media_words,candidate,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
+,strike,strike,strike_hit,self_defense_moves,candidate,alternative,"SWOW: оценка 0.076, доля от лучшей категории слова 0.24"
+,strike,strike,strike_baseball,baseball_words,candidate,approved,"SWOW: оценка 0.318, доля от лучшей категории слова 1.00"
+,strike,strike,strike_bowling,bowling_words,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.13"
+,strike,strike,strike_theater,theater_stage_terms,candidate,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
+,swallow,swallow,swallow_throat,body_movements,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
+,swallow,swallow,swallow_throat,eating_actions,candidate,alternative,"SWOW: оценка 0.235, доля от лучшей категории слова 0.41"
+,swallow,swallow,swallow_bird,songbirds,candidate,approved,"SWOW: оценка 0.569, доля от лучшей категории слова 1.00"
+,tie,tie,tie_clothing,accessories,candidate,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 0.14"
+,tie,tie,tie_clothing,clothing_items,candidate,alternative,"SWOW: оценка 0.104, доля от лучшей категории слова 0.36"
+,tie,tie,tie_clothing,fashion_accessories,candidate,alternative,"SWOW: оценка 0.059, доля от лучшей категории слова 0.20"
+,tie,tie,tie_knot,joining_actions,candidate,alternative,"SWOW: оценка 0.109, доля от лучшей категории слова 0.38"
+,tie,tie,tie_knot,things_you_tie,candidate,alternative,"SWOW: оценка 0.290, доля от лучшей категории слова 1.00; категория неочевидная"
+,tie,tie,tie_score,sports_scoring,candidate,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
+,top,top,top_spin,things_that_spin,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.57"
+,top,top,top_spin,toys,candidate,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.45"
+,top,top,top_upper,words_before_side,candidate,alternative,"SWOW: оценка 0.053, доля от лучшей категории слова 1.00; категория неочевидная"
+,yard,yard,yard_measure,things_measured_in_inches,candidate,approved,"SWOW: оценка 0.147, доля от лучшей категории слова 1.00"
+,yard,yard,yard_ground,prison_words,candidate,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
+,yard,yard,yard_ground,words_after_back,candidate,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 0.56; категория неочевидная"
+,bass,bass,bass_fish,fish_species,candidate,approved,"SWOW: оценка 0.593, доля от лучшей категории слова 1.00"
+,bass,bass,bass_fish,pond_fish,candidate,approved,"SWOW: оценка 0.558, доля от лучшей категории слова 0.94"
+,bass,bass,bass_music,string_instruments,candidate,approved,"SWOW: оценка 0.279, доля от лучшей категории слова 0.47"
+,nut,nut,nut_food,hard_things,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
+,nut,nut,nut_metal,fasteners,candidate,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.91; прозрачная категория, игрок доходит рассудком"
+,fly,fly,fly_insect,insects,candidate,approved,"SWOW: оценка 0.223, доля от лучшей категории слова 1.00"
+,fly,fly,fly_insect,words_after_fire,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.20"
+,fly,fly,fly_insect,words_after_horse,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01"
+,fly,fly,fly_lure,fishing_things,candidate,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.13"
+,duck,duck,duck_bird,birds,candidate,approved,"SWOW: оценка 0.135, доля от лучшей категории слова 1.00"
+,duck,duck,duck_bird,farm_animals,candidate,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.32"
+,duck,duck,duck_bird,farm_bird_words,candidate,approved,"SWOW: оценка 0.125, доля от лучшей категории слова 0.92"
+,duck,duck,duck_bird,flying_animals,candidate,approved,"SWOW: оценка 0.114, доля от лучшей категории слова 0.85"
+,duck,duck,duck_bird,livestock,candidate,approved,"SWOW: оценка 0.090, доля от лучшей категории слова 0.67"
+,duck,duck,duck_bird,pond_animals,candidate,approved,"SWOW: оценка 0.095, доля от лучшей категории слова 0.70"
+,duck,duck,duck_bird,things_that_float,candidate,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 0.30"
+,duck,duck,duck_bird,waterfowl,candidate,approved,"SWOW: оценка 0.112, доля от лучшей категории слова 0.83"
+,duck,duck,duck_meat,meats,candidate,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.11; прозрачная категория, игрок доходит рассудком"
+,duck,duck,duck_meat,words_before_sauce,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.06"
+,duck,duck,duck_toy,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.034, доля от лучшей категории слова 0.25"
 ,bake,bake,,cooking_actions,approved,approved,"SWOW: оценка 0.229, доля от лучшей категории слова 1.00"
 ,boil,boil,,cooking_actions,approved,approved,"SWOW: оценка 0.271, доля от лучшей категории слова 0.61"
 ,fry,fry,,cooking_actions,approved,approved,"SWOW: оценка 0.241, доля от лучшей категории слова 0.81"
@@ -679,7 +858,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,slice,slice,,cooking_actions,approved,approved,"SWOW: оценка 0.163, доля от лучшей категории слова 1.00"
 ,knead,knead,,cooking_actions,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,whisk,whisk,,cooking_actions,approved,alternative,"SWOW: оценка 0.128, доля от лучшей категории слова 0.44"
-,dice,dice,,cooking_actions,approved,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.50"
 ,mince,mince,,cooking_actions,approved,approved,"SWOW: оценка 0.177, доля от лучшей категории слова 0.83"
 ,saute,saute,,cooking_actions,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,steam,steam,,cooking_actions,approved,approved,"SWOW: оценка 0.172, доля от лучшей категории слова 0.62"
@@ -712,7 +890,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,wade,wade,,ways_of_moving,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,scramble,scramble,,ways_of_moving,approved,approved,"SWOW: оценка 0.055, доля от лучшей категории слова 1.00"
 ,shuffle,shuffle,,ways_of_moving,approved,alternative,"SWOW: оценка 0.074, доля от лучшей категории слова 0.17"
-,dart,dart,,ways_of_moving,approved,approved,"SWOW: оценка 0.145, доля от лучшей категории слова 0.99"
 ,race,race,,ways_of_moving,approved,approved,"SWOW: оценка 0.191, доля от лучшей категории слова 1.00"
 ,trudge,trudge,,ways_of_moving,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 1.00"
 ,stare,stare,,ways_of_looking,approved,approved,"SWOW: оценка 0.551, доля от лучшей категории слова 1.00"
@@ -829,7 +1006,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sink,sink,,water_actions,approved,approved,"SWOW: оценка 0.370, доля от лучшей категории слова 1.00"
 ,pour,pour,,water_actions,approved,approved,"SWOW: оценка 0.598, доля от лучшей категории слова 1.00"
 ,spill,spill,,water_actions,approved,approved,"SWOW: оценка 0.341, доля от лучшей категории слова 1.00"
-,drip,drip,,water_actions,approved,approved,"SWOW: оценка 0.657, доля от лучшей категории слова 1.00"
 ,soak,soak,,water_actions,approved,approved,"SWOW: оценка 0.383, доля от лучшей категории слова 1.00"
 ,wade,wade,,water_actions,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,paddle,paddle,,water_actions,approved,approved,"SWOW: оценка 0.141, доля от лучшей категории слова 1.00"
@@ -853,7 +1029,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,stretch,stretch,,sleeping_actions,approved,alternative,"SWOW: оценка 0.004, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,wake,wake,,sleeping_actions,approved,approved,"SWOW: оценка 0.475, доля от лучшей категории слова 1.00"
 ,chew,chew,,eating_actions,approved,approved,"SWOW: оценка 0.511, доля от лучшей категории слова 1.00"
-,swallow,swallow,,eating_actions,approved,alternative,"SWOW: оценка 0.235, доля от лучшей категории слова 0.41"
 ,sip,sip,,eating_actions,approved,approved,"SWOW: оценка 0.255, доля от лучшей категории слова 1.00"
 ,gulp,gulp,,eating_actions,approved,approved,"SWOW: оценка 0.213, доля от лучшей категории слова 1.00"
 ,nibble,nibble,,eating_actions,approved,approved,"SWOW: оценка 0.510, доля от лучшей категории слова 1.00"
@@ -875,7 +1050,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,tow,tow,,carrying_actions,approved,approved,"SWOW: оценка 0.367, доля от лучшей категории слова 1.00"
 ,hoist,hoist,,carrying_actions,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,shove,shove,,carrying_actions,approved,approved,"SWOW: оценка 0.218, доля от лучшей категории слова 1.00"
-,roll,roll,,carrying_actions,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.07; прозрачная категория, игрок доходит рассудком"
 ,toss,toss,,carrying_actions,approved,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.32"
 ,slide,slide,,carrying_actions,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 0.15; прозрачная категория, игрок доходит рассудком"
 ,load,load,,carrying_actions,approved,approved,"SWOW: оценка 0.271, доля от лучшей категории слова 1.00"
@@ -908,11 +1082,9 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,trade,trade,,giving_and_taking,approved,approved,"SWOW: оценка 0.172, доля от лучшей категории слова 1.00"
 ,sell,sell,,giving_and_taking,approved,approved,"SWOW: оценка 0.076, доля от лучшей категории слова 1.00"
 ,buy,buy,,giving_and_taking,approved,approved,"SWOW: оценка 0.091, доля от лучшей категории слова 1.00"
-,hand,hand,,giving_and_taking,approved,alternative,"SWOW: оценка 0.090, доля от лучшей категории слова 0.54"
 ,deliver,deliver,,giving_and_taking,approved,approved,"SWOW: оценка 0.208, доля от лучшей категории слова 1.00"
 ,collect,collect,,giving_and_taking,approved,approved,"SWOW: оценка 0.063, доля от лучшей категории слова 1.00"
 ,swap,swap,,giving_and_taking,approved,approved,"SWOW: оценка 0.113, доля от лучшей категории слова 1.00"
-,tie,tie,,joining_actions,approved,alternative,"SWOW: оценка 0.109, доля от лучшей категории слова 0.38"
 ,glue,glue,,joining_actions,approved,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 0.25"
 ,staple,staple,,joining_actions,approved,approved,"SWOW: оценка 0.148, доля от лучшей категории слова 1.00"
 ,sew,sew,,joining_actions,approved,approved,"SWOW: оценка 0.071, доля от лучшей категории слова 1.00"
@@ -922,7 +1094,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,button,button,,joining_actions,approved,alternative,"SWOW: оценка 0.123, доля от лучшей категории слова 0.31"
 ,zip,zip,,joining_actions,approved,approved,"SWOW: оценка 0.112, доля от лучшей категории слова 1.00"
 ,knot,knot,,joining_actions,approved,approved,"SWOW: оценка 0.294, доля от лучшей категории слова 0.82"
-,link,link,,joining_actions,approved,approved,"SWOW: оценка 0.068, доля от лучшей категории слова 0.57"
 ,fasten,fasten,,joining_actions,approved,approved,"SWOW: оценка 0.197, доля от лучшей категории слова 1.00"
 ,bind,bind,,joining_actions,approved,approved,"SWOW: оценка 0.321, доля от лучшей категории слова 1.00"
 ,stitch,stitch,,joining_actions,approved,alternative,"SWOW: оценка 0.097, доля от лучшей категории слова 0.17"
@@ -1044,7 +1215,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,review,review,,school_actions,approved,approved,"SWOW: оценка 0.348, доля от лучшей категории слова 0.92"
 ,submit,submit,,school_actions,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
 ,present,present,,school_actions,approved,alternative,"SWOW: оценка 0.011, доля от лучшей категории слова 0.13; прозрачная категория, игрок доходит рассудком"
-,spell,spell,,school_actions,approved,alternative,"SWOW: оценка 0.100, доля от лучшей категории слова 0.52"
 ,calculate,calculate,,school_actions,approved,alternative,"SWOW: оценка 0.014, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,research,research,,school_actions,approved,approved,"SWOW: оценка 0.287, доля от лучшей категории слова 1.00"
 ,whisper,whisper,,quiet_actions,candidate,alternative,"SWOW: оценка 0.216, доля от лучшей категории слова 0.86; категория неочевидная"
@@ -1066,7 +1236,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sheep,sheep,,farm_animals,approved,approved,"SWOW: оценка 0.137, доля от лучшей категории слова 1.00"
 ,goat,goat,,farm_animals,approved,approved,"SWOW: оценка 0.126, доля от лучшей категории слова 1.00"
 ,chicken,chicken,,farm_animals,approved,approved,"SWOW: оценка 0.173, доля от лучшей категории слова 0.66"
-,duck,duck,,farm_animals,approved,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.32"
 ,rooster,rooster,,farm_animals,approved,approved,"SWOW: оценка 0.164, доля от лучшей категории слова 0.61"
 ,donkey,donkey,,farm_animals,approved,approved,"SWOW: оценка 0.096, доля от лучшей категории слова 0.63"
 ,hen,hen,,farm_animals,approved,alternative,"SWOW: оценка 0.178, доля от лучшей категории слова 0.53"
@@ -1089,7 +1258,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,swan,swan,,birds,approved,approved,"SWOW: оценка 0.604, доля от лучшей категории слова 1.00"
 ,goose,goose,,birds,approved,approved,"SWOW: оценка 0.248, доля от лучшей категории слова 0.89"
 ,parrot,parrot,,birds,approved,approved,"SWOW: оценка 0.786, доля от лучшей категории слова 0.96"
-,duck,duck,,birds,approved,approved,"SWOW: оценка 0.135, доля от лучшей категории слова 1.00"
 ,chicken,chicken,,birds,approved,alternative,"SWOW: оценка 0.093, доля от лучшей категории слова 0.35"
 ,blue jay,blue jay,,birds,approved,approved,"SWOW: оценка 0.944, доля от лучшей категории слова 1.00"
 ,woodpecker,woodpecker,,birds,approved,approved,"SWOW: оценка 0.795, доля от лучшей категории слова 1.00"
@@ -1127,7 +1295,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,orca,orca,,ocean_animals,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,ant,ant,,insects,approved,approved,"SWOW: оценка 0.573, доля от лучшей категории слова 1.00"
 ,bee,bee,,insects,approved,approved,"SWOW: оценка 0.177, доля от лучшей категории слова 1.00"
-,fly,fly,,insects,approved,approved,"SWOW: оценка 0.223, доля от лучшей категории слова 1.00"
 ,beetle,beetle,,insects,approved,approved,"SWOW: оценка 0.619, доля от лучшей категории слова 1.00"
 ,moth,moth,,insects,approved,approved,"SWOW: оценка 0.476, доля от лучшей категории слова 1.00"
 ,butterfly,butterfly,,insects,approved,approved,"SWOW: оценка 0.240, доля от лучшей категории слова 1.00"
@@ -1184,7 +1351,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,robin,robin,,flying_animals,approved,approved,"SWOW: оценка 0.639, доля от лучшей категории слова 0.91"
 ,falcon,falcon,,flying_animals,approved,approved,"SWOW: оценка 0.809, доля от лучшей категории слова 0.91"
 ,pigeon,pigeon,,flying_animals,approved,approved,"SWOW: оценка 0.765, доля от лучшей категории слова 0.90"
-,duck,duck,,flying_animals,approved,approved,"SWOW: оценка 0.114, доля от лучшей категории слова 0.85"
 ,swan,swan,,flying_animals,approved,approved,"SWOW: оценка 0.550, доля от лучшей категории слова 0.91"
 ,mosquito,mosquito,,flying_animals,approved,alternative,"SWOW: оценка 0.077, доля от лучшей категории слова 0.22"
 ,ladybug,ladybug,,flying_animals,approved,alternative,"SWOW: оценка 0.119, доля от лучшей категории слова 0.32"
@@ -1507,7 +1673,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hyena,hyena,,spotted_and_striped,candidate,alternative,"SWOW: оценка 0.280, доля от лучшей категории слова 0.79; категория неочевидная"
 ,okapi,okapi,,spotted_and_striped,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,frog,frog,,pond_animals,approved,alternative,"SWOW: оценка 0.116, доля от лучшей категории слова 0.54"
-,duck,duck,,pond_animals,approved,approved,"SWOW: оценка 0.095, доля от лучшей категории слова 0.70"
 ,fish,fish,,pond_animals,approved,approved,"SWOW: оценка 0.073, доля от лучшей категории слова 0.80"
 ,turtle,turtle,,pond_animals,approved,alternative,"SWOW: оценка 0.155, доля от лучшей категории слова 0.37"
 ,dragonfly,dragonfly,,pond_animals,approved,alternative,"SWOW: оценка 0.087, доля от лучшей категории слова 0.12"
@@ -1525,7 +1690,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,salamander,salamander,,pond_animals,approved,alternative,"SWOW: оценка 0.185, доля от лучшей категории слова 0.27"
 ,water bug,water bug,,pond_animals,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,chicken,chicken,,farm_bird_words,approved,approved,"SWOW: оценка 0.261, доля от лучшей категории слова 1.00"
-,duck,duck,,farm_bird_words,approved,approved,"SWOW: оценка 0.125, доля от лучшей категории слова 0.92"
 ,goose,goose,,farm_bird_words,approved,approved,"SWOW: оценка 0.235, доля от лучшей категории слова 0.85"
 ,hen,hen,,farm_bird_words,approved,approved,"SWOW: оценка 0.336, доля от лучшей категории слова 1.00"
 ,rooster,rooster,,farm_bird_words,approved,approved,"SWOW: оценка 0.270, доля от лучшей категории слова 1.00"
@@ -1592,7 +1756,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,burrow,burrow,,animal_verbs,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.11"
 ,glide,glide,,animal_verbs,candidate,alternative,"SWOW: оценка 0.173, доля от лучшей категории слова 1.00; категория неочевидная"
 ,crawl,crawl,,animal_verbs,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.40"
-,dart,dart,,animal_verbs,candidate,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.18"
 ,prowl,prowl,,animal_verbs,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,swim,swim,,animal_verbs,candidate,hard_only,"SWOW: оценка 0.018, доля от лучшей категории слова 0.02"
 ,flutter,flutter,,animal_verbs,candidate,alternative,"SWOW: оценка 0.097, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -1667,7 +1830,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hornbill,hornbill,,parrots_and_exotic_birds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,quetzal,quetzal,,parrots_and_exotic_birds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,myna,myna,,parrots_and_exotic_birds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,duck,duck,,waterfowl,approved,approved,"SWOW: оценка 0.112, доля от лучшей категории слова 0.83"
 ,goose,goose,,waterfowl,approved,approved,"SWOW: оценка 0.278, доля от лучшей категории слова 1.00"
 ,swan,swan,,waterfowl,approved,approved,"SWOW: оценка 0.449, доля от лучшей категории слова 0.74"
 ,loon,loon,,waterfowl,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -1808,7 +1970,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,mold,mold,,art_tools,approved,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 0.14"
 ,airbrush,airbrush,,art_tools,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,watercolor,watercolor,,paint_types,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,oil,oil,,paint_types,approved,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,acrylic,acrylic,,paint_types,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,tempera,tempera,,paint_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,spray,spray,,paint_types,approved,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.17"
@@ -1995,10 +2156,8 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,cord,cord,,jewelry_making,candidate,alternative,"SWOW: оценка 0.093, доля от лучшей категории слова 0.40"
 ,arm,arm,,body_parts,approved,approved,"SWOW: оценка 0.386, доля от лучшей категории слова 1.00"
 ,leg,leg,,body_parts,approved,approved,"SWOW: оценка 0.333, доля от лучшей категории слова 1.00"
-,hand,hand,,body_parts,approved,approved,"SWOW: оценка 0.166, доля от лучшей категории слова 1.00"
 ,knee,knee,,body_parts,approved,approved,"SWOW: оценка 0.358, доля от лучшей категории слова 1.00"
 ,elbow,elbow,,body_parts,approved,approved,"SWOW: оценка 0.338, доля от лучшей категории слова 1.00"
-,shoulder,shoulder,,body_parts,approved,approved,"SWOW: оценка 0.302, доля от лучшей категории слова 1.00"
 ,neck,neck,,body_parts,approved,approved,"SWOW: оценка 0.078, доля от лучшей категории слова 1.00"
 ,back,back,,body_parts,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.24"
 ,ankle,ankle,,body_parts,approved,approved,"SWOW: оценка 0.396, доля от лучшей категории слова 1.00"
@@ -2123,7 +2282,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,yawn,yawn,,body_movements,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.08; прозрачная категория, игрок доходит рассудком"
 ,sneeze,sneeze,,body_movements,approved,approved,"SWOW: оценка 0.091, доля от лучшей категории слова 0.64"
 ,cough,cough,,body_movements,approved,approved,"SWOW: оценка 0.166, доля от лучшей категории слова 0.56"
-,swallow,swallow,,body_movements,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,breathe,breathe,,body_movements,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.96; прозрачная категория, игрок доходит рассудком"
 ,lean,lean,,body_movements,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,crouch,crouch,,body_movements,approved,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 1.00"
@@ -2654,7 +2812,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hundred,hundred,,coins_and_bills,approved,approved,"SWOW: оценка 0.232, доля от лучшей категории слова 0.66"
 ,cent,cent,,coins_and_bills,approved,approved,"SWOW: оценка 0.402, доля от лучшей категории слова 1.00"
 ,coin,coin,,coins_and_bills,approved,approved,"SWOW: оценка 0.610, доля от лучшей категории слова 0.93"
-,note,note,,coins_and_bills,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
 ,bakery,bakery,,store_types,approved,alternative,"SWOW: оценка 0.050, доля от лучшей категории слова 1.00"
 ,pharmacy,pharmacy,,store_types,approved,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.35"
 ,bookstore,bookstore,,store_types,approved,approved,"SWOW: оценка 0.191, доля от лучшей категории слова 1.00"
@@ -3073,7 +3230,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sock,sock,,clothing_items,approved,alternative,"SWOW: оценка 0.059, доля от лучшей категории слова 0.08"
 ,scarf,scarf,,clothing_items,approved,approved,"SWOW: оценка 0.242, доля от лучшей категории слова 0.60"
 ,glove,glove,,clothing_items,approved,alternative,"SWOW: оценка 0.057, доля от лучшей категории слова 0.47"
-,tie,tie,,clothing_items,approved,alternative,"SWOW: оценка 0.104, доля от лучшей категории слова 0.36"
 ,blouse,blouse,,clothing_items,approved,approved,"SWOW: оценка 0.201, доля от лучшей категории слова 0.83"
 ,jeans,jeans,,clothing_items,approved,approved,"SWOW: оценка 0.261, доля от лучшей категории слова 1.00"
 ,shorts,shorts,,clothing_items,approved,approved,"SWOW: оценка 0.293, доля от лучшей категории слова 1.00"
@@ -3156,7 +3312,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,scarf,scarf,,accessories,approved,alternative,"SWOW: оценка 0.096, доля от лучшей категории слова 0.24"
 ,purse,purse,,accessories,approved,alternative,"SWOW: оценка 0.188, доля от лучшей категории слова 0.46"
 ,sunglasses,sunglasses,,accessories,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 0.08; прозрачная категория, игрок доходит рассудком"
-,tie,tie,,accessories,approved,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 0.14"
 ,gloves,gloves,,accessories,approved,approved,"SWOW: оценка 0.066, доля от лучшей категории слова 0.95"
 ,hat,hat,,accessories,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.49"
 ,wallet,wallet,,accessories,approved,alternative,"SWOW: оценка 0.246, доля от лучшей категории слова 0.30"
@@ -3267,7 +3422,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,pants,pants,,things_you_button,candidate,alternative,"SWOW: оценка 0.196, доля от лучшей категории слова 0.89; категория неочевидная"
 ,sweater,sweater,,things_you_button,candidate,alternative,"SWOW: оценка 0.205, доля от лучшей категории слова 0.60; категория неочевидная"
 ,shoelace,shoelace,,things_you_tie,candidate,alternative,"SWOW: оценка 0.479, доля от лучшей категории слова 1.00; категория неочевидная"
-,tie,tie,,things_you_tie,candidate,alternative,"SWOW: оценка 0.290, доля от лучшей категории слова 1.00; категория неочевидная"
 ,sash,sash,,things_you_tie,candidate,alternative,"SWOW: оценка 0.143, доля от лучшей категории слова 1.00; категория неочевидная"
 ,ribbon,ribbon,,things_you_tie,candidate,alternative,"SWOW: оценка 0.314, доля от лучшей категории слова 1.00; категория неочевидная"
 ,bowtie,bowtie,,things_you_tie,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -3299,7 +3453,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,thread,thread,,sewing_words,approved,approved,"SWOW: оценка 0.505, доля от лучшей категории слова 1.00"
 ,pattern,pattern,,sewing_words,approved,approved,"SWOW: оценка 0.090, доля от лучшей категории слова 1.00"
 ,tuck,tuck,,sewing_words,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 1.00"
-,dart,dart,,sewing_words,approved,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.22"
 ,pleat,pleat,,sewing_words,candidate,hard_only,"SWOW: оценка 0.004, доля от лучшей категории слова 0.91"
 ,alter,alter,,sewing_words,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,baste,baste,,sewing_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -3573,7 +3726,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,few,few,,superstition_numbers,approved,alternative,"SWOW: оценка 0.092, доля от лучшей категории слова 0.27"
 ,single,single,,superstition_numbers,approved,approved,"SWOW: оценка 0.123, доля от лучшей категории слова 1.00"
 ,twenty,twenty,,superstition_numbers,approved,approved,"SWOW: оценка 0.444, доля от лучшей категории слова 1.00"
-,hot,hot,,opposites,approved,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.16"
 ,big,big,,opposites,approved,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.08"
 ,small,small,,opposites,approved,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.16"
 ,up,up,,opposites,approved,approved,"SWOW: оценка 0.163, доля от лучшей категории слова 1.00"
@@ -3590,7 +3742,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,shut,shut,,opposites,approved,approved,"SWOW: оценка 0.291, доля от лучшей категории слова 1.00"
 ,wet,wet,,opposites,approved,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.14"
 ,dry,dry,,opposites,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.07"
-,light,light,,opposites,approved,approved,"SWOW: оценка 0.073, доля от лучшей категории слова 0.57"
 ,dark,dark,,opposites,approved,approved,"SWOW: оценка 0.127, доля от лучшей категории слова 0.59"
 ,near,near,,opposites,approved,alternative,"SWOW: оценка 0.148, доля от лучшей категории слова 0.26"
 ,far,far,,opposites,approved,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.18"
@@ -3634,7 +3785,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,fragrant,fragrant,,smell_words,candidate,alternative,"SWOW: оценка 0.405, доля от лучшей категории слова 1.00; категория неочевидная"
 ,musty,musty,,smell_words,candidate,alternative,"SWOW: оценка 0.385, доля от лучшей категории слова 1.00; категория неочевидная"
 ,smoky,smoky,,smell_words,candidate,hard_only,"SWOW: оценка 0.001, доля от лучшей категории слова 0.14"
-,fresh,fresh,,smell_words,candidate,alternative,"SWOW: оценка 0.067, доля от лучшей категории слова 0.49"
 ,sour,sour,,smell_words,candidate,alternative,"SWOW: оценка 0.055, доля от лучшей категории слова 0.14"
 ,floral,floral,,smell_words,candidate,alternative,"SWOW: оценка 0.141, доля от лучшей категории слова 0.54"
 ,pungent,pungent,,smell_words,candidate,alternative,"SWOW: оценка 0.356, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -3713,7 +3863,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,modern,modern,,age_words,approved,approved,"SWOW: оценка 0.161, доля от лучшей категории слова 1.00"
 ,vintage,vintage,,age_words,approved,approved,"SWOW: оценка 0.687, доля от лучшей категории слова 1.00"
 ,antique,antique,,age_words,approved,approved,"SWOW: оценка 0.723, доля от лучшей категории слова 1.00"
-,fresh,fresh,,age_words,approved,approved,"SWOW: оценка 0.138, доля от лучшей категории слова 1.00"
 ,aged,aged,,age_words,approved,approved,"SWOW: оценка 0.724, доля от лучшей категории слова 1.00"
 ,brand new,brand new,,age_words,approved,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 1.00"
 ,worn,worn,,age_words,approved,approved,"SWOW: оценка 0.520, доля от лучшей категории слова 1.00"
@@ -3721,7 +3870,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,contemporary,contemporary,,age_words,approved,approved,"SWOW: оценка 0.148, доля от лучшей категории слова 1.00"
 ,secondhand,secondhand,,age_words,approved,approved,"SWOW: оценка 0.084, доля от лучшей категории слова 1.00"
 ,timeworn,timeworn,,age_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,round,round,,shape_adjectives,approved,approved,"SWOW: оценка 0.158, доля от лучшей категории слова 1.00"
 ,square,square,,shape_adjectives,approved,alternative,"SWOW: оценка 0.176, доля от лучшей категории слова 0.46"
 ,flat,flat,,shape_adjectives,approved,approved,"SWOW: оценка 0.099, доля от лучшей категории слова 1.00"
 ,curved,curved,,shape_adjectives,approved,approved,"SWOW: оценка 0.352, доля от лучшей категории слова 1.00"
@@ -3883,7 +4031,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,annually,annually,,frequency_words,approved,approved,"SWOW: оценка 0.185, доля от лучшей категории слова 1.00"
 ,monthly,monthly,,frequency_words,approved,approved,"SWOW: оценка 0.256, доля от лучшей категории слова 1.00"
 ,first,first,,order_words,approved,approved,"SWOW: оценка 0.291, доля от лучшей категории слова 1.00"
-,second,second,,order_words,approved,approved,"SWOW: оценка 0.326, доля от лучшей категории слова 1.00"
 ,third,third,,order_words,approved,approved,"SWOW: оценка 0.239, доля от лучшей категории слова 1.00"
 ,last,last,,order_words,approved,approved,"SWOW: оценка 0.404, доля от лучшей категории слова 1.00"
 ,next,next,,order_words,approved,approved,"SWOW: оценка 0.300, доля от лучшей категории слова 1.00"
@@ -4081,7 +4228,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,practice,practice,,learning_actions,approved,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 1.00"
 ,review,review,,learning_actions,approved,approved,"SWOW: оценка 0.378, доля от лучшей категории слова 1.00"
 ,listen,listen,,learning_actions,approved,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 1.00"
-,note,note,,learning_actions,approved,approved,"SWOW: оценка 0.222, доля от лучшей категории слова 0.64"
 ,question,question,,learning_actions,approved,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 1.00"
 ,discuss,discuss,,learning_actions,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,solve,solve,,learning_actions,approved,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 1.00"
@@ -4145,7 +4291,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,color,color,,alphabet_and_numbers,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.25; прозрачная категория, игрок доходит рассудком"
 ,shape,shape,,alphabet_and_numbers,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,count,count,,alphabet_and_numbers,approved,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.33"
-,sound,sound,,alphabet_and_numbers,approved,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 1.00"
 ,word,word,,alphabet_and_numbers,approved,alternative,"SWOW: оценка 0.057, доля от лучшей категории слова 0.32"
 ,rhyme,rhyme,,alphabet_and_numbers,approved,approved,"SWOW: оценка 0.051, доля от лучшей категории слова 1.00"
 ,sight word,sight word,,alphabet_and_numbers,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -4261,7 +4406,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,ukulele,ukulele,,string_instruments,approved,approved,"SWOW: оценка 0.119, доля от лучшей категории слова 1.00"
 ,mandolin,mandolin,,string_instruments,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,viola,viola,,string_instruments,approved,approved,"SWOW: оценка 0.634, доля от лучшей категории слова 1.00"
-,bass,bass,,string_instruments,approved,approved,"SWOW: оценка 0.279, доля от лучшей категории слова 0.47"
 ,sitar,sitar,,string_instruments,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,lute,lute,,string_instruments,approved,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 1.00"
 ,zither,zither,,string_instruments,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -4295,7 +4439,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,snare,snare,,percussion,approved,approved,"SWOW: оценка 0.132, доля от лучшей категории слова 1.00"
 ,marimba,marimba,,percussion,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,castanets,castanets,,percussion,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,note,note,,music_words,approved,approved,"SWOW: оценка 0.344, доля от лучшей категории слова 1.00"
 ,chord,chord,,music_words,approved,approved,"SWOW: оценка 0.626, доля от лучшей категории слова 1.00"
 ,tempo,tempo,,music_words,approved,approved,"SWOW: оценка 0.477, доля от лучшей категории слова 1.00"
 ,rhythm,rhythm,,music_words,approved,approved,"SWOW: оценка 0.562, доля от лучшей категории слова 1.00"
@@ -4316,7 +4459,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,riff,riff,,music_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,refrain,refrain,,music_words,approved,approved,"SWOW: оценка 0.188, доля от лучшей категории слова 1.00"
 ,measure,measure,,music_words,approved,approved,"SWOW: оценка 0.074, доля от лучшей категории слова 0.87"
-,rock,rock,,music_genres,approved,alternative,"SWOW: оценка 0.141, доля от лучшей категории слова 0.45"
 ,jazz,jazz,,music_genres,approved,approved,"SWOW: оценка 0.746, доля от лучшей категории слова 1.00"
 ,blues,blues,,music_genres,approved,approved,"SWOW: оценка 0.709, доля от лучшей категории слова 1.00"
 ,country,country,,music_genres,approved,approved,"SWOW: оценка 0.084, доля от лучшей категории слова 1.00"
@@ -4364,7 +4506,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,cut,cut,,card_words,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 0.12; прозрачная категория, игрок доходит рассудком"
 ,shuffle,shuffle,,card_words,approved,approved,"SWOW: оценка 0.433, доля от лучшей категории слова 1.00"
 ,deal,deal,,card_words,approved,approved,"SWOW: оценка 0.361, доля от лучшей категории слова 1.00"
-,hand,hand,,card_words,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,pair,pair,,card_words,approved,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.22"
 ,flush,flush,,card_words,approved,alternative,"SWOW: оценка 0.034, доля от лучшей категории слова 1.00"
 ,straight,straight,,card_words,approved,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
@@ -4409,7 +4550,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,take,take,,movie_words,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,camera,camera,,movie_words,approved,alternative,"SWOW: оценка 0.037, доля от лучшей категории слова 0.38"
 ,actor,actor,,movie_words,approved,approved,"SWOW: оценка 0.280, доля от лучшей категории слова 1.00"
-,set,set,,movie_words,approved,alternative,"SWOW: оценка 0.018, доля от лучшей категории слова 0.12; прозрачная категория, игрок доходит рассудком"
 ,cut,cut,,movie_words,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.10; прозрачная категория, игрок доходит рассудком"
 ,premiere,premiere,,movie_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,credits,credits,,movie_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -4481,7 +4621,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,puzzle,puzzle,,toys,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 1.00"
 ,teddy bear,teddy bear,,toys,approved,approved,"SWOW: оценка 0.220, доля от лучшей категории слова 0.58"
 ,yo-yo,yo-yo,,toys,approved,approved,"SWOW: оценка 0.462, доля от лучшей категории слова 1.00"
-,top,top,,toys,approved,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.45"
 ,robot,robot,,toys,approved,alternative,"SWOW: оценка 0.011, доля от лучшей категории слова 0.13; прозрачная категория, игрок доходит рассудком"
 ,train set,train set,,toys,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,action figure,action figure,,toys,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -4837,7 +4976,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sheep,sheep,,livestock,approved,approved,"SWOW: оценка 0.133, доля от лучшей категории слова 0.98"
 ,goat,goat,,livestock,approved,approved,"SWOW: оценка 0.096, доля от лучшей категории слова 0.76"
 ,chicken,chicken,,livestock,approved,alternative,"SWOW: оценка 0.083, доля от лучшей категории слова 0.32"
-,duck,duck,,livestock,approved,approved,"SWOW: оценка 0.090, доля от лучшей категории слова 0.67"
 ,horse,horse,,livestock,approved,approved,"SWOW: оценка 0.092, доля от лучшей категории слова 0.80"
 ,ox,ox,,livestock,approved,approved,"SWOW: оценка 0.176, доля от лучшей категории слова 0.59"
 ,llama,llama,,livestock,approved,approved,"SWOW: оценка 0.171, доля от лучшей категории слова 0.82"
@@ -4983,7 +5121,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,citrus,citrus,,perfume_words,candidate,alternative,"SWOW: оценка 0.085, доля от лучшей категории слова 1.00; категория неочевидная"
 ,spicy,spicy,,perfume_words,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.19"
 ,woody,woody,,perfume_words,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
-,fresh,fresh,,perfume_words,candidate,alternative,"SWOW: оценка 0.081, доля от лучшей категории слова 0.59; категория неочевидная"
 ,sweet,sweet,,perfume_words,candidate,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.17"
 ,vanilla,vanilla,,perfume_words,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.24"
 ,rose,rose,,perfume_words,candidate,alternative,"SWOW: оценка 0.199, доля от лучшей категории слова 0.35"
@@ -4992,7 +5129,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,amber,amber,,perfume_words,candidate,alternative,"SWOW: оценка 0.085, доля от лучшей категории слова 0.37"
 ,cologne,cologne,,perfume_words,candidate,alternative,"SWOW: оценка 0.303, доля от лучшей категории слова 1.00; категория неочевидная"
 ,mist,mist,,perfume_words,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.02"
-,note,note,,perfume_words,candidate,hard_only,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00"
 ,casual,casual,,fashion_styles,approved,approved,"SWOW: оценка 0.125, доля от лучшей категории слова 1.00"
 ,formal,formal,,fashion_styles,approved,approved,"SWOW: оценка 0.116, доля от лучшей категории слова 1.00"
 ,vintage,vintage,,fashion_styles,approved,approved,"SWOW: оценка 0.387, доля от лучшей категории слова 0.56"
@@ -5051,7 +5187,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,scarf,scarf,,fashion_accessories,approved,alternative,"SWOW: оценка 0.148, доля от лучшей категории слова 0.37"
 ,belt,belt,,fashion_accessories,approved,approved,"SWOW: оценка 0.089, доля от лучшей категории слова 0.61"
 ,hat,hat,,fashion_accessories,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.32"
-,tie,tie,,fashion_accessories,approved,alternative,"SWOW: оценка 0.059, доля от лучшей категории слова 0.20"
 ,gloves,gloves,,fashion_accessories,approved,approved,"SWOW: оценка 0.062, доля от лучшей категории слова 0.88"
 ,necklace,necklace,,fashion_accessories,approved,approved,"SWOW: оценка 0.331, доля от лучшей категории слова 1.00"
 ,bracelet,bracelet,,fashion_accessories,approved,approved,"SWOW: оценка 0.303, доля от лучшей категории слова 0.77"
@@ -5080,7 +5215,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,espadrille,espadrille,,shoe_styles,candidate,rejected,частотность 0.187: слово почти не встречается в английском
 ,pleat,pleat,,sewing_patterns,candidate,hard_only,"SWOW: оценка 0.004, доля от лучшей категории слова 1.00"
 ,ruffle,ruffle,,sewing_patterns,candidate,alternative,"SWOW: оценка 0.123, доля от лучшей категории слова 1.00; категория неочевидная"
-,dart,dart,,sewing_patterns,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.29"
 ,cuff,cuff,,sewing_patterns,candidate,alternative,"SWOW: оценка 0.118, доля от лучшей категории слова 0.45"
 ,collar,collar,,sewing_patterns,candidate,alternative,"SWOW: оценка 0.121, доля от лучшей категории слова 0.47"
 ,hem,hem,,sewing_patterns,candidate,alternative,"SWOW: оценка 0.255, доля от лучшей категории слова 0.61; категория неочевидная"
@@ -5306,7 +5440,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,baking powder,baking powder,,baking_ingredients,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,cinnamon,cinnamon,,baking_ingredients,approved,alternative,"SWOW: оценка 0.167, доля от лучшей категории слова 0.31"
 ,cream,cream,,baking_ingredients,approved,approved,"SWOW: оценка 0.132, доля от лучшей категории слова 0.75"
-,oil,oil,,baking_ingredients,approved,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.14"
 ,syrup,syrup,,baking_ingredients,approved,approved,"SWOW: оценка 0.103, доля от лучшей категории слова 0.66"
 ,molasses,molasses,,baking_ingredients,approved,alternative,"SWOW: оценка 0.231, доля от лучшей категории слова 0.49"
 ,shortening,shortening,,baking_ingredients,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -5508,7 +5641,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,focaccia,focaccia,,bread_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,cornbread,cornbread,,bread_types,approved,approved,"SWOW: оценка 0.384, доля от лучшей категории слова 1.00"
 ,biscuit,biscuit,,bread_types,approved,approved,"SWOW: оценка 0.201, доля от лучшей категории слова 0.97"
-,roll,roll,,bread_types,approved,approved,"SWOW: оценка 0.242, доля от лучшей категории слова 1.00"
 ,bun,bun,,bread_types,approved,approved,"SWOW: оценка 0.305, доля от лучшей категории слова 1.00"
 ,pumpernickel,pumpernickel,,bread_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,challah,challah,,bread_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -5550,7 +5682,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,ground beef,ground beef,,meats,approved,alternative,"SWOW: оценка 0.004, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,salami,salami,,meats,approved,approved,"SWOW: оценка 0.539, доля от лучшей категории слова 0.91"
 ,pepperoni,pepperoni,,meats,approved,approved,"SWOW: оценка 0.162, доля от лучшей категории слова 0.56"
-,duck,duck,,meats,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.11; прозрачная категория, игрок доходит рассудком"
 ,venison,venison,,meats,approved,approved,"SWOW: оценка 0.277, доля от лучшей категории слова 1.00"
 ,meatball,meatball,,meats,approved,alternative,"SWOW: оценка 0.135, доля от лучшей категории слова 0.45"
 ,bologna,bologna,,meats,approved,approved,"SWOW: оценка 0.435, доля от лучшей категории слова 0.83"
@@ -5950,7 +6081,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,rice,rice,,pantry_staples,approved,approved,"SWOW: оценка 0.169, доля от лучшей категории слова 0.61"
 ,pasta,pasta,,pantry_staples,approved,approved,"SWOW: оценка 0.129, доля от лучшей категории слова 1.00"
 ,salt,salt,,pantry_staples,approved,approved,"SWOW: оценка 0.075, доля от лучшей категории слова 0.68"
-,oil,oil,,pantry_staples,approved,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 0.20"
 ,vinegar,vinegar,,pantry_staples,approved,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.37"
 ,beans,beans,,pantry_staples,approved,approved,"SWOW: оценка 0.100, доля от лучшей категории слова 1.00"
 ,cereal,cereal,,pantry_staples,approved,alternative,"SWOW: оценка 0.166, доля от лучшей категории слова 0.36"
@@ -6098,7 +6228,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,chocolate square,chocolate square,,candy_shapes,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,jelly,jelly,,candy_shapes,approved,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.28"
 ,drop,drop,,candy_shapes,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.17"
-,stick,stick,,candy_shapes,approved,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.26"
 ,ball,ball,,candy_shapes,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.11; прозрачная категория, игрок доходит рассудком"
 ,ribbon,ribbon,,candy_shapes,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,cluster,cluster,,candy_shapes,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.40"
@@ -6117,7 +6246,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,wheat,wheat,,sandwich_breads,approved,approved,"SWOW: оценка 0.408, доля от лучшей категории слова 0.83"
 ,rye,rye,,sandwich_breads,approved,approved,"SWOW: оценка 0.484, доля от лучшей категории слова 0.86"
 ,sourdough,sourdough,,sandwich_breads,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,roll,roll,,sandwich_breads,approved,approved,"SWOW: оценка 0.234, доля от лучшей категории слова 0.97"
 ,hoagie roll,hoagie roll,,sandwich_breads,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,bagel,bagel,,sandwich_breads,approved,approved,"SWOW: оценка 0.267, доля от лучшей категории слова 0.82"
 ,croissant,croissant,,sandwich_breads,approved,alternative,"SWOW: оценка 0.244, доля от лучшей категории слова 0.53"
@@ -6155,11 +6283,9 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,shank,shank,,cuts_of_meat,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,loin,loin,,cuts_of_meat,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,rib,rib,,cuts_of_meat,approved,alternative,"SWOW: оценка 0.111, доля от лучшей категории слова 0.32"
-,round,round,,cuts_of_meat,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,T-bone,t-bone,,cuts_of_meat,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,porterhouse,porterhouse,,cuts_of_meat,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,short rib,short rib,,cuts_of_meat,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,shoulder,shoulder,,cuts_of_meat,approved,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.08"
 ,fondue,fondue,,cheese_dishes,approved,approved,"SWOW: оценка 0.332, доля от лучшей категории слова 1.00"
 ,grilled cheese,grilled cheese,,cheese_dishes,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,mac and cheese,mac and cheese,,cheese_dishes,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -6345,7 +6471,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,library,library,,town_places,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.13; прозрачная категория, игрок доходит рассудком"
 ,hospital,hospital,,town_places,approved,approved,"SWOW: оценка 0.105, доля от лучшей категории слова 1.00"
 ,museum,museum,,town_places,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.07; прозрачная категория, игрок доходит рассудком"
-,station,station,,town_places,approved,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,market,market,,town_places,approved,alternative,"SWOW: оценка 0.127, доля от лучшей категории слова 0.50"
 ,church,church,,town_places,approved,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.27"
 ,post office,post office,,town_places,approved,alternative,"SWOW: оценка 0.003, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
@@ -6542,7 +6667,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,geyser,geyser,,national_parks,approved,approved,"SWOW: оценка 0.087, доля от лучшей категории слова 1.00"
 ,bear box,bear box,,national_parks,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,path,path,,national_parks,approved,alternative,"SWOW: оценка 0.075, доля от лучшей категории слова 0.17"
-,cabin,cabin,,national_parks,approved,approved,"SWOW: оценка 0.202, доля от лучшей категории слова 1.00"
 ,lantern,lantern,,national_parks,approved,alternative,"SWOW: оценка 0.054, доля от лучшей категории слова 0.07"
 ,Hawaii,hawaii,,islands,approved,approved,"SWOW: оценка 0.139, доля от лучшей категории слова 1.00"
 ,Cuba,cuba,,islands,approved,approved,"SWOW: оценка 0.162, доля от лучшей категории слова 0.74"
@@ -6738,7 +6862,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,chariot,chariot,,egypt_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,sarcophagus,sarcophagus,,egypt_things,approved,approved,"SWOW: оценка 0.062, доля от лучшей категории слова 1.00"
 ,temple,temple,,egypt_things,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
-,scroll,scroll,,egypt_things,approved,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 0.43"
 ,canopic jar,canopic jar,,egypt_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,colosseum,colosseum,,roman_things,approved,approved,"SWOW: оценка 0.535, доля от лучшей категории слова 1.00"
 ,gladiator,gladiator,,roman_things,approved,approved,"SWOW: оценка 0.450, доля от лучшей категории слова 1.00"
@@ -6919,7 +7042,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,comic,comic,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.06; прозрачная категория, игрок доходит рассудком"
 ,record,record,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.39"
 ,shell,shell,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.014, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
-,rock,rock,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.126, доля от лучшей категории слова 0.40"
 ,button,button,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.06"
 ,key,key,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,magnet,magnet,,collecting_hobbies,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.27"
@@ -7003,7 +7125,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,checkmate,checkmate,,chess_words,approved,approved,"SWOW: оценка 0.567, доля от лучшей категории слова 1.00"
 ,stalemate,stalemate,,chess_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,gambit,gambit,,chess_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,board,board,,chess_words,approved,alternative,"SWOW: оценка 0.071, доля от лучшей категории слова 0.52"
 ,capture,capture,,chess_words,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,en passant,en passant,,chess_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,promotion,promotion,,chess_words,approved,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 1.00"
@@ -7064,10 +7185,8 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hat,hat,,fishing_hobby,approved,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.07; прозрачная категория, игрок доходит рассудком"
 ,sunscreen,sunscreen,,fishing_hobby,approved,alternative,"SWOW: оценка 0.010, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,stringer,stringer,,fishing_hobby,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,dice,dice,,board_game_pieces,approved,approved,"SWOW: оценка 0.097, доля от лучшей категории слова 1.00"
 ,token,token,,board_game_pieces,approved,alternative,"SWOW: оценка 0.009, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,card,card,,board_game_pieces,approved,alternative,"SWOW: оценка 0.067, доля от лучшей категории слова 0.49"
-,board,board,,board_game_pieces,approved,approved,"SWOW: оценка 0.136, доля от лучшей категории слова 1.00"
 ,spinner,spinner,,board_game_pieces,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,meeple,meeple,,board_game_pieces,candidate,rejected,частотность 0.169: слово почти не встречается в английском
 ,chip,chip,,board_game_pieces,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 1.00"
@@ -7123,7 +7242,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sheet music,sheet music,,music_practice,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,stand,stand,,music_practice,approved,approved,"SWOW: оценка 0.128, доля от лучшей категории слова 1.00"
 ,tuner,tuner,,music_practice,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,case,case,,music_practice,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,strap,strap,,music_practice,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.09"
 ,reed,reed,,music_practice,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.21"
 ,rosin,rosin,,music_practice,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -7338,7 +7456,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,juicer,juicer,,kitchen_appliances,approved,approved,"SWOW: оценка 0.165, доля от лучшей категории слова 1.00"
 ,waffle iron,waffle iron,,kitchen_appliances,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,grill,grill,,kitchen_appliances,approved,alternative,"SWOW: оценка 0.073, доля от лучшей категории слова 0.28"
-,range,range,,kitchen_appliances,approved,approved,"SWOW: оценка 0.117, доля от лучшей категории слова 1.00"
 ,can opener,can opener,,kitchen_appliances,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,warmer,warmer,,kitchen_appliances,approved,approved,"SWOW: оценка 0.081, доля от лучшей категории слова 1.00"
 ,plate,plate,,dishes_and_glassware,approved,approved,"SWOW: оценка 0.254, доля от лучшей категории слова 1.00"
@@ -7389,7 +7506,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sled,sled,,things_in_a_garage,approved,alternative,"SWOW: оценка 0.063, доля от лучшей категории слова 0.15"
 ,wheelbarrow,wheelbarrow,,things_in_a_garage,approved,alternative,"SWOW: оценка 0.213, доля от лучшей категории слова 0.45"
 ,extension cord,extension cord,,things_in_a_garage,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,oil,oil,,things_in_a_garage,approved,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.21"
 ,broom,broom,,things_in_a_garage,approved,alternative,"SWOW: оценка 0.011, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,gas can,gas can,,things_in_a_garage,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,washer,washer,,laundry_things,approved,approved,"SWOW: оценка 0.165, доля от лучшей категории слова 1.00"
@@ -7640,7 +7756,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,barrel,barrel,,storage_containers,approved,approved,"SWOW: оценка 0.107, доля от лучшей категории слова 0.58"
 ,envelope,envelope,,storage_containers,approved,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.07"
 ,folder,folder,,storage_containers,approved,alternative,"SWOW: оценка 0.069, доля от лучшей категории слова 0.20"
-,case,case,,storage_containers,approved,approved,"SWOW: оценка 0.174, доля от лучшей категории слова 1.00"
 ,canister,canister,,storage_containers,approved,approved,"SWOW: оценка 0.300, доля от лучшей категории слова 1.00"
 ,cooler,cooler,,storage_containers,approved,approved,"SWOW: оценка 0.085, доля от лучшей категории слова 1.00"
 ,carton,carton,,storage_containers,approved,approved,"SWOW: оценка 0.178, доля от лучшей категории слова 1.00"
@@ -7722,7 +7837,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,heel,heel,,sailing_terms,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,capsize,capsize,,sailing_terms,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,mooring,mooring,,sailing_terms,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,draft,draft,,sailing_terms,candidate,alternative,"SWOW: оценка 0.167, доля от лучшей категории слова 0.72; категория неочевидная"
 ,surgery,surgery,,medical_procedures,approved,approved,"SWOW: оценка 0.143, доля от лучшей категории слова 0.55"
 ,transplant,transplant,,medical_procedures,approved,approved,"SWOW: оценка 0.146, доля от лучшей категории слова 1.00"
 ,biopsy,biopsy,,medical_procedures,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -7791,13 +7905,11 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,prop table,prop table,,theater_stage_terms,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,green room,green room,,theater_stage_terms,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,call time,call time,,theater_stage_terms,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,strike,strike,,theater_stage_terms,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,dress rehearsal,dress rehearsal,,theater_stage_terms,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,order up,order up,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,fire,fire,,kitchen_brigade,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01"
 ,plating,plating,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,prep,prep,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,station,station,,kitchen_brigade,candidate,alternative,"SWOW: оценка 0.086, доля от лучшей категории слова 0.10"
 ,expo,expo,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,walk in,walk in,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,sous vide,sous vide,,kitchen_brigade,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -7915,7 +8027,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,counselor,counselor,,school_jobs,approved,alternative,"SWOW: оценка 0.011, доля от лучшей категории слова 0.18; прозрачная категория, игрок доходит рассудком"
 ,tutor,tutor,,school_jobs,approved,approved,"SWOW: оценка 0.563, доля от лучшей категории слова 1.00"
 ,bus driver,bus driver,,school_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,secretary,secretary,,school_jobs,approved,alternative,"SWOW: оценка 0.094, доля от лучшей категории слова 0.42"
 ,aide,aide,,school_jobs,approved,alternative,"SWOW: оценка 0.133, доля от лучшей категории слова 0.40"
 ,nurse,nurse,,school_jobs,approved,alternative,"SWOW: оценка 0.034, доля от лучшей категории слова 0.06"
 ,professor,professor,,school_jobs,approved,approved,"SWOW: оценка 0.507, доля от лучшей категории слова 1.00"
@@ -7969,7 +8080,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,herder,herder,,farm_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,picker,picker,,farm_jobs,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
 ,dairy farmer,dairy farmer,,farm_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,hand,hand,,farm_jobs,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
 ,sailor,sailor,,sea_jobs,approved,approved,"SWOW: оценка 0.456, доля от лучшей категории слова 1.00"
 ,fisherman,fisherman,,sea_jobs,approved,approved,"SWOW: оценка 0.108, доля от лучшей категории слова 1.00"
 ,captain,captain,,sea_jobs,approved,approved,"SWOW: оценка 0.380, доля от лучшей категории слова 1.00"
@@ -8007,7 +8117,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,clerk,clerk,,office_jobs,approved,approved,"SWOW: оценка 0.255, доля от лучшей категории слова 0.92"
 ,receptionist,receptionist,,office_jobs,approved,approved,"SWOW: оценка 0.294, доля от лучшей категории слова 1.00"
 ,analyst,analyst,,office_jobs,approved,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 1.00"
-,secretary,secretary,,office_jobs,approved,approved,"SWOW: оценка 0.225, доля от лучшей категории слова 1.00"
 ,assistant,assistant,,office_jobs,approved,approved,"SWOW: оценка 0.197, доля от лучшей категории слова 1.00"
 ,auditor,auditor,,office_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,recruiter,recruiter,,office_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -8128,7 +8237,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,treasurer,treasurer,,government_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,auditor,auditor,,government_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,commissioner,commissioner,,government_jobs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,secretary,secretary,,government_jobs,approved,alternative,"SWOW: оценка 0.074, доля от лучшей категории слова 0.33"
 ,delegate,delegate,,government_jobs,approved,approved,"SWOW: оценка 0.271, доля от лучшей категории слова 1.00"
 ,official,official,,government_jobs,approved,approved,"SWOW: оценка 0.300, доля от лучшей категории слова 1.00"
 ,vet,vet,,jobs_with_animals,approved,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.29"
@@ -8358,7 +8466,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,Eagles,eagles,,sports_teams,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,Friends,friends,,classic_tv_shows,approved,approved,"SWOW: оценка 0.089, доля от лучшей категории слова 1.00"
 ,Seinfeld,seinfeld,,classic_tv_shows,approved,alternative,"SWOW: оценка 0.037, доля от лучшей категории слова 1.00"
-,Cheers,cheers,,classic_tv_shows,approved,approved,"SWOW: оценка 0.051, доля от лучшей категории слова 0.80"
 ,MASH,mash,,classic_tv_shows,approved,alternative,"SWOW: оценка 0.010, доля от лучшей категории слова 0.20; прозрачная категория, игрок доходит рассудком"
 ,I Love Lucy,i love lucy,,classic_tv_shows,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,Twilight Zone,twilight zone,,classic_tv_shows,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -8425,7 +8532,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,Toronto Zoo,toronto zoo,,zoos_and_aquariums,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,barbecue,barbecue,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.256, доля от лучшей категории слова 0.84; категория неочевидная"
 ,soy,soy,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.213, доля от лучшей категории слова 0.59; категория неочевидная"
-,hot,hot,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.098, доля от лучшей категории слова 0.30"
 ,tomato,tomato,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.324, доля от лучшей категории слова 0.49; категория неочевидная"
 ,cranberry,cranberry,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.297, доля от лучшей категории слова 0.80; категория неочевидная"
 ,tartar,tartar,,words_before_sauce,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 1.00"
@@ -8433,7 +8539,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,chili,chili,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.142, доля от лучшей категории слова 0.98; категория неочевидная"
 ,steak,steak,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.170, доля от лучшей категории слова 0.33"
 ,fish,fish,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.36"
-,duck,duck,,words_before_sauce,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.06"
 ,pizza,pizza,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.102, доля от лучшей категории слова 0.33"
 ,taco,taco,,words_before_sauce,candidate,alternative,"SWOW: оценка 0.104, доля от лучшей категории слова 0.16"
 ,base,base,,words_before_ball,candidate,alternative,"SWOW: оценка 0.193, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -8454,7 +8559,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hair,hair,,words_before_ball,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.18"
 ,cannon,cannon,,words_before_ball,candidate,alternative,"SWOW: оценка 0.186, доля от лучшей категории слова 1.00; категория неочевидная"
 ,place,place,,words_after_fire,candidate,alternative,"SWOW: оценка 0.052, доля от лучшей категории слова 1.00; категория неочевидная"
-,fly,fly,,words_after_fire,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.20"
 ,works,works,,words_after_fire,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.07"
 ,wood,wood,,words_after_fire,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.48"
 ,arm,arm,,words_after_fire,candidate,hard_only,"SWOW: оценка 0.016, доля от лучшей категории слова 0.04"
@@ -8508,7 +8612,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,dog,dog,,words_before_house,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.16"
 ,tree,tree,,words_before_house,candidate,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.31"
 ,farm,farm,,words_before_house,candidate,alternative,"SWOW: оценка 0.091, доля от лучшей категории слова 0.38"
-,light,light,,words_before_house,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.15"
 ,ware,ware,,words_before_house,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,out,out,,words_before_house,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.37"
 ,bird,bird,,words_before_house,candidate,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 0.32"
@@ -8523,10 +8626,8 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,road,road,,words_before_house,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.02"
 ,club,club,,words_before_house,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.64"
 ,ranch,ranch,,words_before_house,candidate,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.21"
-,note,note,,words_before_book,candidate,alternative,"SWOW: оценка 0.214, доля от лучшей категории слова 0.62; категория неочевидная"
 ,cook,cook,,words_before_book,candidate,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.23"
 ,text,text,,words_before_book,candidate,alternative,"SWOW: оценка 0.246, доля от лучшей категории слова 1.00; категория неочевидная"
-,hand,hand,,words_before_book,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.13"
 ,year,year,,words_before_book,candidate,hard_only,"SWOW: оценка 0.016, доля от лучшей категории слова 0.04"
 ,guide,guide,,words_before_book,candidate,alternative,"SWOW: оценка 0.120, доля от лучшей категории слова 1.00; категория неочевидная"
 ,match,match,,words_before_book,candidate,alternative,"SWOW: оценка 0.055, доля от лучшей категории слова 0.16"
@@ -8534,7 +8635,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,phone,phone,,words_before_book,candidate,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 0.26"
 ,log,log,,words_before_book,candidate,alternative,"SWOW: оценка 0.076, доля от лучшей категории слова 0.24"
 ,check,check,,words_before_book,candidate,alternative,"SWOW: оценка 0.138, доля от лучшей категории слова 0.39"
-,story,story,,words_before_book,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 1.00; категория неочевидная"
 ,work,work,,words_before_book,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.32"
 ,play,play,,words_before_book,candidate,alternative,"SWOW: оценка 0.054, доля от лучшей категории слова 0.29"
 ,face,face,,words_before_book,candidate,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 1.00"
@@ -8608,7 +8708,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,paper,paper,,words_before_work,candidate,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 0.14"
 ,guess,guess,,words_before_work,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.06"
 ,clock,clock,,words_before_work,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.18"
-,hand,hand,,words_before_work,candidate,hard_only,"SWOW: оценка 0.017, доля от лучшей категории слова 0.10"
 ,patch,patch,,words_before_work,candidate,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.30"
 ,ground,ground,,words_before_work,candidate,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 0.62"
 ,brick,brick,,words_before_work,candidate,alternative,"SWOW: оценка 0.116, доля от лучшей категории слова 0.30"
@@ -8645,7 +8744,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,river,river,,words_before_side,candidate,alternative,"SWOW: оценка 0.040, доля от лучшей категории слова 0.10"
 ,curb,curb,,words_before_side,candidate,alternative,"SWOW: оценка 0.108, доля от лучшей категории слова 0.24"
 ,dark,dark,,words_before_side,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.09"
-,top,top,,words_before_side,candidate,alternative,"SWOW: оценка 0.053, доля от лучшей категории слова 1.00; категория неочевидная"
 ,cup,cup,,words_before_cake,candidate,alternative,"SWOW: оценка 0.156, доля от лучшей категории слова 0.51"
 ,pan,pan,,words_before_cake,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.31"
 ,birth,birth,,words_before_cake,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.10"
@@ -8653,7 +8751,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,pound,pound,,words_before_cake,candidate,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.15"
 ,fruit,fruit,,words_before_cake,candidate,alternative,"SWOW: оценка 0.067, доля от лучшей категории слова 1.00; категория неочевидная"
 ,cheese,cheese,,words_before_cake,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.32"
-,hot,hot,,words_before_cake,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.16"
 ,oat,oat,,words_before_cake,candidate,alternative,"SWOW: оценка 0.076, доля от лучшей категории слова 0.24"
 ,crab,crab,,words_before_cake,candidate,alternative,"SWOW: оценка 0.054, доля от лучшей категории слова 0.10"
 ,rice,rice,,words_before_cake,candidate,alternative,"SWOW: оценка 0.121, доля от лучшей категории слова 0.43"
@@ -8677,7 +8774,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,spring,spring,,words_before_board,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.07"
 ,side,side,,words_before_board,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 0.19"
 ,star,star,,words_before_board,candidate,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 0.12"
-,hand,hand,,words_before_bag,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.19"
 ,sleeping,sleeping,,words_before_bag,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
 ,tea,tea,,words_before_bag,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.06"
 ,air,air,,words_before_bag,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.11"
@@ -8698,7 +8794,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,news,news,,words_before_paper,candidate,alternative,"SWOW: оценка 0.437, доля от лучшей категории слова 1.00; категория неочевидная"
 ,wall,wall,,words_before_paper,candidate,alternative,"SWOW: оценка 0.090, доля от лучшей категории слова 0.79; категория неочевидная"
 ,sand,sand,,words_before_paper,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.02"
-,note,note,,words_before_paper,candidate,alternative,"SWOW: оценка 0.237, доля от лучшей категории слова 0.69; категория неочевидная"
 ,toilet,toilet,,words_before_paper,candidate,alternative,"SWOW: оценка 0.116, доля от лучшей категории слова 0.94; категория неочевидная"
 ,graph,graph,,words_before_paper,candidate,alternative,"SWOW: оценка 0.263, доля от лучшей категории слова 1.00; категория неочевидная"
 ,tracing,tracing,,words_before_paper,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -8720,7 +8815,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,tree,tree,,words_before_line,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.07"
 ,shore,shore,,words_before_line,candidate,alternative,"SWOW: оценка 0.161, доля от лучшей категории слова 0.35"
 ,hair,hair,,words_before_line,candidate,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.40"
-,hot,hot,,words_before_line,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.08"
 ,pipe,pipe,,words_before_line,candidate,alternative,"SWOW: оценка 0.040, доля от лучшей категории слова 0.25"
 ,sky,sky,,words_before_line,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.22"
 ,punch,punch,,words_before_line,candidate,hard_only,"SWOW: оценка 0.016, доля от лучшей категории слова 0.10"
@@ -8759,7 +8853,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,guest,guest,,words_before_room,candidate,alternative,"SWOW: оценка 0.075, доля от лучшей категории слова 0.22"
 ,sun,sun,,words_before_room,candidate,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.12"
 ,dark,dark,,words_before_room,candidate,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.23"
-,board,board,,words_before_room,candidate,alternative,"SWOW: оценка 0.091, доля от лучшей категории слова 0.67; категория неочевидная"
 ,elbow,elbow,,words_before_room,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.13"
 ,ball,ball,,words_after_snow,candidate,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.28"
 ,man,man,,words_after_snow,candidate,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 1.00"
@@ -8767,7 +8860,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,storm,storm,,words_after_snow,candidate,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.07"
 ,plow,plow,,words_after_snow,candidate,alternative,"SWOW: оценка 0.116, доля от лучшей категории слова 0.26"
 ,shoe,shoe,,words_after_snow,candidate,hard_only,"SWOW: оценка 0.014, доля от лучшей категории слова 0.12"
-,board,board,,words_after_snow,candidate,alternative,"SWOW: оценка 0.063, доля от лучшей категории слова 0.46"
 ,fall,fall,,words_after_snow,candidate,hard_only,"SWOW: оценка 0.020, доля от лучшей категории слова 0.07"
 ,bank,bank,,words_after_snow,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.00"
 ,drift,drift,,words_after_snow,candidate,alternative,"SWOW: оценка 0.160, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -8780,9 +8872,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,day,day,,words_after_snow,candidate,hard_only,"SWOW: оценка 0.010, доля от лучшей категории слова 0.05"
 ,shine,shine,,words_after_sun,candidate,alternative,"SWOW: оценка 0.308, доля от лучшей категории слова 1.00; категория неочевидная"
 ,flower,flower,,words_after_sun,candidate,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 0.16"
-,light,light,,words_after_sun,candidate,alternative,"SWOW: оценка 0.128, доля от лучшей категории слова 1.00; категория неочевидная"
 ,burn,burn,,words_after_sun,candidate,alternative,"SWOW: оценка 0.060, доля от лучшей категории слова 0.35"
-,set,set,,words_after_sun,candidate,alternative,"SWOW: оценка 0.052, доля от лучшей категории слова 0.35"
 ,rise,rise,,words_after_sun,candidate,alternative,"SWOW: оценка 0.222, доля от лучшей категории слова 1.00; категория неочевидная"
 ,glasses,glasses,,words_after_sun,candidate,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.16"
 ,spot,spot,,words_after_sun,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.59"
@@ -8812,7 +8902,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,power,power,,words_after_horse,candidate,hard_only,"SWOW: оценка 0.014, доля от лучшей категории слова 1.00"
 ,play,play,,words_after_horse,candidate,hard_only,"SWOW: оценка 0.018, доля от лучшей категории слова 0.09"
 ,radish,radish,,words_after_horse,candidate,alternative,"SWOW: оценка 0.055, доля от лучшей категории слова 0.08"
-,fly,fly,,words_after_horse,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01"
 ,hair,hair,,words_after_horse,candidate,hard_only,"SWOW: оценка 0.012, доля от лучшей категории слова 0.11"
 ,man,man,,words_after_horse,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.97"
 ,race,race,,words_after_horse,candidate,alternative,"SWOW: оценка 0.055, доля от лучшей категории слова 0.29"
@@ -8821,7 +8910,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sense,sense,,words_after_horse,candidate,hard_only,"SWOW: оценка 0.010, доля от лучшей категории слова 1.00"
 ,drawn,drawn,,words_after_horse,candidate,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 1.00"
 ,store,store,,words_after_book,candidate,alternative,"SWOW: оценка 0.075, доля от лучшей категории слова 1.00; категория неочевидная"
-,case,case,,words_after_book,candidate,alternative,"SWOW: оценка 0.143, доля от лучшей категории слова 0.82; категория неочевидная"
 ,mark,mark,,words_after_book,candidate,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 1.00; категория неочевидная"
 ,worm,worm,,words_after_book,candidate,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.28"
 ,keeper,keeper,,words_after_book,candidate,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 1.00"
@@ -8850,7 +8938,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,prime,prime,,words_before_time,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.23"
 ,big,big,,words_before_time,candidate,hard_only,"SWOW: оценка 0.012, доля от лучшей категории слова 0.02"
 ,lunch,lunch,,words_before_time,candidate,alternative,"SWOW: оценка 0.174, доля от лучшей категории слова 1.00; категория неочевидная"
-,story,story,,words_before_time,candidate,alternative,"SWOW: оценка 0.036, доля от лучшей категории слова 0.27"
 ,full,full,,words_before_time,candidate,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.14"
 ,post,post,,words_before_master,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.03"
 ,school,school,,words_before_master,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.71"
@@ -8860,7 +8947,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,grand,grand,,words_before_master,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 0.04"
 ,pay,pay,,words_before_master,candidate,alternative,"SWOW: оценка 0.077, доля от лучшей категории слова 0.14"
 ,spy,spy,,words_before_master,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.01"
-,station,station,,words_before_master,candidate,hard_only,"SWOW: оценка 0.013, доля от лучшей категории слова 0.02"
 ,harbor,harbor,,words_before_master,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,choir,choir,,words_before_master,candidate,alternative,"SWOW: оценка 0.040, доля от лучшей категории слова 0.12"
 ,blue,blue,,words_before_berry,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.09"
@@ -8891,7 +8977,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,thunder,thunder,,words_before_bird,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03"
 ,ground,ground,,words_before_bird,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.44"
 ,ache,ache,,words_after_head,candidate,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.06"
-,light,light,,words_after_head,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.05"
 ,phone,phone,,words_after_head,candidate,hard_only,"SWOW: оценка 0.017, доля от лучшей категории слова 0.15"
 ,quarters,quarters,,words_after_head,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,master,master,,words_after_head,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.16"
@@ -8902,12 +8987,10 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,dress,dress,,words_after_head,candidate,hard_only,"SWOW: оценка 0.020, доля от лучшей категории слова 0.11"
 ,count,count,,words_after_head,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.15"
 ,gear,gear,,words_after_head,candidate,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.07"
-,board,board,,words_after_head,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.08"
 ,strong,strong,,words_after_head,candidate,hard_only,"SWOW: оценка 0.012, доля от лучшей категории слова 0.04"
 ,ball,ball,,words_after_foot,candidate,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.20"
 ,print,print,,words_after_foot,candidate,alternative,"SWOW: оценка 0.066, доля от лучшей категории слова 0.47"
 ,step,step,,words_after_foot,candidate,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 1.00"
-,note,note,,words_after_foot,candidate,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.20"
 ,hill,hill,,words_after_foot,candidate,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 0.10"
 ,path,path,,words_after_foot,candidate,alternative,"SWOW: оценка 0.040, доля от лучшей категории слова 0.09"
 ,stool,stool,,words_after_foot,candidate,hard_only,"SWOW: оценка 0.016, доля от лучшей категории слова 0.03"
@@ -8937,11 +9020,8 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,gun,gun,,words_after_hand,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 1.00"
 ,pack,pack,,words_after_back,candidate,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.97"
 ,ground,ground,,words_after_back,candidate,alternative,"SWOW: оценка 0.037, доля от лучшей категории слова 0.80"
-,yard,yard,,words_after_back,candidate,alternative,"SWOW: оценка 0.082, доля от лучшей категории слова 0.56; категория неочевидная"
 ,bone,bone,,words_after_back,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 0.11"
-,board,board,,words_after_back,candidate,alternative,"SWOW: оценка 0.077, доля от лучшей категории слова 0.56; категория неочевидная"
 ,fire,fire,,words_after_back,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.13"
-,hand,hand,,words_after_back,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.19"
 ,stage,stage,,words_after_back,candidate,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.07"
 ,up,up,,words_after_back,candidate,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.27"
 ,ward,ward,,words_after_back,candidate,hard_only,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01"
@@ -8957,7 +9037,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,fire,fire,,words_before_proof,candidate,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.27"
 ,bullet,bullet,,words_before_proof,candidate,hard_only,"SWOW: оценка 0.012, доля от лучшей категории слова 0.27"
 ,child,child,,words_before_proof,candidate,hard_only,"SWOW: оценка 0.003, доля от лучшей категории слова 0.01"
-,sound,sound,,words_before_proof,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.34"
 ,fool,fool,,words_before_proof,candidate,hard_only,"SWOW: оценка 0.010, доля от лучшей категории слова 1.00"
 ,weather,weather,,words_before_proof,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.27"
 ,rust,rust,,words_before_proof,candidate,alternative,"SWOW: оценка 0.086, доля от лучшей категории слова 0.33"
@@ -9011,7 +9090,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,determiner,determiner,,parts_of_speech,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,period,period,,writing_words,approved,alternative,"SWOW: оценка 0.094, доля от лучшей категории слова 0.29"
 ,comma,comma,,writing_words,approved,alternative,"SWOW: оценка 0.145, доля от лучшей категории слова 0.24"
-,sentence,sentence,,writing_words,approved,approved,"SWOW: оценка 0.222, доля от лучшей категории слова 1.00"
 ,paragraph,paragraph,,writing_words,approved,approved,"SWOW: оценка 0.313, доля от лучшей категории слова 1.00"
 ,page,page,,writing_words,approved,approved,"SWOW: оценка 0.471, доля от лучшей категории слова 0.73"
 ,word,word,,writing_words,approved,approved,"SWOW: оценка 0.180, доля от лучшей категории слова 1.00"
@@ -9025,7 +9103,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,caption,caption,,writing_words,approved,approved,"SWOW: оценка 0.192, доля от лучшей категории слова 1.00"
 ,byline,byline,,writing_words,approved,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 1.00"
 ,column,column,,writing_words,approved,alternative,"SWOW: оценка 0.018, доля от лучшей категории слова 0.09; прозрачная категория, игрок доходит рассудком"
-,draft,draft,,writing_words,approved,approved,"SWOW: оценка 0.167, доля от лучшей категории слова 0.72"
 ,outline,outline,,writing_words,approved,approved,"SWOW: оценка 0.190, доля от лучшей категории слова 0.60"
 ,signature,signature,,writing_words,approved,approved,"SWOW: оценка 0.097, доля от лучшей категории слова 1.00"
 ,hello,hello,,greetings_and_farewells,approved,approved,"SWOW: оценка 0.407, доля от лучшей категории слова 1.00"
@@ -9037,7 +9114,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,greetings,greetings,,greetings_and_farewells,approved,approved,"SWOW: оценка 0.465, доля от лучшей категории слова 1.00"
 ,morning,morning,,greetings_and_farewells,approved,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.14"
 ,evening,evening,,greetings_and_farewells,approved,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.07"
-,cheers,cheers,,greetings_and_farewells,approved,approved,"SWOW: оценка 0.064, доля от лучшей категории слова 1.00"
 ,later,later,,greetings_and_farewells,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.11"
 ,salute,salute,,greetings_and_farewells,approved,alternative,"SWOW: оценка 0.067, доля от лучшей категории слова 0.14"
 ,howdy,howdy,,greetings_and_farewells,approved,approved,"SWOW: оценка 0.503, доля от лучшей категории слова 1.00"
@@ -9167,7 +9243,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,transcript,transcript,,courtroom_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,plaintiff,plaintiff,,courtroom_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,exhibit,exhibit,,courtroom_things,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
-,sentence,sentence,,courtroom_things,approved,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 0.13"
 ,theft,theft,,crimes,approved,approved,"SWOW: оценка 0.373, доля от лучшей категории слова 1.00"
 ,burglary,burglary,,crimes,approved,approved,"SWOW: оценка 0.313, доля от лучшей категории слова 1.00"
 ,fraud,fraud,,crimes,approved,approved,"SWOW: оценка 0.478, доля от лучшей категории слова 1.00"
@@ -9221,9 +9296,7 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,bars,bars,,prison_words,approved,approved,"SWOW: оценка 0.472, доля от лучшей категории слова 1.00"
 ,warden,warden,,prison_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,inmate,inmate,,prison_words,approved,approved,"SWOW: оценка 0.457, доля от лучшей категории слова 1.00"
-,sentence,sentence,,prison_words,approved,alternative,"SWOW: оценка 0.061, доля от лучшей категории слова 0.27"
 ,parole,parole,,prison_words,approved,alternative,"SWOW: оценка 0.013, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
-,yard,yard,,prison_words,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,uniform,uniform,,prison_words,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,visitation,visitation,,prison_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,bail,bail,,prison_words,approved,approved,"SWOW: оценка 0.355, доля от лучшей категории слова 1.00"
@@ -9369,7 +9442,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,witness,witness,,detective_words,approved,approved,"SWOW: оценка 0.339, доля от лучшей категории слова 1.00"
 ,interrogation,interrogation,,detective_words,approved,approved,"SWOW: оценка 0.253, доля от лучшей категории слова 1.00"
 ,lineup,lineup,,detective_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,case,case,,detective_words,approved,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.12"
 ,stakeout,stakeout,,detective_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,footprint,footprint,,detective_words,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,forensics,forensics,,detective_words,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
@@ -9673,7 +9745,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hose,hose,,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.101, доля от лучшей категории слова 0.16"
 ,ball,ball,,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.32"
 ,mat,mat,,things_made_of_rubber,candidate,hard_only,"SWOW: оценка 0.001, доля от лучшей категории слова 0.02"
-,duck,duck,,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.034, доля от лучшей категории слова 0.25"
 ,tube,tube,,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.065, доля от лучшей категории слова 1.00; категория неочевидная"
 ,bumper,bumper,,things_made_of_rubber,candidate,alternative,"SWOW: оценка 0.146, доля от лучшей категории слова 0.20"
 ,gasket,gasket,,things_made_of_rubber,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -9742,7 +9813,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,water,water,,liquids,approved,approved,"SWOW: оценка 0.109, доля от лучшей категории слова 0.75"
 ,milk,milk,,liquids,approved,alternative,"SWOW: оценка 0.129, доля от лучшей категории слова 0.40"
 ,juice,juice,,liquids,approved,alternative,"SWOW: оценка 0.052, доля от лучшей категории слова 0.34"
-,oil,oil,,liquids,approved,alternative,"SWOW: оценка 0.101, доля от лучшей категории слова 0.46"
 ,vinegar,vinegar,,liquids,approved,alternative,"SWOW: оценка 0.048, доля от лучшей категории слова 0.38"
 ,soap,soap,,liquids,approved,alternative,"SWOW: оценка 0.150, доля от лучшей категории слова 0.35"
 ,shampoo,shampoo,,liquids,approved,alternative,"SWOW: оценка 0.100, доля от лучшей категории слова 0.33"
@@ -9775,7 +9845,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,wood,wood,,things_that_burn,approved,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 0.41"
 ,coal,coal,,things_that_burn,approved,approved,"SWOW: оценка 0.291, доля от лучшей категории слова 0.63"
 ,gasoline,gasoline,,things_that_burn,approved,approved,"SWOW: оценка 0.487, доля от лучшей категории слова 1.00"
-,oil,oil,,things_that_burn,approved,approved,"SWOW: оценка 0.217, доля от лучшей категории слова 1.00"
 ,propane,propane,,things_that_burn,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,charcoal,charcoal,,things_that_burn,approved,approved,"SWOW: оценка 0.262, доля от лучшей категории слова 1.00"
 ,kerosene,kerosene,,things_that_burn,approved,approved,"SWOW: оценка 0.490, доля от лучшей категории слова 1.00"
@@ -10002,7 +10071,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,review,review,,newspaper_parts,approved,alternative,"SWOW: оценка 0.090, доля от лучшей категории слова 0.24"
 ,horoscope,horoscope,,newspaper_parts,approved,approved,"SWOW: оценка 0.096, доля от лучшей категории слова 0.65"
 ,letters,letters,,newspaper_parts,approved,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 1.00"
-,station,station,,radio_words,approved,alternative,"SWOW: оценка 0.061, доля от лучшей категории слова 0.07"
 ,frequency,frequency,,radio_words,approved,approved,"SWOW: оценка 0.140, доля от лучшей категории слова 1.00"
 ,DJ,dj,,radio_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,broadcast,broadcast,,radio_words,approved,approved,"SWOW: оценка 0.340, доля от лучшей категории слова 0.66"
@@ -10055,12 +10123,10 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,podium,podium,,game_shows,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 1.00"
 ,audience,audience,,game_shows,approved,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.10"
 ,jackpot,jackpot,,game_shows,approved,approved,"SWOW: оценка 0.154, доля от лучшей категории слова 1.00"
-,round,round,,game_shows,approved,alternative,"SWOW: оценка 0.043, доля от лучшей категории слова 0.27"
 ,question,question,,game_shows,approved,alternative,"SWOW: оценка 0.002, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,lifeline,lifeline,,game_shows,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,trophy,trophy,,game_shows,approved,approved,"SWOW: оценка 0.201, доля от лучшей категории слова 0.75"
 ,spin,spin,,game_shows,approved,alternative,"SWOW: оценка 0.046, доля от лучшей категории слова 0.26"
-,board,board,,game_shows,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.29"
 ,panel,panel,,comic_words,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03"
 ,speech bubble,speech bubble,,comic_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,issue,issue,,comic_words,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 1.00"
@@ -10347,7 +10413,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,business card,business card,,things_in_a_wallet,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,insurance card,insurance card,,things_in_a_wallet,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,membership card,membership card,,things_in_a_wallet,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,note,note,,things_in_a_wallet,approved,alternative,"SWOW: оценка 0.114, доля от лучшей категории слова 0.33"
 ,gift card,gift card,,things_in_a_wallet,approved,approved,"SWOW: оценка 0.095, доля от лучшей категории слова 1.00"
 ,badge,badge,,things_in_a_wallet,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.10"
 ,key,key,,things_on_a_keychain,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
@@ -10396,7 +10461,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hands,hands,,things_that_come_in_pairs,candidate,alternative,"SWOW: оценка 0.127, доля от лучшей категории слова 1.00; категория неочевидная"
 ,chopsticks,chopsticks,,things_that_come_in_pairs,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.07"
 ,scissors,scissors,,things_that_come_in_pairs,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.03"
-,dice,dice,,things_that_come_in_pairs,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.19"
 ,skis,skis,,things_that_come_in_pairs,candidate,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 1.00"
 ,cufflinks,cufflinks,,things_that_come_in_pairs,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,twins,twins,,things_that_come_in_pairs,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.81"
@@ -10465,7 +10529,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,snowman,snowman,,things_that_have_a_face,candidate,hard_only,"SWOW: оценка 0.022, доля от лучшей категории слова 0.04"
 ,jack o lantern,jack o lantern,,things_that_have_a_face,candidate,alternative,"SWOW: оценка 0.061, доля от лучшей категории слова 0.12"
 ,poster,poster,,things_that_have_a_face,candidate,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.09"
-,dice,dice,,things_that_have_a_face,candidate,hard_only,"SWOW: оценка 0.009, доля от лучшей категории слова 0.09"
 ,Zeus,zeus,,greek_gods,approved,approved,"SWOW: оценка 0.064, доля от лучшей категории слова 1.00"
 ,Hera,hera,,greek_gods,approved,approved,"SWOW: оценка 0.212, доля от лучшей категории слова 1.00"
 ,Poseidon,poseidon,,greek_gods,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 1.00"
@@ -10610,7 +10673,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,pendulum,pendulum,,fortune_telling,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,cards,cards,,fortune_telling,candidate,alternative,"SWOW: оценка 0.075, доля от лучшей категории слова 1.00; категория неочевидная"
 ,stars,stars,,fortune_telling,candidate,alternative,"SWOW: оценка 0.065, доля от лучшей категории слова 1.00; категория неочевидная"
-,dice,dice,,fortune_telling,candidate,alternative,"SWOW: оценка 0.059, доля от лучшей категории слова 0.61; категория неочевидная"
 ,omen,omen,,fortune_telling,candidate,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 1.00"
 ,oracle,oracle,,fortune_telling,candidate,alternative,"SWOW: оценка 0.056, доля от лучшей категории слова 1.00; категория неочевидная"
 ,dream,dream,,fortune_telling,candidate,hard_only,"SWOW: оценка 0.007, доля от лучшей категории слова 0.01"
@@ -10640,7 +10702,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,knock on wood,knock on wood,,superstitions,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,broken mirror,broken mirror,,superstitions,candidate,alternative,"SWOW: оценка 0.202, доля от лучшей категории слова 1.00; категория неочевидная"
 ,wand,wand,,wizards_and_spells,approved,approved,"SWOW: оценка 0.302, доля от лучшей категории слова 1.00"
-,spell,spell,,wizards_and_spells,approved,approved,"SWOW: оценка 0.191, доля от лучшей категории слова 1.00"
 ,robe,robe,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.08; прозрачная категория, игрок доходит рассудком"
 ,hat,hat,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.54"
 ,staff,staff,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.018, доля от лучшей категории слова 0.10; прозрачная категория, игрок доходит рассудком"
@@ -10652,7 +10713,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,incantation,incantation,,wizards_and_spells,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,crystal,crystal,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,cauldron,cauldron,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 0.13"
-,scroll,scroll,,wizards_and_spells,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.12"
 ,glass slipper,glass slipper,,fairy_tale_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,spinning wheel,spinning wheel,,fairy_tale_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,beanstalk,beanstalk,,fairy_tale_things,candidate,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 1.00"
@@ -11189,7 +11249,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,strait,strait,,bodies_of_water,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,fjord,fjord,,bodies_of_water,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,pool,pool,,bodies_of_water,approved,approved,"SWOW: оценка 0.407, доля от лучшей категории слова 0.92"
-,sound,sound,,bodies_of_water,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.30; прозрачная категория, игрок доходит рассудком"
 ,estuary,estuary,,bodies_of_water,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,rapids,rapids,,river_features,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,bend,bend,,river_features,candidate,alternative,"SWOW: оценка 0.079, доля от лучшей категории слова 0.98; категория неочевидная"
@@ -11353,7 +11412,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,scorpion,scorpion,,desert_things,approved,approved,"SWOW: оценка 0.234, доля от лучшей категории слова 1.00"
 ,oasis,oasis,,desert_things,approved,approved,"SWOW: оценка 0.540, доля от лучшей категории слова 1.00"
 ,snake,snake,,desert_things,approved,alternative,"SWOW: оценка 0.037, доля от лучшей категории слова 0.28"
-,rock,rock,,desert_things,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
 ,heat,heat,,desert_things,approved,alternative,"SWOW: оценка 0.016, доля от лучшей категории слова 0.27; прозрачная категория, игрок доходит рассудком"
 ,mirage,mirage,,desert_things,approved,approved,"SWOW: оценка 0.511, доля от лучшей категории слова 1.00"
 ,tumbleweed,tumbleweed,,desert_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -11468,7 +11526,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,summit,summit,,mountain_things,approved,approved,"SWOW: оценка 0.281, доля от лучшей категории слова 1.00"
 ,valley,valley,,mountain_things,approved,approved,"SWOW: оценка 0.268, доля от лучшей категории слова 1.00"
 ,stream,stream,,mountain_things,approved,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.08"
-,cabin,cabin,,mountain_things,approved,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 0.14"
 ,ski lift,ski lift,,mountain_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,echo,echo,,mountain_things,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.17"
 ,timberline,timberline,,mountain_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -11598,7 +11655,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,crystal,crystal,,cave_things,approved,alternative,"SWOW: оценка 0.064, доля от лучшей категории слова 0.42"
 ,column,column,,cave_things,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
 ,cavern,cavern,,cave_things,approved,approved,"SWOW: оценка 0.335, доля от лучшей категории слова 1.00"
-,drip,drip,,cave_things,approved,alternative,"SWOW: оценка 0.087, доля от лучшей категории слова 0.13"
 ,moss,moss,,cave_things,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
 ,fossil,fossil,,cave_things,approved,alternative,"SWOW: оценка 0.018, доля от лучшей категории слова 0.09; прозрачная категория, игрок доходит рассудком"
 ,moon,moon,,night_sky_things,approved,approved,"SWOW: оценка 0.310, доля от лучшей категории слова 1.00"
@@ -11697,7 +11753,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,breeze,breeze,,wind_words,approved,approved,"SWOW: оценка 0.782, доля от лучшей категории слова 1.00"
 ,gust,gust,,wind_words,approved,approved,"SWOW: оценка 0.826, доля от лучшей категории слова 1.00"
 ,gale,gale,,wind_words,approved,approved,"SWOW: оценка 0.808, доля от лучшей категории слова 1.00"
-,draft,draft,,wind_words,approved,approved,"SWOW: оценка 0.233, доля от лучшей категории слова 1.00"
 ,whirlwind,whirlwind,,wind_words,approved,alternative,"SWOW: оценка 0.166, доля от лучшей категории слова 0.42"
 ,squall,squall,,wind_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,headwind,headwind,,wind_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -11790,7 +11845,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,scent,scent,,pine_and_cones,candidate,hard_only,"SWOW: оценка 0.014, доля от лучшей категории слова 1.00"
 ,salmon,salmon,,fish_species,approved,approved,"SWOW: оценка 0.885, доля от лучшей категории слова 1.00"
 ,trout,trout,,fish_species,approved,approved,"SWOW: оценка 0.934, доля от лучшей категории слова 1.00"
-,bass,bass,,fish_species,approved,approved,"SWOW: оценка 0.593, доля от лучшей категории слова 1.00"
 ,tuna,tuna,,fish_species,approved,approved,"SWOW: оценка 0.925, доля от лучшей категории слова 1.00"
 ,cod,cod,,fish_species,approved,approved,"SWOW: оценка 0.922, доля от лучшей категории слова 1.00"
 ,catfish,catfish,,fish_species,approved,approved,"SWOW: оценка 0.285, доля от лучшей категории слова 0.94"
@@ -11949,7 +12003,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,tugboat,tugboat,,harbor_things,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 1.00"
 ,wharf,wharf,,harbor_things,approved,approved,"SWOW: оценка 0.594, доля от лучшей категории слова 1.00"
 ,breakwater,breakwater,,harbor_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,calm,calm,,sea_weather,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.57"
 ,choppy,choppy,,sea_weather,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,rough,rough,,sea_weather,candidate,hard_only,"SWOW: оценка 0.005, доля от лучшей категории слова 0.03"
 ,swell,swell,,sea_weather,candidate,alternative,"SWOW: оценка 0.215, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -11993,7 +12046,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,seaweed,seaweed,,ocean_products,candidate,alternative,"SWOW: оценка 0.257, доля от лучшей категории слова 0.72; категория неочевидная"
 ,coral,coral,,ocean_products,candidate,alternative,"SWOW: оценка 0.196, доля от лучшей категории слова 0.80; категория неочевидная"
 ,fish,fish,,ocean_products,candidate,alternative,"SWOW: оценка 0.092, доля от лучшей категории слова 1.00; категория неочевидная"
-,oil,oil,,ocean_products,candidate,hard_only,"SWOW: оценка 0.019, доля от лучшей категории слова 0.09"
 ,kelp,kelp,,ocean_products,candidate,alternative,"SWOW: оценка 0.271, доля от лучшей категории слова 0.92; категория неочевидная"
 ,shell,shell,,ocean_products,candidate,alternative,"SWOW: оценка 0.313, доля от лучшей категории слова 0.86; категория неочевидная"
 ,amber,amber,,ocean_products,candidate,alternative,"SWOW: оценка 0.056, доля от лучшей категории слова 0.24"
@@ -12160,7 +12212,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,scared,scared,,feelings,approved,approved,"SWOW: оценка 0.080, доля от лучшей категории слова 1.00"
 ,excited,excited,,feelings,approved,approved,"SWOW: оценка 0.413, доля от лучшей категории слова 1.00"
 ,nervous,nervous,,feelings,approved,approved,"SWOW: оценка 0.144, доля от лучшей категории слова 1.00"
-,calm,calm,,feelings,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.27"
 ,proud,proud,,feelings,approved,approved,"SWOW: оценка 0.149, доля от лучшей категории слова 1.00"
 ,jealous,jealous,,feelings,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 1.00"
 ,lonely,lonely,,feelings,approved,approved,"SWOW: оценка 0.060, доля от лучшей категории слова 1.00"
@@ -12344,7 +12395,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,generous,generous,,personality_words,approved,approved,"SWOW: оценка 0.128, доля от лучшей категории слова 1.00"
 ,clever,clever,,personality_words,approved,approved,"SWOW: оценка 0.142, доля от лучшей категории слова 1.00"
 ,loyal,loyal,,personality_words,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 1.00"
-,calm,calm,,personality_words,approved,approved,"SWOW: оценка 0.080, доля от лучшей категории слова 1.00"
 ,brave,brave,,personality_words,approved,approved,"SWOW: оценка 0.074, доля от лучшей категории слова 1.00"
 ,gentle,gentle,,personality_words,approved,approved,"SWOW: оценка 0.139, доля от лучшей категории слова 1.00"
 ,sensible,sensible,,personality_words,approved,approved,"SWOW: оценка 0.136, доля от лучшей категории слова 1.00"
@@ -12608,7 +12658,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,factory,factory,,kinds_of_buildings,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.90"
 ,warehouse,warehouse,,kinds_of_buildings,approved,approved,"SWOW: оценка 0.117, доля от лучшей категории слова 1.00"
 ,skyscraper,skyscraper,,kinds_of_buildings,approved,approved,"SWOW: оценка 0.198, доля от лучшей категории слова 0.77"
-,cabin,cabin,,kinds_of_buildings,approved,alternative,"SWOW: оценка 0.104, доля от лучшей категории слова 0.51"
 ,castle,castle,,kinds_of_buildings,approved,alternative,"SWOW: оценка 0.070, доля от лучшей категории слова 0.33"
 ,cottage,cottage,,kinds_of_buildings,approved,approved,"SWOW: оценка 0.299, доля от лучшей категории слова 1.00"
 ,mansion,mansion,,kinds_of_buildings,approved,approved,"SWOW: оценка 0.350, доля от лучшей категории слова 1.00"
@@ -12660,7 +12709,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,hotel,hotel,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.178, доля от лучшей категории слова 1.00; категория неочевидная"
 ,motel,motel,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.488, доля от лучшей категории слова 1.00; категория неочевидная"
 ,tent,tent,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.38"
-,cabin,cabin,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 0.65; категория неочевидная"
 ,hostel,hostel,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.408, доля от лучшей категории слова 1.00; категория неочевидная"
 ,inn,inn,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.489, доля от лучшей категории слова 1.00; категория неочевидная"
 ,lodge,lodge,,places_you_sleep,candidate,alternative,"SWOW: оценка 0.232, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13129,7 +13177,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,licorice,licorice,,black_things,candidate,alternative,"SWOW: оценка 0.620, доля от лучшей категории слова 1.00; категория неочевидная"
 ,asphalt,asphalt,,black_things,candidate,alternative,"SWOW: оценка 0.348, доля от лучшей категории слова 1.00; категория неочевидная"
 ,bat,bat,,black_things,candidate,alternative,"SWOW: оценка 0.123, доля от лучшей категории слова 0.42"
-,oil,oil,,black_things,candidate,alternative,"SWOW: оценка 0.132, доля от лучшей категории слова 0.61; категория неочевидная"
 ,chalkboard,chalkboard,,black_things,candidate,alternative,"SWOW: оценка 0.157, доля от лучшей категории слова 0.37"
 ,raven,raven,,black_things,candidate,alternative,"SWOW: оценка 0.599, доля от лучшей категории слова 1.00; категория неочевидная"
 ,soot,soot,,black_things,candidate,alternative,"SWOW: оценка 0.428, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13224,7 +13271,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,cushion,cushion,,soft_things,candidate,alternative,"SWOW: оценка 0.344, доля от лучшей категории слова 1.00; категория неочевидная"
 ,foam,foam,,soft_things,candidate,alternative,"SWOW: оценка 0.106, доля от лучшей категории слова 1.00; категория неочевидная"
 ,sand,sand,,soft_things,candidate,hard_only,"SWOW: оценка 0.020, доля от лучшей категории слова 0.05"
-,rock,rock,,hard_things,candidate,alternative,"SWOW: оценка 0.311, доля от лучшей категории слова 1.00; категория неочевидная"
 ,diamond,diamond,,hard_things,candidate,alternative,"SWOW: оценка 0.139, доля от лучшей категории слова 0.28"
 ,steel,steel,,hard_things,candidate,alternative,"SWOW: оценка 0.256, доля от лучшей категории слова 0.50; категория неочевидная"
 ,bone,bone,,hard_things,candidate,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.29"
@@ -13233,7 +13279,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,ice,ice,,hard_things,candidate,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.10"
 ,concrete,concrete,,hard_things,candidate,alternative,"SWOW: оценка 0.241, доля от лучшей категории слова 0.96; категория неочевидная"
 ,wood,wood,,hard_things,candidate,alternative,"SWOW: оценка 0.080, доля от лучшей категории слова 0.81; категория неочевидная"
-,nut,nut,,hard_things,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 1.00"
 ,shell,shell,,hard_things,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.12"
 ,tooth,tooth,,hard_things,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 0.15"
 ,metal,metal,,hard_things,candidate,alternative,"SWOW: оценка 0.205, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13331,14 +13376,12 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,boat,boat,,things_that_float,candidate,alternative,"SWOW: оценка 0.147, доля от лучшей категории слова 0.44"
 ,cork,cork,,things_that_float,candidate,alternative,"SWOW: оценка 0.070, доля от лучшей категории слова 0.17"
 ,leaf,leaf,,things_that_float,candidate,alternative,"SWOW: оценка 0.092, доля от лучшей категории слова 0.13"
-,duck,duck,,things_that_float,candidate,alternative,"SWOW: оценка 0.041, доля от лучшей категории слова 0.30"
 ,balloon,balloon,,things_that_float,candidate,alternative,"SWOW: оценка 0.144, доля от лучшей категории слова 0.80; категория неочевидная"
 ,raft,raft,,things_that_float,candidate,alternative,"SWOW: оценка 0.284, доля от лучшей категории слова 0.44; категория неочевидная"
 ,ice,ice,,things_that_float,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.10"
 ,wood,wood,,things_that_float,candidate,alternative,"SWOW: оценка 0.099, доля от лучшей категории слова 1.00; категория неочевидная"
 ,buoy,buoy,,things_that_float,candidate,alternative,"SWOW: оценка 0.236, доля от лучшей категории слова 1.00; категория неочевидная"
 ,feather,feather,,things_that_float,candidate,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.26"
-,oil,oil,,things_that_float,candidate,hard_only,"SWOW: оценка 0.018, доля от лучшей категории слова 0.08"
 ,bubble,bubble,,things_that_float,candidate,alternative,"SWOW: оценка 0.140, доля от лучшей категории слова 1.00; категория неочевидная"
 ,foam,foam,,things_that_float,candidate,alternative,"SWOW: оценка 0.083, доля от лучшей категории слова 0.78; категория неочевидная"
 ,life vest,life vest,,things_that_float,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -13428,7 +13471,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,pencil,pencil,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.062, доля от лучшей категории слова 0.18"
 ,arrow,arrow,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.055, доля от лучшей категории слова 0.29"
 ,thorn,thorn,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.096, доля от лучшей категории слова 0.61; категория неочевидная"
-,dart,dart,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.146, доля от лучшей категории слова 1.00; категория неочевидная"
 ,spear,spear,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.232, доля от лучшей категории слова 0.64; категория неочевидная"
 ,icicle,icicle,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.06"
 ,fang,fang,,things_that_are_sharp,candidate,alternative,"SWOW: оценка 0.138, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -13454,7 +13496,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,waffle,waffle,,square_things,candidate,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.10"
 ,tile,tile,,square_things,candidate,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.15"
 ,window,window,,square_things,candidate,hard_only,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03"
-,dice,dice,,square_things,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.12"
 ,napkin,napkin,,square_things,candidate,alternative,"SWOW: оценка 0.052, доля от лучшей категории слова 0.15"
 ,brick,brick,,square_things,candidate,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.09"
 ,envelope,envelope,,square_things,candidate,alternative,"SWOW: оценка 0.205, доля от лучшей категории слова 0.29"
@@ -13769,7 +13810,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,multiply,multiply,,math_operations,approved,approved,"SWOW: оценка 0.534, доля от лучшей категории слова 1.00"
 ,divide,divide,,math_operations,approved,approved,"SWOW: оценка 0.186, доля от лучшей категории слова 1.00"
 ,square,square,,math_operations,approved,alternative,"SWOW: оценка 0.083, доля от лучшей категории слова 0.22"
-,round,round,,math_operations,approved,alternative,"SWOW: оценка 0.073, доля от лучшей категории слова 0.46"
 ,factor,factor,,math_operations,approved,approved,"SWOW: оценка 0.430, доля от лучшей категории слова 1.00"
 ,count,count,,math_operations,approved,approved,"SWOW: оценка 0.151, доля от лучшей категории слова 1.00"
 ,average,average,,math_operations,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.74; прозрачная категория, игрок доходит рассудком"
@@ -13990,7 +14030,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,constellation,constellation,,things_in_the_sky_science,approved,approved,"SWOW: оценка 0.457, доля от лучшей категории слова 1.00"
 ,comet,comet,,things_in_the_sky_science,approved,approved,"SWOW: оценка 0.430, доля от лучшей категории слова 0.65"
 ,satellite,satellite,,things_in_the_sky_science,approved,approved,"SWOW: оценка 0.529, доля от лучшей категории слова 0.83"
-,hot,hot,,temperature_words,approved,approved,"SWOW: оценка 0.324, доля от лучшей категории слова 1.00"
 ,warm,warm,,temperature_words,approved,approved,"SWOW: оценка 0.310, доля от лучшей категории слова 1.00"
 ,cool,cool,,temperature_words,approved,approved,"SWOW: оценка 0.371, доля от лучшей категории слова 1.00"
 ,freezing,freezing,,temperature_words,approved,approved,"SWOW: оценка 0.741, доля от лучшей категории слова 1.00"
@@ -14161,7 +14200,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,fishing,fishing,,survival_skills,approved,alternative,"SWOW: оценка 0.020, доля от лучшей категории слова 0.23"
 ,trapping,trapping,,survival_skills,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,orienteering,orienteering,,survival_skills,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,strike,strike,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.076, доля от лучшей категории слова 0.24"
 ,kick,kick,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.217, доля от лучшей категории слова 0.84; категория неочевидная"
 ,throw,throw,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.096, доля от лучшей категории слова 0.58; категория неочевидная"
 ,escape,escape,,self_defense_moves,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.22"
@@ -14170,7 +14208,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,knee,knee,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.117, доля от лучшей категории слова 0.33"
 ,stomp,stomp,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.072, доля от лучшей категории слова 1.00; категория неочевидная"
 ,palm strike,palm strike,,self_defense_moves,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,roll,roll,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.17"
 ,stance,stance,,self_defense_moves,candidate,alternative,"SWOW: оценка 0.026, доля от лучшей категории слова 1.00"
 ,floating,floating,,swimming_skills,approved,approved,"SWOW: оценка 0.228, доля от лучшей категории слова 1.00"
 ,treading,treading,,swimming_skills,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -14242,7 +14279,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,plop,plop,,onomatopoeia,approved,alternative,"SWOW: оценка 0.011, доля от лучшей категории слова 0.78; прозрачная категория, игрок доходит рассудком"
 ,whack,whack,,onomatopoeia,approved,approved,"SWOW: оценка 0.062, доля от лучшей категории слова 1.00"
 ,snap,snap,,onomatopoeia,approved,approved,"SWOW: оценка 0.106, доля от лучшей категории слова 0.79"
-,drip,drip,,onomatopoeia,approved,alternative,"SWOW: оценка 0.146, доля от лучшей категории слова 0.22"
 ,squeak,squeak,,onomatopoeia,approved,approved,"SWOW: оценка 0.201, доля от лучшей категории слова 1.00"
 ,jingle,jingle,,onomatopoeia,approved,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.27"
 ,hum,hum,,machine_sounds,candidate,alternative,"SWOW: оценка 0.065, доля от лучшей категории слова 0.50"
@@ -14262,7 +14298,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,whine,whine,,machine_sounds,candidate,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 1.00"
 ,sputter,sputter,,machine_sounds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,splash,splash,,water_sounds,candidate,alternative,"SWOW: оценка 0.412, доля от лучшей категории слова 0.48; категория неочевидная"
-,drip,drip,,water_sounds,candidate,alternative,"SWOW: оценка 0.332, доля от лучшей категории слова 0.51; категория неочевидная"
 ,gurgle,gurgle,,water_sounds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,trickle,trickle,,water_sounds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,roar,roar,,water_sounds,candidate,hard_only,"SWOW: оценка 0.013, доля от лучшей категории слова 0.21"
@@ -14371,7 +14406,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,creak,creak,,quiet_sounds,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 0.30"
 ,tinkle,tinkle,,quiet_sounds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,breath,breath,,quiet_sounds,candidate,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.98; категория неочевидная"
-,drip,drip,,quiet_sounds,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,laugh,laugh,,voice_sounds,approved,alternative,"SWOW: оценка 0.090, доля от лучшей категории слова 0.31"
 ,cry,cry,,voice_sounds,approved,approved,"SWOW: оценка 0.136, доля от лучшей категории слова 1.00"
 ,sigh,sigh,,voice_sounds,approved,approved,"SWOW: оценка 0.242, доля от лучшей категории слова 1.00"
@@ -14615,7 +14649,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,canary,canary,,songbirds,approved,approved,"SWOW: оценка 0.736, доля от лучшей категории слова 0.99"
 ,lark,lark,,songbirds,approved,approved,"SWOW: оценка 0.891, доля от лучшей категории слова 1.00"
 ,starling,starling,,songbirds,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,swallow,swallow,,songbirds,approved,approved,"SWOW: оценка 0.569, доля от лучшей категории слова 1.00"
 ,junco,junco,,songbirds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,eagle,eagle,,birds_of_prey,approved,approved,"SWOW: оценка 0.640, доля от лучшей категории слова 0.92"
 ,hawk,hawk,,birds_of_prey,approved,approved,"SWOW: оценка 0.713, доля от лучшей категории слова 0.82"
@@ -14781,7 +14814,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,sussex,sussex,,farm_poultry_breeds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,brahma,brahma,,farm_poultry_breeds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,australorp,australorp,,farm_poultry_breeds,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,bass,bass,,pond_fish,approved,approved,"SWOW: оценка 0.558, доля от лучшей категории слова 0.94"
 ,trout,trout,,pond_fish,approved,approved,"SWOW: оценка 0.848, доля от лучшей категории слова 0.91"
 ,catfish,catfish,,pond_fish,approved,approved,"SWOW: оценка 0.248, доля от лучшей категории слова 0.81"
 ,perch,perch,,pond_fish,approved,approved,"SWOW: оценка 0.349, доля от лучшей категории слова 0.94"
@@ -14821,7 +14853,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,pine tar,pine tar,,baseball_equipment,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,rosin bag,rosin bag,,baseball_equipment,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,shin guard,shin guard,,baseball_equipment,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,strike,strike,,baseball_words,approved,approved,"SWOW: оценка 0.318, доля от лучшей категории слова 1.00"
 ,inning,inning,,baseball_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,home run,home run,,baseball_words,approved,approved,"SWOW: оценка 0.552, доля от лучшей категории слова 1.00"
 ,bunt,bunt,,baseball_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -14958,7 +14989,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,defender,defender,,soccer_words,approved,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.27"
 ,whistle,whistle,,soccer_words,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.09; прозрачная категория, игрок доходит рассудком"
 ,puck,puck,,hockey_words,approved,approved,"SWOW: оценка 0.267, доля от лучшей категории слова 1.00"
-,stick,stick,,hockey_words,approved,approved,"SWOW: оценка 0.112, доля от лучшей категории слова 1.00"
 ,rink,rink,,hockey_words,approved,approved,"SWOW: оценка 0.066, доля от лучшей категории слова 1.00"
 ,goalie,goalie,,hockey_words,approved,approved,"SWOW: оценка 0.189, доля от лучшей категории слова 1.00"
 ,slapshot,slapshot,,hockey_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -14986,7 +15016,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,backhand,backhand,,tennis_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,forehand,forehand,,tennis_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,match point,match point,,tennis_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,set,set,,tennis_words,approved,approved,"SWOW: оценка 0.149, доля от лучшей категории слова 1.00"
 ,fault,fault,,tennis_words,approved,alternative,"SWOW: оценка 0.002, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,rally,rally,,tennis_words,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,lob,lob,,tennis_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -15094,7 +15123,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,starter,starter,,sports_officials,approved,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 1.00"
 ,point,point,,sports_scoring,approved,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.25"
 ,goal,goal,,sports_scoring,approved,approved,"SWOW: оценка 0.122, доля от лучшей категории слова 1.00"
-,tie,tie,,sports_scoring,approved,alternative,"SWOW: оценка 0.008, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,win,win,,sports_scoring,approved,approved,"SWOW: оценка 0.154, доля от лучшей категории слова 1.00"
 ,loss,loss,,sports_scoring,approved,approved,"SWOW: оценка 0.085, доля от лучшей категории слова 0.59"
 ,draw,draw,,sports_scoring,approved,approved,"SWOW: оценка 0.068, доля от лучшей категории слова 1.00"
@@ -15166,7 +15194,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,bobber,bobber,,fishing_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,sinker,sinker,,fishing_things,approved,approved,"SWOW: оценка 0.497, доля от лучшей категории слова 1.00"
 ,worm,worm,,fishing_things,approved,approved,"SWOW: оценка 0.105, доля от лучшей категории слова 1.00"
-,fly,fly,,fishing_things,approved,alternative,"SWOW: оценка 0.030, доля от лучшей категории слова 0.13"
 ,waders,waders,,fishing_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,cooler,cooler,,fishing_things,approved,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.15; прозрачная категория, игрок доходит рассудком"
 ,boat,boat,,fishing_things,approved,alternative,"SWOW: оценка 0.074, доля от лучшей категории слова 0.22"
@@ -15286,7 +15313,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,jab,jab,,boxing_words,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 1.00"
 ,uppercut,uppercut,,boxing_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,ring,ring,,boxing_words,approved,alternative,"SWOW: оценка 0.068, доля от лучшей категории слова 0.22"
-,round,round,,boxing_words,approved,alternative,"SWOW: оценка 0.044, доля от лучшей категории слова 0.28"
 ,bell,bell,,boxing_words,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.09"
 ,corner,corner,,boxing_words,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.12; прозрачная категория, игрок доходит рассудком"
 ,glove,glove,,boxing_words,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.17"
@@ -15326,7 +15352,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,snowplow,snowplow,,skiing_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,gondola,gondola,,skiing_words,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
 ,apres ski,apres ski,,skiing_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
-,strike,strike,,bowling_words,approved,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.13"
 ,spare,spare,,bowling_words,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 1.00"
 ,gutter,gutter,,bowling_words,approved,alternative,"SWOW: оценка 0.060, доля от лучшей категории слова 0.22"
 ,lane,lane,,bowling_words,approved,alternative,"SWOW: оценка 0.167, доля от лучшей категории слова 0.23"
@@ -15361,7 +15386,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,string,string,,archery_words,approved,alternative,"SWOW: оценка 0.028, доля от лучшей категории слова 0.40"
 ,draw,draw,,archery_words,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.23; прозрачная категория, игрок доходит рассудком"
 ,release,release,,archery_words,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.21; прозрачная категория, игрок доходит рассудком"
-,range,range,,archery_words,approved,alternative,"SWOW: оценка 0.024, доля от лучшей категории слова 0.20"
 ,sight,sight,,archery_words,approved,alternative,"SWOW: оценка 0.006, доля от лучшей категории слова 0.12; прозрачная категория, игрок доходит рассудком"
 ,arm guard,arm guard,,archery_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,shaft,shaft,,archery_words,approved,approved,"SWOW: оценка 0.066, доля от лучшей категории слова 1.00"
@@ -15414,7 +15438,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,cowbell,cowbell,,fan_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,megaphone,megaphone,,fan_things,approved,alternative,"SWOW: оценка 0.073, доля от лучшей категории слова 0.24"
 ,warmup,warmup,,training_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,set,set,,training_words,approved,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,rep,rep,,training_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,circuit,circuit,,training_words,approved,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.03; прозрачная категория, игрок доходит рассудком"
 ,cooldown,cooldown,,training_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -15437,12 +15460,10 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,speaker,speaker,,computer_parts,approved,alternative,"SWOW: оценка 0.012, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,graphics card,graphics card,,computer_parts,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,power supply,power supply,,computer_parts,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,case,case,,computer_parts,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,touchpad,touchpad,,computer_parts,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,battery,battery,,computer_parts,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.10"
 ,charger,charger,,computer_parts,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,click,click,,computer_actions,approved,approved,"SWOW: оценка 0.152, доля от лучшей категории слова 0.73"
-,scroll,scroll,,computer_actions,approved,approved,"SWOW: оценка 0.188, доля от лучшей категории слова 1.00"
 ,type,type,,computer_actions,approved,approved,"SWOW: оценка 0.124, доля от лучшей категории слова 1.00"
 ,copy,copy,,computer_actions,approved,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 1.00"
 ,paste,paste,,computer_actions,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.07"
@@ -15463,7 +15484,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,restart,restart,,computer_actions,approved,approved,"SWOW: оценка 0.297, доля от лучшей категории слова 1.00"
 ,website,website,,internet_words,approved,approved,"SWOW: оценка 0.641, доля от лучшей категории слова 1.00"
 ,browser,browser,,internet_words,approved,approved,"SWOW: оценка 0.619, доля от лучшей категории слова 1.00"
-,link,link,,internet_words,approved,approved,"SWOW: оценка 0.121, доля от лучшей категории слова 1.00"
 ,password,password,,internet_words,approved,approved,"SWOW: оценка 0.184, доля от лучшей категории слова 1.00"
 ,email,email,,internet_words,approved,approved,"SWOW: оценка 0.281, доля от лучшей категории слова 1.00"
 ,download,download,,internet_words,approved,approved,"SWOW: оценка 0.455, доля от лучшей категории слова 1.00"
@@ -15492,7 +15512,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,battery,battery,,phone_words,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.06"
 ,notification,notification,,phone_words,approved,approved,"SWOW: оценка 0.149, доля от лучшей категории слова 1.00"
 ,sim card,sim card,,phone_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,case,case,,phone_words,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.10; прозрачная категория, игрок доходит рассудком"
 ,headphones,headphones,,phone_words,approved,approved,"SWOW: оценка 0.089, доля от лучшей категории слова 1.00"
 ,keypad,keypad,,phone_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,alarm,alarm,,phone_words,approved,alternative,"SWOW: оценка 0.063, доля от лучшей категории слова 0.14"
@@ -15506,7 +15525,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,feed,feed,,social_media_words,approved,alternative,"SWOW: оценка 0.033, доля от лучшей категории слова 0.33"
 ,profile,profile,,social_media_words,approved,alternative,"SWOW: оценка 0.034, доля от лучшей категории слова 1.00"
 ,hashtag,hashtag,,social_media_words,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,story,story,,social_media_words,approved,alternative,"SWOW: оценка 0.007, доля от лучшей категории слова 0.05; прозрачная категория, игрок доходит рассудком"
 ,tag,tag,,social_media_words,approved,alternative,"SWOW: оценка 0.017, доля от лучшей категории слова 0.08; прозрачная категория, игрок доходит рассудком"
 ,message,message,,social_media_words,approved,approved,"SWOW: оценка 0.060, доля от лучшей категории слова 1.00"
 ,filter,filter,,social_media_words,approved,alternative,"SWOW: оценка 0.032, доля от лучшей категории слова 0.09"
@@ -15546,7 +15564,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,attachment,attachment,,file_types,approved,alternative,"SWOW: оценка 0.071, доля от лучшей категории слова 0.18"
 ,zip,zip,,file_types,approved,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.04; прозрачная категория, игрок доходит рассудком"
 ,pdf,pdf,,file_types,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,draft,draft,,file_types,approved,approved,"SWOW: оценка 0.226, доля от лучшей категории слова 0.97"
 ,code,code,,programming_words,candidate,alternative,"SWOW: оценка 0.063, доля от лучшей категории слова 0.76; категория неочевидная"
 ,bug,bug,,programming_words,candidate,hard_only,"SWOW: оценка 0.015, доля от лучшей категории слова 1.00"
 ,loop,loop,,programming_words,candidate,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.45"
@@ -15567,7 +15584,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,output,output,,programming_words,candidate,alternative,"SWOW: оценка 0.099, доля от лучшей категории слова 1.00; категория неочевидная"
 ,subject,subject,,email_words,approved,alternative,"SWOW: оценка 0.003, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,inbox,inbox,,email_words,approved,approved,"SWOW: оценка 0.527, доля от лучшей категории слова 1.00"
-,draft,draft,,email_words,approved,alternative,"SWOW: оценка 0.023, доля от лучшей категории слова 0.10"
 ,attachment,attachment,,email_words,approved,approved,"SWOW: оценка 0.385, доля от лучшей категории слова 1.00"
 ,reply,reply,,email_words,approved,approved,"SWOW: оценка 0.216, доля от лучшей категории слова 1.00"
 ,forward,forward,,email_words,approved,alternative,"SWOW: оценка 0.015, доля от лучшей категории слова 0.22; прозрачная категория, игрок доходит рассудком"
@@ -15808,7 +15824,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,fall,fall,,seasons,approved,approved,"SWOW: оценка 0.267, доля от лучшей категории слова 1.00"
 ,winter,winter,,seasons,approved,approved,"SWOW: оценка 0.226, доля от лучшей категории слова 1.00"
 ,autumn,autumn,,seasons,approved,approved,"SWOW: оценка 0.311, доля от лучшей категории слова 1.00"
-,second,second,,time_units,approved,approved,"SWOW: оценка 0.248, доля от лучшей категории слова 0.76"
 ,minute,minute,,time_units,approved,approved,"SWOW: оценка 0.406, доля от лучшей категории слова 1.00"
 ,hour,hour,,time_units,approved,approved,"SWOW: оценка 0.600, доля от лучшей категории слова 1.00"
 ,day,day,,time_units,approved,approved,"SWOW: оценка 0.168, доля от лучшей категории слова 0.79"
@@ -15823,7 +15838,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,era,era,,time_units,approved,approved,"SWOW: оценка 0.592, доля от лучшей категории слова 1.00"
 ,generation,generation,,time_units,approved,approved,"SWOW: оценка 0.158, доля от лучшей категории слова 1.00"
 ,semester,semester,,time_units,approved,alternative,"SWOW: оценка 0.133, доля от лучшей категории слова 0.25"
-,hand,hand,,clock_words,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.11; прозрачная категория, игрок доходит рассудком"
 ,dial,dial,,clock_words,approved,alternative,"SWOW: оценка 0.014, доля от лучшей категории слова 0.23; прозрачная категория, игрок доходит рассудком"
 ,face,face,,clock_words,approved,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.79"
 ,tick,tick,,clock_words,approved,approved,"SWOW: оценка 0.291, доля от лучшей категории слова 0.87"
@@ -16100,7 +16114,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,wire cutter,wire cutter,,cutting_tools,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,screw,screw,,fasteners,approved,approved,"SWOW: оценка 0.126, доля от лучшей категории слова 0.69"
 ,bolt,bolt,,fasteners,approved,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 0.50"
-,nut,nut,,fasteners,approved,alternative,"SWOW: оценка 0.019, доля от лучшей категории слова 0.91; прозрачная категория, игрок доходит рассудком"
 ,washer,washer,,fasteners,approved,alternative,"SWOW: оценка 0.027, доля от лучшей категории слова 0.16"
 ,rivet,rivet,,fasteners,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,staple,staple,,fasteners,approved,approved,"SWOW: оценка 0.146, доля от лучшей категории слова 0.98"
@@ -16236,7 +16249,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,axe,axe,,things_with_handles,candidate,alternative,"SWOW: оценка 0.080, доля от лучшей категории слова 1.00; категория неочевидная"
 ,racket,racket,,things_with_handles,candidate,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 0.06"
 ,wheel,wheel,,things_that_spin,candidate,alternative,"SWOW: оценка 0.204, доля от лучшей категории слова 0.52"
-,top,top,,things_that_spin,candidate,alternative,"SWOW: оценка 0.031, доля от лучшей категории слова 0.57"
 ,propeller,propeller,,things_that_spin,candidate,alternative,"SWOW: оценка 0.047, доля от лучшей категории слова 1.00"
 ,washing machine,washing machine,,things_that_spin,candidate,alternative,"SWOW: оценка 0.112, доля от лучшей категории слова 1.00; категория неочевидная"
 ,record,record,,things_that_spin,candidate,hard_only,"SWOW: оценка 0.007, доля от лучшей категории слова 0.12"
@@ -16260,7 +16272,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,arrow,arrow,,things_that_cut,candidate,alternative,"SWOW: оценка 0.042, доля от лучшей категории слова 0.22"
 ,saw,saw,,things_that_cut,candidate,alternative,"SWOW: оценка 0.193, доля от лучшей категории слова 0.83; категория неочевидная"
 ,spear,spear,,things_that_cut,candidate,alternative,"SWOW: оценка 0.241, доля от лучшей категории слова 0.66; категория неочевидная"
-,dart,dart,,things_that_cut,candidate,alternative,"SWOW: оценка 0.141, доля от лучшей категории слова 0.96; категория неочевидная"
 ,sword,sword,,things_that_cut,candidate,alternative,"SWOW: оценка 0.203, доля от лучшей категории слова 0.92; категория неочевидная"
 ,splinter,splinter,,things_that_cut,candidate,alternative,"SWOW: оценка 0.110, доля от лучшей категории слова 0.56; категория неочевидная"
 ,ice pick,ice pick,,things_that_cut,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -16278,7 +16289,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,toolbox,toolbox,,boxes_and_cases,approved,approved,"SWOW: оценка 0.094, доля от лучшей категории слова 1.00"
 ,belt,belt,,boxes_and_cases,approved,alternative,"SWOW: оценка 0.022, доля от лучшей категории слова 0.15"
 ,bag,bag,,boxes_and_cases,approved,approved,"SWOW: оценка 0.065, доля от лучшей категории слова 0.60"
-,case,case,,boxes_and_cases,approved,alternative,"SWOW: оценка 0.039, доля от лучшей категории слова 0.22"
 ,pegboard,pegboard,,boxes_and_cases,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,tray,tray,,boxes_and_cases,approved,alternative,"SWOW: оценка 0.035, доля от лучшей категории слова 0.09"
 ,bucket,bucket,,boxes_and_cases,approved,alternative,"SWOW: оценка 0.021, доля от лучшей категории слова 0.07"
@@ -16299,7 +16309,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,teeth,teeth,,blades,approved,alternative,"SWOW: оценка 0.002, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
 ,cutter,cutter,,blades,approved,approved,"SWOW: оценка 0.356, доля от лучшей категории слова 1.00"
 ,inch,inch,,things_measured_in_inches,approved,approved,"SWOW: оценка 0.314, доля от лучшей категории слова 1.00"
-,yard,yard,,things_measured_in_inches,approved,approved,"SWOW: оценка 0.147, доля от лучшей категории слова 1.00"
 ,mile,mile,,things_measured_in_inches,approved,approved,"SWOW: оценка 0.155, доля от лучшей категории слова 1.00"
 ,ounce,ounce,,things_measured_in_inches,approved,approved,"SWOW: оценка 0.321, доля от лучшей категории слова 1.00"
 ,pound,pound,,things_measured_in_inches,approved,approved,"SWOW: оценка 0.234, доля от лучшей категории слова 0.90"
@@ -16378,7 +16387,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,slag,slag,,welding_words,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,filler,filler,,welding_words,candidate,hard_only,"SWOW: оценка 0.017, доля от лучшей категории слова 1.00"
 ,tip,tip,,welding_words,candidate,hard_only,"SWOW: оценка 0.011, доля от лучшей категории слова 0.03"
-,oil,oil,,auto_repair,approved,alternative,"SWOW: оценка 0.071, доля от лучшей категории слова 0.33"
 ,filter,filter,,auto_repair,approved,approved,"SWOW: оценка 0.214, доля от лучшей категории слова 0.63"
 ,spark plug,spark plug,,auto_repair,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,belt,belt,,auto_repair,approved,alternative,"SWOW: оценка 0.010, доля от лучшей категории слова 0.07; прозрачная категория, игрок доходит рассудком"
@@ -16517,7 +16525,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,fertilizer,fertilizer,,landscaping_words,approved,approved,"SWOW: оценка 0.245, доля от лучшей категории слова 0.87"
 ,cleaver,cleaver,,butcher_words,approved,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 1.00"
 ,scale,scale,,butcher_words,approved,alternative,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
-,case,case,,butcher_words,approved,alternative,"SWOW: оценка 0.002, доля от лучшей категории слова 0.01; прозрачная категория, игрок доходит рассудком"
 ,grinder,grinder,,butcher_words,approved,approved,"SWOW: оценка 0.115, доля от лучшей категории слова 1.00"
 ,saw,saw,,butcher_words,approved,alternative,"SWOW: оценка 0.049, доля от лучшей категории слова 0.21"
 ,twine,twine,,butcher_words,approved,alternative,"SWOW: оценка 0.014, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
@@ -16740,7 +16747,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,traffic light,traffic light,,road_things,approved,approved,"SWOW: оценка 0.174, доля от лучшей категории слова 1.00"
 ,guardrail,guardrail,,road_things,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,median,median,,road_things,approved,approved,"SWOW: оценка 0.055, доля от лучшей категории слова 1.00"
-,shoulder,shoulder,,road_things,approved,alternative,"SWOW: оценка 0.057, доля от лучшей категории слова 0.19"
 ,exit,exit,,road_things,approved,alternative,"SWOW: оценка 0.014, доля от лучшей категории слова 0.26; прозрачная категория, игрок доходит рассудком"
 ,tunnel,tunnel,,road_things,approved,alternative,"SWOW: оценка 0.065, доля от лучшей категории слова 0.18"
 ,toll booth,toll booth,,road_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
@@ -16767,7 +16773,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,slow,slow,,traffic_signs,approved,alternative,"SWOW: оценка 0.025, доля от лучшей категории слова 0.05"
 ,curve ahead,curve ahead,,traffic_signs,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,track,track,,train_words,approved,approved,"SWOW: оценка 0.397, доля от лучшей категории слова 1.00"
-,station,station,,train_words,approved,approved,"SWOW: оценка 0.822, доля от лучшей категории слова 1.00"
 ,platform,platform,,train_words,approved,approved,"SWOW: оценка 0.482, доля от лучшей категории слова 1.00"
 ,conductor,conductor,,train_words,approved,approved,"SWOW: оценка 0.706, доля от лучшей категории слова 1.00"
 ,caboose,caboose,,train_words,approved,approved,"SWOW: оценка 0.802, доля от лучшей категории слова 1.00"
@@ -16800,7 +16805,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,lander,lander,,space_travel,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,telescope,telescope,,space_travel,approved,alternative,"SWOW: оценка 0.208, доля от лучшей категории слова 0.39"
 ,rover,rover,,space_travel,approved,approved,"SWOW: оценка 0.066, доля от лучшей категории слова 1.00"
-,station,station,,space_travel,approved,alternative,"SWOW: оценка 0.051, доля от лучшей категории слова 0.06"
 ,sail,sail,,sailing_words,candidate,alternative,"SWOW: оценка 0.590, доля от лучшей категории слова 1.00; категория неочевидная"
 ,mast,mast,,sailing_words,candidate,alternative,"SWOW: оценка 0.670, доля от лучшей категории слова 1.00; категория неочевидная"
 ,anchor,anchor,,sailing_words,candidate,alternative,"SWOW: оценка 0.743, доля от лучшей категории слова 1.00; категория неочевидная"
@@ -16813,7 +16817,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,port,port,,sailing_words,candidate,alternative,"SWOW: оценка 0.461, доля от лучшей категории слова 1.00; категория неочевидная"
 ,starboard,starboard,,sailing_words,candidate,alternative,"SWOW: оценка 0.604, доля от лучшей категории слова 1.00; категория неочевидная"
 ,hull,hull,,sailing_words,candidate,alternative,"SWOW: оценка 0.794, доля от лучшей категории слова 1.00; категория неочевидная"
-,cabin,cabin,,sailing_words,candidate,alternative,"SWOW: оценка 0.100, доля от лучшей категории слова 0.49"
 ,boom,boom,,sailing_words,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
 ,oar,oar,,sailing_words,candidate,alternative,"SWOW: оценка 0.405, доля от лучшей категории слова 1.00; категория неочевидная"
 ,buoy,buoy,,sailing_words,candidate,hard_only,"SWOW: оценка 0.000, доля от лучшей категории слова 0.00"
@@ -16863,7 +16866,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,snack,snack,,gas_station_things,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 0.00; прозрачная категория, игрок доходит рассудком"
 ,coffee,coffee,,gas_station_things,approved,alternative,"SWOW: оценка 0.005, доля от лучшей категории слова 0.02; прозрачная категория, игрок доходит рассудком"
 ,car wash,car wash,,gas_station_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,oil,oil,,gas_station_things,approved,approved,"SWOW: оценка 0.207, доля от лучшей категории слова 0.95"
 ,map,map,,gas_station_things,approved,alternative,"SWOW: оценка 0.010, доля от лучшей категории слова 0.09; прозрачная категория, игрок доходит рассудком"
 ,credit card reader,credit card reader,,gas_station_things,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,restroom,restroom,,gas_station_things,approved,alternative,"SWOW: оценка 0.001, доля от лучшей категории слова 1.00; прозрачная категория, игрок доходит рассудком"
@@ -17045,7 +17047,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,castelvetrano,castelvetrano,,olive_types,candidate,rejected,частотность 0.166: слово почти не встречается в английском
 ,extra virgin,extra virgin,,olive_types,candidate,alternative,"SWOW: оценка 0.029, доля от лучшей категории слова 1.00"
 ,virgin,virgin,,olive_types,candidate,alternative,"SWOW: оценка 0.038, доля от лучшей категории слова 1.00"
-,light,light,,olive_types,candidate,alternative,"SWOW: оценка 0.045, доля от лучшей категории слова 0.36"
 ,pitted,pitted,,olive_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,stuffed,stuffed,,olive_types,candidate,hard_only,"SWOW: оценка 0.006, доля от лучшей категории слова 0.02"
 ,manzanilla,manzanilla,,olive_types,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
@@ -17289,7 +17290,6 @@ membership_id,word,normalized,sense_key,category_key,current_status,decision,rev
 ,flat white,flat white,,coffee_drinks,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,cold brew,cold brew,,coffee_drinks,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,iced coffee,iced coffee,,coffee_drinks,approved,approved,нет данных SWOW: решено по правилам категории и частотности
-,drip,drip,,coffee_drinks,approved,alternative,"SWOW: оценка 0.072, доля от лучшей категории слова 0.11"
 ,french press,french press,,coffee_drinks,approved,approved,нет данных SWOW: решено по правилам категории и частотности
 ,frappe,frappe,,coffee_drinks,candidate,hard_only,нет данных SWOW: решено по правилам категории и частотности
 ,affogato,affogato,,coffee_drinks,candidate,rejected,частотность 0.194: слово почти не встречается в английском
