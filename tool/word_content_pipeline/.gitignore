@@ -4,8 +4,12 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 
-# рабочая база и выгрузки — воспроизводятся из data/*.jsonl
-database/*.sqlite
+# database/content.sqlite НЕ игнорируется: это наш авторский набор, он лежит в git
+# и развивается по шагам. Раньше он был здесь, а версионировалась его копия в
+# БАЗА-СЛОВ/ — то есть настоящая база не имела истории, а история была у копии.
+# Пересобирается из data/*.jsonl скриптом scripts/rebuild_all.sh.
+
+# Служебные файлы и промежуточные выгрузки
 database/*.sqlite-journal
 database/*.sqlite-shm
 database/*.sqlite-wal
