@@ -139,18 +139,21 @@ npm run dev                 # инструмент локально
 npm run build               # статическая сборка в web/dist
 ```
 
-Пересобрать контентную базу с нуля из JSONL:
+Пересобрать контентную базу с нуля из JSONL. База ровно одна —
+`tool/word_content_pipeline/database/content.sqlite`, и собирает её один скрипт.
+Раньше здесь стоял список команд с путём `pipeline/database/content.sqlite`: он
+указывал на локальную копию пайплайна, которую удалили, и выполнение этих команд
+создавало вторую базу рядом с настоящей. Ровно так проект уже расходился.
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -e "pipeline[dev,freq]"
-.venv/bin/word-content init-db            --db pipeline/database/content.sqlite
-.venv/bin/word-content import-categories  --db pipeline/database/content.sqlite --input pipeline/data/categories.jsonl
-.venv/bin/word-content import-memberships --db pipeline/database/content.sqlite --input pipeline/data/membership_candidates.jsonl
-.venv/bin/word-content import-review      --db pipeline/database/content.sqlite --input pipeline/data/review_decisions.csv
-python3 scripts/validate_ai_run.py data/runs/run-001-meta-hubs
-.venv/bin/word-content import-categories  --db pipeline/database/content.sqlite --input data/runs/run-001-meta-hubs/categories.jsonl
-.venv/bin/word-content import-memberships --db pipeline/database/content.sqlite --input data/runs/run-001-meta-hubs/memberships.jsonl
-.venv/bin/word-content import-review      --db pipeline/database/content.sqlite --input data/runs/run-001-meta-hubs/review_decisions.csv
+bash ../word_content_pipeline/scripts/rebuild_all.sh   # база + приёмка, прогоны из runs/ подхватываются сами
+npm run snapshot                                       # снимок базы → web/src/data/content.snapshot.json
+```
+
+Проверить отдельный AI-прогон перед импортом (каталоги прогонов живут в пайплайне):
+
+```bash
+python3 scripts/validate_ai_run.py ../word_content_pipeline/data/runs/run-001-meta-hubs
 ```
 
 **Оговорка про референсные данные.** `reference-levels.json` — выгрузка ответов

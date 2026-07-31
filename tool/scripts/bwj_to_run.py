@@ -129,9 +129,8 @@ def polysemous_words() -> set[str]:
     """
     import sqlite3
 
+    # База одна и лежит в git; запасной путь на копию в БАЗА-СЛОВ убран.
     db = PIPE / "database" / "content.sqlite"
-    if not db.exists():
-        db = ROOT / "БАЗА-СЛОВ" / "база-слов.sqlite"
     if not db.exists():
         return set()
     # База живёт в режиме WAL: при существующих -wal/-shm файлах mode=ro её не

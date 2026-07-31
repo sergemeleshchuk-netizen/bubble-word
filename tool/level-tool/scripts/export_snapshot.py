@@ -34,7 +34,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT.parent / "word_content_pipeline" / "database" / "content.sqlite"
-DB_FALLBACK = ROOT.parent.parent / "БАЗА-СЛОВ" / "база-слов.sqlite"
 OUT_WEB = ROOT / "web" / "src" / "data" / "content.snapshot.json"
 OUT_PROD = ROOT / "data" / "production" / "content.snapshot.json"
 
@@ -324,19 +323,16 @@ def canonical(obj) -> str:
 
 
 def resolve_db(explicit: str | None) -> Path | None:
-    """Рабочая база пайплайна, иначе снимок в БАЗА-СЛОВ.
+    """Единственная база проекта.
 
-    Рабочая база в git не хранится (источник правды — текстовые файлы), поэтому
-    на чистом клоне её просто нет. Снимок хранится, и собрать из него можно тот
-    же результат: это одна и та же база, просто отданная человеку.
+    Запасной путь на копию в БАЗА-СЛОВ убран: база теперь лежит в git, поэтому на
+    чистом клоне она есть. Пока её не было, скрипт молча брал копию — и снимок мог
+    собраться из файла на другом состоянии, чем рабочая база.
     """
     if explicit:
         path = Path(explicit)
         return path if path.exists() else None
-    for candidate in (DB, DB_FALLBACK):
-        if candidate.exists():
-            return candidate
-    return None
+    return DB if DB.exists() else None
 
 
 def check_audited(conn: sqlite3.Connection, path: Path) -> None:
@@ -347,7 +343,7 @@ def check_audited(conn: sqlite3.Connection, path: Path) -> None:
         raise SystemExit(
             f"ОШИБКА: база {path} не аудированной версии (schema_version="
             f"{version[0] if version else 'нет'}, нужна 2).\n"
-            "Пересоберите базу командами из БАЗА-СЛОВ/README.md."
+            "Пересоберите базу: bash ../word_content_pipeline/scripts/rebuild_all.sh"
         )
 
 

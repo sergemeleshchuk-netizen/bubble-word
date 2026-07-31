@@ -19,14 +19,16 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-RUNS_DIR = ROOT / "data" / "runs"
 # Источник ОДИН — канонический пайплайн tool/word_content_pipeline. Здесь стоял
 # путь на локальную копию tool/level-tool/pipeline, и это тот же способ разъехаться
 # с базой, который уже ловили в export_snapshot.py: копия не обновлялась с момента
 # subtree-импорта, а экран «База» показывал бы цифры из неё.
 PIPELINE = ROOT.parent / "word_content_pipeline"
+# Каталоги AI-прогонов лежат рядом с базой, которую они наполняют. Здесь стоял путь
+# ROOT/"data"/"runs" на вторую копию прогонов внутри level-tool: копию удалили, и
+# экран «Прогоны AI» тихо опустел — экспорт находил ноль прогонов вместо одного.
+RUNS_DIR = PIPELINE / "data" / "runs"
 DB = PIPELINE / "database" / "content.sqlite"
-DB_FALLBACK = ROOT.parent.parent / "БАЗА-СЛОВ" / "база-слов.sqlite"
 OUT = ROOT / "web" / "src" / "data" / "ai_runs.json"
 
 PROMPT_LIBRARY = [
@@ -113,7 +115,8 @@ def collect_run(run_dir: Path) -> dict:
 
 
 def db_stats() -> dict:
-    db = DB if DB.exists() else DB_FALLBACK
+    # База одна и лежит в git; запасной путь на копию в БАЗА-СЛОВ убран.
+    db = DB
     if not db.exists():
         return {}
     conn = sqlite3.connect(str(db))

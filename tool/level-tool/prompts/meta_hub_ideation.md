@@ -110,9 +110,12 @@ order by c.theme, c.label;
 
 ## Куда пошёл результат
 
+Прогоны лежат рядом с базой, которую они наполняют — в каноническом пайплайне,
+не в level-tool:
+
 ```
-data/runs/run-001-meta-hubs/raw.jsonl        сырой вывод модели, как есть
-data/runs/run-001-meta-hubs/rejected.jsonl   что отсеяла проверка схемы
-data/runs/run-001-meta-hubs/review.jsonl     вердикты критика
-data/runs/run-001-meta-hubs/run.json         метаданные прогона
+tool/word_content_pipeline/data/runs/run-001-meta-hubs/raw.jsonl        сырой вывод модели, как есть
+tool/word_content_pipeline/data/runs/run-001-meta-hubs/rejected.jsonl   что отсеяла проверка схемы
+tool/word_content_pipeline/data/runs/run-001-meta-hubs/review.jsonl     вердикты критика
+tool/word_content_pipeline/data/runs/run-001-meta-hubs/run.json         метаданные прогона
 ```

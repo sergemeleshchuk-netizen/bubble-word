@@ -887,8 +887,12 @@ def write_handoff_readme(counts: dict, db_size_mb: float, source_db: Path) -> No
 
 | файл | что это |
 |---|---|
-| `база-слов.sqlite` | **сама база**, файл SQLite ({db_size_mb:.1f} МБ). Открывается любым просмотрщиком SQLite, например DB Browser for SQLite |
 | `ревью/` | материалы для проверки базы человеком или внешней моделью |
+
+Сама база — один файл `tool/word_content_pipeline/database/content.sqlite`
+({db_size_mb:.1f} МБ), он лежит в git. Открывается любым просмотрщиком SQLite,
+например DB Browser for SQLite. Копии базы в этой папке больше нет: два файла с
+одинаковым содержимым только путали, какой из них актуален.
 
 ## Что внутри базы
 
@@ -966,14 +970,14 @@ python3 ../level-tool/scripts/export_snapshot.py      # снимок для ве
 ## Как посмотреть базу без программиста
 
 1. Поставить **DB Browser for SQLite** (бесплатный, sqlitebrowser.org)
-2. Открыть `база-слов.sqlite`
+2. Открыть `tool/word_content_pipeline/database/content.sqlite`
 3. Вкладка Browse Data, таблица `memberships` — все связи; `categories` — категории
 
 Или из терминала, если нужно быстро глянуть одно слово:
 
 ```bash
 cd tool/word_content_pipeline
-PYTHONPATH=src .venv/bin/word-content word-info --db ../../БАЗА-СЛОВ/база-слов.sqlite --word monitor
+PYTHONPATH=src .venv/bin/word-content word-info --db database/content.sqlite --word monitor
 ```
 """,
         encoding="utf-8",
@@ -981,18 +985,25 @@ PYTHONPATH=src .venv/bin/word-content word-info --db ../../БАЗА-СЛОВ/б�
 
 
 def snapshot_db(source: Path) -> float:
-    """Копирует базу, предварительно сжав её (VACUUM убирает мусор от импортов)."""
+    """Сжимает каноническую базу (VACUUM убирает мусор от импортов) и возвращает её размер.
+
+    Копию сюда больше не кладём. База ОДНА — `database/content.sqlite`, она лежит
+    в git и развивается как авторский набор. Раньше скрипт копировал её в
+    `БАЗА-СЛОВ/база-слов.sqlite`, и в репозитории жили два файла с одинаковым
+    содержимым: настоящая база была в .gitignore, а версионировалась копия. Любая
+    пересборка давала расхождение, и понять, какой файл актуален, было нельзя.
+    В `БАЗА-СЛОВ/` теперь только текстовый пакет для чтения глазами.
+    """
     conn = sqlite3.connect(source)
     try:
         conn.execute("VACUUM")
     finally:
         conn.close()
-    shutil.copy2(source, DB_SNAPSHOT)
-    for suffix in ("-wal", "-shm"):
+    for suffix in ("", "-wal", "-shm"):
         stale = DB_SNAPSHOT.with_name(DB_SNAPSHOT.name + suffix)
         if stale.exists():
             stale.unlink()
-    return DB_SNAPSHOT.stat().st_size / 1024 / 1024
+    return source.stat().st_size / 1024 / 1024
 
 
 def main() -> None:
@@ -1058,7 +1069,7 @@ def main() -> None:
 
     print(f"папка-выдача: {HANDOFF}")
     print(f"  README.md")
-    print(f"  база-слов.sqlite         {db_size:.1f} МБ")
+    print(f"  (сама база — tool/word_content_pipeline/database/content.sqlite, {db_size:.1f} МБ)")
     print(f"  ревью/")
     for path in sorted(OUT.iterdir()):
         print(f"    {path.name:26} {path.stat().st_size // 1024:>5} КБ")

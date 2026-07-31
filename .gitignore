@@ -15,6 +15,13 @@ level-generator/bubble_jam_pipeline/output/
 # Системный мусор
 .DS_Store
 node_modules/
+.pytest_cache/
+
+# Служебные файлы SQLite: появляются от любого чтения базы в режиме WAL и
+# коммитятся случайно. Сама база — отдельный вопрос, здесь только её хвосты.
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
 
 # Архивы для передачи наружу собираются командой, в git не нужны
 *.zip

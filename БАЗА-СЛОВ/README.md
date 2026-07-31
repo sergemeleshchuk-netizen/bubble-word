@@ -6,8 +6,12 @@
 
 | файл | что это |
 |---|---|
-| `база-слов.sqlite` | **сама база**, файл SQLite (9.7 МБ). Открывается любым просмотрщиком SQLite, например DB Browser for SQLite |
 | `ревью/` | материалы для проверки базы человеком или внешней моделью |
+
+Сама база — один файл `tool/word_content_pipeline/database/content.sqlite`
+(9.7 МБ), он лежит в git. Открывается любым просмотрщиком SQLite,
+например DB Browser for SQLite. Копии базы в этой папке больше нет: два файла с
+одинаковым содержимым только путали, какой из них актуален.
 
 ## Что внутри базы
 
@@ -85,12 +89,12 @@ python3 ../level-tool/scripts/export_snapshot.py      # снимок для ве
 ## Как посмотреть базу без программиста
 
 1. Поставить **DB Browser for SQLite** (бесплатный, sqlitebrowser.org)
-2. Открыть `база-слов.sqlite`
+2. Открыть `tool/word_content_pipeline/database/content.sqlite`
 3. Вкладка Browse Data, таблица `memberships` — все связи; `categories` — категории
 
 Или из терминала, если нужно быстро глянуть одно слово:
 
 ```bash
 cd tool/word_content_pipeline
-PYTHONPATH=src .venv/bin/word-content word-info --db ../../БАЗА-СЛОВ/база-слов.sqlite --word monitor
+PYTHONPATH=src .venv/bin/word-content word-info --db database/content.sqlite --word monitor
 ```
