@@ -228,7 +228,7 @@
     width:100%;height:100%;border:none;border-radius:24px;display:block;background:#062c52;
   }
   .phone-note{font-size:13px;font-weight:500;color:var(--ink-soft);text-align:center;max-width:520px;line-height:1.5;}
-  .lvl-pick{display:flex;align-items:center;gap:10px;}
+  .lvl-pick{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
   .lvl-pick label{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.03em;text-transform:uppercase;}
   .lvl-pick select{
     font:inherit;font-size:14px;font-weight:600;color:var(--ink);
@@ -738,7 +738,7 @@ solver that must reproduce the intended grouping without seeing answers.</div>
           <div class="phone-wrap">
             <div class="lvl-pick">
               <label for="lvlSel">Уровень</label>
-              <select id="lvlSel" onchange="pickLevel(this.value)">
+              <select id="lvlSel" onchange="reloadPlay()">
                 <option value="">Демо · встроенный контент</option>
                 <optgroup label="Эталонные (собраны руками)">
                   <option value="levels/e1.json">E1 · лёгкий, 5 категорий</option>
@@ -794,11 +794,21 @@ solver that must reproduce the intended grouping without seeing answers.</div>
                   <option value="levels/t10.json">T10 · 13 категорий (нацпарки, элементы)</option>
                 </optgroup>
               </select>
+              <label for="modSel">Модификатор</label>
+              <select id="modSel" onchange="reloadPlay()">
+                <option value="">нет · базовая механика</option>
+                <option value="halves">половинки · слово из двух пузырей</option>
+                <option value="ice">лёд · счётчик мерджей</option>
+                <option value="hidden">скрытые «?» · счётчик мерджей</option>
+                <option value="chain">цепь · делит поле, счётчик категорий</option>
+              </select>
             </div>
             <div class="phone-frame">
               <iframe id="playFrame" src="playable/index.html" loading="lazy" title="Bubble Words playable prototype"></iframe>
             </div>
-            <p class="phone-note">Играбельный прототип Bubble Words. Выбери уровень сверху: эталонные и сгенерированные пакеты грузятся в тот же телефон; все уровни проверены слепым решателем.</p>
+            <p class="phone-note">Играбельный прототип Bubble Words. Выбери уровень сверху: эталонные и сгенерированные пакеты грузятся в тот же телефон; все уровни проверены слепым решателем.
+              Тащи пузырь — по дороге подсвечиваются шары, над которыми он проходит, обведённый белым это точка остановки; неверный мердж подсвечивает цель красным, шар возвращается, ход не тратится.
+              Модификатор пересобирает уровень: половинки добавляют склейки в лимит ходов, лёд и «?» снимаются счётчиком успешных мерджей, цепь запирает нижнюю часть поля до сбора двух категорий.</p>
           </div>
         </div></div>
       </div>
@@ -959,9 +969,17 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 </section>
 
 <script>
-  function pickLevel(v){
-    document.getElementById('playFrame').src='playable/index.html'+(v?'?level='+v:'');
+  /* уровень и модификатор живут в одном URL прототипа: выбор любого из двух
+     перезагружает телефон с новой партией */
+  function reloadPlay(){
+    var lv=document.getElementById('lvlSel').value;
+    var md=document.getElementById('modSel').value;
+    var q=[];
+    if(lv) q.push('level='+lv);
+    if(md) q.push('mod='+md);
+    document.getElementById('playFrame').src='playable/index.html'+(q.length?'?'+q.join('&'):'');
   }
+  function pickLevel(){ reloadPlay(); }
   function toggle(head){
     var row = head.parentElement;
     var body = row.querySelector('.row-body');
