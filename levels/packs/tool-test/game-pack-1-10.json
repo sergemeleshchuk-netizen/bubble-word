@@ -1,0 +1,3456 @@
+{
+  "pack_hash": "96a30c9c3d82f92d46b89cb8b41fbb683a584a2b31fca4d7a47597b0f47df74c",
+  "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+  "generator_version": "gen-1.0",
+  "config": {
+    "levelRange": [
+      1,
+      10
+    ],
+    "categoryCorridor": [
+      8,
+      10
+    ],
+    "spikePositions": [
+      5,
+      9
+    ],
+    "recoveryPositions": [
+      3,
+      6,
+      10
+    ],
+    "rarityRange": [
+      9,
+      13
+    ],
+    "maxMetaDepth": 3,
+    "allowedModifiers": [
+      "chains"
+    ],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 30,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "final-03",
+    "categoryPlan": [
+      13,
+      15,
+      12,
+      16,
+      18,
+      12,
+      14,
+      15,
+      17,
+      13
+    ],
+    "metaPlan": [
+      2,
+      3,
+      1,
+      4,
+      5,
+      1,
+      3,
+      2,
+      4,
+      2
+    ]
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 13,
+        "words_per_category": 4,
+        "start_bubbles": 50,
+        "board_capacity": 24,
+        "move_limit": 57
+      },
+      "categories": [
+        {
+          "key": "hardware_store",
+          "label": "HARDWARE STORE",
+          "words": [
+            {
+              "text": "sandpaper",
+              "kind": "word"
+            },
+            {
+              "text": "fasteners",
+              "kind": "word"
+            },
+            {
+              "text": "ladder",
+              "kind": "word"
+            },
+            {
+              "text": "hose",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "store_types",
+          "label": "KINDS OF STORES",
+          "words": [
+            {
+              "text": "hardware store",
+              "kind": "meta",
+              "meta_child": "hardware_store"
+            },
+            {
+              "text": "grocery",
+              "kind": "word"
+            },
+            {
+              "text": "deli",
+              "kind": "word"
+            },
+            {
+              "text": "boutique",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "first_aid",
+          "label": "FIRST AID",
+          "words": [
+            {
+              "text": "gauze",
+              "kind": "word"
+            },
+            {
+              "text": "antiseptic",
+              "kind": "word"
+            },
+            {
+              "text": "splint",
+              "kind": "word"
+            },
+            {
+              "text": "ointment",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "survival_skills",
+          "label": "SURVIVAL SKILLS",
+          "words": [
+            {
+              "text": "first aid",
+              "kind": "meta",
+              "meta_child": "first_aid"
+            },
+            {
+              "text": "tracking",
+              "kind": "word"
+            },
+            {
+              "text": "water purification",
+              "kind": "word"
+            },
+            {
+              "text": "signaling",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "caribbean_places",
+          "label": "CARIBBEAN PLACES",
+          "words": [
+            {
+              "text": "Haiti",
+              "kind": "word"
+            },
+            {
+              "text": "Jamaica",
+              "kind": "word"
+            },
+            {
+              "text": "Grenada",
+              "kind": "word"
+            },
+            {
+              "text": "Antigua",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "wild_west",
+          "label": "WILD WEST",
+          "words": [
+            {
+              "text": "spurs",
+              "kind": "word"
+            },
+            {
+              "text": "saloon",
+              "kind": "word"
+            },
+            {
+              "text": "rodeo",
+              "kind": "word"
+            },
+            {
+              "text": "gold rush",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "authors",
+          "label": "FAMOUS AUTHORS",
+          "words": [
+            {
+              "text": "Bronte",
+              "kind": "word"
+            },
+            {
+              "text": "Verne",
+              "kind": "word"
+            },
+            {
+              "text": "Kipling",
+              "kind": "word"
+            },
+            {
+              "text": "Steinbeck",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "shellfish",
+          "label": "SHELLFISH",
+          "words": [
+            {
+              "text": "oyster",
+              "kind": "word"
+            },
+            {
+              "text": "lobster",
+              "kind": "word"
+            },
+            {
+              "text": "crab",
+              "kind": "word"
+            },
+            {
+              "text": "clam",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "wind_instruments",
+          "label": "WIND INSTRUMENTS",
+          "words": [
+            {
+              "text": "recorder",
+              "kind": "word"
+            },
+            {
+              "text": "flute",
+              "kind": "word"
+            },
+            {
+              "text": "trumpet",
+              "kind": "word"
+            },
+            {
+              "text": "french horn",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "gemstones",
+          "label": "GEMSTONES",
+          "words": [
+            {
+              "text": "turquoise",
+              "kind": "word"
+            },
+            {
+              "text": "emerald",
+              "kind": "word"
+            },
+            {
+              "text": "opal",
+              "kind": "word"
+            },
+            {
+              "text": "sapphire",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "fabric_types",
+          "label": "FABRIC TYPES",
+          "words": [
+            {
+              "text": "silk",
+              "kind": "word"
+            },
+            {
+              "text": "velvet",
+              "kind": "word"
+            },
+            {
+              "text": "satin",
+              "kind": "word"
+            },
+            {
+              "text": "denim",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "flowers",
+          "label": "FLOWERS",
+          "words": [
+            {
+              "text": "azalea",
+              "kind": "word"
+            },
+            {
+              "text": "lavender",
+              "kind": "word"
+            },
+            {
+              "text": "magnolia",
+              "kind": "word"
+            },
+            {
+              "text": "Violet",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "capital_cities_more",
+          "label": "MORE CAPITALS",
+          "words": [
+            {
+              "text": "Brussels",
+              "kind": "word"
+            },
+            {
+              "text": "Copenhagen",
+              "kind": "word"
+            },
+            {
+              "text": "Bucharest",
+              "kind": "word"
+            },
+            {
+              "text": "Wellington",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 2,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 15,
+        "words_per_category": 4,
+        "start_bubbles": 57,
+        "board_capacity": 24,
+        "move_limit": 61
+      },
+      "categories": [
+        {
+          "key": "fish_species",
+          "label": "FISH",
+          "words": [
+            {
+              "text": "herring",
+              "kind": "word"
+            },
+            {
+              "text": "pike",
+              "kind": "word"
+            },
+            {
+              "text": "tuna",
+              "kind": "word"
+            },
+            {
+              "text": "cod",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "aquarium_tank",
+          "label": "AQUARIUM",
+          "words": [
+            {
+              "text": "fish",
+              "kind": "meta",
+              "meta_child": "fish_species"
+            },
+            {
+              "text": "coral",
+              "kind": "word"
+            },
+            {
+              "text": "turtles",
+              "kind": "word"
+            },
+            {
+              "text": "filter",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "pet_supplies",
+          "label": "PET SUPPLIES",
+          "words": [
+            {
+              "text": "aquarium",
+              "kind": "meta",
+              "meta_child": "aquarium_tank"
+            },
+            {
+              "text": "collar",
+              "kind": "word"
+            },
+            {
+              "text": "muzzle",
+              "kind": "word"
+            },
+            {
+              "text": "scratching post",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "metals",
+          "label": "METALS",
+          "words": [
+            {
+              "text": "copper",
+              "kind": "word"
+            },
+            {
+              "text": "lead",
+              "kind": "word"
+            },
+            {
+              "text": "gold",
+              "kind": "word"
+            },
+            {
+              "text": "steel",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "jewelry_box",
+          "label": "JEWELRY BOX",
+          "words": [
+            {
+              "text": "metals",
+              "kind": "meta",
+              "meta_child": "metals"
+            },
+            {
+              "text": "gemstones",
+              "kind": "word"
+            },
+            {
+              "text": "jewelry",
+              "kind": "word"
+            },
+            {
+              "text": "clasp",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "medicine_cabinet",
+          "label": "MEDICINE CABINET",
+          "words": [
+            {
+              "text": "bandage",
+              "kind": "word"
+            },
+            {
+              "text": "cough syrup",
+              "kind": "word"
+            },
+            {
+              "text": "aspirin",
+              "kind": "word"
+            },
+            {
+              "text": "ice pack",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "office_supplies",
+          "label": "OFFICE SUPPLIES",
+          "words": [
+            {
+              "text": "marker",
+              "kind": "word"
+            },
+            {
+              "text": "folder",
+              "kind": "word"
+            },
+            {
+              "text": "binder",
+              "kind": "word"
+            },
+            {
+              "text": "calendar",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "world_mountains",
+          "label": "FAMOUS MOUNTAINS",
+          "words": [
+            {
+              "text": "Vesuvius",
+              "kind": "word"
+            },
+            {
+              "text": "Kilimanjaro",
+              "kind": "word"
+            },
+            {
+              "text": "Etna",
+              "kind": "word"
+            },
+            {
+              "text": "Denali",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "jewelry_stones",
+          "label": "JEWELRY STONES",
+          "words": [
+            {
+              "text": "onyx",
+              "kind": "word"
+            },
+            {
+              "text": "aquamarine",
+              "kind": "word"
+            },
+            {
+              "text": "moonstone",
+              "kind": "word"
+            },
+            {
+              "text": "topaz",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "irish_names",
+          "label": "IRISH NAMES",
+          "words": [
+            {
+              "text": "Patrick",
+              "kind": "word"
+            },
+            {
+              "text": "Kathleen",
+              "kind": "word"
+            },
+            {
+              "text": "Brendan",
+              "kind": "word"
+            },
+            {
+              "text": "Ronan",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "resort_towns",
+          "label": "RESORT DESTINATIONS",
+          "words": [
+            {
+              "text": "Ibiza",
+              "kind": "word"
+            },
+            {
+              "text": "Lake Tahoe",
+              "kind": "word"
+            },
+            {
+              "text": "Bali",
+              "kind": "word"
+            },
+            {
+              "text": "Maui",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "fairy_tales",
+          "label": "FAIRY TALES",
+          "words": [
+            {
+              "text": "Ugly Duckling",
+              "kind": "word"
+            },
+            {
+              "text": "Pinocchio",
+              "kind": "word"
+            },
+            {
+              "text": "Sleeping Beauty",
+              "kind": "word"
+            },
+            {
+              "text": "Beauty and the Beast",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "world_currencies_more",
+          "label": "MORE CURRENCIES",
+          "words": [
+            {
+              "text": "rand",
+              "kind": "word"
+            },
+            {
+              "text": "rupee",
+              "kind": "word"
+            },
+            {
+              "text": "real",
+              "kind": "word"
+            },
+            {
+              "text": "yuan",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "golf_words",
+          "label": "GOLF WORDS",
+          "words": [
+            {
+              "text": "driver",
+              "kind": "word"
+            },
+            {
+              "text": "hole in one",
+              "kind": "word"
+            },
+            {
+              "text": "tee",
+              "kind": "word"
+            },
+            {
+              "text": "par",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "famous_composers",
+          "label": "COMPOSERS",
+          "words": [
+            {
+              "text": "Bach",
+              "kind": "word"
+            },
+            {
+              "text": "Wagner",
+              "kind": "word"
+            },
+            {
+              "text": "Beethoven",
+              "kind": "word"
+            },
+            {
+              "text": "Mozart",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 3,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 12,
+        "words_per_category": 4,
+        "start_bubbles": 47,
+        "board_capacity": 24,
+        "move_limit": 58
+      },
+      "categories": [
+        {
+          "key": "candy",
+          "label": "CANDY",
+          "words": [
+            {
+              "text": "chocolate bar",
+              "kind": "word"
+            },
+            {
+              "text": "chocolate",
+              "kind": "word"
+            },
+            {
+              "text": "truffle",
+              "kind": "word"
+            },
+            {
+              "text": "caramel",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "party_things",
+          "label": "PARTY THINGS",
+          "words": [
+            {
+              "text": "candy",
+              "kind": "meta",
+              "meta_child": "candy"
+            },
+            {
+              "text": "party hat",
+              "kind": "word"
+            },
+            {
+              "text": "favor",
+              "kind": "word"
+            },
+            {
+              "text": "invitation",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "barn_things",
+          "label": "BARN THINGS",
+          "words": [
+            {
+              "text": "stall",
+              "kind": "word"
+            },
+            {
+              "text": "harness",
+              "kind": "word"
+            },
+            {
+              "text": "loft",
+              "kind": "word"
+            },
+            {
+              "text": "bale",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "cutting_tools",
+          "label": "CUTTING TOOLS",
+          "words": [
+            {
+              "text": "shears",
+              "kind": "word"
+            },
+            {
+              "text": "scalpel",
+              "kind": "word"
+            },
+            {
+              "text": "lawnmower",
+              "kind": "word"
+            },
+            {
+              "text": "hedge trimmer",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "pie_types",
+          "label": "PIE TYPES",
+          "words": [
+            {
+              "text": "apple",
+              "kind": "word"
+            },
+            {
+              "text": "chicken pot",
+              "kind": "word"
+            },
+            {
+              "text": "cherry",
+              "kind": "word"
+            },
+            {
+              "text": "blueberry",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "face_parts",
+          "label": "FACE PARTS",
+          "words": [
+            {
+              "text": "forehead",
+              "kind": "word"
+            },
+            {
+              "text": "eye",
+              "kind": "word"
+            },
+            {
+              "text": "lip",
+              "kind": "word"
+            },
+            {
+              "text": "mouth",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "winter_sports",
+          "label": "WINTER SPORTS",
+          "words": [
+            {
+              "text": "sledding",
+              "kind": "word"
+            },
+            {
+              "text": "biathlon",
+              "kind": "word"
+            },
+            {
+              "text": "luge",
+              "kind": "word"
+            },
+            {
+              "text": "curling",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "kitchen_tools",
+          "label": "KITCHEN TOOLS",
+          "words": [
+            {
+              "text": "plate",
+              "kind": "word"
+            },
+            {
+              "text": "cutting board",
+              "kind": "word"
+            },
+            {
+              "text": "fork",
+              "kind": "word"
+            },
+            {
+              "text": "spoon",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "pests",
+          "label": "PESTS",
+          "words": [
+            {
+              "text": "mole",
+              "kind": "word"
+            },
+            {
+              "text": "tick",
+              "kind": "word"
+            },
+            {
+              "text": "roach",
+              "kind": "word"
+            },
+            {
+              "text": "insects",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sports_injuries",
+          "label": "SPORTS INJURIES",
+          "words": [
+            {
+              "text": "dislocation",
+              "kind": "word"
+            },
+            {
+              "text": "sprain",
+              "kind": "word"
+            },
+            {
+              "text": "shin splints",
+              "kind": "word"
+            },
+            {
+              "text": "torn acl",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "world_rivers",
+          "label": "WORLD RIVERS",
+          "words": [
+            {
+              "text": "Congo",
+              "kind": "word"
+            },
+            {
+              "text": "Seine",
+              "kind": "word"
+            },
+            {
+              "text": "Rhine",
+              "kind": "word"
+            },
+            {
+              "text": "Nile",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "cleaning_actions",
+          "label": "CLEANING ACTIONS",
+          "words": [
+            {
+              "text": "wipe",
+              "kind": "word"
+            },
+            {
+              "text": "wash",
+              "kind": "word"
+            },
+            {
+              "text": "polish",
+              "kind": "word"
+            },
+            {
+              "text": "sweep",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 4,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 16,
+        "words_per_category": 4,
+        "start_bubbles": 60,
+        "board_capacity": 24,
+        "move_limit": 65
+      },
+      "categories": [
+        {
+          "key": "farm_bird_words",
+          "label": "POULTRY",
+          "words": [
+            {
+              "text": "duck",
+              "kind": "word"
+            },
+            {
+              "text": "rooster",
+              "kind": "word"
+            },
+            {
+              "text": "hen",
+              "kind": "word"
+            },
+            {
+              "text": "chicken",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "farm_morning",
+          "label": "FARM",
+          "words": [
+            {
+              "text": "poultry",
+              "kind": "meta",
+              "meta_child": "farm_bird_words"
+            },
+            {
+              "text": "weeds",
+              "kind": "meta",
+              "meta_child": "weeds"
+            },
+            {
+              "text": "silo",
+              "kind": "word"
+            },
+            {
+              "text": "tractor",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "places_with_animals",
+          "label": "PLACES WITH ANIMALS",
+          "words": [
+            {
+              "text": "farm",
+              "kind": "meta",
+              "meta_child": "farm_morning"
+            },
+            {
+              "text": "zoo",
+              "kind": "word"
+            },
+            {
+              "text": "safari",
+              "kind": "word"
+            },
+            {
+              "text": "ranch",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "ice_cream_flavors",
+          "label": "ICE CREAM",
+          "words": [
+            {
+              "text": "banana",
+              "kind": "word"
+            },
+            {
+              "text": "cookies and cream",
+              "kind": "word"
+            },
+            {
+              "text": "cookie dough",
+              "kind": "word"
+            },
+            {
+              "text": "rocky road",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "desserts",
+          "label": "DESSERTS",
+          "words": [
+            {
+              "text": "ice cream",
+              "kind": "meta",
+              "meta_child": "ice_cream_flavors"
+            },
+            {
+              "text": "pie",
+              "kind": "word"
+            },
+            {
+              "text": "cookie",
+              "kind": "word"
+            },
+            {
+              "text": "donut",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "weeds",
+          "label": "WEEDS",
+          "words": [
+            {
+              "text": "dandelion",
+              "kind": "word"
+            },
+            {
+              "text": "nettle",
+              "kind": "word"
+            },
+            {
+              "text": "plantain",
+              "kind": "word"
+            },
+            {
+              "text": "moss",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "snakes",
+          "label": "SNAKES",
+          "words": [
+            {
+              "text": "viper",
+              "kind": "word"
+            },
+            {
+              "text": "coral snake",
+              "kind": "word"
+            },
+            {
+              "text": "boa",
+              "kind": "word"
+            },
+            {
+              "text": "python",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "desert_things",
+          "label": "DESERT THINGS",
+          "words": [
+            {
+              "text": "tumbleweed",
+              "kind": "word"
+            },
+            {
+              "text": "rattlesnake",
+              "kind": "word"
+            },
+            {
+              "text": "sagebrush",
+              "kind": "word"
+            },
+            {
+              "text": "oasis",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "religious_books",
+          "label": "SACRED TEXTS",
+          "words": [
+            {
+              "text": "Bible",
+              "kind": "word"
+            },
+            {
+              "text": "Psalms",
+              "kind": "word"
+            },
+            {
+              "text": "Torah",
+              "kind": "word"
+            },
+            {
+              "text": "Genesis",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "world_deserts_and_seas",
+          "label": "WORLD REGIONS",
+          "words": [
+            {
+              "text": "Caribbean",
+              "kind": "word"
+            },
+            {
+              "text": "mediterranean",
+              "kind": "word"
+            },
+            {
+              "text": "Bavaria",
+              "kind": "word"
+            },
+            {
+              "text": "Scandinavia",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "cartoon_characters",
+          "label": "CARTOON CHARACTERS",
+          "words": [
+            {
+              "text": "Jerry",
+              "kind": "word"
+            },
+            {
+              "text": "Bugs Bunny",
+              "kind": "word"
+            },
+            {
+              "text": "Goofy",
+              "kind": "word"
+            },
+            {
+              "text": "Garfield",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "bones",
+          "label": "BONES",
+          "words": [
+            {
+              "text": "shin bone",
+              "kind": "word"
+            },
+            {
+              "text": "skull",
+              "kind": "word"
+            },
+            {
+              "text": "wrist bone",
+              "kind": "word"
+            },
+            {
+              "text": "hip bone",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "onomatopoeia",
+          "label": "SOUND WORDS",
+          "words": [
+            {
+              "text": "snap",
+              "kind": "word"
+            },
+            {
+              "text": "rumble",
+              "kind": "word"
+            },
+            {
+              "text": "buzz",
+              "kind": "word"
+            },
+            {
+              "text": "beep",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "teas",
+          "label": "TEAS",
+          "words": [
+            {
+              "text": "hibiscus",
+              "kind": "word"
+            },
+            {
+              "text": "matcha",
+              "kind": "word"
+            },
+            {
+              "text": "chamomile",
+              "kind": "word"
+            },
+            {
+              "text": "darjeeling",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "locksmith_words",
+          "label": "LOCKS & KEYS",
+          "words": [
+            {
+              "text": "latch",
+              "kind": "word"
+            },
+            {
+              "text": "lock",
+              "kind": "word"
+            },
+            {
+              "text": "key",
+              "kind": "word"
+            },
+            {
+              "text": "master key",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "olympic_sports",
+          "label": "OLYMPIC SPORTS",
+          "words": [
+            {
+              "text": "canoeing",
+              "kind": "word"
+            },
+            {
+              "text": "triathlon",
+              "kind": "word"
+            },
+            {
+              "text": "fencing",
+              "kind": "word"
+            },
+            {
+              "text": "sailing",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 5,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 18,
+        "words_per_category": 4,
+        "start_bubbles": 67,
+        "board_capacity": 24,
+        "move_limit": 68
+      },
+      "categories": [
+        {
+          "key": "sauces",
+          "label": "SAUCES",
+          "words": [
+            {
+              "text": "marinade",
+              "kind": "word"
+            },
+            {
+              "text": "teriyaki",
+              "kind": "word"
+            },
+            {
+              "text": "marinara",
+              "kind": "word"
+            },
+            {
+              "text": "curry",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "condiments",
+          "label": "CONDIMENTS",
+          "words": [
+            {
+              "text": "sauces",
+              "kind": "meta",
+              "meta_child": "sauces"
+            },
+            {
+              "text": "mustard",
+              "kind": "word"
+            },
+            {
+              "text": "mayo",
+              "kind": "word"
+            },
+            {
+              "text": "ketchup",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "picnic_basket",
+          "label": "PICNIC BASKET",
+          "words": [
+            {
+              "text": "condiments",
+              "kind": "meta",
+              "meta_child": "condiments"
+            },
+            {
+              "text": "thermos",
+              "kind": "word"
+            },
+            {
+              "text": "salads",
+              "kind": "word"
+            },
+            {
+              "text": "fruits",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "berries",
+          "label": "BERRIES",
+          "words": [
+            {
+              "text": "huckleberry",
+              "kind": "word"
+            },
+            {
+              "text": "currant",
+              "kind": "word"
+            },
+            {
+              "text": "gooseberry",
+              "kind": "word"
+            },
+            {
+              "text": "raspberry",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "frozen_foods",
+          "label": "FROZEN FOODS",
+          "words": [
+            {
+              "text": "berries",
+              "kind": "meta",
+              "meta_child": "berries"
+            },
+            {
+              "text": "dumpling",
+              "kind": "word"
+            },
+            {
+              "text": "corn dog",
+              "kind": "word"
+            },
+            {
+              "text": "peas",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "constellations",
+          "label": "CONSTELLATIONS",
+          "words": [
+            {
+              "text": "Orion",
+              "kind": "word"
+            },
+            {
+              "text": "Andromeda",
+              "kind": "word"
+            },
+            {
+              "text": "Crux",
+              "kind": "word"
+            },
+            {
+              "text": "Draco",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "bright_stars",
+          "label": "STARS",
+          "words": [
+            {
+              "text": "constellations",
+              "kind": "meta",
+              "meta_child": "constellations"
+            },
+            {
+              "text": "Capella",
+              "kind": "word"
+            },
+            {
+              "text": "Castor",
+              "kind": "word"
+            },
+            {
+              "text": "Sirius",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "seasons",
+          "label": "SEASONS",
+          "words": [
+            {
+              "text": "Autumn",
+              "kind": "word"
+            },
+            {
+              "text": "fall",
+              "kind": "word"
+            },
+            {
+              "text": "winter",
+              "kind": "word"
+            },
+            {
+              "text": "spring",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "weather_report",
+          "label": "WEATHER REPORT",
+          "words": [
+            {
+              "text": "seasons",
+              "kind": "meta",
+              "meta_child": "seasons"
+            },
+            {
+              "text": "forecast",
+              "kind": "word"
+            },
+            {
+              "text": "humidity",
+              "kind": "word"
+            },
+            {
+              "text": "storms",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "clothing_brands",
+          "label": "CLOTHING BRANDS",
+          "words": [
+            {
+              "text": "Champion",
+              "kind": "word"
+            },
+            {
+              "text": "Adidas",
+              "kind": "word"
+            },
+            {
+              "text": "Converse",
+              "kind": "word"
+            },
+            {
+              "text": "New Balance",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "eating_actions",
+          "label": "EATING ACTIONS",
+          "words": [
+            {
+              "text": "lick",
+              "kind": "word"
+            },
+            {
+              "text": "devour",
+              "kind": "word"
+            },
+            {
+              "text": "sip",
+              "kind": "word"
+            },
+            {
+              "text": "munch",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sports_legends",
+          "label": "SPORTS LEGENDS",
+          "words": [
+            {
+              "text": "Chamberlain",
+              "kind": "word"
+            },
+            {
+              "text": "Ali",
+              "kind": "word"
+            },
+            {
+              "text": "Jordan",
+              "kind": "word"
+            },
+            {
+              "text": "Thorpe",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sleep_and_rest",
+          "label": "SLEEP WORDS",
+          "words": [
+            {
+              "text": "mattress",
+              "kind": "word"
+            },
+            {
+              "text": "rest",
+              "kind": "word"
+            },
+            {
+              "text": "dream",
+              "kind": "word"
+            },
+            {
+              "text": "insomnia",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "silverware",
+          "label": "SILVERWARE",
+          "words": [
+            {
+              "text": "ladle",
+              "kind": "word"
+            },
+            {
+              "text": "chopsticks",
+              "kind": "word"
+            },
+            {
+              "text": "skewer",
+              "kind": "word"
+            },
+            {
+              "text": "tongs",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "religious_holidays",
+          "label": "RELIGIOUS HOLIDAYS",
+          "words": [
+            {
+              "text": "Christmas",
+              "kind": "word"
+            },
+            {
+              "text": "Palm Sunday",
+              "kind": "word"
+            },
+            {
+              "text": "Easter",
+              "kind": "word"
+            },
+            {
+              "text": "Passover",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "famous_landmarks",
+          "label": "FAMOUS LANDMARKS",
+          "words": [
+            {
+              "text": "Empire State",
+              "kind": "word"
+            },
+            {
+              "text": "pyramid",
+              "kind": "word"
+            },
+            {
+              "text": "Leaning Tower",
+              "kind": "word"
+            },
+            {
+              "text": "sphinx",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "zodiac_signs",
+          "label": "ZODIAC SIGNS",
+          "words": [
+            {
+              "text": "Aries",
+              "kind": "word"
+            },
+            {
+              "text": "Scorpio",
+              "kind": "word"
+            },
+            {
+              "text": "Leo",
+              "kind": "word"
+            },
+            {
+              "text": "Capricorn",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "science_jobs",
+          "label": "SCIENCE JOBS",
+          "words": [
+            {
+              "text": "astronomer",
+              "kind": "word"
+            },
+            {
+              "text": "geologist",
+              "kind": "word"
+            },
+            {
+              "text": "chemist",
+              "kind": "word"
+            },
+            {
+              "text": "biologist",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": [
+          {
+            "locks": "frozen_foods",
+            "unlocked_by": "picnic_basket"
+          },
+          {
+            "locks": "weather_report",
+            "unlocked_by": "sports_legends"
+          }
+        ]
+      }
+    },
+    {
+      "level_id": 6,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 12,
+        "words_per_category": 4,
+        "start_bubbles": 47,
+        "board_capacity": 24,
+        "move_limit": 58
+      },
+      "categories": [
+        {
+          "key": "fabrics",
+          "label": "FABRICS",
+          "words": [
+            {
+              "text": "tweed",
+              "kind": "word"
+            },
+            {
+              "text": "nylon",
+              "kind": "word"
+            },
+            {
+              "text": "cashmere",
+              "kind": "word"
+            },
+            {
+              "text": "cotton",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "home_decor",
+          "label": "HOME DECOR",
+          "words": [
+            {
+              "text": "fabrics",
+              "kind": "meta",
+              "meta_child": "fabrics"
+            },
+            {
+              "text": "colors",
+              "kind": "word"
+            },
+            {
+              "text": "rug",
+              "kind": "word"
+            },
+            {
+              "text": "lighting",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "word_fast",
+          "label": "FAST WORDS",
+          "words": [
+            {
+              "text": "swift",
+              "kind": "word"
+            },
+            {
+              "text": "rapid",
+              "kind": "word"
+            },
+            {
+              "text": "brisk",
+              "kind": "word"
+            },
+            {
+              "text": "express",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "roman_gods",
+          "label": "ROMAN GODS",
+          "words": [
+            {
+              "text": "Minerva",
+              "kind": "word"
+            },
+            {
+              "text": "Ceres",
+              "kind": "word"
+            },
+            {
+              "text": "Neptune",
+              "kind": "word"
+            },
+            {
+              "text": "mercury",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "birds_of_prey",
+          "label": "BIRDS OF PREY",
+          "words": [
+            {
+              "text": "condor",
+              "kind": "word"
+            },
+            {
+              "text": "harrier",
+              "kind": "word"
+            },
+            {
+              "text": "buzzard",
+              "kind": "word"
+            },
+            {
+              "text": "osprey",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "cheese_types",
+          "label": "CHEESE TYPES",
+          "words": [
+            {
+              "text": "colby",
+              "kind": "word"
+            },
+            {
+              "text": "mozzarella",
+              "kind": "word"
+            },
+            {
+              "text": "brie",
+              "kind": "word"
+            },
+            {
+              "text": "swiss",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "boats",
+          "label": "BOATS AND SHIPS",
+          "words": [
+            {
+              "text": "schooner",
+              "kind": "word"
+            },
+            {
+              "text": "barge",
+              "kind": "word"
+            },
+            {
+              "text": "freighter",
+              "kind": "word"
+            },
+            {
+              "text": "ferry",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "dental_words",
+          "label": "DENTAL WORDS",
+          "words": [
+            {
+              "text": "gum",
+              "kind": "word"
+            },
+            {
+              "text": "filling",
+              "kind": "word"
+            },
+            {
+              "text": "plaque",
+              "kind": "word"
+            },
+            {
+              "text": "extraction",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "birds",
+          "label": "BIRDS",
+          "words": [
+            {
+              "text": "falcon",
+              "kind": "word"
+            },
+            {
+              "text": "goose",
+              "kind": "word"
+            },
+            {
+              "text": "seagull",
+              "kind": "word"
+            },
+            {
+              "text": "canary",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "south_american_cities",
+          "label": "LATIN CITIES",
+          "words": [
+            {
+              "text": "Buenos Aires",
+              "kind": "word"
+            },
+            {
+              "text": "Santiago",
+              "kind": "word"
+            },
+            {
+              "text": "Sao Paulo",
+              "kind": "word"
+            },
+            {
+              "text": "La Paz",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sea_mammals",
+          "label": "SEA MAMMALS",
+          "words": [
+            {
+              "text": "porpoise",
+              "kind": "word"
+            },
+            {
+              "text": "humpback",
+              "kind": "word"
+            },
+            {
+              "text": "beluga",
+              "kind": "word"
+            },
+            {
+              "text": "walrus",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "temperature_words",
+          "label": "TEMPERATURE WORDS",
+          "words": [
+            {
+              "text": "freezing",
+              "kind": "word"
+            },
+            {
+              "text": "boiling",
+              "kind": "word"
+            },
+            {
+              "text": "warm",
+              "kind": "word"
+            },
+            {
+              "text": "mild",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 7,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 14,
+        "words_per_category": 4,
+        "start_bubbles": 53,
+        "board_capacity": 24,
+        "move_limit": 57
+      },
+      "categories": [
+        {
+          "key": "sleepwear",
+          "label": "SLEEPWEAR",
+          "words": [
+            {
+              "text": "nightgown",
+              "kind": "word"
+            },
+            {
+              "text": "onesie",
+              "kind": "word"
+            },
+            {
+              "text": "slippers",
+              "kind": "word"
+            },
+            {
+              "text": "robe",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "wardrobe",
+          "label": "WARDROBE",
+          "words": [
+            {
+              "text": "sleepwear",
+              "kind": "meta",
+              "meta_child": "sleepwear"
+            },
+            {
+              "text": "accessories",
+              "kind": "word"
+            },
+            {
+              "text": "closet",
+              "kind": "word"
+            },
+            {
+              "text": "hats",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "furniture",
+          "label": "FURNITURE",
+          "words": [
+            {
+              "text": "wardrobe",
+              "kind": "meta",
+              "meta_child": "wardrobe"
+            },
+            {
+              "text": "table",
+              "kind": "word"
+            },
+            {
+              "text": "couch",
+              "kind": "word"
+            },
+            {
+              "text": "bench",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "makeup",
+          "label": "MAKEUP",
+          "words": [
+            {
+              "text": "setting spray",
+              "kind": "word"
+            },
+            {
+              "text": "primer",
+              "kind": "word"
+            },
+            {
+              "text": "eyeliner",
+              "kind": "word"
+            },
+            {
+              "text": "blush",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "costume_party",
+          "label": "COSTUME PARTY",
+          "words": [
+            {
+              "text": "makeup",
+              "kind": "meta",
+              "meta_child": "makeup"
+            },
+            {
+              "text": "cape",
+              "kind": "word"
+            },
+            {
+              "text": "superheroes",
+              "kind": "word"
+            },
+            {
+              "text": "wig",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "natural_history_museum",
+          "label": "NATURAL HISTORY MUSEUM",
+          "words": [
+            {
+              "text": "minerals",
+              "kind": "word"
+            },
+            {
+              "text": "bones",
+              "kind": "word"
+            },
+            {
+              "text": "skeleton",
+              "kind": "word"
+            },
+            {
+              "text": "fossil",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "art_styles",
+          "label": "ART STYLES",
+          "words": [
+            {
+              "text": "realism",
+              "kind": "word"
+            },
+            {
+              "text": "folk art",
+              "kind": "word"
+            },
+            {
+              "text": "art deco",
+              "kind": "word"
+            },
+            {
+              "text": "renaissance",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "art_class_things",
+          "label": "ART CLASS",
+          "words": [
+            {
+              "text": "sketchbook",
+              "kind": "word"
+            },
+            {
+              "text": "smock",
+              "kind": "word"
+            },
+            {
+              "text": "stencil",
+              "kind": "word"
+            },
+            {
+              "text": "easel",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "currencies",
+          "label": "CURRENCIES",
+          "words": [
+            {
+              "text": "ruble",
+              "kind": "word"
+            },
+            {
+              "text": "baht",
+              "kind": "word"
+            },
+            {
+              "text": "lira",
+              "kind": "word"
+            },
+            {
+              "text": "dinar",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sandwich_fillings",
+          "label": "SANDWICH FILLINGS",
+          "words": [
+            {
+              "text": "roast beef",
+              "kind": "word"
+            },
+            {
+              "text": "peanut butter",
+              "kind": "word"
+            },
+            {
+              "text": "jelly",
+              "kind": "word"
+            },
+            {
+              "text": "bacon",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "weapons_of_the_past",
+          "label": "OLD WEAPONS",
+          "words": [
+            {
+              "text": "dagger",
+              "kind": "word"
+            },
+            {
+              "text": "crossbow",
+              "kind": "word"
+            },
+            {
+              "text": "sword",
+              "kind": "word"
+            },
+            {
+              "text": "trident",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "ways_of_speaking",
+          "label": "WAYS OF SPEAKING",
+          "words": [
+            {
+              "text": "sing",
+              "kind": "word"
+            },
+            {
+              "text": "yell",
+              "kind": "word"
+            },
+            {
+              "text": "whisper",
+              "kind": "word"
+            },
+            {
+              "text": "chatter",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "reptiles",
+          "label": "REPTILES",
+          "words": [
+            {
+              "text": "iguana",
+              "kind": "word"
+            },
+            {
+              "text": "alligator",
+              "kind": "word"
+            },
+            {
+              "text": "snake",
+              "kind": "word"
+            },
+            {
+              "text": "chameleon",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "asian_dishes",
+          "label": "ASIAN DISHES",
+          "words": [
+            {
+              "text": "pad thai",
+              "kind": "word"
+            },
+            {
+              "text": "lo mein",
+              "kind": "word"
+            },
+            {
+              "text": "sushi",
+              "kind": "word"
+            },
+            {
+              "text": "chow mein",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 8,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 15,
+        "words_per_category": 4,
+        "start_bubbles": 58,
+        "board_capacity": 24,
+        "move_limit": 61
+      },
+      "categories": [
+        {
+          "key": "seabirds",
+          "label": "SEABIRDS",
+          "words": [
+            {
+              "text": "albatross",
+              "kind": "word"
+            },
+            {
+              "text": "booby",
+              "kind": "word"
+            },
+            {
+              "text": "puffin",
+              "kind": "word"
+            },
+            {
+              "text": "tern",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "beach_day",
+          "label": "BEACH DAY",
+          "words": [
+            {
+              "text": "seabirds",
+              "kind": "meta",
+              "meta_child": "seabirds"
+            },
+            {
+              "text": "umbrella",
+              "kind": "word"
+            },
+            {
+              "text": "swimwear",
+              "kind": "word"
+            },
+            {
+              "text": "sunscreen",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "airlines",
+          "label": "AIRLINES",
+          "words": [
+            {
+              "text": "Lufthansa",
+              "kind": "word"
+            },
+            {
+              "text": "Qantas",
+              "kind": "word"
+            },
+            {
+              "text": "JetBlue",
+              "kind": "word"
+            },
+            {
+              "text": "KLM",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "airport_words",
+          "label": "AIRPORT WORDS",
+          "words": [
+            {
+              "text": "airlines",
+              "kind": "meta",
+              "meta_child": "airlines"
+            },
+            {
+              "text": "duty free",
+              "kind": "word"
+            },
+            {
+              "text": "security",
+              "kind": "word"
+            },
+            {
+              "text": "luggage",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "swimming_strokes",
+          "label": "SWIM STROKES",
+          "words": [
+            {
+              "text": "doggy paddle",
+              "kind": "word"
+            },
+            {
+              "text": "relay",
+              "kind": "word"
+            },
+            {
+              "text": "freestyle",
+              "kind": "word"
+            },
+            {
+              "text": "medley",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "horse_words",
+          "label": "HORSE WORDS",
+          "words": [
+            {
+              "text": "pony",
+              "kind": "word"
+            },
+            {
+              "text": "mare",
+              "kind": "word"
+            },
+            {
+              "text": "mane",
+              "kind": "word"
+            },
+            {
+              "text": "hoof",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "classic_novels",
+          "label": "CLASSIC NOVELS",
+          "words": [
+            {
+              "text": "Oliver Twist",
+              "kind": "word"
+            },
+            {
+              "text": "Treasure Island",
+              "kind": "word"
+            },
+            {
+              "text": "Great Expectations",
+              "kind": "word"
+            },
+            {
+              "text": "Dracula",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "tennis_words",
+          "label": "TENNIS WORDS",
+          "words": [
+            {
+              "text": "set",
+              "kind": "word"
+            },
+            {
+              "text": "racket",
+              "kind": "word"
+            },
+            {
+              "text": "court",
+              "kind": "word"
+            },
+            {
+              "text": "match point",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "honey_and_syrups",
+          "label": "SYRUPS AND SWEETENERS",
+          "words": [
+            {
+              "text": "brown sugar",
+              "kind": "word"
+            },
+            {
+              "text": "corn syrup",
+              "kind": "word"
+            },
+            {
+              "text": "date syrup",
+              "kind": "word"
+            },
+            {
+              "text": "cane sugar",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "egypt_things",
+          "label": "ANCIENT EGYPT",
+          "words": [
+            {
+              "text": "obelisk",
+              "kind": "word"
+            },
+            {
+              "text": "sarcophagus",
+              "kind": "word"
+            },
+            {
+              "text": "papyrus",
+              "kind": "word"
+            },
+            {
+              "text": "tomb",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "meats",
+          "label": "MEATS",
+          "words": [
+            {
+              "text": "beef",
+              "kind": "word"
+            },
+            {
+              "text": "sausage",
+              "kind": "word"
+            },
+            {
+              "text": "veal",
+              "kind": "word"
+            },
+            {
+              "text": "pepperoni",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "african_cities",
+          "label": "AFRICAN CITIES",
+          "words": [
+            {
+              "text": "Lagos",
+              "kind": "word"
+            },
+            {
+              "text": "Accra",
+              "kind": "word"
+            },
+            {
+              "text": "Tunis",
+              "kind": "word"
+            },
+            {
+              "text": "Alexandria",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "rocks_and_minerals",
+          "label": "ROCKS AND MINERALS",
+          "words": [
+            {
+              "text": "boulder",
+              "kind": "word"
+            },
+            {
+              "text": "slate",
+              "kind": "word"
+            },
+            {
+              "text": "marble",
+              "kind": "word"
+            },
+            {
+              "text": "pebble",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "punctuation",
+          "label": "PUNCTUATION MARKS",
+          "words": [
+            {
+              "text": "bracket",
+              "kind": "word"
+            },
+            {
+              "text": "colon",
+              "kind": "word"
+            },
+            {
+              "text": "period",
+              "kind": "word"
+            },
+            {
+              "text": "comma",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "patterns",
+          "label": "PATTERNS",
+          "words": [
+            {
+              "text": "chevron",
+              "kind": "word"
+            },
+            {
+              "text": "plaid",
+              "kind": "word"
+            },
+            {
+              "text": "animal print",
+              "kind": "word"
+            },
+            {
+              "text": "paisley",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    },
+    {
+      "level_id": 9,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 17,
+        "words_per_category": 4,
+        "start_bubbles": 64,
+        "board_capacity": 24,
+        "move_limit": 67
+      },
+      "categories": [
+        {
+          "key": "diseases",
+          "label": "DISEASES",
+          "words": [
+            {
+              "text": "polio",
+              "kind": "word"
+            },
+            {
+              "text": "anemia",
+              "kind": "word"
+            },
+            {
+              "text": "shingles",
+              "kind": "word"
+            },
+            {
+              "text": "cholera",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "illnesses",
+          "label": "ILLNESSES",
+          "words": [
+            {
+              "text": "diseases",
+              "kind": "meta",
+              "meta_child": "diseases"
+            },
+            {
+              "text": "diabetes",
+              "kind": "word"
+            },
+            {
+              "text": "flu",
+              "kind": "word"
+            },
+            {
+              "text": "rash",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "emergency_room",
+          "label": "EMERGENCY ROOM",
+          "words": [
+            {
+              "text": "illnesses",
+              "kind": "meta",
+              "meta_child": "illnesses"
+            },
+            {
+              "text": "triage",
+              "kind": "word"
+            },
+            {
+              "text": "injuries",
+              "kind": "word"
+            },
+            {
+              "text": "symptoms",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "hospital_things",
+          "label": "HOSPITAL THINGS",
+          "words": [
+            {
+              "text": "emergency room",
+              "kind": "meta",
+              "meta_child": "emergency_room"
+            },
+            {
+              "text": "stethoscope",
+              "kind": "word"
+            },
+            {
+              "text": "oxygen mask",
+              "kind": "word"
+            },
+            {
+              "text": "scrubs",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "aircraft",
+          "label": "AIRCRAFT",
+          "words": [
+            {
+              "text": "airship",
+              "kind": "word"
+            },
+            {
+              "text": "blimp",
+              "kind": "word"
+            },
+            {
+              "text": "ultralight",
+              "kind": "word"
+            },
+            {
+              "text": "seaplane",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "vehicles",
+          "label": "VEHICLES",
+          "words": [
+            {
+              "text": "aircraft",
+              "kind": "meta",
+              "meta_child": "aircraft"
+            },
+            {
+              "text": "van",
+              "kind": "word"
+            },
+            {
+              "text": "taxi",
+              "kind": "word"
+            },
+            {
+              "text": "Jeep",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "magic_objects",
+          "label": "MAGIC OBJECTS",
+          "words": [
+            {
+              "text": "potion",
+              "kind": "word"
+            },
+            {
+              "text": "wand",
+              "kind": "word"
+            },
+            {
+              "text": "cloak",
+              "kind": "word"
+            },
+            {
+              "text": "magic carpet",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "famous_museums",
+          "label": "FAMOUS MUSEUMS",
+          "words": [
+            {
+              "text": "MoMA",
+              "kind": "word"
+            },
+            {
+              "text": "Prado",
+              "kind": "word"
+            },
+            {
+              "text": "Hermitage",
+              "kind": "word"
+            },
+            {
+              "text": "Smithsonian",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "insects",
+          "label": "INSECTS",
+          "words": [
+            {
+              "text": "caterpillar",
+              "kind": "word"
+            },
+            {
+              "text": "beetle",
+              "kind": "word"
+            },
+            {
+              "text": "cricket",
+              "kind": "word"
+            },
+            {
+              "text": "moth",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "crimes",
+          "label": "CRIMES",
+          "words": [
+            {
+              "text": "kidnapping",
+              "kind": "word"
+            },
+            {
+              "text": "trespassing",
+              "kind": "word"
+            },
+            {
+              "text": "theft",
+              "kind": "word"
+            },
+            {
+              "text": "burglary",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "seafood",
+          "label": "SEAFOOD",
+          "words": [
+            {
+              "text": "shrimp",
+              "kind": "word"
+            },
+            {
+              "text": "shellfish",
+              "kind": "word"
+            },
+            {
+              "text": "salmon",
+              "kind": "word"
+            },
+            {
+              "text": "trout",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "hats",
+          "label": "HATS",
+          "words": [
+            {
+              "text": "headband",
+              "kind": "word"
+            },
+            {
+              "text": "baseball cap",
+              "kind": "word"
+            },
+            {
+              "text": "cap",
+              "kind": "word"
+            },
+            {
+              "text": "top hat",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "cooking_methods",
+          "label": "COOKING METHODS",
+          "words": [
+            {
+              "text": "slow cook",
+              "kind": "word"
+            },
+            {
+              "text": "grill",
+              "kind": "word"
+            },
+            {
+              "text": "steam",
+              "kind": "word"
+            },
+            {
+              "text": "bake",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "martial_arts",
+          "label": "MARTIAL ARTS",
+          "words": [
+            {
+              "text": "aikido",
+              "kind": "word"
+            },
+            {
+              "text": "kickboxing",
+              "kind": "word"
+            },
+            {
+              "text": "muay thai",
+              "kind": "word"
+            },
+            {
+              "text": "taekwondo",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "track_events",
+          "label": "TRACK EVENTS",
+          "words": [
+            {
+              "text": "pole vault",
+              "kind": "word"
+            },
+            {
+              "text": "race walk",
+              "kind": "word"
+            },
+            {
+              "text": "hurdles",
+              "kind": "word"
+            },
+            {
+              "text": "long jump",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "african_animals",
+          "label": "AFRICAN ANIMALS",
+          "words": [
+            {
+              "text": "elephant",
+              "kind": "word"
+            },
+            {
+              "text": "leopard",
+              "kind": "word"
+            },
+            {
+              "text": "buffalo",
+              "kind": "word"
+            },
+            {
+              "text": "hippo",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "hand_tools",
+          "label": "HAND TOOLS",
+          "words": [
+            {
+              "text": "wrench",
+              "kind": "word"
+            },
+            {
+              "text": "screwdriver",
+              "kind": "word"
+            },
+            {
+              "text": "saw",
+              "kind": "word"
+            },
+            {
+              "text": "tape measure",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": [
+          {
+            "locks": "hospital_things",
+            "unlocked_by": "magic_objects"
+          }
+        ]
+      }
+    },
+    {
+      "level_id": 10,
+      "schema_version": "2.0",
+      "board": {
+        "categories_count": 13,
+        "words_per_category": 4,
+        "start_bubbles": 50,
+        "board_capacity": 24,
+        "move_limit": 59
+      },
+      "categories": [
+        {
+          "key": "bears_and_big_animals",
+          "label": "BEARS",
+          "words": [
+            {
+              "text": "kodiak",
+              "kind": "word"
+            },
+            {
+              "text": "sun bear",
+              "kind": "word"
+            },
+            {
+              "text": "grizzly",
+              "kind": "word"
+            },
+            {
+              "text": "brown bear",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "sports_teams",
+          "label": "TEAM NAMES",
+          "words": [
+            {
+              "text": "Bears",
+              "kind": "meta",
+              "meta_child": "bears_and_big_animals"
+            },
+            {
+              "text": "Dodgers",
+              "kind": "word"
+            },
+            {
+              "text": "Celtics",
+              "kind": "word"
+            },
+            {
+              "text": "Packers",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "toys",
+          "label": "TOYS",
+          "words": [
+            {
+              "text": "Slinky",
+              "kind": "word"
+            },
+            {
+              "text": "frisbee",
+              "kind": "word"
+            },
+            {
+              "text": "action figure",
+              "kind": "word"
+            },
+            {
+              "text": "teddy bear",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "toy_chest",
+          "label": "TOY CHEST",
+          "words": [
+            {
+              "text": "toys",
+              "kind": "meta",
+              "meta_child": "toys"
+            },
+            {
+              "text": "doll",
+              "kind": "word"
+            },
+            {
+              "text": "blocks",
+              "kind": "word"
+            },
+            {
+              "text": "balls",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "owls",
+          "label": "OWLS",
+          "words": [
+            {
+              "text": "spotted owl",
+              "kind": "word"
+            },
+            {
+              "text": "barred owl",
+              "kind": "word"
+            },
+            {
+              "text": "barn owl",
+              "kind": "word"
+            },
+            {
+              "text": "great horned",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "national_parks_us",
+          "label": "NATIONAL PARKS",
+          "words": [
+            {
+              "text": "Shenandoah",
+              "kind": "word"
+            },
+            {
+              "text": "Acadia",
+              "kind": "word"
+            },
+            {
+              "text": "Badlands",
+              "kind": "word"
+            },
+            {
+              "text": "Everglades",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "dairy_products",
+          "label": "DAIRY PRODUCTS",
+          "words": [
+            {
+              "text": "whipped cream",
+              "kind": "word"
+            },
+            {
+              "text": "whey",
+              "kind": "word"
+            },
+            {
+              "text": "yogurt",
+              "kind": "word"
+            },
+            {
+              "text": "cheese",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "painting_supplies",
+          "label": "PAINTING SUPPLIES",
+          "words": [
+            {
+              "text": "drop cloth",
+              "kind": "word"
+            },
+            {
+              "text": "thinner",
+              "kind": "word"
+            },
+            {
+              "text": "paint",
+              "kind": "word"
+            },
+            {
+              "text": "palette",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "laundry_things",
+          "label": "LAUNDRY THINGS",
+          "words": [
+            {
+              "text": "dryer sheet",
+              "kind": "word"
+            },
+            {
+              "text": "washer",
+              "kind": "word"
+            },
+            {
+              "text": "dryer",
+              "kind": "word"
+            },
+            {
+              "text": "basket",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "elements_more",
+          "label": "MORE ELEMENTS",
+          "words": [
+            {
+              "text": "silicon",
+              "kind": "word"
+            },
+            {
+              "text": "manganese",
+              "kind": "word"
+            },
+            {
+              "text": "phosphorus",
+              "kind": "word"
+            },
+            {
+              "text": "platinum",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "arctic_animals",
+          "label": "ARCTIC ANIMALS",
+          "words": [
+            {
+              "text": "caribou",
+              "kind": "word"
+            },
+            {
+              "text": "orca",
+              "kind": "word"
+            },
+            {
+              "text": "snowy owl",
+              "kind": "word"
+            },
+            {
+              "text": "musk ox",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "architecture_words",
+          "label": "ARCHITECTURE WORDS",
+          "words": [
+            {
+              "text": "dome",
+              "kind": "word"
+            },
+            {
+              "text": "spire",
+              "kind": "word"
+            },
+            {
+              "text": "blueprint",
+              "kind": "word"
+            },
+            {
+              "text": "foundation",
+              "kind": "word"
+            }
+          ]
+        },
+        {
+          "key": "nuts_world",
+          "label": "SNACK NUTS",
+          "words": [
+            {
+              "text": "pecan",
+              "kind": "word"
+            },
+            {
+              "text": "pine nut",
+              "kind": "word"
+            },
+            {
+              "text": "peanut",
+              "kind": "word"
+            },
+            {
+              "text": "almond",
+              "kind": "word"
+            }
+          ]
+        }
+      ],
+      "modifiers": {
+        "chains": []
+      }
+    }
+  ]
+}

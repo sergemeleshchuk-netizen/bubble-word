@@ -1,0 +1,194 @@
+{
+  "level_id": 9,
+  "difficulty_target": null,
+  "source": "game-pack-1-10.json (generator gen-1.0)",
+  "categories": [
+    {
+      "id": "diseases",
+      "name": "Diseases",
+      "words": [
+        "polio",
+        "anemia",
+        "shingles",
+        "cholera"
+      ]
+    },
+    {
+      "id": "illnesses",
+      "name": "Illnesses",
+      "words": [
+        "diseases",
+        "diabetes",
+        "flu",
+        "rash"
+      ]
+    },
+    {
+      "id": "emergency-room",
+      "name": "Emergency Room",
+      "words": [
+        "illnesses",
+        "triage",
+        "injuries",
+        "symptoms"
+      ]
+    },
+    {
+      "id": "hospital-things",
+      "name": "Hospital Things",
+      "words": [
+        "emergency room",
+        "stethoscope",
+        "oxygen mask",
+        "scrubs"
+      ]
+    },
+    {
+      "id": "aircraft",
+      "name": "Aircraft",
+      "words": [
+        "airship",
+        "blimp",
+        "ultralight",
+        "seaplane"
+      ]
+    },
+    {
+      "id": "vehicles",
+      "name": "Vehicles",
+      "words": [
+        "aircraft",
+        "van",
+        "taxi",
+        "jeep"
+      ]
+    },
+    {
+      "id": "magic-objects",
+      "name": "Magic Objects",
+      "words": [
+        "potion",
+        "wand",
+        "cloak",
+        "magic carpet"
+      ]
+    },
+    {
+      "id": "famous-museums",
+      "name": "Famous Museums",
+      "words": [
+        "moma",
+        "prado",
+        "hermitage",
+        "smithsonian"
+      ]
+    },
+    {
+      "id": "insects",
+      "name": "Insects",
+      "words": [
+        "caterpillar",
+        "beetle",
+        "cricket",
+        "moth"
+      ]
+    },
+    {
+      "id": "crimes",
+      "name": "Crimes",
+      "words": [
+        "kidnapping",
+        "trespassing",
+        "theft",
+        "burglary"
+      ]
+    },
+    {
+      "id": "seafood",
+      "name": "Seafood",
+      "words": [
+        "shrimp",
+        "shellfish",
+        "salmon",
+        "trout"
+      ]
+    },
+    {
+      "id": "hats",
+      "name": "Hats",
+      "words": [
+        "headband",
+        "baseball cap",
+        "cap",
+        "top hat"
+      ]
+    },
+    {
+      "id": "cooking-methods",
+      "name": "Cooking Methods",
+      "words": [
+        "slow cook",
+        "grill",
+        "steam",
+        "bake"
+      ]
+    },
+    {
+      "id": "martial-arts",
+      "name": "Martial Arts",
+      "words": [
+        "aikido",
+        "kickboxing",
+        "muay thai",
+        "taekwondo"
+      ]
+    },
+    {
+      "id": "track-events",
+      "name": "Track Events",
+      "words": [
+        "pole vault",
+        "race walk",
+        "hurdles",
+        "long jump"
+      ]
+    },
+    {
+      "id": "african-animals",
+      "name": "African Animals",
+      "words": [
+        "elephant",
+        "leopard",
+        "buffalo",
+        "hippo"
+      ]
+    },
+    {
+      "id": "hand-tools",
+      "name": "Hand Tools",
+      "words": [
+        "wrench",
+        "screwdriver",
+        "saw",
+        "tape measure"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 67,
+    "move_limit_k": 1.314
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": [
+      {
+        "locks": "hospital_things",
+        "unlocked_by": "magic_objects"
+      }
+    ],
+    "picture_words": []
+  }
+}

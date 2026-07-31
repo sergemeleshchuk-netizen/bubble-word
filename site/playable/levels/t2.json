@@ -1,0 +1,169 @@
+{
+  "level_id": 2,
+  "difficulty_target": null,
+  "source": "game-pack-1-10.json (generator gen-1.0)",
+  "categories": [
+    {
+      "id": "fish-species",
+      "name": "Fish",
+      "words": [
+        "herring",
+        "pike",
+        "tuna",
+        "cod"
+      ]
+    },
+    {
+      "id": "aquarium-tank",
+      "name": "Aquarium",
+      "words": [
+        "fish",
+        "coral",
+        "turtles",
+        "filter"
+      ]
+    },
+    {
+      "id": "pet-supplies",
+      "name": "Pet Supplies",
+      "words": [
+        "aquarium",
+        "collar",
+        "muzzle",
+        "scratching post"
+      ]
+    },
+    {
+      "id": "metals",
+      "name": "Metals",
+      "words": [
+        "copper",
+        "lead",
+        "gold",
+        "steel"
+      ]
+    },
+    {
+      "id": "jewelry-box",
+      "name": "Jewelry Box",
+      "words": [
+        "metals",
+        "gemstones",
+        "jewelry",
+        "clasp"
+      ]
+    },
+    {
+      "id": "medicine-cabinet",
+      "name": "Medicine Cabinet",
+      "words": [
+        "bandage",
+        "cough syrup",
+        "aspirin",
+        "ice pack"
+      ]
+    },
+    {
+      "id": "office-supplies",
+      "name": "Office Supplies",
+      "words": [
+        "marker",
+        "folder",
+        "binder",
+        "calendar"
+      ]
+    },
+    {
+      "id": "world-mountains",
+      "name": "Famous Mountains",
+      "words": [
+        "vesuvius",
+        "kilimanjaro",
+        "etna",
+        "denali"
+      ]
+    },
+    {
+      "id": "jewelry-stones",
+      "name": "Jewelry Stones",
+      "words": [
+        "onyx",
+        "aquamarine",
+        "moonstone",
+        "topaz"
+      ]
+    },
+    {
+      "id": "irish-names",
+      "name": "Irish Names",
+      "words": [
+        "patrick",
+        "kathleen",
+        "brendan",
+        "ronan"
+      ]
+    },
+    {
+      "id": "resort-towns",
+      "name": "Resort Destinations",
+      "words": [
+        "ibiza",
+        "lake tahoe",
+        "bali",
+        "maui"
+      ]
+    },
+    {
+      "id": "fairy-tales",
+      "name": "Fairy Tales",
+      "words": [
+        "ugly duckling",
+        "pinocchio",
+        "sleeping beauty",
+        "beauty and the beast"
+      ]
+    },
+    {
+      "id": "world-currencies-more",
+      "name": "More Currencies",
+      "words": [
+        "rand",
+        "rupee",
+        "real",
+        "yuan"
+      ]
+    },
+    {
+      "id": "golf-words",
+      "name": "Golf Words",
+      "words": [
+        "driver",
+        "hole in one",
+        "tee",
+        "par"
+      ]
+    },
+    {
+      "id": "famous-composers",
+      "name": "Composers",
+      "words": [
+        "bach",
+        "wagner",
+        "beethoven",
+        "mozart"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 61,
+    "move_limit_k": 1.356
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "level_id": 3,
+  "difficulty_target": null,
+  "source": "game-pack-1-10.json (generator gen-1.0)",
+  "categories": [
+    {
+      "id": "candy",
+      "name": "Candy",
+      "words": [
+        "chocolate bar",
+        "chocolate",
+        "truffle",
+        "caramel"
+      ]
+    },
+    {
+      "id": "party-things",
+      "name": "Party Things",
+      "words": [
+        "candy",
+        "party hat",
+        "favor",
+        "invitation"
+      ]
+    },
+    {
+      "id": "barn-things",
+      "name": "Barn Things",
+      "words": [
+        "stall",
+        "harness",
+        "loft",
+        "bale"
+      ]
+    },
+    {
+      "id": "cutting-tools",
+      "name": "Cutting Tools",
+      "words": [
+        "shears",
+        "scalpel",
+        "lawnmower",
+        "hedge trimmer"
+      ]
+    },
+    {
+      "id": "pie-types",
+      "name": "Pie Types",
+      "words": [
+        "apple",
+        "chicken pot",
+        "cherry",
+        "blueberry"
+      ]
+    },
+    {
+      "id": "face-parts",
+      "name": "Face Parts",
+      "words": [
+        "forehead",
+        "eye",
+        "lip",
+        "mouth"
+      ]
+    },
+    {
+      "id": "winter-sports",
+      "name": "Winter Sports",
+      "words": [
+        "sledding",
+        "biathlon",
+        "luge",
+        "curling"
+      ]
+    },
+    {
+      "id": "kitchen-tools",
+      "name": "Kitchen Tools",
+      "words": [
+        "plate",
+        "cutting board",
+        "fork",
+        "spoon"
+      ]
+    },
+    {
+      "id": "pests",
+      "name": "Pests",
+      "words": [
+        "mole",
+        "tick",
+        "roach",
+        "insects"
+      ]
+    },
+    {
+      "id": "sports-injuries",
+      "name": "Sports Injuries",
+      "words": [
+        "dislocation",
+        "sprain",
+        "shin splints",
+        "torn acl"
+      ]
+    },
+    {
+      "id": "world-rivers",
+      "name": "World Rivers",
+      "words": [
+        "congo",
+        "seine",
+        "rhine",
+        "nile"
+      ]
+    },
+    {
+      "id": "cleaning-actions",
+      "name": "Cleaning Actions",
+      "words": [
+        "wipe",
+        "wash",
+        "polish",
+        "sweep"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 58,
+    "move_limit_k": 1.611
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}

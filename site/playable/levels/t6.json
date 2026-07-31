@@ -1,0 +1,139 @@
+{
+  "level_id": 6,
+  "difficulty_target": null,
+  "source": "game-pack-1-10.json (generator gen-1.0)",
+  "categories": [
+    {
+      "id": "fabrics",
+      "name": "Fabrics",
+      "words": [
+        "tweed",
+        "nylon",
+        "cashmere",
+        "cotton"
+      ]
+    },
+    {
+      "id": "home-decor",
+      "name": "Home Decor",
+      "words": [
+        "fabrics",
+        "colors",
+        "rug",
+        "lighting"
+      ]
+    },
+    {
+      "id": "word-fast",
+      "name": "Fast Words",
+      "words": [
+        "swift",
+        "rapid",
+        "brisk",
+        "express"
+      ]
+    },
+    {
+      "id": "roman-gods",
+      "name": "Roman Gods",
+      "words": [
+        "minerva",
+        "ceres",
+        "neptune",
+        "mercury"
+      ]
+    },
+    {
+      "id": "birds-of-prey",
+      "name": "Birds Of Prey",
+      "words": [
+        "condor",
+        "harrier",
+        "buzzard",
+        "osprey"
+      ]
+    },
+    {
+      "id": "cheese-types",
+      "name": "Cheese Types",
+      "words": [
+        "colby",
+        "mozzarella",
+        "brie",
+        "swiss"
+      ]
+    },
+    {
+      "id": "boats",
+      "name": "Boats And Ships",
+      "words": [
+        "schooner",
+        "barge",
+        "freighter",
+        "ferry"
+      ]
+    },
+    {
+      "id": "dental-words",
+      "name": "Dental Words",
+      "words": [
+        "gum",
+        "filling",
+        "plaque",
+        "extraction"
+      ]
+    },
+    {
+      "id": "birds",
+      "name": "Birds",
+      "words": [
+        "falcon",
+        "goose",
+        "seagull",
+        "canary"
+      ]
+    },
+    {
+      "id": "south-american-cities",
+      "name": "Latin Cities",
+      "words": [
+        "buenos aires",
+        "santiago",
+        "sao paulo",
+        "la paz"
+      ]
+    },
+    {
+      "id": "sea-mammals",
+      "name": "Sea Mammals",
+      "words": [
+        "porpoise",
+        "humpback",
+        "beluga",
+        "walrus"
+      ]
+    },
+    {
+      "id": "temperature-words",
+      "name": "Temperature Words",
+      "words": [
+        "freezing",
+        "boiling",
+        "warm",
+        "mild"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 58,
+    "move_limit_k": 1.611
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  }
+}
