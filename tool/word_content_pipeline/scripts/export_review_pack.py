@@ -14,12 +14,19 @@ from __future__ import annotations
 
 import argparse
 import csv
+import shutil
 import sqlite3
 from collections import defaultdict
+from datetime import UTC, datetime
 from pathlib import Path
 
 PIPE = Path(__file__).resolve().parents[1]
-OUT = PIPE / "review"
+REPO = PIPE.parents[1]
+
+# Папка-выдача в корне проекта: сюда кладётся снимок базы и материалы для ревью
+HANDOFF = REPO / "БАЗА-СЛОВ"
+OUT = HANDOFF / "ревью"
+DB_SNAPSHOT = HANDOFF / "база-слов.sqlite"
 
 MARK = {"approved": "+", "alternative": "~", "hard_only": "!", "rejected": "x", "candidate": "?"}
 
@@ -342,12 +349,104 @@ def write_csv(rows: list) -> None:
             )
 
 
+def write_handoff_readme(counts: dict, db_size_mb: float, source_db: Path) -> None:
+    """README на русском: чтобы через месяц было понятно, что здесь лежит."""
+    stamp = datetime.now(UTC).strftime("%d.%m.%Y")
+    (HANDOFF / "README.md").write_text(
+        f"""# База слов игры — текущее состояние
+
+Снимок от {stamp}.
+
+## Где что лежит
+
+| файл | что это |
+|---|---|
+| `база-слов.sqlite` | **сама база**, файл SQLite ({db_size_mb:.1f} МБ). Открывается любым просмотрщиком SQLite, например DB Browser for SQLite |
+| `ревью/` | материалы для проверки базы человеком или внешней моделью |
+
+## Что внутри базы
+
+- категорий: **{counts['categories']}** в {counts['themes']} темах
+- уникальных слов: **{counts['words']}**
+- связей слово-категория: **{counts['memberships']}**
+- значений у многозначных слов: **{counts['senses']}** (у {counts['sense_words']} слов)
+- слов в двух и более категориях: **{counts['multi']}** ({counts['multi_pct']}%)
+
+Шесть таблиц: `words` (слова), `word_senses` (значения слов), `categories`
+(категории с правилами), `memberships` (связи слово-категория со статусом),
+`import_runs` и `generation_runs` (журнал: что и откуда загружалось).
+
+## Важно: это снимок, а не рабочая база
+
+Рабочая база живёт здесь:
+
+```
+tool/word_content_pipeline/database/content.sqlite
+```
+
+Она **пересобирается из текстовых файлов** и в git не хранится — так сделано,
+чтобы источником правды были читаемые файлы, а не бинарник. Источник правды:
+
+```
+tool/word_content_pipeline/data/seed/*.txt        категории и пулы слов
+tool/word_content_pipeline/data/seed/_ambiguous.json   значения многозначных слов
+tool/word_content_pipeline/data/review_decisions.csv   статусы всех связей
+```
+
+## Как обновить этот снимок
+
+Из папки `tool/word_content_pipeline`:
+
+```bash
+.venv/bin/python scripts/build_seed.py                    # собрать JSONL из data/seed
+.venv/bin/python scripts/swow_status.py                   # проставить статусы по SWOW
+.venv/bin/word-content init-db            --db database/content.sqlite
+.venv/bin/word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
+.venv/bin/word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
+.venv/bin/word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
+.venv/bin/python scripts/export_review_pack.py            # обновить эту папку
+```
+
+Последняя команда пересобирает и снимок базы, и папку `ревью/`.
+
+## Как посмотреть базу без программиста
+
+1. Поставить **DB Browser for SQLite** (бесплатный, sqlitebrowser.org)
+2. Открыть `база-слов.sqlite`
+3. Вкладка Browse Data, таблица `memberships` — все связи; `categories` — категории
+
+Или из терминала, если нужно быстро глянуть одно слово:
+
+```bash
+cd tool/word_content_pipeline
+PYTHONPATH=src .venv/bin/word-content word-info --db ../../БАЗА-СЛОВ/база-слов.sqlite --word monitor
+```
+""",
+        encoding="utf-8",
+    )
+
+
+def snapshot_db(source: Path) -> float:
+    """Копирует базу, предварительно сжав её (VACUUM убирает мусор от импортов)."""
+    conn = sqlite3.connect(source)
+    try:
+        conn.execute("VACUUM")
+    finally:
+        conn.close()
+    shutil.copy2(source, DB_SNAPSHOT)
+    for suffix in ("-wal", "-shm"):
+        stale = DB_SNAPSHOT.with_name(DB_SNAPSHOT.name + suffix)
+        if stale.exists():
+            stale.unlink()
+    return DB_SNAPSHOT.stat().st_size / 1024 / 1024
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--db", default=str(PIPE / "database" / "content.sqlite"))
     args = parser.parse_args()
 
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(args.db)
     cats, rows = fetch(conn)
 
@@ -386,9 +485,15 @@ def main() -> None:
     write_csv(rows)
     conn.close()
 
-    print(f"пакет собран: {OUT}")
+    db_size = snapshot_db(Path(args.db))
+    write_handoff_readme(counts, db_size, Path(args.db))
+
+    print(f"папка-выдача: {HANDOFF}")
+    print(f"  README.md")
+    print(f"  база-слов.sqlite         {db_size:.1f} МБ")
+    print(f"  ревью/")
     for path in sorted(OUT.iterdir()):
-        print(f"  {path.name:24} {path.stat().st_size // 1024:>5} КБ")
+        print(f"    {path.name:26} {path.stat().st_size // 1024:>5} КБ")
 
 
 if __name__ == "__main__":
