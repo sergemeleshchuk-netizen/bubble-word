@@ -590,6 +590,13 @@ scallop,scallop,0.393,,,animals_with_shells,has_property,alternative,unreviewed,
 snail,snail,0.524,,,animals_with_shells,has_property,alternative,unreviewed,0.315,0.97,0.7,,Snail has a hard protective shell
 tortoise,tortoise,0.466,,,animals_with_shells,has_property,alternative,unreviewed,0.332,0.97,0.7,,Tortoise has a hard protective shell
 turtle,turtle,0.559,,,animals_with_shells,has_property,alternative,unreviewed,0.305,0.97,0.7,,Turtle has a hard protective shell
+crustaceans,crustaceans,0.397,,,aquarium_tank,found_in,alternative,unreviewed,,0.82,0.42,,Shrimp and crabs are aquarium animals
+gravel,gravel,0.529,,,aquarium_tank,part_of,alternative,unreviewed,,0.8,0.6,,Gravel lines the bottom of the tank
+shellfish,shellfish,0.45,,,aquarium_tank,found_in,alternative,unreviewed,,0.78,0.38,,Snails and clams live in aquariums
+coral,coral,0.551,,,aquarium_tank,found_in,approved,unreviewed,,0.9,0.72,,Coral decorates a saltwater aquarium
+filter,filter,0.611,,,aquarium_tank,part_of,approved,unreviewed,,0.88,0.68,,A filter keeps aquarium water clean
+fish,fish,0.7,,,aquarium_tank,found_in,approved,unreviewed,,0.98,0.8,,Fish are the point of an aquarium
+turtles,turtles,0.531,,,aquarium_tank,found_in,approved,unreviewed,,0.86,0.55,,Turtles are kept in aquariums
 lemming,lemming,0.333,,,arctic_animals,found_in,alternative,unreviewed,0.29,0.97,0.8,"[""obscure""]",Lemming lives in the Arctic north
 narwhal,narwhal,0.326,,,arctic_animals,found_in,alternative,unreviewed,0.292,0.97,0.8,"[""obscure""]",Narwhal lives in the Arctic north
 ptarmigan,ptarmigan,0.293,,,arctic_animals,found_in,alternative,unreviewed,0.301,0.97,0.8,"[""obscure""]",Ptarmigan lives in the Arctic north
@@ -621,17 +628,22 @@ goose,goose,0.549,,,birds,is_a,approved,unreviewed,0.127,0.97,0.92,,Goose is a b
 hawk,hawk,0.544,,,birds,is_a,approved,unreviewed,0.129,0.97,0.92,,Hawk is a bird
 ostrich,ostrich,0.436,,,birds,is_a,approved,unreviewed,0.159,0.97,0.92,,Ostrich is a bird
 owl,owl,0.553,,,birds,is_a,approved,unreviewed,0.126,0.97,0.92,,Owl is a bird
+owls,owls,0.487,,,birds,is_a,approved,unreviewed,,0.98,0.84,,Owls are birds
 parrot,parrot,0.499,,,birds,is_a,approved,unreviewed,0.141,0.97,0.92,,Parrot is a bird
 peacock,peacock,0.491,,,birds,is_a,approved,unreviewed,0.144,0.97,0.92,,Peacock is a bird
 pelican,pelican,0.439,,,birds,is_a,approved,unreviewed,0.159,0.97,0.92,,Pelican is a bird
 penguin,penguin,0.54,,,birds,is_a,approved,unreviewed,0.13,0.97,0.92,,Penguin is a bird
 pigeon,pigeon,0.516,,,birds,is_a,approved,unreviewed,0.137,0.97,0.92,,Pigeon is a bird
+poultry,poultry,0.506,,,birds,is_a,approved,unreviewed,,0.92,0.62,,Poultry are farm birds
 raven,raven,0.541,,,birds,is_a,approved,unreviewed,0.129,0.97,0.92,,Raven is a bird
 robin,robin,0.619,,,birds,is_a,approved,unreviewed,0.107,0.97,0.92,,Robin is a bird
+seabirds,seabirds,0.387,,,birds,is_a,approved,unreviewed,,0.98,0.82,,Seabirds are birds
 seagull,seagull,0.431,,,birds,is_a,approved,unreviewed,0.161,0.97,0.92,,Seagull is a bird
+songbirds,songbirds,0.347,,,birds,is_a,approved,unreviewed,,0.97,0.76,,Songbirds are a group of birds
 sparrow,sparrow,0.497,,,birds,is_a,approved,unreviewed,0.142,0.97,0.92,,Sparrow is a bird
 swan,swan,0.549,,,birds,is_a,approved,unreviewed,0.127,0.97,0.92,,Swan is a bird
 turkey,turkey,0.651,turkey_bird,A large farm bird with a fanned tail,birds,is_a,approved,unreviewed,0.098,0.97,0.92,,Turkey is a bird
+waterfowl,waterfowl,0.411,,,birds,is_a,approved,unreviewed,,0.97,0.74,,Ducks and geese are birds
 woodpecker,woodpecker,0.403,,,birds,is_a,approved,unreviewed,0.169,0.97,0.92,,Woodpecker is a bird
 beagle,beagle,0.437,,,dog_breeds,is_a,approved,unreviewed,0.26,0.97,0.8,,Beagle is a breed of dog
 boxer,boxer,0.534,,,dog_breeds,is_a,approved,unreviewed,0.232,0.97,0.8,,Boxer is a breed of dog
@@ -840,6 +852,7 @@ aphid,aphid,0.341,,,pests,is_a,alternative,unreviewed,0.368,0.97,0.7,"[""obscure
 ant,ant,0.551,,,pests,is_a,approved,unreviewed,0.308,0.97,0.7,,Ant is treated as a household or garden pest
 flea,flea,0.489,,,pests,is_a,approved,unreviewed,0.325,0.97,0.7,,Flea is treated as a household or garden pest
 gopher,gopher,0.41,,,pests,is_a,approved,unreviewed,0.348,0.97,0.7,,Gopher is treated as a household or garden pest
+insects,insects,0.574,,,pests,is_a,approved,unreviewed,,0.88,0.64,,Many insects are pests
 mole,mole,0.524,mole_animal,A small burrowing animal with tiny eyes,pests,is_a,approved,unreviewed,0.315,0.97,0.7,,Mole is treated as a household or garden pest
 mosquito,mosquito,0.516,,,pests,is_a,approved,unreviewed,0.318,0.97,0.7,,Mosquito is treated as a household or garden pest
 moth,moth,0.5,,,pests,is_a,approved,unreviewed,0.322,0.97,0.7,,Moth is treated as a household or garden pest
@@ -848,6 +861,7 @@ pigeon,pigeon,0.516,,,pests,is_a,approved,unreviewed,0.318,0.97,0.7,,Pigeon is t
 raccoon,raccoon,0.467,,,pests,is_a,approved,unreviewed,0.332,0.97,0.7,,Raccoon is treated as a household or garden pest
 rat,rat,0.596,,,pests,is_a,approved,unreviewed,0.295,0.97,0.7,,Rat is treated as a household or garden pest
 roach,roach,0.491,,,pests,is_a,approved,unreviewed,0.325,0.97,0.7,,Roach is treated as a household or garden pest
+rodents,rodents,0.474,,,pests,is_a,approved,unreviewed,,0.9,0.66,,Mice and rats are pests
 slug,slug,0.473,,,pests,is_a,approved,unreviewed,0.33,0.97,0.7,,Slug is treated as a household or garden pest
 snail,snail,0.524,,,pests,is_a,approved,unreviewed,0.315,0.97,0.7,,Snail is treated as a household or garden pest
 termite,termite,0.397,,,pests,is_a,approved,unreviewed,0.352,0.97,0.7,,Termite is treated as a household or garden pest
@@ -856,6 +870,13 @@ wasp,wasp,0.479,,,pests,is_a,approved,unreviewed,0.328,0.97,0.7,,Wasp is treated
 weevil,weevil,0.39,,,pests,is_a,approved,unreviewed,0.354,0.97,0.7,,Weevil is treated as a household or garden pest
 bedbug,bedbug,0.31,,,pests,is_a,hard_only,unreviewed,0.376,0.97,0.7,"[""obscure""]",Bedbug is treated as a household or garden pest
 silverfish,silverfish,0.296,,,pests,is_a,hard_only,unreviewed,0.38,0.97,0.7,"[""obscure""]",Silverfish is treated as a household or garden pest
+rodents,rodents,0.474,,,pet_store,found_in,alternative,unreviewed,,0.84,0.48,,Hamsters and mice are pet store stock
+birds,birds,0.657,,,pet_store,found_in,approved,unreviewed,,0.9,0.62,,Pet stores keep birds
+cage,cage,0.59,,,pet_store,found_in,approved,unreviewed,,0.88,0.76,,Cages line the pet store wall
+kibble,kibble,0.354,,,pet_store,found_in,approved,unreviewed,,0.85,0.6,,Kibble is pet store food
+leash,leash,0.496,,,pet_store,found_in,approved,unreviewed,,0.9,0.8,,A leash is bought at a pet store
+pets,pets,0.583,,,pet_store,found_in,approved,unreviewed,,0.98,0.85,,A pet store sells pets
+reptiles,reptiles,0.48,,,pet_store,found_in,approved,unreviewed,,0.86,0.55,,Pet stores keep reptiles
 cockatiel,cockatiel,0.271,,,pets,is_a,alternative,unreviewed,0.213,0.97,0.9,"[""obscure""]",Cockatiel is commonly kept as a household pet
 canary,canary,0.491,,,pets,is_a,approved,unreviewed,0.15,0.97,0.9,,Canary is commonly kept as a household pet
 cat,cat,0.683,,,pets,is_a,approved,unreviewed,0.095,0.97,0.9,,Cat is commonly kept as a household pet
@@ -905,11 +926,14 @@ crocodile,crocodile,0.499,,,reptiles,is_a,approved,unreviewed,0.242,0.97,0.8,,Cr
 gecko,gecko,0.416,,,reptiles,is_a,approved,unreviewed,0.266,0.97,0.8,,Gecko is a reptile
 iguana,iguana,0.391,,,reptiles,is_a,approved,unreviewed,0.273,0.97,0.8,,Iguana is a reptile
 lizard,lizard,0.519,,,reptiles,is_a,approved,unreviewed,0.237,0.97,0.8,,Lizard is a reptile
+lizards,lizards,0.463,,,reptiles,is_a,approved,unreviewed,,0.98,0.86,,Lizards are reptiles
 python,python,0.54,,,reptiles,is_a,approved,unreviewed,0.231,0.97,0.8,,Python is a reptile
 rattlesnake,rattlesnake,0.41,,,reptiles,is_a,approved,unreviewed,0.268,0.97,0.8,,Rattlesnake is a reptile
 snake,snake,0.604,,,reptiles,is_a,approved,unreviewed,0.212,0.97,0.8,,Snake is a reptile
+snakes,snakes,0.551,,,reptiles,is_a,approved,unreviewed,,0.98,0.86,,Snakes are reptiles
 tortoise,tortoise,0.466,,,reptiles,is_a,approved,unreviewed,0.252,0.97,0.8,,Tortoise is a reptile
 turtle,turtle,0.559,,,reptiles,is_a,approved,unreviewed,0.225,0.97,0.8,,Turtle is a reptile
+turtles,turtles,0.531,,,reptiles,is_a,approved,unreviewed,,0.96,0.74,,Turtles are reptiles
 viper,viper,0.473,,,reptiles,is_a,approved,unreviewed,0.25,0.97,0.8,,Viper is a reptile
 monitor,monitor,0.624,monitor_lizard,A large lizard of the monitor family,reptiles,is_a,hard_only,unreviewed,0.207,0.97,0.25,,Monitor is a reptile
 capybara,capybara,0.307,,,rodents,is_a,alternative,unreviewed,0.337,0.97,0.75,"[""obscure""]",Capybara is a rodent
@@ -1448,6 +1472,7 @@ respiratory,respiratory,0.544,,,body_systems,is_a,alternative,unreviewed,0.35,0.
 skeletal,skeletal,0.484,,,body_systems,is_a,alternative,unreviewed,0.367,0.97,0.65,,Skeletal is a system of the human body
 urinary,urinary,0.473,,,body_systems,is_a,alternative,unreviewed,0.37,0.97,0.65,,Urinary is a system of the human body
 breastbone,breastbone,0.276,,,bones,is_a,alternative,unreviewed,0.337,0.97,0.78,"[""obscure""]",Breastbone is a bone in the human skeleton
+digits,digits,0.523,,,bones,part_of,alternative,unreviewed,,0.78,0.4,,Fingers and toes are bones
 tailbone,tailbone,0.3,,,bones,is_a,alternative,unreviewed,0.33,0.97,0.78,"[""obscure""]",Tailbone is a bone in the human skeleton
 ankle bone,ankle bone,0.55,,,bones,is_a,approved,unreviewed,0.259,0.97,0.78,"[""multiword""]",Ankle bone is a bone in the human skeleton
 collarbone,collarbone,0.397,,,bones,is_a,approved,unreviewed,0.303,0.97,0.78,,Collarbone is a bone in the human skeleton
@@ -1585,6 +1610,7 @@ arthritis,arthritis,0.516,,,illnesses,is_a,approved,unreviewed,0.223,0.97,0.85,,
 asthma,asthma,0.533,,,illnesses,is_a,approved,unreviewed,0.218,0.97,0.85,,Asthma is a common illness
 bronchitis,bronchitis,0.417,,,illnesses,is_a,approved,unreviewed,0.251,0.97,0.85,,Bronchitis is a common illness
 diabetes,diabetes,0.596,,,illnesses,is_a,approved,unreviewed,0.2,0.97,0.85,,Diabetes is a common illness
+diseases,diseases,0.623,,,illnesses,is_a,approved,unreviewed,,0.95,0.72,,A disease is an illness
 fever,fever,0.603,,,illnesses,is_a,approved,unreviewed,0.198,0.97,0.85,,Fever is a common illness
 flu,flu,0.566,,,illnesses,is_a,approved,unreviewed,0.208,0.97,0.85,,Flu is a common illness
 infection,infection,0.619,,,illnesses,is_a,approved,unreviewed,0.193,0.97,0.85,,Infection is a common illness
@@ -2502,10 +2528,13 @@ belt,belt,0.631,,,accessories,is_a,approved,unreviewed,0.236,0.97,0.78,,Belt com
 brooch,brooch,0.434,,,accessories,is_a,approved,unreviewed,0.292,0.97,0.78,,Brooch completes an outfit as an accessory
 clutch,clutch,0.554,,,accessories,is_a,approved,unreviewed,0.258,0.97,0.78,,Clutch completes an outfit as an accessory
 cufflinks,cufflinks,0.379,,,accessories,is_a,approved,unreviewed,0.308,0.97,0.78,,Cufflinks completes an outfit as an accessory
+eyewear,eyewear,0.397,,,accessories,is_a,approved,unreviewed,,0.9,0.56,,Glasses are an accessory
 gloves,gloves,0.577,,,accessories,is_a,approved,unreviewed,0.251,0.97,0.78,,Gloves completes an outfit as an accessory
 handbag,handbag,0.489,,,accessories,is_a,approved,unreviewed,0.276,0.97,0.78,,Handbag completes an outfit as an accessory
 hat,hat,0.647,,,accessories,is_a,approved,unreviewed,0.231,0.97,0.78,,Hat completes an outfit as an accessory
+hats,hats,0.573,,,accessories,is_a,approved,unreviewed,,0.9,0.58,,A hat is an accessory
 headband,headband,0.429,,,accessories,is_a,approved,unreviewed,0.293,0.97,0.78,,Headband completes an outfit as an accessory
+jewelry,jewelry,0.589,,,accessories,is_a,approved,unreviewed,,0.94,0.7,,Jewelry is an accessory
 purse,purse,0.564,,,accessories,is_a,approved,unreviewed,0.255,0.97,0.78,,Purse completes an outfit as an accessory
 scarf,scarf,0.526,,,accessories,is_a,approved,unreviewed,0.266,0.97,0.78,,Scarf completes an outfit as an accessory
 sunglasses,sunglasses,0.531,,,accessories,is_a,approved,unreviewed,0.264,0.97,0.78,,Sunglasses completes an outfit as an accessory
@@ -2659,6 +2688,13 @@ stud,stud,0.534,,,jewelry,is_a,approved,unreviewed,0.183,0.97,0.88,,Stud is a pi
 tiara,tiara,0.426,,,jewelry,is_a,approved,unreviewed,0.214,0.97,0.88,,Tiara is a piece of jewelry worn on the body
 watch,watch,0.763,watch_object,A small clock worn on the wrist,jewelry,is_a,approved,unreviewed,0.136,0.97,0.88,,Watch is a piece of jewelry worn on the body
 pin,pin,0.611,pin_fastener,A thin pointed piece of metal that fastens things,jewelry,is_a,hard_only,unreviewed,0.161,0.97,0.88,,Pin is a piece of jewelry worn on the body
+accessories,accessories,0.564,,,jewelry_box,found_in,alternative,unreviewed,,0.8,0.4,,Cufflinks and pins share the drawer
+heirloom,heirloom,0.426,,,jewelry_box,associated_with,alternative,unreviewed,,0.84,0.56,,An heirloom lives in the box
+clasp,clasp,0.443,,,jewelry_box,part_of,approved,unreviewed,,0.86,0.6,,The clasp is what you fight with
+gemstones,gemstones,0.397,,,jewelry_box,found_in,approved,unreviewed,,0.9,0.62,,Loose stones are kept there
+jewelry,jewelry,0.589,,,jewelry_box,found_in,approved,unreviewed,,0.98,0.9,,A jewelry box holds jewelry
+metals,metals,0.564,,,jewelry_box,associated_with,approved,unreviewed,,0.86,0.5,,Gold and silver are what it is made of
+velvet,velvet,0.539,,,jewelry_box,part_of,approved,unreviewed,,0.88,0.66,,The lining is velvet
 footie pajamas,footie pajamas,0.311,,,kids_clothing,is_a,alternative,unreviewed,0.327,0.97,0.78,"[""multiword"", ""obscure""]",Footie pajamas is clothing made for babies or children
 romper,romper,0.356,,,kids_clothing,is_a,alternative,unreviewed,0.314,0.97,0.78,"[""obscure""]",Romper is clothing made for babies or children
 bib,bib,0.424,,,kids_clothing,is_a,approved,unreviewed,0.295,0.97,0.78,,Bib is clothing made for babies or children
@@ -2790,6 +2826,13 @@ scarf,scarf,0.526,,,things_you_tie,does_action,alternative,unreviewed,0.315,0.97
 shoelace,shoelace,0.336,,,things_you_tie,does_action,alternative,unreviewed,0.369,0.97,0.7,"[""obscure""]",Shoelace is fastened by tying
 tie,tie,0.644,tie_knot,To fasten something with a knot,things_you_tie,does_action,alternative,unreviewed,0.281,0.97,0.7,,Tie is fastened by tying
 apron,apron,0.48,apron_garment,A cloth worn over the front of clothes to keep them clean,things_you_tie,does_action,hard_only,unreviewed,0.328,0.97,0.7,,Apron is fastened by tying
+mothball,mothball,0.263,,,wardrobe,found_in,alternative,unreviewed,,0.8,0.52,,Mothballs protect stored clothes
+accessories,accessories,0.564,,,wardrobe,found_in,approved,unreviewed,,0.9,0.55,,Belts and scarves live with the clothes
+closet,closet,0.59,,,wardrobe,associated_with,approved,unreviewed,,0.88,0.8,,A closet is the same thing by another name
+footwear,footwear,0.489,,,wardrobe,found_in,approved,unreviewed,,0.92,0.6,,Shoes are stored in the wardrobe
+hanger,hanger,0.463,,,wardrobe,part_of,approved,unreviewed,,0.95,0.85,,A hanger is what a wardrobe is full of
+hats,hats,0.573,,,wardrobe,found_in,approved,unreviewed,,0.9,0.62,,Hats sit on the wardrobe shelf
+sleepwear,sleepwear,0.324,,,wardrobe,found_in,approved,unreviewed,,0.88,0.5,,Pyjamas are kept in the wardrobe
 ear muffs,ear muffs,0.311,,,winter_clothing,used_in,alternative,unreviewed,0.256,0.97,0.85,"[""multiword"", ""obscure""]",Ear muffs is worn to stay warm in cold weather
 hood,hood,0.601,hood_garment,A soft covering for the head attached to a coat,winter_clothing,used_in,alternative,unreviewed,0.173,0.97,0.85,,Hood is worn to stay warm in cold weather
 thermals,thermals,0.341,,,winter_clothing,used_in,alternative,unreviewed,0.248,0.97,0.85,"[""obscure""]",Thermals is worn to stay warm in cold weather
@@ -3391,7 +3434,9 @@ apron,apron,0.48,apron_garment,A cloth worn over the front of clothes to keep th
 brush,brush,0.604,,,art_class_things,found_in,approved,unreviewed,0.197,0.97,0.85,,Brush is used in a school art class
 canvas,canvas,0.566,,,art_class_things,found_in,approved,unreviewed,0.208,0.97,0.85,,Canvas is used in a school art class
 clay,clay,0.613,,,art_class_things,found_in,approved,unreviewed,0.195,0.97,0.85,,Clay is used in a school art class
+colors,colors,0.637,,,art_class_things,found_in,approved,unreviewed,,0.96,0.8,,Mixing colors is the first art lesson
 construction paper,construction paper,0.674,,,art_class_things,found_in,approved,unreviewed,0.177,0.97,0.85,"[""multiword""]",Construction paper is used in a school art class
+crafts,crafts,0.533,,,art_class_things,found_in,approved,unreviewed,,0.9,0.64,,Craft projects are art class work
 easel,easel,0.383,,,art_class_things,found_in,approved,unreviewed,0.261,0.97,0.85,,Easel is used in a school art class
 glitter,glitter,0.509,,,art_class_things,found_in,approved,unreviewed,0.225,0.97,0.85,,Glitter is used in a school art class
 glue,glue,0.543,,,art_class_things,found_in,approved,unreviewed,0.215,0.97,0.85,,Glue is used in a school art class
@@ -3400,7 +3445,9 @@ marker,marker,0.553,,,art_class_things,found_in,approved,unreviewed,0.212,0.97,0
 paint,paint,0.646,,,art_class_things,found_in,approved,unreviewed,0.185,0.97,0.85,,Paint is used in a school art class
 palette,palette,0.534,,,art_class_things,found_in,approved,unreviewed,0.217,0.97,0.85,,Palette is used in a school art class
 pastel,pastel,0.464,,,art_class_things,found_in,approved,unreviewed,0.237,0.97,0.85,,Pastel is used in a school art class
+patterns,patterns,0.63,,,art_class_things,found_in,approved,unreviewed,,0.88,0.58,,Patterns are an art class exercise
 scissors,scissors,0.511,,,art_class_things,found_in,approved,unreviewed,0.224,0.97,0.85,,Scissors is used in a school art class
+shapes,shapes,0.57,,,art_class_things,found_in,approved,unreviewed,,0.92,0.68,,Drawing starts from shapes
 sketchbook,sketchbook,0.397,,,art_class_things,found_in,approved,unreviewed,0.257,0.97,0.85,,Sketchbook is used in a school art class
 smock,smock,0.367,,,art_class_things,found_in,approved,unreviewed,0.265,0.97,0.85,,Smock is used in a school art class
 stencil,stencil,0.406,,,art_class_things,found_in,approved,unreviewed,0.254,0.97,0.85,,Stencil is used in a school art class
@@ -3831,6 +3878,13 @@ sketch,sketch,0.577,,,comedy_words,found_in,approved,unreviewed,0.294,0.97,0.72,
 slapstick,slapstick,0.397,,,comedy_words,found_in,approved,unreviewed,0.346,0.97,0.72,,Slapstick is used when talking about comedy
 standup,standup,0.424,,,comedy_words,found_in,approved,unreviewed,0.338,0.97,0.72,,Standup is used when talking about comedy
 timing,timing,0.613,,,comedy_words,found_in,approved,unreviewed,0.284,0.97,0.72,,Timing is used when talking about comedy
+uniforms,uniforms,0.554,,,costume_party,found_in,alternative,unreviewed,,0.84,0.44,,A borrowed uniform is an easy costume
+cape,cape,0.614,,,costume_party,used_for,approved,unreviewed,,0.92,0.8,,A cape is costume shorthand
+hats,hats,0.573,,,costume_party,found_in,approved,unreviewed,,0.88,0.58,,The hat makes the costume
+makeup,makeup,0.627,,,costume_party,used_for,approved,unreviewed,,0.88,0.6,,Face makeup finishes the look
+mask,mask,0.616,,,costume_party,used_for,approved,unreviewed,,0.95,0.86,,A mask hides who you are
+superheroes,superheroes,0.486,,,costume_party,found_in,approved,unreviewed,,0.92,0.7,,Superhero costumes are the default choice
+wig,wig,0.52,,,costume_party,used_for,approved,unreviewed,,0.94,0.84,,A wig changes everything
 breakdance,breakdance,0.283,,,dance_styles,is_a,alternative,unreviewed,0.329,0.97,0.8,"[""obscure""]",Breakdance is a style of dance
 ballet,ballet,0.564,,,dance_styles,is_a,approved,unreviewed,0.249,0.97,0.8,,Ballet is a style of dance
 ballroom,ballroom,0.503,,,dance_styles,is_a,approved,unreviewed,0.266,0.97,0.8,,Ballroom is a style of dance
@@ -4144,6 +4198,13 @@ stage,stage,0.729,,,theater_words,found_in,approved,unreviewed,0.216,0.97,0.78,,
 understudy,understudy,0.393,,,theater_words,found_in,approved,unreviewed,0.304,0.97,0.78,,Understudy is part of a live theater production
 usher,usher,0.501,,,theater_words,found_in,approved,unreviewed,0.273,0.97,0.78,,Usher is part of a live theater production
 wings,wings,0.634,,,theater_words,found_in,approved,unreviewed,0.235,0.97,0.78,,Wings is part of a live theater production
+balls,balls,0.646,,,toy_chest,found_in,approved,unreviewed,,0.92,0.7,,Balls roll out of the toy chest
+blocks,blocks,0.633,,,toy_chest,found_in,approved,unreviewed,,0.94,0.82,,Blocks are the bottom layer
+doll,doll,0.58,,,toy_chest,found_in,approved,unreviewed,,0.92,0.8,,A doll is toy chest standard
+marbles,marbles,0.456,,,toy_chest,found_in,approved,unreviewed,,0.88,0.66,,Marbles are loose in the corner
+puzzles,puzzles,0.507,,,toy_chest,found_in,approved,unreviewed,,0.9,0.64,,Puzzle boxes are stacked in there
+toys,toys,0.607,,,toy_chest,found_in,approved,unreviewed,,0.98,0.9,,A toy chest is full of toys
+gadgets,gadgets,0.513,,,toy_chest,found_in,hard_only,unreviewed,,0.72,0.3,,Battery gadgets end up in the chest
 kite,kite,0.507,kite_toy,A light frame flown on a string in the wind,toys,is_a,alternative,unreviewed,0.191,0.97,0.88,,Kite is a toy children play with
 marble,marble,0.566,marble_toy,A small glass ball children play with,toys,is_a,alternative,unreviewed,0.174,0.97,0.88,,Marble is a toy children play with
 rattle,rattle,0.479,rattle_toy,A baby toy that makes noise when shaken,toys,is_a,alternative,unreviewed,0.199,0.97,0.88,,Rattle is a toy children play with
@@ -4303,6 +4364,13 @@ sprayer,sprayer,0.367,,,farm_machines,is_a,approved,unreviewed,0.305,0.97,0.8,,S
 spreader,spreader,0.377,,,farm_machines,is_a,approved,unreviewed,0.302,0.97,0.8,,Spreader is a machine used on a farm
 tiller,tiller,0.421,,,farm_machines,is_a,approved,unreviewed,0.29,0.97,0.8,,Tiller is a machine used on a farm
 tractor,tractor,0.54,,,farm_machines,is_a,approved,unreviewed,0.256,0.97,0.8,,Tractor is a machine used on a farm
+weeds,weeds,0.503,,,farm_morning,associated_with,alternative,unreviewed,,0.84,0.48,,Weeds are the other enemy
+barn,barn,0.57,,,farm_morning,part_of,approved,unreviewed,,0.96,0.88,,The barn is the farm building
+livestock,livestock,0.547,,,farm_morning,found_in,approved,unreviewed,,0.97,0.78,,Livestock is what a farm keeps
+pests,pests,0.487,,,farm_morning,associated_with,approved,unreviewed,,0.86,0.5,,A farm fights pests all season
+poultry,poultry,0.506,,,farm_morning,found_in,approved,unreviewed,,0.94,0.68,,Poultry is farm stock
+silo,silo,0.431,,,farm_morning,part_of,approved,unreviewed,,0.9,0.7,,The silo stores the grain
+tractor,tractor,0.54,,,farm_morning,found_in,approved,unreviewed,,0.96,0.88,,A tractor is farm machinery
 beef,beef,0.613,,,farm_products,is_a,approved,unreviewed,0.235,0.97,0.8,,Beef is a product a farm sells
 cheese,cheese,0.653,,,farm_products,is_a,approved,unreviewed,0.223,0.97,0.8,,Cheese is a product a farm sells
 cider,cider,0.5,,,farm_products,is_a,approved,unreviewed,0.267,0.97,0.8,,Cider is a product a farm sells
@@ -4887,6 +4955,7 @@ pesto,pesto,0.411,,,condiments,used_in,approved,unreviewed,0.253,0.97,0.85,,Pest
 ranch,ranch,0.576,,,condiments,used_in,approved,unreviewed,0.205,0.97,0.85,,Ranch is put on food at the table
 relish,relish,0.474,,,condiments,used_in,approved,unreviewed,0.235,0.97,0.85,,Relish is put on food at the table
 salsa,salsa,0.504,,,condiments,used_in,approved,unreviewed,0.226,0.97,0.85,,Salsa is put on food at the table
+sauces,sauces,0.456,,,condiments,is_a,approved,unreviewed,,0.9,0.6,,A sauce is a condiment
 soy sauce,soy sauce,0.507,,,condiments,used_in,approved,unreviewed,0.225,0.97,0.85,"[""multiword""]",Soy sauce is put on food at the table
 sriracha,sriracha,0.389,,,condiments,used_in,approved,unreviewed,0.259,0.97,0.85,,Sriracha is put on food at the table
 syrup,syrup,0.537,,,condiments,used_in,approved,unreviewed,0.217,0.97,0.85,,Syrup is put on food at the table
@@ -5009,6 +5078,7 @@ date,date,0.746,date_fruit,The sweet brown fruit of a date palm,fruits,is_a,alte
 apple,apple,0.68,apple_fruit,The round edible fruit of an apple tree,fruits,is_a,approved,unreviewed,0.071,1.0,1.0,,An apple is a common edible fruit
 apricot,apricot,0.426,,,fruits,is_a,approved,unreviewed,0.143,0.97,0.95,,Apricot is a common edible fruit
 banana,banana,0.571,,,fruits,is_a,approved,unreviewed,0.102,0.97,0.95,,Banana is a common edible fruit
+berries,berries,0.51,,,fruits,is_a,approved,unreviewed,,0.97,0.78,,Berries are a kind of fruit
 blackberry,blackberry,0.521,,,fruits,is_a,approved,unreviewed,0.116,0.97,0.95,,Blackberry is a common edible fruit
 blueberry,blueberry,0.471,,,fruits,is_a,approved,unreviewed,0.13,0.97,0.95,,Blueberry is a common edible fruit
 cantaloupe,cantaloupe,0.361,,,fruits,is_a,approved,unreviewed,0.162,0.97,0.95,,Cantaloupe is a common edible fruit
@@ -5046,6 +5116,13 @@ rice,rice,0.65,,,grains_and_beans,is_a,approved,unreviewed,0.239,0.97,0.75,,Rice
 rye,rye,0.503,,,grains_and_beans,is_a,approved,unreviewed,0.281,0.97,0.75,,Rye is a grain or bean staple
 soybean,soybean,0.441,,,grains_and_beans,is_a,approved,unreviewed,0.299,0.97,0.75,,Soybean is a grain or bean staple
 wheat,wheat,0.573,,,grains_and_beans,is_a,approved,unreviewed,0.261,0.97,0.75,,Wheat is a grain or bean staple
+bakery,bakery,0.524,,,grocery_aisles,found_in,approved,unreviewed,,0.93,0.75,,The bakery is at the front of the store
+dairy,dairy,0.584,,,grocery_aisles,found_in,approved,unreviewed,,0.95,0.72,,Dairy is a supermarket section
+Frozen,frozen,0.617,,,grocery_aisles,found_in,approved,unreviewed,,0.9,0.68,,The frozen aisle is a supermarket section
+fruits,fruits,0.581,,,grocery_aisles,found_in,approved,unreviewed,,0.96,0.7,,Fruit is a supermarket aisle
+meats,meats,0.497,,,grocery_aisles,found_in,approved,unreviewed,,0.94,0.66,,The meat counter is a supermarket section
+seafood,seafood,0.521,,,grocery_aisles,found_in,approved,unreviewed,,0.94,0.64,,Seafood is a supermarket section
+vegetables,vegetables,0.593,,,grocery_aisles,found_in,approved,unreviewed,,0.96,0.7,,Vegetables have their own aisle
 americano,americano,0.379,,,hot_drinks,is_a,approved,unreviewed,0.197,0.97,0.9,,Americano is normally served as a hot drink
 broth,broth,0.484,,,hot_drinks,is_a,approved,unreviewed,0.167,0.97,0.9,,Broth is normally served as a hot drink
 cappuccino,cappuccino,0.41,,,hot_drinks,is_a,approved,unreviewed,0.188,0.97,0.9,,Cappuccino is normally served as a hot drink
@@ -5213,6 +5290,13 @@ tortellini,tortellini,0.31,,,pasta_shapes,is_a,hard_only,unreviewed,0.376,0.97,0
 vermicelli,vermicelli,0.304,,,pasta_shapes,is_a,hard_only,unreviewed,0.378,0.97,0.7,"[""obscure""]",Vermicelli is a shape of pasta
 ziti,ziti,0.284,,,pasta_shapes,is_a,hard_only,unreviewed,0.384,0.97,0.7,"[""obscure""]",Ziti is a shape of pasta
 rotini,rotini,0.181,,,pasta_shapes,is_a,rejected,unreviewed,0.413,0.97,0.7,"[""obscure""]",Rotini is a shape of pasta
+condiments,condiments,0.394,,,picnic_basket,found_in,alternative,unreviewed,,0.84,0.46,,Ketchup and mustard travel in the basket
+napkins,napkins,0.436,,,picnic_basket,found_in,alternative,unreviewed,,0.82,0.66,,Napkins are packed for a picnic
+blanket,blanket,0.581,,,picnic_basket,associated_with,approved,unreviewed,,0.94,0.86,,A blanket is what you sit on at a picnic
+desserts,desserts,0.473,,,picnic_basket,found_in,approved,unreviewed,,0.86,0.52,,A picnic ends with dessert
+fruits,fruits,0.581,,,picnic_basket,found_in,approved,unreviewed,,0.88,0.6,,Fruit is easy picnic food
+salads,salads,0.473,,,picnic_basket,found_in,approved,unreviewed,,0.9,0.58,,Potato salad is picnic food
+thermos,thermos,0.379,,,picnic_basket,found_in,approved,unreviewed,,0.86,0.7,,A thermos keeps picnic coffee hot
 apple,apple,0.68,apple_fruit,The round edible fruit of an apple tree,pie_ingredients,used_in,approved,unreviewed,0.191,0.99,0.95,,Apples are the classic pie filling
 blueberry,blueberry,0.471,,,pie_ingredients,used_in,approved,unreviewed,0.25,0.97,0.8,,Blueberry is commonly used when making a pie
 butter,butter,0.629,,,pie_ingredients,used_in,approved,unreviewed,0.205,0.97,0.8,,Butter is commonly used when making a pie
@@ -5344,6 +5428,7 @@ oyster,oyster,0.506,,,seafood,is_a,approved,unreviewed,0.24,0.97,0.8,,Oyster is 
 salmon,salmon,0.573,,,seafood,is_a,approved,unreviewed,0.221,0.97,0.8,,Salmon is eaten as seafood
 sardine,sardine,0.38,,,seafood,is_a,approved,unreviewed,0.276,0.97,0.8,,Sardine is eaten as seafood
 scallop,scallop,0.393,,,seafood,is_a,approved,unreviewed,0.273,0.97,0.8,,Scallop is eaten as seafood
+shellfish,shellfish,0.45,,,seafood,is_a,approved,unreviewed,,0.97,0.8,,Shellfish is a kind of seafood
 shrimp,shrimp,0.541,,,seafood,is_a,approved,unreviewed,0.23,0.97,0.8,,Shrimp is eaten as seafood
 snapper,snapper,0.429,,,seafood,is_a,approved,unreviewed,0.262,0.97,0.8,,Snapper is eaten as seafood
 squid,squid,0.491,,,seafood,is_a,approved,unreviewed,0.245,0.97,0.8,,Squid is eaten as seafood
@@ -5906,6 +5991,13 @@ Statue of Liberty,statue of liberty,0.557,,,famous_landmarks,is_a,approved,unrev
 Stonehenge,stonehenge,0.419,,,famous_landmarks,is_a,approved,unreviewed,0.284,0.97,0.82,"[""proper_noun""]",Stonehenge is a world famous landmark
 Taj Mahal,taj mahal,0.421,,,famous_landmarks,is_a,approved,unreviewed,0.284,0.97,0.82,"[""multiword"", ""proper_noun""]",Taj Mahal is a world famous landmark
 White House,white house,0.757,,,famous_landmarks,is_a,approved,unreviewed,0.204,0.97,0.82,"[""multiword"", ""proper_noun""]",White House is a world famous landmark
+atlas,atlas,0.543,atlas_book,A book of maps,geography_class,used_for,approved,unreviewed,,0.94,0.82,,An atlas is the geography textbook
+globe,globe,0.611,,,geography_class,found_in,approved,unreviewed,,0.95,0.85,,A globe stands in the geography room
+islands,islands,0.643,,,geography_class,found_in,approved,unreviewed,,0.92,0.62,,Islands are geography lesson material
+lakes,lakes,0.591,,,geography_class,found_in,approved,unreviewed,,0.92,0.62,,Lakes are named in geography class
+latitude,latitude,0.51,,,geography_class,associated_with,approved,unreviewed,,0.9,0.7,,Latitude is taught in geography
+rivers,rivers,0.614,,,geography_class,found_in,approved,unreviewed,,0.94,0.66,,Naming rivers is geography homework
+seas,seas,0.561,,,geography_class,found_in,approved,unreviewed,,0.92,0.6,,Seas are named in geography class
 attic,attic,0.519,,,hot_places,has_property,alternative,unreviewed,0.317,0.97,0.7,,Attic is typically hot
 campfire,campfire,0.443,,,hot_places,has_property,alternative,unreviewed,0.338,0.97,0.7,,Campfire is typically hot
 desert,desert,0.629,,,hot_places,has_property,alternative,unreviewed,0.285,0.97,0.7,,Desert is typically hot
@@ -5949,6 +6041,7 @@ glacier,glacier,0.511,,,landforms,is_a,approved,unreviewed,0.264,0.97,0.8,,Glaci
 gorge,gorge,0.486,,,landforms,is_a,approved,unreviewed,0.271,0.97,0.8,,Gorge is a natural feature of the land surface
 hill,hill,0.689,,,landforms,is_a,approved,unreviewed,0.213,0.97,0.8,,Hill is a natural feature of the land surface
 island,island,0.716,,,landforms,is_a,approved,unreviewed,0.21,0.97,0.8,,Island is a natural feature of the land surface
+islands,islands,0.643,,,landforms,is_a,approved,unreviewed,,0.94,0.62,,An island is a landform
 isthmus,isthmus,0.403,,,landforms,is_a,approved,unreviewed,0.295,0.97,0.8,,Isthmus is a natural feature of the land surface
 marsh,marsh,0.553,,,landforms,is_a,approved,unreviewed,0.252,0.97,0.8,,Marsh is a natural feature of the land surface
 mesa,mesa,0.5,,,landforms,is_a,approved,unreviewed,0.267,0.97,0.8,,Mesa is a natural feature of the land surface
@@ -5961,6 +6054,7 @@ ridge,ridge,0.589,,,landforms,is_a,approved,unreviewed,0.242,0.97,0.8,,Ridge is 
 summit,summit,0.614,,,landforms,is_a,approved,unreviewed,0.235,0.97,0.8,,Summit is a natural feature of the land surface
 tundra,tundra,0.44,,,landforms,is_a,approved,unreviewed,0.284,0.97,0.8,,Tundra is a natural feature of the land surface
 valley,valley,0.674,,,landforms,is_a,approved,unreviewed,0.217,0.97,0.8,,Valley is a natural feature of the land surface
+volcanoes,volcanoes,0.477,,,landforms,is_a,approved,unreviewed,,0.92,0.58,,A volcano is a landform
 Argentina,argentina,0.603,,,latin_american_countries,is_a,approved,unreviewed,0.238,0.97,0.8,"[""proper_noun""]",Argentina is a country in Latin America
 Belize,belize,0.463,,,latin_american_countries,is_a,approved,unreviewed,0.278,0.97,0.8,"[""proper_noun""]",Belize is a country in Latin America
 Bolivia,bolivia,0.504,,,latin_american_countries,is_a,approved,unreviewed,0.266,0.97,0.8,"[""proper_noun""]",Bolivia is a country in Latin America
@@ -5979,6 +6073,13 @@ Paraguay,paraguay,0.461,,,latin_american_countries,is_a,approved,unreviewed,0.27
 Peru,peru,0.556,,,latin_american_countries,is_a,approved,unreviewed,0.251,0.97,0.8,"[""proper_noun""]",Peru is a country in Latin America
 Uruguay,uruguay,0.529,,,latin_american_countries,is_a,approved,unreviewed,0.259,0.97,0.8,"[""proper_noun""]",Uruguay is a country in Latin America
 Venezuela,venezuela,0.561,,,latin_american_countries,is_a,approved,unreviewed,0.25,0.97,0.8,"[""proper_noun""]",Venezuela is a country in Latin America
+biomes,biomes,0.333,,,map_legend,found_in,alternative,unreviewed,,0.88,0.44,,Biomes are the coloured zones
+volcanoes,volcanoes,0.477,,,map_legend,found_in,alternative,unreviewed,,0.86,0.46,,Volcanoes get their own symbol
+waterfalls,waterfalls,0.467,,,map_legend,found_in,alternative,unreviewed,,0.8,0.36,,Waterfalls are marked on trail maps
+contour,contour,0.481,,,map_legend,part_of,approved,unreviewed,,0.92,0.66,,Contour lines show height
+landforms,landforms,0.33,,,map_legend,found_in,approved,unreviewed,,0.92,0.56,,Landforms are drawn on the map
+scale,scale,0.69,scale_ratio,The ratio between a map or a model and real size,map_legend,part_of,approved,unreviewed,,0.94,0.74,,The scale bar is in the corner
+symbol,symbol,0.616,,,map_legend,part_of,approved,unreviewed,,0.95,0.8,,The legend explains each symbol
 key,key,0.731,key_legend,The panel that explains the symbols on a map,map_words,found_in,alternative,unreviewed,0.21,0.97,0.8,,Key is used when reading a map
 scale,scale,0.69,scale_ratio,The ratio between a map or a model and real size,map_words,found_in,alternative,unreviewed,0.213,0.97,0.8,,Scale is used when reading a map
 atlas,atlas,0.543,atlas_book,A book of maps,map_words,found_in,approved,unreviewed,0.255,0.97,0.8,,Atlas is used when reading a map
@@ -6116,6 +6217,13 @@ stadium,stadium,0.661,,,town_places,found_in,approved,unreviewed,0.116,0.97,0.9,
 temple,temple,0.636,temple_building,A building used for religious worship,town_places,found_in,approved,unreviewed,0.123,0.95,0.85,,A temple is a building used for religious worship
 theater,theater,0.621,,,town_places,found_in,approved,unreviewed,0.128,0.97,0.9,,Theater is a public place found in an ordinary town
 station,station,0.716,station_place,A building where a service is based,town_places,found_in,hard_only,unreviewed,0.105,0.97,0.9,,Station is a public place found in an ordinary town
+currencies,currencies,0.517,,,travel_abroad,associated_with,approved,unreviewed,,0.94,0.68,,The money changes too
+languages,languages,0.631,,,travel_abroad,associated_with,approved,unreviewed,,0.94,0.7,,The language changes across the border
+nationalities,nationalities,0.473,,,travel_abroad,associated_with,approved,unreviewed,,0.86,0.5,,You become the foreigner
+phrasebook,phrasebook,0.241,,,travel_abroad,used_for,approved,unreviewed,,0.86,0.62,,A phrasebook gets you through dinner
+souvenir,souvenir,0.48,,,travel_abroad,associated_with,approved,unreviewed,,0.9,0.76,,You come back with a souvenir
+Visa,visa,0.59,,,travel_abroad,used_for,approved,unreviewed,,0.94,0.82,,A visa lets you in
+islands,islands,0.643,,,travel_abroad,associated_with,hard_only,unreviewed,,0.74,0.3,,Island countries are the classic trip
 Atlanta,atlanta,0.624,,,us_cities,is_a,approved,unreviewed,0.192,0.97,0.85,"[""proper_noun""]",Atlanta is a large American city
 Austin,austin,0.623,,,us_cities,is_a,approved,unreviewed,0.192,0.97,0.85,"[""proper_noun""]",Austin is a large American city
 Baltimore,baltimore,0.603,,,us_cities,is_a,approved,unreviewed,0.198,0.97,0.85,"[""proper_noun""]",Baltimore is a large American city
@@ -6864,7 +6972,16 @@ sponge,sponge,0.513,sponge_cleaning,A soft absorbent block used for washing,clea
 trash bag,trash bag,0.609,,,cleaning_supplies,used_in,approved,unreviewed,0.162,0.97,0.88,"[""multiword""]",Trash bag is used for cleaning a house
 vacuum,vacuum,0.584,,,cleaning_supplies,used_in,approved,unreviewed,0.169,0.97,0.88,,Vacuum is used for cleaning a house
 wipes,wipes,0.486,,,cleaning_supplies,used_in,approved,unreviewed,0.197,0.97,0.88,,Wipes is used for cleaning a house
+sauces,sauces,0.456,,,dinner_party,found_in,alternative,unreviewed,,0.82,0.42,,A sauce makes the main course
+seating,seating,0.539,,,dinner_party,associated_with,alternative,unreviewed,,0.8,0.5,,Who sits where is the host's problem
+centerpiece,centerpiece,0.443,,,dinner_party,found_in,approved,unreviewed,,0.88,0.66,,A centerpiece sits on the table
+cocktails,cocktails,0.514,,,dinner_party,found_in,approved,unreviewed,,0.86,0.52,,Drinks start the evening
+desserts,desserts,0.473,,,dinner_party,found_in,approved,unreviewed,,0.9,0.62,,Dessert closes the dinner
+dishes,dishes,0.59,,,dinner_party,found_in,approved,unreviewed,,0.92,0.66,,The good dishes come out for guests
+silverware,silverware,0.44,,,dinner_party,found_in,approved,unreviewed,,0.92,0.64,,Silverware is laid for each guest
+toast,toast,0.566,toast_salute,Raised glasses in honor of someone,dinner_party,associated_with,approved,unreviewed,,0.88,0.68,,Someone always makes a toast
 carafe,carafe,0.309,,,dishes_and_glassware,is_a,alternative,unreviewed,0.257,0.97,0.85,"[""obscure""]",Carafe is something you eat or drink from
+desserts,desserts,0.473,,,dishes_and_glassware,is_a,alternative,unreviewed,,0.82,0.44,,Dessert is a course of dishes
 ramekin,ramekin,0.236,,,dishes_and_glassware,is_a,alternative,unreviewed,0.278,0.97,0.85,"[""obscure""]",Ramekin is something you eat or drink from
 bottle,bottle,0.653,,,dishes_and_glassware,is_a,approved,unreviewed,0.158,0.97,0.85,,Bottle is something you eat or drink from
 bowl,bowl,0.661,,,dishes_and_glassware,is_a,approved,unreviewed,0.156,0.97,0.85,,Bowl is something you eat or drink from
@@ -6879,6 +6996,7 @@ mug,mug,0.53,,,dishes_and_glassware,is_a,approved,unreviewed,0.194,0.97,0.85,,Mu
 pitcher,pitcher,0.541,pitcher_jug,A large jug with a handle and a lip for pouring,dishes_and_glassware,is_a,approved,unreviewed,0.19,0.97,0.85,,Pitcher is something you eat or drink from
 plate,plate,0.65,plate_dish,A flat round dish food is served on,dishes_and_glassware,is_a,approved,unreviewed,0.159,0.97,0.85,,Plate is something you eat or drink from
 platter,platter,0.464,,,dishes_and_glassware,is_a,approved,unreviewed,0.212,0.97,0.85,,Platter is something you eat or drink from
+salads,salads,0.473,,,dishes_and_glassware,is_a,approved,unreviewed,,0.88,0.54,,A salad is a dish
 saucer,saucer,0.437,,,dishes_and_glassware,is_a,approved,unreviewed,0.22,0.97,0.85,,Saucer is something you eat or drink from
 sugar bowl,sugar bowl,0.621,,,dishes_and_glassware,is_a,approved,unreviewed,0.168,0.97,0.85,"[""multiword""]",Sugar bowl is something you eat or drink from
 teapot,teapot,0.416,,,dishes_and_glassware,is_a,approved,unreviewed,0.226,0.97,0.85,,Teapot is something you eat or drink from
@@ -6926,6 +7044,14 @@ stool,stool,0.503,,,furniture,is_a,approved,unreviewed,0.14,0.97,0.92,,Stool is 
 table,table,0.721,,,furniture,is_a,approved,unreviewed,0.084,0.97,0.92,,Table is a piece of household furniture
 vanity,vanity,0.534,,,furniture,is_a,approved,unreviewed,0.131,0.97,0.92,,Vanity is a piece of household furniture
 wardrobe,wardrobe,0.543,,,furniture,is_a,approved,unreviewed,0.129,0.97,0.92,,Wardrobe is a piece of household furniture
+fabrics,fabrics,0.511,,,home_decor,found_in,alternative,unreviewed,,0.84,0.46,,Upholstery fabric is a decor choice
+colors,colors,0.637,,,home_decor,found_in,approved,unreviewed,,0.9,0.62,,Paint colors are the decorating choice
+curtains,curtains,0.523,,,home_decor,found_in,approved,unreviewed,,0.93,0.8,,Curtains dress the window
+furniture,furniture,0.613,,,home_decor,found_in,approved,unreviewed,,0.94,0.74,,Furniture is the first decorating choice
+lighting,lighting,0.613,,,home_decor,found_in,approved,unreviewed,,0.92,0.68,,Lighting is a decorating decision
+patterns,patterns,0.63,,,home_decor,found_in,approved,unreviewed,,0.86,0.54,,Wallpaper patterns are decor
+rug,rug,0.531,,,home_decor,found_in,approved,unreviewed,,0.94,0.82,,A rug anchors the room
+vase,vase,0.506,,,home_decor,found_in,approved,unreviewed,,0.9,0.76,,A vase is a decorative object
 attic,attic,0.519,,,home_rooms,part_of,approved,unreviewed,0.157,0.97,0.9,,Attic is a room or space inside a house
 basement,basement,0.597,,,home_rooms,part_of,approved,unreviewed,0.134,0.97,0.9,,Basement is a room or space inside a house
 bathroom,bathroom,0.649,,,home_rooms,part_of,approved,unreviewed,0.12,0.97,0.9,,Bathroom is a room or space inside a house
@@ -6966,6 +7092,13 @@ toaster,toaster,0.476,,,kitchen_appliances,found_in,approved,unreviewed,0.2,0.97
 waffle iron,waffle iron,0.47,,,kitchen_appliances,found_in,approved,unreviewed,0.202,0.97,0.88,"[""multiword""]",Waffle iron is an electric machine used in a kitchen
 warmer,warmer,0.537,,,kitchen_appliances,found_in,approved,unreviewed,0.183,0.97,0.88,,Warmer is an electric machine used in a kitchen
 hood,hood,0.601,hood_kitchen,The vent cover above a kitchen stove,kitchen_appliances,found_in,hard_only,unreviewed,0.164,0.97,0.88,,Hood is an electric machine used in a kitchen
+blades,blades,0.553,,,kitchen_drawer,found_in,alternative,unreviewed,,0.85,0.44,,Knife blades are kept in the drawer
+containers,containers,0.551,,,kitchen_drawer,found_in,alternative,unreviewed,,0.82,0.4,,Lids and containers are stuffed in the drawer
+corkscrew,corkscrew,0.387,,,kitchen_drawer,found_in,approved,unreviewed,,0.92,0.78,,A corkscrew is a kitchen drawer tool
+peeler,peeler,0.354,,,kitchen_drawer,found_in,approved,unreviewed,,0.9,0.74,,A peeler is a kitchen drawer tool
+silverware,silverware,0.44,,,kitchen_drawer,found_in,approved,unreviewed,,0.97,0.82,,Silverware lives in the kitchen drawer
+whisk,whisk,0.444,,,kitchen_drawer,found_in,approved,unreviewed,,0.9,0.76,,A whisk is a kitchen drawer tool
+fasteners,fasteners,0.393,,,kitchen_drawer,found_in,hard_only,unreviewed,,0.7,0.3,,Clips and ties end up in the kitchen drawer
 masher,masher,0.314,,,kitchen_tools,used_in,alternative,unreviewed,0.221,0.97,0.88,"[""obscure""]",Masher is a tool used to prepare food in a kitchen
 peeler,peeler,0.354,,,kitchen_tools,used_in,alternative,unreviewed,0.21,0.97,0.88,"[""obscure""]",Peeler is a tool used to prepare food in a kitchen
 blender,blender,0.49,,,kitchen_tools,used_in,approved,unreviewed,0.171,0.97,0.88,,Blender is a tool used to prepare food in a kitchen
@@ -8082,6 +8215,13 @@ Whiskey,whiskey,0.54,,,alphabet_code,is_a,alternative,unreviewed,0.366,0.97,0.6,
 Yankee,yankee,0.514,,,alphabet_code,is_a,alternative,unreviewed,0.373,0.97,0.6,"[""proper_noun""]",Yankee is a code word for a letter of the alphabet
 Zulu,zulu,0.456,,,alphabet_code,is_a,alternative,unreviewed,0.39,0.97,0.6,"[""proper_noun""]",Zulu is a code word for a letter of the alphabet
 foxtrot,foxtrot,0.371,,,alphabet_code,is_a,hard_only,unreviewed,0.414,0.97,0.6,"[""proper_noun""]",Foxtrot is a code word for a letter of the alphabet
+flowers,flowers,0.663,,,greeting_card,found_in,alternative,unreviewed,,0.84,0.48,,Flowers are printed on the front
+glitter,glitter,0.509,,,greeting_card,found_in,alternative,unreviewed,,0.84,0.62,,Glitter falls out when you open it
+envelope,envelope,0.551,,,greeting_card,part_of,approved,unreviewed,,0.96,0.88,,The card comes with an envelope
+feelings,feelings,0.673,,,greeting_card,associated_with,approved,unreviewed,,0.86,0.52,,A card carries a feeling
+greetings,greetings,0.524,,,greeting_card,found_in,approved,unreviewed,,0.96,0.78,,A greeting is what the card says
+holidays,holidays,0.603,,,greeting_card,associated_with,approved,unreviewed,,0.94,0.74,,Cards are sent for holidays
+stamp,stamp,0.587,stamp_postage,A small printed square stuck on mail to pay postage,greeting_card,used_for,approved,unreviewed,,0.92,0.8,,A stamp sends it
 aloha,aloha,0.441,,,greetings_and_farewells,is_a,approved,unreviewed,0.244,0.97,0.85,,Aloha is used to greet someone or say goodbye
 bye,bye,0.627,,,greetings_and_farewells,is_a,approved,unreviewed,0.191,0.97,0.85,,Bye is used to greet someone or say goodbye
 cheers,cheers,0.59,cheers_greeting,A word said when raising a glass or saying goodbye,greetings_and_farewells,is_a,approved,unreviewed,0.201,0.97,0.85,,Cheers is used to greet someone or say goodbye
@@ -8834,6 +8974,13 @@ sentence,sentence,0.654,sentence_writing,A group of words making a complete stat
 signature,signature,0.607,,,writing_words,found_in,approved,unreviewed,0.237,0.97,0.8,,Signature is a part or mark of written text
 title,title,0.729,,,writing_words,found_in,approved,unreviewed,0.21,0.97,0.8,,Title is a part or mark of written text
 word,word,0.751,,,writing_words,found_in,approved,unreviewed,0.21,0.97,0.8,,Word is a part or mark of written text
+crimes,crimes,0.633,,,courtroom,found_in,approved,unreviewed,,0.95,0.72,,Crimes are what a court tries
+gavel,gavel,0.38,,,courtroom,found_in,approved,unreviewed,,0.96,0.88,,The gavel is the judge's tool
+jury,jury,0.641,,,courtroom,found_in,approved,unreviewed,,0.95,0.85,,The jury sits in the courtroom
+penalties,penalties,0.583,,,courtroom,found_in,approved,unreviewed,,0.92,0.6,,The court hands down penalties
+rights,rights,0.741,,,courtroom,associated_with,approved,unreviewed,,0.88,0.52,,Rights are argued in court
+verdict,verdict,0.576,,,courtroom,associated_with,approved,unreviewed,,0.96,0.86,,The verdict ends the trial
+titles,titles,0.63,,,courtroom,associated_with,hard_only,unreviewed,,0.78,0.32,,"Your honour, counsel, bailiff: court is full of titles"
 bench,bench,0.627,bench_court,The seat and office of a judge,courtroom_things,found_in,alternative,unreviewed,0.231,0.97,0.8,,Bench is found in a courtroom
 sentence,sentence,0.654,sentence_punishment,The punishment a judge gives a convicted person,courtroom_things,found_in,alternative,unreviewed,0.223,0.97,0.8,,Sentence is found in a courtroom
 stand,stand,0.734,stand_witness,The place a witness sits to testify,courtroom_things,found_in,alternative,unreviewed,0.21,0.97,0.8,,Stand is found in a courtroom
@@ -9333,6 +9480,7 @@ water,water,0.789,,,liquids,is_a,approved,unreviewed,0.17,0.97,0.85,,Water is a 
 feldspar,feldspar,0.35,,,minerals,is_a,alternative,unreviewed,0.396,0.97,0.68,"[""obscure""]",Feldspar is a mineral found in the earth
 hematite,hematite,0.354,,,minerals,is_a,alternative,unreviewed,0.395,0.97,0.68,"[""obscure""]",Hematite is a mineral found in the earth
 calcite,calcite,0.374,,,minerals,is_a,approved,unreviewed,0.389,0.97,0.68,,Calcite is a mineral found in the earth
+gemstones,gemstones,0.397,,,minerals,is_a,approved,unreviewed,,0.92,0.6,,Gemstones are minerals
 graphite,graphite,0.479,,,minerals,is_a,approved,unreviewed,0.359,0.97,0.68,,Graphite is a mineral found in the earth
 gypsum,gypsum,0.419,,,minerals,is_a,approved,unreviewed,0.376,0.97,0.68,,Gypsum is a mineral found in the earth
 magnetite,magnetite,0.367,,,minerals,is_a,approved,unreviewed,0.391,0.97,0.68,,Magnetite is a mineral found in the earth
@@ -9841,6 +9989,13 @@ shingles,shingles,0.44,,,diseases,is_a,approved,unreviewed,0.284,0.97,0.8,,Shing
 tetanus,tetanus,0.409,,,diseases,is_a,approved,unreviewed,0.293,0.97,0.8,,Tetanus is a disease
 tuberculosis,tuberculosis,0.511,,,diseases,is_a,approved,unreviewed,0.264,0.97,0.8,,Tuberculosis is a disease
 typhoid,typhoid,0.42,,,diseases,is_a,approved,unreviewed,0.29,0.97,0.8,,Typhoid is a disease
+gurney,gurney,0.444,,,emergency_room,found_in,alternative,unreviewed,,0.88,0.48,,A gurney is ER furniture
+bones,bones,0.617,,,emergency_room,associated_with,approved,unreviewed,,0.85,0.5,,Broken bones are set in the ER
+illnesses,illnesses,0.524,,,emergency_room,found_in,approved,unreviewed,,0.88,0.55,,Sudden illness sends people to the ER
+injuries,injuries,0.634,,,emergency_room,found_in,approved,unreviewed,,0.97,0.78,,Injuries are what an emergency room treats
+stretcher,stretcher,0.461,,,emergency_room,found_in,approved,unreviewed,,0.94,0.82,,A stretcher carries patients in
+symptoms,symptoms,0.64,,,emergency_room,found_in,approved,unreviewed,,0.9,0.58,,Patients arrive describing symptoms
+triage,triage,0.413,,,emergency_room,associated_with,approved,unreviewed,,0.92,0.6,,Triage decides who is seen first
 ambulance,ambulance,0.58,,,emergency_words,found_in,approved,unreviewed,0.244,0.97,0.8,,Ambulance is used during a medical emergency
 code,code,0.726,,,emergency_words,found_in,approved,unreviewed,0.21,0.97,0.8,,Code is used during a medical emergency
 CPR,cpr,0.489,,,emergency_words,found_in,approved,unreviewed,0.27,0.97,0.8,,CPR is used during a medical emergency
@@ -10865,6 +11020,7 @@ rose,rose,0.689,,,flowers,is_a,approved,unreviewed,0.114,0.97,0.88,,Rose is a ki
 sunflower,sunflower,0.48,,,flowers,is_a,approved,unreviewed,0.174,0.97,0.88,,Sunflower is a kind of flower
 tulip,tulip,0.454,,,flowers,is_a,approved,unreviewed,0.181,0.97,0.88,,Tulip is a kind of flower
 Violet,violet,0.549,,,flowers,is_a,approved,unreviewed,0.154,0.97,0.88,,Violet is a kind of flower
+wildflowers,wildflowers,0.399,,,flowers,is_a,approved,unreviewed,,0.98,0.86,,Wildflowers are flowers
 hosta,hosta,0.249,,,garden_plants,found_in,alternative,unreviewed,0.314,0.97,0.8,"[""obscure""]",Hosta is grown in a home garden
 lavender,lavender,0.491,lavender_plant,A fragrant purple flowering herb,garden_plants,found_in,alternative,unreviewed,0.245,0.97,0.8,,Lavender is grown in a home garden
 basil,basil,0.521,,,garden_plants,found_in,approved,unreviewed,0.236,0.97,0.8,,Basil is grown in a home garden
@@ -11210,6 +11366,13 @@ ice,ice,0.714,,,water_states,is_a,approved,unreviewed,0.216,0.97,0.78,,Ice is a 
 rain,rain,0.673,,,water_states,is_a,approved,unreviewed,0.224,0.97,0.78,,Rain is a form water takes in nature
 snow,snow,0.666,,,water_states,is_a,approved,unreviewed,0.226,0.97,0.78,,Snow is a form water takes in nature
 steam,steam,0.646,,,water_states,is_a,approved,unreviewed,0.231,0.97,0.78,,Steam is a form water takes in nature
+directions,directions,0.604,,,weather_report,associated_with,alternative,unreviewed,,0.8,0.34,,Wind direction is read out
+seasons,seasons,0.646,,,weather_report,associated_with,alternative,unreviewed,,0.84,0.46,,The seasonal outlook is part of it
+forecast,forecast,0.584,,,weather_report,part_of,approved,unreviewed,,0.97,0.9,,The forecast is the whole point
+humidity,humidity,0.547,,,weather_report,part_of,approved,unreviewed,,0.92,0.78,,Humidity is one of the numbers
+radar,radar,0.6,,,weather_report,used_for,approved,unreviewed,,0.92,0.8,,The radar map is shown on screen
+storms,storms,0.563,,,weather_report,found_in,approved,unreviewed,,0.96,0.76,,Storms are the headline of the report
+months,months,0.764,,,weather_report,associated_with,rejected,unreviewed,,0.7,0.26,,Monthly averages are quoted
 blizzard,blizzard,0.504,,,weather_words,is_a,approved,unreviewed,0.161,0.97,0.9,,Blizzard is a word for a weather condition
 breeze,breeze,0.551,,,weather_words,is_a,approved,unreviewed,0.148,0.97,0.9,,Breeze is a word for a weather condition
 cloud,cloud,0.637,,,weather_words,is_a,approved,unreviewed,0.123,0.97,0.9,,Cloud is a word for a weather condition
@@ -11763,6 +11926,7 @@ clam,clam,0.46,,,shellfish,is_a,approved,unreviewed,0.279,0.97,0.8,,Clam is a sh
 cockle,cockle,0.334,,,shellfish,is_a,approved,unreviewed,0.315,0.97,0.8,"[""obscure""]",Cockle is a shellfish people eat
 crab,crab,0.537,,,shellfish,is_a,approved,unreviewed,0.257,0.97,0.8,,Crab is a shellfish people eat
 crawfish,crawfish,0.379,,,shellfish,is_a,approved,unreviewed,0.302,0.97,0.8,,Crawfish is a shellfish people eat
+crustaceans,crustaceans,0.397,,,shellfish,is_a,approved,unreviewed,,0.94,0.58,,Crabs and shrimp are shellfish
 lobster,lobster,0.521,,,shellfish,is_a,approved,unreviewed,0.261,0.97,0.8,,Lobster is a shellfish people eat
 mussel,mussel,0.391,,,shellfish,is_a,approved,unreviewed,0.298,0.97,0.8,,Mussel is a shellfish people eat
 oyster,oyster,0.506,,,shellfish,is_a,approved,unreviewed,0.265,0.97,0.8,,Oyster is a shellfish people eat
@@ -12021,6 +12185,13 @@ team,team,0.81,,,groups_of_people,is_a,approved,unreviewed,0.216,0.97,0.78,,Team
 tribe,tribe,0.589,,,groups_of_people,is_a,approved,unreviewed,0.248,0.97,0.78,,Tribe is a word for a gathering of people
 troop,troop,0.527,,,groups_of_people,is_a,approved,unreviewed,0.265,0.97,0.78,,Troop is a word for a gathering of people
 party,party,0.784,party_group,A group of people acting together,groups_of_people,is_a,hard_only,unreviewed,0.216,0.97,0.78,,Party is a word for a gathering of people
+composers,composers,0.493,,,hall_of_fame,found_in,alternative,unreviewed,,0.82,0.44,,Composers are honoured in halls of fame
+legend,legend,0.634,,,hall_of_fame,associated_with,alternative,unreviewed,,0.84,0.7,,Only legends get in
+awards,awards,0.673,,,hall_of_fame,associated_with,approved,unreviewed,,0.92,0.68,,A hall of fame is built on awards
+bust,bust,0.577,,,hall_of_fame,found_in,approved,unreviewed,,0.86,0.6,,A bronze bust stands in the hall
+explorers,explorers,0.487,,,hall_of_fame,found_in,approved,unreviewed,,0.85,0.5,,Explorers are remembered the same way
+inventors,inventors,0.46,,,hall_of_fame,found_in,approved,unreviewed,,0.88,0.56,,Inventors have their own hall of fame
+plaque,plaque,0.527,,,hall_of_fame,found_in,approved,unreviewed,,0.92,0.76,,A plaque carries the name
 ford,ford,0.643,ford_person,"Henry Ford, who built the first mass produced car",inventors,is_a,alternative,unreviewed,0.266,0.97,0.75,"[""proper_noun""]",Ford is a famous inventor
 bell,bell,0.656,,,inventors,is_a,approved,unreviewed,0.263,0.97,0.75,"[""proper_noun""]",Bell is a famous inventor
 diesel,diesel,0.579,,,inventors,is_a,approved,unreviewed,0.285,0.97,0.75,"[""proper_noun""]",Diesel is a famous inventor
@@ -12205,6 +12376,13 @@ Roosevelt,roosevelt,0.556,,,us_presidents,is_a,approved,unreviewed,0.245,0.97,0.
 Truman,truman,0.509,,,us_presidents,is_a,approved,unreviewed,0.259,0.97,0.82,"[""proper_noun""]",Truman was a president of the United States
 Washington,washington,0.726,,,us_presidents,is_a,approved,unreviewed,0.204,0.97,0.82,"[""proper_noun""]",Washington was a president of the United States
 Wilson,wilson,0.647,,,us_presidents,is_a,approved,unreviewed,0.219,0.97,0.82,"[""proper_noun""]",Wilson was a president of the United States
+eyewear,eyewear,0.397,,,beach_day,found_in,alternative,unreviewed,,0.84,0.48,,Sunglasses go with the beach
+shellfish,shellfish,0.45,,,beach_day,found_in,alternative,unreviewed,,0.82,0.44,,Shells and crabs are found in the sand
+seabirds,seabirds,0.387,,,beach_day,found_in,approved,unreviewed,,0.86,0.5,,Gulls patrol the beach
+sunscreen,sunscreen,0.47,,,beach_day,used_for,approved,unreviewed,,0.96,0.88,,Sunscreen is the thing you forget
+swimwear,swimwear,0.43,,,beach_day,found_in,approved,unreviewed,,0.96,0.8,,Swimwear is what you go in
+towel,towel,0.563,,,beach_day,used_for,approved,unreviewed,,0.95,0.86,,A towel is beach kit
+umbrella,umbrella,0.556,,,beach_day,used_for,approved,unreviewed,,0.9,0.74,,An umbrella gives shade
 Alberta,alberta,0.551,,,canadian_places,is_a,approved,unreviewed,0.333,0.97,0.7,"[""proper_noun""]",Alberta is a well known place in Canada
 Banff,banff,0.414,,,canadian_places,is_a,approved,unreviewed,0.372,0.97,0.7,"[""proper_noun""]",Banff is a well known place in Canada
 Calgary,calgary,0.54,,,canadian_places,is_a,approved,unreviewed,0.336,0.97,0.7,"[""proper_noun""]",Calgary is a well known place in Canada
@@ -12594,6 +12772,13 @@ pear,pear,0.496,,,fruit_trees,is_a,approved,unreviewed,0.274,0.97,0.78,,Pear is 
 pecan,pecan,0.419,,,fruit_trees,is_a,approved,unreviewed,0.296,0.97,0.78,,Pecan is a tree grown for its fruit
 plum,plum,0.507,,,fruit_trees,is_a,approved,unreviewed,0.271,0.97,0.78,,Plum is a tree grown for its fruit
 walnut,walnut,0.509,,,fruit_trees,is_a,approved,unreviewed,0.271,0.97,0.78,,Walnut is a tree grown for its fruit
+flowers,flowers,0.663,,,garden_center,found_in,approved,unreviewed,,0.96,0.78,,Flowers are sold at the garden center
+houseplants,houseplants,0.307,,,garden_center,found_in,approved,unreviewed,,0.96,0.76,,Houseplants fill the garden center shelves
+seedling,seedling,0.393,,,garden_center,found_in,approved,unreviewed,,0.92,0.74,,Seedlings are sold in trays
+soil,soil,0.631,,,garden_center,found_in,approved,unreviewed,,0.94,0.82,,Bags of soil are stacked outside
+trees,trees,0.67,,,garden_center,found_in,approved,unreviewed,,0.9,0.62,,Saplings are sold at the garden center
+trowel,trowel,0.35,,,garden_center,found_in,approved,unreviewed,,0.9,0.72,,A trowel is garden center stock
+weeds,weeds,0.503,,,garden_center,associated_with,hard_only,unreviewed,,0.72,0.3,,Weed killer is a garden center aisle
 crocus,crocus,0.351,,,garden_flowers_spring,found_in,alternative,unreviewed,0.359,0.97,0.72,"[""obscure""]",Crocus blooms in spring
 snowdrop,snowdrop,0.317,,,garden_flowers_spring,found_in,alternative,unreviewed,0.368,0.97,0.72,"[""obscure""]",Snowdrop blooms in spring
 azalea,azalea,0.436,,,garden_flowers_spring,found_in,approved,unreviewed,0.334,0.97,0.72,,Azalea blooms in spring
@@ -13757,6 +13942,13 @@ particle,particle,0.557,,,microscope_things,has_property,alternative,unreviewed,
 pollen,pollen,0.496,,,microscope_things,has_property,alternative,unreviewed,0.354,0.97,0.68,,Pollen is too small to see with the naked eye
 spore,spore,0.429,,,microscope_things,has_property,alternative,unreviewed,0.373,0.97,0.68,,Spore is too small to see with the naked eye
 virus,virus,0.631,,,microscope_things,has_property,alternative,unreviewed,0.316,0.97,0.68,,Virus is too small to see with the naked eye
+bones,bones,0.617,,,natural_history_museum,found_in,approved,unreviewed,,0.95,0.72,,Mounted bones are the main hall
+diorama,diorama,0.356,,,natural_history_museum,found_in,approved,unreviewed,,0.9,0.64,,A diorama shows the animal in place
+fossil,fossil,0.57,,,natural_history_museum,found_in,approved,unreviewed,,0.96,0.86,,A fossil is the classic exhibit
+gemstones,gemstones,0.397,,,natural_history_museum,found_in,approved,unreviewed,,0.88,0.56,,The gem vault is the busiest room
+insects,insects,0.574,,,natural_history_museum,found_in,approved,unreviewed,,0.86,0.5,,Pinned insects fill the drawers
+minerals,minerals,0.561,,,natural_history_museum,found_in,approved,unreviewed,,0.9,0.6,,Mineral cases are a museum wing
+skeleton,skeleton,0.543,,,natural_history_museum,found_in,approved,unreviewed,,0.94,0.84,,The skeleton greets you at the door
 Earth,earth,0.723,,,planets,is_a,approved,unreviewed,0.13,0.97,0.9,"[""proper_noun""]",Earth is a planet of our solar system
 Jupiter,jupiter,0.526,,,planets,is_a,approved,unreviewed,0.18,0.97,0.9,"[""proper_noun""]",Jupiter is a planet of our solar system
 Mars,mars,0.61,,,planets,is_a,approved,unreviewed,0.156,0.97,0.9,"[""proper_noun""]",Mars is a planet of our solar system
@@ -13766,6 +13958,7 @@ Pluto,pluto,0.479,,,planets,is_a,approved,unreviewed,0.193,0.97,0.9,"[""proper_n
 Saturn,saturn,0.506,,,planets,is_a,approved,unreviewed,0.185,0.97,0.9,"[""proper_noun""]",Saturn is a planet of our solar system
 Uranus,uranus,0.43,,,planets,is_a,approved,unreviewed,0.207,0.97,0.9,"[""proper_noun""]",Uranus is a planet of our solar system
 Venus,venus,0.544,,,planets,is_a,approved,unreviewed,0.175,0.97,0.9,"[""proper_noun""]",Venus is a planet of our solar system
+moons,moons,0.483,,,planets,associated_with,rejected,unreviewed,,0.72,0.36,,Moons belong to planets
 core,core,0.676,,,rock_cycle_words,found_in,alternative,unreviewed,0.321,0.97,0.62,,Core is a word used in geology
 crust,crust,0.529,,,rock_cycle_words,found_in,alternative,unreviewed,0.363,0.97,0.62,,Crust is a word used in geology
 erosion,erosion,0.52,,,rock_cycle_words,found_in,alternative,unreviewed,0.365,0.97,0.62,,Erosion is a word used in geology
@@ -13782,6 +13975,14 @@ sediment,sediment,0.489,,,rock_cycle_words,found_in,alternative,unreviewed,0.374
 strata,strata,0.464,,,rock_cycle_words,found_in,alternative,unreviewed,0.381,0.97,0.62,,Strata is a word used in geology
 tectonic,tectonic,0.447,,,rock_cycle_words,found_in,alternative,unreviewed,0.386,0.97,0.62,,Tectonic is a word used in geology
 volcano,volcano,0.537,,,rock_cycle_words,found_in,alternative,unreviewed,0.361,0.97,0.62,,Volcano is a word used in geology
+metals,metals,0.564,,,science_fair,associated_with,alternative,unreviewed,,0.8,0.4,,Conducting metals are classic project material
+minerals,minerals,0.561,,,science_fair,associated_with,alternative,unreviewed,,0.82,0.42,,A rock and mineral display is a classic entry
+beaker,beaker,0.4,,,science_fair,used_for,approved,unreviewed,,0.9,0.78,,A beaker is science fair equipment
+hypothesis,hypothesis,0.553,,,science_fair,part_of,approved,unreviewed,,0.92,0.7,,A project starts with a hypothesis
+inventions,inventions,0.509,,,science_fair,found_in,approved,unreviewed,,0.9,0.6,,Science fair projects are small inventions
+poster,poster,0.599,,,science_fair,part_of,approved,unreviewed,,0.94,0.82,,Every entry has a three panel poster
+volcanoes,volcanoes,0.477,,,science_fair,associated_with,approved,unreviewed,,0.88,0.66,,The baking soda volcano is the most famous project
+shapes,shapes,0.57,,,science_fair,associated_with,hard_only,unreviewed,,0.75,0.34,,Geometry projects are about shapes
 anatomy,anatomy,0.563,,,science_fields,is_a,approved,unreviewed,0.249,0.97,0.8,,Anatomy is a field of scientific study
 archaeology,archaeology,0.51,,,science_fields,is_a,approved,unreviewed,0.264,0.97,0.8,,Archaeology is a field of scientific study
 astronomy,astronomy,0.519,,,science_fields,is_a,approved,unreviewed,0.262,0.97,0.8,,Astronomy is a field of scientific study
@@ -13923,6 +14124,7 @@ old fashioned,old fashioned,0.561,,,cocktails,is_a,approved,unreviewed,0.29,0.97
 sangria,sangria,0.359,,,cocktails,is_a,approved,unreviewed,0.347,0.97,0.75,,Sangria is a named mixed drink
 tom collins,tom collins,0.581,,,cocktails,is_a,approved,unreviewed,0.284,0.97,0.75,"[""multiword""]",Tom collins is a named mixed drink
 whiskey sour,whiskey sour,0.504,,,cocktails,is_a,approved,unreviewed,0.306,0.97,0.75,"[""multiword""]",Whiskey sour is a named mixed drink
+teas,teas,0.453,,,cocktails,associated_with,rejected,unreviewed,,0.35,0.12,,Long Island iced tea is a cocktail name
 moonwalk,moonwalk,0.329,,,dance_moves,is_a,alternative,unreviewed,0.396,0.97,0.7,"[""obscure""]",Moonwalk is a named dance move
 shuffle,shuffle,0.499,shuffle_dance,A dance step done with sliding feet,dance_moves,is_a,alternative,unreviewed,0.347,0.97,0.7,,Shuffle is a named dance move
 dip,dip,0.579,,,dance_moves,is_a,approved,unreviewed,0.325,0.97,0.7,,Dip is a named dance move
@@ -14285,6 +14487,7 @@ tool belt,tool belt,0.597,,,astronaut_gear,used_in,approved,unreviewed,0.279,0.9
 visor,visor,0.426,,,astronaut_gear,used_in,approved,unreviewed,0.328,0.97,0.75,,Visor is used by an astronaut
 Capella,capella,0.37,,,bright_stars,is_a,approved,unreviewed,0.424,0.97,0.65,"[""proper_noun""]",Capella is a named star
 Castor,castor,0.454,,,bright_stars,is_a,approved,unreviewed,0.4,0.97,0.65,"[""proper_noun""]",Castor is a named star
+constellations,constellations,0.426,,,bright_stars,associated_with,approved,unreviewed,,0.86,0.54,,A constellation is made of stars
 Polaris,polaris,0.44,,,bright_stars,is_a,approved,unreviewed,0.404,0.97,0.65,"[""proper_noun""]",Polaris is a named star
 Sirius,sirius,0.466,,,bright_stars,is_a,approved,unreviewed,0.397,0.97,0.65,"[""proper_noun""]",Sirius is a named star
 Vega,vega,0.489,,,bright_stars,is_a,approved,unreviewed,0.39,0.97,0.65,"[""proper_noun""]",Vega is a named star
@@ -14416,6 +14619,13 @@ Soyuz,soyuz,0.414,,,spacecraft,is_a,approved,unreviewed,0.366,0.97,0.72,"[""prop
 Sputnik,sputnik,0.396,,,spacecraft,is_a,approved,unreviewed,0.371,0.97,0.72,"[""proper_noun""]",Sputnik is a famous spacecraft or space mission
 Viking,viking,0.514,,,spacecraft,is_a,approved,unreviewed,0.337,0.97,0.72,"[""proper_noun""]",Viking is a famous spacecraft or space mission
 Voyager,voyager,0.476,,,spacecraft,is_a,approved,unreviewed,0.348,0.97,0.72,"[""proper_noun""]",Voyager is a famous spacecraft or space mission
+comet,comet,0.52,,,stargazing,found_in,alternative,unreviewed,,0.88,0.74,,A comet is a rare night sky event
+eclipse,eclipse,0.544,,,stargazing,associated_with,alternative,unreviewed,,0.78,0.66,,An eclipse is watched in the night sky
+telescope,telescope,0.536,,,stargazing,used_for,alternative,unreviewed,,0.82,0.78,,A telescope is how you look at the night sky
+constellations,constellations,0.426,,,stargazing,found_in,approved,unreviewed,,0.94,0.6,,Constellations are the patterns people trace in the night sky
+moons,moons,0.483,,,stargazing,found_in,approved,unreviewed,,0.92,0.58,,Moons are visible in the night sky
+planets,planets,0.579,,,stargazing,found_in,approved,unreviewed,,0.95,0.62,,Planets are the bright wanderers of the night sky
+stars,stars,0.694,,,stargazing,found_in,approved,unreviewed,,0.97,0.72,,Stars are what the night sky is made of
 aperture,aperture,0.496,,,telescope_words,found_in,alternative,unreviewed,0.354,0.97,0.68,,Aperture is used with a telescope
 dome,dome,0.557,,,telescope_words,found_in,alternative,unreviewed,0.337,0.97,0.68,,Dome is used with a telescope
 eyepiece,eyepiece,0.349,,,telescope_words,found_in,alternative,unreviewed,0.396,0.97,0.68,"[""obscure""]",Eyepiece is used with a telescope
@@ -14440,6 +14650,13 @@ panda,panda,0.521,,,bears_and_big_animals,is_a,approved,unreviewed,0.255,0.97,0.
 polar,polar,0.566,,,bears_and_big_animals,is_a,approved,unreviewed,0.242,0.97,0.82,,Polar is a kind of bear
 sloth bear,sloth bear,0.441,,,bears_and_big_animals,is_a,approved,unreviewed,0.278,0.97,0.82,"[""multiword""]",Sloth bear is a kind of bear
 sun bear,sun bear,0.646,,,bears_and_big_animals,is_a,approved,unreviewed,0.219,0.97,0.82,"[""multiword""]",Sun bear is a kind of bear
+binoculars,binoculars,0.443,,,bird_watching,used_for,approved,unreviewed,,0.97,0.88,,Binoculars are the birdwatcher's tool
+feeder,feeder,0.494,,,bird_watching,used_for,approved,unreviewed,,0.9,0.74,,A feeder brings birds to you
+nest,nest,0.581,,,bird_watching,associated_with,approved,unreviewed,,0.86,0.72,,Finding a nest is the reward
+owls,owls,0.487,,,bird_watching,found_in,approved,unreviewed,,0.92,0.58,,Owls are a prized sighting
+seabirds,seabirds,0.387,,,bird_watching,found_in,approved,unreviewed,,0.9,0.52,,Seabirds are watched from the shore
+songbirds,songbirds,0.347,,,bird_watching,found_in,approved,unreviewed,,0.94,0.6,,Songbirds are the everyday sighting
+waterfowl,waterfowl,0.411,,,bird_watching,found_in,approved,unreviewed,,0.9,0.5,,Waterfowl are counted on the lake
 goshawk,goshawk,0.3,,,birds_of_prey,is_a,alternative,unreviewed,0.324,0.97,0.8,"[""obscure""]",Goshawk is a bird that hunts other animals
 kestrel,kestrel,0.353,,,birds_of_prey,is_a,alternative,unreviewed,0.309,0.97,0.8,"[""obscure""]",Kestrel is a bird that hunts other animals
 buzzard,buzzard,0.404,,,birds_of_prey,is_a,approved,unreviewed,0.295,0.97,0.8,,Buzzard is a bird that hunts other animals
@@ -16056,6 +16273,13 @@ vise,vise,0.399,,,hand_tools,is_a,approved,unreviewed,0.191,0.97,0.9,,Vise is a 
 wrench,wrench,0.481,,,hand_tools,is_a,approved,unreviewed,0.168,0.97,0.9,,Wrench is a hand tool used for building or repair
 screwgun,screwgun,,,,hand_tools,is_a,candidate,unreviewed,,0.97,0.9,"[""no_familiarity""]",Screwgun is a hand tool used for building or repair
 punch,punch,0.617,punch_tool,A tool that drives holes through material,hand_tools,is_a,hard_only,unreviewed,0.129,0.97,0.9,,Punch is a hand tool used for building or repair
+containers,containers,0.551,,,hardware_store,found_in,alternative,unreviewed,,0.85,0.46,,Buckets and bins are sold there
+fuels,fuels,0.546,,,hardware_store,found_in,alternative,unreviewed,,0.82,0.4,,Propane and lamp oil are hardware store stock
+blades,blades,0.553,,,hardware_store,found_in,approved,unreviewed,,0.9,0.56,,Saw and utility blades hang on the pegboard
+fasteners,fasteners,0.393,,,hardware_store,found_in,approved,unreviewed,,0.95,0.66,,Bins of screws and nails are the core aisle
+hose,hose,0.533,,,hardware_store,found_in,approved,unreviewed,,0.9,0.74,,Garden hose is hardware store stock
+ladder,ladder,0.576,,,hardware_store,found_in,approved,unreviewed,,0.92,0.78,,Ladders lean at the back wall
+sandpaper,sandpaper,0.39,,,hardware_store,found_in,approved,unreviewed,,0.9,0.7,,Sandpaper is sold by the sheet
 baster,baster,0.291,,,kitchen_gadgets,is_a,alternative,unreviewed,0.333,0.97,0.78,"[""obscure""]",Baster is a small kitchen gadget
 peeler,peeler,0.354,,,kitchen_gadgets,is_a,alternative,unreviewed,0.315,0.97,0.78,"[""obscure""]",Peeler is a small kitchen gadget
 sifter,sifter,0.284,,,kitchen_gadgets,is_a,alternative,unreviewed,0.335,0.97,0.78,"[""obscure""]",Sifter is a small kitchen gadget
@@ -16566,8 +16790,12 @@ seaplane,seaplane,0.363,,,aircraft,is_a,approved,unreviewed,0.275,0.97,0.82,,Sea
 shuttle,shuttle,0.557,,,aircraft,is_a,approved,unreviewed,0.22,0.97,0.82,,Shuttle is a flying machine
 ultralight,ultralight,0.379,,,aircraft,is_a,approved,unreviewed,0.271,0.97,0.82,,Ultralight is a flying machine
 Zeppelin,zeppelin,0.47,,,aircraft,is_a,approved,unreviewed,0.245,0.97,0.82,,Zeppelin is a flying machine
+currencies,currencies,0.517,,,airport_words,found_in,alternative,unreviewed,,0.82,0.42,,Currency exchange is an airport counter
 gate,gate,0.639,gate_airport,The exit where passengers board a plane,airport_words,found_in,alternative,unreviewed,0.187,0.97,0.85,,Gate is something you encounter at an airport
 jetway,jetway,0.237,,,airport_words,found_in,alternative,unreviewed,0.302,0.97,0.85,"[""obscure""]",Jetway is something you encounter at an airport
+languages,languages,0.631,,,airport_words,found_in,alternative,unreviewed,,0.8,0.38,,Airport signs are in several languages
+aircraft,aircraft,0.663,,,airport_words,found_in,approved,unreviewed,,0.95,0.72,,Aircraft park at the airport
+airlines,airlines,0.599,,,airport_words,found_in,approved,unreviewed,,0.96,0.74,,Airlines are what an airport is full of
 aisle,aisle,0.531,,,airport_words,found_in,approved,unreviewed,0.218,0.97,0.85,,Aisle is something you encounter at an airport
 baggage,baggage,0.534,,,airport_words,found_in,approved,unreviewed,0.217,0.97,0.85,,Baggage is something you encounter at an airport
 boarding pass,boarding pass,0.561,,,airport_words,found_in,approved,unreviewed,0.21,0.97,0.85,"[""multiword""]",Boarding pass is something you encounter at an airport
@@ -16899,6 +17127,7 @@ toiletries,toiletries,0.39,,,travel_documents,used_in,approved,unreviewed,0.268,
 Visa,visa,0.59,,,travel_documents,used_in,approved,unreviewed,0.21,0.97,0.82,,Visa is carried by a traveler on a trip
 wallet,wallet,0.593,,,travel_documents,used_in,approved,unreviewed,0.21,0.97,0.82,,Wallet is carried by a traveler on a trip
 plane,plane,0.674,plane_aircraft,A flying machine with fixed wings,vehicles,is_a,alternative,unreviewed,0.072,0.97,0.95,,Plane is a vehicle that carries people or goods
+aircraft,aircraft,0.663,,,vehicles,is_a,approved,unreviewed,,0.92,0.6,,Aircraft are vehicles
 ambulance,ambulance,0.58,,,vehicles,is_a,approved,unreviewed,0.099,0.97,0.95,,Ambulance is a vehicle that carries people or goods
 bike,bike,0.647,,,vehicles,is_a,approved,unreviewed,0.08,0.97,0.95,,Bike is a vehicle that carries people or goods
 boat,boat,0.673,,,vehicles,is_a,approved,unreviewed,0.073,0.97,0.95,,Boat is a vehicle that carries people or goods
@@ -16921,6 +17150,7 @@ train,train,0.709,,,vehicles,is_a,approved,unreviewed,0.065,0.97,0.95,,Train is 
 tram,tram,0.494,,,vehicles,is_a,approved,unreviewed,0.124,0.97,0.95,,Tram is a vehicle that carries people or goods
 trolley,trolley,0.491,,,vehicles,is_a,approved,unreviewed,0.125,0.97,0.95,,Trolley is a vehicle that carries people or goods
 truck,truck,0.663,,,vehicles,is_a,approved,unreviewed,0.076,0.97,0.95,,Truck is a vehicle that carries people or goods
+trucks,trucks,0.6,,,vehicles,is_a,approved,unreviewed,,0.98,0.88,,Trucks are vehicles
 van,van,0.683,,,vehicles,is_a,approved,unreviewed,0.07,0.97,0.95,,Van is a vehicle that carries people or goods
 wagon,wagon,0.557,,,vehicles,is_a,approved,unreviewed,0.106,0.97,0.95,,Wagon is a vehicle that carries people or goods
 Cortland,cortland,0.369,,,apple_varieties,is_a,approved,unreviewed,0.345,0.97,0.75,"[""proper_noun""]",Cortland is a variety of apple

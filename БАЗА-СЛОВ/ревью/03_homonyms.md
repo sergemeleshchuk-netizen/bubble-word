@@ -25,7 +25,7 @@
 
 ## ATLAS
 - **atlas_book** — A book of maps
-  - +map_words, ~book_genres, ~library_words
+  - +geography_class, +map_words, ~book_genres, ~library_words
 - **atlas_mountains** — The mountain range across northwest Africa
   - !mountain_ranges
 
@@ -1135,7 +1135,7 @@
 - **scale_music** — A series of musical notes in rising or falling order
   - +music_words
 - **scale_ratio** — The ratio between a map or a model and real size
-  - !model_building, ~map_words
+  - !model_building, +map_legend, ~map_words
 - **scale_skin** — One of the small hard plates covering a fish or a reptile
   - +animal_coverings
 - **scale_weigh** — A device used to weigh things
@@ -1337,7 +1337,7 @@
 
 ## STAMP
 - **stamp_postage** — A small printed square stuck on mail to pay postage
-  - +collecting_hobbies, +mail_words, +things_in_a_wallet, ~square_things
+  - +collecting_hobbies, +greeting_card, +mail_words, +things_in_a_wallet, ~square_things
 - **stamp_tool** — A rubber block used to print a mark on paper
   - ~office_supplies, ~things_made_of_rubber
 
@@ -1499,7 +1499,7 @@
 - **toast_bread** — Bread browned by heat
   - +breakfast_foods
 - **toast_salute** — Raised glasses in honor of someone
-  - !new_year_things, !wedding_things
+  - !new_year_things, !wedding_things, +dinner_party
 
 ## TOP
 - **top_spin** — A toy that spins on a point

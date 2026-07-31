@@ -6,16 +6,16 @@
 
 | файл | что это |
 |---|---|
-| `база-слов.sqlite` | **сама база**, файл SQLite (9.6 МБ). Открывается любым просмотрщиком SQLite, например DB Browser for SQLite |
+| `база-слов.sqlite` | **сама база**, файл SQLite (9.7 МБ). Открывается любым просмотрщиком SQLite, например DB Browser for SQLite |
 | `ревью/` | материалы для проверки базы человеком или внешней моделью |
 
 ## Что внутри базы
 
-- категорий: **1093** в 58 темах
-- уникальных слов: **10007**
-- связей слово-категория: **17556**
+- категорий: **1120** в 58 темах
+- уникальных слов: **10112**
+- связей слово-категория: **17786**
 - значений у многозначных слов: **564** (у 222 слов)
-- слов в двух и более категориях: **3466** (35%)
+- слов в двух и более категориях: **3527** (35%)
 
 Таблицы:
 
@@ -50,30 +50,38 @@ tool/word_content_pipeline/data/seed/_semantic_review.csv  семантичес�
 tool/word_content_pipeline/data/seed/_risk_flags.csv    культурные и правовые риски
 tool/word_content_pipeline/data/seed/_category_meta.json   парные категории, запреты
 tool/word_content_pipeline/data/review_decisions.csv    статусы всех связей
+tool/word_content_pipeline/data/runs/*/                 прогоны AI: кандидаты + решения ревью
 ```
 
 ## Как обновить этот снимок
 
-Из папки `tool/word_content_pipeline`:
+Из папки `tool/word_content_pipeline` — одна команда:
 
 ```bash
-.venv/bin/python scripts/build_seed.py                    # собрать JSONL из data/seed
-.venv/bin/python scripts/swow_status.py                   # проставить статусы связей
-.venv/bin/word-content init-db            --db database/content.sqlite
-.venv/bin/word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
-.venv/bin/word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
-.venv/bin/word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
-.venv/bin/word-content derive-readiness   --db database/content.sqlite
-.venv/bin/word-content derive-conflicts   --db database/content.sqlite --output data/category_conflicts.csv
-.venv/bin/word-content build-quartets     --db database/content.sqlite --output data/quartets.csv
-.venv/bin/word-content stamp-version      --db database/content.sqlite --content-version ГГГГ.ММ.ДД
-.venv/bin/word-content check-integrity    --db database/content.sqlite   # обязательно: ненулевой код = не отдавать
-.venv/bin/python scripts/export_review_pack.py            # обновить эту папку
+bash scripts/rebuild_all.sh
 ```
 
-Последняя команда пересобирает и снимок базы, и папку `ревью/`.
-`check-integrity` — это критерии приёмки из внешнего аудита в виде кода: если он
-падает, снимок отдавать нельзя.
+Она делает всё по порядку: собирает JSONL из `data/seed`, пересчитывает статусы
+связей по SWOW, создаёт базу С НУЛЯ (старая уезжает в `database/backup/`),
+импортирует seed и все прогоны из `data/runs/`, применяет решения ревью, считает
+`readiness`, запреты на сочетание категорий и проверенные четвёрки, ставит версию
+и в конце прогоняет приёмку.
+
+`check-integrity` в конце — это критерии внешнего аудита в виде кода: ненулевой
+код возврата означает, что базу отдавать нельзя.
+
+Почему одной командой, а не списком из десяти. Именно на списке проект уже
+разошёлся: пересборку делали руками, веб-инструмент читал снимок из другой копии
+пайплайна, и эта копия осталась на состоянии до аудита. Плюс `init-db` старую
+базу не чистит, поэтому сборка «поверх» давала не замену связей, а вторые
+экземпляры.
+
+После пересборки обновить выгрузки:
+
+```bash
+.venv/bin/python scripts/export_review_pack.py        # эту папку (снимок + ревью/)
+python3 ../level-tool/scripts/export_snapshot.py      # снимок для веб-инструмента
+```
 
 ## Как посмотреть базу без программиста
 

@@ -6,6 +6,7 @@ from conftest import MEMBERSHIPS, write_jsonl
 
 from word_content.importers import import_categories, import_memberships
 from word_content.repositories import get_word, list_senses, memberships_for_word
+from word_content.sense_map import SenseMap
 
 
 def test_word_is_created_automatically(seeded):
@@ -118,3 +119,73 @@ def test_membership_without_sense_is_allowed(seeded, tmp_path: Path):
 
     assert report.inserted == 1
     assert memberships_for_word(seeded, "peach")[0]["sense_key"] is None
+
+
+# --------------------------------------------------------------------------- #
+# карта значений как общий источник для всех путей импорта
+# --------------------------------------------------------------------------- #
+def test_sense_comes_from_map_when_source_omits_it(seeded, tmp_path: Path):
+    """Прогон AI не принёс значение — оно берётся из карты проекта.
+
+    Регрессия из жизни: прогон мета-хабов принёс `atlas -> GEOGRAPHY CLASS` без
+    sense_key, и многозначное слово заехало в категорию без смысла. Проверка
+    приёмки это ловила, но уже после сборки базы.
+    """
+    sense_map = SenseMap(
+        senses={"apple": {"apple_fruit": {"definition": "The round edible fruit of an apple tree"}}},
+        assignments={"apple": {"river_features": "apple_fruit"}},
+    )
+    path = write_jsonl(tmp_path / "run.jsonl", [{
+        "word": "apple", "category_key": "river_features", "relation_type": "found_in",
+        "reason": "Проверочная связь без sense_key", "fit_score": 0.8,
+        "obviousness_score": 0.7, "source": "test_run",
+    }])
+    import_memberships(seeded, path, sense_map=sense_map)
+
+    row = seeded.execute(
+        "SELECT s.sense_key FROM memberships m "
+        "  JOIN words w ON w.id = m.word_id "
+        "  JOIN categories c ON c.id = m.category_id "
+        "  LEFT JOIN word_senses s ON s.id = m.sense_id "
+        " WHERE w.normalized = 'apple' AND c.category_key = 'river_features'"
+    ).fetchone()
+    assert row["sense_key"] == "apple_fruit"
+
+
+def test_sense_map_reuses_definition_already_in_base(seeded, tmp_path: Path):
+    """Карта может только назначать: определение берётся из базы, если его нет в карте."""
+    sense_map = SenseMap(assignments={"apple": {"town_places": "apple_company"}})
+    path = write_jsonl(tmp_path / "run.jsonl", [{
+        "word": "apple", "category_key": "town_places", "relation_type": "found_in",
+        "reason": "Магазин Apple в городе", "fit_score": 0.8,
+        "obviousness_score": 0.7, "source": "test_run",
+    }])
+    import_memberships(seeded, path, sense_map=sense_map)
+
+    row = seeded.execute(
+        "SELECT s.sense_key, s.definition FROM memberships m "
+        "  JOIN words w ON w.id = m.word_id "
+        "  JOIN categories c ON c.id = m.category_id "
+        "  LEFT JOIN word_senses s ON s.id = m.sense_id "
+        " WHERE w.normalized = 'apple' AND c.category_key = 'town_places'"
+    ).fetchone()
+    assert row["sense_key"] == "apple_company"
+    assert row["definition"]
+
+
+def test_membership_without_map_entry_keeps_no_sense(seeded, tmp_path: Path):
+    """Пустая карта ничего не выдумывает: связь остаётся без значения."""
+    path = write_jsonl(tmp_path / "run.jsonl", [{
+        "word": "apple", "category_key": "town_places", "relation_type": "found_in",
+        "reason": "Проверка отсутствия значения", "fit_score": 0.8,
+        "obviousness_score": 0.7, "source": "test_run",
+    }])
+    import_memberships(seeded, path, sense_map=SenseMap())
+
+    row = seeded.execute(
+        "SELECT m.sense_id FROM memberships m "
+        "  JOIN words w ON w.id = m.word_id "
+        "  JOIN categories c ON c.id = m.category_id "
+        " WHERE w.normalized = 'apple' AND c.category_key = 'town_places'"
+    ).fetchone()
+    assert row["sense_id"] is None

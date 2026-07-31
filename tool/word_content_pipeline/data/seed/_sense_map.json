@@ -17,7 +17,6 @@
     "Приписывать таким связям значение значит вносить в базу ложь, поэтому",
     "у них sense_id остаётся пустым, и это проверяется отдельно в integrity checks."
   ],
-
   "senses": {
     "club": {
       "club_sandwich": {
@@ -96,13 +95,15 @@
       }
     }
   },
-
   "assignments": {
     "apple": {
       "fairy_tale_things": "apple_fruit",
       "fruit_trees": "apple_fruit",
       "pie_types": "apple_fruit",
       "trees": "apple_fruit"
+    },
+    "atlas": {
+      "geography_class": "atlas_book"
     },
     "bank": {
       "places_you_wait": "bank_finance"
@@ -120,7 +121,10 @@
     },
     "club": {
       "juggling_words": "club_stick",
-      "sandwich_types": { "sense": "club_sandwich", "review_status": "approved" },
+      "sandwich_types": {
+        "sense": "club_sandwich",
+        "review_status": "approved"
+      },
       "weapons_of_the_past": "club_stick"
     },
     "crane": {
@@ -136,15 +140,30 @@
       "sports_venues": "diamond_field"
     },
     "heart": {
-      "shapes": { "sense": "heart_shape", "review_status": "approved" }
+      "shapes": {
+        "sense": "heart_shape",
+        "review_status": "approved"
+      }
     },
     "key": {
       "collecting_hobbies": "key_lock",
-      "locksmith_words": { "sense": "key_lock", "review_status": "approved" },
-      "map_words": { "sense": "key_legend", "review_status": "alternative" },
-      "things_in_a_junk_drawer": { "sense": "key_lock", "review_status": "approved" },
+      "locksmith_words": {
+        "sense": "key_lock",
+        "review_status": "approved"
+      },
+      "map_words": {
+        "sense": "key_legend",
+        "review_status": "alternative"
+      },
+      "things_in_a_junk_drawer": {
+        "sense": "key_lock",
+        "review_status": "approved"
+      },
       "things_made_of_metal": "key_lock",
-      "things_on_a_keychain": { "sense": "key_lock", "review_status": "approved" }
+      "things_on_a_keychain": {
+        "sense": "key_lock",
+        "review_status": "approved"
+      }
     },
     "orange": {
       "citrus_fruits": "orange_fruit",
@@ -158,51 +177,124 @@
     },
     "pitch": {
       "pine_and_cones": "pitch_tar",
-      "soccer_words": { "sense": "pitch_field", "review_status": "alternative" },
+      "soccer_words": {
+        "sense": "pitch_field",
+        "review_status": "alternative"
+      },
       "sports_actions": "pitch_throw",
-      "sports_venues": { "sense": "pitch_field", "review_status": "alternative" },
-      "startup_words": { "sense": "pitch_present", "review_status": "alternative" }
+      "sports_venues": {
+        "sense": "pitch_field",
+        "review_status": "alternative"
+      },
+      "startup_words": {
+        "sense": "pitch_present",
+        "review_status": "alternative"
+      }
     },
     "plate": {
-      "animal_coverings": { "sense": "plate_armor", "review_status": "hard_only" },
+      "animal_coverings": {
+        "sense": "plate_armor",
+        "review_status": "hard_only"
+      },
       "dishes_and_glassware": "plate_dish",
       "party_things": "plate_dish",
-      "printing_words": { "sense": "plate_printing", "review_status": "hard_only" },
-      "rock_cycle_words": { "sense": "plate_tectonic", "review_status": "alternative" }
+      "printing_words": {
+        "sense": "plate_printing",
+        "review_status": "hard_only"
+      },
+      "rock_cycle_words": {
+        "sense": "plate_tectonic",
+        "review_status": "alternative"
+      }
     },
     "ring": {
-      "bell_and_alarm": { "sense": "ring_sound", "review_status": "approved" },
-      "boxing_words": { "sense": "ring_arena", "review_status": "approved" },
-      "circus_words": { "sense": "ring_arena", "review_status": "approved" },
-      "juggling_words": { "sense": "ring_circle", "review_status": "hard_only" },
+      "bell_and_alarm": {
+        "sense": "ring_sound",
+        "review_status": "approved"
+      },
+      "boxing_words": {
+        "sense": "ring_arena",
+        "review_status": "approved"
+      },
+      "circus_words": {
+        "sense": "ring_arena",
+        "review_status": "approved"
+      },
+      "juggling_words": {
+        "sense": "ring_circle",
+        "review_status": "hard_only"
+      },
       "magic_objects": "ring_jewelry",
-      "magic_tricks": { "sense": "ring_circle", "review_status": "alternative" },
-      "musical_sounds": { "sense": "ring_sound", "review_status": "alternative" },
-      "onomatopoeia": { "sense": "ring_sound", "review_status": "approved" },
-      "round_things": { "sense": "ring_circle", "review_status": "approved" },
-      "solar_system_words": { "sense": "ring_circle", "review_status": "alternative" },
-      "space_objects": { "sense": "ring_circle", "review_status": "alternative" },
-      "sports_venues": { "sense": "ring_arena", "review_status": "alternative" },
-      "things_on_a_keychain": { "sense": "ring_circle", "review_status": "approved" },
+      "magic_tricks": {
+        "sense": "ring_circle",
+        "review_status": "alternative"
+      },
+      "musical_sounds": {
+        "sense": "ring_sound",
+        "review_status": "alternative"
+      },
+      "onomatopoeia": {
+        "sense": "ring_sound",
+        "review_status": "approved"
+      },
+      "round_things": {
+        "sense": "ring_circle",
+        "review_status": "approved"
+      },
+      "solar_system_words": {
+        "sense": "ring_circle",
+        "review_status": "alternative"
+      },
+      "space_objects": {
+        "sense": "ring_circle",
+        "review_status": "alternative"
+      },
+      "sports_venues": {
+        "sense": "ring_arena",
+        "review_status": "alternative"
+      },
+      "things_on_a_keychain": {
+        "sense": "ring_circle",
+        "review_status": "approved"
+      },
       "things_worn_on_hands": "ring_jewelry",
       "wedding_things": "ring_jewelry"
     },
     "scale": {
-      "animal_coverings": { "sense": "scale_skin", "review_status": "approved" },
+      "animal_coverings": {
+        "sense": "scale_skin",
+        "review_status": "approved"
+      },
       "baker_words": "scale_weigh",
       "bathroom_items": "scale_weigh",
       "butcher_words": "scale_weigh",
       "cooking_hobby": "scale_weigh",
-      "map_words": { "sense": "scale_ratio", "review_status": "alternative" },
+      "map_words": {
+        "sense": "scale_ratio",
+        "review_status": "alternative"
+      },
       "measurement_devices": "scale_weigh",
       "measuring_tools": "scale_weigh",
-      "model_building": { "sense": "scale_ratio", "review_status": "hard_only" },
-      "startup_words": { "sense": "scale_grow", "review_status": "hard_only" },
-      "world_markets": "scale_weigh"
+      "model_building": {
+        "sense": "scale_ratio",
+        "review_status": "hard_only"
+      },
+      "startup_words": {
+        "sense": "scale_grow",
+        "review_status": "hard_only"
+      },
+      "world_markets": "scale_weigh",
+      "map_legend": "scale_ratio"
     },
     "spring": {
       "seasons": "spring_season",
-      "things_that_stretch": { "sense": "spring_coil", "review_status": "approved" }
+      "things_that_stretch": {
+        "sense": "spring_coil",
+        "review_status": "approved"
+      }
+    },
+    "stamp": {
+      "greeting_card": "stamp_postage"
     },
     "star": {
       "christmas_things": "star_shape",
@@ -218,6 +310,9 @@
       "egypt_things": "temple_building",
       "kinds_of_buildings": "temple_building",
       "places_of_worship": "temple_building"
+    },
+    "toast": {
+      "dinner_party": "toast_salute"
     }
   }
 }

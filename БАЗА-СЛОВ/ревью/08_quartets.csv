@@ -1545,6 +1545,7 @@ liquids__2,liquids,LIQUIDS,Common liquids found around a home,normal,auto_valida
 liquids__3,liquids,LIQUIDS,Common liquids found around a home,normal,auto_validated,unique,0.201,polish | soda | soap | ink
 minerals__1,minerals,MINERALS,Minerals found in the earth,normal,auto_validated,unique,0.358,quartz | mica | graphite | sulfur
 minerals__2,minerals,MINERALS,Minerals found in the earth,normal,auto_validated,unique,0.387,calcite | gypsum | pyrite | magnetite
+minerals__3,minerals,MINERALS,Minerals found in the earth,normal,auto_validated,unique,0.395,feldspar | talc | hematite | gemstones
 powders__1,powders,POWDERS,Common substances that come as a powder,normal,auto_validated,unique,0.305,dust | sand | sugar | salt
 powders__2,powders,POWDERS,Common substances that come as a powder,normal,auto_validated,unique,0.327,flour | spice | cement | protein powder
 powders__3,powders,POWDERS,Common substances that come as a powder,normal,auto_validated,unique,0.34,chalk | cinnamon | cocoa | baking soda

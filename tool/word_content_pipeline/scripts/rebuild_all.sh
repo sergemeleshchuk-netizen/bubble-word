@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+#
+# Полная пересборка контентной базы из текстовых источников.
+#
+# Зачем скрипт, а не список команд в README: база собирается из десятка
+# источников в фиксированном порядке, и один пропущенный шаг даёт тихо неполную
+# базу. Ровно так проект уже разошёлся — снимок для веб-инструмента месяц жил на
+# копии базы, собранной до аудита, потому что пересборку делали руками в другом
+# каталоге. Один скрипт = один источник правды.
+#
+# Запуск из каталога tool/word_content_pipeline:
+#     bash scripts/rebuild_all.sh
+#
+# Ненулевой код возврата = база не готова, отдавать её нельзя.
+
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+DB=database/content.sqlite
+PY=.venv/bin/python
+WC=.venv/bin/word-content
+CONTENT_VERSION="${CONTENT_VERSION:-$(date -u +%Y.%m.%d)}"
+
+if [[ ! -x "$PY" ]]; then
+  echo "ОШИБКА: нет venv ($PY). Создайте: python3 -m venv .venv && .venv/bin/pip install -e ." >&2
+  exit 1
+fi
+
+echo "== 1/11 seed -> JSONL =="
+$PY scripts/build_seed.py
+
+echo "== 2/11 статусы связей по SWOW =="
+# Датасет SWOW лежит локально и в git не идёт. Без него статусы не пересчитать,
+# но собранные ранее решения в data/review_decisions.csv остаются валидны.
+if [[ -f ../../reference/swow/swow_agg.pkl ]]; then
+  $PY scripts/swow_status.py
+else
+  echo "   SWOW не найден: беру готовые решения из data/review_decisions.csv"
+fi
+
+echo "== 3/11 пустая база =="
+# Именно пустая: init-db повторный запуск переживает, но НЕ чистит. Если собирать
+# поверх старой базы, правки источников дают не замену, а второй экземпляр связи:
+# идентичность связи включает значение слова, поэтому «та же связь, но со смыслом»
+# уезжает отдельной строкой, а решения ревью достаются старой. Проверено на себе.
+if [[ -f "$DB" ]]; then
+  mkdir -p database/backup
+  mv "$DB" "database/backup/content.$(date -u +%Y%m%dT%H%M%SZ).sqlite"
+fi
+rm -f "$DB-wal" "$DB-shm"
+$WC init-db --db "$DB"
+
+echo "== 4/11 категории seed =="
+$WC import-categories --db "$DB" --input data/categories.jsonl
+
+echo "== 5/11 связи seed =="
+$WC import-memberships --db "$DB" --input data/membership_candidates.jsonl
+
+echo "== 6/11 прогоны AI: категории, связи, решения ревью =="
+# Прогон = отдельный источник с сохранённым провенансом (кто предложил, кто
+# решил). Мета-хабы дают материал для мета-пар: категория STARGAZING держит
+# слово `planets`, а PLANETS — сама категория уровня. Без этого слоя механика
+# мета-пузырей в генераторе не собирается вообще.
+for run in data/runs/*/; do
+  [[ -d "$run" ]] || continue
+  name=$(basename "$run")
+  echo "   прогон $name"
+  [[ -f "$run/categories.jsonl" ]] && \
+    $WC import-categories --db "$DB" --input "$run/categories.jsonl"
+  [[ -f "$run/memberships.jsonl" ]] && \
+    $WC import-memberships --db "$DB" --input "$run/memberships.jsonl"
+done
+
+echo "== 7/11 решения ревью =="
+$WC import-review --db "$DB" --input data/review_decisions.csv
+for run in data/runs/*/; do
+  [[ -f "$run/review_decisions.csv" ]] || continue
+  $WC import-review --db "$DB" --input "$run/review_decisions.csv"
+done
+
+echo "== 8/11 readiness категорий =="
+$WC derive-readiness --db "$DB"
+
+echo "== 9/11 запреты на сочетание категорий =="
+$WC derive-conflicts --db "$DB" --output data/category_conflicts.csv
+
+echo "== 10/11 проверенные четвёрки =="
+$WC build-quartets --db "$DB" --output data/quartets.csv
+
+echo "== 11/11 версия и приёмка =="
+$WC stamp-version --db "$DB" --content-version "$CONTENT_VERSION"
+$WC check-integrity --db "$DB"
+
+echo
+echo "База готова. Дальше по необходимости:"
+echo "  $PY scripts/export_review_pack.py                  # снимок в БАЗА-СЛОВ/"
+echo "  python3 ../level-tool/scripts/export_snapshot.py    # снимок для веб-инструмента"

@@ -23,6 +23,7 @@ from .repositories import (
     upsert_sense,
     upsert_word,
 )
+from .sense_map import SenseMap, default_sense_map
 from .validators import (
     ContentFilter,
     ValidationIssue,
@@ -145,12 +146,43 @@ def import_categories(conn: sqlite3.Connection, path: Path) -> ImportReport:
 # ------------------------------------------------------------------------ memberships
 
 
+def sense_from_map(
+    conn: sqlite3.Connection,
+    *,
+    word_id: int,
+    word: str,
+    category_key: str,
+    part_of_speech: str | None,
+    sense_map: SenseMap | None,
+) -> int | None:
+    """Значение связи из карты проекта: сначала определение из карты, иначе уже
+    известное базе значение с тем же ключом (карта может только назначать)."""
+    mapping = (sense_map or default_sense_map()).lookup(word, category_key)
+    if mapping is None:
+        return None
+    definition = mapping.definition
+    if definition is None:
+        row = conn.execute(
+            "SELECT id FROM word_senses WHERE word_id = ? AND sense_key = ?",
+            (word_id, mapping.sense_key),
+        ).fetchone()
+        return int(row["id"]) if row else None
+    return upsert_sense(
+        conn,
+        word_id=word_id,
+        sense_key=mapping.sense_key,
+        definition=definition,
+        part_of_speech=part_of_speech,
+    )
+
+
 def apply_membership(
     conn: sqlite3.Connection,
     item: MembershipCandidateInput,
     *,
     overwrite_review_status: bool = False,
     content_filter: ContentFilter | None = None,
+    sense_map: SenseMap | None = None,
 ) -> str:
     """Создаёт/обновляет слово, значение и связь. Бросает ValidationIssue при проблеме данных."""
     category = require_category(conn, item.category_key)
@@ -187,6 +219,14 @@ def apply_membership(
             definition=item.sense_definition,
             part_of_speech=item.part_of_speech,
         )
+    else:
+        # Источник значение не принёс — берём объявленное в карте проекта.
+        # Иначе многозначное слово заезжает в категорию без смысла: seed от этого
+        # защищён на этапе build_seed, а импорт прогонов был не защищён вовсе.
+        sense_id = sense_from_map(
+            conn, word_id=word_id, word=item.word, category_key=item.category_key,
+            part_of_speech=item.part_of_speech, sense_map=sense_map,
+        )
 
     return upsert_membership(
         conn,
@@ -215,6 +255,7 @@ def import_membership_records(
     overwrite_review_status: bool = False,
     import_type: str = "memberships",
     content_filter: ContentFilter | None = None,
+    sense_map: SenseMap | None = None,
 ) -> ImportReport:
     """Общий импорт связей: принимает как готовые dict, так и сырые JSON-строки."""
     report = ImportReport(import_type=import_type, source_file=source_file)
@@ -243,6 +284,7 @@ def import_membership_records(
                     item,
                     overwrite_review_status=overwrite_review_status,
                     content_filter=content_filter,
+                    sense_map=sense_map,
                 )
             except ValidationIssue as exc:
                 report.add_error(line_no, str(exc), raw_repr)
@@ -275,6 +317,7 @@ def import_memberships(
     *,
     overwrite_review_status: bool = False,
     content_filter: ContentFilter | None = None,
+    sense_map: SenseMap | None = None,
 ) -> ImportReport:
     return import_membership_records(
         conn,
@@ -282,6 +325,7 @@ def import_memberships(
         source_file=str(path),
         overwrite_review_status=overwrite_review_status,
         content_filter=content_filter,
+        sense_map=sense_map,
     )
 
 

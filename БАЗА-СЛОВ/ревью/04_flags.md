@@ -2,7 +2,7 @@
 
 Все разделы полные. Где показана часть строк, под таблицей сказано, сколько всего.
 
-## 1. Редкие слова (571)
+## 1. Редкие слова (572)
 
 Частотность ниже 0.3 по шкале wordfreq. Формально связи верны,
 но слово может быть незнакомо среднему американцу. Частотность измеряет
@@ -204,6 +204,7 @@
 | hairband | 0.241 |
 | harbormaster | 0.241 |
 | huckle | 0.241 |
+| phrasebook | 0.241 |
 | riyal | 0.241 |
 | shamisen | 0.241 |
 | spoonbill | 0.241 |
@@ -410,9 +411,8 @@
 | esthetician | 0.277 |
 | glovebox | 0.277 |
 | hanbok | 0.277 |
-| Hogmanay | 0.277 |
 
-Показано 400 строк из 571. Полный список — в `05_memberships.csv` и `07_readiness_and_conflicts.md`.
+Показано 400 строк из 572. Полный список — в `05_memberships.csv` и `07_readiness_and_conflicts.md`.
 
 ## 2. Слова без частотности (26)
 
@@ -450,14 +450,14 @@
 | WD40 | HARDWARE BRANDS (`paint_and_home`) | candidate |
 | Yuban | COFFEE BRANDS (`coffee_brands`) | candidate |
 
-## 3. Отклонённые слова (59)
+## 3. Отклонённые слова (62)
 
 Отклонены автоматически: частотность ниже 0.20, то есть слово практически
 не встречается в письменном английском. Проверить, не выброшено ли лишнее.
 
-F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba ganoush, bloodworm, bresaola, cacio e pepe, caecilian, capicola, casaba, castelvetrano, chiffonade, chile relleno, cremini, crustose, cutman, degu, elver, espadrille, fattoush, flambe, foliose, frigatebird, frisee, harvestman, hornwort, kufi, labneh, leveret, liverwort, margay, marionberry, meeple, mesclun, mudpuppy, muffuletta, mukluk, mulligatawny, numbat, otoscope, panpipe, parcheesi, patatas bravas, poult, ritardando, rotini, sepak takraw, shishito, shoat, taramasalata, timeclock, timpanist, ushanka, zester
+F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba ganoush, bloodworm, bresaola, cacio e pepe, caecilian, capicola, casaba, castelvetrano, chiffonade, chile relleno, cremini, crustose, cutman, degu, elver, espadrille, fattoush, flambe, foliose, frigatebird, frisee, harvestman, hornwort, kufi, labneh, leveret, liverwort, margay, marionberry, meeple, mesclun, months, moons, mudpuppy, muffuletta, mukluk, mulligatawny, numbat, otoscope, panpipe, parcheesi, patatas bravas, poult, ritardando, rotini, sepak takraw, shishito, shoat, taramasalata, teas, timeclock, timpanist, ushanka, zester
 
-## 4. Тонкие категории (69)
+## 4. Тонкие категории (96)
 
 Меньше 12 играбельных слов. Часть конечна по природе (сезонов правда
 четыре), часть просто недобрана. Колонка readiness показывает, что с этим сделал
@@ -467,10 +467,37 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 |---|---|---|
 | SEASONS (`seasons`) | 5 | constrained |
 | MOSS & LICHEN (`mosses_and_lichens`) | 6 | hard_only |
+| WEATHER REPORT (`weather_report`) | 6 | constrained |
 | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) | 6 | hard_only |
+| AQUARIUM (`aquarium_tank`) | 7 | constrained |
+| BEACH DAY (`beach_day`) | 7 | constrained |
+| BIRD WATCHING (`bird_watching`) | 7 | constrained |
+| COSTUME PARTY (`costume_party`) | 7 | constrained |
+| COURTROOM (`courtroom`) | 7 | constrained |
+| EMERGENCY ROOM (`emergency_room`) | 7 | constrained |
+| FARM (`farm_morning`) | 7 | constrained |
+| GARDEN CENTER (`garden_center`) | 7 | constrained |
+| GEOGRAPHY CLASS (`geography_class`) | 7 | constrained |
+| GREETING CARD (`greeting_card`) | 7 | constrained |
+| GROCERY AISLES (`grocery_aisles`) | 7 | constrained |
+| HALL OF FAME (`hall_of_fame`) | 7 | constrained |
+| HARDWARE STORE (`hardware_store`) | 7 | constrained |
+| JEWELRY BOX (`jewelry_box`) | 7 | constrained |
+| KITCHEN DRAWER (`kitchen_drawer`) | 7 | constrained |
+| MAP LEGEND (`map_legend`) | 7 | constrained |
+| NATURAL HISTORY MUSEUM (`natural_history_museum`) | 7 | constrained |
+| PET STORE (`pet_store`) | 7 | constrained |
+| PICNIC BASKET (`picnic_basket`) | 7 | constrained |
+| STARGAZING (`stargazing`) | 7 | constrained |
+| TOY CHEST (`toy_chest`) | 7 | constrained |
+| TRAVEL ABROAD (`travel_abroad`) | 7 | constrained |
+| WARDROBE (`wardrobe`) | 7 | constrained |
 | YOUNG ANIMALS (`baby_animal_words_more`) | 8 | hard_only |
+| DINNER PARTY (`dinner_party`) | 8 | constrained |
 | FROZEN TREATS (`frozen_treat_brands`) | 8 | constrained |
 | HISTORIC DOCUMENTS (`historic_documents`) | 8 | constrained |
+| HOME DECOR (`home_decor`) | 8 | constrained |
+| SCIENCE FAIR (`science_fair`) | 8 | constrained |
 | SMALL CATS (`wild_cats_small`) | 8 | constrained |
 | FOLK HEROES (`american_legends`) | 9 | constrained |
 | CHICKEN BREEDS (`farm_poultry_breeds`) | 9 | hard_only |
@@ -548,12 +575,12 @@ F150, Gullfoss, Idun, OHare, Talenti, Triscuit, affogato, ankylosaurus, baba gan
 | AIR ___ (`words_after_air`) | 13 / 18 | constrained |
 | SAILING TERMS (`sailing_terms`) | 10 / 14 | constrained |
 | HEAD ___ (`words_after_head`) | 11 / 16 | constrained |
-| STARS (`bright_stars`) | 10 / 15 | constrained |
 | CHICKEN BREEDS (`farm_poultry_breeds`) | 6 / 9 | hard_only |
 | TRADITIONAL FOOTWEAR (`world_hats_and_dress`) | 4 / 6 | hard_only |
 | ___ BERRY (`words_before_berry`) | 9 / 14 | constrained |
 | MUSHROOM TYPES (`mushroom_types`) | 7 / 11 | constrained |
 | YOUNG ANIMALS (`baby_animal_words_more`) | 5 / 8 | hard_only |
+| STARS (`bright_stars`) | 10 / 16 | constrained |
 | ___ BAG (`words_before_bag`) | 11 / 18 | constrained |
 | ___ GROUND (`words_before_ground`) | 8 / 14 | constrained |
 | ___ MASTER (`words_before_master`) | 8 / 14 | constrained |

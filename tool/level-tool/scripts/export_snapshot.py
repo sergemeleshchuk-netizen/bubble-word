@@ -3,20 +3,27 @@
 
 Публичное демо не пишет в production-базу и не зависит от serverless-хранилища:
 
-    pipeline/database/content.sqlite  --(этот скрипт)-->  content.snapshot.json
-                                                                  |
-                                                          статика в браузере
+    word_content_pipeline/database/content.sqlite --(этот скрипт)--> content.snapshot.json
+                                                                              |
+                                                                      статика в браузере
 
 Снимок компактный (индексы вместо повторяющихся строк) и содержит собственный
 sha256: одинаковый снимок + конфиг + seed воспроизводят один и тот же уровень.
 
-Запуск:  python3 scripts/export_snapshot.py
+Источник — ОДИН, канонический пайплайн `tool/word_content_pipeline`. Здесь раньше
+стоял путь на локальную копию `tool/level-tool/pipeline`, и это ровно тот способ
+разойтись, которым проект уже разошёлся: копия осталась на состоянии до внешнего
+аудита базы, её база опустела, а снимок продолжал жить с довоенными статусами
+(approved 9136 против 12598) и без слоёв, которые аудит добавил.
+
+Запуск:  python3 scripts/export_snapshot.py [--db путь]
 Вывод:   web/src/data/content.snapshot.json
          data/production/content.snapshot.json  (копия для истории)
          data/production/content.snapshot.sha256
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -26,7 +33,8 @@ import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DB = ROOT / "pipeline" / "database" / "content.sqlite"
+DB = ROOT.parent / "word_content_pipeline" / "database" / "content.sqlite"
+DB_FALLBACK = ROOT.parent.parent / "БАЗА-СЛОВ" / "база-слов.sqlite"
 OUT_WEB = ROOT / "web" / "src" / "data" / "content.snapshot.json"
 OUT_PROD = ROOT / "data" / "production" / "content.snapshot.json"
 
@@ -36,7 +44,17 @@ QUICKWIN_ZIPF = 3.0
 
 # порядок статусов фиксирован: индекс попадает в снимок, менять нельзя без версии схемы
 STATUSES = ["approved", "alternative", "hard_only", "candidate", "rejected"]
-SNAPSHOT_SCHEMA_VERSION = "snapshot-1.0"
+# порядок risk-флагов тоже фиксирован: в связи лежит битовая маска по этому списку
+RISK_FLAGS = [
+    "obscure", "regional", "proper_noun", "multiword", "culturally_specific",
+    "weak_relation", "highly_ambiguous", "sensitive", "possible_duplicate",
+    "outdated_term", "trademark", "no_familiarity", "needs_sense",
+]
+CONFLICT_TYPES = ["do_not_pair", "needs_disjoint_words"]
+QUARTET_TIERS = ["normal", "hard"]
+# 2.0: снимок несёт слои внешнего аудита базы — readiness категорий, запреты
+# на сочетание категорий, risk-флаги и игровую сложность связей
+SNAPSHOT_SCHEMA_VERSION = "snapshot-2.0"
 
 APOSTROPHES = dict.fromkeys(map(ord, "‘’ʼ′"), "'")
 DASHES = dict.fromkeys(map(ord, "‐‑‒–—−"), "-")
@@ -111,8 +129,8 @@ def build(conn: sqlite3.Connection) -> dict:
     resolve_zipf = zipf_resolver()
 
     cats = [dict(r) for r in conn.execute(
-        "select id, category_key, label, rule, relation_type, theme, base_difficulty "
-        "from categories where status='active' order by category_key")]
+        "select id, category_key, label, rule, relation_type, theme, base_difficulty, "
+        "readiness from categories where status='active' order by category_key")]
     cat_index = {c["id"]: i for i, c in enumerate(cats)}
 
     words = [dict(r) for r in conn.execute(
@@ -144,14 +162,30 @@ def build(conn: sqlite3.Connection) -> dict:
     # связи
     out_memberships = []
     skipped = 0
+    skipped_incorrect = 0
+    risk_bit = {flag: 1 << i for i, flag in enumerate(RISK_FLAGS)}
     for r in conn.execute(
         "select word_id, sense_id, category_id, relation_type, review_status, "
-        "fit_score, obviousness_score, reason from memberships"
+        "fit_score, obviousness_score, reason, semantic_status, gameplay_difficulty, "
+        "risk_flags from memberships"
     ):
         wi, ci = word_index.get(r["word_id"]), cat_index.get(r["category_id"])
         if wi is None or ci is None or r["review_status"] == "rejected":
             skipped += 1
             continue
+        # семантически неверная связь в игру не идёт независимо от review_status:
+        # это отдельная ось, введённая аудитом, и здесь она обязана резать
+        if r["semantic_status"] == "incorrect":
+            skipped_incorrect += 1
+            continue
+        mask = 0
+        if r["risk_flags"]:
+            try:
+                for flag in json.loads(r["risk_flags"]):
+                    mask |= risk_bit.get(flag, 0)
+            except json.JSONDecodeError:
+                pass
+        gd = r["gameplay_difficulty"]
         out_memberships.append([
             wi, ci,
             STATUSES.index(r["review_status"]),
@@ -159,6 +193,8 @@ def build(conn: sqlite3.Connection) -> dict:
             round(r["obviousness_score"], 2),
             r["relation_type"],
             sense_index.get(r["sense_id"]) if r["sense_id"] is not None else None,
+            round(gd, 2) if gd is not None else None,
+            mask,
         ])
 
     # мета-потенциал: категория, чьё имя само является словом-пузырём
@@ -177,9 +213,49 @@ def build(conn: sqlite3.Connection) -> dict:
                         if m[0] == wi and m[2] <= STATUSES.index("alternative")})
         meta_capable.append({"category": i, "word": wi, "hosts": hosts})
 
+    # запреты на сочетание категорий: слой базы, а не эвристика генератора.
+    # Живой фильтр по Жаккару остаётся (он ловит и то, чего в базе нет), но
+    # решение «эти две вместе не ставим» принято на стороне контента и приезжает
+    # сюда готовым — вместе с причиной и списком общих слов.
+    out_conflicts = []
+    for r in conn.execute(
+        "select category_a_id, category_b_id, conflict_type, severity, overlap_count "
+        "from category_conflicts order by category_a_id, category_b_id"
+    ):
+        ai, bi = cat_index.get(r["category_a_id"]), cat_index.get(r["category_b_id"])
+        if ai is None or bi is None:
+            continue
+        out_conflicts.append([
+            ai, bi,
+            CONFLICT_TYPES.index(r["conflict_type"]) if r["conflict_type"] in CONFLICT_TYPES else 0,
+            r["severity"],
+            r["overlap_count"],
+        ])
+
+    # проверенные четвёрки: каждая прошла solver единственности на стороне базы
+    quartet_rows = {}
+    for r in conn.execute(
+        "select q.id, q.category_id, q.tier, qw.word_id, qw.slot from quartets q "
+        "join quartet_words qw on qw.quartet_id = q.id "
+        "where q.review_state <> 'rejected' and q.solver_state = 'unique' "
+        "order by q.id, qw.slot"
+    ):
+        entry = quartet_rows.setdefault(r["id"], {"cat": cat_index.get(r["category_id"]),
+                                                 "tier": r["tier"], "words": []})
+        wi = word_index.get(r["word_id"])
+        entry["words"].append(wi)
+    out_quartets = [
+        [q["cat"], q["words"], QUARTET_TIERS.index(q["tier"]) if q["tier"] in QUARTET_TIERS else 0]
+        for q in quartet_rows.values()
+        if q["cat"] is not None and len(q["words"]) == 4 and all(w is not None for w in q["words"])
+    ]
+
     snapshot = {
         "schema_version": SNAPSHOT_SCHEMA_VERSION,
         "statuses": STATUSES,
+        "risk_flags": RISK_FLAGS,
+        "conflict_types": CONFLICT_TYPES,
+        "quartet_tiers": QUARTET_TIERS,
         "constants": {
             "zipf_max": ZIPF_MAX,
             "top50k_zipf": TOP50K_ZIPF,
@@ -192,19 +268,28 @@ def build(conn: sqlite3.Connection) -> dict:
             "rel": c["relation_type"],
             "th": c["theme"],
             "d": c["base_difficulty"],
+            "rd": c["readiness"],
         } for c in cats],
         "words": out_words,
         "senses": [senses[sid] for sid in sense_ids],
         "memberships": out_memberships,
         "meta_capable": meta_capable,
+        "conflicts": out_conflicts,
+        "quartets": out_quartets,
     }
 
     stats = {
         "categories": len(cats),
+        "categories_ready": sum(1 for c in cats if c["readiness"] == "ready"),
+        "categories_constrained": sum(1 for c in cats if c["readiness"] == "constrained"),
         "words": len(out_words),
         "senses": len(sense_ids),
         "memberships": len(out_memberships),
+        "conflicts": len(out_conflicts),
+        "quartets": len(out_quartets),
+        "memberships_with_risk": sum(1 for m in out_memberships if m[8]),
         "skipped_rejected": skipped,
+        "skipped_semantically_incorrect": skipped_incorrect,
         "approved": sum(1 for m in out_memberships if m[2] == 0),
         "alternative": sum(1 for m in out_memberships if m[2] == 1),
         "hard_only": sum(1 for m in out_memberships if m[2] == 2),
@@ -238,12 +323,47 @@ def canonical(obj) -> str:
     return json.dumps(obj, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
+def resolve_db(explicit: str | None) -> Path | None:
+    """Рабочая база пайплайна, иначе снимок в БАЗА-СЛОВ.
+
+    Рабочая база в git не хранится (источник правды — текстовые файлы), поэтому
+    на чистом клоне её просто нет. Снимок хранится, и собрать из него можно тот
+    же результат: это одна и та же база, просто отданная человеку.
+    """
+    if explicit:
+        path = Path(explicit)
+        return path if path.exists() else None
+    for candidate in (DB, DB_FALLBACK):
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def check_audited(conn: sqlite3.Connection, path: Path) -> None:
+    """База обязана быть версии 2: до аудита слоёв readiness и конфликтов нет."""
+    version = conn.execute(
+        "select value from schema_meta where key='schema_version'").fetchone()
+    if version is None or version[0] != "2":
+        raise SystemExit(
+            f"ОШИБКА: база {path} не аудированной версии (schema_version="
+            f"{version[0] if version else 'нет'}, нужна 2).\n"
+            "Пересоберите базу командами из БАЗА-СЛОВ/README.md."
+        )
+
+
 def main() -> int:
-    if not DB.exists():
-        print(f"ОШИБКА: нет базы {DB}", file=sys.stderr)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--db", help="путь к базе (по умолчанию канонический пайплайн)")
+    args = parser.parse_args()
+
+    db_path = resolve_db(args.db)
+    if db_path is None:
+        print(f"ОШИБКА: нет базы {args.db or DB}", file=sys.stderr)
         return 1
 
-    conn = connect_readonly(DB)
+    conn = connect_readonly(db_path)
+    check_audited(conn, db_path)
+    print(f"источник: {db_path}")
     snapshot = build(conn)
     conn.close()
 
