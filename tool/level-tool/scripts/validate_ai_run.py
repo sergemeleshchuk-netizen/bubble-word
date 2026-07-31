@@ -9,7 +9,7 @@
 Битая строка не останавливает прогон: она уходит в rejected.jsonl с причиной.
 
 Запуск:
-    python3 scripts/validate_ai_run.py data/runs/run-001-meta-hubs
+    python3 scripts/validate_ai_run.py ../word_content_pipeline/data/runs/run-001-meta-hubs
 
 Вывод в той же папке:
     categories.jsonl    готово к import-categories
@@ -28,7 +28,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DB = ROOT / "pipeline" / "database" / "content.sqlite"
+# База ОДНА — канонический пайплайн. Здесь стоял путь ROOT/"pipeline"/database на
+# локальную копию пайплайна: копию удалили, и скрипт молча падал на открытии базы.
+PIPELINE = ROOT.parent / "word_content_pipeline"
+DB = PIPELINE / "database" / "content.sqlite"
+# Каталоги AI-прогонов — источники базы, поэтому лежат рядом с ней, а не в level-tool.
+DEFAULT_RUN = PIPELINE / "data" / "runs" / "run-001-meta-hubs"
 
 RELATION_TYPES = {
     "is_a", "part_of", "found_in", "used_for", "used_in", "has_property",
@@ -162,8 +167,16 @@ def validate(run_dir: Path) -> int:
     # проход 2: связи
     known_keys = set(db["categories"]) | declared_keys
     all_labels = dict(db["label_to_key"])
+    # Имя категории — это и её метка, и её ключ. Сверка шла только по метке, и
+    # мета-связь на категорию с ключом `insects` и меткой `BUGS` отклонялась как
+    # «нет такой категории», хотя она есть и в базе, и готова (readiness=ready).
+    # Ключи snake_case, поэтому добавляем и вариант с пробелами вместо подчёркиваний.
+    for key, c in db["categories"].items():
+        all_labels.setdefault(normalize(key), key)
+        all_labels.setdefault(normalize(key.replace("_", " ")), key)
     for c in new_categories:
         all_labels.setdefault(normalize(c["label"]), c["category_key"])
+        all_labels.setdefault(normalize(c["category_key"]), c["category_key"])
 
     meta_links = []
     for lineno, line in enumerate(lines, 1):
@@ -249,6 +262,24 @@ def validate(run_dir: Path) -> int:
                     seen.add(p)
                     stack.append((p, path + [p]))
 
+    # Защита от затирания источника. Файлы прогона — это ВХОД пересборки базы
+    # (rebuild_all.sh импортирует их), а не просто отчёт. Повторный прогон уже
+    # импортированного каталога без --allow-existing отклоняет все категории как
+    # «уже в базе» и записывает пустой categories.jsonl: источник базы молча
+    # исчезает, а обнаруживается это только на следующей пересборке. Проверено на
+    # себе — 27 категорий прогона run-001 уехали в ноль ровно так.
+    existing_cats = run_dir / "categories.jsonl"
+    if existing_cats.exists() and not allow_existing:
+        had = len([l for l in existing_cats.read_text(encoding="utf-8").splitlines() if l.strip()])
+        if had > len(new_categories):
+            print(
+                f"ОТКАЗ: в {existing_cats.name} сейчас {had} категорий, проверка приняла "
+                f"{len(new_categories)}. Похоже, прогон уже импортирован в базу.\n"
+                f"       Перезапись обнулила бы источник пересборки. Если это осознанно — "
+                f"добавьте --allow-existing.",
+                file=sys.stderr)
+            return 1
+
     (run_dir / "categories.jsonl").write_text(
         "".join(json.dumps(c, ensure_ascii=False) + "\n" for c in new_categories),
         encoding="utf-8")
@@ -301,5 +332,8 @@ def validate(run_dir: Path) -> int:
 
 
 if __name__ == "__main__":
-    target = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data/runs/run-001-meta-hubs"
+    # Флаги отсеиваем: иначе `validate_ai_run.py --allow-existing` принимал сам флаг
+    # за путь к каталогу прогона и искал в нём raw.jsonl.
+    positional = [a for a in sys.argv[1:] if not a.startswith("--")]
+    target = Path(positional[0]) if positional else DEFAULT_RUN
     sys.exit(validate(target if target.is_absolute() else ROOT / target))

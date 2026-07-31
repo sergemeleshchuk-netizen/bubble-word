@@ -12,7 +12,7 @@
 Результат — CSV в формате `word-content import-review`, то есть решения попадают
 в базу тем же путём, что и любое ручное ревью.
 
-Запуск:  python3 scripts/review_ai_run.py data/runs/run-001-meta-hubs
+Запуск:  python3 scripts/review_ai_run.py ../word_content_pipeline/data/runs/run-001-meta-hubs
 """
 from __future__ import annotations
 
@@ -23,6 +23,9 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+# Каталоги AI-прогонов — источники базы, лежат рядом с ней в каноническом пайплайне,
+# а не второй копией в level-tool.
+DEFAULT_RUN = ROOT.parent / "word_content_pipeline" / "data" / "runs" / "run-001-meta-hubs"
 
 # --------------------------------------------------------------------------- #
 # слой 1: политика по двум числам
@@ -191,10 +194,17 @@ def main(run_dir: Path) -> int:
     for status in ("approved", "alternative", "hard_only", "rejected"):
         print(f"  {status:12s} {stats[status]}")
     print(f"  переопределений вручную: {sum(1 for v in verdicts if v['decided_by'] != 'политика')}")
-    print(f"→ {out_csv.relative_to(ROOT)}")
+    # Каталог прогона лежит в пайплайне, то есть ВНЕ level-tool: relative_to(ROOT)
+    # на таком пути падает с ValueError. Печатаем путь от корня проекта.
+    try:
+        shown = out_csv.relative_to(ROOT.parent.parent)
+    except ValueError:
+        shown = out_csv
+    print(f"→ {shown}")
     return 0
 
 
 if __name__ == "__main__":
-    target = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data/runs/run-001-meta-hubs"
+    positional = [a for a in sys.argv[1:] if not a.startswith("--")]
+    target = Path(positional[0]) if positional else DEFAULT_RUN
     sys.exit(main(target if target.is_absolute() else ROOT / target))
