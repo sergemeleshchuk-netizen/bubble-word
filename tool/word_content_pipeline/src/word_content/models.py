@@ -133,13 +133,24 @@ class MembershipCandidateInput(BaseModel):
 
 
 class ReviewDecisionInput(BaseModel):
-    """Строка review-CSV с решением человека."""
+    """Строка review-CSV с решением человека.
+
+    membership_id необязателен: связь можно указать парой слово + категория,
+    и это надёжнее — id зависит от порядка вставки и меняется при пересборке.
+    """
 
     model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
 
-    membership_id: int = Field(gt=0)
+    membership_id: int | None = Field(default=None, gt=0)
     decision: ReviewStatus
     review_comment: str | None = None
+
+    @field_validator("membership_id", mode="before")
+    @classmethod
+    def _blank_to_none(cls, value: object) -> object:
+        if isinstance(value, str) and not value.strip():
+            return None
+        return value
 
     @field_validator("decision", mode="before")
     @classmethod

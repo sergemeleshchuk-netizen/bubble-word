@@ -49,6 +49,34 @@ def test_empty_decision_is_skipped(seeded, tmp_path: Path):
     assert (report.total, report.updated) == (0, 0)
 
 
+def test_decision_without_membership_id(seeded, tmp_path: Path):
+    """Решение можно задать парой слово + категория: это переживает пересборку базы."""
+    path = tmp_path / "decisions.csv"
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["membership_id", "normalized", "sense_key", "category_key", "decision"],
+        )
+        writer.writeheader()
+        writer.writerow(
+            {
+                "membership_id": "",
+                "normalized": "apple",
+                "sense_key": "apple_company",
+                "category_key": "tech_companies",
+                "decision": "alternative",
+            }
+        )
+
+    report = import_review_csv(seeded, path)
+    assert (report.updated, report.rejected) == (1, 0)
+
+    row = next(
+        r for r in memberships_for_word(seeded, "apple") if r["category_key"] == "tech_companies"
+    )
+    assert row["review_status"] == "alternative"
+
+
 def test_alternative_status_is_accepted(seeded, tmp_path: Path):
     """alternative — верное, но не первое значение: ловушка для обычного уровня."""
     path = tmp_path / "review.csv"

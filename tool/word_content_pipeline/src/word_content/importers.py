@@ -269,7 +269,7 @@ def import_memberships(
 
 
 def _resolve_membership_id(
-    conn: sqlite3.Connection, membership_id: int, row: dict[str, Any]
+    conn: sqlite3.Connection, membership_id: int | None, row: dict[str, Any]
 ) -> int | None:
     """Проверяет, что id указывает на ту же связь; иначе ищет по слову и категории.
 
@@ -280,6 +280,11 @@ def _resolve_membership_id(
     category_key = (row.get("category_key") or "").strip()
     if not normalized or not category_key:
         return membership_id  # старый формат CSV — доверяем id
+
+    sense_key = (row.get("sense_key") or "").strip() or None
+    if membership_id is None:
+        found = find_membership(conn, normalized, category_key, sense_key)
+        return int(found["id"]) if found else None
 
     current = conn.execute(
         """
@@ -294,7 +299,7 @@ def _resolve_membership_id(
     if current and current["normalized"] == normalized and current["category_key"] == category_key:
         return membership_id
 
-    found = find_membership(conn, normalized, category_key, (row.get("sense_key") or "").strip() or None)
+    found = find_membership(conn, normalized, category_key, sense_key)
     return int(found["id"]) if found else None
 
 
