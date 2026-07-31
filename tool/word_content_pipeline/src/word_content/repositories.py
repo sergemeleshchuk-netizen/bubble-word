@@ -726,13 +726,26 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
     existing = conn.execute(
         "SELECT id FROM quartets WHERE quartet_key = ?", (item.quartet_key,)
     ).fetchone()
+    scores = (
+        item.difficulty,
+        item.note,
+        item.cohesion_score,
+        item.familiarity_score,
+        item.ambiguity_pressure,
+        item.risk_state,
+        item.intended_relation,
+        item.origin,
+        item.validator_version,
+    )
     if existing is None:
         cur = conn.execute(
             """
             INSERT INTO quartets
                 (category_id, quartet_key, tier, validation_state, local_check,
-                 difficulty, note, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 difficulty, note, cohesion_score, familiarity_score, ambiguity_pressure,
+                 risk_state, intended_relation, origin, validator_version,
+                 created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 int(category["id"]),
@@ -740,8 +753,7 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
                 item.tier,
                 item.validation_state,
                 item.local_check,
-                item.difficulty,
-                item.note,
+                *scores,
                 now,
                 now,
             ),
@@ -754,7 +766,9 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
             """
             UPDATE quartets
                SET category_id = ?, tier = ?, validation_state = ?, local_check = ?,
-                   difficulty = ?, note = ?, updated_at = ?
+                   difficulty = ?, note = ?, cohesion_score = ?, familiarity_score = ?,
+                   ambiguity_pressure = ?, risk_state = ?, intended_relation = ?,
+                   origin = ?, validator_version = ?, updated_at = ?
              WHERE id = ?
             """,
             (
@@ -762,8 +776,7 @@ def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult
                 item.tier,
                 item.validation_state,
                 item.local_check,
-                item.difficulty,
-                item.note,
+                *scores,
                 now,
                 quartet_id,
             ),

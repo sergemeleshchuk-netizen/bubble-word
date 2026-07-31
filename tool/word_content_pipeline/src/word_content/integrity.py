@@ -442,15 +442,48 @@ def check_quartet_size(conn: sqlite3.Connection) -> CheckResult:
 
 
 def check_conflicts_present(conn: sqlite3.Connection) -> CheckResult:
-    """P0: слой конфликтов должен быть посчитан, иначе генератор не знает запретов."""
+    """P0: слой конфликтов должен быть посчитан, иначе генератор не знает запретов.
+
+    Проверяется не «список непустой», а «нет ненайденных конфликтов». Пустой
+    список — законный ответ для базы, где пулы категорий действительно не
+    пересекаются; раньше такая база считалась непригодной, хотя с ней всё
+    в порядке. Ошибка — когда пересечение есть, а записи о нём нет.
+    """
     total = int(conn.execute("SELECT COUNT(*) FROM category_conflicts").fetchone()[0])
+    missed = list(
+        conn.execute(
+            """
+            WITH pool AS (
+                SELECT m.category_id AS category_id, m.word_id AS word_id
+                  FROM memberships m
+                 WHERE m.review_status IN ('approved', 'alternative', 'hard_only')
+                   AND m.semantic_status <> 'incorrect'
+                 GROUP BY m.category_id, m.word_id
+            )
+            SELECT a.category_key AS a, b.category_key AS b, COUNT(*) AS shared
+              FROM pool pa
+              JOIN pool pb ON pb.word_id = pa.word_id AND pb.category_id > pa.category_id
+              JOIN categories a ON a.id = pa.category_id
+              JOIN categories b ON b.id = pb.category_id
+             WHERE NOT EXISTS (
+                   SELECT 1 FROM category_conflicts cc
+                    WHERE cc.category_a_id = pa.category_id
+                      AND cc.category_b_id = pb.category_id)
+             GROUP BY pa.category_id, pb.category_id
+            HAVING shared >= 4
+             ORDER BY shared DESC
+            """
+        )
+    )
     return CheckResult(
         name="conflicts_present",
-        question="Слой конфликтов категорий заполнен",
+        question="Пересечения категорий разобраны слоем конфликтов",
         severity="blocker",
-        count=0 if total else 1,
-        examples=[] if total else ["в category_conflicts нет ни одной записи"],
-        note=f"Записей: {total}. Считается командой derive-conflicts.",
+        count=len(missed),
+        examples=_examples(
+            missed, lambda r: f"{r['a']} и {r['b']}: общих слов {r['shared']}, запрета нет"
+        ),
+        note=f"Записей в слое: {total}. Считается командой derive-conflicts.",
     )
 
 
@@ -541,3 +574,184 @@ CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
 
 def run_all(conn: sqlite3.Connection) -> list[CheckResult]:
     return [check(conn) for check in CHECKS]
+
+
+# --------------------------------------------------------------------- проверки уровней
+
+
+def check_level_groups_cover_tokens(conn: sqlite3.Connection) -> CheckResult:
+    """P0: задуманные группы обязаны покрывать все слова уровня без остатка."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT l.level_key AS level_key,
+                   (SELECT COUNT(*) FROM level_tokens t WHERE t.level_id = l.id) AS tokens,
+                   (SELECT COUNT(*) FROM level_groups g WHERE g.level_id = l.id) AS groups
+              FROM level_instances l
+             WHERE tokens <> groups * 4
+             ORDER BY l.level_key
+            """
+        )
+    )
+    return CheckResult(
+        name="level_groups_cover_tokens",
+        question="Группы уровня покрывают все слова ровно по четыре",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['level_key']}: групп {r['groups']}, слов {r['tokens']}"
+        ),
+    )
+
+
+def check_level_solution_count(conn: sqlite3.Connection) -> CheckResult:
+    """P0: уровень в статусе solver_valid и выше обязан иметь ровно одно решение."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT level_key, status, COALESCE(solution_count, -1) AS solution_count
+              FROM level_instances
+             WHERE status IN ('solver_valid', 'review_pending', 'accepted')
+               AND COALESCE(solution_count, -1) <> 1
+             ORDER BY level_key
+            """
+        )
+    )
+    return CheckResult(
+        name="level_solution_count",
+        question="У проверенных уровней ровно одно решение",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['level_key']} ({r['status']}): решений {r['solution_count']}"
+        ),
+    )
+
+
+def check_level_solver_outcome(conn: sqlite3.Connection) -> CheckResult:
+    """P0: таймаут и ошибка solver'а не считаются успехом ни при каких условиях."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT l.level_key AS level_key, r.outcome AS outcome
+              FROM level_instances l
+              JOIN level_solver_runs r ON r.id = (
+                    SELECT MAX(id) FROM level_solver_runs WHERE level_id = l.id)
+             WHERE l.status IN ('solver_valid', 'review_pending', 'accepted')
+               AND r.outcome <> 'unique'
+             ORDER BY l.level_key
+            """
+        )
+    )
+    return CheckResult(
+        name="level_solver_outcome",
+        question="Проверенные уровни прошли solver с исходом unique",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['level_key']}: {r['outcome']}"),
+        note="timeout и error — это «не знаю», а не «уникально».",
+    )
+
+
+def check_level_duplicate_labels(conn: sqlite3.Connection) -> CheckResult:
+    """P0: в одном уровне не должно быть двух одинаковых надписей категорий или пузырей."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT l.level_key AS level_key, 'категория' AS kind, c.label AS value
+              FROM level_groups g
+              JOIN level_instances l ON l.id = g.level_id
+              JOIN categories c ON c.id = g.category_id
+             GROUP BY g.level_id, LOWER(c.label) HAVING COUNT(*) > 1
+            UNION ALL
+            SELECT l.level_key, 'пузырь', t.display_text
+              FROM level_tokens t
+              JOIN level_instances l ON l.id = t.level_id
+             GROUP BY t.level_id, LOWER(t.display_text) HAVING COUNT(*) > 1
+            """
+        )
+    )
+    return CheckResult(
+        name="level_duplicate_labels",
+        question="В уровне нет повторяющихся надписей",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['level_key']}: {r['kind']} {r['value']}"),
+    )
+
+
+def check_level_uses_live_quartets(conn: sqlite3.Connection) -> CheckResult:
+    """P0: уровень не должен ссылаться на выключенную или забракованную четвёрку."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT l.level_key AS level_key, q.quartet_key AS quartet_key,
+                   q.validation_state AS state
+              FROM level_groups g
+              JOIN level_instances l ON l.id = g.level_id
+              JOIN quartets q ON q.id = g.quartet_id
+             WHERE l.status IN ('solver_valid', 'review_pending', 'accepted')
+               AND q.validation_state IN ('disabled', 'invalid')
+             ORDER BY l.level_key
+            """
+        )
+    )
+    return CheckResult(
+        name="level_uses_live_quartets",
+        question="Уровни не используют выключенные четвёрки",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['level_key']}: {r['quartet_key']} ({r['state']})"
+        ),
+    )
+
+
+def check_accepted_level_has_hash(conn: sqlite3.Connection) -> CheckResult:
+    rows = list(
+        conn.execute(
+            "SELECT level_key FROM level_instances "
+            "WHERE status = 'accepted' AND (content_hash IS NULL OR content_hash = '')"
+        )
+    )
+    return CheckResult(
+        name="accepted_level_has_hash",
+        question="У принятых уровней зафиксирован хеш содержимого",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: r["level_key"]),
+    )
+
+
+def check_levels_without_solver_run(conn: sqlite3.Connection) -> CheckResult:
+    rows = list(
+        conn.execute(
+            """
+            SELECT level_key FROM level_instances l
+             WHERE NOT EXISTS (SELECT 1 FROM level_solver_runs r WHERE r.level_id = l.id)
+            """
+        )
+    )
+    return CheckResult(
+        name="levels_without_solver_run",
+        question="У каждого уровня сохранён отчёт о запуске solver'а",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(rows, lambda r: r["level_key"]),
+        note="Без отчёта «уровень проверен» — утверждение без доказательства.",
+    )
+
+
+LEVEL_CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
+    check_level_groups_cover_tokens,
+    check_level_solution_count,
+    check_level_solver_outcome,
+    check_level_duplicate_labels,
+    check_level_uses_live_quartets,
+    check_accepted_level_has_hash,
+    check_levels_without_solver_run,
+)
+
+
+def run_level_checks(conn: sqlite3.Connection) -> list[CheckResult]:
+    return [check(conn) for check in LEVEL_CHECKS]

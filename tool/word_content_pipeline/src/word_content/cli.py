@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import sqlite3
 import subprocess
 import sys
@@ -18,8 +19,11 @@ from . import baseline
 from . import candidate_generation as gen
 from . import (
     conflicts,
+    cooldown,
     dedupe,
     integrity,
+    level_generator,
+    level_review,
     level_solver,
     migrations,
     quartet_builder,
@@ -729,7 +733,14 @@ def cmd_derive_readiness(db: DbOption, meta: MetaOption = None) -> None:
             pairs_written = 0
             pairs_missing: list[str] = []
             for category_key, groups in pair_groups.items():
-                written, missing = replace_pair_groups(conn, category_key, groups)
+                try:
+                    written, missing = replace_pair_groups(conn, category_key, groups)
+                except RepositoryError as exc:
+                    # Файл мета-данных пишется руками и живёт дольше отдельных
+                    # категорий. Отсутствующая категория — повод предупредить,
+                    # а не уронить пересборку всей базы.
+                    pairs_missing.append(str(exc))
+                    continue
                 pairs_written += written
                 pairs_missing.extend(missing)
         blocked = list(
@@ -833,7 +844,8 @@ def cmd_derive_conflicts(
         typer.echo(f"\nCSV: {output} ({written} строк)")
 
 
-@app.command("build-quartets")
+@app.command("build-quartet-candidates")
+@app.command("build-quartets")  # прежнее имя: команда осталась совместимой
 def cmd_build_quartets(
     db: DbOption,
     output: Annotated[
@@ -925,6 +937,251 @@ def cmd_solve_level(
         typer.secho(f"\nОК: {result.reason}", fg=typer.colors.GREEN)
     else:
         typer.secho(f"\nОтклонён: {result.reason}", fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1)
+
+
+@app.command("validate-quartets")
+def cmd_validate_quartets(
+    db: DbOption,
+    show: Annotated[int, typer.Option("--show", help="Сколько примеров показать")] = 10,
+) -> None:
+    """Перепроверяет четвёрки: состав, значения, структура, локальная однозначность."""
+    conn = _open(db)
+    try:
+        structures = structured.load(conn)
+        pools = solver.category_pools(conn)
+        rows = list(
+            conn.execute(
+                """
+                SELECT q.id AS id, q.quartet_key AS quartet_key, q.validation_state AS state,
+                       c.category_key AS category_key,
+                       GROUP_CONCAT(w.normalized) AS words, COUNT(qw.id) AS n
+                  FROM quartets q
+                  JOIN categories c     ON c.id = q.category_id
+                  LEFT JOIN quartet_words qw ON qw.quartet_id = q.id
+                  LEFT JOIN words w     ON w.id = qw.word_id
+                 GROUP BY q.id ORDER BY q.quartet_key
+                """
+            )
+        )
+        problems: list[tuple[str, str]] = []
+        checked = 0
+        for row in rows:
+            if row["state"] in ("disabled", "invalid"):
+                continue
+            checked += 1
+            words = (row["words"] or "").split(",") if row["words"] else []
+            if int(row["n"]) != 4:
+                problems.append((row["quartet_key"], f"слов {row['n']}, нужно 4"))
+                continue
+            if len(set(words)) != 4:
+                problems.append((row["quartet_key"], "в четвёрке повторяется слово"))
+                continue
+            allowed, reason = structures.allows(row["category_key"], frozenset(words))
+            if not allowed:
+                problems.append((row["quartet_key"], f"структура категории: {reason}"))
+                continue
+            result = solver.quartet_locally_unique(
+                conn, row["category_key"], words, pools=pools
+            )
+            if not result.unique:
+                problems.append((row["quartet_key"], result.reason))
+    finally:
+        conn.close()
+
+    typer.echo(f"Проверено четвёрок: {checked} | с проблемами: {len(problems)}")
+    _print_table(
+        ["четвёрка", "проблема"],
+        [[key, _truncate(reason, 70)] for key, reason in problems[:show]],
+    )
+    if problems:
+        raise typer.Exit(code=1)
+    typer.secho("Все действующие четвёрки валидны.", fg=typer.colors.GREEN)
+
+
+@app.command("generate-level-candidates")
+def cmd_generate_level_candidates(
+    db: DbOption,
+    count: Annotated[int, typer.Option("--limit", help="Сколько уровней собрать")] = 5,
+    categories: Annotated[
+        int, typer.Option("--categories", help="Категорий в уровне")
+    ] = level_generator.DEFAULT_CATEGORY_COUNT,
+    seed: Annotated[int, typer.Option("--seed", help="Зерно случайности")] = 20260731,
+    tier: Annotated[str, typer.Option("--tier", help="normal или hard")] = "normal",
+    target: Annotated[
+        float | None, typer.Option("--target-difficulty", help="Целевая сложность 1-10")
+    ] = None,
+    config: Annotated[
+        Path | None, typer.Option("--config", help="Конфиг cooldown")
+    ] = None,
+    dry_run: Annotated[
+        bool, typer.Option("--dry-run", help="Только показать, в базу не писать")
+    ] = False,
+    explain: Annotated[
+        bool, typer.Option("--explain", help="Разложить сложность по компонентам")
+    ] = False,
+) -> None:
+    """Собирает уровни из готовых четвёрок и проверяет каждый solver'ом целиком."""
+    conn = _open(db)
+    try:
+        try:
+            cooldown_config = cooldown.load_config(config)
+        except cooldown.ConfigError as exc:
+            _fail(str(exc))
+            return
+        levels, stats = level_generator.generate(
+            conn,
+            count=count,
+            category_count=categories,
+            seed=seed,
+            tier=tier,
+            target_difficulty=target,
+            config=cooldown_config,
+        )
+        saved = 0
+        if not dry_run and levels:
+            with conn:
+                run_id = level_generator.record_run(
+                    conn,
+                    run_kind="generate-level-candidates",
+                    parameters={
+                        "count": count,
+                        "categories": categories,
+                        "tier": tier,
+                        "target_difficulty": target,
+                    },
+                    records_out=len(levels),
+                    random_seed=seed,
+                    source_commit=_git_commit(),
+                )
+                saved = level_generator.save(conn, levels, run_id=run_id)
+    finally:
+        conn.close()
+
+    for key, value in stats.items():
+        typer.echo(f"{key}: {value}")
+    _print_table(
+        ["уровень", "статус", "разбиений", "сложность", "категории"],
+        [
+            [
+                level.level_key,
+                level.status,
+                str(level.solver.solution_count),
+                str(level.difficulty.total_score),
+                _truncate(", ".join(g.category_key for g in level.groups), 46),
+            ]
+            for level in levels
+        ],
+    )
+    for level in levels:
+        if explain:
+            typer.echo(f"\n{level.level_key}: {level.difficulty.short_explanation}")
+            for name, value in level.difficulty.component_scores.items():
+                if value:
+                    typer.echo(f"    {name}: +{value}")
+        for reason in level.reject_reasons:
+            typer.secho(f"  {level.level_key} отклонён — {reason}", fg=typer.colors.YELLOW)
+        for violation in level.cooldown_violations:
+            typer.secho(f"  {level.level_key} cooldown — {violation}", fg=typer.colors.YELLOW)
+
+    if dry_run:
+        typer.echo("\n--dry-run: в базу ничего не записано")
+    else:
+        typer.echo(f"\nЗаписано уровней: {saved}")
+
+
+@app.command("validate-levels")
+def cmd_validate_levels(
+    db: DbOption,
+    show: Annotated[int, typer.Option("--show", help="Сколько примеров показать")] = 10,
+) -> None:
+    """Проверяет сохранённые уровни: покрытие, единственность, повторы, политика."""
+    conn = _open(db)
+    try:
+        results = integrity.run_level_checks(conn)
+    finally:
+        conn.close()
+
+    failed = [r for r in results if r.failed]
+    for result in results:
+        mark = "OK  " if result.ok else ("СТОП" if result.severity == "blocker" else "ВНИМ")
+        color = (
+            typer.colors.GREEN
+            if result.ok
+            else (typer.colors.RED if result.severity == "blocker" else typer.colors.YELLOW)
+        )
+        typer.secho(f"{mark}  {result.question}: {result.count}", fg=color)
+        for example in result.examples[:show]:
+            typer.echo(f"        - {example}")
+    if failed:
+        typer.secho(f"\nУровни не готовы: провалено {len(failed)}", fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=1)
+    typer.secho("\nВсе проверки уровней пройдены.", fg=typer.colors.GREEN)
+
+
+@app.command("export-level-review-pack")
+def cmd_export_level_review_pack(
+    db: DbOption,
+    output: Annotated[
+        Path, typer.Option("--output", help="Каталог пакета")
+    ] = Path("data/content/level_review"),
+    limit: Annotated[int | None, typer.Option("--limit", help="Сколько уровней выгрузить")] = None,
+    statuses: Annotated[
+        str, typer.Option("--statuses", help="Статусы уровней через запятую")
+    ] = "solver_valid,candidate",
+) -> None:
+    """Выгружает уровни на приёмку: отчёт, JSON и бланк решений."""
+    conn = _open(db)
+    try:
+        wanted = tuple(s.strip() for s in statuses.split(",") if s.strip())
+        packages = level_review.build(conn, statuses=wanted, limit=limit)
+        if not packages:
+            typer.secho("Уровней в этих статусах нет.", fg=typer.colors.YELLOW)
+            return
+        markdown = level_review.write_markdown(output / "LEVELS.md", packages)
+        data = level_review.write_json(output / "levels.json", packages)
+        decisions = level_review.write_decisions_template(
+            output / "level_decisions.csv", packages
+        )
+        # Пометка «ушёл человеку» ставится в базе: иначе непонятно, что уже отдано.
+        with conn:
+            conn.execute(
+                "UPDATE level_instances SET status = 'review_pending', updated_at = ? "
+                "WHERE status = 'solver_valid'",
+                (utc_now(),),
+            )
+    finally:
+        conn.close()
+
+    typer.echo(f"Уровней в пакете: {len(packages)}")
+    typer.echo(f"  отчёт:   {markdown}")
+    typer.echo(f"  данные:  {data}")
+    typer.echo(f"  решения: {decisions}")
+    typer.echo("Заполните колонку decision (accept / reject / needs_changes) и примените:")
+    typer.echo(f"  word-content apply-level-decisions --db {db} --input {decisions}")
+
+
+@app.command("apply-level-decisions")
+def cmd_apply_level_decisions(
+    db: DbOption,
+    input: InputOption,
+) -> None:
+    """Применяет решения по уровням и точечно возвращает причины в базу."""
+    conn = _open(db)
+    try:
+        if not input.exists():
+            _fail(f"Файл решений не найден: {input}")
+        with conn:
+            report = level_review.apply_decisions(conn, input)
+    finally:
+        conn.close()
+
+    typer.echo(f"Применено решений: {report.applied}, пропущено пустых: {report.skipped}")
+    for note in report.feedback:
+        typer.echo(f"  {note}")
+    for error in report.errors:
+        typer.secho(f"  {error}", fg=typer.colors.YELLOW, err=True)
+    if report.errors:
         raise typer.Exit(code=1)
 
 
@@ -1171,6 +1428,32 @@ def _write_csv(path: Path, rows: list[dict[str, Any]]) -> int:
         writer.writeheader()
         writer.writerows(rows)
     return len(rows)
+
+
+@app.command("rebuild-all")
+def cmd_rebuild_all(
+    content_version: Annotated[
+        str | None,
+        typer.Option("--content-version", help="Версия контента; по умолчанию текущая дата UTC"),
+    ] = None,
+) -> None:
+    """Полная пересборка базы из текстовых источников.
+
+    Команда сознательно не повторяет шаги, а запускает `scripts/rebuild_all.sh`.
+    Порядок сборки описан там один раз: две копии одного порядка неизбежно
+    разъезжаются, и тогда «пересобрал через CLI» и «пересобрал скриптом» дают
+    разные базы.
+    """
+    root = Path(__file__).resolve().parents[2]
+    script = root / "scripts" / "rebuild_all.sh"
+    if not script.exists():
+        _fail(f"Скрипт пересборки не найден: {script}")
+    env = dict(os.environ)
+    if content_version:
+        env["CONTENT_VERSION"] = content_version
+    result = subprocess.run(["bash", str(script)], cwd=root, env=env, check=False)
+    if result.returncode != 0:
+        raise typer.Exit(code=result.returncode)
 
 
 @app.command("show-runs")

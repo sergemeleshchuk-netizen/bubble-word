@@ -1,53 +1,92 @@
-"""Сборка проверенных четвёрок.
+"""Сборка четвёрок-кандидатов.
 
-База хранит пулы, а игре нужны решения: категория в уровне — ровно четыре слова.
-Четыре случайных слова из пула не годятся, потому что могут целиком лежать
-в другой категории — тогда у уровня два корректных ответа.
+База хранит пулы, а игре нужны решения: категория в уровне — ровно четыре
+слова. Четыре случайных слова из пула не годятся по двум причинам. Во-первых,
+они могут целиком лежать в другой категории — тогда у уровня два ответа.
+Во-вторых, случайный выбор регулярно даёт четвёрку из четырёх редких слов:
+формально корректную и невозможную для игрока.
 
-Отбор идёт так:
-  1. берём категории, готовые к обычным уровням (readiness ready/constrained);
-  2. слова сортируем по игровой сложности: сначала самые заметные;
-  3. каждую четвёрку-кандидата проверяем solver'ом;
-  4. слова, уже занятые в другой четвёрке этой категории, не переиспользуем —
-     иначе один уровень нельзя будет собрать из двух четвёрок одной темы.
+Поэтому все `C(N,4)` сочетания не сохраняются. Из пула отбирается ограниченный
+разнообразный набор по объяснимым признакам:
 
-Результат — `auto_validated`: solver прошёл, человек не смотрел. Статус
-`human_approved` ставится только вручную.
+  * связность — насколько уверенно слова принадлежат категории;
+  * узнаваемость — средняя частотность слов;
+  * якоря — одно-два слова, по которым игрок узнаёт категорию сразу;
+  * управляемая двусмысленность — слова, которые тянут в соседнюю категорию,
+    но здесь у них ровно один дом (материал для ловушек);
+  * непохожесть на другие четвёрки этой же категории;
+  * риски — служебные пометки связи;
+  * пригодность к обычному или сложному уровню.
+
+Итог — `validation_state = auto_validated`: машинные проверки пройдены.
+Человек оценивает не четвёрку, а собранный уровень целиком.
 """
 
 from __future__ import annotations
 
 import sqlite3
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from itertools import combinations
 
 from .readiness import NORMAL_READY, NORMAL_STATUSES, QUARTET_SIZE
 from .solver import category_pools, quartet_locally_unique
 
-# Сколько четвёрок пытаться собрать на категорию: больше редко нужно, а перебор
-# сочетаний растёт быстро
+VALIDATOR_VERSION = "quartet-candidates/1.0"
+
+# Сколько четвёрок оставлять на категорию. Больше редко нужно: уровень берёт
+# по одной, а перебор сочетаний растёт быстро.
 MAX_PER_CATEGORY = 3
-# Ограничение перебора: из пула берём только самые заметные слова
+# Из пула берём только самые заметные слова: C(12,4) = 495 сочетаний на категорию.
 CANDIDATE_POOL = 12
+# Слово считается якорем, если средний игрок его точно знает (zipf ~4.2 и выше).
+ANCHOR_FAMILIARITY = 0.6
 
 
 @dataclass(frozen=True)
-class BuiltQuartet:
+class QuartetCandidate:
     category_key: str
     quartet_key: str
     words: tuple[str, ...]
     tier: str
     difficulty: float | None
     note: str
+    cohesion_score: float
+    familiarity_score: float
+    ambiguity_pressure: float
+    anchor_count: int
+    risk_state: str
+    intended_relation: str
+    origin: str = "derived"
+    validation_state: str = "auto_validated"
+    local_check: str = "local_unique"
+    validator_version: str = VALIDATOR_VERSION
+
+    @property
+    def selection_score(self) -> float:
+        """Композитная оценка отбора.
+
+        Веса подобраны так, чтобы связность и узнаваемость перевешивали, а
+        двусмысленность оставалась приправой: четвёрка, где все четыре слова
+        спорные, — это не интересная ловушка, а неприятный уровень.
+        """
+        return (
+            0.45 * self.cohesion_score
+            + 0.35 * self.familiarity_score
+            + 0.10 * min(self.anchor_count, 2) / 2
+            + 0.10 * min(self.ambiguity_pressure, 0.5) / 0.5
+        )
 
 
-def _pool_for_category(conn: sqlite3.Connection, category_key: str) -> list[sqlite3.Row]:
+def _pool_rows(conn: sqlite3.Connection, category_key: str) -> list[sqlite3.Row]:
     placeholders = ",".join("?" for _ in NORMAL_STATUSES)
     return list(
         conn.execute(
             f"""
-            SELECT w.normalized AS normalized, s.sense_key AS sense_key,
-                   m.gameplay_difficulty AS difficulty, m.obviousness_score AS obviousness
+            SELECT w.normalized AS normalized, w.familiarity_score AS familiarity,
+                   s.sense_key AS sense_key,
+                   m.gameplay_difficulty AS difficulty, m.obviousness_score AS obviousness,
+                   m.fit_score AS fit, m.risk_flags AS risk_flags,
+                   m.relation_type AS relation_type
               FROM memberships m
               JOIN categories c ON c.id = m.category_id
               JOIN words w      ON w.id = m.word_id
@@ -55,6 +94,7 @@ def _pool_for_category(conn: sqlite3.Connection, category_key: str) -> list[sqli
              WHERE c.category_key = ?
                AND m.review_status IN ({placeholders})
                AND m.semantic_status <> 'incorrect'
+               AND m.validation_state <> 'invalid'
              ORDER BY COALESCE(m.gameplay_difficulty, 1.0), m.obviousness_score DESC,
                       w.normalized
             """,
@@ -63,13 +103,31 @@ def _pool_for_category(conn: sqlite3.Connection, category_key: str) -> list[sqli
     )
 
 
+def _foreign_pressure(
+    pools: dict[str, set[str]], category_key: str, words: tuple[str, ...]
+) -> float:
+    """Доля слов четвёрки, которые встречаются ещё хотя бы в одной категории.
+
+    Это и есть управляемая двусмысленность: слово тянет игрока в сторону, но
+    дом у него здесь один. Ноль — четвёрка без соблазна, единица — каждое слово
+    спорно.
+    """
+    hits = 0
+    for word in words:
+        if any(
+            other_key != category_key and word in pool for other_key, pool in pools.items()
+        ):
+            hits += 1
+    return hits / len(words)
+
+
 def build(
     conn: sqlite3.Connection,
     *,
     max_per_category: int = MAX_PER_CATEGORY,
     only_category: str | None = None,
-) -> tuple[list[BuiltQuartet], dict[str, int]]:
-    """Собирает четвёрки по всем готовым категориям. Возвращает (четвёрки, статистика)."""
+) -> tuple[list[QuartetCandidate], dict[str, int]]:
+    """Собирает четвёрки по готовым категориям. Возвращает (кандидаты, статистика)."""
     pools = category_pools(conn)  # включая hard_only: чужая категория опасна любая
     placeholders = ",".join("?" for _ in NORMAL_READY)
     sql = f"SELECT category_key FROM categories WHERE readiness IN ({placeholders})"
@@ -79,45 +137,75 @@ def build(
         params.append(only_category)
     keys = [row["category_key"] for row in conn.execute(sql + " ORDER BY category_key", params)]
 
-    built: list[BuiltQuartet] = []
-    stats = {"категорий рассмотрено": 0, "категорий без четвёрок": 0, "четвёрок": 0}
+    built: list[QuartetCandidate] = []
+    stats = {
+        "категорий рассмотрено": 0,
+        "категорий без четвёрок": 0,
+        "четвёрок": 0,
+        "отклонено локальной проверкой": 0,
+        "отклонено по рискам": 0,
+    }
 
     for category_key in keys:
         stats["категорий рассмотрено"] += 1
-        rows = _pool_for_category(conn, category_key)[:CANDIDATE_POOL]
-        senses = {row["normalized"]: row["sense_key"] for row in rows}
-        difficulty = {
-            row["normalized"]: row["difficulty"]
-            for row in rows
-            if row["difficulty"] is not None
-        }
+        rows = _pool_rows(conn, category_key)[:CANDIDATE_POOL]
+        by_word = {row["normalized"]: row for row in rows}
         available = [row["normalized"] for row in rows]
-        used: set[str] = set()
-        found = 0
 
+        scored: list[QuartetCandidate] = []
         for group in combinations(available, QUARTET_SIZE):
-            if found >= max_per_category:
-                break
-            if used & set(group):
+            members = [by_word[word] for word in group]
+            if any(m["risk_flags"] and "sensitive" in m["risk_flags"] for m in members):
+                stats["отклонено по рискам"] += 1
                 continue
             result = quartet_locally_unique(conn, category_key, list(group), pools=pools)
             if not result.unique:
+                stats["отклонено локальной проверкой"] += 1
                 continue
-            found += 1
-            used.update(group)
-            values = [difficulty[word] for word in group if word in difficulty]
-            built.append(
-                BuiltQuartet(
+
+            familiarity = [m["familiarity"] for m in members if m["familiarity"] is not None]
+            difficulties = [m["difficulty"] for m in members if m["difficulty"] is not None]
+            scored.append(
+                QuartetCandidate(
                     category_key=category_key,
-                    quartet_key=f"{category_key}__{found}",
+                    quartet_key="",  # присваивается после отбора
                     words=tuple(
-                        f"{word}#{senses[word]}" if senses.get(word) else word for word in group
+                        f"{word}#{by_word[word]['sense_key']}"
+                        if by_word[word]["sense_key"]
+                        else word
+                        for word in group
                     ),
                     tier="normal",
-                    difficulty=round(sum(values) / len(values), 3) if values else None,
+                    difficulty=(
+                        round(sum(difficulties) / len(difficulties), 3) if difficulties else None
+                    ),
                     note=result.reason,
+                    cohesion_score=round(sum(m["fit"] for m in members) / len(members), 3),
+                    familiarity_score=(
+                        round(sum(familiarity) / len(familiarity), 3) if familiarity else 0.0
+                    ),
+                    ambiguity_pressure=round(_foreign_pressure(pools, category_key, group), 3),
+                    anchor_count=sum(1 for value in familiarity if value >= ANCHOR_FAMILIARITY),
+                    risk_state="flagged" if any(m["risk_flags"] for m in members) else "clear",
+                    intended_relation=members[0]["relation_type"],
                 )
             )
+
+        # Жадный отбор: лучший кандидат, затем лучший из непересекающихся с ним.
+        # Непересечение по словам нужно, чтобы две четвёрки одной категории
+        # не повторяли друг друга на соседних уровнях.
+        scored.sort(key=lambda item: (-item.selection_score, item.words))
+        used: set[str] = set()
+        found = 0
+        for candidate in scored:
+            if found >= max_per_category:
+                break
+            plain = {word.split("#")[0] for word in candidate.words}
+            if used & plain:
+                continue
+            found += 1
+            used |= plain
+            built.append(replace(candidate, quartet_key=f"{category_key}__{found}"))
         if found == 0:
             stats["категорий без четвёрок"] += 1
 
@@ -125,19 +213,25 @@ def build(
     return built, stats
 
 
-def to_rows(built: list[BuiltQuartet]) -> list[dict[str, object]]:
-    """Строки для data/quartets.csv."""
+def to_rows(built: list[QuartetCandidate]) -> list[dict[str, object]]:
+    """Строки для data/quartets.csv — текстового источника правды по четвёркам."""
     return [
         {
             "quartet_key": item.quartet_key,
             "category_key": item.category_key,
             "tier": item.tier,
-            "validation_state": "auto_validated",
-            "local_check": "local_unique",
-            # None, а не "": эти же строки идут и в валидацию QuartetInput, а пустая
+            "validation_state": item.validation_state,
+            "local_check": item.local_check,
+            # None, а не "": эти же строки идут в валидацию QuartetInput, а пустая
             # строка не парсится как число — четвёрка молча уезжала в «пропущено».
-            # В CSV None всё равно печатается пустой ячейкой (csv.DictWriter).
             "difficulty": item.difficulty,
+            "cohesion_score": item.cohesion_score,
+            "familiarity_score": item.familiarity_score,
+            "ambiguity_pressure": item.ambiguity_pressure,
+            "risk_state": item.risk_state,
+            "intended_relation": item.intended_relation,
+            "origin": item.origin,
+            "validator_version": item.validator_version,
             "words": " | ".join(item.words),
             "note": item.note,
         }

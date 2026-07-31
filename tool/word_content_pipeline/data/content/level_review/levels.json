@@ -1,0 +1,1805 @@
+[
+  {
+    "level_key": "L001",
+    "status": "solver_valid",
+    "tier": "normal",
+    "solution_count": 1,
+    "difficulty": {
+      "score": 3.5,
+      "components": {
+        "category_count": 0.0,
+        "rare_words": 0.0,
+        "average_familiarity": 0.0,
+        "sense_ambiguity": 1.0,
+        "pairwise_category_overlap": 0.0,
+        "alternative_partition_pressure": 1.5,
+        "number_of_plausible_first_groups": 0.0,
+        "structured_category_complexity": 0.0,
+        "phrase_length_pressure": 0.0,
+        "meta_depth": 0.0
+      },
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +1.0"
+    },
+    "solver": {
+      "outcome": "unique",
+      "solution_count": 1,
+      "reason": "разбиение единственное",
+      "alternative_partition": null,
+      "solver_version": "level-exact-cover/1.0",
+      "input_hash": "4fd5204d2ea2b168e56e7b16d866ce9997dafc3e5e06610a04bb638d37e99b7a",
+      "duration_ms": 0,
+      "checked_at": "2026-07-31T19:06:34+00:00"
+    },
+    "groups": [
+      {
+        "position": 1,
+        "category_key": "animal_homes",
+        "label": "ANIMAL HOMES",
+        "rule": "Words for the places animals live in",
+        "intended_relation": "is_a",
+        "quartet_key": "animal_homes__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.559,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "nest",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.581,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "den",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.573,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "barn",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.57,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "mound",
+            "sense_key": "mound_dirt",
+            "definition": "A raised heap of earth",
+            "sense_mode": "lexical",
+            "familiarity": 0.514,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "category_key": "toppings_and_garnish",
+        "label": "GARNISHES",
+        "rule": "Things added on top of a finished dish",
+        "intended_relation": "is_a",
+        "quartet_key": "toppings_and_garnish__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.596,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "cheese",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.653,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "cherry",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.597,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "olive",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.584,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "bacon bits",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.551,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "category_key": "world_capitals",
+        "label": "WORLD CAPITALS",
+        "rule": "Capital cities of countries around the world",
+        "intended_relation": "is_a",
+        "quartet_key": "world_capitals__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.574,
+          "ambiguity_pressure": 0.25
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "Dublin",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.583,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "Amsterdam",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.576,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "Ottawa",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.569,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "Vienna",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.569,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "category_key": "law_jobs",
+        "label": "LAW JOBS",
+        "rule": "Jobs held by people who work in the legal system",
+        "intended_relation": "is_a",
+        "quartet_key": "law_jobs__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.498,
+          "ambiguity_pressure": 0.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "investigator",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.547,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "magistrate",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.53,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "mediator",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.47,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "notary",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.444,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "category_key": "masonry_words",
+        "label": "MASONRY WORDS",
+        "rule": "Things a mason works with",
+        "intended_relation": "found_in",
+        "quartet_key": "masonry_words__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.707,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "level",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.773,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "block",
+            "sense_key": "block_cube",
+            "definition": "A solid piece of hard material",
+            "sense_mode": "lexical",
+            "familiarity": 0.697,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "stone",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.686,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "joint",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.673,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "plausible_competing_memberships": [
+      {
+        "display": "nest",
+        "home_category": "animal_homes",
+        "also_fits": "animal_actions,seasons_spring,bird_watching,spring_season"
+      },
+      {
+        "display": "cheese",
+        "home_category": "toppings_and_garnish",
+        "also_fits": "dairy_words,farm_products,pizza_toppings,sandwich_fillings,salad_ingredients,dairy_products,things_that_melt,words_before_sauce,words_before_cake,yellow_things,smelly_things,fermented_foods"
+      },
+      {
+        "display": "level",
+        "home_category": "masonry_words",
+        "also_fits": "building_actions,video_game_words,sewing_and_repair,things_in_a_toolbox,hand_tools,measuring_tools,carpentry_words"
+      },
+      {
+        "display": "den",
+        "home_category": "animal_homes",
+        "also_fits": "home_rooms"
+      },
+      {
+        "display": "cherry",
+        "home_category": "toppings_and_garnish",
+        "also_fits": "fruits,berries,pie_ingredients,ice_cream_flavors,pie_types,dessert_toppings,trees,things_with_seeds,fruit_trees,red_things,tomato_varieties"
+      },
+      {
+        "display": "block",
+        "home_category": "masonry_words",
+        "also_fits": "butcher_words,city_words"
+      },
+      {
+        "display": "barn",
+        "home_category": "animal_homes",
+        "also_fits": "dairy_words,farm_buildings,things_on_a_farm,kinds_of_buildings,places_with_animals,red_things,farm_morning"
+      },
+      {
+        "display": "olive",
+        "home_category": "toppings_and_garnish",
+        "also_fits": "color_words_advanced,pizza_toppings,salad_ingredients,trees_more,fruit_trees,black_things,colors,greek_dishes,fermented_foods"
+      },
+      {
+        "display": "Ottawa",
+        "home_category": "world_capitals",
+        "also_fits": "canadian_places"
+      },
+      {
+        "display": "stone",
+        "home_category": "masonry_words",
+        "also_fits": "sculpture_materials,words_after_head,building_materials,animal_tracks_and_signs"
+      },
+      {
+        "display": "bacon bits",
+        "home_category": "toppings_and_garnish",
+        "also_fits": "salad_ingredients"
+      },
+      {
+        "display": "joint",
+        "home_category": "masonry_words",
+        "also_fits": "hand_parts,robot_words"
+      }
+    ],
+    "cooldowns": [],
+    "ui_warnings": [],
+    "risk_warnings": [
+      "toppings_and_garnish: риск-статус flagged",
+      "world_capitals: риск-статус flagged"
+    ],
+    "generator_version": "level-generator/1.0",
+    "random_seed": 20260731,
+    "content_hash": "aaead3eda333c1235aa238e7b726df2f8cff10d1d742334c18b5a1f32537cf68"
+  },
+  {
+    "level_key": "L002",
+    "status": "solver_valid",
+    "tier": "normal",
+    "solution_count": 1,
+    "difficulty": {
+      "score": 3.0,
+      "components": {
+        "category_count": 0.0,
+        "rare_words": 0.0,
+        "average_familiarity": 0.0,
+        "sense_ambiguity": 0.5,
+        "pairwise_category_overlap": 0.0,
+        "alternative_partition_pressure": 1.5,
+        "number_of_plausible_first_groups": 0.0,
+        "structured_category_complexity": 0.0,
+        "phrase_length_pressure": 0.0,
+        "meta_depth": 0.0
+      },
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +0.5"
+    },
+    "solver": {
+      "outcome": "unique",
+      "solution_count": 1,
+      "reason": "разбиение единственное",
+      "alternative_partition": null,
+      "solver_version": "level-exact-cover/1.0",
+      "input_hash": "b4fa0e73e0d2f0f6cab209ddc447da98f6053363ccd53b583a7c9a69db60017a",
+      "duration_ms": 0,
+      "checked_at": "2026-07-31T19:06:34+00:00"
+    },
+    "groups": [
+      {
+        "position": 1,
+        "category_key": "textures",
+        "label": "TEXTURES",
+        "rule": "Words describing how a surface feels",
+        "intended_relation": "is_a",
+        "quartet_key": "textures__2",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.505,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "slick",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.53,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "fuzzy",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.521,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "matte",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.503,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "silky",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.466,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "category_key": "government_jobs",
+        "label": "GOVERNMENT JOBS",
+        "rule": "Jobs held by people who work for a government",
+        "intended_relation": "is_a",
+        "quartet_key": "government_jobs__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.567,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "inspector",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.607,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "clerk",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.571,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "treasurer",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.561,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "delegate",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.529,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "category_key": "volcanoes",
+        "label": "VOLCANOES",
+        "rule": "Famous volcanoes",
+        "intended_relation": "is_a",
+        "quartet_key": "volcanoes__2",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.342,
+          "ambiguity_pressure": 0.25
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "Vesuvius",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.381,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "Mauna Loa",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.339,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "Kilauea",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.337,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "Stromboli",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.311,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "category_key": "facial_expressions",
+        "label": "FACIAL EXPRESSIONS",
+        "rule": "Expressions people make with their face",
+        "intended_relation": "does_action",
+        "quartet_key": "facial_expressions__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.575,
+          "ambiguity_pressure": 0.75
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "smile",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.663,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "beam",
+            "sense_key": "beam_smile",
+            "definition": "To smile very broadly",
+            "sense_mode": "lexical",
+            "familiarity": 0.591,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "blink",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.533,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "grin",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.513,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "category_key": "quiet_things",
+        "label": "QUIET THINGS",
+        "rule": "Things that make almost no sound",
+        "intended_relation": "has_property",
+        "quartet_key": "quiet_things__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.691,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "sleep",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.721,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "library",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.694,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "cat",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.683,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "snow",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.666,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "plausible_competing_memberships": [
+      {
+        "display": "Vesuvius",
+        "home_category": "volcanoes",
+        "also_fits": "world_mountains"
+      },
+      {
+        "display": "smile",
+        "home_category": "facial_expressions",
+        "also_fits": "quiet_actions"
+      },
+      {
+        "display": "sleep",
+        "home_category": "quiet_things",
+        "also_fits": "quiet_actions,bedtime_things"
+      },
+      {
+        "display": "fuzzy",
+        "home_category": "textures",
+        "also_fits": "temperature_feel"
+      },
+      {
+        "display": "clerk",
+        "home_category": "government_jobs",
+        "also_fits": "office_jobs,law_jobs,store_jobs"
+      },
+      {
+        "display": "library",
+        "home_category": "quiet_things",
+        "also_fits": "school_places,town_places,quiet_places,kinds_of_buildings,monastery_life,programming_words"
+      },
+      {
+        "display": "treasurer",
+        "home_category": "government_jobs",
+        "also_fits": "office_jobs"
+      },
+      {
+        "display": "blink",
+        "home_category": "facial_expressions",
+        "also_fits": "quiet_actions,body_movements"
+      },
+      {
+        "display": "cat",
+        "home_category": "quiet_things",
+        "also_fits": "farm_animals,pets,words_before_fish,words_before_bird"
+      },
+      {
+        "display": "silky",
+        "home_category": "textures",
+        "also_fits": "temperature_feel"
+      },
+      {
+        "display": "snow",
+        "home_category": "quiet_things",
+        "also_fits": "weather_actions,things_that_melt,words_before_ball,words_before_man,words_before_board,words_before_bird,weather_words,water_states,mountain_things,seasons_winter,white_things,cold_things"
+      }
+    ],
+    "cooldowns": [],
+    "ui_warnings": [],
+    "risk_warnings": [
+      "volcanoes: риск-статус flagged"
+    ],
+    "generator_version": "level-generator/1.0",
+    "random_seed": 20260731,
+    "content_hash": "77101d8cd8f7e5dbad4d320dd0fc8594b12d990b7d9611d10e4a5e451b1a5869"
+  },
+  {
+    "level_key": "L003",
+    "status": "solver_valid",
+    "tier": "normal",
+    "solution_count": 1,
+    "difficulty": {
+      "score": 3.0,
+      "components": {
+        "category_count": 0.0,
+        "rare_words": 0.0,
+        "average_familiarity": 0.0,
+        "sense_ambiguity": 0.5,
+        "pairwise_category_overlap": 0.0,
+        "alternative_partition_pressure": 1.5,
+        "number_of_plausible_first_groups": 0.0,
+        "structured_category_complexity": 0.0,
+        "phrase_length_pressure": 0.0,
+        "meta_depth": 0.0
+      },
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +0.5"
+    },
+    "solver": {
+      "outcome": "unique",
+      "solution_count": 1,
+      "reason": "разбиение единственное",
+      "alternative_partition": null,
+      "solver_version": "level-exact-cover/1.0",
+      "input_hash": "f52d9e1e8c634b5dd7abfe7fac21f1e814be5035b257e87a81454295d712e6e0",
+      "duration_ms": 0,
+      "checked_at": "2026-07-31T19:06:34+00:00"
+    },
+    "groups": [
+      {
+        "position": 1,
+        "category_key": "cleaning_supplies",
+        "label": "CLEANING SUPPLIES",
+        "rule": "Tools and products used to clean a house",
+        "intended_relation": "used_in",
+        "quartet_key": "cleaning_supplies__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.606,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "polish",
+            "sense_key": "polish_product",
+            "definition": "A liquid or paste rubbed on to make something shine",
+            "sense_mode": "lexical",
+            "familiarity": 0.613,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "trash bag",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.609,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "brush",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.604,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "soap",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.597,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "category_key": "music_tempo_terms",
+        "label": "TEMPO TERMS",
+        "rule": "Italian words used to mark tempo in music",
+        "intended_relation": "is_a",
+        "quartet_key": "music_tempo_terms__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.53,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "grave",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.616,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "piano",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.616,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "forte",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.463,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "largo",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.427,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "category_key": "great_lakes_and_us_water",
+        "label": "US WATERS",
+        "rule": "Famous lakes and rivers in the United States",
+        "intended_relation": "is_a",
+        "quartet_key": "great_lakes_and_us_water__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.645,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "Ohio",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.659,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "Michigan",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.649,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "Colorado",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.637,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "Superior",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.637,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "category_key": "ceremonies",
+        "label": "RELIGIOUS CEREMONIES",
+        "rule": "Ceremonies performed in religious life",
+        "intended_relation": "is_a",
+        "quartet_key": "ceremonies__2",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.547,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "confirmation",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.583,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "blessing",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.58,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "communion",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.514,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "sermon",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.513,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "category_key": "tea_ceremony",
+        "label": "TEA CEREMONY",
+        "rule": "A vessel, leaf or step of making tea properly",
+        "intended_relation": "used_in",
+        "quartet_key": "tea_ceremony__1",
+        "scores": {
+          "cohesion": 0.95,
+          "familiarity": 0.422,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "steep",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.57,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "darjeeling",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.37,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "teapot",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.416,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "teahouse",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.334,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "plausible_competing_memberships": [
+      {
+        "display": "polish",
+        "home_category": "cleaning_supplies",
+        "also_fits": "liquids,nail_words"
+      },
+      {
+        "display": "grave",
+        "home_category": "music_tempo_terms",
+        "also_fits": "words_before_stone"
+      },
+      {
+        "display": "Ohio",
+        "home_category": "great_lakes_and_us_water",
+        "also_fits": "us_states"
+      },
+      {
+        "display": "trash bag",
+        "home_category": "cleaning_supplies",
+        "also_fits": "cleaning_trade"
+      },
+      {
+        "display": "piano",
+        "home_category": "music_tempo_terms",
+        "also_fits": "music_class_things,musical_instruments,instruments_you_strum,heavy_things"
+      },
+      {
+        "display": "Michigan",
+        "home_category": "great_lakes_and_us_water",
+        "also_fits": "us_states,world_lakes"
+      },
+      {
+        "display": "blessing",
+        "home_category": "ceremonies",
+        "also_fits": "prayer_words"
+      },
+      {
+        "display": "darjeeling",
+        "home_category": "tea_ceremony",
+        "also_fits": "teas"
+      },
+      {
+        "display": "brush",
+        "home_category": "cleaning_supplies",
+        "also_fits": "art_tools,writing_tools,art_class_things,beauty_tools,wardrobe_care,model_building,bathroom_items,pet_supplies,words_after_air,painting_supplies,art_supplies,cleaning_tools,painting_trade,barbershop_words"
+      },
+      {
+        "display": "Colorado",
+        "home_category": "great_lakes_and_us_water",
+        "also_fits": "us_states,rivers"
+      },
+      {
+        "display": "teapot",
+        "home_category": "tea_ceremony",
+        "also_fits": "dishes_and_glassware"
+      },
+      {
+        "display": "soap",
+        "home_category": "cleaning_supplies",
+        "also_fits": "bathroom_items,liquids,hygiene,things_that_shrink,experiments"
+      },
+      {
+        "display": "Superior",
+        "home_category": "great_lakes_and_us_water",
+        "also_fits": "world_lakes"
+      },
+      {
+        "display": "sermon",
+        "home_category": "ceremonies",
+        "also_fits": "prayer_words"
+      }
+    ],
+    "cooldowns": [],
+    "ui_warnings": [],
+    "risk_warnings": [
+      "ceremonies: риск-статус flagged",
+      "cleaning_supplies: риск-статус flagged",
+      "great_lakes_and_us_water: риск-статус flagged"
+    ],
+    "generator_version": "level-generator/1.0",
+    "random_seed": 20260731,
+    "content_hash": "82a6e346bf2dcfc94b8ce61612ea8fe3a2b1fcba05a634426d98727796bac8ed"
+  },
+  {
+    "level_key": "L004",
+    "status": "solver_valid",
+    "tier": "normal",
+    "solution_count": 1,
+    "difficulty": {
+      "score": 2.5,
+      "components": {
+        "category_count": 0.0,
+        "rare_words": 0.0,
+        "average_familiarity": 0.0,
+        "sense_ambiguity": 0.0,
+        "pairwise_category_overlap": 0.0,
+        "alternative_partition_pressure": 1.5,
+        "number_of_plausible_first_groups": 0.0,
+        "structured_category_complexity": 0.0,
+        "phrase_length_pressure": 0.0,
+        "meta_depth": 0.0
+      },
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5"
+    },
+    "solver": {
+      "outcome": "unique",
+      "solution_count": 1,
+      "reason": "разбиение единственное",
+      "alternative_partition": null,
+      "solver_version": "level-exact-cover/1.0",
+      "input_hash": "73045a1d50b48fe2e4a905268897c5d87e1de2338b3233a091b29718fb72ee18",
+      "duration_ms": 0,
+      "checked_at": "2026-07-31T19:06:34+00:00"
+    },
+    "groups": [
+      {
+        "position": 1,
+        "category_key": "clothing_sizes",
+        "label": "CLOTHING SIZES",
+        "rule": "Words used for clothing sizes and fit",
+        "intended_relation": "is_a",
+        "quartet_key": "clothing_sizes__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.743,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "large",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.77,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "plus",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.707,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "regular",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.707,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "small",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.787,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "category_key": "cold_drinks",
+        "label": "COLD DRINKS",
+        "rule": "Drinks normally served cold",
+        "intended_relation": "is_a",
+        "quartet_key": "cold_drinks__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.504,
+          "ambiguity_pressure": 0.75
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "cola",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.534,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "ginger ale",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.499,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "iced tea",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.491,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "lemonade",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.491,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "category_key": "knights_and_armor",
+        "label": "KNIGHT THINGS",
+        "rule": "Things a medieval knight used or wore",
+        "intended_relation": "found_in",
+        "quartet_key": "knights_and_armor__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.627,
+          "ambiguity_pressure": 0.75
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "horse",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.68,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "sword",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.624,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "shield",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.614,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "banner",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.589,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "category_key": "rodent_species",
+        "label": "RODENT SPECIES",
+        "rule": "Particular kinds of rodent",
+        "intended_relation": "is_a",
+        "quartet_key": "rodent_species__1",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.54,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "house mouse",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.613,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "field mouse",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.609,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "prairie dog",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.526,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "groundhog",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.414,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "category_key": "greek_dishes",
+        "label": "GREEK DISHES",
+        "rule": "Dishes from Greek cuisine",
+        "intended_relation": "is_a",
+        "quartet_key": "greek_dishes__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.276,
+          "ambiguity_pressure": 0.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "halloumi",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.287,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "souvlaki",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.277,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "tzatziki",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.274,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "moussaka",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.267,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "plausible_competing_memberships": [
+      {
+        "display": "cola",
+        "home_category": "cold_drinks",
+        "also_fits": "drink_mixers"
+      },
+      {
+        "display": "horse",
+        "home_category": "knights_and_armor",
+        "also_fits": "farm_animals,pack_animals,livestock,ranch_words,wild_west,transportation_history,things_that_carry_people"
+      },
+      {
+        "display": "plus",
+        "home_category": "clothing_sizes",
+        "also_fits": "vitamins_letters"
+      },
+      {
+        "display": "ginger ale",
+        "home_category": "cold_drinks",
+        "also_fits": "drink_mixers"
+      },
+      {
+        "display": "sword",
+        "home_category": "knights_and_armor",
+        "also_fits": "weapons_of_the_past,pirate_words,words_before_fish,things_made_of_metal,magic_objects,things_that_are_sharp,things_that_cut"
+      },
+      {
+        "display": "prairie dog",
+        "home_category": "rodent_species",
+        "also_fits": "rodents"
+      },
+      {
+        "display": "small",
+        "home_category": "clothing_sizes",
+        "also_fits": "opposites,word_small"
+      },
+      {
+        "display": "lemonade",
+        "home_category": "cold_drinks",
+        "also_fits": "bbq_foods,drink_mixers,seasons_summer,everyday_drinks,picnic"
+      },
+      {
+        "display": "banner",
+        "home_category": "knights_and_armor",
+        "also_fits": "decorative_things,advertising_words,party_things,castle_things,fan_things"
+      },
+      {
+        "display": "groundhog",
+        "home_category": "rodent_species",
+        "also_fits": "rodents"
+      }
+    ],
+    "cooldowns": [],
+    "ui_warnings": [],
+    "risk_warnings": [
+      "cold_drinks: риск-статус flagged",
+      "greek_dishes: риск-статус flagged",
+      "rodent_species: риск-статус flagged"
+    ],
+    "generator_version": "level-generator/1.0",
+    "random_seed": 20260731,
+    "content_hash": "dcc4f8e27684c456ccda12727df769f76b3c40fa2893182c272ad0955eab5fb5"
+  },
+  {
+    "level_key": "L005",
+    "status": "solver_valid",
+    "tier": "normal",
+    "solution_count": 1,
+    "difficulty": {
+      "score": 4.0,
+      "components": {
+        "category_count": 0.0,
+        "rare_words": 0.0,
+        "average_familiarity": 0.0,
+        "sense_ambiguity": 1.5,
+        "pairwise_category_overlap": 0.0,
+        "alternative_partition_pressure": 1.5,
+        "number_of_plausible_first_groups": 0.0,
+        "structured_category_complexity": 0.0,
+        "phrase_length_pressure": 0.0,
+        "meta_depth": 0.0
+      },
+      "explanation": "5 категорий, 20 слов; главный вклад: sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+    },
+    "solver": {
+      "outcome": "unique",
+      "solution_count": 1,
+      "reason": "разбиение единственное",
+      "alternative_partition": null,
+      "solver_version": "level-exact-cover/1.0",
+      "input_hash": "d14d0e893543b3f2c7ab0f8f3ce9c43187b492df7dcbc343ac96b5d9a6da1167",
+      "duration_ms": 0,
+      "checked_at": "2026-07-31T19:06:34+00:00"
+    },
+    "groups": [
+      {
+        "position": 1,
+        "category_key": "restaurant_words",
+        "label": "RESTAURANT WORDS",
+        "rule": "Things and roles found at a restaurant",
+        "intended_relation": "found_in",
+        "quartet_key": "restaurant_words__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.612,
+          "ambiguity_pressure": 0.75
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "tip",
+            "sense_key": "tip_money",
+            "definition": "Extra money left for good service",
+            "sense_mode": "lexical",
+            "familiarity": 0.65,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "menu",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.609,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "chef",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.604,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "booth",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.586,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "category_key": "book_genres",
+        "label": "BOOK GENRES",
+        "rule": "Categories used to classify books",
+        "intended_relation": "is_a",
+        "quartet_key": "book_genres__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.6,
+          "ambiguity_pressure": 0.5
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "science fiction",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.623,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "romance",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.617,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "humor",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.599,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "thriller",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.559,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "category_key": "zodiac_signs",
+        "label": "ZODIAC SIGNS",
+        "rule": "Signs of the astrological zodiac",
+        "intended_relation": "is_a",
+        "quartet_key": "zodiac_signs__2",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.443,
+          "ambiguity_pressure": 0.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "Scorpio",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.45,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "Aries",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.447,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "Aquarius",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.437,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "Virgo",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.439,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "category_key": "city_sounds",
+        "label": "CITY SOUNDS",
+        "rule": "Sounds heard on a city street",
+        "intended_relation": "does_action",
+        "quartet_key": "city_sounds__3",
+        "scores": {
+          "cohesion": 0.97,
+          "familiarity": 0.472,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "siren",
+            "sense_key": "siren_device",
+            "definition": "A device that makes a loud rising warning sound",
+            "sense_mode": "lexical",
+            "familiarity": 0.494,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "rumble",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.49,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "chatter",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.483,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "honk",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.421,
+            "role": null
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "category_key": "under_lock",
+        "label": "UNDER LOCK",
+        "rule": "Something used to lock things away or guard them",
+        "intended_relation": "used_for",
+        "quartet_key": "under_lock__1",
+        "scores": {
+          "cohesion": 0.95,
+          "familiarity": 0.706,
+          "ambiguity_pressure": 1.0
+        },
+        "tokens": [
+          {
+            "slot": 1,
+            "display": "code",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.726,
+            "role": null
+          },
+          {
+            "slot": 2,
+            "display": "lock",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.644,
+            "role": null
+          },
+          {
+            "slot": 3,
+            "display": "safe",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.724,
+            "role": null
+          },
+          {
+            "slot": 4,
+            "display": "key",
+            "sense_key": "key_lock",
+            "definition": "A small metal object that opens a lock",
+            "sense_mode": "lexical",
+            "familiarity": 0.731,
+            "role": null
+          }
+        ]
+      }
+    ],
+    "plausible_competing_memberships": [
+      {
+        "display": "tip",
+        "home_category": "restaurant_words",
+        "also_fits": "money_actions,money_words"
+      },
+      {
+        "display": "siren",
+        "home_category": "city_sounds",
+        "also_fits": "police_things,emergency_words,loud_things,bell_and_alarm,security_tech"
+      },
+      {
+        "display": "code",
+        "home_category": "under_lock",
+        "also_fits": "spy_words,emergency_words,programming_words"
+      },
+      {
+        "display": "menu",
+        "home_category": "restaurant_words",
+        "also_fits": "reading_material"
+      },
+      {
+        "display": "romance",
+        "home_category": "book_genres",
+        "also_fits": "movie_genres"
+      },
+      {
+        "display": "rumble",
+        "home_category": "city_sounds",
+        "also_fits": "onomatopoeia,loud_noises"
+      },
+      {
+        "display": "lock",
+        "home_category": "under_lock",
+        "also_fits": "words_before_room,security_tech,locksmith_words"
+      },
+      {
+        "display": "chef",
+        "home_category": "restaurant_words",
+        "also_fits": "kitchen_jobs,jobs_that_wear_uniforms,jobs_with_tools,common_professions"
+      },
+      {
+        "display": "chatter",
+        "home_category": "city_sounds",
+        "also_fits": "ways_of_speaking,words_before_box"
+      },
+      {
+        "display": "safe",
+        "home_category": "under_lock",
+        "also_fits": "words_before_house,things_made_of_metal,heavy_things,security_tech,locksmith_words"
+      },
+      {
+        "display": "thriller",
+        "home_category": "book_genres",
+        "also_fits": "movie_genres"
+      },
+      {
+        "display": "honk",
+        "home_category": "city_sounds",
+        "also_fits": "driving_actions"
+      },
+      {
+        "display": "key",
+        "home_category": "under_lock",
+        "also_fits": "bedroom_things,collecting_hobbies,things_in_a_junk_drawer,words_before_board,words_before_stone,things_made_of_metal,things_on_a_keychain,locksmith_words,at_the_hotel"
+      }
+    ],
+    "cooldowns": [],
+    "ui_warnings": [
+      "длинный пузырь: science fiction (15 символов)"
+    ],
+    "risk_warnings": [
+      "book_genres: риск-статус flagged",
+      "zodiac_signs: риск-статус flagged"
+    ],
+    "generator_version": "level-generator/1.0",
+    "random_seed": 20260731,
+    "content_hash": "ebf965b5570bb7e3fb80efe69b9ef75451f49e8e2b56cfc3e9aa20c52a00b378"
+  }
+]

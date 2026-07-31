@@ -406,5 +406,30 @@ def test_run_all_returns_every_check(seeded):
     assert "familiarity_gate" in names
     assert "sense_assignment" in names
     assert "quartets_local_check" in names
-    # без derive-conflicts слой конфликтов пуст, и это блокирующая проверка
-    assert not integrity.check_conflicts_present(seeded).ok
+    # Пустой слой конфликтов сам по себе не ошибка: у этой фикстуры категории
+    # не пересекаются, и запрещать нечего. Ошибка — когда пересечение есть,
+    # а запрета нет; это проверяется отдельно.
+    assert integrity.check_conflicts_present(seeded).ok
+
+
+def test_conflicts_check_catches_unhandled_overlap(seeded, tmp_path):
+    """Четыре общих слова у двух категорий без записи в слое конфликтов — блокер."""
+    from word_content.importers import import_memberships
+
+    overlap = [
+        {
+            "word": word,
+            "category_key": category_key,
+            "relation_type": "is_a",
+            "reason": f"{word} в {category_key}",
+            "fit_score": 0.9,
+            "obviousness_score": 0.9,
+            "review_status": "approved",
+        }
+        for word in ("plum", "peach", "quince", "apricot")
+        for category_key in ("fruits", "pie_ingredients")
+    ]
+    import_memberships(seeded, write_jsonl(tmp_path / "overlap.jsonl", overlap))
+    result = integrity.check_conflicts_present(seeded)
+    assert not result.ok
+    assert any("fruits" in example for example in result.examples)

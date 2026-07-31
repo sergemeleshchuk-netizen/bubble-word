@@ -1,0 +1,75 @@
+{
+  "words": 10441,
+  "words_with_familiarity": 10413,
+  "words_proper_noun": 2051,
+  "word_senses": 588,
+  "words_polysemous": 230,
+  "category_variants": 1276,
+  "category_concepts": 1276,
+  "category_aliases": 0,
+  "categories_by_readiness": {
+    "blocked": 1,
+    "constrained": 448,
+    "curated_only": 4,
+    "hard_only": 5,
+    "ready": 818
+  },
+  "categories_by_status": {
+    "active": 1275,
+    "disabled": 1
+  },
+  "memberships": 18775,
+  "memberships_by_review_status": {
+    "alternative": 4086,
+    "approved": 13664,
+    "candidate": 28,
+    "hard_only": 934,
+    "rejected": 63
+  },
+  "memberships_by_semantic_status": {
+    "correct": 3,
+    "disputed": 74,
+    "unreviewed": 18698
+  },
+  "memberships_with_sense": 1309,
+  "memberships_by_sense_mode": {
+    "compound": 98,
+    "lexical": 18167,
+    "surface_form": 510
+  },
+  "quartets": 3197,
+  "quartet_tokens": 12788,
+  "quartet_tokens_with_sense": 1004,
+  "quartets_by_validation_state": {
+    "auto_validated": 3197
+  },
+  "quartets_by_tier": {
+    "normal": 3197
+  },
+  "quartets_by_origin": {
+    "derived": 3197
+  },
+  "categories_without_quartets": 14,
+  "category_conflicts": 567,
+  "structured_groups": 13,
+  "level_candidates": 5,
+  "levels_by_status": {
+    "review_pending": 5
+  },
+  "levels_solver_valid": 5,
+  "levels_ambiguous": 0,
+  "levels_solver_timeout": 0,
+  "quartets_in_accepted_levels": 0,
+  "level_rejection_reasons": {},
+  "schema_version": 4,
+  "schema_meta": {
+    "schema_version": "4",
+    "content_version": "2026.07.31",
+    "git_commit": "d82289a046715d7b7c606bf9fb37f872cedd0df3",
+    "built_at": "2026-07-31T19:06:34+00:00",
+    "wordfreq_version": "3.1.1",
+    "sha256_categories.jsonl": "e2ed2f09277e9e49f4c245bbca4e70199d8421aaf334957758d5d54eb5190edf",
+    "sha256_membership_candidates.jsonl": "4217257333f52a186b24a6432f2fec46e38baa0c20addda6e3448afbba3902ae",
+    "sha256_review_decisions.csv": "8000b129ca6446034d1959cb238a32c11fd898a272b57425d2aea2f144f3de08"
+  }
+}

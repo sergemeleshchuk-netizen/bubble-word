@@ -266,6 +266,25 @@ class QuartetInput(BaseModel):
     local_check: Literal["unchecked", "local_unique", "local_ambiguous"] = "unchecked"
     difficulty: Score | None = None
     note: str | None = None
+    # Оценки отбора: почему именно эта четвёрка, а не любые четыре слова пула.
+    cohesion_score: Score | None = None
+    familiarity_score: Score | None = None
+    ambiguity_pressure: Score | None = None
+    risk_state: Literal["clear", "flagged", "blocked"] = "clear"
+    intended_relation: str | None = None
+    # Происхождение, а не уровень качества: seed / derived / imported / ai_generated.
+    origin: str = "derived"
+    validator_version: str | None = None
+
+    @field_validator(
+        "difficulty", "cohesion_score", "familiarity_score", "ambiguity_pressure",
+        mode="before",
+    )
+    @classmethod
+    def _blank_score(cls, value: object) -> object:
+        if isinstance(value, str) and not value.strip():
+            return None
+        return value
     # четыре слова через "|", по желанию с значением: "ring#ring_arena"
     words: str
 
