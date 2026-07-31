@@ -1,0 +1,3650 @@
+{
+  "title": "Bubble Associations: Word Game - все 20 уровней, снятых с наших записей геймплея",
+  "source": {
+    "what": "4 записи собственного геймплея уровней 1-20 (884x1920, суммарно 46:22)",
+    "files": [
+      "LVL1-4.MP4",
+      "LVL5-10.MP4",
+      "LVL11-17.MP4",
+      "LVL18-20.MP4"
+    ],
+    "method": "покадровый разбор: сетка каждые 6 с (466 кадров), в спорных местах доп. кадры с шагом 1 и 0.5 с; слова и группировки читались с пузырей (в слитом пузыре слова перечислены столбиком), имена категорий - с финального оранжевого пузыря",
+    "not_used": "чужие текстовые выгрузки ответов - в этой выборке их нет",
+    "board_params_from": "reference-analysis.md, tool/level-tool/docs/TARGET_GAME_OBSERVATIONS.md (те же записи, замеры лимита ходов и числа пузырей)"
+  },
+  "coverage": {
+    "levels": "1-20, все двадцать",
+    "fully_recorded": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20
+    ],
+    "partially_recorded": {
+      "18": "запись начата с середины (4/11 уже собрано): 7 категорий из 11 сняты полностью, 4 (dessert, mountains, islands, money) в кадр не попали, лимит ходов неизвестен"
+    }
+  },
+  "core_rules_observed": [
+    "категория = ровно 4 пузыря, исключений на 20 уровнях нет",
+    "слово внутри уровня не повторяется",
+    "имя категории скрыто от игрока: показывается только на финальном оранжевом пузыре",
+    "цвет пузыря = сколько слов внутри: 1 синий, 2 зелёный, 3 фиолетовый, 4 оранжевый (лопается)",
+    "мердж тратит 1 ход, склейка кусочков тоже; таймера нет",
+    "на поле одновременно 20-24 пузыря, остальные слова досыпаются волнами",
+    "минимум ходов = 3 x категорий + склейки кусочков; лимит = минимум x K, K от 1.67 до 1.25"
+  ],
+  "modifier_glossary": {
+    "picture_bubbles": "часть ответов - пузыри с картинкой вместо слова",
+    "picture_only_category": "категория целиком (или почти) собрана из картинок",
+    "chunks": "слово разбито на кусочки-пузыри, сначала склей слово (склейка тратит ход)",
+    "chains": "цепь делит поле, мерджи через неё запрещены; снимается сбором 3 категорий",
+    "bonus_bubble_plus5_moves": "бонус-пузырь на поле, даёт +5 ходов",
+    "hard": "уровень помечен красной плашкой как сложный",
+    "out_of_moves": "на этом уровне у игрока кончились ходы (экран докупки)",
+    "wrong_merge_red_flash": "в кадре есть ошибочный мердж: пара вспыхивает красным, слияния нет",
+    "long_press_tutorial": "туториал долгого нажатия (предпросмотр слов внутри пузыря)",
+    "partial_recording": "запись начата не с начала уровня: часть категорий в кадр не попала"
+  },
+  "meta_mechanic": "Слово или картинка может быть ССЫЛКОЙ на другую категорию того же уровня. Ссылка появляется на поле в момент, когда категория-ребёнок собрана: оранжевый пузырь лопается - и на его месте возникает новый пузырь (слово или картинка), который нужен уже другой категории. Впервые в игре это происходит на УРОВНЕ 3 (school subjects -> картинка учебников -> категория school). Формы: слово (baby, greece, soil, vault, mountains, building materials) или картинка (пирамида, дерево, попугай, кот, гольф, мишень, врач, таблетка, ботинок, макияж, орехи, вода, фрукты, деньги, остров).",
+  "how_to_read_forms": {
+    "word": "обычный пузырь со словом",
+    "picture": "пузырь с картинкой; в значении указано, ЧТО на картинке",
+    "chunks": "слово приходит кусочками, в pieces - как именно оно разбито",
+    "unseen": "член категории точно есть (категория собралась), но сам пузырь в кадр не попал: категория закрылась между кадрами. Значение - наиболее вероятное по механике ссылок, помечено отдельно и НЕ является наблюдением"
+  },
+  "levels": [
+    {
+      "level": 1,
+      "categories_count": 5,
+      "categories_recorded": 5,
+      "words_total": 20,
+      "words_recorded": 20,
+      "board": {
+        "move_limit": null,
+        "min_moves": 15,
+        "K_observed": null,
+        "bubbles_on_start": 20,
+        "refill_used": false,
+        "moves_left_on_win_in_video": null
+      },
+      "modifiers": [],
+      "chunked_words": [],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [],
+      "categories": [
+        {
+          "name": "farm animals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "cow",
+            "horse",
+            "goat",
+            "pig"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "colors",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "red",
+            "blue",
+            "green",
+            "yellow"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "vehicles",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "car",
+            "bus",
+            "bicycle",
+            "truck"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "compass",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "north",
+            "south",
+            "east",
+            "west"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "days of the week",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "monday",
+            "tuesday",
+            "friday",
+            "sunday"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [],
+      "notes": "Туториал драга. Лимита ходов нет вовсе, все 20 слов лежат на поле сразу, досыпки нет. Категории максимально далёкие друг от друга, ни одной ловушки. Бустеры закрыты замками."
+    },
+    {
+      "level": 2,
+      "categories_count": 8,
+      "categories_recorded": 8,
+      "words_total": 32,
+      "words_recorded": 32,
+      "board": {
+        "move_limit": 39,
+        "min_moves": 24,
+        "K_observed": 1.62,
+        "bubbles_on_start": 21,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 16
+      },
+      "modifiers": [],
+      "chunked_words": [],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [],
+      "categories": [
+        {
+          "name": "vegetables",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "carrot",
+            "potato",
+            "onion",
+            "lettuce"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "fruits",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "apple",
+            "banana",
+            "orange",
+            "grape"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "kitchen tools",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "spoon",
+            "fork",
+            "knife",
+            "plate"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "shapes",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "circle",
+            "square",
+            "triangle",
+            "rectangle"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "house",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "bed",
+            "chair",
+            "table",
+            "door"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "nature",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "sky",
+            "cloud",
+            "hill",
+            "soil"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "dessert",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "candy",
+            "cookie",
+            "brownie",
+            "fudge"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "driving",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "car",
+            "road",
+            "brake",
+            "traffic"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "orange: фрукт, но на прошлом уровне это был цвет (повтор слова в новой роли)",
+        "car: на прошлом уровне было в vehicles, здесь в driving",
+        "soil лежит в nature, хотя тянет в отдельную тему почвы",
+        "vegetables и fruits на одном поле - смежные категории"
+      ],
+      "notes": "Здесь вводится лимит ходов (попап 'You have a limited number of moves'). 32 слова при 21 пузыре на старте - включается досыпка волнами."
+    },
+    {
+      "level": 3,
+      "categories_count": 8,
+      "categories_recorded": 8,
+      "words_total": 32,
+      "words_recorded": 32,
+      "board": {
+        "move_limit": 39,
+        "min_moves": 24,
+        "K_observed": 1.62,
+        "bubbles_on_start": 22,
+        "moves_left_on_win_in_video": 10
+      },
+      "modifiers": [
+        "picture_bubbles"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "school subjects"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "school subjects",
+          "form": "picture",
+          "belongs_to": "school",
+          "also_category_on_level": "school subjects"
+        }
+      ],
+      "categories": [
+        {
+          "name": "food",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bread",
+            "rice",
+            "egg",
+            "milk"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "school",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "desk",
+            "book",
+            "pen",
+            "school subjects"
+          ],
+          "forms": {
+            "school subjects": "picture"
+          }
+        },
+        {
+          "name": "body parts",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "ear",
+            "eye",
+            "leg",
+            "hand"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "school subjects",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "science",
+            "math",
+            "history",
+            "art"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "toys",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "doll",
+            "ball",
+            "puzzle",
+            "kite"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "accessories",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "purse",
+            "hat",
+            "belt",
+            "tie"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "music",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pop",
+            "rock",
+            "jazz",
+            "rap"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "bodies of water",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "river",
+            "sea",
+            "pond",
+            "lake"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "ball в toys, хотя рядом music и school - слово общего назначения",
+        "rock в music, а не камень",
+        "sea/pond/lake/river отдельно от nature (nature была на L2)"
+      ],
+      "notes": "Открывается первый бустер Extra Bubbles. Здесь ПЕРВЫЙ случай мета-ссылки за игру: игрок собирает school subjects, оранжевый пузырь лопается и на его месте появляется пузырь-картинка с учебниками - он и есть четвёртое слово категории school (подтверждено кадрами t=216-228 c)."
+    },
+    {
+      "level": 4,
+      "categories_count": 10,
+      "categories_recorded": 10,
+      "words_total": 40,
+      "words_recorded": 40,
+      "board": {
+        "move_limit": 45,
+        "min_moves": 30,
+        "K_observed": 1.5,
+        "bubbles_on_start": 21,
+        "moves_left_on_win_in_video": 10
+      },
+      "modifiers": [
+        "picture_bubbles"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "doctor",
+        "shoes"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "doctor",
+          "form": "picture",
+          "belongs_to": "jobs",
+          "also_category_on_level": "doctor"
+        },
+        {
+          "token": "shoes",
+          "form": "picture",
+          "belongs_to": "clothes",
+          "also_category_on_level": "shoes"
+        }
+      ],
+      "categories": [
+        {
+          "name": "weather",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "sun",
+            "rain",
+            "snow",
+            "wind"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "jobs",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "chef",
+            "teacher",
+            "farmer",
+            "doctor"
+          ],
+          "forms": {
+            "doctor": "picture"
+          }
+        },
+        {
+          "name": "clothes",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "hat",
+            "pants",
+            "shirt",
+            "shoes"
+          ],
+          "forms": {
+            "shoes": "picture"
+          }
+        },
+        {
+          "name": "shoes",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "lace",
+            "aglet",
+            "sole",
+            "heel"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "doctor",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "medicine",
+            "patient",
+            "hospital",
+            "stethoscope"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "furniture",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "chair",
+            "table",
+            "bed",
+            "sofa"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "planets",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pluto",
+            "venus",
+            "mars",
+            "saturn"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "senses",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "touch",
+            "smell",
+            "sight",
+            "taste"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "meals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "breakfast",
+            "lunch",
+            "dinner",
+            "dessert"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "numbers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "four",
+            "eight",
+            "three",
+            "five"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "hat повтор с L3: было в accessories, здесь в clothes",
+        "aglet - намеренная экзотика (наконечник шнурка) рядом с понятными lace/sole/heel",
+        "chair/table/bed в furniture, хотя на L2 те же слова были в house",
+        "dessert в meals, при этом dessert был категорией на L2",
+        "sight в senses рядом с body parts-логикой прошлого уровня"
+      ],
+      "notes": "Открывается бустер Hint. Две мета-ссылки, обе картинками: врач для jobs, ботинок для clothes - оба появляются в момент сборки одноимённой категории (кадр t=348-353 c: лопается SHOES, вылетает картинка ботинка, уходит в clothes)."
+    },
+    {
+      "level": 5,
+      "categories_count": 11,
+      "categories_recorded": 11,
+      "words_total": 44,
+      "words_recorded": 44,
+      "board": {
+        "move_limit": 43,
+        "min_moves": 33,
+        "K_observed": 1.3,
+        "bubbles_on_start": 24,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 8
+      },
+      "modifiers": [
+        "picture_bubbles"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "cat",
+        "coffee"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "cat",
+          "form": "picture",
+          "belongs_to": "pets",
+          "also_category_on_level": "cat"
+        },
+        {
+          "token": "coffee",
+          "form": "picture",
+          "belongs_to": "beverages",
+          "also_category_on_level": "coffee"
+        }
+      ],
+      "categories": [
+        {
+          "name": "pets",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "dog",
+            "fish",
+            "bird",
+            "cat"
+          ],
+          "forms": {
+            "cat": "picture"
+          }
+        },
+        {
+          "name": "cat",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "meow",
+            "purr",
+            "whiskers",
+            "scratch"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "baking",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "cake",
+            "pie",
+            "cookie",
+            "bread"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "beverages",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "tea",
+            "soda",
+            "juice",
+            "coffee"
+          ],
+          "forms": {
+            "coffee": "picture"
+          }
+        },
+        {
+          "name": "coffee",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "latte",
+            "mocha",
+            "americano",
+            "espresso"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "flowers",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "lily",
+            "tulip",
+            "daisy",
+            "rose"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "insects",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bee",
+            "ant",
+            "fly",
+            "moth"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "dairy",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "butter",
+            "cream",
+            "cheese",
+            "yogurt"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "polygons",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pentagon",
+            "hexagon",
+            "octagon",
+            "square"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "nuts",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "almond",
+            "walnut",
+            "peanut",
+            "cashew"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "illness",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "flu",
+            "cough",
+            "fever",
+            "cold"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "square лежит в polygons, а не в shapes (shapes были на L2 - память игрока)",
+        "cookie повтор с L2 (dessert -> baking)",
+        "cold: болезнь, а не температура",
+        "beverages / coffee / dairy - три смежные питьевые темы на одном поле"
+      ],
+      "notes": "Первый уровень с пузырями-картинками: картинка = член категории. Обе картинки здесь ссылаются на другую категорию этого же уровня (кот в pets, чашка кофе в beverages)."
+    },
+    {
+      "level": 6,
+      "categories_count": 11,
+      "categories_recorded": 11,
+      "words_total": 44,
+      "words_recorded": 44,
+      "board": {
+        "move_limit": 43,
+        "min_moves": 33,
+        "K_observed": 1.3,
+        "bubbles_on_start": 24,
+        "moves_left_on_win_in_video": 12
+      },
+      "modifiers": [
+        "picture_bubbles",
+        "long_press_tutorial"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "pyramid"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "pyramid",
+          "form": "picture",
+          "belongs_to": "shapes",
+          "also_category_on_level": "pyramid"
+        }
+      ],
+      "categories": [
+        {
+          "name": "sea animals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "seal",
+            "jellyfish",
+            "turtle",
+            "octopus"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "music",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "piano",
+            "drum",
+            "flute",
+            "guitar"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "shapes",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "cube",
+            "sphere",
+            "cylinder",
+            "pyramid"
+          ],
+          "forms": {
+            "pyramid": "picture"
+          }
+        },
+        {
+          "name": "pyramid",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pharaoh",
+            "tomb",
+            "egypt",
+            "steps"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "drinks",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "coffee",
+            "soda",
+            "tea",
+            "milk"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "mountains",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "andes",
+            "alps",
+            "everest",
+            "fuji"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "dog",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "leash",
+            "bark",
+            "bone",
+            "fetch"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "fire",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "flame",
+            "smoke",
+            "ash",
+            "ember"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "face",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "nose",
+            "eyes",
+            "mouth",
+            "cheeks"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "sleep",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bed",
+            "blanket",
+            "pillow",
+            "dream"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "personality",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "kind",
+            "honest",
+            "brave",
+            "shy"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "bark в dog (лай), позже на L9 то же слово будет корой дерева",
+        "eyes в face, хотя eye был в body parts на L3",
+        "bed в sleep, хотя на L4 был в furniture, а на L2 - в house",
+        "milk/tea/soda/coffee повтор темы напитков с L5 (beverages/coffee)",
+        "shapes и pyramid: геометрия и Египет пересекаются на слове-картинке"
+      ],
+      "notes": "Туториал long-press (посмотреть слова внутри пузыря). Мета-ссылка одна: картинка пирамиды уходит в shapes после сборки категории pyramid."
+    },
+    {
+      "level": 7,
+      "categories_count": 12,
+      "categories_recorded": 12,
+      "words_total": 48,
+      "words_recorded": 48,
+      "board": {
+        "move_limit": 46,
+        "min_moves": 36,
+        "K_observed": 1.28,
+        "bubbles_on_start": 24,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 8
+      },
+      "modifiers": [
+        "picture_bubbles",
+        "picture_only_category"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "ruler",
+        "scales",
+        "thermometer",
+        "planets"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "time",
+          "form": "word",
+          "belongs_to": "measurements",
+          "also_category_on_level": "time"
+        },
+        {
+          "token": "ruler",
+          "form": "picture",
+          "belongs_to": "measurements",
+          "also_category_on_level": "length"
+        },
+        {
+          "token": "scales",
+          "form": "picture",
+          "belongs_to": "measurements",
+          "also_category_on_level": "weight"
+        },
+        {
+          "token": "thermometer",
+          "form": "picture",
+          "belongs_to": "measurements",
+          "also_category_on_level": "temperature"
+        },
+        {
+          "token": "americas",
+          "form": "word",
+          "belongs_to": "landmass",
+          "also_category_on_level": "americas"
+        },
+        {
+          "token": "planets",
+          "form": "picture",
+          "belongs_to": "space",
+          "also_category_on_level": "planets"
+        }
+      ],
+      "categories": [
+        {
+          "name": "length",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "centimeter",
+            "meter",
+            "inch",
+            "mile"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "weight",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "gram",
+            "ounce",
+            "pound",
+            "kilogram"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "time",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "minute",
+            "hour",
+            "day",
+            "week"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "temperature",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "cool",
+            "warm",
+            "cold",
+            "hot"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "measurements",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "time",
+            "ruler",
+            "scales",
+            "thermometer"
+          ],
+          "forms": {
+            "ruler": "picture",
+            "scales": "picture",
+            "thermometer": "picture"
+          }
+        },
+        {
+          "name": "landmass",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "europe",
+            "africa",
+            "asia",
+            "americas"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "americas",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "north",
+            "south",
+            "central",
+            "latin"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "space",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "stars",
+            "comets",
+            "moon",
+            "planets"
+          ],
+          "forms": {
+            "planets": "picture"
+          }
+        },
+        {
+          "name": "planets",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "saturn",
+            "venus",
+            "pluto",
+            "jupiter"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "water transport",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "boat",
+            "barge",
+            "raft",
+            "ship"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "writing",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pen",
+            "pencil",
+            "crayon",
+            "marker"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "royalty",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "king",
+            "queen",
+            "prince",
+            "princess"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "cold в temperature (на L5 то же слово было в illness)",
+        "четыре меры length/weight/time/temperature режут одну тему на четыре категории",
+        "space vs planets: 'звёздная' тема тоже разрезана",
+        "north/south в americas, хотя на L1 это был compass"
+      ],
+      "notes": "Самая плотная композиция первых 20 уровней: 12 категорий, из них одна (measurements) почти целиком из картинок и целиком состоит из ссылок на другие категории уровня. Третий бустер (магнит) открывается здесь.",
+      "meta_mechanic_observed": "Подтверждено по кадрам t=317-319 c: игрок собирает planets -> оранжевый пузырь PLANETS лопается -> на его месте появляется пузырь-картинка планеты -> он и есть четвёртый член категории space. То есть мета-ссылка выдаётся игроку как награда за собранную категорию-ребёнка, а не лежит на поле с самого начала."
+    },
+    {
+      "level": 8,
+      "categories_count": 12,
+      "categories_recorded": 12,
+      "words_total": 48,
+      "words_recorded": 48,
+      "board": {
+        "move_limit": 44,
+        "min_moves": 36,
+        "K_observed": 1.22,
+        "bubbles_on_start": 24,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 6
+      },
+      "modifiers": [
+        "hard"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "reptile",
+          "form": "word",
+          "belongs_to": "species",
+          "also_category_on_level": "reptile"
+        },
+        {
+          "token": "bird",
+          "form": "word",
+          "belongs_to": "species",
+          "also_category_on_level": "bird"
+        }
+      ],
+      "categories": [
+        {
+          "name": "organs",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "heart",
+            "lung",
+            "liver",
+            "kidney"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "storms",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "cyclone",
+            "blizzard",
+            "tornado",
+            "hurricane"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "artist",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "dancer",
+            "poet",
+            "actor",
+            "writer"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "family",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "mother",
+            "father",
+            "brother",
+            "sister"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "species",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "mammal",
+            "amphibian",
+            "reptile",
+            "bird"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "bird",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "parrot",
+            "crow",
+            "eagle",
+            "swan"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "reptile",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "gecko",
+            "iguana",
+            "snake",
+            "crocodile"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "food",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pizza",
+            "salad",
+            "burger",
+            "steak"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "pastry",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "donut",
+            "bagel",
+            "croissant",
+            "muffin"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "vegetables",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "broccoli",
+            "celery",
+            "cauliflower",
+            "carrot"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "material",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "plastic",
+            "wood",
+            "glass",
+            "paper"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "shoe",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "heel",
+            "lace",
+            "eyelet",
+            "outsole"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "lung в organs, при этом рядом есть species с телесной логикой",
+        "vegetables (carrot, celery) рядом с food (salad) - обе про еду",
+        "pastry рядом с food: donut/bagel просятся в food",
+        "lace в shoe, хотя читается как ткань (material рядом!)",
+        "carrot повтор с L2"
+      ],
+      "notes": "Первый hard-уровень: красная плашка внизу экрана. Мета-слова reptile и bird приходят на поле после того, как собраны одноимённые категории."
+    },
+    {
+      "level": 9,
+      "categories_count": 10,
+      "categories_recorded": 10,
+      "words_total": 40,
+      "words_recorded": 40,
+      "board": {
+        "move_limit": 45,
+        "min_moves": 30,
+        "K_observed": 1.5,
+        "bubbles_on_start": 24,
+        "moves_left_on_win_in_video": 7
+      },
+      "modifiers": [
+        "picture_bubbles"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "tree",
+        "bird"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "tree",
+          "form": "picture",
+          "belongs_to": "forest",
+          "also_category_on_level": "tree"
+        },
+        {
+          "token": "bird",
+          "form": "picture",
+          "belongs_to": "forest",
+          "also_category_on_level": "bird"
+        },
+        {
+          "token": "baby",
+          "form": "word",
+          "belongs_to": "stages of life",
+          "also_category_on_level": "baby"
+        }
+      ],
+      "categories": [
+        {
+          "name": "movie genre",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "comedy",
+            "drama",
+            "western",
+            "horror"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "bulls",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "yak",
+            "buffalo",
+            "angus",
+            "bison"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "bird",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "feathers",
+            "wings",
+            "tail",
+            "beak"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "facial care",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "patches",
+            "toner",
+            "cream",
+            "serum"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "tree",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "trunk",
+            "branch",
+            "root",
+            "bark"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "forest",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "mushroom",
+            "jaguar",
+            "tree",
+            "bird"
+          ],
+          "forms": {
+            "tree": "picture",
+            "bird": "picture"
+          }
+        },
+        {
+          "name": "baby",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "stroller",
+            "pacifier",
+            "crib",
+            "diaper"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "stages of life",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "adult",
+            "teen",
+            "kid",
+            "baby"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "dances",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "samba",
+            "ballet",
+            "waltz",
+            "tango"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "tastes",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "sweet",
+            "sour",
+            "bitter",
+            "umami"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "bark теперь кора дерева, а на L6 был лаем собаки - прямая работа с памятью",
+        "cream в facial care, на L5 то же слово было в dairy",
+        "umami - экзотика вкуса рядом с понятными sweet/sour/bitter",
+        "jaguar в forest, хотя на L13 будет категория cat family",
+        "tail/wings/beak - части птицы, при этом bulls рядом тянет к животным целиком"
+      ],
+      "notes": "Игрок тратит все три бустера. Три мета-ссылки и обе формы токена в одном уровне: forest добирает КАРТИНКИ дерева и попугая, stages of life - СЛОВО baby (кадры t=737-749 c)."
+    },
+    {
+      "level": 10,
+      "categories_count": 8,
+      "categories_recorded": 8,
+      "words_total": 32,
+      "words_recorded": 32,
+      "board": {
+        "move_limit": 44,
+        "min_moves": 29,
+        "K_observed": 1.52,
+        "bubbles_on_start": 20,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 21
+      },
+      "modifiers": [
+        "chunks"
+      ],
+      "chunked_words": [
+        {
+          "word": "yellow",
+          "pieces": [
+            "yel",
+            "low"
+          ]
+        },
+        {
+          "word": "diamond",
+          "pieces": [
+            "dia",
+            "mond"
+          ]
+        },
+        {
+          "word": "elephant",
+          "pieces": [
+            "ele",
+            "phant"
+          ]
+        },
+        {
+          "word": "doctor",
+          "pieces": [
+            "doc",
+            "tor"
+          ]
+        },
+        {
+          "word": "sword",
+          "pieces": [
+            "sw",
+            "ord"
+          ]
+        }
+      ],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [],
+      "categories": [
+        {
+          "name": "color",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "yellow",
+            "orange",
+            "green",
+            "blue"
+          ],
+          "forms": {
+            "yellow": "chunks"
+          }
+        },
+        {
+          "name": "calendar",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "day",
+            "week",
+            "month",
+            "year"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "mood",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "happy",
+            "sad",
+            "angry",
+            "worry"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "meat",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bacon",
+            "ham",
+            "chorizo",
+            "sausage"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "gems",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "diamond",
+            "ruby",
+            "sapphire",
+            "emerald"
+          ],
+          "forms": {
+            "diamond": "chunks"
+          }
+        },
+        {
+          "name": "safari animals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "giraffe",
+            "elephant",
+            "zebra",
+            "lion"
+          ],
+          "forms": {
+            "elephant": "chunks"
+          }
+        },
+        {
+          "name": "jobs",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "manager",
+            "engineer",
+            "doctor",
+            "farmer"
+          ],
+          "forms": {
+            "doctor": "chunks"
+          }
+        },
+        {
+          "name": "weapon",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "spear",
+            "shield",
+            "sword",
+            "axe"
+          ],
+          "forms": {
+            "sword": "chunks"
+          }
+        }
+      ],
+      "traps": [
+        "кусочки читаются как самостоятельные слова-обманки: low, tor, ord, dia",
+        "orange снова цвет (на L2 был фруктом)",
+        "day/week/month/year в calendar - на L1 были days of the week"
+      ],
+      "notes": "Дебют CHUNKS: попап 'Some words are broken into smaller pieces', пример YEL + LOW. Кусочки приходят волной досыпки, не лежат на старте; склейка тратит ход. Пять слов из восьми категорий собираются из половинок."
+    },
+    {
+      "level": 11,
+      "categories_count": 12,
+      "categories_recorded": 12,
+      "words_total": 48,
+      "words_recorded": 48,
+      "board": {
+        "move_limit": 54,
+        "min_moves": 40,
+        "K_observed": 1.35,
+        "bubbles_on_start": 24,
+        "moves_left_on_win_in_video": 8
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles"
+      ],
+      "chunked_words": [
+        {
+          "word": "acoustic",
+          "pieces": [
+            "acous",
+            "tic"
+          ]
+        },
+        {
+          "word": "classical",
+          "pieces": [
+            "clas",
+            "sical"
+          ]
+        },
+        {
+          "word": "barley",
+          "pieces": [
+            "bar",
+            "ley"
+          ]
+        },
+        {
+          "word": "medium",
+          "pieces": [
+            "med",
+            "ium"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "baseball",
+        "swimming",
+        "basketball"
+      ],
+      "unseen_members": [
+        "guitar",
+        "grains"
+      ],
+      "meta_links": [
+        {
+          "token": "baseball",
+          "form": "picture",
+          "belongs_to": "sports",
+          "also_category_on_level": "baseball"
+        },
+        {
+          "token": "swimming",
+          "form": "picture",
+          "belongs_to": "sports",
+          "also_category_on_level": "swimming"
+        },
+        {
+          "token": "basketball",
+          "form": "picture",
+          "belongs_to": "sports",
+          "also_category_on_level": "basketball"
+        },
+        {
+          "token": "guitar",
+          "form": "unseen",
+          "belongs_to": "instruments",
+          "also_category_on_level": "guitar"
+        },
+        {
+          "token": "grains",
+          "form": "unseen",
+          "belongs_to": "food groups",
+          "also_category_on_level": "grains"
+        }
+      ],
+      "categories": [
+        {
+          "name": "sports",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "tennis",
+            "baseball",
+            "swimming",
+            "basketball"
+          ],
+          "forms": {
+            "baseball": "picture",
+            "swimming": "picture",
+            "basketball": "picture"
+          }
+        },
+        {
+          "name": "basketball",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "dunk",
+            "hoop",
+            "rebound",
+            "free throw"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "baseball",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "batter",
+            "catcher",
+            "pitcher",
+            "home run"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "swimming",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pool",
+            "cap",
+            "goggles",
+            "swimsuit"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "instruments",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "piano",
+            "drum",
+            "violin",
+            "guitar"
+          ],
+          "forms": {
+            "guitar": "unseen"
+          }
+        },
+        {
+          "name": "guitar",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bass",
+            "electric",
+            "acoustic",
+            "classical"
+          ],
+          "forms": {
+            "acoustic": "chunks",
+            "classical": "chunks"
+          }
+        },
+        {
+          "name": "food groups",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "fruit",
+            "vegetables",
+            "meat",
+            "grains"
+          ],
+          "forms": {
+            "grains": "unseen"
+          }
+        },
+        {
+          "name": "grains",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "wheat",
+            "rye",
+            "oat",
+            "barley"
+          ],
+          "forms": {
+            "barley": "chunks"
+          }
+        },
+        {
+          "name": "weather",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "snowy",
+            "sunny",
+            "rainy",
+            "windy"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "literature",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "memoir",
+            "poetry",
+            "biography",
+            "fiction"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "nutrients",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "zinc",
+            "protein",
+            "calcium",
+            "iron"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "speed",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "slow",
+            "fast",
+            "turbo",
+            "medium"
+          ],
+          "forms": {
+            "medium": "chunks"
+          }
+        }
+      ],
+      "traps": [
+        "bass в guitar, а не в музыкантах/группе (на L12 bass будет в band)",
+        "cap в swimming (шапочка), хотя читается как кепка-аксессуар",
+        "zinc в nutrients, на L17 то же слово будет в supplements",
+        "три вида спорта одновременно категориями и картинками внутри sports",
+        "кусочки-обманки: med, bar, ley, tic"
+      ],
+      "notes": "Фрагменты слов здесь постоянные, а не эпизодические. Категория sports собрана из слова tennis и ТРЁХ картинок, каждая из которых указывает на отдельную категорию этого же уровня. Четвёртые члены instruments и food groups пришли токенами в тот же 6-секундный интервал, форму токена кадр не поймал - помечено unseen."
+    },
+    {
+      "level": 12,
+      "categories_count": 12,
+      "categories_recorded": 12,
+      "words_total": 48,
+      "words_recorded": 48,
+      "board": {
+        "move_limit": 60,
+        "min_moves": 44,
+        "K_observed": 1.36,
+        "bubbles_on_start": 24,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 15
+      },
+      "modifiers": [
+        "chunks",
+        "bonus_bubble_plus5_moves"
+      ],
+      "chunked_words": [
+        {
+          "word": "dolphin",
+          "pieces": [
+            "dol",
+            "phin"
+          ]
+        },
+        {
+          "word": "texas",
+          "pieces": [
+            "te",
+            "xas"
+          ]
+        },
+        {
+          "word": "florida",
+          "pieces": [
+            "flo",
+            "rida"
+          ]
+        },
+        {
+          "word": "london",
+          "pieces": [
+            "lon",
+            "don"
+          ]
+        },
+        {
+          "word": "tokyo",
+          "pieces": [
+            "to",
+            "kyo"
+          ]
+        },
+        {
+          "word": "sarcasm",
+          "pieces": [
+            "sar",
+            "casm"
+          ]
+        },
+        {
+          "word": "chocolate",
+          "pieces": [
+            "choco",
+            "late"
+          ]
+        },
+        {
+          "word": "august",
+          "pieces": [
+            "au",
+            "gust"
+          ]
+        }
+      ],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "months",
+          "form": "word",
+          "belongs_to": "time periods",
+          "also_category_on_level": "months"
+        }
+      ],
+      "categories": [
+        {
+          "name": "ocean animals",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "whale",
+            "shark",
+            "dolphin",
+            "crab"
+          ],
+          "forms": {
+            "dolphin": "chunks"
+          }
+        },
+        {
+          "name": "usa",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "texas",
+            "florida",
+            "maine",
+            "ohio"
+          ],
+          "forms": {
+            "texas": "chunks",
+            "florida": "chunks"
+          }
+        },
+        {
+          "name": "capitals",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "cairo",
+            "paris",
+            "london",
+            "tokyo"
+          ],
+          "forms": {
+            "london": "chunks",
+            "tokyo": "chunks"
+          }
+        },
+        {
+          "name": "humor",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "joke",
+            "sarcasm",
+            "irony",
+            "prank"
+          ],
+          "forms": {
+            "sarcasm": "chunks"
+          }
+        },
+        {
+          "name": "time periods",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "days",
+            "years",
+            "decades",
+            "months"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "band",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "vocals",
+            "guitar",
+            "drummer",
+            "bass"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "fabrics",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "denim",
+            "satin",
+            "velvet",
+            "silk"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "furniture",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "chair",
+            "table",
+            "shelves",
+            "rack"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "ice cream flavors",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "neapolitan",
+            "strawberry",
+            "vanilla",
+            "chocolate"
+          ],
+          "forms": {
+            "chocolate": "chunks"
+          }
+        },
+        {
+          "name": "plants",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "flower",
+            "tree",
+            "bush",
+            "grass"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "months",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "may",
+            "march",
+            "august",
+            "june"
+          ],
+          "forms": {
+            "august": "chunks"
+          }
+        },
+        {
+          "name": "tea",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "matcha",
+            "black",
+            "green",
+            "herbal"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "black и green в tea, а не в цветах - самая злая ловушка уровня",
+        "may и march читаются как обычные слова, а не как месяцы",
+        "chair/table в furniture, хотя на L2 они были в house",
+        "usa (states) рядом с capitals (cities) - обе про географию",
+        "кусочки-обманки: late, don, to, bass? (late читается как слово)"
+      ],
+      "notes": "Самый просторный лимит из 20 уровней (K~1.67) при 12 категориях: на поле лежит бонус-пузырь '+5 MOVES', который игрок так и не тратит. Восемь слов из кусочков. Мета-слово MONTHS приходит после сборки категории months."
+    },
+    {
+      "level": 13,
+      "categories_count": 8,
+      "categories_recorded": 8,
+      "words_total": 32,
+      "words_recorded": 32,
+      "board": {
+        "move_limit": 42,
+        "min_moves": 26,
+        "K_observed": 1.62,
+        "bubbles_on_start": 22,
+        "moves_left_on_win_in_video": 10
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles",
+        "bonus_bubble_plus5_moves"
+      ],
+      "chunked_words": [
+        {
+          "word": "neptune",
+          "pieces": [
+            "nep",
+            "tune"
+          ]
+        },
+        {
+          "word": "archery",
+          "pieces": [
+            "ar",
+            "chery"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "golf",
+        "darts",
+        "cat"
+      ],
+      "unseen_members": [
+        "planets"
+      ],
+      "meta_links": [
+        {
+          "token": "golf",
+          "form": "picture",
+          "belongs_to": "individual sports",
+          "also_category_on_level": "golf"
+        },
+        {
+          "token": "darts",
+          "form": "picture",
+          "belongs_to": "individual sports",
+          "also_category_on_level": "darts"
+        },
+        {
+          "token": "cat",
+          "form": "picture",
+          "belongs_to": "cat family",
+          "also_category_on_level": "cat"
+        },
+        {
+          "token": "planets",
+          "form": "unseen",
+          "belongs_to": "galaxy",
+          "also_category_on_level": "planets"
+        }
+      ],
+      "categories": [
+        {
+          "name": "galaxy",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "stars",
+            "milky way",
+            "nebula",
+            "planets"
+          ],
+          "forms": {
+            "planets": "unseen"
+          }
+        },
+        {
+          "name": "planets",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "mars",
+            "earth",
+            "uranus",
+            "neptune"
+          ],
+          "forms": {
+            "neptune": "chunks"
+          }
+        },
+        {
+          "name": "music genres",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "rap",
+            "jazz",
+            "blues",
+            "disco"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "darts",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "board",
+            "score",
+            "target",
+            "throw"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "individual sports",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "archery",
+            "chess",
+            "golf",
+            "darts"
+          ],
+          "forms": {
+            "archery": "chunks",
+            "golf": "picture",
+            "darts": "picture"
+          }
+        },
+        {
+          "name": "golf",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "club",
+            "hole",
+            "ball",
+            "tee"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "cat",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "maine coon",
+            "persian",
+            "siamese",
+            "sphynx"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "cat family",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "cheetah",
+            "tiger",
+            "leopard",
+            "cat"
+          ],
+          "forms": {
+            "cat": "picture"
+          }
+        }
+      ],
+      "traps": [
+        "board и score читаются как школьные/игровые слова, а это дартс",
+        "ball в golf, хотя на L3 ball был игрушкой",
+        "galaxy и planets - космос разрезан на две категории",
+        "cat и cat family: домашние породы против крупных кошачьих",
+        "club в golf, а на L14 clubs будет карточной мастью"
+      ],
+      "notes": "На поле лежит бонус-пузырь +5 MOVES, игрок его не тратит. Кадры t=433-441 c показывают цепочку целиком: собран darts -> вылетает картинка мишени -> она уходит в individual sports к archery/chess/картинке гольфа."
+    },
+    {
+      "level": 14,
+      "categories_count": 10,
+      "categories_recorded": 10,
+      "words_total": 40,
+      "words_recorded": 40,
+      "board": {
+        "move_limit": 47,
+        "min_moves": 37,
+        "K_observed": 1.27,
+        "bubbles_on_start": 21,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 3
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles"
+      ],
+      "chunked_words": [
+        {
+          "word": "diamonds",
+          "pieces": [
+            "dia",
+            "monds"
+          ]
+        },
+        {
+          "word": "zucchini",
+          "pieces": [
+            "zuc",
+            "chini"
+          ]
+        },
+        {
+          "word": "monopoly",
+          "pieces": [
+            "mono",
+            "poly"
+          ]
+        },
+        {
+          "word": "shampoo",
+          "pieces": [
+            "sham",
+            "poo"
+          ]
+        },
+        {
+          "word": "shower",
+          "pieces": [
+            "sho",
+            "wer"
+          ]
+        },
+        {
+          "word": "pillow",
+          "pieces": [
+            "pil",
+            "low"
+          ]
+        },
+        {
+          "word": "blanket",
+          "pieces": [
+            "blan",
+            "ket"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "cards",
+        "chess",
+        "berries",
+        "fruits",
+        "bread",
+        "bedroom",
+        "bathroom"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "cards",
+          "form": "picture",
+          "belongs_to": "board games",
+          "also_category_on_level": "card suits"
+        },
+        {
+          "token": "chess",
+          "form": "picture",
+          "belongs_to": "board games",
+          "also_category_on_level": "chess"
+        },
+        {
+          "token": "berries",
+          "form": "picture",
+          "belongs_to": "food",
+          "also_category_on_level": "berries"
+        },
+        {
+          "token": "bread",
+          "form": "picture",
+          "belongs_to": "food",
+          "also_category_on_level": "bread"
+        },
+        {
+          "token": "bedroom",
+          "form": "picture",
+          "belongs_to": "rooms in a house",
+          "also_category_on_level": "bedroom"
+        },
+        {
+          "token": "bathroom",
+          "form": "picture",
+          "belongs_to": "rooms in a house",
+          "also_category_on_level": "bathroom"
+        }
+      ],
+      "categories": [
+        {
+          "name": "berries",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "cherry",
+            "blueberry",
+            "raspberry",
+            "cranberry"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "chess",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pawn",
+            "knight",
+            "bishop",
+            "rook"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "card suits",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "hearts",
+            "clubs",
+            "spades",
+            "diamonds"
+          ],
+          "forms": {
+            "diamonds": "chunks"
+          }
+        },
+        {
+          "name": "vegetables",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "eggplant",
+            "cabbage",
+            "peppers",
+            "zucchini"
+          ],
+          "forms": {
+            "zucchini": "chunks"
+          }
+        },
+        {
+          "name": "bread",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "baguette",
+            "ciabatta",
+            "focaccia",
+            "pita"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "board games",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "monopoly",
+            "checkers",
+            "cards",
+            "chess"
+          ],
+          "forms": {
+            "monopoly": "chunks",
+            "cards": "picture",
+            "chess": "picture"
+          }
+        },
+        {
+          "name": "food",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "desserts",
+            "berries",
+            "fruits",
+            "bread"
+          ],
+          "forms": {
+            "berries": "picture",
+            "fruits": "picture",
+            "bread": "picture"
+          }
+        },
+        {
+          "name": "bathroom",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "shampoo",
+            "soap",
+            "shower",
+            "razor"
+          ],
+          "forms": {
+            "shampoo": "chunks",
+            "shower": "chunks"
+          }
+        },
+        {
+          "name": "bedroom",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pillow",
+            "blanket",
+            "bed",
+            "sleep"
+          ],
+          "forms": {
+            "pillow": "chunks",
+            "blanket": "chunks"
+          }
+        },
+        {
+          "name": "rooms in a house",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "kitchen",
+            "garage",
+            "bedroom",
+            "bathroom"
+          ],
+          "forms": {
+            "bedroom": "picture",
+            "bathroom": "picture"
+          }
+        }
+      ],
+      "traps": [
+        "clubs: масть, но читается как клюшки/клубы",
+        "diamonds: масть, а не драгоценные камни (на L10 были gems с diamond!)",
+        "checkers рядом с шахматными фигурами",
+        "cherry в berries, хотя ботанически не ягода",
+        "bed и sleep в bedroom, при этом есть категория rooms in a house",
+        "кусочки-обманки: low, ket, mono, poly, sham, wer"
+      ],
+      "notes": "Самый тесный проход из первых 20: у игрока осталось 3 хода из 47. Уровень держится на картинках-ссылках: 'food' и 'rooms in a house' почти целиком собраны из картинок соседних категорий этого же уровня."
+    },
+    {
+      "level": 15,
+      "categories_count": 7,
+      "categories_recorded": 7,
+      "words_total": 28,
+      "words_recorded": 28,
+      "board": {
+        "move_limit": 42,
+        "min_moves": 26,
+        "K_observed": 1.62,
+        "bubbles_on_start": 24,
+        "moves_left_on_win_in_video": 8
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles",
+        "bonus_bubble_plus5_moves",
+        "wrong_merge_red_flash"
+      ],
+      "chunked_words": [
+        {
+          "word": "softener",
+          "pieces": [
+            "soft",
+            "ener"
+          ]
+        },
+        {
+          "word": "detergent",
+          "pieces": [
+            "deter",
+            "gent"
+          ]
+        },
+        {
+          "word": "mascara",
+          "pieces": [
+            "mas",
+            "cara"
+          ]
+        },
+        {
+          "word": "glider",
+          "pieces": [
+            "gli",
+            "der"
+          ]
+        },
+        {
+          "word": "monopoly",
+          "pieces": [
+            "mono",
+            "poly"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "makeup"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "makeup",
+          "form": "picture",
+          "belongs_to": "beauty care",
+          "also_category_on_level": "makeup"
+        }
+      ],
+      "categories": [
+        {
+          "name": "laundry",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "dirty clothes",
+            "softener",
+            "detergent",
+            "bleach"
+          ],
+          "forms": {
+            "softener": "chunks",
+            "detergent": "chunks"
+          }
+        },
+        {
+          "name": "beauty care",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "haircare",
+            "skincare",
+            "nail care",
+            "makeup"
+          ],
+          "forms": {
+            "makeup": "picture"
+          }
+        },
+        {
+          "name": "makeup",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "foundation",
+            "eyeliner",
+            "lipstick",
+            "mascara"
+          ],
+          "forms": {
+            "mascara": "chunks"
+          }
+        },
+        {
+          "name": "timekeepers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "clocks",
+            "wristwatch",
+            "pocket watch",
+            "hourglass"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "air transport",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "helicopter",
+            "hot-air balloon",
+            "airplane",
+            "glider"
+          ],
+          "forms": {
+            "glider": "chunks"
+          }
+        },
+        {
+          "name": "board games",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "monopoly",
+            "risk",
+            "scrabble",
+            "clue"
+          ],
+          "forms": {
+            "monopoly": "chunks"
+          }
+        },
+        {
+          "name": "stars",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "sun",
+            "vega",
+            "polaris",
+            "sirius"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "clue и risk - названия настолок, но читаются как обычные слова",
+        "sun в stars, а не в погоде (weather была на L11)",
+        "bleach тянет и в laundry, и в beauty care",
+        "polaris/vega/sirius - редкие имена звёзд, точечная экзотика",
+        "кусочки-обманки: der, gent, mas, cara, poly"
+      ],
+      "notes": "Всего 7 категорий - самый разгруженный уровень второй десятки, но 5 слов из 28 собираются из кусочков. Здесь же в кадре ошибочный мердж: игрок тянет POLARIS на BLEACH, пара вспыхивает красным и не сливается (t=768 c)."
+    },
+    {
+      "level": 16,
+      "categories_count": 9,
+      "categories_recorded": 9,
+      "words_total": 36,
+      "words_recorded": 36,
+      "board": {
+        "move_limit": 47,
+        "min_moves": 32,
+        "K_observed": 1.47,
+        "bubbles_on_start": 23,
+        "moves_left_on_win_in_video": 21
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles"
+      ],
+      "chunked_words": [
+        {
+          "word": "dahlia",
+          "pieces": [
+            "dah",
+            "lia"
+          ]
+        },
+        {
+          "word": "surgeon",
+          "pieces": [
+            "sur",
+            "geon"
+          ]
+        },
+        {
+          "word": "austria",
+          "pieces": [
+            "aus",
+            "tria"
+          ]
+        },
+        {
+          "word": "taurus",
+          "pieces": [
+            "tau",
+            "rus"
+          ]
+        },
+        {
+          "word": "scorpio",
+          "pieces": [
+            "scor",
+            "pio"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "flowers",
+        "medicine",
+        "doctor"
+      ],
+      "unseen_members": [
+        "peat"
+      ],
+      "meta_links": [
+        {
+          "token": "soil",
+          "form": "word",
+          "belongs_to": "gardening",
+          "also_category_on_level": "soil"
+        },
+        {
+          "token": "flowers",
+          "form": "picture",
+          "belongs_to": "gardening",
+          "also_category_on_level": "flowers"
+        },
+        {
+          "token": "medicine",
+          "form": "picture",
+          "belongs_to": "health",
+          "also_category_on_level": "medicine"
+        },
+        {
+          "token": "doctor",
+          "form": "picture",
+          "belongs_to": "health",
+          "also_category_on_level": "doctor"
+        },
+        {
+          "token": "greece",
+          "form": "word",
+          "belongs_to": "eu countries",
+          "also_category_on_level": "greece"
+        }
+      ],
+      "categories": [
+        {
+          "name": "soil",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "loam",
+            "clay",
+            "sand",
+            "peat"
+          ],
+          "forms": {
+            "peat": "unseen"
+          }
+        },
+        {
+          "name": "flowers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "aster",
+            "tulip",
+            "peony",
+            "dahlia"
+          ],
+          "forms": {
+            "dahlia": "chunks"
+          }
+        },
+        {
+          "name": "gardening",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "seedlings",
+            "watering",
+            "soil",
+            "flowers"
+          ],
+          "forms": {
+            "flowers": "picture"
+          }
+        },
+        {
+          "name": "doctor",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "dentist",
+            "dietitian",
+            "surgeon",
+            "allergist"
+          ],
+          "forms": {
+            "surgeon": "chunks"
+          }
+        },
+        {
+          "name": "medicine",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "injection",
+            "vaccine",
+            "antibiotic",
+            "insulin"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "health",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "clinic",
+            "patient",
+            "medicine",
+            "doctor"
+          ],
+          "forms": {
+            "medicine": "picture",
+            "doctor": "picture"
+          }
+        },
+        {
+          "name": "greece",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "mythology",
+            "philosophy",
+            "olympics",
+            "democracy"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "eu countries",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "spain",
+            "france",
+            "greece",
+            "austria"
+          ],
+          "forms": {
+            "austria": "chunks"
+          }
+        },
+        {
+          "name": "zodiac signs",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "taurus",
+            "scorpio",
+            "gemini",
+            "virgo"
+          ],
+          "forms": {
+            "taurus": "chunks",
+            "scorpio": "chunks"
+          }
+        }
+      ],
+      "traps": [
+        "greece: и страна ЕС, и античная тема - слово стоит между двумя категориями уровня",
+        "soil: и почвы (loam/clay/sand), и садоводство",
+        "doctor тут категория врачей-специальностей, а на L4 это была профессия-картинка",
+        "olympics в greece, хотя тянет в спорт (sports были на L11)",
+        "кусочки-обманки: rus, aus, tria, pio, lia, dah, geon"
+      ],
+      "notes": "Пять мета-ссылок - максимум второй десятки. Health целиком построена на ссылках: clinic + patient + картинка таблетки (medicine) + картинка врача (doctor). Четвёртое слово soil в кадр не попало (категория собралась между кадрами); в нашем разборе от 30.07 зафиксировано PEAT рядом с CLAY/LOAM - взято с пометкой unseen."
+    },
+    {
+      "level": 17,
+      "categories_count": 11,
+      "categories_recorded": 11,
+      "words_total": 44,
+      "words_recorded": 44,
+      "board": {
+        "move_limit": 48,
+        "min_moves": 35,
+        "K_observed": 1.37,
+        "bubbles_on_start": 23,
+        "moves_left_on_win_in_video": 13
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles",
+        "picture_only_category",
+        "bonus_bubble_plus5_moves"
+      ],
+      "chunked_words": [
+        {
+          "word": "architect",
+          "pieces": [
+            "archi",
+            "tect"
+          ]
+        },
+        {
+          "word": "london",
+          "pieces": [
+            "lon",
+            "don"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "builders",
+        "nuts",
+        "supplements",
+        "water",
+        "fruits"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "nuts",
+          "form": "picture",
+          "belongs_to": "healthy eating",
+          "also_category_on_level": "nuts"
+        },
+        {
+          "token": "supplements",
+          "form": "picture",
+          "belongs_to": "healthy eating",
+          "also_category_on_level": "supplements"
+        },
+        {
+          "token": "water",
+          "form": "picture",
+          "belongs_to": "healthy eating",
+          "also_category_on_level": "water"
+        },
+        {
+          "token": "fruits",
+          "form": "picture",
+          "belongs_to": "healthy eating",
+          "also_category_on_level": "fruits"
+        },
+        {
+          "token": "building materials",
+          "form": "word",
+          "belongs_to": "construction",
+          "also_category_on_level": "building materials"
+        },
+        {
+          "token": "builders",
+          "form": "picture",
+          "belongs_to": "construction",
+          "also_category_on_level": "builders"
+        }
+      ],
+      "categories": [
+        {
+          "name": "fruits",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "apricot",
+            "papaya",
+            "pear",
+            "mango"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "nuts",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pecan",
+            "almond",
+            "cashew",
+            "hazelnut"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "supplements",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "probiotic",
+            "omega-3",
+            "collagen",
+            "zinc"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "water",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "steam",
+            "ice",
+            "liquid",
+            "vapor"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "building materials",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "wood",
+            "tile",
+            "concrete",
+            "brick"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "builders",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "painter",
+            "plumber",
+            "architect",
+            "carpenter"
+          ],
+          "forms": {
+            "architect": "chunks"
+          }
+        },
+        {
+          "name": "construction",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "crane",
+            "bulldozer",
+            "building materials",
+            "builders"
+          ],
+          "forms": {
+            "builders": "picture"
+          }
+        },
+        {
+          "name": "circus performers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "acrobat",
+            "magician",
+            "clown",
+            "juggler"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "fashion capitals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "paris",
+            "new york",
+            "milan",
+            "london"
+          ],
+          "forms": {
+            "london": "chunks"
+          }
+        },
+        {
+          "name": "stationery",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "paper",
+            "stapler",
+            "eraser",
+            "pen"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "healthy eating",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "nuts",
+            "supplements",
+            "water",
+            "fruits"
+          ],
+          "forms": {
+            "nuts": "picture",
+            "supplements": "picture",
+            "water": "picture",
+            "fruits": "picture"
+          }
+        }
+      ],
+      "traps": [
+        "zinc повтор с L11: было в nutrients, здесь в supplements",
+        "almond и cashew повтор с L5 (та же категория nuts, другая четвёрка)",
+        "paper в stationery, хотя на L8 то же слово было в material",
+        "ice в water, а не в мороженом/зиме",
+        "три стройки рядом: building materials / builders / construction",
+        "кусочки-обманки: don, lon, tect, archi"
+      ],
+      "notes": "Самый «мета» уровень из двадцати: healthy eating состоит из ЧЕТЫРЁХ картинок, каждая из которых - ссылка на другую категорию уровня; construction добирает слово building materials и картинку строителя. Итого шесть ссылок при 11 категориях."
+    },
+    {
+      "level": 18,
+      "categories_count": 11,
+      "categories_recorded": 7,
+      "words_total": 44,
+      "words_recorded": 28,
+      "board": {
+        "move_limit": null,
+        "min_moves": 35,
+        "K_observed": null,
+        "bubbles_on_start": null,
+        "moves_left_on_win_in_video": 3
+      },
+      "modifiers": [
+        "chunks",
+        "picture_bubbles",
+        "bonus_bubble_plus5_moves",
+        "partial_recording"
+      ],
+      "chunked_words": [
+        {
+          "word": "guitar",
+          "pieces": [
+            "gui",
+            "tar"
+          ]
+        },
+        {
+          "word": "titanium",
+          "pieces": [
+            "tita",
+            "nium"
+          ]
+        }
+      ],
+      "picture_bubbles": [
+        "dessert",
+        "money",
+        "islands"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "dessert",
+          "form": "picture",
+          "belongs_to": "menu",
+          "also_category_on_level": "dessert"
+        },
+        {
+          "token": "money",
+          "form": "picture",
+          "belongs_to": "bank",
+          "also_category_on_level": "money"
+        },
+        {
+          "token": "vault",
+          "form": "word",
+          "belongs_to": "bank",
+          "also_category_on_level": "vault"
+        },
+        {
+          "token": "mountains",
+          "form": "word",
+          "belongs_to": "geographical objects",
+          "also_category_on_level": "mountains"
+        },
+        {
+          "token": "islands",
+          "form": "picture",
+          "belongs_to": "geographical objects",
+          "also_category_on_level": "islands"
+        }
+      ],
+      "categories": [
+        {
+          "name": "baby",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "stroller",
+            "diaper",
+            "pacifier",
+            "cradle"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "menu",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "appetizer",
+            "soup",
+            "salad",
+            "dessert"
+          ],
+          "forms": {
+            "dessert": "picture"
+          }
+        },
+        {
+          "name": "musical instruments",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "drum",
+            "piano",
+            "guitar",
+            "horn"
+          ],
+          "forms": {
+            "guitar": "chunks"
+          }
+        },
+        {
+          "name": "metal",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "chromium",
+            "cobalt",
+            "titanium",
+            "lead"
+          ],
+          "forms": {
+            "titanium": "chunks"
+          }
+        },
+        {
+          "name": "vault",
+          "name_source": "видно на оранжевом пузыре",
+          "words": [
+            "lock",
+            "safe",
+            "code",
+            "key"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "bank",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "loan",
+            "account",
+            "money",
+            "vault"
+          ],
+          "forms": {
+            "money": "picture"
+          }
+        },
+        {
+          "name": "geographical objects",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "ocean",
+            "mountains",
+            "canyon",
+            "islands"
+          ],
+          "forms": {
+            "islands": "picture"
+          }
+        }
+      ],
+      "traps": [
+        "lead в metal, а не «вести/поводок»",
+        "vault и bank: слово vault - и категория, и член bank",
+        "salad в menu, хотя на L8 salad был в food",
+        "кусочек TAR читается как самостоятельное слово (это половина GUI+TAR)"
+      ],
+      "notes": "ВНИМАНИЕ: запись начата с середины уровня, на счётчике уже 4/11. Поэтому четыре категории (dessert, mountains, islands, money) в кадр не попали - о них известно только то, что они на уровне были: их токены лежат на поле (картинка пирожного, слово MOUNTAINS, картинка острова, картинка денег). Семь категорий ниже сняты полностью. Лимит ходов для этого уровня неизвестен - начало не записано.",
+      "categories_not_recorded": [
+        "dessert",
+        "mountains",
+        "islands",
+        "money"
+      ]
+    },
+    {
+      "level": 19,
+      "categories_count": 9,
+      "categories_recorded": 9,
+      "words_total": 36,
+      "words_recorded": 36,
+      "board": {
+        "move_limit": 41,
+        "min_moves": 30,
+        "K_observed": 1.37,
+        "bubbles_on_start": 24,
+        "refill_used": true,
+        "moves_left_on_win_in_video": null
+      },
+      "modifiers": [
+        "hard",
+        "chunks",
+        "out_of_moves"
+      ],
+      "chunked_words": [
+        {
+          "word": "memory",
+          "pieces": [
+            "me",
+            "mory"
+          ]
+        },
+        {
+          "word": "oxygen",
+          "pieces": [
+            "oxy",
+            "gen"
+          ]
+        },
+        {
+          "word": "comedy",
+          "pieces": [
+            "co",
+            "medy"
+          ]
+        }
+      ],
+      "picture_bubbles": [],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "brain",
+          "form": "word",
+          "belongs_to": "body systems",
+          "also_category_on_level": "brain"
+        },
+        {
+          "token": "lung",
+          "form": "word",
+          "belongs_to": "body systems",
+          "also_category_on_level": "lung"
+        },
+        {
+          "token": "ticket",
+          "form": "word",
+          "belongs_to": "movie theater",
+          "also_category_on_level": "ticket"
+        }
+      ],
+      "categories": [
+        {
+          "name": "mammals",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "rhino",
+            "whale",
+            "giraffe",
+            "elephant"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "liquid carriers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "hose",
+            "straw",
+            "pipe",
+            "funnel"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "halloween",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "vampire",
+            "witch",
+            "ghosts",
+            "zombie"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "body systems",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "brain",
+            "lung",
+            "muscular",
+            "digestive"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "brain",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "logic",
+            "thought",
+            "emotion",
+            "memory"
+          ],
+          "forms": {
+            "memory": "chunks"
+          }
+        },
+        {
+          "name": "lung",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "inhale",
+            "exhale",
+            "breathe",
+            "oxygen"
+          ],
+          "forms": {
+            "oxygen": "chunks"
+          }
+        },
+        {
+          "name": "movie theater",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "popcorn",
+            "screen",
+            "cinema",
+            "ticket"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "ticket",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "entry",
+            "pass",
+            "stub",
+            "admission"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "movie genre",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "action",
+            "comedy",
+            "thriller",
+            "romance"
+          ],
+          "forms": {
+            "comedy": "chunks"
+          }
+        }
+      ],
+      "traps": [
+        "три мета-пары сразу: brain, lung, ticket - слово и категория одновременно",
+        "whale в mammals, а не в морских животных",
+        "straw/pipe/hose/funnel - категория по функции, а не по теме",
+        "кусочки-обманки: me, co, gen, mory",
+        "cinema и screen тянут в movie genre"
+      ],
+      "notes": "Hard-уровень, на котором у игрока реально кончились ходы: экран Out of Moves и докупка (+5 за рекламу / +15 за 900 монет). Бустеры к этому моменту израсходованы - в кадре они с плюсиком (покупка)."
+    },
+    {
+      "level": 20,
+      "categories_count": 8,
+      "categories_recorded": 8,
+      "words_total": 32,
+      "words_recorded": 32,
+      "board": {
+        "move_limit": 40,
+        "min_moves": 24,
+        "K_observed": 1.67,
+        "bubbles_on_start": 20,
+        "refill_used": true,
+        "moves_left_on_win_in_video": 5
+      },
+      "modifiers": [
+        "chains",
+        "picture_bubbles"
+      ],
+      "chunked_words": [],
+      "picture_bubbles": [
+        "planet"
+      ],
+      "unseen_members": [],
+      "meta_links": [
+        {
+          "token": "spring",
+          "form": "word",
+          "belongs_to": "easter",
+          "also_category_on_level": "spring"
+        },
+        {
+          "token": "gym",
+          "form": "word",
+          "belongs_to": "healthy lifestyle",
+          "also_category_on_level": "gym"
+        },
+        {
+          "token": "planet",
+          "form": "picture",
+          "belongs_to": "astronomy",
+          "also_category_on_level": "planet"
+        }
+      ],
+      "categories": [
+        {
+          "name": "odd numbers",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "one",
+            "three",
+            "five",
+            "seven"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "astronomy",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "telescope",
+            "galaxy",
+            "star",
+            "planet"
+          ],
+          "forms": {
+            "planet": "picture"
+          }
+        },
+        {
+          "name": "planet",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "pluto",
+            "saturn",
+            "earth",
+            "neptune"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "easter",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "bunny",
+            "eggs",
+            "basket",
+            "spring"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "spring",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "flower",
+            "bloom",
+            "blossom",
+            "garden"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "healthy lifestyle",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "diet",
+            "hydration",
+            "meditation",
+            "gym"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "gym",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "weights",
+            "dumbbell",
+            "trainer",
+            "treadmill"
+          ],
+          "forms": {}
+        },
+        {
+          "name": "female names",
+          "name_source": "наша формулировка по четвёрке слов",
+          "words": [
+            "jessica",
+            "emily",
+            "rachel",
+            "emma"
+          ],
+          "forms": {}
+        }
+      ],
+      "traps": [
+        "spring: и Пасха, и весна - слово живёт между двумя категориями уровня",
+        "gym: и здоровый образ жизни, и спортзал",
+        "star в astronomy, а не в planet",
+        "цепь физически разделяет поле: часть слов недоступна, пока не собраны 3 категории"
+      ],
+      "notes": "Дебют CHAINS: попап 'CHAINED BUBBLES - Collect 3 bubbles to unlock. No merging across the chain.' Замок с цифрой 3 отсчитывает собранные категории (3 -> 2 -> 1 -> открыт). Ниже цепи в начале уровня лежит 8 пузырей, которые нельзя ни с чем слить."
+    }
+  ]
+}

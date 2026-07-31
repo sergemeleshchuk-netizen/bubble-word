@@ -217,6 +217,13 @@ def check_quartets_local_check(conn: sqlite3.Connection) -> CheckResult:
               FROM quartets q JOIN categories c ON c.id = q.category_id
              WHERE q.validation_state NOT IN ('invalid', 'disabled')
                AND q.local_check <> 'local_unique'
+               -- Четвёрки записи референса из этого правила исключены
+               -- намеренно. Оригинал строит интерес на пересечениях: четвёрка
+               -- `pentagon, hexagon, octagon, square` целиком лежит в пуле
+               -- SHAPES, и игра от этого не сломана — у токенов есть авторский
+               -- дом. Их однозначность меряется отрывом разбиения
+               -- (assess-levels), а не локальной проверкой пула.
+               AND q.origin <> 'reference_backfill'
             """
         )
     )

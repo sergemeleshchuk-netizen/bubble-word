@@ -22,14 +22,19 @@ from . import (
     cooldown,
     dedupe,
     integrity,
+    level_audit,
     level_generator,
     level_review,
     level_solver,
+    meta_validation,
     migrations,
     normalization,
     profiles,
     quartet_builder,
     readiness,
+    reference_coverage,
+    reference_fixtures,
+    reference_import,
     scoring,
     sense_gaps,
     solver,
@@ -56,6 +61,7 @@ from .repositories import (
     clear_quartets,
     collect_stats,
     coverage_report,
+    ensure_primary_labels,
     get_category,
     list_categories,
     memberships_for_category,
@@ -1026,6 +1032,24 @@ def cmd_score_words(
     _run_scoring(db, config, scoring_version, dry_run, output, ("words",))
 
 
+@app.command("derive-labels")
+def cmd_derive_labels(db: DbOption) -> None:
+    """Заводит основную надпись каждому правилу группировки.
+
+    Надпись — отдельная сущность от правила: одна надпись обслуживает разные
+    принципы (MUSIC — и жанры, и инструменты). Но правило без единой допустимой
+    надписи показать игроку нечем, поэтому связка с собственным именем правила
+    создаётся всегда.
+    """
+    conn = _open(db)
+    try:
+        with conn:
+            labels, links = ensure_primary_labels(conn)
+    finally:
+        conn.close()
+    typer.echo(f"Надписей заведено: {labels}, связок правило-надпись: {links}")
+
+
 @app.command("score-labels")
 def cmd_score_labels(
     db: DbOption,
@@ -1164,13 +1188,23 @@ def cmd_explain_label_score(
     for title, explained in (
         ("  естественность", scoring.label_naturalness(row["label"])),
         ("  ясность", scoring.label_clarity(row["label"])),
-        ("  конкретность", scoring.label_specificity(row["label"], int(row["pool"]))),
+        ("  объясняет четвёрку задним числом",
+         scoring.label_retrospective_fit(row["label"], int(row["pool"]))),
+        ("  приятность раскрытия", scoring.label_reveal_satisfaction(row["label"])),
+        ("  конкретность (диагностика, в качество не входит)",
+         scoring.label_specificity(row["label"], int(row["pool"]))),
     ):
         _explain_table(title, explained.score, explained.parts)
+    typer.echo(
+        f"  охват надписи: {scoring.label_scope(row['label'], int(row['pool']))} "
+        "(характеристика, не штраф)"
+    )
     quality = scoring.label_quality(
         naturalness=row["label_naturalness_score"],
         clarity=row["label_clarity_score"],
-        specificity=row["label_specificity_score"],
+        retrospective_fit=scoring.label_retrospective_fit(
+            row["label"], int(row["pool"])).score,
+        reveal_satisfaction=scoring.label_reveal_satisfaction(row["label"]).score,
         display_width_score=row["label_display_width_score"],
         familiarity=row["label_familiarity_score"],
         config=values,
@@ -1288,7 +1322,7 @@ def cmd_validate_quartets(
             conn.execute(
                 """
                 SELECT q.id AS id, q.quartet_key AS quartet_key, q.validation_state AS state,
-                       c.category_key AS category_key,
+                       q.origin AS origin, c.category_key AS category_key,
                        GROUP_CONCAT(w.normalized) AS words, COUNT(qw.id) AS n
                   FROM quartets q
                   JOIN categories c     ON c.id = q.category_id
@@ -1299,6 +1333,10 @@ def cmd_validate_quartets(
             )
         )
         problems: list[tuple[str, str]] = []
+        # Четвёрки записи референса не выводятся из пулов, а приходят из
+        # fixture. Их пересечение с чужим пулом — свойство оригинала, а не наш
+        # брак: в игре у токена есть авторский дом. Считаем отдельно.
+        fixture_overlaps: list[tuple[str, str]] = []
         checked = 0
         for row in rows:
             if row["state"] in ("disabled", "invalid"):
@@ -1319,7 +1357,12 @@ def cmd_validate_quartets(
                 conn, row["category_key"], words, pools=pools
             )
             if not result.unique:
-                problems.append((row["quartet_key"], result.reason))
+                target = (
+                    fixture_overlaps
+                    if row["origin"] == "reference_backfill"
+                    else problems
+                )
+                target.append((row["quartet_key"], result.reason))
     finally:
         conn.close()
 
@@ -1328,6 +1371,14 @@ def cmd_validate_quartets(
         ["четвёрка", "проблема"],
         [[key, _truncate(reason, 70)] for key, reason in problems[:show]],
     )
+    if fixture_overlaps:
+        typer.echo(
+            f"\nЧетвёрки записи референса с пересечением пулов: {len(fixture_overlaps)}. "
+            "Это не брак: у токена есть авторский дом, однозначность меряется "
+            "отрывом разбиения (assess-levels)."
+        )
+        for key, reason in fixture_overlaps[:show]:
+            typer.echo(f"        - {key}: {_truncate(reason, 70)}")
     if problems:
         raise typer.Exit(code=1)
     typer.secho("Все действующие четвёрки валидны.", fg=typer.colors.GREEN)
@@ -1361,9 +1412,29 @@ def cmd_generate_level_candidates(
     explain: Annotated[
         bool, typer.Option("--explain", help="Разложить сложность по компонентам")
     ] = False,
+    skip_reference_gate: Annotated[
+        bool,
+        typer.Option("--skip-reference-gate",
+                     help="Собрать уровни, не проверяя воспроизводимость референса. "
+                          "Только для отладки: результат нельзя считать контентом"),
+    ] = False,
 ) -> None:
-    """Собирает уровни из готовых четвёрок и проверяет каждый solver'ом целиком."""
+    """Собирает уровни из готовых четвёрок и проверяет каждый solver'ом целиком.
+
+    Перед сборкой обязательно проходит Reference Reproduction Gate: пока система
+    не может повторить то, что мы точно видели, её способность создавать «лучше»
+    не подтверждена.
+    """
     conn = _open(db)
+    if not skip_reference_gate:
+        try:
+            reference_coverage.require_gate(conn)
+        except (reference_coverage.ReferenceGateError,
+                reference_fixtures.FixtureError) as exc:
+            conn.close()
+            _fail(str(exc))
+            raise
+        typer.secho("Reference gate пройден.", fg=typer.colors.GREEN)
     try:
         try:
             cooldown_config = cooldown.load_config(config)
@@ -1862,6 +1933,344 @@ def cmd_show_runs(
             for row in generations
         ],
     )
+
+
+# -------------------------------------------------------------- воспроизведение референса
+
+
+ReferenceInputOption = Annotated[
+    Path | None,
+    typer.Option("--input", help="Запись уровней референса (по умолчанию "
+                                 "reference/video-levels-20.json в корне репозитория)"),
+]
+MaxLevelOption = Annotated[
+    int | None, typer.Option("--max-level", help="Считать только уровни до этого номера")
+]
+OverridesOption = Annotated[
+    Path | None,
+    typer.Option("--overrides",
+                 help="CSV курируемых решений по группам записи "
+                      "(level,group_index,decision,rule_key,rule_type,note)"),
+]
+
+
+def _default_overrides_path() -> Path:
+    return reference_import.default_overrides_path()
+
+
+def _default_sense_choices_path() -> Path:
+    return reference_import.default_sense_choices_path()
+
+
+def _load_reference(input: Path | None, overrides: Path | None):
+    try:
+        fixtures = reference_fixtures.load(input)
+    except reference_fixtures.FixtureError as exc:
+        _fail(str(exc))
+        raise
+    table = reference_import.load_overrides(
+        overrides if overrides is not None else _default_overrides_path()
+    )
+    return fixtures, table
+
+
+@app.command("plan-reference-backfill")
+def cmd_plan_reference_backfill(
+    db: DbOption,
+    input: ReferenceInputOption = None,
+    out: Annotated[Path, typer.Option("--out", help="Каталог патча")] = Path(
+        "data/reference/backfill"
+    ),
+    max_level: MaxLevelOption = None,
+    overrides_file: OverridesOption = None,
+    sense_choices: Annotated[
+        Path | None,
+        typer.Option("--sense-choices",
+                     help="CSV выбранных значений многозначных слов "
+                          "(category_key,word,sense_key,note)"),
+    ] = None,
+) -> None:
+    """Считает, чего базе не хватает для уровней записи, и пишет патч в data/.
+
+    Патч — источник правды: база обязана пересобираться из него. Планировщик
+    намеренно не видит элементов, созданных прошлым backfill'ом, поэтому
+    результат одинаков на пустой и на заполненной базе.
+    """
+    conn = _open(db)
+    fixtures, overrides = _load_reference(input, overrides_file)
+    try:
+        plan = reference_import.plan_backfill(
+            conn, fixtures, max_level=max_level, overrides=overrides,
+            sense_choices=reference_import.load_sense_choices(
+                sense_choices if sense_choices is not None
+                else _default_sense_choices_path()
+            ),
+        )
+    finally:
+        conn.close()
+    written = reference_import.write_plan(plan, out)
+    typer.echo(f"Патч записан в {out}")
+    _print_table(
+        ["файл", "записей"], [[name, str(count)] for name, count in sorted(written.items())]
+    )
+    typer.echo("")
+    _print_table(
+        ["чего не хватало", "штук"],
+        [[name, str(count)] for name, count in sorted(plan.counts().items())],
+    )
+
+
+@app.command("import-reference-backfill")
+def cmd_import_reference_backfill(
+    db: DbOption,
+    input: Annotated[Path, typer.Option("--input", help="Каталог патча")] = Path(
+        "data/reference/backfill"
+    ),
+) -> None:
+    """Применяет патч из data/. Вставляет только недостающее, решения seed не трогает."""
+    conn = _open(db)
+    try:
+        plan = reference_import.read_plan(input)
+        with conn:
+            stats = reference_import.apply_backfill(conn, plan)
+    except reference_import.ReferenceImportError as exc:
+        conn.close()
+        _fail(str(exc))
+        raise
+    finally:
+        if conn:
+            conn.close()
+    _print_table(
+        ["что добавлено", "штук"], [[name, str(count)] for name, count in sorted(stats.items())]
+    )
+
+
+@app.command("import-reference-levels")
+def cmd_import_reference_levels(
+    db: DbOption,
+    input: ReferenceInputOption = None,
+    max_level: MaxLevelOption = None,
+    overrides_file: OverridesOption = None,
+) -> None:
+    """Кладёт уровни записи в базу без потерь. Идемпотентно."""
+    conn = _open(db)
+    fixtures, overrides = _load_reference(input, overrides_file)
+    try:
+        with conn:
+            report = reference_import.import_levels(
+                conn, fixtures, max_level=max_level, overrides=overrides
+            )
+    finally:
+        conn.close()
+    _print_table(
+        ["что импортировано", "штук"],
+        [
+            ["уровней", str(report.levels)],
+            ["групп", str(report.groups)],
+            ["токенов", str(report.tokens)],
+            ["мета-зависимостей", str(report.meta_edges)],
+            ["авторских назначений", str(report.assignments)],
+            ["правдоподобных чужих домов", str(report.decoys)],
+            ["записей провенанса", str(report.provenance_rows)],
+        ],
+    )
+    for gap in report.partial_gaps:
+        typer.secho(f"  предел записи: {gap}", fg=typer.colors.BLUE)
+    for problem in report.unresolved[:20]:
+        typer.secho(f"  не разрешилось: {problem}", fg=typer.colors.YELLOW, err=True)
+    if report.unresolved:
+        typer.secho(
+            f"Всего не разрешилось: {len(report.unresolved)}", fg=typer.colors.RED, err=True
+        )
+        raise typer.Exit(code=1)
+
+
+@app.command("reference-coverage")
+def cmd_reference_coverage(
+    db: DbOption,
+    input: ReferenceInputOption = None,
+    max_level: MaxLevelOption = None,
+    output: Annotated[Path | None, typer.Option("--output", help="Куда положить JSON")] = None,
+    baseline: Annotated[
+        Path | None, typer.Option("--baseline", help="Куда положить восемь чисел baseline")
+    ] = None,
+    show_misses: Annotated[int, typer.Option("--show-misses")] = 10,
+    overrides_file: OverridesOption = None,
+) -> None:
+    """Покрытие записи по слоям. observed и inferred считаются отдельно."""
+    conn = _open(db)
+    fixtures, overrides = _load_reference(input, overrides_file)
+    try:
+        report = reference_coverage.measure(
+            conn, fixtures, max_level=max_level, overrides=overrides
+        )
+    finally:
+        conn.close()
+
+    _print_table(
+        ["проверка", "готово", "всего", "доля"],
+        [
+            [metric.name, str(metric.done), str(metric.total), f"{metric.ratio:.0%}"]
+            for metric in report.metrics.values()
+        ],
+    )
+    typer.echo("")
+    _print_table(
+        ["уровень", "запись", "групп", "воспроизводится", "расхождений"],
+        [
+            [
+                str(level.level), level.completeness,
+                f"{level.groups_recorded}/{level.groups_expected}",
+                "да" if level.reconstructable else "нет", str(len(level.diff)),
+            ]
+            for level in report.levels
+        ],
+    )
+    if show_misses:
+        for metric in report.metrics.values():
+            for miss in metric.misses[:show_misses]:
+                typer.secho(f"  {miss}", fg=typer.colors.YELLOW)
+    if output is not None:
+        reference_coverage.write_report(report, output)
+        typer.echo(f"\nОтчёт: {output}")
+    if baseline is not None:
+        baseline.parent.mkdir(parents=True, exist_ok=True)
+        baseline.write_text(
+            json.dumps(reference_coverage.baseline_snapshot(report), ensure_ascii=False,
+                       indent=2) + "\n",
+            encoding="utf-8",
+        )
+        typer.echo(f"Baseline: {baseline}")
+
+
+@app.command("reference-gate")
+def cmd_reference_gate(
+    db: DbOption,
+    input: ReferenceInputOption = None,
+    max_level: Annotated[int, typer.Option("--max-level")] = reference_coverage.GATE_MAX_LEVEL,
+    overrides_file: OverridesOption = None,
+) -> None:
+    """Reference Reproduction Gate. Ненулевой код = генерация нового контента запрещена."""
+    conn = _open(db)
+    fixtures, overrides = _load_reference(input, overrides_file)
+    try:
+        result = reference_coverage.gate(
+            conn, fixtures, max_level=max_level, overrides=overrides
+        )
+    finally:
+        conn.close()
+    _print_table(
+        ["проверка", "итог", "значение"],
+        [[title, "OK" if ok else "ПРОВАЛ", detail] for title, ok, detail in result.checks],
+    )
+    if not result.passed:
+        typer.secho(
+            "\nGate не пройден. Пока система не может повторить то, что мы точно "
+            "видели, её способность создавать «лучше» не подтверждена.",
+            fg=typer.colors.RED,
+            err=True,
+        )
+        raise typer.Exit(code=1)
+    typer.secho("\nGate пройден: уровни референса воспроизводятся.", fg=typer.colors.GREEN)
+
+
+@app.command("assess-levels")
+def cmd_assess_levels(
+    db: DbOption,
+    origin: Annotated[
+        str | None,
+        typer.Option("--origin", help="Фильтр по происхождению: generated / reference_video"),
+    ] = None,
+    level_key: Annotated[
+        str | None, typer.Option("--level-key", help="Один уровень по ключу")
+    ] = None,
+    margin: Annotated[
+        float,
+        typer.Option("--margin", help="Минимальный отрыв авторского разбиения"),
+    ] = level_solver.DEFAULT_MARGIN_THRESHOLD,
+    timeout_ms: Annotated[int, typer.Option("--timeout-ms")] = 5000,
+    show: Annotated[int, typer.Option("--show")] = 10,
+) -> None:
+    """Мета-граф и отрыв авторского разбиения по каждому сохранённому уровню.
+
+    Заменяет бинарное «одно решение или брак»: уровень с пересечениями
+    проходит, если авторский ответ заметно естественнее альтернатив.
+    """
+    conn = _open(db)
+    try:
+        with conn:
+            audits = level_audit.audit_all(
+                conn,
+                origins=(origin,) if origin else None,
+                level_keys=(level_key,) if level_key else None,
+                margin_threshold=margin,
+                timeout_ms=timeout_ms,
+            )
+    finally:
+        conn.close()
+    _print_table(
+        ["уровень", "мета", "авторское", "альтернатива", "отрыв", "ловушки", "итог"],
+        [
+            [
+                audit.level_key,
+                "ok" if audit.meta.ok else "ПРОБЛЕМА",
+                f"{audit.assessment.intended_partition_score:.3f}",
+                f"{audit.assessment.best_alternative_score:.3f}",
+                f"{audit.assessment.partition_margin:+.3f}",
+                f"{audit.assessment.planned_decoy_count}/"
+                f"{audit.assessment.unplanned_decoy_count}",
+                "OK" if audit.ok else "брак",
+            ]
+            for audit in audits
+        ],
+    )
+    for audit in audits:
+        for problem in audit.problems[:show]:
+            typer.secho(f"  {audit.level_key}: {problem}", fg=typer.colors.YELLOW)
+
+
+@app.command("validate-meta")
+def cmd_validate_meta(
+    db: DbOption,
+    level_key: Annotated[
+        str | None, typer.Option("--level-key", help="Один уровень по ключу")
+    ] = None,
+) -> None:
+    """Проходим ли уровень из стартового состояния: DAG, циклы, тупики."""
+    conn = _open(db)
+    try:
+        sql = "SELECT id, level_key FROM level_instances"
+        params: tuple[object, ...] = ()
+        if level_key:
+            sql += " WHERE level_key = ?"
+            params = (level_key,)
+        rows = list(conn.execute(sql + " ORDER BY level_key", params))
+        results = [
+            (row["level_key"], meta_validation.validate_level_in_db(conn, int(row["id"])))
+            for row in rows
+        ]
+    finally:
+        conn.close()
+    _print_table(
+        ["уровень", "DAG", "глубина", "порядок сборки", "проблем"],
+        [
+            [
+                key,
+                "да" if result.is_dag else "НЕТ",
+                str(result.max_depth),
+                str(len(result.order)),
+                str(len(result.problems)),
+            ]
+            for key, result in results
+        ],
+    )
+    broken = [(key, result) for key, result in results if not result.ok]
+    for key, result in broken:
+        for problem in result.problems:
+            typer.secho(f"  {key}: {problem}", fg=typer.colors.RED, err=True)
+    if broken:
+        raise typer.Exit(code=1)
+    typer.secho("\nМета-граф всех уровней проходим.", fg=typer.colors.GREEN)
 
 
 def main() -> Any:

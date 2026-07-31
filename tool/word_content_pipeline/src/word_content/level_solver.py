@@ -110,6 +110,11 @@ class LevelSolverResult:
 # ------------------------------------------------------------------ загрузка пулов
 
 
+# Насколько уверенно игрок увидит связь. Не «правда ли это», а «первым ли
+# приходит в голову»: hard_only верно, но игрок сам не догадается.
+STATUS_WEIGHT = {"approved": 1.0, "alternative": 0.72, "hard_only": 0.40}
+
+
 @dataclass
 class MembershipIndex:
     """Кто из категорий что принимает: (категория, слово) -> допустимые значения.
@@ -125,6 +130,10 @@ class MembershipIndex:
     # обратный индекс слово -> категории, которые его принимают: без него поиск
     # интерпретаций перебирал бы все 1276 категорий на каждый пузырь
     by_word: dict[str, list[str]] = field(default_factory=dict)
+    # Сила связи: статус x уверенность x очевидность. Нужна не solver'у, а
+    # оценке разбиений: «оба разбиения существуют» и «оба одинаково
+    # естественны» — разные утверждения.
+    strength: dict[tuple[str, str], float] = field(default_factory=dict)
 
     def matches(self, category_key: str, token: Token) -> bool:
         senses = self.accepts.get((category_key, token.word))
@@ -133,6 +142,11 @@ class MembershipIndex:
         if None in senses:
             return True  # написание, значение не важно
         return token.sense_key in senses
+
+    def strength_of(self, category_key: str, token: Token) -> float:
+        if not self.matches(category_key, token):
+            return 0.0
+        return self.strength.get((category_key, token.word), 0.5)
 
 
 def load_memberships(
@@ -149,7 +163,9 @@ def load_memberships(
         f"""
         SELECT c.category_key AS category_key, c.label AS label,
                w.normalized AS word, s.sense_key AS sense_key,
-               {sense_mode_expr} AS sense_mode
+               {sense_mode_expr} AS sense_mode,
+               m.review_status AS review_status,
+               m.fit_score AS fit_score, m.obviousness_score AS obviousness_score
           FROM memberships m
           JOIN categories c ON c.id = m.category_id
           JOIN words w      ON w.id = m.word_id
@@ -162,6 +178,7 @@ def load_memberships(
     )
     labels: dict[str, str] = {}
     accepts: dict[tuple[str, str], set[str | None]] = {}
+    strength: dict[tuple[str, str], float] = {}
     for row in rows:
         labels[row["category_key"]] = row["label"]
         key = (row["category_key"], row["word"])
@@ -170,6 +187,15 @@ def load_memberships(
             accepts.setdefault(key, set()).add(None)
         else:
             accepts.setdefault(key, set()).add(row["sense_key"])
+        value = round(
+            STATUS_WEIGHT.get(row["review_status"], 0.4)
+            * float(row["fit_score"] or 0.5)
+            * (0.5 + 0.5 * float(row["obviousness_score"] or 0.5)),
+            4,
+        )
+        # Одно слово может иметь несколько связей с категорией: берём сильнейшую,
+        # потому что игрок увидит именно самую очевидную.
+        strength[key] = max(strength.get(key, 0.0), value)
 
     polysemous = {
         row["normalized"]
@@ -186,7 +212,8 @@ def load_memberships(
         by_word.setdefault(word, []).append(category_key)
 
     return MembershipIndex(
-        labels=labels, accepts=accepts, polysemous=polysemous, by_word=by_word
+        labels=labels, accepts=accepts, polysemous=polysemous, by_word=by_word,
+        strength=strength,
     )
 
 
@@ -396,3 +423,224 @@ def format_solution(solution: list[tuple[str, tuple[str, ...]]]) -> str:
     return " | ".join(
         f"{category_key}: {', '.join(words)}" for category_key, words in sorted(solution)
     )
+
+
+# ============================================================ авторское разбиение
+
+# Ниже этого отрыва авторское разбиение перестаёт быть «самым естественным»:
+# альтернатива читается почти так же хорошо, и игрок соберёт её первой.
+DEFAULT_MARGIN_THRESHOLD = 0.06
+# Сколько разбиений искать при оценке. Двух хватает, чтобы отклонить уровень,
+# но не хватает, чтобы понять, насколько альтернатива хороша.
+ASSESSMENT_MAX_SOLUTIONS = 8
+
+
+@dataclass
+class Decoy:
+    """Правдоподобный чужой дом токена внутри этого уровня."""
+
+    token: str
+    home: str
+    rival: str
+    home_strength: float
+    rival_strength: float
+    planned: bool
+
+    @property
+    def stronger_than_home(self) -> bool:
+        return self.rival_strength > self.home_strength
+
+
+@dataclass
+class PartitionAssessment:
+    """Насколько авторское разбиение сильнее семантических альтернатив.
+
+    Заменяет бинарное `solution_count == 1`. Референс намеренно строит интерес
+    на пересечениях: orange — и фрукт, и цвет; bark — и собака, и дерево. Такие
+    уровни вышли и работают, потому что у токена есть авторский дом, а
+    альтернатива слабее. Запрещать любое пересечение значит запрещать
+    ровно то, на чём держится игра.
+    """
+
+    intended_partition_score: float
+    best_alternative_score: float
+    partition_margin: float
+    intended_is_best: bool
+    alternative_count: int
+    planned_decoy_count: int
+    unplanned_decoy_count: int
+    decoys: list[Decoy] = field(default_factory=list)
+    hard_reject: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+    solver: LevelSolverResult | None = None
+
+    @property
+    def accepted(self) -> bool:
+        return not self.hard_reject
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "intended_partition_score": self.intended_partition_score,
+            "best_alternative_score": self.best_alternative_score,
+            "partition_margin": self.partition_margin,
+            "intended_is_best": self.intended_is_best,
+            "alternative_count": self.alternative_count,
+            "planned_decoy_count": self.planned_decoy_count,
+            "unplanned_decoy_count": self.unplanned_decoy_count,
+            "hard_reject": self.hard_reject,
+            "warnings": self.warnings,
+        }
+
+
+def _partition_score(
+    assignment: dict[str, str], tokens: list[Token], index: MembershipIndex
+) -> float:
+    """Средняя сила связи по всем пузырям разбиения."""
+    if not tokens:
+        return 0.0
+    total = sum(
+        index.strength_of(assignment.get(token.display_text.strip().lower(), ""), token)
+        for token in tokens
+    )
+    return round(total / len(tokens), 4)
+
+
+def assess_partition(
+    tokens: list[Token],
+    homes: dict[str, str],
+    index: MembershipIndex,
+    structures: StructureIndex | None = None,
+    *,
+    planned_decoys: set[tuple[str, str]] | None = None,
+    margin_threshold: float = DEFAULT_MARGIN_THRESHOLD,
+    max_solutions: int = ASSESSMENT_MAX_SOLUTIONS,
+    timeout_ms: int = DEFAULT_TIMEOUT_MS,
+    meta_ok: bool = True,
+    meta_problems: list[str] | None = None,
+) -> PartitionAssessment:
+    """Сравнивает авторское разбиение с найденными альтернативами.
+
+    ``homes``          display токена (lowercase) -> category_key авторского дома;
+    ``planned_decoys`` пары (display токена, чужой category_key), которые
+                       поставлены намеренно и браком не считаются.
+    """
+    planned_decoys = planned_decoys or set()
+    hard_reject: list[str] = []
+    warnings: list[str] = []
+
+    missing_home = sorted(
+        token.display_text for token in tokens
+        if not homes.get(token.display_text.strip().lower())
+    )
+    for display in missing_home:
+        hard_reject.append(f"у токена «{display}» нет авторского дома")
+
+    intended = _partition_score(homes, tokens, index)
+    for token in tokens:
+        home = homes.get(token.display_text.strip().lower())
+        if home and not index.matches(home, token):
+            hard_reject.append(
+                f"авторский дом «{home}» не принимает токен «{token.display_text}»"
+            )
+
+    result = solve_level(
+        tokens, index, structures, max_solutions=max_solutions, timeout_ms=timeout_ms
+    )
+    intended_signature = _signature_from_homes(homes, tokens)
+    alternatives: list[float] = []
+    for solution in result.solutions:
+        assignment = {
+            display.strip().lower(): category_key
+            for category_key, words in solution
+            for display in words
+        }
+        if _signature(assignment, tokens) == intended_signature:
+            continue
+        alternatives.append(_partition_score(assignment, tokens, index))
+
+    best_alternative = max(alternatives, default=0.0)
+    margin = round(intended - best_alternative, 4)
+    intended_is_best = not alternatives or intended > best_alternative
+
+    if result.outcome in ("timeout", "error", "invalid_input"):
+        hard_reject.append(f"solver: {result.outcome} — {result.reason}")
+    if result.outcome == "unsolvable":
+        hard_reject.append("уровень не раскладывается ни одним способом")
+    if alternatives and not intended_is_best:
+        hard_reject.append(
+            f"альтернативное разбиение не слабее авторского "
+            f"({best_alternative:.3f} >= {intended:.3f})"
+        )
+    elif alternatives and margin < margin_threshold:
+        hard_reject.append(
+            f"отрыв авторского разбиения {margin:.3f} ниже порога {margin_threshold:.3f}"
+        )
+
+    # Локальные ловушки: токен, который тянет в соседнюю группу этого уровня.
+    own = set(homes.values())
+    decoys: list[Decoy] = []
+    for token in tokens:
+        display = token.display_text.strip().lower()
+        home = homes.get(display)
+        if not home:
+            continue
+        home_strength = index.strength_of(home, token)
+        for rival in sorted(own):
+            if rival == home or not index.matches(rival, token):
+                continue
+            decoys.append(
+                Decoy(
+                    token=token.display_text,
+                    home=home,
+                    rival=rival,
+                    home_strength=home_strength,
+                    rival_strength=index.strength_of(rival, token),
+                    planned=(display, rival) in planned_decoys,
+                )
+            )
+
+    planned_count = sum(1 for decoy in decoys if decoy.planned)
+    unplanned = [decoy for decoy in decoys if not decoy.planned]
+    for decoy in unplanned:
+        if decoy.stronger_than_home:
+            hard_reject.append(
+                f"незапланированная ловушка: «{decoy.token}» сильнее тянет "
+                f"в «{decoy.rival}» ({decoy.rival_strength:.2f}), "
+                f"чем в авторский дом «{decoy.home}» ({decoy.home_strength:.2f})"
+            )
+        else:
+            warnings.append(
+                f"пересечение без пометки: «{decoy.token}» подходит и «{decoy.rival}»"
+            )
+
+    if not meta_ok:
+        for problem in meta_problems or ["мета-граф не проходит проверку"]:
+            hard_reject.append(f"мета: {problem}")
+
+    return PartitionAssessment(
+        intended_partition_score=intended,
+        best_alternative_score=round(best_alternative, 4),
+        partition_margin=margin,
+        intended_is_best=intended_is_best,
+        alternative_count=len(alternatives),
+        planned_decoy_count=planned_count,
+        unplanned_decoy_count=len(unplanned),
+        decoys=decoys,
+        hard_reject=hard_reject,
+        warnings=warnings,
+        solver=result,
+    )
+
+
+def _signature(assignment: dict[str, str], tokens: list[Token]) -> frozenset[frozenset[str]]:
+    groups: dict[str, set[str]] = {}
+    for token in tokens:
+        display = token.display_text.strip().lower()
+        groups.setdefault(assignment.get(display, ""), set()).add(display)
+    return frozenset(frozenset(members) for members in groups.values())
+
+
+def _signature_from_homes(
+    homes: dict[str, str], tokens: list[Token]
+) -> frozenset[frozenset[str]]:
+    return _signature(homes, tokens)

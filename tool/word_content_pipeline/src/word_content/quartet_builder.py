@@ -114,7 +114,12 @@ def build(
     pools = category_pools(conn)  # включая hard_only: чужая категория опасна любая
     scoring_config = scoring.load_config()
     placeholders = ",".join("?" for _ in NORMAL_READY)
-    sql = f"SELECT category_key FROM categories WHERE readiness IN ({placeholders})"
+    # Правила, выведенные из записи оригинала, четвёрок-кандидатов не дают:
+    # их пул — ровно чужая авторская четвёрка, и генератор повторил бы её.
+    sql = (
+        f"SELECT category_key FROM categories WHERE readiness IN ({placeholders})"
+        " AND origin <> 'reference_backfill'"
+    )
     params: list[object] = list(NORMAL_READY)
     if only_category:
         sql += " AND category_key = ?"

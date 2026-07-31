@@ -1,0 +1,9 @@
+level,group_index,reference_name,decision,rule_key,rule_type,note
+2,5,house,new_rule,ref_house,context_hub,"bed/chair/table/door — это дом как ситуация; автоматика цеплялась за things_made_of_wood (все четыре действительно деревянные), но HOUSE не является допустимой надписью для «предметов из дерева»"
+2,6,nature,new_rule,ref_nature,association_hub,"sky/cloud/hill/soil: небо и облако не landscape_features; авторская группа — природа вообще"
+3,1,food,new_rule,ref_food_staples,taxonomy_instances,"bread/rice/egg/milk — базовые продукты, а не breakfast_foods: рис на завтрак не тянет"
+3,2,school,new_rule,ref_school,context_hub,"desk/book/pen + мета-токен school subjects; четвёртый член не «школьная принадлежность», значит правило — контекст, а не supplies"
+4,10,numbers,new_rule,ref_numbers,structured_set,"four/eight/three/five: автоматика дала superstition_numbers, но авторская группа — просто числа"
+5,9,polygons,new_rule,ref_polygons,taxonomy_instances,"pentagon/hexagon/octagon/square: shapes на этом же уровне пришлось бы делить с L2 и L6; многоугольники — своё правило"
+7,1,length,new_rule,ref_length_units,structured_set,"centimeter/meter/inch/mile — единицы длины, а не things_measured_in_inches"
+17,9,fashion capitals,new_rule,ref_fashion_capitals,taxonomy_instances,"paris/new york/milan/london: world_cities принимает сотни городов, четвёрка перестаёт быть различимой"

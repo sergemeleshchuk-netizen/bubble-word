@@ -30,6 +30,7 @@ from dataclasses import dataclass, field
 from . import cooldown as cooldown_mod
 from . import difficulty as difficulty_mod
 from . import level_solver
+from . import meta_validation
 from . import profiles as profiles_mod
 from . import structured
 from .db import utc_now
@@ -59,6 +60,8 @@ class LevelCandidate:
     groups: list[GroupPlan]
     solver: level_solver.LevelSolverResult
     difficulty: difficulty_mod.DifficultyScore
+    assessment: level_solver.PartitionAssessment | None = None
+    meta: meta_validation.MetaValidation | None = None
     cooldown_violations: list[cooldown_mod.Violation] = field(default_factory=list)
     reject_reasons: list[str] = field(default_factory=list)
     random_seed: int = 0
@@ -71,7 +74,18 @@ class LevelCandidate:
 
     @property
     def is_valid(self) -> bool:
-        return self.solver.unique and not self.reject_reasons and not self.cooldown_violations
+        """Годен, если авторское разбиение уверенно сильнее альтернатив.
+
+        Уровень с единственным разбиением проходит как и раньше. Уровень с
+        альтернативой больше не отклоняется автоматически: он проходит, если
+        авторский ответ заметно естественнее, а все пересечения либо
+        спроектированы, либо слабее авторского дома.
+        """
+        if self.reject_reasons or self.cooldown_violations:
+            return False
+        if self.assessment is not None:
+            return self.assessment.accepted
+        return self.solver.unique
 
     @property
     def tokens(self) -> list[level_solver.Token]:
@@ -148,6 +162,10 @@ def _usable_quartets(
              WHERE q.validation_state IN ('auto_validated', 'warning')
                AND q.local_check = 'local_unique'
                AND c.status = 'active'
+               -- Чужие авторские группы из записи оригинала в генерацию нового
+               -- контента не идут: они здесь как измерительный эталон.
+               AND c.origin <> 'reference_backfill'
+               AND q.origin <> 'reference_backfill'
                AND (q.tier = ? OR ? = 'hard')
              ORDER BY c.category_key, q.quartet_key, qw.slot
             """,
@@ -428,7 +446,25 @@ def _evaluate(
         for group in groups
         for _word_id, _sense_id, display, sense, _role in group.tokens
     ]
-    result = level_solver.solve_level(
+    homes = {
+        display.strip().lower(): group.category_key
+        for group in groups
+        for _word_id, _sense_id, display, _sense, _role in group.tokens
+    }
+    # Мета-механика проверяется до solver'а: непроходимый уровень не спасает
+    # никакая единственность разбиения.
+    meta = meta_validation.validate(
+        {
+            group.category_key: [display for _w, _s, display, _sk, _r in group.tokens]
+            for group in groups
+        },
+        {},
+    )
+    assessment = level_solver.assess_partition(
+        tokens, homes, index, structures, timeout_ms=timeout_ms,
+        meta_ok=meta.ok, meta_problems=meta.problems,
+    )
+    result = assessment.solver or level_solver.solve_level(
         tokens, index, structures, timeout_ms=timeout_ms
     )
     violations = cooldown_mod.check(
@@ -447,13 +483,13 @@ def _evaluate(
         displays=[token.display_text for token in tokens],
     )
     facts = _facts(groups, tokens, index, result)
-    reject: list[str] = []
-    if not result.unique:
-        reject.append(f"solver: {result.outcome} — {result.reason}")
+    reject: list[str] = list(assessment.hard_reject)
     return LevelCandidate(
         level_key=level_key,
         groups=groups,
         solver=result,
+        assessment=assessment,
+        meta=meta,
         difficulty=difficulty_mod.score(facts),
         cooldown_violations=violations,
         reject_reasons=reject,
@@ -587,12 +623,15 @@ def save(
                 )
 
         alternative = level.solver.alternative_partition
+        assessment = level.assessment
         conn.execute(
             """
             INSERT INTO level_solver_runs
                 (level_id, solver_version, input_hash, parameters, outcome,
-                 solution_count, alternative_partition, reason, duration_ms, checked_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 solution_count, alternative_partition, reason, duration_ms, checked_at,
+                 intended_partition_score, best_alternative_score, partition_margin,
+                 planned_decoy_count, unplanned_decoy_count, intended_is_best)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 level_id,
@@ -602,11 +641,37 @@ def save(
                 level.solver.outcome,
                 level.solver.solution_count,
                 level_solver.format_solution(alternative) if alternative else None,
-                level.solver.reason,
+                "; ".join(level.reject_reasons) or level.solver.reason,
                 level.solver.duration_ms,
                 now,
+                assessment.intended_partition_score if assessment else None,
+                assessment.best_alternative_score if assessment else None,
+                assessment.partition_margin if assessment else None,
+                assessment.planned_decoy_count if assessment else 0,
+                assessment.unplanned_decoy_count if assessment else 0,
+                (1 if assessment.intended_is_best else 0) if assessment else None,
             ),
         )
+        if assessment is not None:
+            conn.execute(
+                """
+                UPDATE level_instances
+                   SET intended_partition_score = ?, best_alternative_score = ?,
+                       partition_margin = ?, planned_decoy_count = ?,
+                       unplanned_decoy_count = ?, meta_state = ?
+                 WHERE id = ?
+                """,
+                (
+                    assessment.intended_partition_score,
+                    assessment.best_alternative_score,
+                    assessment.partition_margin,
+                    assessment.planned_decoy_count,
+                    assessment.unplanned_decoy_count,
+                    json.dumps(level.meta.as_dict(), ensure_ascii=False)
+                    if level.meta else None,
+                    level_id,
+                ),
+            )
         saved += 1
     return saved
 

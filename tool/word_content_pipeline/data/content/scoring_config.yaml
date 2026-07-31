@@ -9,7 +9,7 @@
 
 # ------------------------------------------------------------------ версии формул
 word_scoring_version: 1
-label_scoring_version: 1
+label_scoring_version: 2
 quartet_scoring_version: 1
 
 # ------------------------------------------------------------------ слово: пороги
@@ -52,14 +52,18 @@ label_display_comfort_chars: 14
 label_display_limit_chars: 28
 
 label_quality_naturalness_weight: 0.20
-label_quality_clarity_weight: 0.35
+label_quality_clarity_weight: 0.30
 # Потолок качества при сломанной формулировке: итог не может превысить
 # естественность плюс это значение. Иначе технический мусор в названии
 # усредняется остальными осями и получает высокий балл.
 label_quality_naturalness_floor: 0.35
-label_quality_specificity_weight: 0.15
-label_quality_display_weight: 0.15
-label_quality_familiarity_weight: 0.15
+# Оси специфичности в качестве больше нет: монотонный бонус за узкое название
+# работал против референса, где короткий широкий ярлык (FOOD, SCHOOL, BIRD) —
+# норма и достоинство. Вместо неё две оси про момент раскрытия.
+label_quality_retrospective_weight: 0.20
+label_quality_reveal_weight: 0.10
+label_quality_display_weight: 0.10
+label_quality_familiarity_weight: 0.10
 
 # ------------------------------------------------------------------ четвёрка
 # Штраф за слабое звено: одна натянутая связь портит четвёрку сильнее,

@@ -206,6 +206,14 @@ word-content check-integrity    --db database/content.sqlite   # ненулев�
 | `generate-category-candidates` | AI-проход A: категория -> слова. |
 | `generate-word-memberships` | AI-проход B: слово -> категории. |
 | `review-membership-candidates` | AI-проход C: критик кандидатов (базу не меняет). |
+| `derive-labels` | Заводит основную надпись каждому правилу группировки. |
+| `plan-reference-backfill` | Считает патч: чего базе не хватает для уровней записи оригинала. |
+| `import-reference-backfill` | Применяет патч из `data/reference/backfill`. |
+| `import-reference-levels` | Кладёт уровни записи без потерь: группы, токены, формы, мета, провенанс. |
+| `reference-coverage` | Покрытие записи по слоям; observed и inferred надписи считаются отдельно. |
+| `reference-gate` | Reference Reproduction Gate. Ненулевой код = генерация нового контента запрещена. |
+| `validate-meta` | Проходим ли уровень из стартового состояния: DAG, циклы, тупики. |
+| `assess-levels` | Отрыв авторского разбиения от альтернатив, спроектированные и случайные ловушки. |
 | `show-runs` | Журнал импортов и генераций. |
 
 Примеры:
@@ -779,7 +787,49 @@ git и развивается по шагам как авторский набо
 Слова помечены знаками статуса, чтобы ревью читалось без переключения между файлами:
 `+` approved, `~` alternative, `!` hard_only, `x` rejected.
 
-## 16. Следующие шаги
+## 16. Воспроизведение референса: правило, надпись и авторский дом
+
+Слой, добавленный после того, как выяснилось, что база не воспроизводит ни
+одного уровня оригинала. Подробный разбор — `../docs/reference_reproduction/`.
+
+Три сущности, которые до этого были одной:
+
+```text
+categories + rule_type      внутреннее правило: music_genres, musical_instruments
+category_labels             надпись для игрока: MUSIC
+group_rule_labels           какие надписи допустимы для правила
+quartets + quartet_words    конкретная авторская четвёрка
+```
+
+Одна надпись обслуживает разные правила: MUSIC на уровне 3 референса — это
+жанры, на уровне 6 — инструменты. Пока надпись была идентификатором принципа,
+одно исключало другое, и генератор не мог собрать ни тот, ни другой уровень.
+
+`rule_type` различает девять принципов группировки, в том числе те, которые не
+сводятся к таксономии: `association_hub` (CAT -> meow, purr, whiskers),
+`context_hub` (SLEEP -> bed, blanket, pillow, dream), `meta_collector`
+(четвёрка целиком из результатов других категорий).
+
+Уровень как сущность:
+
+```text
+level_tokens.token_kind     lexical_word | picture_token | chunked_word | category_output
+level_tokens.observability  observed | unseen | generated
+level_dependencies          какая собранная группа выпускает токен для другой
+level_assignments           авторский дом токена в ЭТОМ уровне
+level_decoys                правдоподобные чужие дома; planned = спроектированная ловушка
+reference_sources           провенанс: файл записи, номер уровня, наблюдалось ли
+```
+
+Барьер: `generate-level-candidates` вызывает `reference-gate` и падает, если
+уровни 1-10 не воспроизводятся без потерь. Снимается только явным
+`--skip-reference-gate` — это флаг отладки, его результат контентом не является.
+
+Правила и четвёрки, выведенные из записи, помечены `origin = reference_backfill`
+и в генерацию нового контента не идут: они здесь как измерительный эталон, а не
+как материал.
+
+## 17. Следующие шаги
 
 1. **Ручное ревью носителем языка.** `semantic_status` пока `unreviewed` у 17 479 связей.
    Начинать с `06_manual_decisions.md` и `04_flags.md`.

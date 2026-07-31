@@ -79,37 +79,62 @@ for run in data/runs/*/; do
   $WC import-review --db "$DB" --input "$run/review_decisions.csv"
 done
 
-echo "== 8/15 readiness категорий =="
-$WC derive-readiness --db "$DB"
+echo "== 8/19 backfill по записи референса =="
+# Порядок здесь не декоративный. Уровни оригинала — единственное место, где
+# ответ известен заранее, и база обязана уметь их собрать ДО того, как получит
+# право собирать что-то своё. Патч лежит в data/reference/backfill и является
+# источником правды: правки только в SQLite запрещены.
+$WC import-reference-backfill --db "$DB" --input data/reference/backfill
 
-echo "== 9/15 запреты на сочетание категорий =="
+echo "== 9/19 readiness категорий и надписи правил =="
+$WC derive-readiness --db "$DB"
+# Надпись — отдельная сущность от правила группировки. Шаг обязателен: без него
+# у правил нет ни одной допустимой надписи, и показать игроку после сборки
+# будет нечего.
+$WC derive-labels --db "$DB"
+
+echo "== 10/19 запреты на сочетание категорий =="
 $WC derive-conflicts --db "$DB" --output data/category_conflicts.csv
 
-echo "== 10/15 проверенные четвёрки =="
+echo "== 11/19 проверенные четвёрки =="
 $WC build-quartets --db "$DB" --output data/quartets.csv
 
-echo "== 11/15 перепроверка четвёрок =="
+echo "== 12/19 перепроверка четвёрок =="
 $WC validate-quartets --db "$DB"
 
-echo "== 12/15 разбор дублей категорий =="
+echo "== 13/19 разбор дублей категорий =="
 # Только отчёт: слияние принципов — отдельное решение, его применяет
 # dedupe-concepts --apply после просмотра CSV.
 $WC dedupe-concepts --db "$DB" --output data/content/category_duplicates.csv --show 0
 
-echo "== 13/15 рейтинги качества =="
+echo "== 14/19 рейтинги качества =="
 # Порядок обязателен: агрегаты четвёрки считаются из свежих оценок слов
 # и названий. Профили генерации фильтруют именно по этим числам, поэтому
 # шаг идёт до сборки уровней.
 $WC score-all --db "$DB"
 
-echo "== 14/15 уровни-кандидаты и их проверка =="
+echo "== 15/19 уровни референса без потерь =="
+# Импорт идемпотентен и ничего не создаёт: всё, что уровням нужно, уже пришло
+# из патча на шаге 8. Если здесь что-то создаётся — патч неполон.
+$WC import-reference-levels --db "$DB"
+
+echo "== 16/19 Reference Reproduction Gate =="
+# Непроходимый барьер. Пока уровни 1-10 не воспроизводятся без потерь,
+# генерация нового контента запрещена — и следующий шаг упадёт сам.
+$WC reference-gate --db "$DB" --max-level 10
+
+echo "== 17/19 мета-граф и отрыв авторского разбиения =="
+$WC validate-meta --db "$DB"
+$WC assess-levels --db "$DB" --origin reference_video
+
+echo "== 18/19 уровни-кандидаты и их проверка =="
 # Пять уровней на фиксированном seed: это дымовой тест генератора на реальной
 # базе, а не кампания. Уровни остаются кандидатами до приёмки человеком.
 $WC generate-level-candidates --db "$DB" --limit 5 --categories 5 --seed 20260731 \
     --profile accessible_fun
 $WC validate-levels --db "$DB"
 
-echo "== 15/15 версия и приёмка =="
+echo "== 19/19 версия и приёмка =="
 $WC stamp-version --db "$DB" --content-version "$CONTENT_VERSION"
 $WC check-integrity --db "$DB"
 

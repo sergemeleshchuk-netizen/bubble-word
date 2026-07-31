@@ -1,0 +1,189 @@
+level,group_index,reference_name,label_source,decision,rule_key,rule_type,name_rank,members_present,members_missing,candidates
+1,1,farm animals,inferred,reuse,farm_animals,taxonomy_instances,3,4,0,farm_animals:3/4; livestock:0/4; pack_animals:0/1; ranch_words:0/1; transportation_history:0/1
+1,2,colors,inferred,reuse,colors,taxonomy_instances,3,4,0,colors:3/4; tomato_varieties:0/2; olive_types:0/1; potato_varieties:0/1; rice_types:0/1
+1,3,vehicles,inferred,reuse,vehicles,taxonomy_instances,3,4,0,vehicles:3/4; things_with_wheels:0/3; world_transport:0/1; heavy_things:0/1; things_that_carry_people:0/1
+1,4,compass,observed,reuse,directions,taxonomy_instances,0,4,0,directions:0/4; map_words:0/4; parts_of_the_americas:0/2
+1,5,days of the week,inferred,reuse,days_and_parts_of_day,taxonomy_instances,0,4,0,days_and_parts_of_day:0/4
+2,1,vegetables,inferred,reuse,vegetables,taxonomy_instances,3,4,0,vegetables:3/4; root_vegetables:1/3; salad_ingredients:0/3; soup_ingredients:0/3; garden_plants:0/2
+2,2,fruits,observed,reuse,fruits,taxonomy_instances,3,4,0,fruits:3/4; fruit_trees:0/3; things_with_seeds:0/3; round_things:0/2; citrus_fruits:1/1
+2,3,kitchen tools,inferred,reuse,kitchen_tools,functional_group,3,4,0,kitchen_tools:3/4; table_setting:0/4; silverware:0/3; model_building:0/1; printing_words:0/1
+2,4,shapes,observed,reuse,shapes,taxonomy_instances,3,4,0,shapes:3/4; payment_brands:0/1; music_class_things:0/1; percussion:0/1; yoga_poses:0/1
+2,5,house,observed,new_rule,ref_house,context_hub,0,0,4,
+2,6,nature,inferred,new_rule,ref_nature,association_hub,0,0,4,
+2,7,dessert,inferred,reuse,sweets,taxonomy_instances,0,4,0,sweets:0/4; desserts:2/3; baked_goods:0/1; experiments:0/1; magic_creatures:0/1
+2,8,driving,inferred,reuse,on_the_road,context_hub,0,3,1,on_the_road:0/3; driving_actions:1/1; slow_things:0/1; striped_things:0/1; city_sounds:0/1
+3,1,food,inferred,new_rule,ref_food_staples,taxonomy_instances,0,0,4,
+3,2,school,inferred,new_rule,ref_school,context_hub,0,0,4,
+3,3,body parts,inferred,reuse,body_parts,taxonomy_instances,3,4,0,body_parts:3/4; face_parts:0/2; farm_jobs:0/1; clock_words:0/1; giving_and_taking:0/1
+3,4,school subjects,observed,reuse,school_subjects,taxonomy_instances,3,4,0,school_subjects:3/4; magazines:0/1; book_genres:0/1; words_before_work:0/1; things_on_a_wall:0/1
+3,5,toys,inferred,reuse,toys,taxonomy_instances,3,4,0,toys:3/4; toy_chest:0/1; birds_of_prey:0/1; juggling_words:0/1; bowling_words:0/1
+3,6,accessories,inferred,reuse,accessories,taxonomy_instances,3,4,0,accessories:3/4; fashion_accessories:1/3; things_made_of_leather:0/2; things_you_tie:0/2; clothing_items:0/2
+3,7,music,inferred,reuse,music_genres,taxonomy_instances,1,4,0,music_genres:1/4; kitchen_sounds:0/1; dance_styles:0/1; desert_things:0/1; hard_things:0/1
+3,8,bodies of water,observed,reuse,bodies_of_water,taxonomy_instances,3,4,0,bodies_of_water:3/4; words_before_side:0/2; body_of_water_types:0/1; words_before_bird:0/1; country_life:0/1
+4,1,weather,observed,reuse,weather_words,taxonomy_instances,1,4,0,weather_words:1/4; weather_actions:1/2; water_states:0/2; spring_season:0/1; summer_season:0/1
+4,2,jobs,inferred,reuse,common_professions,taxonomy_instances,0,4,0,common_professions:0/4; people_who_help:0/2; farm_jobs:1/1; night_shift_jobs:1/1; jobs_with_animals:1/1
+4,3,clothes,observed,reuse,clothing_items,taxonomy_instances,0,3,1,clothing_items:0/3; things_you_button:0/2; magic_tricks:0/1; things_with_pockets:0/1; wizards_and_spells:0/1
+4,4,shoes,observed,reuse,shoe_parts,components,0,4,0,shoe_parts:0/4; sailing_terms:0/1; saltwater_fish:0/1; shoe_styles:0/1; footwear:0/1
+4,5,doctor,inferred,reuse,at_the_hospital,context_hub,0,4,0,at_the_hospital:0/4; emergency_services:0/1; quiet_places:0/1; science_fields:0/1; hospital_things:0/1
+4,6,furniture,inferred,reuse,furniture,taxonomy_instances,3,4,0,furniture:3/4; things_made_of_wood:0/2; bedtime_things:0/1; barbershop_words:0/1; video_gaming:0/1
+4,7,planets,inferred,reuse,planets,taxonomy_instances,3,4,0,planets:3/4; roman_gods:0/4; cartoon_characters:0/1
+4,8,senses,inferred,reuse,senses_and_perception,taxonomy_instances,1,4,0,senses_and_perception:1/4; eating_actions:0/1; archery_words:0/1
+4,9,meals,inferred,reuse,meals_of_the_day,structured_set,1,4,0,meals_of_the_day:1/4; morning_routine:0/1; restaurant_courses:0/1; words_before_box:0/1; restaurant_words:0/1
+4,10,numbers,inferred,new_rule,ref_numbers,structured_set,0,0,4,
+5,1,pets,inferred,reuse,pets,taxonomy_instances,3,4,0,pets:3/4; animal_classes:0/2; words_before_fish:0/2; farm_animals:0/2; words_before_house:0/2
+5,2,cat,inferred,reuse,cat_things,association_hub,1,4,0,cat_things:1/4; animal_sounds:0/2; quiet_sounds:0/1; scary_sounds:0/1; machine_sounds:0/1
+5,3,baking,inferred,reuse,baked_goods,taxonomy_instances,0,4,0,baked_goods:0/4; desserts:0/3; sweets:0/1; birthday_things:0/1; snack_foods:0/1
+5,4,beverages,inferred,reuse,everyday_drinks,taxonomy_instances,0,4,0,everyday_drinks:0/4; liquids:0/4; vending_machine_items:0/3; cold_drinks:0/2; hot_drinks:0/2
+5,5,coffee,inferred,reuse,coffee_drinks,taxonomy_instances,1,4,0,coffee_drinks:1/4; hot_drinks:0/4; coffee_brands:1/0
+5,6,flowers,observed,reuse,flowers,taxonomy_instances,3,4,0,flowers:3/4; garden_flowers_summer:1/3; nature_names:0/3; flags_and_symbols:0/2; garden_plants:0/2
+5,7,insects,inferred,reuse,insects,taxonomy_instances,3,4,0,insects:3/4; garden_bugs:0/2; words_after_fire:0/2; pests:0/2; flying_animals:0/2
+5,8,dairy,inferred,reuse,dairy_products,taxonomy_instances,1,4,0,dairy_products:1/4; dairy_words:1/2; fermented_foods:0/2; things_that_melt:0/2; yellow_things:0/2
+5,9,polygons,inferred,new_rule,ref_polygons,taxonomy_instances,0,0,4,
+5,10,nuts,inferred,reuse,nuts_world,taxonomy_instances,1,4,0,nuts_world:1/4; nuts_and_seeds:1/4; fruit_trees:0/2; salad_ingredients:0/2; salty_snacks:0/1
+5,11,illness,observed,reuse,feeling_sick,association_hub,0,4,0,feeling_sick:0/4; illnesses:2/3; symptoms:0/2; body_sounds:0/1; temperature_feel:0/1
+6,1,sea animals,inferred,reuse,ocean_animals,taxonomy_instances,0,4,0,ocean_animals:0/4; jellyfish_and_soft:0/2; coral_reef:0/2; slow_things:0/1; sea_mammals:0/1
+6,2,music,inferred,reuse,musical_instruments,taxonomy_instances,0,4,0,musical_instruments:0/4; music_class_things:1/2; instruments_you_strum:0/2; things_made_of_wood:0/2; music_tempo_terms:1/1
+6,3,shapes,observed,reuse,shapes,taxonomy_instances,3,4,0,shapes:3/4; egypt_things:0/1; famous_landmarks:0/1; locksmith_words:0/1; math_operations:0/1
+6,4,pyramid,inferred,new_rule,ref_pyramid,association_hub,0,0,4,egypt_things:0/2; countries:0/1; ancient_civilizations:0/1; archaeology_words:0/1; words_before_stone:0/1
+6,5,drinks,inferred,reuse,everyday_drinks,taxonomy_instances,1,4,0,everyday_drinks:1/4; liquids:0/4; cold_drinks:1/2; hot_drinks:1/2; vending_machine_items:0/2
+6,6,mountains,inferred,reuse,world_mountains,taxonomy_instances,1,4,0,world_mountains:1/4; mountain_ranges:0/2; volcanoes:0/1; apple_varieties:0/1; world_deserts_and_seas:0/1
+6,7,dog,inferred,reuse,dog_things,association_hub,1,4,0,dog_things:1/4; pet_store:0/1; pine_and_cones:0/1; archaeology_words:0/1; plant_parts:0/1
+6,8,fire,inferred,reuse,fire_and_smoke,association_hub,1,4,0,fire_and_smoke:1/4; barbecue:0/1; smelly_things:0/1; cooking_methods:0/1; hot_things:0/1
+6,9,face,inferred,new_rule,ref_face,components,1,0,4,face_parts:1/2; skateboarding:0/1; things_that_come_in_pairs:0/1; river_features:0/1; things_that_have_a_face:1/0
+6,10,sleep,inferred,reuse,bedtime_things,association_hub,0,3,1,bedtime_things:0/3; bedroom_things:0/3; sleep_and_rest:1/2; soft_things:0/2; sleeping_actions:1/1
+6,11,personality,inferred,reuse,personality_traits,property_group,1,4,0,personality_traits:1/4; personality_words:1/3
+7,1,length,inferred,new_rule,ref_length_units,structured_set,0,0,4,
+7,2,weight,inferred,reuse,weight_units,taxonomy_instances,1,4,0,weight_units:1/4; things_measured_in_inches:0/3; currencies:0/1; words_before_cake:0/1; cake_types:0/1
+7,3,time,inferred,reuse,time_units,taxonomy_instances,1,4,0,time_units:1/4; calendar_words:0/2; words_before_time:3/1; word_small:0/1; alphabet_and_numbers:0/1
+7,4,temperature,inferred,reuse,temperature_words,taxonomy_instances,1,4,0,temperature_words:1/4; temperature_feel:1/2; opposites:0/2; feeling_sick:0/1; first_aid_actions:0/1
+7,5,measurements,observed,new_rule,ref_measurements,meta_collector,1,0,4,measuring_tools:0/2; weather_instruments:0/1; measurement_devices:0/1; kitchen_gadgets:0/1; things_made_of_glass:0/1
+7,6,landmass,inferred,reuse,continents_and_oceans,taxonomy_instances,0,3,1,continents_and_oceans:0/3
+7,7,americas,inferred,reuse,parts_of_the_americas,unclassified,1,4,0,parts_of_the_americas:1/4; directions:0/2; map_words:0/2; languages:0/1
+7,8,space,observed,reuse,deep_space,context_hub,1,3,1,deep_space:1/3; stargazing:0/2; space_objects:1/1; fortune_telling:0/1; night_sky_things:0/1
+7,9,planets,observed,reuse,planets,taxonomy_instances,3,4,0,planets:3/4; roman_gods:0/4; cartoon_characters:0/1
+7,10,water transport,inferred,reuse,boats,taxonomy_instances,0,4,0,boats:0/4; things_that_float:0/2; yoga_poses:0/1; fishing_hobby:0/1; harbor_things:0/1
+7,11,writing,inferred,reuse,writing_tools,taxonomy_instances,1,4,0,writing_tools:1/4; school_supplies:0/4; art_supplies:0/3; office_supplies:0/3; art_tools:0/2
+7,12,royalty,observed,reuse,royalty,taxonomy_instances,3,4,0,royalty:3/4; storybook_characters:0/4; chess_words:0/2; card_words:0/2; sports_brands:0/1
+8,1,organs,inferred,reuse,internal_organs,components,1,4,0,internal_organs:1/4; bean_types:0/1; shapes:0/1; card_words:0/1; meats:0/1
+8,2,storms,observed,reuse,storms,taxonomy_instances,3,4,0,storms:3/4; natural_disasters:0/4; weather_words:0/3; seasons_winter:0/1
+8,3,artist,inferred,reuse,creative_jobs,taxonomy_instances,0,4,0,creative_jobs:0/4; at_the_theater:0/1; movie_roles:0/1; movie_words:0/1; artists:2/0
+8,4,family,inferred,reuse,family_members,taxonomy_instances,1,4,0,family_members:1/4; words_before_ball:0/1; seals_and_walruses:1/0; deer_family:1/0
+8,5,species,inferred,reuse,animal_classes,structured_set,0,4,0,animal_classes:0/4; cloud_and_sky:0/1; words_before_house:0/1; pets:0/1; rodent_species:1/0
+8,6,bird,observed,reuse,birds,taxonomy_instances,2,4,0,birds:2/4; flying_animals:0/3; exotic_pets:0/1; birds_of_prey:0/1; parrots_and_exotic_birds:0/1
+8,7,reptile,inferred,reuse,reptiles,taxonomy_instances,2,4,0,reptiles:2/4; lizards:0/2; exotic_pets:0/2; jungle_animals:0/2; pets:0/2
+8,8,food,inferred,reuse,lunch_menu,taxonomy_instances,0,4,0,lunch_menu:0/4; fast_food_items:1/2; words_before_sauce:0/2; barbecue:0/1; restaurant_courses:0/1
+8,9,pastry,inferred,reuse,baked_goods,taxonomy_instances,0,4,0,baked_goods:0/4; pastries:0/3; bread_types:0/3; breakfast_foods:0/3; sandwich_breads:0/2
+8,10,vegetables,inferred,reuse,vegetables,taxonomy_instances,3,4,0,vegetables:3/4; salad_ingredients:0/2; soup_ingredients:0/2; root_vegetables:1/1; words_before_cake:0/1
+8,11,material,inferred,reuse,everyday_materials,taxonomy_instances,0,4,0,everyday_materials:0/4; recycled_materials:0/3; sculpture_materials:0/2; things_that_burn:0/2; hard_things:0/2
+8,12,shoe,inferred,reuse,shoe_parts,components,1,4,0,shoe_parts:1/4; shoe_styles:1/1; sailing_terms:0/1; footwear:0/1; fabric_types:0/1
+9,1,movie genre,inferred,reuse,movie_genres,taxonomy_instances,2,4,0,movie_genres:2/4; book_genres:0/2; fashion_styles:0/1; theater_arts:0/1; tv_genres:0/1
+9,2,bulls,inferred,reuse,wild_cattle,taxonomy_instances,0,4,0,wild_cattle:0/4; antelope_and_grazers:0/3; cattle_and_farm_breeds:0/1; pack_animals:0/1; american_east_cities:0/1
+9,3,bird,observed,reuse,parts_of_a_bird,components,1,4,0,parts_of_a_bird:1/4; animal_body_parts:0/2; theater_stage_terms:0/1; spy_words:0/1; things_that_come_in_pairs:0/1
+9,4,facial care,observed,reuse,facial_care,functional_group,3,4,0,facial_care:3/4; body_fluids:0/1; dairy_words:0/1; drink_mixers:0/1; printing_words:0/1
+9,5,tree,inferred,reuse,tree_parts,components,1,4,0,tree_parts:1/4; plant_parts:0/2; things_in_the_forest:0/2; dog_things:0/1; pine_and_cones:0/1
+9,6,forest,observed,new_rule,ref_forest,context_hub,1,0,4,things_in_the_forest:1/2; in_the_jungle:0/2; things_that_grow:0/2; words_before_house:0/2; animal_classes:0/1
+9,7,baby,observed,reuse,baby_things,functional_group,1,4,0,baby_things:1/4; pregnancy_words:0/2; kids_clothing:0/1; things_with_wheels:0/1; furniture:0/1
+9,8,stages of life,inferred,reuse,life_stages,taxonomy_instances,3,4,0,life_stages:3/4; baby_animal_words_more:0/1; potato_varieties:0/1; magazines:0/1; animal_babies:0/1
+9,9,dances,inferred,reuse,dance_styles,taxonomy_instances,0,4,0,dance_styles:0/4; world_dances:1/3; theater_arts:0/1; alphabet_code:0/1
+9,10,tastes,inferred,reuse,taste_words,taxonomy_instances,0,4,0,taste_words:0/4; smell_words:0/2; perfume_words:0/1
+10,1,color,inferred,reuse,colors,taxonomy_instances,2,4,0,colors:2/4; tomato_varieties:0/2; citrus_fruits:0/1; olive_types:0/1; words_before_berry:0/1
+10,2,calendar,inferred,reuse,calendar_words,taxonomy_instances,1,4,0,calendar_words:1/4; time_units:0/4; alphabet_and_numbers:0/2; words_after_snow:0/1; words_after_sun:0/1
+10,3,mood,inferred,reuse,emotions,association_hub,0,4,0,emotions:0/4; feelings:0/3
+10,4,meat,inferred,reuse,cured_meats,taxonomy_instances,0,4,0,cured_meats:0/4; meats:2/3; pizza_toppings:0/3; breakfast_foods:0/3; sandwich_fillings:0/2
+10,5,gems,inferred,reuse,jewelry_stones,taxonomy_instances,0,4,0,jewelry_stones:0/4; precious_materials:0/4; gemstones:0/4; hard_things:0/1; shiny_things:0/1
+10,6,safari animals,inferred,reuse,zoo_animals,context_hub,0,4,0,zoo_animals:0/4; african_animals:0/4; giant_animals:0/2; pack_animals:0/1; striped_things:0/1
+10,7,jobs,observed,reuse,common_professions,taxonomy_instances,0,4,0,common_professions:0/4; farm_jobs:1/1; night_shift_jobs:1/1; sports_jobs:1/1; transport_jobs:1/1
+10,8,weapon,observed,reuse,weapons_of_the_past,taxonomy_instances,0,3,1,weapons_of_the_past:0/3; knights_and_armor:0/3; things_that_are_sharp:0/2; things_that_cut:0/2; magic_objects:0/1
+11,1,sports,inferred,new_rule,ref_sports,taxonomy_instances,1,0,4,sports_balls:1/2; team_sports:1/2; racing_sports:1/1; water_sports:1/1; olympic_sports:1/1
+11,2,basketball,observed,reuse,basketball_words,context_hub,1,4,0,basketball_words:1/4; gym_class_things:0/1; jewelry:0/1; sports_actions:0/1; water_actions:0/1
+11,3,baseball,inferred,reuse,baseball_words,context_hub,1,4,0,baseball_words:1/4; things_with_handles:0/1; dishes_and_glassware:0/1; baseball_equipment:1/0
+11,4,swimming,inferred,reuse,at_the_pool,context_hub,0,4,0,at_the_pool:0/4; swimwear:0/2; body_of_water_types:0/1; cave_things:0/1; eyewear:0/1
+11,5,instruments,inferred,reuse,musical_instruments,taxonomy_instances,1,4,0,musical_instruments:1/4; instruments_you_strum:1/3; string_instruments:1/2; music_class_things:0/2; things_made_of_wood:0/2
+11,6,guitar,inferred,reuse,types_of_guitars,taxonomy_instances,0,4,0,types_of_guitars:0/4; in_a_band:0/1; singing_voices:0/1; string_instruments:0/1; energy_words:0/1
+11,7,food groups,inferred,reuse,food_groups,structured_set,3,4,0,food_groups:3/4; grocery_aisles:0/1; dessert_toppings:0/1; plant_parts:0/1; words_before_cake:0/1
+11,8,grains,observed,reuse,grains_and_beans,taxonomy_instances,1,4,0,grains_and_beans:1/4; grasses:0/4; crops:0/4; sandwich_breads:0/2; bread_types:0/2
+11,9,weather,observed,reuse,weather_adjectives,taxonomy_instances,1,4,0,weather_adjectives:1/4; weather_report:1/0; weather_instruments:1/0; sea_weather:1/0; weather_forecast_terms:1/0
+11,10,literature,observed,reuse,kinds_of_books,taxonomy_instances,0,4,0,kinds_of_books:0/4; book_genres:0/3; art_forms:0/1
+11,11,nutrients,inferred,reuse,nutrients,taxonomy_instances,3,4,0,nutrients:3/4; vitamins_and_minerals:0/3; elements:0/3; metals:0/2; food_groups:0/1
+11,12,speed,inferred,reuse,speed_adjectives,taxonomy_instances,1,4,0,speed_adjectives:1/4; opposites:0/2; clothing_sizes:0/1; word_fast:0/1; traffic_signs:0/1
+12,1,ocean animals,observed,reuse,ocean_animals,taxonomy_instances,3,4,0,ocean_animals:3/4; sea_mammals:0/2; giant_animals:0/1; crustaceans:0/1; animals_with_shells:0/1
+12,2,usa,inferred,reuse,us_states,taxonomy_instances,0,4,0,us_states:0/4; great_lakes_and_us_water:0/1
+12,3,capitals,observed,reuse,world_capitals,taxonomy_instances,1,4,0,world_capitals:1/4; world_cities:0/4; greek_heroes:0/1; african_cities:0/1; place_names_as_names:0/1
+12,4,humor,inferred,reuse,kinds_of_humor,taxonomy_instances,1,4,0,kinds_of_humor:1/4; comedy_words:0/1
+12,5,time periods,inferred,new_rule,ref_time_periods,sequence,1,0,4,words_before_time:1/0
+12,6,band,inferred,reuse,in_a_band,context_hub,1,4,0,in_a_band:1/4; string_instruments:0/2; singing_voices:0/1; types_of_guitars:0/1; instruments_you_strum:0/1
+12,7,fabrics,inferred,reuse,fabrics,taxonomy_instances,3,4,0,fabrics:3/4; fabric_types:0/4; soft_things:0/2; jewelry_box:0/1; quiet_things:0/1
+12,8,furniture,inferred,reuse,furniture,taxonomy_instances,3,4,0,furniture:3/4; things_made_of_wood:0/2; barbershop_words:0/1; bowling_words:0/1; boxes_and_cases:0/1
+12,9,ice cream flavors,inferred,reuse,ice_cream_flavors,taxonomy_instances,3,4,0,ice_cream_flavors:3/4; cake_types:0/2; baking_ingredients:0/2; pie_ingredients:0/2; berry_varieties:0/1
+12,10,plants,observed,reuse,kinds_of_plants,taxonomy_instances,1,4,0,kinds_of_plants:1/4; things_that_grow:0/3; garden_in_bloom:0/1; orchard_words:0/1; yoga_poses:0/1
+12,11,months,observed,reuse,months,taxonomy_instances,3,4,0,months:3/4; summer_season:0/2; polite_words:0/1; military_words:0/1; ways_of_moving:0/1
+12,12,tea,inferred,reuse,teas,taxonomy_instances,2,4,0,teas:2/4; olive_types:0/2; colors:0/2; tomato_varieties:0/1; rice_types:0/1
+13,1,galaxy,observed,new_rule,ref_galaxy,association_hub,0,0,4,deep_space:0/2; stargazing:0/2; space_phenomena:0/1; fortune_telling:0/1; night_sky_things:0/1
+13,2,planets,inferred,reuse,planets,taxonomy_instances,3,4,0,planets:3/4; roman_gods:0/2
+13,3,music genres,observed,reuse,music_genres,taxonomy_instances,3,4,0,music_genres:3/4; dance_styles:0/2
+13,4,darts,observed,reuse,darts_words,functional_group,1,4,0,darts_words:1/4; sports_actions:0/2; board_game_pieces:0/1; self_defense_moves:0/1; juggling_words:0/1
+13,5,individual sports,inferred,new_rule,ref_individual_sports,taxonomy_instances,0,0,4,board_and_card_games:0/2; card_and_dice_games:0/1; pie_types:0/1; board_games:0/1; hobby_verbs:0/1
+13,6,golf,inferred,reuse,golf_words,context_hub,1,3,1,golf_words:1/3; juggling_words:0/2; sandwich_types:0/1; bowling_words:0/1; candy_shapes:0/1
+13,7,cat,inferred,reuse,cat_breeds,taxonomy_instances,1,4,0,cat_breeds:1/4; cat_things:1/0
+13,8,cat family,observed,reuse,wild_cats,taxonomy_instances,0,3,1,wild_cats:0/3; jungle_animals:0/2; african_animals:0/2; striped_things:0/1; fast_things:0/1
+14,1,berries,inferred,reuse,berries,taxonomy_instances,3,4,0,berries:3/4; fruits:0/4; berry_varieties:0/3; pie_types:0/2; pie_ingredients:0/2
+14,2,chess,inferred,reuse,chess_words,context_hub,1,4,0,chess_words:1/4; board_game_pieces:0/1; religious_leaders:0/1; royalty:0/1; storybook_characters:0/1
+14,3,card suits,inferred,reuse,card_suits,structured_set,3,4,0,card_suits:3/4; card_games:0/2
+14,4,vegetables,inferred,reuse,vegetables,taxonomy_instances,3,4,0,vegetables:3/4; melons_and_squash:0/1; leafy_greens:0/1; garden_plants:0/1; salad_ingredients:0/1
+14,5,bread,inferred,reuse,bread_types,taxonomy_instances,1,4,0,bread_types:1/4; world_breads:0/4; sandwich_breads:0/3; middle_eastern_dishes:0/1; pizza_styles:0/1
+14,6,board games,inferred,reuse,board_games,taxonomy_instances,3,3,1,board_games:3/3; board_and_card_games:0/2; card_and_dice_games:0/2; fortune_telling:0/1; pie_types:0/1
+14,7,food,inferred,new_rule,ref_food,association_hub,1,0,4,picnic_basket:0/2; grocery_aisles:0/1; baked_goods:0/1; dinner_party:0/1; frozen_foods:0/1
+14,8,bathroom,inferred,reuse,bathroom_items,context_hub,1,4,0,bathroom_items:1/4; hygiene:0/3; liquids:0/2; morning_routine:0/1; blades:0/1
+14,9,bedroom,inferred,reuse,bedtime_things,association_hub,0,4,0,bedtime_things:0/4; bedroom_things:1/3; soft_things:0/2; picnic:0/1; picnic_basket:0/1
+14,10,rooms in a house,inferred,reuse,home_rooms,components,0,4,0,home_rooms:0/4; hot_places:0/1; parking_words:0/1; school_places:0/1; restaurant_words:0/1
+15,1,laundry,inferred,reuse,laundry_day,functional_group,1,3,1,laundry_day:1/3; laundry_things:1/3; cleaning_supplies:0/2; laundry_care:1/1; powders:0/1
+15,2,beauty care,inferred,new_rule,ref_beauty_care,context_hub,0,0,4,self_care:0/2; costume_party:0/1
+15,3,makeup,inferred,reuse,makeup,taxonomy_instances,3,4,0,makeup:3/4; things_in_a_purse:0/1; architecture_words:0/1; parts_of_a_house:0/1; red_things:0/1
+15,4,timekeepers,inferred,new_rule,ref_timekeepers,taxonomy_instances,0,0,4,timepieces:0/1; time_capsule_things:0/1; clock_words:0/1
+15,5,air transport,inferred,reuse,aircraft,taxonomy_instances,0,3,1,aircraft:0/3; emergency_vehicles:0/1; inventions:0/1; cloud_and_sky:0/1; vehicles:0/1
+15,6,board games,inferred,reuse,board_games,taxonomy_instances,3,4,0,board_games:3/4; detective_work:0/1; detective_words:0/1; words_before_board:1/0
+15,7,stars,observed,reuse,bright_stars,taxonomy_instances,3,4,0,bright_stars:3/4; summer_season:0/1; solar_system_words:0/1; hot_places:0/1; hot_things:0/1
+16,1,soil,inferred,reuse,types_of_soil,taxonomy_instances,1,4,0,types_of_soil:1/4; soil_words:1/3; sculpture_materials:0/2; ocean_products:0/1; pottery_words:0/1
+16,2,flowers,inferred,reuse,flowers,taxonomy_instances,3,4,0,flowers:3/4; garden_flowers_spring:1/1; garden_flowers_summer:1/1; flowers_more:1/1; wildflowers:0/1
+16,3,gardening,observed,reuse,gardening_work,functional_group,1,3,1,gardening_work:1/3; garden_center:0/2; gardening_hobby:1/1; gardening_words:1/1; greeting_card:0/1
+16,4,doctor,inferred,reuse,kinds_of_doctors,taxonomy_instances,0,4,0,kinds_of_doctors:0/4; jobs_with_tools:0/2; medical_jobs:0/2
+16,5,medicine,inferred,reuse,medicines,taxonomy_instances,2,4,0,medicines:2/4; medicine_forms:1/1; medical_procedures:0/1; inventions:0/1; medicine_cabinet:1/0
+16,6,health,inferred,reuse,at_the_hospital,context_hub,0,3,1,at_the_hospital:0/3; common_professions:0/1; night_shift_jobs:0/1; people_who_help:0/1; science_fields:0/1
+16,7,greece,inferred,reuse,ancient_greece_ideas,association_hub,1,4,0,ancient_greece_ideas:1/4; sports_leagues:0/1
+16,8,eu countries,inferred,reuse,countries,taxonomy_instances,1,4,0,countries:1/4; european_countries:0/4; ancient_civilizations:0/1
+16,9,zodiac signs,inferred,reuse,zodiac_signs,taxonomy_instances,3,4,0,zodiac_signs:3/4
+17,1,fruits,observed,reuse,fruits,taxonomy_instances,3,4,0,fruits:3/4; fruit_trees:0/3; tropical_fruits:1/2; tropical_plants:0/1; ice_cream_flavors:0/1
+17,2,nuts,inferred,reuse,nuts_world,taxonomy_instances,1,4,0,nuts_world:1/4; nuts_and_seeds:1/4; fruit_trees:0/2; pie_types:0/1; baking_ingredients:0/1
+17,3,supplements,observed,reuse,supplements,taxonomy_instances,3,3,1,supplements:3/3; nutrients:0/1; vitamins_and_minerals:0/1; elements:0/1; metals:0/1
+17,4,water,inferred,reuse,water_states,taxonomy_instances,1,4,0,water_states:1/4; states_of_matter:0/4; things_that_shrink:0/1; drink_mixers:0/1; first_aid_actions:0/1
+17,5,building materials,observed,reuse,building_materials,components,3,4,0,building_materials:3/4; hard_things:0/4; square_things:0/2; sculpture_materials:0/2; words_before_work:0/2
+17,6,builders,inferred,reuse,building_trades,taxonomy_instances,0,4,0,building_trades:0/4; jobs_with_tools:0/2; repair_jobs:0/1; creative_jobs:0/1; nature_surnames:0/1
+17,7,construction,inferred,new_rule,ref_construction,context_hub,1,0,4,construction_equipment:1/2; wading_birds:0/1; high_places:0/1; harbor_things:0/1; birds:0/1
+17,8,circus performers,inferred,reuse,circus_and_fair_jobs,taxonomy_instances,0,4,0,circus_and_fair_jobs:0/4; circus_words:0/4; words_before_fish:0/1
+17,9,fashion capitals,inferred,new_rule,ref_fashion_capitals,taxonomy_instances,0,0,4,
+17,10,stationery,inferred,reuse,office_supplies,context_hub,0,4,0,office_supplies:0/4; school_supplies:0/4; everyday_materials:0/1; things_in_a_glove_box:0/1; printing_words:0/1
+17,11,healthy eating,inferred,new_rule,ref_healthy_eating,meta_collector,0,0,4,grocery_aisles:0/1; picnic_basket:0/1; vending_machine_items:0/1; dessert_toppings:0/1; transparent_things:0/1
+18,1,baby,inferred,reuse,baby_things,functional_group,1,4,0,baby_things:1/4; pregnancy_words:0/2; kids_clothing:0/1; things_with_wheels:0/1; baby_animal_words_more:1/0
+18,2,menu,observed,reuse,restaurant_courses,structured_set,0,4,0,restaurant_courses:0/4; restaurant_words:0/2; lunch_menu:1/1; meals_of_the_day:0/1
+18,3,musical instruments,inferred,reuse,musical_instruments,taxonomy_instances,3,4,0,musical_instruments:3/4; music_class_things:0/2; instruments_you_strum:0/2; loud_things:0/2; things_made_of_wood:0/2
+18,4,metal,inferred,reuse,metals,taxonomy_instances,2,4,0,metals:2/4; elements_more:0/3; detective_words:0/1; color_words_advanced:0/1; elements:0/1
+18,5,vault,observed,reuse,under_lock,functional_group,0,4,0,under_lock:0/4; locksmith_words:0/3; security_tech:0/2; things_made_of_metal:0/2; at_the_hotel:0/1
+18,6,bank,inferred,reuse,banking_words,context_hub,0,3,1,banking_words:0/3; money_words:0/2; under_lock:0/1; gymnastics_events:0/1; architecture_words:0/1
+18,7,geographical objects,inferred,reuse,natural_wonders,taxonomy_instances,0,3,1,natural_wonders:0/3; landforms:0/2; geography_class:0/1; travel_abroad:0/1; erosion_words:0/1
+19,1,mammals,inferred,reuse,giant_animals,taxonomy_instances,0,4,0,giant_animals:0/4; zoo_animals:0/3; african_animals:0/3; heavy_things:0/2; sea_mammals:1/1
+19,2,liquid carriers,inferred,reuse,tubes,taxonomy_instances,0,4,0,tubes:0/4; irrigation:0/2; things_made_of_plastic:0/2; hardware_store:0/1; insulating_materials:0/1
+19,3,halloween,inferred,reuse,halloween_things,context_hub,1,3,1,halloween_things:1/3; monsters:0/3; magic_creatures:0/1; fantasy_creatures:0/1; storybook_characters:0/1
+19,4,body systems,inferred,reuse,body_systems,taxonomy_instances,3,2,2,body_systems:3/2; internal_organs:0/2
+19,5,brain,inferred,reuse,the_mind,taxonomy_instances,0,4,0,the_mind:0/4; computer_parts:0/1
+19,6,lung,inferred,reuse,breathing,association_hub,0,4,0,breathing:0/4; quiet_actions:0/1; emergency_words:0/1; body_science:0/1; body_movements:0/1
+19,7,movie theater,inferred,reuse,at_the_movies,context_hub,0,3,1,at_the_movies:0/3; amusement_park:0/2; salty_snacks:0/1; vending_machine_items:0/1; fan_things:0/1
+19,8,ticket,inferred,reuse,tickets_and_passes,association_hub,0,3,1,tickets_and_passes:0/3; at_the_movies:0/1; card_tricks:0/1; kitchen_brigade:0/1; museum_words:0/1
+19,9,movie genre,inferred,reuse,movie_genres,taxonomy_instances,2,4,0,movie_genres:2/4; book_genres:0/2; theater_arts:0/1
+20,1,odd numbers,inferred,reuse,superstition_numbers,taxonomy_instances,0,4,0,superstition_numbers:0/4; coins_and_bills:0/1
+20,2,astronomy,inferred,reuse,night_sky_things,context_hub,0,3,1,night_sky_things:0/3; space_objects:0/3; things_in_the_sky_science:1/2; navigation_tools:0/2; deep_space:0/1
+20,3,planet,inferred,reuse,planets,taxonomy_instances,2,4,0,planets:2/4; roman_gods:0/3; cartoon_characters:0/1
+20,4,easter,inferred,reuse,easter,association_hub,3,4,0,easter:3/4; seasons:0/1; picnic:0/1; orchard_words:0/1; things_that_stretch:0/1
+20,5,spring,inferred,reuse,garden_in_bloom,association_hub,0,4,0,garden_in_bloom:0/4; seasons_and_nature:0/2; seasons_spring:1/1; kinds_of_plants:0/1; monastery_life:0/1
+20,6,healthy lifestyle,inferred,reuse,wellness,taxonomy_instances,0,3,1,wellness:0/3; prayer_words:0/1; nutrition_words:0/1; school_places:0/1; sports_venues:0/1
+20,7,gym,inferred,reuse,at_the_gym,context_hub,1,4,0,at_the_gym:1/4; gym_equipment:1/3; farm_jobs:0/1; sports_jobs:0/1; jobs_with_animals:0/1
+20,8,female names,inferred,reuse,girls_names,taxonomy_instances,0,4,0,girls_names:0/4; biblical_names:0/1

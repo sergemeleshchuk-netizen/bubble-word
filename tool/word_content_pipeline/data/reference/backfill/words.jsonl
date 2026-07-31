@@ -1,0 +1,20 @@
+{"evidence": "reference_level:3", "normalized": "school subjects", "origin": "reference_backfill", "text": "school subjects", "token_kind": "category_output"}
+{"evidence": "reference_level:6", "normalized": "steps", "origin": "reference_backfill", "text": "steps", "token_kind": "lexical_word"}
+{"evidence": "reference_level:6", "normalized": "cheeks", "origin": "reference_backfill", "text": "cheeks", "token_kind": "lexical_word"}
+{"evidence": "reference_level:7", "normalized": "scales", "origin": "reference_backfill", "text": "scales", "token_kind": "category_output"}
+{"evidence": "reference_level:7", "normalized": "americas", "origin": "reference_backfill", "text": "americas", "token_kind": "category_output"}
+{"evidence": "reference_level:11", "normalized": "tennis", "origin": "reference_backfill", "text": "tennis", "token_kind": "lexical_word"}
+{"evidence": "reference_level:12", "normalized": "days", "origin": "reference_backfill", "text": "days", "token_kind": "lexical_word"}
+{"evidence": "reference_level:12", "normalized": "years", "origin": "reference_backfill", "text": "years", "token_kind": "lexical_word"}
+{"evidence": "reference_level:12", "normalized": "decades", "origin": "reference_backfill", "text": "decades", "token_kind": "lexical_word"}
+{"evidence": "reference_level:15", "normalized": "dirty clothes", "origin": "reference_backfill", "text": "dirty clothes", "token_kind": "lexical_word"}
+{"evidence": "reference_level:15", "normalized": "nail care", "origin": "reference_backfill", "text": "nail care", "token_kind": "lexical_word"}
+{"evidence": "reference_level:15", "normalized": "clocks", "origin": "reference_backfill", "text": "clocks", "token_kind": "lexical_word"}
+{"evidence": "reference_level:15", "normalized": "wristwatch", "origin": "reference_backfill", "text": "wristwatch", "token_kind": "lexical_word"}
+{"evidence": "reference_level:15", "normalized": "hot-air balloon", "origin": "reference_backfill", "text": "hot-air balloon", "token_kind": "lexical_word"}
+{"evidence": "reference_level:17", "normalized": "omega-3", "origin": "reference_backfill", "text": "omega-3", "token_kind": "lexical_word"}
+{"evidence": "reference_level:17", "normalized": "building materials", "origin": "reference_backfill", "text": "building materials", "token_kind": "category_output"}
+{"evidence": "reference_level:17", "normalized": "builders", "origin": "reference_backfill", "text": "builders", "token_kind": "category_output"}
+{"evidence": "reference_level:17", "normalized": "supplements", "origin": "reference_backfill", "text": "supplements", "token_kind": "category_output"}
+{"evidence": "reference_level:18", "normalized": "money", "origin": "reference_backfill", "text": "money", "token_kind": "category_output"}
+{"evidence": "reference_level:19", "normalized": "ghosts", "origin": "reference_backfill", "text": "ghosts", "token_kind": "lexical_word"}

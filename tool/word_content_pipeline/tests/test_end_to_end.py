@@ -100,6 +100,10 @@ def test_full_pipeline_from_sources_to_accepted_level(workspace: Path):
     run(
         "generate-level-candidates",
         "--db", str(db), "--limit", "2", "--categories", "3", "--seed", "42",
+        # Синтетическая мини-база уровни оригинала воспроизвести не может и не
+        # должна: здесь проверяется пайплайн, а не воспроизводимость записи.
+        # Барьер снимается явным флагом — молча его обходить нельзя.
+        "--skip-reference-gate",
     )
     run("validate-levels", "--db", str(db))
     pack = workspace / "review"
@@ -179,6 +183,7 @@ def test_clean_rebuild_gives_the_same_content_hash(workspace: Path):
         run(
             "generate-level-candidates",
             "--db", str(db), "--limit", "2", "--categories", "3", "--seed", "42",
+            "--skip-reference-gate",
         )
         conn = sqlite3.connect(db)
         try:

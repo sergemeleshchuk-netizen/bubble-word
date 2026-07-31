@@ -143,6 +143,30 @@ def test_vague_label_scores_low():
         assert scoring.label_clarity(label).score < 0.6
 
 
+def test_broad_label_is_not_penalised_in_quality():
+    """Широкая надпись — норма референса, а не дефект.
+
+    FOOD, SCHOOL, DOCTOR, BIRD показываются ПОСЛЕ решения и объясняют четвёрку
+    задним числом. Прежняя формула штрафовала их за «непрозрачный принцип»,
+    то есть была настроена прямо против игры, которую воспроизводим.
+    """
+    for label in ("FOOD", "SCHOOL", "DOCTOR", "BIRD", "TREE", "CAT"):
+        assert scoring.label_clarity(label).score == 1.0, label
+        assert scoring.label_retrospective_fit(label, 120).score == 1.0, label
+        assert scoring.label_scope(label, 120) == "broad", label
+
+
+def test_label_scope_is_descriptive_not_a_score():
+    assert scoring.label_scope("FOOD", 120) == "broad"
+    assert scoring.label_scope("KITCHEN TOOLS", 20) == "medium"
+    assert scoring.label_scope("AFRICAN SAVANNA PREDATORS", 9) == "narrow"
+
+
+def test_empty_label_explains_nothing():
+    assert scoring.label_retrospective_fit("RELATED THINGS", 25).score < 0.4
+    assert scoring.label_reveal_satisfaction("RELATED THINGS").score < 0.6
+
+
 def test_broad_label_is_clear_but_not_specific():
     """`ANIMALS` понятно, но принцип не сужен — это разные оси."""
     clarity = scoring.label_clarity("ANIMALS").score
@@ -164,16 +188,16 @@ def test_unnatural_label_is_flagged():
 
 def test_label_quality_combines_axes():
     good = scoring.label_quality(
-        naturalness=1.0, clarity=1.0, specificity=0.8,
+        naturalness=1.0, clarity=1.0, retrospective_fit=1.0, reveal_satisfaction=1.0,
         display_width_score=1.0, familiarity=0.7, config=CONFIG,
     )
     bad = scoring.label_quality(
-        naturalness=0.6, clarity=0.3, specificity=0.4,
+        naturalness=0.6, clarity=0.3, retrospective_fit=0.3, reveal_satisfaction=0.4,
         display_width_score=0.2, familiarity=0.4, config=CONFIG,
     )
     assert good.score > bad.score
     assert set(good.parts) == {
-        "naturalness", "clarity", "specificity", "display", "familiarity"
+        "naturalness", "clarity", "retrospective_fit", "reveal", "display", "familiarity"
     }
 
 
@@ -403,8 +427,11 @@ LABEL_FIXTURES: list[tuple[str, int, str]] = [
     ("BOARD GAMES", 15, "high"),
     ("PIZZA TOPPINGS", 14, "high"),
     ("SPRING FLOWERS", 12, "high"),
-    ("ANIMALS", 90, "mid"),
-    ("FOOD", 120, "mid"),
+    # Широкие ярлыки referencе'а — полноценно высокий разряд, а не «средний».
+    ("ANIMALS", 90, "high"),
+    ("FOOD", 120, "high"),
+    ("SCHOOL", 60, "high"),
+    ("DOCTOR", 40, "high"),
     ("AFRICAN SAVANNA PREDATORS", 9, "mid"),
     ("THINGS YOU FIND IN A KITCHEN DRAWER", 20, "low"),
     ("MISCELLANEOUS ITEMS", 30, "low"),
@@ -413,7 +440,7 @@ LABEL_FIXTURES: list[tuple[str, int, str]] = [
     ("kitchen_tools_v2", 20, "low"),
 ]
 
-LABEL_BOUNDS = {"high": (0.72, 1.0), "mid": (0.45, 0.85), "low": (0.0, 0.70)}
+LABEL_BOUNDS = {"high": (0.72, 1.0), "mid": (0.45, 0.90), "low": (0.0, 0.70)}
 
 
 @pytest.mark.parametrize("label,pool,band", LABEL_FIXTURES)
@@ -422,7 +449,8 @@ def test_label_fixture_lands_in_expected_band(label, pool, band):
     quality = scoring.label_quality(
         naturalness=scoring.label_naturalness(label).score,
         clarity=scoring.label_clarity(label).score,
-        specificity=scoring.label_specificity(label, pool).score,
+        retrospective_fit=scoring.label_retrospective_fit(label, pool).score,
+        reveal_satisfaction=scoring.label_reveal_satisfaction(label).score,
         display_width_score=metrics["label_display_width_score"],
         familiarity=0.7,
         config=CONFIG,

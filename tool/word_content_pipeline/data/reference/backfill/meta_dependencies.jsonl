@@ -1,0 +1,56 @@
+{"form": "picture", "level": 3, "source_group": "school subjects", "target_group": "school", "token": "school subjects"}
+{"form": "picture", "level": 4, "source_group": "doctor", "target_group": "jobs", "token": "doctor"}
+{"form": "picture", "level": 4, "source_group": "shoes", "target_group": "clothes", "token": "shoes"}
+{"form": "picture", "level": 5, "source_group": "cat", "target_group": "pets", "token": "cat"}
+{"form": "picture", "level": 5, "source_group": "coffee", "target_group": "beverages", "token": "coffee"}
+{"form": "picture", "level": 6, "source_group": "pyramid", "target_group": "shapes", "token": "pyramid"}
+{"form": "word", "level": 7, "source_group": "time", "target_group": "measurements", "token": "time"}
+{"form": "picture", "level": 7, "source_group": "length", "target_group": "measurements", "token": "ruler"}
+{"form": "picture", "level": 7, "source_group": "weight", "target_group": "measurements", "token": "scales"}
+{"form": "picture", "level": 7, "source_group": "temperature", "target_group": "measurements", "token": "thermometer"}
+{"form": "word", "level": 7, "source_group": "americas", "target_group": "landmass", "token": "americas"}
+{"form": "picture", "level": 7, "source_group": "planets", "target_group": "space", "token": "planets"}
+{"form": "word", "level": 8, "source_group": "reptile", "target_group": "species", "token": "reptile"}
+{"form": "word", "level": 8, "source_group": "bird", "target_group": "species", "token": "bird"}
+{"form": "picture", "level": 9, "source_group": "tree", "target_group": "forest", "token": "tree"}
+{"form": "picture", "level": 9, "source_group": "bird", "target_group": "forest", "token": "bird"}
+{"form": "word", "level": 9, "source_group": "baby", "target_group": "stages of life", "token": "baby"}
+{"form": "picture", "level": 11, "source_group": "baseball", "target_group": "sports", "token": "baseball"}
+{"form": "picture", "level": 11, "source_group": "swimming", "target_group": "sports", "token": "swimming"}
+{"form": "picture", "level": 11, "source_group": "basketball", "target_group": "sports", "token": "basketball"}
+{"form": "unseen", "level": 11, "source_group": "guitar", "target_group": "instruments", "token": "guitar"}
+{"form": "unseen", "level": 11, "source_group": "grains", "target_group": "food groups", "token": "grains"}
+{"form": "word", "level": 12, "source_group": "months", "target_group": "time periods", "token": "months"}
+{"form": "picture", "level": 13, "source_group": "golf", "target_group": "individual sports", "token": "golf"}
+{"form": "picture", "level": 13, "source_group": "darts", "target_group": "individual sports", "token": "darts"}
+{"form": "picture", "level": 13, "source_group": "cat", "target_group": "cat family", "token": "cat"}
+{"form": "unseen", "level": 13, "source_group": "planets", "target_group": "galaxy", "token": "planets"}
+{"form": "picture", "level": 14, "source_group": "card suits", "target_group": "board games", "token": "cards"}
+{"form": "picture", "level": 14, "source_group": "chess", "target_group": "board games", "token": "chess"}
+{"form": "picture", "level": 14, "source_group": "berries", "target_group": "food", "token": "berries"}
+{"form": "picture", "level": 14, "source_group": "bread", "target_group": "food", "token": "bread"}
+{"form": "picture", "level": 14, "source_group": "bedroom", "target_group": "rooms in a house", "token": "bedroom"}
+{"form": "picture", "level": 14, "source_group": "bathroom", "target_group": "rooms in a house", "token": "bathroom"}
+{"form": "picture", "level": 15, "source_group": "makeup", "target_group": "beauty care", "token": "makeup"}
+{"form": "word", "level": 16, "source_group": "soil", "target_group": "gardening", "token": "soil"}
+{"form": "picture", "level": 16, "source_group": "flowers", "target_group": "gardening", "token": "flowers"}
+{"form": "picture", "level": 16, "source_group": "medicine", "target_group": "health", "token": "medicine"}
+{"form": "picture", "level": 16, "source_group": "doctor", "target_group": "health", "token": "doctor"}
+{"form": "word", "level": 16, "source_group": "greece", "target_group": "eu countries", "token": "greece"}
+{"form": "picture", "level": 17, "source_group": "nuts", "target_group": "healthy eating", "token": "nuts"}
+{"form": "picture", "level": 17, "source_group": "supplements", "target_group": "healthy eating", "token": "supplements"}
+{"form": "picture", "level": 17, "source_group": "water", "target_group": "healthy eating", "token": "water"}
+{"form": "picture", "level": 17, "source_group": "fruits", "target_group": "healthy eating", "token": "fruits"}
+{"form": "word", "level": 17, "source_group": "building materials", "target_group": "construction", "token": "building materials"}
+{"form": "picture", "level": 17, "source_group": "builders", "target_group": "construction", "token": "builders"}
+{"form": "picture", "level": 18, "source_group": "dessert", "target_group": "menu", "token": "dessert"}
+{"form": "picture", "level": 18, "source_group": "money", "target_group": "bank", "token": "money"}
+{"form": "word", "level": 18, "source_group": "vault", "target_group": "bank", "token": "vault"}
+{"form": "word", "level": 18, "source_group": "mountains", "target_group": "geographical objects", "token": "mountains"}
+{"form": "picture", "level": 18, "source_group": "islands", "target_group": "geographical objects", "token": "islands"}
+{"form": "word", "level": 19, "source_group": "brain", "target_group": "body systems", "token": "brain"}
+{"form": "word", "level": 19, "source_group": "lung", "target_group": "body systems", "token": "lung"}
+{"form": "word", "level": 19, "source_group": "ticket", "target_group": "movie theater", "token": "ticket"}
+{"form": "word", "level": 20, "source_group": "spring", "target_group": "easter", "token": "spring"}
+{"form": "word", "level": 20, "source_group": "gym", "target_group": "healthy lifestyle", "token": "gym"}
+{"form": "picture", "level": 20, "source_group": "planet", "target_group": "astronomy", "token": "planet"}

@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from .db import utc_now
 
 # Текущая целевая версия схемы: номер последнего шага в MIGRATIONS.
-TARGET_VERSION = 5
+TARGET_VERSION = 6
 
 
 @dataclass(frozen=True)
@@ -607,6 +607,419 @@ CREATE VIEW IF NOT EXISTS v_word_display_metrics AS
 """
 
 
+# --------------------------------------------------------------------------- 006
+
+
+# Внутренний принцип группировки. Отвечает на вопрос «почему эти четыре слова
+# вместе», и это не то же самое, что надпись на оранжевом пузыре.
+RULE_TYPES = (
+    "taxonomy_instances",  # экземпляры класса: tulip, rose, lily -> FLOWERS
+    "components",          # части целого: trunk, branch, root, bark -> TREE
+    "association_hub",     # ассоциации вокруг сущности: meow, purr, whiskers -> CAT
+    "context_hub",         # ассоциации вокруг ситуации: bed, blanket, dream -> SLEEP
+    "property_group",      # общее свойство: red, blue, green -> COLORS
+    "functional_group",    # общая функция: hammer, saw, drill -> TOOLS
+    "structured_set",      # закрытый список: north, south, east, west -> COMPASS
+    "sequence",            # порядок важен: monday, tuesday... -> DAYS
+    "meta_collector",      # четвёрка из результатов других категорий
+    "unclassified",        # тип не проставлен
+)
+
+# relation_type категории -> тип правила. Соответствие однозначное и
+# детерминированное: миграция не угадывает, а переносит уже принятое решение.
+_RELATION_TO_RULE_TYPE = {
+    "is_a": "taxonomy_instances",
+    "part_of": "components",
+    "made_of": "components",
+    "found_in": "context_hub",
+    "used_in": "functional_group",
+    "used_for": "functional_group",
+    "does_action": "functional_group",
+    "has_property": "property_group",
+    "associated_with": "association_hub",
+    "member_of_set": "structured_set",
+}
+
+
+def _migrate_006_reference_reproduction(conn: sqlite3.Connection) -> list[str]:
+    """Библиотека авторских групп вместо онтологии слов.
+
+    Три вещи, которые до этого шага были одной, и из-за этого генератор не мог
+    воспроизвести ни одного уровня референса.
+
+    1. **Внутреннее правило** (`categories` + новая колонка `rule_type`) —
+       точный принцип: `music genres`, `musical instruments`. Нужен машине,
+       чтобы доказывать связи.
+    2. **Надпись** (`category_labels`) — короткое `MUSIC`, которое игрок видит
+       после сборки. Одна надпись обслуживает разные правила: на уровне 3
+       MUSIC — это жанры, на уровне 6 — инструменты. Раньше надпись и была
+       идентификатором принципа, поэтому одно исключало другое.
+    3. **Связка** (`group_rule_labels`) — какие надписи допустимы для правила.
+
+    Дальше — то, без чего уровень референса не записывается без потерь:
+    типы токенов (картинка и результат другой категории не притворяются
+    словами), авторское назначение токена (`level_assignments`), спроектированные
+    ловушки (`level_decoys`) и провенанс (`reference_sources`).
+    """
+    changes: list[str] = []
+
+    if not _table_exists(conn, "category_labels"):
+        conn.executescript(_SQL_006)
+        changes.append(
+            "созданы: category_labels, group_rule_labels, level_assignments, "
+            "level_decoys, reference_sources, v_group_rules"
+        )
+
+    rule_check = " ".join(f"'{name}'," for name in RULE_TYPES).rstrip(",")
+    for column, definition in (
+        ("rule_type", f"TEXT NOT NULL DEFAULT 'unclassified' "
+                      f"CHECK (rule_type IN ({rule_check}))"),
+        # seed | reference_backfill. Правило, заведённое по записи оригинала,
+        # остаётся в семантическом графе (cow действительно farm animal), но в
+        # генерацию нового контента не идёт: это чужая авторская группа.
+        ("origin", "TEXT NOT NULL DEFAULT 'seed'"),
+    ):
+        added = _add_column(conn, "categories", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        # Слот четвёрки — не просто слово: у него своя связь с правилом.
+        ("relation_type", "TEXT NULL"),
+        ("relation_strength", "REAL NULL"),
+        ("obviousness", "REAL NULL"),
+        ("intended_sense_key", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "quartet_words", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        ("display_label_id", "INTEGER NULL REFERENCES category_labels (id) ON DELETE SET NULL"),
+        ("rule_type", "TEXT NULL"),
+        ("weakest_link_score", "REAL NULL"),
+        ("label_retrospective_fit", "REAL NULL"),
+        ("alternative_membership_count", "INTEGER NULL"),
+    ):
+        added = _add_column(conn, "quartets", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        ("origin", "TEXT NOT NULL DEFAULT 'generated'"),
+        ("fixture_status", "TEXT NOT NULL DEFAULT 'none'"),
+        ("reference_level", "INTEGER NULL"),
+        ("recorded_completeness", "TEXT NULL"),
+        ("groups_expected", "INTEGER NULL"),
+        ("intended_partition_score", "REAL NULL"),
+        ("best_alternative_score", "REAL NULL"),
+        ("partition_margin", "REAL NULL"),
+        ("planned_decoy_count", "INTEGER NOT NULL DEFAULT 0"),
+        ("unplanned_decoy_count", "INTEGER NOT NULL DEFAULT 0"),
+        ("meta_state", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "level_instances", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        ("display_label_id", "INTEGER NULL REFERENCES category_labels (id) ON DELETE SET NULL"),
+        ("label_source", "TEXT NOT NULL DEFAULT 'inferred'"),
+        ("reference_name", "TEXT NULL"),
+        ("emits_token_id", "INTEGER NULL"),
+    ):
+        added = _add_column(conn, "level_groups", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        ("intended_partition_score", "REAL NULL"),
+        ("best_alternative_score", "REAL NULL"),
+        ("partition_margin", "REAL NULL"),
+        ("planned_decoy_count", "INTEGER NOT NULL DEFAULT 0"),
+        ("unplanned_decoy_count", "INTEGER NOT NULL DEFAULT 0"),
+        ("intended_is_best", "INTEGER NULL"),
+    ):
+        added = _add_column(conn, "level_solver_runs", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    for column, definition in (
+        ("label_retrospective_fit", "REAL NOT NULL DEFAULT 0"),
+        ("label_reveal_satisfaction", "REAL NOT NULL DEFAULT 0"),
+        ("label_display_fitness", "REAL NOT NULL DEFAULT 0"),
+        # label_scope — описательная характеристика, а не штраф.
+        ("label_scope", "TEXT NOT NULL DEFAULT 'unknown'"),
+    ):
+        added = _add_column(conn, "category_label_scores", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    if _rebuild_level_tokens(conn):
+        changes.append("level_tokens: word_id стал необязательным, добавлены token_kind, "
+                       "token_form, pieces, picture_subject, source_group_id, observability")
+
+    # Backfill rule_type из уже принятого relation_type. Значения по умолчанию
+    # не угадываются: чего нет в таблице соответствий — остаётся unclassified.
+    updated = 0
+    for relation, rule_type in sorted(_RELATION_TO_RULE_TYPE.items()):
+        cur = conn.execute(
+            "UPDATE categories SET rule_type = ? "
+            " WHERE relation_type = ? AND rule_type = 'unclassified'",
+            (rule_type, relation),
+        )
+        updated += cur.rowcount or 0
+    # Структура важнее типа связи: пары и последовательности видны явно.
+    if _table_exists(conn, "structured_relations"):
+        for structure, rule_type in (("pairs", "structured_set"), ("sequence", "sequence")):
+            cur = conn.execute(
+                "UPDATE categories SET rule_type = ? WHERE id IN "
+                "(SELECT category_id FROM structured_relations WHERE structure = ?)",
+                (rule_type, structure),
+            )
+            updated += cur.rowcount or 0
+    if updated:
+        changes.append(f"rule_type проставлен у {updated} правил группировки")
+
+    # Backfill надписей: у каждого правила есть его собственная надпись.
+    # Это не разделение «широкая/узкая» — это только перенос того, что уже есть,
+    # чтобы новая связка не была пустой.
+    if _table_exists(conn, "category_labels"):
+        created = _backfill_labels(conn)
+        if created:
+            changes.append(f"надписей заведено: {created}")
+
+    return changes
+
+
+def _rebuild_level_tokens(conn: sqlite3.Connection) -> bool:
+    """Пересобирает level_tokens: word_id больше не обязателен.
+
+    Токен уровня перестал быть синонимом слова. Пузырь-картинка и результат
+    другой категории — не lexical word, и подсовывать им какое-нибудь слово,
+    лишь бы NOT NULL не ругался, значит потерять ровно ту информацию, ради
+    которой всё затевалось. ALTER TABLE в SQLite снять NOT NULL не умеет,
+    поэтому таблица пересобирается.
+    """
+    columns = _columns(conn, "level_tokens")
+    if not columns or "token_kind" in columns:
+        return False
+    conn.executescript(
+        """
+        PRAGMA foreign_keys = OFF;
+
+        CREATE TABLE level_tokens__new (
+            id          INTEGER PRIMARY KEY,
+            level_id    INTEGER NOT NULL REFERENCES level_instances (id) ON DELETE CASCADE,
+            group_id    INTEGER NOT NULL REFERENCES level_groups (id) ON DELETE CASCADE,
+            slot        INTEGER NOT NULL CHECK (slot BETWEEN 1 AND 4),
+            -- lexical_word    — обычный пузырь со словом
+            -- picture_token   — пузырь с картинкой; что на ней, в picture_subject
+            -- chunked_word    — слово приходит кусочками, они в pieces
+            -- category_output — результат другой категории этого уровня
+            token_kind  TEXT    NOT NULL DEFAULT 'lexical_word'
+                                CHECK (token_kind IN ('lexical_word', 'picture_token',
+                                                      'chunked_word', 'category_output')),
+            -- Форма пузыря отдельно от роли: мета-токен бывает и словом, и картинкой.
+            token_form  TEXT    NOT NULL DEFAULT 'word'
+                                CHECK (token_form IN ('word', 'picture', 'chunks', 'unknown')),
+            word_id     INTEGER NULL     REFERENCES words (id) ON DELETE RESTRICT,
+            sense_id    INTEGER NULL     REFERENCES word_senses (id) ON DELETE RESTRICT,
+            sense_mode  TEXT    NOT NULL DEFAULT 'lexical',
+            display_text TEXT   NOT NULL,
+            role        TEXT    NULL,
+            pieces      TEXT    NULL,
+            picture_subject TEXT NULL,
+            -- Для category_output: группа, которая выпускает этот токен.
+            source_group_id INTEGER NULL REFERENCES level_groups (id) ON DELETE SET NULL,
+            -- observed — пузырь виден в записи; unseen — не попал в кадр и
+            -- наблюдением не является; generated — наш собственный токен.
+            observability TEXT  NOT NULL DEFAULT 'generated'
+                                CHECK (observability IN ('observed', 'unseen', 'generated')),
+            created_at  TEXT    NOT NULL,
+            UNIQUE (group_id, slot),
+            UNIQUE (level_id, display_text)
+        );
+
+        INSERT INTO level_tokens__new
+            (id, level_id, group_id, slot, word_id, sense_id, sense_mode,
+             display_text, role, created_at)
+        SELECT id, level_id, group_id, slot, word_id, sense_id, sense_mode,
+               display_text, role, created_at
+          FROM level_tokens;
+
+        DROP TABLE level_tokens;
+        ALTER TABLE level_tokens__new RENAME TO level_tokens;
+
+        CREATE INDEX IF NOT EXISTS ix_level_tokens_level ON level_tokens (level_id);
+        CREATE INDEX IF NOT EXISTS ix_level_tokens_group ON level_tokens (group_id);
+
+        PRAGMA foreign_keys = ON;
+        """
+    )
+    return True
+
+
+def _backfill_labels(conn: sqlite3.Connection) -> int:
+    """Заводит надпись для каждого правила, у которого её ещё нет."""
+    import re as _re
+
+    now = utc_now()
+    created = 0
+    rows = list(
+        conn.execute(
+            """
+            SELECT c.id AS id, c.label AS label
+              FROM categories c
+             WHERE NOT EXISTS (
+                   SELECT 1 FROM group_rule_labels g WHERE g.category_id = c.id)
+             ORDER BY c.id
+            """
+        )
+    )
+    for row in rows:
+        display = str(row["label"])
+        key = _re.sub(r"[^a-z0-9]+", " ", display.lower()).strip()
+        if not key:
+            continue
+        existing = conn.execute(
+            "SELECT id FROM category_labels WHERE label_key = ?", (key,)
+        ).fetchone()
+        if existing is None:
+            cur = conn.execute(
+                """
+                INSERT INTO category_labels
+                    (label_key, display_text, scope, origin, created_at, updated_at)
+                VALUES (?, ?, 'unknown', 'derived', ?, ?)
+                """,
+                (key, display, now, now),
+            )
+            label_id = int(cur.lastrowid)
+            created += 1
+        else:
+            label_id = int(existing["id"])
+        conn.execute(
+            """
+            INSERT OR IGNORE INTO group_rule_labels
+                (category_id, label_id, is_primary, origin, created_at)
+            VALUES (?, ?, 1, 'derived', ?)
+            """,
+            (int(row["id"]), label_id, now),
+        )
+    return created
+
+
+_SQL_006 = """
+-- Короткая надпись на оранжевом пузыре: то, что игрок видит ПОСЛЕ сборки.
+-- Это не подсказка и не описание правила, а финальный reveal. Поэтому она
+-- имеет право быть широкой: FOOD, SCHOOL, DOCTOR, BIRD.
+CREATE TABLE IF NOT EXISTS category_labels (
+    id           INTEGER PRIMARY KEY,
+    label_key    TEXT NOT NULL UNIQUE,
+    display_text TEXT NOT NULL,
+    -- Описательная характеристика охвата, НЕ штраф. Широкая надпись для этой
+    -- игры часто достоинство: короткое слово, под которое игрок мгновенно
+    -- подставляет четвёрку.
+    scope        TEXT NOT NULL DEFAULT 'unknown'
+                 CHECK (scope IN ('unknown', 'broad', 'medium', 'narrow')),
+    origin       TEXT NOT NULL DEFAULT 'derived',
+    note         TEXT NULL,
+    created_at   TEXT NOT NULL,
+    updated_at   TEXT NOT NULL
+);
+
+-- Какие надписи допустимы для внутреннего правила. Связь многие-ко-многим
+-- намеренно: MUSIC обслуживает и жанры, и инструменты; fast_food_dishes
+-- показывается и как FOOD, и как FAST FOOD.
+CREATE TABLE IF NOT EXISTS group_rule_labels (
+    id          INTEGER PRIMARY KEY,
+    category_id INTEGER NOT NULL REFERENCES categories (id) ON DELETE CASCADE,
+    label_id    INTEGER NOT NULL REFERENCES category_labels (id) ON DELETE CASCADE,
+    is_primary  INTEGER NOT NULL DEFAULT 0,
+    origin      TEXT    NOT NULL DEFAULT 'derived',
+    note        TEXT    NULL,
+    created_at  TEXT    NOT NULL,
+    UNIQUE (category_id, label_id)
+);
+
+CREATE INDEX IF NOT EXISTS ix_group_rule_labels_label ON group_rule_labels (label_id);
+
+-- Авторское назначение токена: в ЭТОМ уровне слово принадлежит вот этой группе,
+-- даже если семантически подходит ещё куда-то. Семантическая правда и авторская
+-- правда — разные вещи, и именно их смешение делало solver слишком строгим.
+CREATE TABLE IF NOT EXISTS level_assignments (
+    id            INTEGER PRIMARY KEY,
+    level_id      INTEGER NOT NULL REFERENCES level_instances (id) ON DELETE CASCADE,
+    token_id      INTEGER NOT NULL REFERENCES level_tokens (id) ON DELETE CASCADE,
+    home_group_id INTEGER NOT NULL REFERENCES level_groups (id) ON DELETE CASCADE,
+    authority     TEXT    NOT NULL DEFAULT 'authored'
+                          CHECK (authority IN ('authored', 'reference', 'derived')),
+    confidence    REAL    NULL,
+    note          TEXT    NULL,
+    created_at    TEXT    NOT NULL,
+    UNIQUE (level_id, token_id)
+);
+
+-- Правдоподобная, но не авторская связь токена. planned = 1 — спроектированная
+-- ловушка (orange: fruit/color), она разрешена и хранится явно. planned = 0 —
+-- незапланированная двусмысленность, повод для предупреждения.
+CREATE TABLE IF NOT EXISTS level_decoys (
+    id                INTEGER PRIMARY KEY,
+    level_id          INTEGER NOT NULL REFERENCES level_instances (id) ON DELETE CASCADE,
+    token_id          INTEGER NOT NULL REFERENCES level_tokens (id) ON DELETE CASCADE,
+    decoy_group_id    INTEGER NULL REFERENCES level_groups (id) ON DELETE CASCADE,
+    decoy_category_id INTEGER NULL REFERENCES categories (id) ON DELETE SET NULL,
+    planned           INTEGER NOT NULL DEFAULT 0,
+    plausibility      REAL    NULL,
+    note              TEXT    NULL,
+    created_at        TEXT    NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS ux_level_decoys
+    ON level_decoys (level_id, token_id,
+                     COALESCE(decoy_group_id, 0), COALESCE(decoy_category_id, 0));
+
+-- Провенанс: откуда взялся каждый элемент референса и был ли он реально виден.
+CREATE TABLE IF NOT EXISTS reference_sources (
+    id            INTEGER PRIMARY KEY,
+    source_kind   TEXT    NOT NULL,
+    source_file   TEXT    NOT NULL,
+    level_number  INTEGER NULL,
+    group_index   INTEGER NULL,
+    entity_type   TEXT    NOT NULL
+                          CHECK (entity_type IN ('level', 'group', 'token', 'meta_link',
+                                                 'label')),
+    entity_key    TEXT    NOT NULL,
+    observability TEXT    NOT NULL
+                          CHECK (observability IN ('observed', 'inferred', 'unseen')),
+    detail        TEXT    NULL,
+    created_at    TEXT    NOT NULL,
+    UNIQUE (source_kind, entity_type, entity_key)
+);
+
+CREATE INDEX IF NOT EXISTS ix_reference_sources_level ON reference_sources (level_number);
+
+-- Витрина: categories и есть внутреннее правило группировки. Отдельную таблицу
+-- group_rules не заводим — на categories.id ссылаются восемнадцать тысяч связей,
+-- и параллельная модель означала бы две правды вместо одной.
+CREATE VIEW IF NOT EXISTS v_group_rules AS
+    SELECT c.id             AS group_rule_id,
+           c.category_key   AS rule_key,
+           c.rule           AS rule_text,
+           c.rule_type      AS rule_type,
+           c.relation_type  AS relation_type,
+           c.theme          AS theme,
+           c.concept_id     AS concept_id,
+           c.status         AS status,
+           c.readiness      AS readiness,
+           l.id             AS primary_label_id,
+           COALESCE(l.display_text, c.label) AS primary_label
+      FROM categories c
+      LEFT JOIN group_rule_labels grl ON grl.category_id = c.id AND grl.is_primary = 1
+      LEFT JOIN category_labels l     ON l.id = grl.label_id;
+"""
+
+
 MIGRATIONS: tuple[Migration, ...] = (
     Migration(
         version=3,
@@ -625,6 +1038,13 @@ MIGRATIONS: tuple[Migration, ...] = (
         name="quality_scores",
         description="метрики слова, названия категории и четвёрки для управляемой генерации",
         apply=_migrate_005_quality_scores,
+    ),
+    Migration(
+        version=6,
+        name="reference_reproduction",
+        description="правило группировки отдельно от надписи, типы токенов, "
+                    "авторские назначения и провенанс референса",
+        apply=_migrate_006_reference_reproduction,
     ),
 )
 

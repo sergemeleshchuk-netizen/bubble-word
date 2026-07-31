@@ -1,0 +1,168 @@
+{"display_text": "farm animals", "first_seen_level": 1, "label_key": "farm animals", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "colors", "first_seen_level": 1, "label_key": "colors", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "vehicles", "first_seen_level": 1, "label_key": "vehicles", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "compass", "first_seen_level": 1, "label_key": "compass", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "days of the week", "first_seen_level": 1, "label_key": "days of the week", "label_source": "inferred", "origin": "reference_backfill", "scope": "narrow"}
+{"display_text": "vegetables", "first_seen_level": 2, "label_key": "vegetables", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "fruits", "first_seen_level": 2, "label_key": "fruits", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "kitchen tools", "first_seen_level": 2, "label_key": "kitchen tools", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "shapes", "first_seen_level": 2, "label_key": "shapes", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "house", "first_seen_level": 2, "label_key": "house", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "nature", "first_seen_level": 2, "label_key": "nature", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "dessert", "first_seen_level": 2, "label_key": "dessert", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "driving", "first_seen_level": 2, "label_key": "driving", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "food", "first_seen_level": 3, "label_key": "food", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "school", "first_seen_level": 3, "label_key": "school", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "body parts", "first_seen_level": 3, "label_key": "body parts", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "school subjects", "first_seen_level": 3, "label_key": "school subjects", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "toys", "first_seen_level": 3, "label_key": "toys", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "accessories", "first_seen_level": 3, "label_key": "accessories", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "music", "first_seen_level": 3, "label_key": "music", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "bodies of water", "first_seen_level": 3, "label_key": "bodies of water", "label_source": "observed", "origin": "reference_backfill", "scope": "narrow"}
+{"display_text": "weather", "first_seen_level": 4, "label_key": "weather", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "jobs", "first_seen_level": 4, "label_key": "jobs", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "clothes", "first_seen_level": 4, "label_key": "clothes", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "shoes", "first_seen_level": 4, "label_key": "shoes", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "doctor", "first_seen_level": 4, "label_key": "doctor", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "furniture", "first_seen_level": 4, "label_key": "furniture", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "planets", "first_seen_level": 4, "label_key": "planets", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "senses", "first_seen_level": 4, "label_key": "senses", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "meals", "first_seen_level": 4, "label_key": "meals", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "numbers", "first_seen_level": 4, "label_key": "numbers", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "pets", "first_seen_level": 5, "label_key": "pets", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "cat", "first_seen_level": 5, "label_key": "cat", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "baking", "first_seen_level": 5, "label_key": "baking", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "beverages", "first_seen_level": 5, "label_key": "beverages", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "coffee", "first_seen_level": 5, "label_key": "coffee", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "flowers", "first_seen_level": 5, "label_key": "flowers", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "insects", "first_seen_level": 5, "label_key": "insects", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "dairy", "first_seen_level": 5, "label_key": "dairy", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "polygons", "first_seen_level": 5, "label_key": "polygons", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "nuts", "first_seen_level": 5, "label_key": "nuts", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "illness", "first_seen_level": 5, "label_key": "illness", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "sea animals", "first_seen_level": 6, "label_key": "sea animals", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "pyramid", "first_seen_level": 6, "label_key": "pyramid", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "drinks", "first_seen_level": 6, "label_key": "drinks", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "mountains", "first_seen_level": 6, "label_key": "mountains", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "dog", "first_seen_level": 6, "label_key": "dog", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "fire", "first_seen_level": 6, "label_key": "fire", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "face", "first_seen_level": 6, "label_key": "face", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "sleep", "first_seen_level": 6, "label_key": "sleep", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "personality", "first_seen_level": 6, "label_key": "personality", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "length", "first_seen_level": 7, "label_key": "length", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "weight", "first_seen_level": 7, "label_key": "weight", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "time", "first_seen_level": 7, "label_key": "time", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "temperature", "first_seen_level": 7, "label_key": "temperature", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "measurements", "first_seen_level": 7, "label_key": "measurements", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "landmass", "first_seen_level": 7, "label_key": "landmass", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "americas", "first_seen_level": 7, "label_key": "americas", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "space", "first_seen_level": 7, "label_key": "space", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "water transport", "first_seen_level": 7, "label_key": "water transport", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "writing", "first_seen_level": 7, "label_key": "writing", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "royalty", "first_seen_level": 7, "label_key": "royalty", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "organs", "first_seen_level": 8, "label_key": "organs", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "storms", "first_seen_level": 8, "label_key": "storms", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "artist", "first_seen_level": 8, "label_key": "artist", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "family", "first_seen_level": 8, "label_key": "family", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "species", "first_seen_level": 8, "label_key": "species", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "bird", "first_seen_level": 8, "label_key": "bird", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "reptile", "first_seen_level": 8, "label_key": "reptile", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "pastry", "first_seen_level": 8, "label_key": "pastry", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "material", "first_seen_level": 8, "label_key": "material", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "shoe", "first_seen_level": 8, "label_key": "shoe", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "movie genre", "first_seen_level": 9, "label_key": "movie genre", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "bulls", "first_seen_level": 9, "label_key": "bulls", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "facial care", "first_seen_level": 9, "label_key": "facial care", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "tree", "first_seen_level": 9, "label_key": "tree", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "forest", "first_seen_level": 9, "label_key": "forest", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "baby", "first_seen_level": 9, "label_key": "baby", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "stages of life", "first_seen_level": 9, "label_key": "stages of life", "label_source": "inferred", "origin": "reference_backfill", "scope": "narrow"}
+{"display_text": "dances", "first_seen_level": 9, "label_key": "dances", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "tastes", "first_seen_level": 9, "label_key": "tastes", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "color", "first_seen_level": 10, "label_key": "color", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "calendar", "first_seen_level": 10, "label_key": "calendar", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "mood", "first_seen_level": 10, "label_key": "mood", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "meat", "first_seen_level": 10, "label_key": "meat", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "gems", "first_seen_level": 10, "label_key": "gems", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "safari animals", "first_seen_level": 10, "label_key": "safari animals", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "weapon", "first_seen_level": 10, "label_key": "weapon", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "sports", "first_seen_level": 11, "label_key": "sports", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "basketball", "first_seen_level": 11, "label_key": "basketball", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "baseball", "first_seen_level": 11, "label_key": "baseball", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "swimming", "first_seen_level": 11, "label_key": "swimming", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "instruments", "first_seen_level": 11, "label_key": "instruments", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "guitar", "first_seen_level": 11, "label_key": "guitar", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "food groups", "first_seen_level": 11, "label_key": "food groups", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "grains", "first_seen_level": 11, "label_key": "grains", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "literature", "first_seen_level": 11, "label_key": "literature", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "nutrients", "first_seen_level": 11, "label_key": "nutrients", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "speed", "first_seen_level": 11, "label_key": "speed", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "ocean animals", "first_seen_level": 12, "label_key": "ocean animals", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "usa", "first_seen_level": 12, "label_key": "usa", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "capitals", "first_seen_level": 12, "label_key": "capitals", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "humor", "first_seen_level": 12, "label_key": "humor", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "time periods", "first_seen_level": 12, "label_key": "time periods", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "band", "first_seen_level": 12, "label_key": "band", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "fabrics", "first_seen_level": 12, "label_key": "fabrics", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "ice cream flavors", "first_seen_level": 12, "label_key": "ice cream flavors", "label_source": "inferred", "origin": "reference_backfill", "scope": "narrow"}
+{"display_text": "plants", "first_seen_level": 12, "label_key": "plants", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "months", "first_seen_level": 12, "label_key": "months", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "tea", "first_seen_level": 12, "label_key": "tea", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "galaxy", "first_seen_level": 13, "label_key": "galaxy", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "music genres", "first_seen_level": 13, "label_key": "music genres", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "darts", "first_seen_level": 13, "label_key": "darts", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "individual sports", "first_seen_level": 13, "label_key": "individual sports", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "golf", "first_seen_level": 13, "label_key": "golf", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "cat family", "first_seen_level": 13, "label_key": "cat family", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "berries", "first_seen_level": 14, "label_key": "berries", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "chess", "first_seen_level": 14, "label_key": "chess", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "card suits", "first_seen_level": 14, "label_key": "card suits", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "bread", "first_seen_level": 14, "label_key": "bread", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "board games", "first_seen_level": 14, "label_key": "board games", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "bathroom", "first_seen_level": 14, "label_key": "bathroom", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "bedroom", "first_seen_level": 14, "label_key": "bedroom", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "rooms in a house", "first_seen_level": 14, "label_key": "rooms in a house", "label_source": "inferred", "origin": "reference_backfill", "scope": "narrow"}
+{"display_text": "laundry", "first_seen_level": 15, "label_key": "laundry", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "beauty care", "first_seen_level": 15, "label_key": "beauty care", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "makeup", "first_seen_level": 15, "label_key": "makeup", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "timekeepers", "first_seen_level": 15, "label_key": "timekeepers", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "air transport", "first_seen_level": 15, "label_key": "air transport", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "stars", "first_seen_level": 15, "label_key": "stars", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "soil", "first_seen_level": 16, "label_key": "soil", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "gardening", "first_seen_level": 16, "label_key": "gardening", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "medicine", "first_seen_level": 16, "label_key": "medicine", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "health", "first_seen_level": 16, "label_key": "health", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "greece", "first_seen_level": 16, "label_key": "greece", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "eu countries", "first_seen_level": 16, "label_key": "eu countries", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "zodiac signs", "first_seen_level": 16, "label_key": "zodiac signs", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "supplements", "first_seen_level": 17, "label_key": "supplements", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "water", "first_seen_level": 17, "label_key": "water", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "building materials", "first_seen_level": 17, "label_key": "building materials", "label_source": "observed", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "builders", "first_seen_level": 17, "label_key": "builders", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "construction", "first_seen_level": 17, "label_key": "construction", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "circus performers", "first_seen_level": 17, "label_key": "circus performers", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "fashion capitals", "first_seen_level": 17, "label_key": "fashion capitals", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "stationery", "first_seen_level": 17, "label_key": "stationery", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "healthy eating", "first_seen_level": 17, "label_key": "healthy eating", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "menu", "first_seen_level": 18, "label_key": "menu", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "musical instruments", "first_seen_level": 18, "label_key": "musical instruments", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "metal", "first_seen_level": 18, "label_key": "metal", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "vault", "first_seen_level": 18, "label_key": "vault", "label_source": "observed", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "bank", "first_seen_level": 18, "label_key": "bank", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "geographical objects", "first_seen_level": 18, "label_key": "geographical objects", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "mammals", "first_seen_level": 19, "label_key": "mammals", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "liquid carriers", "first_seen_level": 19, "label_key": "liquid carriers", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "halloween", "first_seen_level": 19, "label_key": "halloween", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "body systems", "first_seen_level": 19, "label_key": "body systems", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "brain", "first_seen_level": 19, "label_key": "brain", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "lung", "first_seen_level": 19, "label_key": "lung", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "movie theater", "first_seen_level": 19, "label_key": "movie theater", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "ticket", "first_seen_level": 19, "label_key": "ticket", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "odd numbers", "first_seen_level": 20, "label_key": "odd numbers", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "astronomy", "first_seen_level": 20, "label_key": "astronomy", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "planet", "first_seen_level": 20, "label_key": "planet", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "easter", "first_seen_level": 20, "label_key": "easter", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "spring", "first_seen_level": 20, "label_key": "spring", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "healthy lifestyle", "first_seen_level": 20, "label_key": "healthy lifestyle", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}
+{"display_text": "gym", "first_seen_level": 20, "label_key": "gym", "label_source": "inferred", "origin": "reference_backfill", "scope": "broad"}
+{"display_text": "female names", "first_seen_level": 20, "label_key": "female names", "label_source": "inferred", "origin": "reference_backfill", "scope": "medium"}

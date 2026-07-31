@@ -716,9 +716,77 @@ def replace_pair_groups(
     return written, missing
 
 
+def ensure_primary_labels(conn: sqlite3.Connection) -> tuple[int, int]:
+    """У каждого правила группировки есть основная надпись. Возвращает (надписей, связок).
+
+    Надпись и правило разведены намеренно: MUSIC обслуживает и жанры, и
+    инструменты. Но правило без единой допустимой надписи показать игроку
+    нечем, поэтому связка с собственным именем правила создаётся всегда —
+    это стартовая точка, а не окончательное решение по ярлыку.
+    """
+    import re
+
+    now = utc_now()
+    created_labels = 0
+    created_links = 0
+    rows = list(
+        conn.execute(
+            """
+            SELECT c.id AS id, c.label AS label
+              FROM categories c
+             WHERE NOT EXISTS (
+                   SELECT 1 FROM group_rule_labels g
+                    WHERE g.category_id = c.id AND g.is_primary = 1)
+             ORDER BY c.id
+            """
+        )
+    )
+    for row in rows:
+        display = str(row["label"])
+        key = re.sub(r"[^a-z0-9]+", " ", display.lower()).strip()
+        if not key:
+            continue
+        existing = conn.execute(
+            "SELECT id FROM category_labels WHERE label_key = ?", (key,)
+        ).fetchone()
+        if existing is None:
+            cur = conn.execute(
+                """
+                INSERT INTO category_labels
+                    (label_key, display_text, scope, origin, created_at, updated_at)
+                VALUES (?, ?, 'unknown', 'derived', ?, ?)
+                """,
+                (key, display, now, now),
+            )
+            label_id = int(cur.lastrowid)
+            created_labels += 1
+        else:
+            label_id = int(existing["id"])
+        conn.execute(
+            """
+            INSERT INTO group_rule_labels
+                (category_id, label_id, is_primary, origin, created_at)
+            VALUES (?, ?, 1, 'derived', ?)
+            ON CONFLICT (category_id, label_id) DO UPDATE SET is_primary = 1
+            """,
+            (int(row["id"]), label_id, now),
+        )
+        created_links += 1
+    return created_labels, created_links
+
+
 def clear_quartets(conn: sqlite3.Connection) -> int:
-    """quartet_words удаляются каскадом."""
-    return int(conn.execute("DELETE FROM quartets").rowcount)
+    """Чистит выводимые четвёрки. quartet_words удаляются каскадом.
+
+    Четвёрки записи референса не трогаются. Они не выводятся из пулов, а
+    приходят из fixture: пересобрать их build-quartets не сможет, и один такой
+    прогон стёр бы весь эталон, по которому меряется воспроизводимость.
+    """
+    return int(
+        conn.execute(
+            "DELETE FROM quartets WHERE origin <> 'reference_backfill'"
+        ).rowcount
+    )
 
 
 def upsert_quartet(conn: sqlite3.Connection, item: QuartetInput) -> UpsertResult:
