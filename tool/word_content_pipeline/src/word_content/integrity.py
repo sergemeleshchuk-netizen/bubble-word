@@ -371,6 +371,57 @@ def check_display_collision(conn: sqlite3.Connection) -> CheckResult:
     )
 
 
+def check_variant_has_concept(conn: sqlite3.Connection) -> CheckResult:
+    """P0: у каждой игровой формулировки должен быть семантический принцип.
+
+    Без него две формулировки одного принципа — просто две категории, и ничто
+    не мешает поставить их в один уровень.
+    """
+    rows = list(
+        conn.execute(
+            "SELECT category_key FROM categories WHERE concept_id IS NULL ORDER BY category_key"
+        )
+    )
+    return CheckResult(
+        name="variant_has_concept",
+        question="У всех категорий проставлен семантический принцип",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: r["category_key"]),
+        note="Проставляется миграцией и командой dedupe-concepts.",
+    )
+
+
+def check_alias_not_a_concept(conn: sqlite3.Connection) -> CheckResult:
+    """Формулировка-алиас не должна одновременно быть отдельным принципом.
+
+    Иначе слияние сделано наполовину: варианты сведены, а старый принцип
+    остался и продолжает считаться самостоятельной темой.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT a.alias AS alias, cc.concept_key AS concept_key
+              FROM category_aliases a
+              JOIN category_concepts cc ON cc.id = a.concept_id
+             WHERE EXISTS (
+                   SELECT 1 FROM category_concepts other
+                    WHERE LOWER(other.label) = LOWER(a.alias)
+                      AND other.id <> a.concept_id
+                      AND EXISTS (SELECT 1 FROM categories c WHERE c.concept_id = other.id)
+             )
+            """
+        )
+    )
+    return CheckResult(
+        name="alias_not_a_concept",
+        question="Алиас не остался отдельным принципом",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['alias']} (принцип {r['concept_key']})"),
+    )
+
+
 def check_quartet_size(conn: sqlite3.Connection) -> CheckResult:
     rows = list(
         conn.execute(
@@ -475,6 +526,8 @@ CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
     check_normal_quartet_capability,
     check_semantic_incorrect_not_playable,
     check_conflicts_present,
+    check_variant_has_concept,
+    check_alias_not_a_concept,
     check_quartet_size,
     check_quartets_local_check,
     check_risk_flags_reviewed,

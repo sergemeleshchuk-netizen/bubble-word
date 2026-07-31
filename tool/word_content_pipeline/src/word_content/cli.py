@@ -18,6 +18,7 @@ from . import baseline
 from . import candidate_generation as gen
 from . import (
     conflicts,
+    dedupe,
     integrity,
     level_solver,
     migrations,
@@ -925,6 +926,53 @@ def cmd_solve_level(
     else:
         typer.secho(f"\nОтклонён: {result.reason}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=1)
+
+
+@app.command("dedupe-concepts")
+def cmd_dedupe_concepts(
+    db: DbOption,
+    output: Annotated[
+        Path | None, typer.Option("--output", help="Куда выгрузить разбор пар в CSV")
+    ] = None,
+    apply: Annotated[
+        bool,
+        typer.Option("--apply", help="Свести exact_duplicate и alias к одному принципу"),
+    ] = False,
+    show: Annotated[int, typer.Option("--show", help="Сколько пар показать")] = 15,
+) -> None:
+    """Ищет категории, которые на самом деле один принцип под разными вывесками."""
+    conn = _open(db)
+    try:
+        pairs = dedupe.find(conn)
+        by_verdict: dict[str, int] = {}
+        for pair in pairs:
+            by_verdict[pair.verdict] = by_verdict.get(pair.verdict, 0) + 1
+        merged, notes = (0, [])
+        if apply:
+            with conn:
+                merged, notes = dedupe.merge_into_concepts(conn, pairs)
+        rows = dedupe.to_rows(pairs)
+    finally:
+        conn.close()
+
+    typer.echo(f"Пар найдено: {len(pairs)}")
+    for verdict, count in sorted(by_verdict.items()):
+        typer.echo(f"  {verdict}: {count}")
+    _print_table(
+        ["вердикт", "категория A", "категория B", "общих", "причина"],
+        [
+            [p.verdict, p.category_a, p.category_b, str(p.shared_words), _truncate(p.reason, 50)]
+            for p in pairs[:show]
+        ],
+    )
+    if apply:
+        typer.echo(f"\nСведено к одному принципу: {merged}")
+        for note in notes[:show]:
+            typer.echo(f"  {note}")
+        typer.echo("parent_child не сливается: родитель и ребёнок — разные категории.")
+    if output:
+        written = _write_csv(output, rows)
+        typer.echo(f"\nCSV: {output} ({written} строк)")
 
 
 @app.command("migrate-content-schema")

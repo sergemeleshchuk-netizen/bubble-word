@@ -32,19 +32,47 @@ class RepositoryError(RuntimeError):
 # --------------------------------------------------------------------------- categories
 
 
+def ensure_concept(conn: sqlite3.Connection, item: CategoryInput) -> int | None:
+    """Семантический принцип для игровой формулировки.
+
+    По умолчанию у каждой формулировки свой принцип: утверждать, что две
+    категории — это одно и то же, можно только после разбора (`dedupe-concepts`).
+    Возвращает None, если слой принципов ещё не создан миграцией.
+    """
+    if not conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='category_concepts'"
+    ).fetchone():
+        return None
+    now = utc_now()
+    row = conn.execute(
+        "SELECT id FROM category_concepts WHERE concept_key = ?", (item.category_key,)
+    ).fetchone()
+    if row is not None:
+        return int(row["id"])
+    cur = conn.execute(
+        """
+        INSERT INTO category_concepts (concept_key, label, theme, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?)
+        """,
+        (item.category_key, item.label, item.theme, now, now),
+    )
+    return int(cur.lastrowid)
+
+
 def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResult:
     """Создаёт категорию или обновляет существующую по category_key."""
     now = utc_now()
     row = conn.execute(
-        "SELECT id FROM categories WHERE category_key = ?", (item.category_key,)
+        "SELECT id, concept_id FROM categories WHERE category_key = ?", (item.category_key,)
     ).fetchone()
+    concept_id = ensure_concept(conn, item)
     if row is None:
         conn.execute(
             """
             INSERT INTO categories
                 (category_key, label, rule, relation_type, theme,
-                 base_difficulty, status, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 base_difficulty, status, concept_id, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 item.category_key,
@@ -54,17 +82,21 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
                 item.theme,
                 item.base_difficulty,
                 item.status,
+                concept_id,
                 now,
                 now,
             ),
         )
         return "inserted"
 
+    # Принцип не переписываем: он мог быть сведён с другим вариантом командой
+    # dedupe-concepts, и повторный импорт не должен это откатывать.
     conn.execute(
         """
         UPDATE categories
            SET label = ?, rule = ?, relation_type = ?, theme = ?,
-               base_difficulty = ?, status = ?, updated_at = ?
+               base_difficulty = ?, status = ?,
+               concept_id = COALESCE(concept_id, ?), updated_at = ?
          WHERE id = ?
         """,
         (
@@ -74,6 +106,7 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
             item.theme,
             item.base_difficulty,
             item.status,
+            concept_id,
             now,
             row["id"],
         ),

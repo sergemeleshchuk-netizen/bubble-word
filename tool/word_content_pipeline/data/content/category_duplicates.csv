@@ -1,0 +1,25 @@
+category_a,category_b,label_a,label_b,verdict,shared_words,pool_a,pool_b,reason
+at_the_gym,gym_equipment,AT THE GYM,GYM EQUIPMENT,parent_child,5,7,19,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (5 общих слов)"
+at_the_hotel,hotel_words,AT THE HOTEL,HOTEL WORDS,parent_child,5,7,18,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (5 общих слов)"
+bread_types,sandwich_breads,BREAD TYPES,SANDWICH BREADS,parent_child,11,25,14,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (11 общих слов)"
+clothing_items,things_you_button,CLOTHING ITEMS,BUTTONED THINGS,parent_child,11,25,14,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (11 общих слов)"
+deep_space,space_objects,DEEP SPACE,SPACE OBJECTS,parent_child,5,7,20,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (5 общих слов)"
+feeling_sick,symptoms,FEELING SICK,SYMPTOMS,parent_child,5,7,16,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (5 общих слов)"
+flowers,garden_flowers_summer,FLOWERS,SUMMER FLOWERS,parent_child,10,27,14,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (10 общих слов)"
+footwear,shoe_styles,FOOTWEAR,SHOE STYLES,parent_child,13,19,15,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (13 общих слов)"
+gemstones,jewelry_stones,GEMSTONES,JEWELRY STONES,parent_child,15,20,15,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (15 общих слов)"
+herbs,spices_and_herbs,COOKING HERBS,SPICES AND HERBS,parent_child,11,15,25,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (11 общих слов)"
+musical_instruments,wind_instruments,MUSICAL INSTRUMENTS,WIND INSTRUMENTS,parent_child,10,26,14,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (10 общих слов)"
+personality_traits,personality_words,PERSONALITY TRAITS,PERSONALITY WORDS,parent_child,5,7,18,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (5 общих слов)"
+planets,roman_gods,PLANETS,ROMAN GODS,parent_child,7,9,14,"пул одной категории вложен в другую: похоже на родителя и ребёнка, сливать нельзя (7 общих слов)"
+berries,words_before_berry,BERRIES,___ BERRY,legitimate_distinct,0,13,14,"одна из категорий — игра слов, принцип другой"
+birds,words_before_bird,BIRDS,___ BIRD,legitimate_distinct,0,31,14,"одна из категорий — игра слов, принцип другой"
+fairy_tale,fairy_tales,FAIRY TALE,FAIRY TALES,legitimate_distinct,0,5,15,"формулировки похожи, но пулы не пересекаются"
+fish_species,words_before_fish,FISH,___ FISH,legitimate_distinct,0,25,18,"одна из категорий — игра слов, принцип другой"
+in_a_salad,salads,IN A SALAD,SALADS,legitimate_distinct,0,6,14,"формулировки похожи, но пулы не пересекаются"
+sauces,words_before_sauce,SAUCES,___ SAUCE,legitimate_distinct,3,22,15,"одна из категорий — игра слов, принцип другой"
+sports_balls,words_before_ball,BALLS,___ BALL,legitimate_distinct,0,14,20,"одна из категорий — игра слов, принцип другой"
+berries,berry_varieties,BERRIES,BERRY VARIETIES,warning,9,13,11,пулы пересекаются сильнее порога (9 общих слов)
+farm_animals,livestock,FARM ANIMALS,LIVESTOCK,warning,12,20,17,пулы пересекаются сильнее порога (12 общих слов)
+nuts_and_seeds,nuts_world,NUTS AND SEEDS,SNACK NUTS,warning,10,14,12,пулы пересекаются сильнее порога (10 общих слов)
+school_jobs,school_people,SCHOOL JOBS,SCHOOL PEOPLE,warning,12,18,16,пулы пересекаются сильнее порога (12 общих слов)
