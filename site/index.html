@@ -211,6 +211,28 @@
     display:block;font-family:inherit;font-size:10px;letter-spacing:.12em;
     text-transform:uppercase;color:#b9a8e8;margin-bottom:10px;font-weight:700;
   }
+  .gdd code{
+    font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12.5px;
+    background:var(--chip);color:var(--violet);border-radius:5px;padding:1px 5px;
+  }
+
+  /* раскрывающийся длинный промпт */
+  .pdrop{margin:12px 0 6px;}
+  .pdrop summary{
+    display:inline-flex;align-items:center;gap:9px;cursor:pointer;list-style:none;
+    background:var(--chip);color:var(--violet);border-radius:999px;
+    padding:10px 18px;font-size:13px;font-weight:700;letter-spacing:.02em;
+    max-width:100%;transition:opacity .15s;
+  }
+  .pdrop summary::-webkit-details-marker{display:none;}
+  .pdrop summary::marker{content:"";}
+  .pdrop summary:hover{opacity:.75;}
+  .pdrop summary .pd-arrow{
+    width:0;height:0;border-left:4.5px solid transparent;border-right:4.5px solid transparent;
+    border-top:5.5px solid currentColor;transition:transform .2s;
+  }
+  .pdrop[open] summary .pd-arrow{transform:rotate(180deg);}
+  .pdrop .prompt-box{max-height:min(62vh,620px);overflow:auto;}
   .verdict{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;
     text-transform:uppercase;border-radius:999px;padding:2px 9px;margin-right:6px;
     background:var(--chip);color:var(--violet);}
@@ -525,7 +547,691 @@ solver that must reproduce the intended grouping without seeing answers.</div>
           <span class="row-label">Prompting</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
-        <div class="row-body"><div class="row-body-inner"><p class="soon">Блок появится после выполнения этапа.</p></div></div>
+        <div class="row-body"><div class="row-body-inner">
+          <div class="gdd">
+            <p class="gdd-intro"><b>Как мы формулируем задания моделям.</b> Каждый крупный шаг
+            начинается не с «сделай инструмент», а со спецификации: роль, границы этапа со списком
+            «НЕ делать», схема данных до полей, анти-примеры с причиной и протокол проверки.
+            Разборы всех промптов проекта лежат в репозитории, в папке <code>prompts/</code>.</p>
+
+            <h3><span class="g-num">1</span>Промпт: создание базы слов (этап 1)</h3>
+            <p class="gdd-intro">Задача промпта - локальная SQLite, где одно английское слово живёт
+            в нескольких категориях и в разных значениях: APPLE - это и фрукт, и начинка пирога,
+            и техкомпания. В задании выписаны схема семи таблиц с ограничениями, правила
+            нормализации через примеры вида <code>"X-RAY" &rarr; "x-ray"</code>, продуктовое правило
+            «корректность связи - это не то же самое, что её очевидность» (два независимых score),
+            анти-пример категории <code>HEALTHY THINGS</code> - плохо, потому что субъективно
+            и слишком широко, перечень тест-кейсов и требование самому прогнать тесты
+            и smoke-тест CLI.</p>
+
+            <details class="pdrop">
+              <summary>Промпт целиком<span class="pd-arrow">&#9662;</span></summary>
+              <div class="prompt-box"><span class="pb-label">Word database prompt</span>Ты — senior Python engineer и data/content pipeline developer.
+
+Нужно создать первый рабочий этап инструмента для генерации уровней word association puzzle: локальную базу данных, в которой одно английское слово может принадлежать нескольким категориям и использовать разные значения.
+
+Контекст игры
+
+В одном уровне есть 40 слов, распределённых по категориям. Одно слово может относиться к нескольким категориям.
+
+Примеры:
+
+APPLE:
+- FRUITS
+- PIE INGREDIENTS
+- THINGS WITH SEEDS
+- RED THINGS
+- TECH COMPANIES
+- WORDS BEFORE &quot;SAUCE&quot;
+
+BANK:
+- FINANCIAL INSTITUTIONS
+- RIVER FEATURES
+
+BAT:
+- FLYING MAMMALS
+- BASEBALL EQUIPMENT
+
+Важно хранить не только слово и категорию, но и:
+- конкретное значение слова;
+- тип связи;
+- объяснение связи;
+- силу связи;
+- очевидность связи для среднего американского игрока;
+- статус ручной проверки;
+- источник записи.
+
+Цель текущего этапа
+
+Создать воспроизводимый pipeline:
+
+1. Создать SQLite-базу.
+2. Импортировать каталог категорий из JSONL.
+3. Добавлять слова и связи word-category.
+4. Импортировать AI-сгенерированные candidate-связи из JSONL.
+5. Нормализовать и валидировать данные.
+6. Экспортировать кандидатов в CSV для ручной проверки.
+7. Импортировать решения reviewer обратно в SQLite.
+8. Уметь получать все одобренные категории для конкретного слова.
+9. Уметь получать все одобренные слова для конкретной категории.
+10. Хранить JSONL как человекочитаемый промежуточный формат, а SQLite использовать как основную рабочую базу.
+
+На этом этапе НЕ нужно:
+- генерировать игровые уровни;
+- проверять Exact Cover;
+- реализовывать gameplay solver;
+- делать полноценный веб-интерфейс;
+- подключать embeddings;
+- скачивать WordNet, Wikidata или ConceptNet;
+- автоматически обращаться к внешним API.
+
+Технологии
+
+Используй:
+- Python 3.12;
+- стандартный sqlite3;
+- Pydantic v2 для проверки входных данных;
+- Typer для CLI;
+- pytest для тестов;
+- pathlib;
+- csv/json из стандартной библиотеки.
+
+Не используй ORM. SQL должен быть явным и понятным.
+
+Структура проекта
+
+Создай примерно такую структуру:
+
+word_content_pipeline/
+  README.md
+  pyproject.toml
+  .gitignore
+
+  data/
+    categories.jsonl
+    membership_candidates.jsonl
+    review_example.csv
+
+  database/
+    .gitkeep
+
+  src/
+    word_content/
+      __init__.py
+      db.py
+      schema.sql
+      models.py
+      normalization.py
+      repositories.py
+      validators.py
+      importers.py
+      exporters.py
+      cli.py
+
+  tests/
+    test_normalization.py
+    test_categories_import.py
+    test_memberships_import.py
+    test_review_flow.py
+    test_queries.py
+
+SQLite-схема
+
+Используй следующую логическую модель.
+
+Таблица words:
+
+- id INTEGER PRIMARY KEY
+- text TEXT NOT NULL
+- normalized TEXT NOT NULL
+- language TEXT NOT NULL DEFAULT &#x27;en&#x27;
+- part_of_speech TEXT NULL
+- familiarity_score REAL NULL
+- is_proper_noun INTEGER NOT NULL DEFAULT 0
+- status TEXT NOT NULL DEFAULT &#x27;active&#x27;
+- created_at TEXT NOT NULL
+- updated_at TEXT NOT NULL
+
+Ограничение:
+- UNIQUE(normalized, language)
+
+Таблица word_senses:
+
+- id INTEGER PRIMARY KEY
+- word_id INTEGER NOT NULL
+- sense_key TEXT NOT NULL
+- definition TEXT NOT NULL
+- part_of_speech TEXT NULL
+- created_at TEXT NOT NULL
+
+Ограничения:
+- FOREIGN KEY word_id → words.id
+- UNIQUE(word_id, sense_key)
+
+Таблица categories:
+
+- id INTEGER PRIMARY KEY
+- category_key TEXT NOT NULL UNIQUE
+- label TEXT NOT NULL
+- rule TEXT NOT NULL
+- relation_type TEXT NOT NULL
+- theme TEXT NOT NULL
+- base_difficulty REAL NULL
+- status TEXT NOT NULL DEFAULT &#x27;active&#x27;
+- created_at TEXT NOT NULL
+- updated_at TEXT NOT NULL
+
+Таблица memberships:
+
+- id INTEGER PRIMARY KEY
+- word_id INTEGER NOT NULL
+- sense_id INTEGER NULL
+- category_id INTEGER NOT NULL
+- relation_type TEXT NOT NULL
+- reason TEXT NOT NULL
+- fit_score REAL NOT NULL
+- obviousness_score REAL NOT NULL
+- source TEXT NOT NULL
+- review_status TEXT NOT NULL DEFAULT &#x27;candidate&#x27;
+- review_comment TEXT NULL
+- created_at TEXT NOT NULL
+- updated_at TEXT NOT NULL
+
+Ограничения:
+- fit_score от 0 до 1
+- obviousness_score от 0 до 1
+- review_status только:
+  - candidate
+  - approved
+  - hard_only
+  - rejected
+- FOREIGN KEY word_id → words.id
+- FOREIGN KEY sense_id → word_senses.id
+- FOREIGN KEY category_id → categories.id
+- одна и та же связь не должна дублироваться
+
+Для защиты от дублей создай уникальный индекс по:
+- word_id
+- category_id
+- relation_type
+- COALESCE(sense_id, 0)
+
+Если SQLite не позволяет сделать это обычным UNIQUE constraint, используй expression index.
+
+Дополнительная таблица import_runs:
+
+- id INTEGER PRIMARY KEY
+- import_type TEXT NOT NULL
+- source_file TEXT NOT NULL
+- records_total INTEGER NOT NULL
+- records_inserted INTEGER NOT NULL
+- records_updated INTEGER NOT NULL
+- records_rejected INTEGER NOT NULL
+- errors_json TEXT NULL
+- created_at TEXT NOT NULL
+
+Это нужно для воспроизводимости и аудита импорта.
+
+Нормализация слов
+
+Реализуй функцию normalize_word.
+
+Правила:
+- Unicode NFKC;
+- trim;
+- lowercase;
+- несколько пробелов превращать в один;
+- типографские апострофы приводить к обычному апострофу;
+- типографские дефисы приводить к обычному дефису;
+- не удалять апострофы и дефисы полностью;
+- отклонять пустые строки;
+- ограничить длину, например 50 символами.
+
+Примеры:
+
+&quot; Apple &quot; → &quot;apple&quot;
+&quot;ICE   CREAM&quot; → &quot;ice cream&quot;
+&quot;Mother’s&quot; → &quot;mother&#x27;s&quot;
+&quot;X–RAY&quot; → &quot;x-ray&quot;
+
+Pydantic-модели
+
+Создай модели как минимум для:
+
+CategoryInput
+
+Поля:
+- category_key
+- label
+- rule
+- relation_type
+- theme
+- base_difficulty optional
+- status optional
+
+MembershipCandidateInput
+
+Поля:
+- word
+- language default &quot;en&quot;
+- part_of_speech optional
+- is_proper_noun default false
+- sense_key optional
+- sense_definition optional
+- category_key
+- relation_type
+- reason
+- fit_score
+- obviousness_score
+- source default &quot;ai&quot;
+- review_status default &quot;candidate&quot;
+
+ReviewDecisionInput
+
+Поля:
+- membership_id
+- decision
+- review_comment optional
+
+Валидация category_key:
+- только lowercase;
+- латинские буквы, цифры и underscore;
+- не начинается с цифры;
+- пробелы запрещены.
+
+Валидация membership:
+- category_key должен существовать в базе;
+- reason не может быть пустым;
+- fit_score и obviousness_score от 0 до 1;
+- если передан sense_key, обязательно должен быть передан sense_definition;
+- если передан sense_definition, обязательно должен быть передан sense_key.
+
+Формат categories.jsonl
+
+Одна JSON-запись на строку.
+
+Пример:
+
+{&quot;category_key&quot;:&quot;fruits&quot;,&quot;label&quot;:&quot;FRUITS&quot;,&quot;rule&quot;:&quot;Common edible fruits familiar to an average American adult&quot;,&quot;relation_type&quot;:&quot;is_a&quot;,&quot;theme&quot;:&quot;food&quot;,&quot;base_difficulty&quot;:0.1}
+{&quot;category_key&quot;:&quot;pie_ingredients&quot;,&quot;label&quot;:&quot;PIE INGREDIENTS&quot;,&quot;rule&quot;:&quot;Ingredients commonly used in pie fillings or pie preparation&quot;,&quot;relation_type&quot;:&quot;used_in&quot;,&quot;theme&quot;:&quot;food&quot;,&quot;base_difficulty&quot;:0.25}
+{&quot;category_key&quot;:&quot;tech_companies&quot;,&quot;label&quot;:&quot;TECH COMPANIES&quot;,&quot;rule&quot;:&quot;Well-known technology companies or consumer technology brands&quot;,&quot;relation_type&quot;:&quot;is_a&quot;,&quot;theme&quot;:&quot;business&quot;,&quot;base_difficulty&quot;:0.25}
+{&quot;category_key&quot;:&quot;things_with_seeds&quot;,&quot;label&quot;:&quot;THINGS WITH SEEDS&quot;,&quot;rule&quot;:&quot;Common objects or foods that naturally contain seeds&quot;,&quot;relation_type&quot;:&quot;has_property&quot;,&quot;theme&quot;:&quot;nature&quot;,&quot;base_difficulty&quot;:0.35}
+{&quot;category_key&quot;:&quot;words_before_sauce&quot;,&quot;label&quot;:&quot;WORDS BEFORE SAUCE&quot;,&quot;rule&quot;:&quot;Words that form a familiar English expression when placed before the word sauce&quot;,&quot;relation_type&quot;:&quot;phrase_before&quot;,&quot;theme&quot;:&quot;language&quot;,&quot;base_difficulty&quot;:0.45}
+
+Создай seed-файл минимум из 60 категорий.
+
+Требования к 60 категориям:
+- категории должны быть понятны американской casual-аудитории;
+- категории не должны быть слишком широкими;
+- у каждой потенциально должно быть минимум 8–12 хороших членов;
+- используй разные типы связей;
+- распределение минимум по 12 темам;
+- не используй категории, основанные на субъективных оценках вроде NICE THINGS или GOOD PEOPLE;
+- не создавай категории с временно меняющимися фактами вроде CURRENT POPULAR SINGERS;
+- избегай категорий, которые требуют узких локальных знаний.
+
+Примерные темы:
+- food
+- animals
+- home
+- nature
+- transport
+- sports
+- jobs
+- body
+- clothing
+- tools
+- geography
+- science
+- language
+- entertainment
+- actions
+- properties
+
+Формат membership_candidates.jsonl
+
+Пример:
+
+{&quot;word&quot;:&quot;apple&quot;,&quot;language&quot;:&quot;en&quot;,&quot;part_of_speech&quot;:&quot;noun&quot;,&quot;is_proper_noun&quot;:false,&quot;sense_key&quot;:&quot;apple_fruit&quot;,&quot;sense_definition&quot;:&quot;The round edible fruit of an apple tree&quot;,&quot;category_key&quot;:&quot;fruits&quot;,&quot;relation_type&quot;:&quot;is_a&quot;,&quot;reason&quot;:&quot;An apple is a common edible fruit&quot;,&quot;fit_score&quot;:1.0,&quot;obviousness_score&quot;:1.0,&quot;source&quot;:&quot;seed_manual&quot;}
+{&quot;word&quot;:&quot;apple&quot;,&quot;language&quot;:&quot;en&quot;,&quot;part_of_speech&quot;:&quot;noun&quot;,&quot;is_proper_noun&quot;:false,&quot;sense_key&quot;:&quot;apple_fruit&quot;,&quot;sense_definition&quot;:&quot;The round edible fruit of an apple tree&quot;,&quot;category_key&quot;:&quot;pie_ingredients&quot;,&quot;relation_type&quot;:&quot;used_in&quot;,&quot;reason&quot;:&quot;Apples are commonly used as pie filling&quot;,&quot;fit_score&quot;:0.99,&quot;obviousness_score&quot;:0.95,&quot;source&quot;:&quot;seed_manual&quot;}
+{&quot;word&quot;:&quot;Apple&quot;,&quot;language&quot;:&quot;en&quot;,&quot;part_of_speech&quot;:&quot;proper_noun&quot;,&quot;is_proper_noun&quot;:true,&quot;sense_key&quot;:&quot;apple_company&quot;,&quot;sense_definition&quot;:&quot;The American technology company Apple Inc.&quot;,&quot;category_key&quot;:&quot;tech_companies&quot;,&quot;relation_type&quot;:&quot;is_a&quot;,&quot;reason&quot;:&quot;Apple is a well-known technology company&quot;,&quot;fit_score&quot;:1.0,&quot;obviousness_score&quot;:0.99,&quot;source&quot;:&quot;seed_manual&quot;}
+{&quot;word&quot;:&quot;apple&quot;,&quot;language&quot;:&quot;en&quot;,&quot;part_of_speech&quot;:&quot;noun&quot;,&quot;is_proper_noun&quot;:false,&quot;sense_key&quot;:&quot;apple_fruit&quot;,&quot;sense_definition&quot;:&quot;The round edible fruit of an apple tree&quot;,&quot;category_key&quot;:&quot;words_before_sauce&quot;,&quot;relation_type&quot;:&quot;phrase_before&quot;,&quot;reason&quot;:&quot;Apple forms the common expression apple sauce&quot;,&quot;fit_score&quot;:0.98,&quot;obviousness_score&quot;:0.9,&quot;source&quot;:&quot;seed_manual&quot;}
+
+Создай seed-файл минимум со 150 membership-связями.
+
+В seed должны присутствовать примеры многокатегорийных слов:
+- apple
+- bank
+- bat
+- date
+- orange
+- spring
+- pitch
+- bark
+- crane
+- capital
+
+Не пытайся искусственно дать каждому слову много категорий. Добавляй только естественные и защищаемые связи.
+
+CLI-команды
+
+Реализуй CLI через Typer.
+
+Команды:
+
+1. init-db
+
+Пример:
+
+python -m word_content.cli init-db --db database/content.sqlite
+
+Создаёт базу и таблицы. Повторный запуск безопасен.
+
+2. import-categories
+
+Пример:
+
+python -m word_content.cli import-categories \
+  --db database/content.sqlite \
+  --input data/categories.jsonl
+
+Поведение:
+- валидирует каждую строку;
+- создаёт новые категории;
+- обновляет существующие по category_key;
+- записывает import_run;
+- в конце показывает:
+  - total
+  - inserted
+  - updated
+  - rejected.
+
+3. import-memberships
+
+Пример:
+
+python -m word_content.cli import-memberships \
+  --db database/content.sqlite \
+  --input data/membership_candidates.jsonl
+
+Поведение:
+- нормализует слово;
+- создаёт word, если его ещё нет;
+- создаёт word_sense, если переданы данные значения;
+- находит category по category_key;
+- создаёт или обновляет membership;
+- не создаёт дубликаты;
+- ошибки одной строки не должны останавливать весь импорт;
+- сохраняет список ошибок в import_runs.errors_json;
+- команда завершается ненулевым exit code только при системной ошибке, а не при нескольких невалидных строках.
+
+4. export-review
+
+Пример:
+
+python -m word_content.cli export-review \
+  --db database/content.sqlite \
+  --output data/review_candidates.csv \
+  --status candidate
+
+CSV должен содержать:
+
+- membership_id
+- word
+- normalized
+- sense_key
+- sense_definition
+- category_key
+- category_label
+- category_rule
+- relation_type
+- reason
+- fit_score
+- obviousness_score
+- source
+- current_status
+- decision
+- review_comment
+
+Поля decision и review_comment должны быть пустыми для ручного заполнения.
+
+5. import-review
+
+Пример:
+
+python -m word_content.cli import-review \
+  --db database/content.sqlite \
+  --input data/review_candidates.csv
+
+Поведение:
+- читает membership_id;
+- принимает decision:
+  - approved
+  - hard_only
+  - rejected
+  - candidate
+- обновляет review_status и review_comment;
+- некорректные строки перечисляет в результате.
+
+6. word-info
+
+Пример:
+
+python -m word_content.cli word-info \
+  --db database/content.sqlite \
+  --word apple \
+  --statuses approved,hard_only
+
+Выводит таблицу:
+- word;
+- sense;
+- category;
+- relation_type;
+- fit_score;
+- obviousness_score;
+- review_status;
+- reason.
+
+7. category-info
+
+Пример:
+
+python -m word_content.cli category-info \
+  --db database/content.sqlite \
+  --category fruits \
+  --statuses approved,hard_only
+
+Выводит все слова категории.
+
+8. stats
+
+Пример:
+
+python -m word_content.cli stats --db database/content.sqlite
+
+Выводит:
+- число уникальных слов;
+- число значений слов;
+- число категорий;
+- число memberships;
+- количество memberships по review_status;
+- среднее число категорий на слово;
+- число слов с одной категорией;
+- число слов с 2, 3, 4, 5+ категориями;
+- категории с количеством approved-связей меньше 8;
+- топ-20 слов по числу approved-категорий;
+- топ-20 категорий по числу approved-слов.
+
+Правила upsert
+
+Categories:
+- идентификатор — category_key;
+- при повторном импорте обновлять label, rule, relation_type, theme, base_difficulty и status.
+
+Words:
+- идентификатор — normalized + language;
+- сохранять исходный text;
+- не создавать отдельные words для Apple и apple;
+- различия значения должны храниться через word_senses.
+
+Senses:
+- идентификатор — word_id + sense_key.
+
+Memberships:
+- идентификатор — word + category + relation_type + sense;
+- повторный импорт должен обновлять reason, scores и source;
+- вручную выставленный approved/hard_only/rejected не должен автоматически сбрасываться обратно в candidate при повторном импорте;
+- добавь CLI-флаг --overwrite-review-status для принудительного обновления статуса.
+
+Важные продуктовые правила
+
+1. Не путай корректность и очевидность.
+
+Например:
+- APPLE → FRUITS:
+  - fit_score = 1.0
+  - obviousness_score = 1.0
+
+- APPLE → WORDS BEFORE SAUCE:
+  - fit_score может быть 0.98
+  - obviousness_score может быть 0.85
+
+Низкая obviousness не означает, что связь неправильная. Она может быть полезна для сложного уровня.
+
+2. Не добавляй слабые метафорические связи.
+
+Плохой пример:
+APPLE → HEALTHY THINGS
+
+Причина:
+категория субъективная и слишком широкая.
+
+3. Категория должна описываться правилом, а не только label.
+
+4. Разные значения одной строки должны быть разделены через word_senses.
+
+5. Нельзя доверять AI-generated score как абсолютной истине. Все записи AI должны по умолчанию иметь candidate.
+
+6. Для seed_manual допустимо установить approved только у очевидных и вручную подготовленных примеров. Все остальные оставь candidate.
+
+Тесты
+
+Напиши тесты минимум для следующих случаев:
+
+1. Нормализация:
+- Apple и apple дают один normalized;
+- несколько пробелов;
+- типографский апостроф;
+- типографский дефис;
+- пустая строка отклоняется.
+
+2. Импорт категорий:
+- новая категория создаётся;
+- повторный импорт обновляет категорию;
+- неправильный category_key отклоняется;
+- обработка невалидной JSON-строки.
+
+3. Импорт memberships:
+- слово создаётся автоматически;
+- существующее слово переиспользуется;
+- создаётся sense;
+- одна строка слова может иметь несколько senses;
+- слово может принадлежать нескольким категориям;
+- повторный импорт не создаёт дубликат;
+- отсутствующая category_key отклоняется;
+- score вне диапазона отклоняется;
+- sense_key без definition отклоняется.
+
+4. Review flow:
+- export-review создаёт ожидаемые колонки;
+- import-review обновляет status;
+- неизвестный membership_id отклоняется;
+- неизвестный decision отклоняется;
+- повторный импорт AI-кандидата не сбрасывает approved.
+
+5. Запросы:
+- word-info для apple возвращает несколько категорий;
+- category-info возвращает только нужные статусы;
+- stats правильно считает количество категорий на слово.
+
+6. Идемпотентность:
+- два одинаковых запуска импорта дают одинаковое количество сущностей.
+
+README
+
+README должен содержать:
+
+1. Описание задачи.
+2. Почему используется SQLite + JSONL.
+3. Диаграмму сущностей в текстовом виде.
+4. Инструкцию установки.
+5. Все CLI-команды с примерами.
+6. Описание review workflow:
+   - импортировать candidates;
+   - экспортировать CSV;
+   - заполнить decision;
+   - импортировать CSV обратно.
+7. Объяснение fit_score и obviousness_score.
+8. Примеры запросов для APPLE.
+9. Ограничения первой версии.
+10. Следующие шаги:
+    - AI candidate generator;
+    - reverse expansion word → categories;
+    - генератор уровней;
+    - Exact Cover validator.
+
+Качество реализации
+
+- Код должен быть полностью рабочим, а не псевдокодом.
+- Все пути должны приниматься через CLI.
+- Не хардкодь абсолютные пути.
+- Используй транзакции.
+- Включи PRAGMA foreign_keys = ON.
+- Добавь понятные сообщения об ошибках.
+- Добавь type hints.
+- Избегай чрезмерной архитектуры.
+- Не создавай веб-интерфейс.
+- Не оставляй TODO вместо обязательной функциональности.
+- Не ограничивайся описанием или планом: создай все файлы проекта.
+- После реализации запусти pytest.
+- Затем проведи smoke test всех основных CLI-команд на seed-данных.
+- Исправь найденные ошибки.
+- В финальном ответе перечисли:
+  - созданные файлы;
+  - команды запуска;
+  - результаты тестов;
+  - известные ограничения.
+
+Последовательность работы
+
+1. Сначала кратко сформулируй технический план.
+2. Затем сразу создавай проект.
+3. Реализуй SQLite schema и database layer.
+4. Реализуй модели и нормализацию.
+5. Реализуй import/export.
+6. Реализуй CLI.
+7. Создай seed categories и memberships.
+8. Напиши тесты.
+9. Запусти тесты и smoke test.
+10. Исправь ошибки до рабочего состояния.
+
+Не останавливайся после плана и не проси подтверждения, если можешь принять разумное техническое решение самостоятельно.</div>
+            </details>
+
+            <h4>Что получилось</h4>
+            <ul>
+              <li><b>Рабочий пайплайн с первого прохода</b> - <code>tool/word_content_pipeline</code>:
+                SQLite-схема, 8 CLI-команд (init-db, импорт категорий и связей, экспорт кандидатов
+                в CSV, импорт решений ревьюера, word-info, category-info, stats), тесты зелёные.</li>
+              <li><b>Формат данных пережил все следующие этапы.</b> Те же два JSONL-файла из промпта
+                выросли с 60 категорий и 150 связей до <b>1093 категорий и 17 556 связей</b>,
+                тестов сейчас 126. Схему не переделывали ни разу.</li>
+              <li><b>Внешний аудит базы это подтвердил:</b> <code>integrity_check ok</code>,
+                0 нарушений внешних ключей, экспорт совпадает с базой построчно. Все замечания
+                касались качества данных и метрик, а не модели данных.</li>
+            </ul>
+          </div>
+        </div></div>
       </div>
 
       <div class="row">
