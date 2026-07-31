@@ -1,0 +1,399 @@
+{
+  "level_id": 209,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 17,
+    "words_per_category": 4,
+    "start_bubbles": 64,
+    "board_capacity": 24,
+    "move_limit": 67
+  },
+  "categories": [
+    {
+      "key": "diseases",
+      "label": "DISEASES",
+      "words": [
+        {
+          "text": "polio",
+          "kind": "word"
+        },
+        {
+          "text": "tuberculosis",
+          "kind": "word"
+        },
+        {
+          "text": "malaria",
+          "kind": "word"
+        },
+        {
+          "text": "cancer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "illnesses",
+      "label": "ILLNESSES",
+      "words": [
+        {
+          "text": "diseases",
+          "kind": "meta",
+          "meta_child": "diseases"
+        },
+        {
+          "text": "diabetes",
+          "kind": "word"
+        },
+        {
+          "text": "infection",
+          "kind": "word"
+        },
+        {
+          "text": "ulcer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "emergency_room",
+      "label": "EMERGENCY ROOM",
+      "words": [
+        {
+          "text": "illnesses",
+          "kind": "meta",
+          "meta_child": "illnesses"
+        },
+        {
+          "text": "symptoms",
+          "kind": "meta",
+          "meta_child": "symptoms"
+        },
+        {
+          "text": "triage",
+          "kind": "word"
+        },
+        {
+          "text": "injuries",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hospital_things",
+      "label": "HOSPITAL THINGS",
+      "words": [
+        {
+          "text": "emergency room",
+          "kind": "meta",
+          "meta_child": "emergency_room"
+        },
+        {
+          "text": "stethoscope",
+          "kind": "word"
+        },
+        {
+          "text": "oxygen mask",
+          "kind": "word"
+        },
+        {
+          "text": "ward",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "symptoms",
+      "label": "SYMPTOMS",
+      "words": [
+        {
+          "text": "sore throat",
+          "kind": "word"
+        },
+        {
+          "text": "nausea",
+          "kind": "word"
+        },
+        {
+          "text": "cough",
+          "kind": "word"
+        },
+        {
+          "text": "itching",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "police_things",
+      "label": "POLICE THINGS",
+      "words": [
+        {
+          "text": "dispatch",
+          "kind": "word"
+        },
+        {
+          "text": "handcuffs",
+          "kind": "word"
+        },
+        {
+          "text": "patrol",
+          "kind": "word"
+        },
+        {
+          "text": "uniform",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "famous_composers",
+      "label": "COMPOSERS",
+      "words": [
+        {
+          "text": "Beethoven",
+          "kind": "word"
+        },
+        {
+          "text": "Bach",
+          "kind": "word"
+        },
+        {
+          "text": "Wagner",
+          "kind": "word"
+        },
+        {
+          "text": "Mozart",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wild_west",
+      "label": "WILD WEST",
+      "words": [
+        {
+          "text": "horse",
+          "kind": "word"
+        },
+        {
+          "text": "outlaw",
+          "kind": "word"
+        },
+        {
+          "text": "spurs",
+          "kind": "word"
+        },
+        {
+          "text": "revolver",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "greek_heroes",
+      "label": "MYTHOLOGICAL HEROES",
+      "words": [
+        {
+          "text": "Aeneas",
+          "kind": "word"
+        },
+        {
+          "text": "Perseus",
+          "kind": "word"
+        },
+        {
+          "text": "Orpheus",
+          "kind": "word"
+        },
+        {
+          "text": "Atalanta",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "explorers",
+      "label": "EXPLORERS",
+      "words": [
+        {
+          "text": "Columbus",
+          "kind": "word"
+        },
+        {
+          "text": "Cabot",
+          "kind": "word"
+        },
+        {
+          "text": "Clark",
+          "kind": "word"
+        },
+        {
+          "text": "Lewis",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "famous_landmarks",
+      "label": "FAMOUS LANDMARKS",
+      "words": [
+        {
+          "text": "Big Ben",
+          "kind": "word"
+        },
+        {
+          "text": "sphinx",
+          "kind": "word"
+        },
+        {
+          "text": "Golden Gate",
+          "kind": "word"
+        },
+        {
+          "text": "Taj Mahal",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "martial_arts",
+      "label": "MARTIAL ARTS",
+      "words": [
+        {
+          "text": "aikido",
+          "kind": "word"
+        },
+        {
+          "text": "taekwondo",
+          "kind": "word"
+        },
+        {
+          "text": "muay thai",
+          "kind": "word"
+        },
+        {
+          "text": "kickboxing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "flowers_more",
+      "label": "MORE FLOWERS",
+      "words": [
+        {
+          "text": "snapdragon",
+          "kind": "word"
+        },
+        {
+          "text": "pansy",
+          "kind": "word"
+        },
+        {
+          "text": "chrysanthemum",
+          "kind": "word"
+        },
+        {
+          "text": "sweet pea",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jewelry_stones",
+      "label": "JEWELRY STONES",
+      "words": [
+        {
+          "text": "turquoise",
+          "kind": "word"
+        },
+        {
+          "text": "amethyst",
+          "kind": "word"
+        },
+        {
+          "text": "ruby",
+          "kind": "word"
+        },
+        {
+          "text": "opal",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "italian_dishes",
+      "label": "ITALIAN DISHES",
+      "words": [
+        {
+          "text": "alfredo",
+          "kind": "word"
+        },
+        {
+          "text": "lasagna",
+          "kind": "word"
+        },
+        {
+          "text": "pizza",
+          "kind": "word"
+        },
+        {
+          "text": "spaghetti",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "hot chocolate",
+          "kind": "word"
+        },
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "latte",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "south_american_cities",
+      "label": "LATIN CITIES",
+      "words": [
+        {
+          "text": "Santiago",
+          "kind": "word"
+        },
+        {
+          "text": "Sao Paulo",
+          "kind": "word"
+        },
+        {
+          "text": "Rio de Janeiro",
+          "kind": "word"
+        },
+        {
+          "text": "Buenos Aires",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": [
+      {
+        "locks": "martial_arts",
+        "unlocked_by": "hot_drinks"
+      }
+    ]
+  }
+}

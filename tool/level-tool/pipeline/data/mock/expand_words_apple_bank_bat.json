@@ -1,0 +1,58 @@
+{
+  "words": [
+    {
+      "word": "apple",
+      "memberships": []
+    },
+    {
+      "word": "bank",
+      "memberships": [
+        {
+          "category_key": "landforms",
+          "sense_key": "bank_river",
+          "sense_definition": "The sloping land along the side of a river",
+          "relation_type": "is_a",
+          "reason": "A river bank is a sloping natural feature of the land surface",
+          "fit_score": 0.8,
+          "obviousness_score": 0.4,
+          "risk_flags": ["weak_relation"]
+        },
+        {
+          "category_key": "financial_institutions",
+          "sense_key": "bank_finance",
+          "sense_definition": "A business that keeps and lends money",
+          "relation_type": "is_a",
+          "reason": "A bank is the classic financial institution",
+          "fit_score": 1.0,
+          "obviousness_score": 1.0,
+          "risk_flags": []
+        },
+        {
+          "category_key": "money_words",
+          "sense_key": "bank_finance",
+          "sense_definition": "A business that keeps and lends money",
+          "relation_type": "is_a",
+          "reason": "A bank is where people keep and borrow money",
+          "fit_score": 0.9,
+          "obviousness_score": 0.85,
+          "risk_flags": []
+        }
+      ]
+    },
+    {
+      "word": "bat",
+      "memberships": [
+        {
+          "category_key": "baseball_words",
+          "sense_key": "bat_equipment",
+          "sense_definition": "A wooden or metal club used to hit a baseball",
+          "relation_type": "found_in",
+          "reason": "Bat is one of the basic words used in a baseball game",
+          "fit_score": 0.95,
+          "obviousness_score": 0.85,
+          "risk_flags": []
+        }
+      ]
+    }
+  ]
+}

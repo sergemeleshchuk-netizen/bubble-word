@@ -1,0 +1,4795 @@
+word,zipf,in_top50k,levels_used
+3d printer,3.93,1,35
+8-Ball,4.91,0,159
+Building Materials,4.78,0,17
+Constellation,3.37,0,70
+Hershey’s,2.49,0,165
+Programming Language,4.37,0,74
+Status,4.87,0,165
+Supplement,4.03,0,17
+aaa,3.77,1,97
+abacus,2.65,1,194
+abduction,3.43,1,83
+abhor,2.64,1,150
+above,5.2,1,152
+abrams,3.39,1,145
+abs,3.86,1,174
+absurd,3.95,1,179
+abuja,3.15,1,81
+abyss,3.4,1,45 77 128 179
+acadia,2.72,1,123
+accent,4.14,1,68
+acceptance,4.16,1,148
+access,5.05,1,38
+accordion,3.09,1,96
+account,5.21,1,18
+achilles,3.47,1,99 142
+acid,4.45,1,35 55
+acorn,3.08,1,155
+acoustic,3.98,1,11
+acrobat,2.72,1,17 40 104
+acrobatics,2.75,1,147
+acrylic,3.42,1,48 150
+action,5.25,1,19 145 169
+actor,4.65,1,8 70 87 198
+actors,4.4,1,23
+acute,4.0,1,186
+adagio,2.5,0,183
+addis ababa,2.96,1,81
+addition,5.01,1,64 110
+address,4.91,1,82 134 150 168
+adelie,1.8,0,71 183
+adjective,3.34,1,146
+admiral,4.0,1,66
+admission,4.15,1,19 38 186
+admit,4.58,1,138
+adrenaline,3.52,1,68
+adult,4.8,1,9 39 126 164
+advanced,4.71,1,198
+adventure,4.46,1,157 193
+adverb,2.55,1,146
+advertise,3.66,1,195
+aegean,2.93,1,50 105
+aerobics,2.75,1,118
+affection,3.92,1,134
+affogato,1.36,0,164
+africa,4.92,1,7 42 172 190
+afterburner,2.23,0,78
+afterimage,1.78,0,188
+agate,2.81,1,128
+agave,2.74,1,105
+age,5.32,1,199
+agent,4.81,1,184
+agile,3.41,1,114
+aglet,1.32,0,4
+agreement,4.88,1,197
+ai,4.23,1,81
+aikido,2.67,1,63
+aim,4.51,1,79
+air,5.37,1,25 49 52 54 83 112 118 150 167 173
+air fryer,2.99,1,90
+airbag,2.88,1,77 151 174
+airhockey,0.0,0,159
+airplane,3.92,1,15 103 120
+airport,4.84,1,39
+ak-47,3.7,0,130
+al pastor,4.08,1,154
+aladdin,3.16,1,170
+alarm,4.28,1,44 107 125 139 171 174
+albumen,2.05,0,136
+alcatraz,2.79,1,195
+alcohol,4.61,1,150
+alert,4.33,1,107
+alfalfa,2.82,1,162
+algae,3.54,1,148
+algebra,3.77,1,196
+algeria,3.62,1,49
+alibi,3.1,1,134 137
+alice,4.26,1,58
+alien,4.29,1,81 83
+allegro,2.71,1,183
+allele,2.91,1,196
+allergist,2.11,0,16
+alligator,3.32,1,135
+almond,3.53,1,5 17 23 94 170
+aloe,3.06,1,89 105
+alpaca,2.8,1,77 126
+alpha,4.25,1,78 84 122 199
+alps,3.56,1,6 18 82
+altar,3.8,1,73 163 176
+altimeter,2.48,0,196
+altitude,3.92,1,68 180
+alto,3.47,1,187
+am,5.78,1,62
+amazon,4.55,1,32 52 83 109
+amber,3.97,1,90 171
+amble,2.3,0,167
+ambulance,4.06,1,94
+americano,2.65,1,5 38 88 164
+americas,3.74,1,7
+amino acid,3.72,1,112
+ammonia,3.36,1,154 194
+amoeba,2.64,1,156
+amphibian,2.72,1,8
+amphibians,2.94,1,51
+amplifier,3.45,1,72
+amulet,2.99,1,128
+amusement park,3.74,1,142 164
+anaconda,2.97,1,171
+anagram,2.67,1,24 52 125
+analog,3.73,1,96 176
+analysis,4.91,1,121
+analyze,3.84,1,184 198
+anarchy,3.52,1,199
+anchor,4.02,1,71 148 158
+anchoring,2.97,1,164
+ancient,4.68,1,111 149 155 179
+andante,2.25,0,183
+andes,3.14,1,6 18 82 100 186
+android,4.42,1,43 81 196
+andromeda,3.18,1,192
+anemometer,1.87,0,98
+anemone,2.56,1,86 148
+angel,4.45,1,67 114 147
+anger,4.42,1,55 60 91 148 184
+angle,4.38,1,146
+anglerfish,1.61,0,45
+angles,3.9,1,179
+angry,4.66,1,10 35 126
+angus,3.63,1,9
+animation,4.18,1,70
+anime,4.26,1,132
+anne bonny,2.84,1,99
+anniversary,4.53,1,73 195 199
+answer,5.17,1,180
+ant,3.86,1,5 89 173 180 189
+antarctica,3.53,1,124
+antenna,3.77,1,43 62 69 124
+antennae,3.01,1,123
+anthem,3.91,1,95
+anthill,2.01,0,182
+anthology,3.48,1,198
+antibiotic,3.5,1,16
+antibody,3.46,1,127
+apache,3.54,1,67
+apartment,4.65,1,85
+aperture,3.47,1,190
+apocalypse,3.71,1,92
+apollo,3.82,1,108 153 157 188 191
+app,4.86,1,35 112
+appeal,4.67,1,187
+appetizer,2.86,1,18 62 94 158 176
+apple,4.76,1,2 27 30 138
+appointment,4.49,1,159
+appreciate,4.74,1,133 157
+apricot,2.98,1,17
+april,5.19,1,53
+apron,3.36,1,78 152
+aquamarine,2.51,0,128
+aquarium,3.56,1,66 164 191
+arabian,3.53,1,151
+arabic,4.03,1,165
+arabica,2.42,0,42
+arachnid,2.31,0,189
+aragorn,2.65,1,65
+aral,2.39,0,58
+aramaic,2.85,1,175
+arc,4.21,1,179
+arcade,3.73,1,24
+arch,4.02,1,149 170
+archaic,3.36,1,149
+archer,3.81,1,33
+archery,3.25,1,13 100 130
+architect,4.08,1,17
+arctic,4.03,1,32 100 141 177
+arena,4.33,1,38 97
+argentina,4.22,1,59 97
+argon,2.86,1,52
+argument,4.64,1,181
+aria,3.39,1,65
+arial,2.34,0,153 180
+ariana grande,3.15,1,180
+aries,3.13,1,63 110 139
+aristotle,3.41,1,41
+arithmetic,3.4,1,186
+arizona,4.38,1,85
+arm,4.73,1,138 168 175
+armbar,2.24,0,174
+armor,3.97,1,29 47 56 143 154
+armored vehicle,3.62,1,56
+aroma,3.23,1,125 156 162 189
+arrogance,3.55,1,157
+arrow,4.13,1,33 100 130
+art,5.29,1,3 49 64 75
+artemis,3.05,1,108 191
+arteries,3.46,1,157
+artery,3.65,1,46 55 111
+article,5.09,1,44 110 158 189
+artifact,3.41,1,23 119
+artist,4.8,1,26 124 132 198
+arts & crafts,0.0,0,98
+asgard,2.8,1,52
+ash,4.16,1,6 47 82 101 186
+ashes,3.93,1,199
+asia,4.65,1,7 42 172
+aslan,2.7,1,65
+asp,3.05,1,93
+aspect,4.41,1,171
+aspirin,3.34,1,94
+assay,3.28,1,152
+assist,4.42,1,81
+assistant,4.72,1,67
+aster,2.81,1,16
+asteroids,3.2,1,140 173
+astronaut,3.6,1,81 145
+astronomy,3.63,1,49 64 65 110
+asylum,3.99,1,151
+athena,3.25,1,153
+athletics,3.82,1,164
+atlantic,4.39,1,32 141
+atlantis,3.43,1,84 136 148 183
+atmosphere,4.46,1,118 140 180
+atoll,2.85,1,148
+atom,3.72,1,35 73 103
+attic,3.63,1,63 194
+auckland,3.7,1,120
+audience,4.73,1,196
+auditorium,3.51,1,77
+august,5.1,1,12 119
+aunt,4.16,1,106
+aurora,3.73,1,26 33 40 49 141 158 163 181
+austen,3.3,1,155
+austin,4.36,1,28 67
+australia,5.06,1,42 64 172
+austria,4.07,1,16
+author,4.95,1,35 190
+autobahn,2.49,0,91
+automation,3.8,1,43 196
+autumn,4.26,1,125
+avatar,3.69,1,165
+avocado,3.45,1,21 58
+award,4.88,1,140
+axe,3.79,1,10 130
+axolotl,2.02,0,60 121
+aztec,3.1,1,100
+azure,3.35,1,66
+baboon,2.73,1,198
+baby,5.26,1,9 39 167
+babylon,3.54,1,41 45 84 135 140
+bach,3.53,1,31
+bachata,2.29,0,85
+backpack,3.78,1,57 148 197
+backstroke,2.65,1,42 164
+bacon,4.15,1,10 39 89 115
+bacteria,4.19,1,113 155 156 195
+badminton,3.28,1,59 149 177
+bag,4.79,1,111
+bagel,3.18,1,8
+baggage,3.74,1,148
+baggage claim,3.74,1,39
+baguette,2.82,1,14 72 91
+bahamas,3.53,1,128
+baikal,2.42,0,58
+bait,3.85,1,74 99 103 128
+bake,3.91,1,27 36
+bakery,3.67,1,189
+baking,3.92,1,144
+baklava,2.36,0,77
+balance,4.76,1,60 100 125
+balcony,3.78,1,63
+bald,3.83,1,142
+bali,3.69,1,18 45 128
+ball,5.04,1,3 13 76 98 100 107 161 177 180 190
+ballad,3.42,1,188
+ballerina,3.1,1,72
+ballet,3.95,1,9 72 85
+balloon,3.9,1,40 71 83 176
+balloons,3.66,1,27 97 145
+ballot,4.06,1,36 172
+ballpoint,2.53,0,152
+balm,3.25,1,152
+baloo,2.34,0,107
+balrog,2.11,0,170
+balsamic,2.74,1,114 156
+baltic,3.57,1,50 105 160
+bamboo,3.65,1,31
+banana,4.0,1,2 30
+band,4.92,1,101 138
+bangs,3.45,1,168
+bank,5.16,1,47 69 185
+banksy,2.78,1,148
+banners,3.6,1,164
+bao,3.13,1,156
+bar,4.94,1,152 174
+barbacoa,1.87,0,154
+barbara,4.2,1,166
+barber pole,3.81,1,78
+barcelona,4.23,1,65 97 137
+barcode,2.89,1,138
+bargaining,3.64,1,148
+barge,3.5,1,7
+barista,3.02,1,42
+baritone,2.98,1,40
+bark,3.85,1,6 9 34 127 170
+barley,3.49,1,11 89 146
+barn,3.99,1,31 89 187
+barometer,3.18,1,98 135
+baron,3.88,1,134
+barracuda,2.78,1,34
+barrel,4.17,1,140
+bartender,3.5,1,150
+barter,3.05,1,142
+basalt,3.02,1,80 127
+base,5.05,1,123 172
+base pair,4.72,1,177
+baseball,4.54,1,11
+basement,4.18,1,63 194
+basil,3.65,1,76
+basilica,3.08,1,183
+basilisk,2.42,0,170
+basin,4.08,1,154
+basket,4.07,1,20 66 95 134 147
+basketball,4.56,1,11 59 122 164 192
+bass,4.28,1,11 12 101 138 151 187
+bassinet,2.27,0,134
+bassoon,2.53,0,120 129
+bastille,3.04,1,195
+bat,4.3,1,32 40 51 68 79 117 134 153 190
+bathrobe,2.68,1,26
+bathroom,4.54,1,14 112
+bathtub,3.45,1,197
+batman,4.22,1,135 170 175
+battalion,3.81,1,117 149
+batter,3.56,1,11
+battery,4.52,1,97 112 167 191
+battle,4.94,1,99 143
+battleship,3.15,1,171
+bay,4.73,1,138
+beach,4.92,1,57 79
+beacon,3.74,1,166 195
+beagle,3.06,1,60 198
+beak,3.3,1,9 95
+beaker,2.8,1,161
+beam,4.14,1,132 149 170
+beanie,2.99,1,115 133 140
+beans,4.14,1,43 125
+bear,4.71,1,31 59 133 153
+beard,4.07,1,126 149
+bears,4.34,1,90
+beat,5.01,1,46 111 133 136 137
+beauty,4.75,1,78
+beaver,3.61,1,56 103
+bed,5.07,1,2 4 6 14 87 92 112 194
+bedrock,3.28,1,104
+bedroom,4.46,1,14 112 194
+bee,4.09,1,5 25 68 77 122 124 144 173 189
+beef,4.29,1,60
+beep,3.45,1,133 139
+beer,4.7,1,91 198
+beet,3.05,1,77 126
+beethoven,3.41,1,31
+beetle,3.53,1,77 89 122 173 180 189
+beginner,3.52,1,198
+behavior,4.69,1,104
+beijing,4.12,1,31
+belarus,3.46,1,46
+bell,4.59,1,105 107 120 135 153
+bellbottom,0.0,0,178
+belly dance,4.1,1,96
+belt,4.42,1,3 115 171 176
+beluga,2.69,1,53 123
+bench,4.39,1,53 72 125
+bengal,3.68,1,179
+beret,2.92,1,47 115
+berlin,4.38,1,91 92 157
+bermuda,3.52,1,192
+berries,3.57,1,14 37
+berth,3.44,1,173
+bet,4.79,1,139 174
+beta,4.2,1,84 122 199
+betelgeuse,2.05,0,93
+betta,2.79,1,190
+bezel,2.8,1,171
+biathlon,2.68,1,191
+biceps,3.06,1,139
+bicycle,3.98,1,1 27 140 143 151
+big bang,4.32,1,95
+big ben,4.69,1,114 115 158
+big ears,4.36,1,28
+big max,4.66,1,95
+bigfoot,3.16,1,92 130 136
+bike,4.53,1,54 83
+bikini,3.7,1,147
+bilby,1.95,0,184
+billboard,3.87,1,131
+binary,3.95,1,147
+bingo,3.71,1,133 157
+binoculars,3.1,1,93
+bio,4.07,1,165
+biography,3.89,1,11 81 183
+biological,4.31,1,119
+biology,4.22,1,49 64
+biosphere,2.89,1,140
+biplane,2.46,0,123
+birch,3.5,1,25 131 177
+bird,4.63,1,5 8 9 32 68 95 158
+birdie,3.26,1,190
+birds,4.6,1,51 77 79 173 199
+birria,1.28,0,154
+birth,4.77,1,109
+birthday,4.76,1,73 199
+birthmark,2.45,0,129
+biscuit,3.45,1,130
+bishop,4.38,1,14 31 93
+bismarck,3.17,1,192
+bison,3.26,1,9 97
+bisque,2.45,0,76 158
+bitcoin,4.24,1,28 117 194
+bite,4.31,1,191
+biting,3.77,1,169
+bitter,4.21,1,9 52 169
+black,5.46,1,12 31 50 61 105 160
+black bear,4.71,1,90
+black hole,4.66,1,95
+blackbeard,2.56,1,99
+blackjack,3.16,1,75 163
+blackout,3.58,1,160
+bladderwort,1.19,0,91
+blade,4.19,1,124 149
+blanch,2.54,0,156
+blanket,4.07,1,6 14 92 126 147
+bleach,3.51,1,15
+blemish,2.85,1,131
+blender,3.43,1,38 131 161
+blending,3.44,1,115
+blessing,4.06,1,163
+blind,4.52,1,111
+blink,3.73,1,167
+blizzard,3.53,1,8 76 125 164
+block,4.88,1,59 140
+blocks,4.43,1,139 145 196
+blood,5.1,1,21 28 52 92 117
+blood pressure,5.01,1,139
+bloom,3.93,1,20 66
+blossom,3.62,1,20 66
+blowdryer,1.22,0,44
+blu-ray,3.7,0,133
+blue,5.13,1,1 10 22 53 123 148
+bluebell,2.53,0,37
+blueberry,3.3,1,14 37
+blueprint,3.48,1,104 166
+blueprints,3.14,1,178
+blues,4.34,1,13
+bluetooth,3.75,1,69
+bluff,3.58,1,75 128 193
+blunder,3.13,1,181
+blush,3.56,1,136 167
+bmi,3.43,1,139
+bmw,3.92,1,61 108
+bmx,2.98,1,165
+boa,3.18,1,101 113 135
+board,5.24,1,13 100
+boat,4.71,1,7 54 91 99
+bobsleigh,2.65,1,89
+bog,3.34,1,172
+bogey,2.92,1,190
+boggle,2.27,0,169
+bogota,2.9,1,105
+boil,3.83,1,27 36 132
+boiled,3.68,1,39 164
+boiling,3.75,1,144
+bold,4.26,1,155 160
+bolt,4.04,1,191
+bomb,4.6,1,178
+bond,4.59,1,186
+bonds,4.27,1,117 156
+bone,4.47,1,6
+boning,2.5,0,154
+bonobo,2.38,0,175 182
+book,5.43,1,3 29 35 60 86 88 129 189
+books,5.15,1,30 77 100
+bookstore,3.42,1,77
+boom,4.33,1,151
+boombox,2.38,0,124
+booster,3.56,1,145 191
+boots,4.33,1,86 88 133 166 171
+boreal,2.69,1,174
+borneo,3.09,1,83
+borscht,2.26,0,153
+boson,2.76,1,110 159
+boston,4.67,1,28
+bottle,4.57,1,111 141 187
+bottom,4.84,1,128
+bouillon,2.54,0,184
+bounce,4.02,1,182
+bouquet,3.41,1,82 95
+boutique,3.54,1,199
+bow,4.3,1,33 74 100 128 143
+bowhead,1.9,0,182
+bowl,4.63,1,61
+bowline,1.85,0,110
+bowling,4.05,1,100 159
+boxers,3.41,1,143
+boxes,4.34,1,87
+boxing,4.17,1,164
+boycott,3.81,1,131
+bracelet,3.7,1,68 87 111
+brackets,3.59,1,135 158
+braid,3.24,1,125 136 168
+braids,3.01,1,121
+brain,4.94,1,19 25 63 92 111 153
+brain teaser,3.47,1,24
+brake,3.95,1,2 138
+branch,4.58,1,9 67
+brand,4.83,1,109
+brass,4.05,1,177
+brassiere,2.0,0,143
+brave,4.33,1,6
+brazil,4.58,1,59
+breach,4.13,1,197
+bread,4.5,1,3 5 14 47 98 102 130
+breadline,1.76,0,196
+break,5.18,1,151 159
+breakdance,1.98,0,96
+breakfast,4.61,1,4 59 125 157 159
+breakwater,2.65,1,173
+breastplate,2.49,0,143 188
+breaststroke,2.67,1,164
+breath,4.52,1,60 165 198
+breathe,4.26,1,19
+breathing,4.28,1,108 134
+breeze,3.86,1,119 168
+brew,3.64,1,42
+brick,4.25,1,17 27 48 132
+bricks,3.81,1,166
+bride,4.08,1,50 121
+bridge,4.77,1,47 170 175
+brie,3.08,1,23 115 195
+briefs,3.31,1,143
+brigade,3.9,1,149
+brigantine,2.18,0,103
+bright,4.61,1,161
+brioche,2.57,1,130 178
+brisk,3.2,1,169
+british,5.18,1,104
+broad,4.53,1,181
+broadcast,4.39,1,62 69 124 160
+broadhead,2.0,0,130
+broadsword,2.29,0,93 167
+broccoli,3.5,1,8 105 127 147
+brochure,3.37,1,29 34
+broken,4.88,1,155
+brokers,3.67,1,106
+bronx,3.65,1,190
+bronze,4.2,1,168
+brooklyn,4.25,1,153 185 190
+broom,3.42,1,87 153 183 185 188
+broth,3.39,1,43
+brother,5.11,1,8 137 178
+brow,3.55,1,25
+brown,5.01,1,22
+brownie,3.21,1,2 38 158
+bruise,3.18,1,174
+brunch,3.46,1,159
+bruno mars,3.81,1,180
+brush,4.23,1,26 49 188 193
+bubble,4.16,1,176
+bubblegum,2.81,1,40
+bubbles,3.79,1,77
+bucket,4.07,1,40 138
+buckingham,3.52,1,115
+buckle,3.5,1,169 174
+buckteeth,1.08,0,103
+budapest,3.55,1,31
+buddha,3.79,1,96
+buddhism,3.63,1,150 168
+buddy,4.4,1,159
+budget,4.82,1,62
+buenos aires,3.55,1,105
+buffalo,4.14,1,9 66 97
+bugs,4.04,1,180
+builder,3.85,1,166
+builders,3.8,1,17
+building,5.29,1,170
+bulb,3.66,1,81
+bulgaria,3.9,1,21
+bulk,4.19,1,192
+bulldog,3.38,1,60 105 198
+bulldozer,2.88,1,17 48
+bullet,4.24,1,120 168
+bullfight,2.19,0,65 91
+bullfighting,2.46,0,97
+bulls,3.97,1,97
+bullseye,2.8,1,79
+bumper cars,3.69,1,142
+bun,3.56,1,48 125 136 168
+bungalow,3.34,1,31 65 85 184
+bungee,2.84,1,78
+bungee cord,2.84,1,27
+bungee jumping,2.84,1,68 180
+bunk,3.45,1,194
+bunker,3.67,1,40 173
+bunny,3.88,1,20 66 95
+buoy,3.0,1,173
+burger,4.07,1,8 32 45 48 90 103 131 136 157 184
+burglar,3.34,1,41
+burn,4.53,1,49 150
+burner,3.54,1,161
+burp,2.81,1,199
+burrata,1.88,0,51
+burrow,3.1,1,75 84 129 182
+bus,4.83,1,1 54 59 108
+bush,4.49,1,12
+bushido,2.28,0,154
+business,5.56,1,39
+bust,4.04,1,28
+butte,3.09,1,160
+butter,4.4,1,5 23 40 170
+butterfly,3.93,1,25 32 42 89 122 124 158 164
+butternut,2.66,1,155
+button,4.56,1,84 169
+buttons,3.98,1,158
+buzz,4.05,1,162 166
+buzzer,3.4,1,133 139
+c4,3.25,1,130
+cabana,2.7,1,186
+cabbage,3.55,1,14
+cabernet,2.88,1,170
+cabin,4.13,1,85
+cabinet,4.49,1,92
+cable,4.54,1,158 170
+cables,3.87,1,182
+cackle,2.41,0,164
+cactus,3.4,1,45 50 78 89 105 142 182 186 199
+cadbury,2.91,1,165
+caesar,3.8,1,23 88 114 145 156 158 162 188
+cafe,4.09,1,116
+caffeine,3.67,1,125
+cage,4.13,1,74 77
+caiman,2.21,0,135
+cair paravel,1.18,0,65
+cairo,3.84,1,12 81 157
+cake,4.53,1,5 47 62 73 77 97 106 145 184
+cakes,3.85,1,130
+calcite,2.62,1,66 104
+calcium,3.82,1,11
+calculus,3.6,1,152
+calendar,4.3,1,55 127 176
+calico,2.88,1,179
+calico jack,2.88,1,99
+california,5.0,1,196
+caliper,2.65,1,135
+call,5.51,1,82 112 139 150 174
+calm,4.54,1,126
+calorie,3.59,1,196
+cambodia,3.71,1,88
+cambridge,4.39,1,149
+camel,3.64,1,78 86 102 186
+camera,4.87,1,35 87 107 191
+camouflage,3.42,1,74 114
+camp,4.79,1,79
+campaign,5.0,1,36
+campfire,3.1,1,57
+campus,4.51,1,77
+can,6.46,1,77 185
+canada,4.97,1,64 85
+cancer,4.93,1,94
+candle,3.88,1,38 60 73 81 95 122
+candles,3.82,1,97 181
+candy,4.29,1,2 72 77 95
+candy cane,3.76,1,78
+cane,3.76,1,126
+canine,3.33,1,162
+cannellini,1.59,0,43
+cannon,4.02,1,56
+canoe,3.5,1,147 171
+canopy,3.52,1,152 182
+canter,2.72,1,126
+cantilever,2.72,1,149
+canvas,3.96,1,26 49 193
+canyon,3.96,1,18 45 59 105 128 184
+cap,4.51,1,11 47 133 140 197
+capital,5.01,1,92 156
+capitalism,3.97,1,118
+cappuccino,2.87,1,31 38 61 88 123 132
+caprese,1.96,0,158
+capsule,3.7,1,173 177
+capsules,3.33,1,47
+captain,4.89,1,69 71 144 148 149
+captain america,4.89,1,165
+captains,3.62,1,99
+capture,4.42,1,193
+capuchin,2.37,0,198
+car,5.45,1,1 2 54 74 83 98 108 118 120 151
+caracal,1.99,0,197
+caravan,3.62,1,102
+carbohydrate,3.17,1,61
+carbon dioxide,3.81,1,52 98
+card,5.04,1,88 142 165 194
+card trick,4.48,1,135
+cardinal,3.9,1,79
+cardio,3.44,1,185
+cards,4.76,1,75
+care,5.56,1,94
+career,5.07,1,183
+carefully,4.46,1,174
+cargo,4.19,1,192
+cargo ship,4.19,1,171
+carnitas,2.04,0,154
+carnival,3.86,1,187
+carol,4.02,1,73 169
+carp,3.18,1,69 151 166
+carpenter,3.81,1,17
+carpentry,2.97,1,45 176
+carport,2.25,0,161
+carriage,3.85,1,135
+carrot,3.62,1,2 8 37 75 77 105 126 127 147 189
+carthage,3.06,1,41
+cartographer,2.37,0,178
+cartoons,3.74,1,185
+cartridge,3.57,1,107
+carve,3.41,1,189
+carving,3.51,1,28 45
+case,5.55,1,69 79
+cash,4.92,1,28 30 44 142 194
+cashew,2.75,1,5 17
+cashier,3.57,1,77
+cashmere,3.12,1,153
+casio,2.73,1,87
+cassette,3.4,1,194
+cassiopeia,2.38,0,70
+cast,4.79,1,122
+castanets,2.01,0,168
+castle,4.45,1,47 57 142 143 193
+castling,1.67,0,70
+casual,4.23,1,39 109
+cat,4.78,1,5 13 77 95 158
+catalog,3.91,1,35
+catalyst,3.76,1,135
+catcher,3.54,1,11
+catfish,3.35,1,69 151
+cathedral,3.99,1,156
+caucus,3.58,1,172
+cauldron,3.06,1,164 183
+cauliflower,3.2,1,8
+cave,4.2,1,40 51 77 190
+cavern,3.08,1,128 129
+cavity,3.61,1,85 121
+caw,2.57,1,82
+cd,4.36,1,133
+cedar,3.76,1,25
+ceiling,4.18,1,167
+celery,3.32,1,8
+cell,4.87,1,140 156
+cello,3.29,1,72 164
+cellophane,2.6,1,139
+cells,4.75,1,28 102
+cement,3.94,1,48
+cent,4.83,1,30
+centimeter,2.89,1,7
+centipede,2.79,1,96 184
+central,5.12,1,7
+central park,5.12,1,106
+centrifuge,2.81,1,161
+centromere,1.75,0,196
+century,5.02,1,71 101 176
+ceo,4.46,1,159
+cerberus,2.77,1,126
+cereal,3.74,1,39 59 102 113 159
+cerebellum,2.67,1,111
+cerebrum,2.18,0,63 111
+ceremony,4.42,1,121
+certificate,4.29,1,140
+chain,4.65,1,27 65 111 140 143
+chair,4.69,1,2 4 12 29 74 84 87 107 116 161
+chalk,3.69,1,68
+chalkboard,2.77,1,141
+chamber,4.47,1,46 47 55 111 136 160
+chameleon,3.1,1,79 113 135
+champagne,3.9,1,164
+chance,5.26,1,172
+chanel,3.49,1,74 125
+channel,4.85,1,160
+chant,3.6,1,131
+chanterelle,1.78,0,189
+chapel,4.03,1,53
+chapter,4.65,1,35
+charger,3.64,1,35 191
+chariot,3.29,1,38
+charlie,4.43,1,135
+charm,4.12,1,58 147 172
+charms,3.54,1,36
+charon,2.44,0,126
+cheat,4.06,1,193
+check,5.31,1,193
+checkers,3.1,1,14 60 129
+checkmate,2.98,1,70
+cheddar,3.29,1,23 115 195
+cheek,3.96,1,111 168
+cheeks,3.82,1,6 63
+cheer,4.06,1,35
+cheese,4.57,1,5 48 51 108 115 170 195
+cheesecake,3.22,1,18 97 158
+cheetah,3.2,1,13 28 100 197
+chef,4.23,1,4 24 27 58 86 94 180
+chemical,4.57,1,90 119 168
+chemist,3.51,1,181
+chemistry,4.35,1,64 190
+cherokee,3.45,1,67
+cherry,4.18,1,14 21 141
+cherry juice,4.18,1,28
+chess,3.94,1,13 14 31 60 129
+chest,4.52,1,105
+chestnut,3.46,1,138 163
+chew,3.66,1,191
+chicago,4.83,1,92
+chicken,4.63,1,60 194
+chicken noodle,3.42,1,43 96
+chickpeas,2.7,1,43
+chiffon,2.79,1,153
+childhood,4.51,1,60
+chile,4.06,1,59
+chili,3.73,1,105
+chimera,2.85,1,163
+chimney,3.55,1,27 29 73 173 186
+chimpanzee,2.96,1,175
+chin,4.0,1,168
+china,5.1,1,42 88 132
+chinstrap,1.96,0,71 183
+chipmunk,2.74,1,127
+chipped,3.25,1,155
+chips,4.21,1,75 122 131
+chirp,2.79,1,82 127
+chisel,2.96,1,45 110 149 166
+chlorophyll,2.75,1,146
+chocolate,4.49,1,12 82 97 108 134 142 163 165
+choir,3.88,1,172
+chokehold,2.29,0,174
+chomp,2.53,0,191
+chop,3.77,1,132
+chopin,2.94,1,31
+chord,3.65,1,192
+chorizo,2.77,1,10
+chortle,2.11,0,164
+chorus,3.9,1,198
+chowder,2.78,1,43 76 153 158
+christianity,4.19,1,150 168
+christmas,4.91,1,65 73 83 95
+chrome,3.9,1,175
+chromium,3.14,1,18
+chromosome,3.48,1,118
+chronicle,3.7,1,189
+chronometer,2.31,0,135
+chuckle,3.52,1,194
+church,5.16,1,182
+churro,2.18,0,180
+ciabatta,2.01,0,14
+cilantro,2.89,1,58
+cinderella,3.45,1,21 95
+cinema,4.17,1,19 130
+cinnamon,3.7,1,43 174
+cipher,3.12,1,26 61 125 147 188
+circle,4.55,1,2 136
+circuit,4.47,1,43
+circular,3.96,1,165
+circulation,3.96,1,134
+circus,3.98,1,40 54 130
+citrus,3.58,1,155
+city,5.61,1,92
+civic,4.0,1,188
+clam,3.22,1,23 93 169
+clamp,3.45,1,129 165 166
+clap,3.54,1,82
+clarinet,3.12,1,120 129 161
+classic,4.72,1,183
+classical,4.26,1,11 138
+classified,4.26,1,185
+clause,3.99,1,70 127 172 197
+clavicle,2.51,0,175
+claw,3.59,1,139
+claws,3.56,1,22 131 144
+clay,4.29,1,16 176 180
+claymore,2.42,0,167
+clean,4.97,1,111
+cleaning,4.39,1,121
+cleanser,3.06,1,122
+clear,5.25,1,22
+cleats,2.88,1,134 153
+cleaver,3.04,1,154
+cleopatra,3.18,1,93 145 190
+clerk,4.0,1,67
+click,4.82,1,174 199
+client,4.54,1,69 135
+cliff,4.1,1,45 59 68 105
+climate,4.71,1,100 130 155 178
+climax,3.6,1,194
+climbing,4.12,1,100
+clinic,4.21,1,16 132
+clinton,4.57,1,49
+clip,4.26,1,169
+clipper,3.06,1,103
+cloak,3.57,1,166
+clock,4.43,1,115 174 176
+clocks,3.58,1,15
+closet,4.13,1,92 112
+clothing,4.47,1,98
+cloud,4.46,1,2 117 161
+clouds,4.16,1,22
+clove,2.91,1,80
+clover,3.36,1,162
+clown,3.93,1,17 40 104
+clownfish,2.18,0,79
+clowning,2.63,1,147
+club,5.2,1,13
+clubs,4.51,1,14 128
+clue,4.18,1,15 134 142 187
+clues,3.82,1,102
+cluster,3.99,1,177
+clydesdale,2.47,0,151
+cn tower,3.38,1,114
+coal,4.49,1,51 90
+coast,4.87,1,54 195
+coat,4.36,1,86 132
+cobalt,3.37,1,18 51 126
+cobb,3.5,1,23 158 188
+cobra,3.51,1,41 65 79 113 135 166 171 181
+cockpit,3.6,1,78 120
+cocktail,3.89,1,85
+coconut,3.88,1,21 23 94 137 170 171 177
+code,5.08,1,18 168 187
+codename,2.6,1,125
+codex,3.18,1,189
+coelacanth,1.75,0,167
+coexistence,2.9,1,154
+coffee,4.86,1,5 6 61 88 90 125 131 191
+coffee bean,3.98,1,42
+coffee machine,4.86,1,38 42
+coffin,3.8,1,52 92 117
+cognition,3.34,1,104
+coin,4.19,1,161 174
+coincidence,3.96,1,172
+coins,4.26,1,30 44
+cold,5.02,1,5 7 76 139
+cold cut,5.02,1,148
+colditz,1.82,0,195
+coliseum,3.17,1,154
+collagen,3.25,1,17
+collar,4.04,1,163 189
+college,5.27,1,178
+cologne,3.57,1,189
+colombia,3.95,1,97
+colonel,4.41,1,26
+colony,4.12,1,34 123 124 150 182
+color,4.91,1,145
+colosseum,2.84,1,38 91 121 137 144 158 193
+colt,3.57,1,130
+column,4.33,1,140
+comb,3.52,1,44
+combustion,3.57,1,24
+comedy,4.51,1,9 19 81 112 117 145 169
+comets,3.19,1,7 140
+comma,3.27,1,147 158 170
+commander,4.51,1,149
+commensalism,1.25,0,113
+comment,4.88,1,113 133 157
+commercial,4.92,1,131
+commis,1.84,0,180
+commodus,2.29,0,125
+communism,3.8,1,118
+compass,3.74,1,24 69 75 121 134 139 142 197
+compassion,3.95,1,195
+compendium,3.05,1,189
+competition,4.91,1,113 154
+compliment,3.91,1,176
+composite,3.94,1,161
+compost,3.21,1,27
+compote,2.26,0,139
+compound,4.18,1,103 181 184
+compromise,4.15,1,185
+computer,4.97,1,29 43 74 107
+concessions,3.65,1,156
+concierge,3.13,1,197
+conclude,3.9,1,184 198
+concrete,4.44,1,17 166
+conditioner,3.39,1,152
+conductor,3.8,1,62 65 69
+cone,3.83,1,145 150
+confederate,3.7,1,99
+conference,5.01,1,159
+confetti,3.03,1,85 164
+confounding,2.83,1,180
+confucius,3.1,1,76 164
+congo,3.75,1,83
+congress,4.9,1,55
+console,4.08,1,103
+consonants,2.95,1,68
+constellation,3.37,1,63
+contact,4.99,1,127
+container,4.03,1,199
+contamination,3.7,1,127
+continent,4.07,1,140
+continental,4.02,1,195
+contract,4.94,1,69
+control,5.4,1,180
+control tower,4.5,1,39
+controller,4.13,1,103 189
+conveyor,3.28,1,173
+cook,4.65,1,58 132
+cookie,4.07,1,2 5 47 131
+cookies,4.12,1,130
+cooking,4.45,1,27 86 144
+cool,5.15,1,7 139
+cooler,3.96,1,132 134
+cooling,4.06,1,79
+coop,3.41,1,107 136
+cooperation,4.3,1,154
+copenhagen,3.67,1,31
+coppa,2.35,0,183
+copper,4.27,1,82
+copperhead,2.28,0,101
+copy,4.77,1,50 107 138
+copyright,4.24,1,109
+coral,3.86,1,30 66 86 137 144 146 148 164 167 169
+cord,3.98,1,111
+core,4.73,1,180
+corn,4.19,1,80 89 146 171 176
+corn dog,4.19,1,180
+cornea,2.93,1,51 143 175
+cornflakes,2.47,0,113
+correct,4.79,1,133
+corrode,2.4,0,134
+cortado,1.59,0,164
+corvid,1.36,0,125
+cosmic,3.78,1,177
+costume,4.18,1,72 95
+cot,3.21,1,194
+cottage,4.0,1,31 184
+cotton,4.35,1,28 48 55 181
+cotton candy,4.29,1,142
+cough,3.95,1,5 123 167 175
+could,6.06,1,185
+countdown,3.68,1,55 174
+counter,4.56,1,148 153
+counteroffer,1.88,0,185
+country,5.48,1,54
+coupe,3.34,1,37 48
+couple,5.19,1,58
+coupon,3.86,1,38
+courage,4.32,1,195
+courageous,3.59,1,155
+courier,3.68,1,153 180
+court,5.41,1,55 69 76 122 149
+cousin,4.41,1,60 106
+covalent,2.65,1,177
+covid,3.86,1,151
+cow,4.14,1,1
+cowboy,3.85,1,67 142
+cowboys,4.03,1,151
+cowhide,2.15,0,155
+cpu,3.72,1,30 135
+crab,3.76,1,12 36 57 96 159
+crack,4.41,1,199
+crackers,3.45,1,122
+crackle,2.78,1,162
+cradle,3.5,1,18 134 194
+cranberries,2.79,1,180
+cranberry,3.17,1,14 37
+crane,3.92,1,17 48
+crankshaft,2.79,1,25 152
+crashes,3.87,1,180
+crater,3.55,1,33 47 58 82 87 101
+crawl,3.77,1,60
+crawling,3.59,1,68
+crayon,3.05,1,7
+crayons,3.01,1,141
+cream,4.62,1,5 9 23 171
+creation,4.56,1,95
+credit,5.0,1,28 44
+credit card,5.0,1,186
+crepe,2.87,1,165
+crescent,3.57,1,192
+crest,3.65,1,151
+cretaceous,3.22,1,98
+crete,3.2,1,45
+crew,4.7,1,69 71
+crib,3.48,1,9 39 126 134 141
+cricket,4.39,1,130
+crime,4.89,1,65 125
+criminals,4.15,1,41
+crimson,3.6,1,126 135 141
+crinkle,2.32,0,190
+crispy,3.37,1,39
+crixus,1.45,0,125
+croatia,3.74,1,21
+crocodile,3.49,1,8 32 79 103 113 135
+croissant,2.78,1,8 130
+crop,4.15,1,89
+cross,5.0,1,140
+crossbow,3.05,1,93 184
+crossexam,0.0,0,187
+crosswalk,2.63,1,140 192
+crossword,3.14,1,52 102 125
+crow,3.8,1,8 77
+crowd,4.7,1,101 131 156
+crowds,3.87,1,162 166
+crown,4.56,1,47 57 114
+crowned,3.65,1,142
+crucifix,3.02,1,73
+cruiser,3.52,1,171
+crunch,3.66,1,199
+crusades,3.07,1,99
+crush,4.17,1,126
+crust,3.7,1,48 180 195
+cry,4.59,1,162
+crypt,3.1,1,134
+crypto,3.6,1,194
+cryptocurrency,3.3,1,117
+cube,3.82,1,6
+cuckoo,3.14,1,167
+cucumber,3.41,1,137 169
+cuddle,3.4,1,162
+cue,3.75,1,159
+cuff,3.51,1,163
+cumin,3.01,1,43 174
+cuneiform,2.53,0,183
+cup,5.11,1,84 171 176 182 185 191
+cupcake,3.35,1,18 38 97 158
+cupid,3.2,1,82 142 165
+curator,3.55,1,23
+curie,2.88,1,46
+curious,4.45,1,35
+curling,3.51,1,115 191
+curls,3.42,1,125
+curly,3.6,1,121 190
+currency,4.37,1,30 44
+current,5.27,1,47 199
+curse,4.07,1,58 77 147
+curtain,3.86,1,23 70 75 196
+curve,4.14,1,191
+cushaw,0.0,0,95
+customs,4.19,1,39
+cut,5.24,1,123 174
+cutlass,2.59,1,124 144
+cyber,3.98,1,119
+cyborg,3.22,1,81
+cyclone,3.51,1,8
+cylinder,3.99,1,6 25 152
+cyprus,3.71,1,41
+cyrillic,2.63,1,165
+czar,3.0,1,85
+da vinci,3.29,1,193
+dagger,3.54,1,124 130 143
+dahlia,2.86,1,16
+daintree,1.99,0,83
+daiquiri,2.29,0,182
+dairy,4.09,1,105 127 189
+daisy,3.78,1,5 37 58 129 149
+dallas,4.42,1,92
+dalmatian,2.66,1,105 158
+dam,4.17,1,59 103 119 170
+dance,4.93,1,35 54 110 168
+dancer,3.99,1,8 198
+dances,3.79,1,85
+dandelion,2.9,1,90
+daniel,4.62,1,58
+danish,3.91,1,154
+dante,3.61,1,76
+danube,3.14,1,32 52 109
+daphne,3.26,1,166
+daring,3.7,1,155
+dark,5.04,1,144 161
+darkness,4.3,1,37 40 52 141 160 166
+darling,4.09,1,137
+darts,3.41,1,13 157 159
+dashes,2.87,1,188
+dashi,2.04,0,184
+date,5.22,1,127 199
+daughter,5.07,1,104
+david,5.13,1,50 96
+davy crockett,3.09,1,197
+dawn,4.27,1,37 53 184
+day,5.95,1,7 10 55 199
+days,5.61,1,12 175
+dazzle,3.02,1,184
+dead,5.19,1,77 160
+deadline,4.12,1,55 88
+deal,5.32,1,185
+dealer,4.19,1,75
+deals,4.59,1,162
+dear,4.77,1,137 159
+death,5.4,1,56 109 165
+debit,3.62,1,28
+debris,3.92,1,27
+decade,4.52,1,71 176
+decades,4.58,1,12
+decagon,1.17,0,50
+decimal,3.28,1,166
+deck,4.41,1,148
+declaration,4.1,1,150
+decode,3.02,1,61
+deduce,2.97,1,134
+deep,5.05,1,179
+deepfrost,0.0,0,79
+deer,4.12,1,59 73 75 133 169
+defeat,4.51,1,99
+deglaze,1.77,0,156
+delete,4.22,1,50 81 157
+delight,3.97,1,158
+deliver,4.55,1,109
+delivery,4.59,1,83 158
+delorean,2.64,1,106
+delta,4.12,1,84 122 181
+deluxe,3.72,1,186
+demand,4.84,1,105
+democracy,4.51,1,16 36 179
+demon,4.06,1,117
+den,4.01,1,129
+denali,2.62,1,127
+denial,3.99,1,113 148
+denim,3.52,1,12
+denmark,4.04,1,146
+dense,3.98,1,196
+dentin,2.22,0,138
+dentist,3.86,1,16
+denver,4.23,1,28 92
+denzel washington,2.97,1,162
+dependent,4.28,1,180
+deposit,4.24,1,44 185
+depression,4.56,1,184
+derby,4.1,1,179
+descriptive,3.54,1,110
+desert,4.4,1,45 81 85 102 105 141 144 177 182 190
+design,5.17,1,189
+designer,4.42,1,110
+desk,4.43,1,3 74 107 141
+despise,3.5,1,150
+dessert,3.83,1,4 18 62 94 158 176 184
+desserts,3.31,1,14
+detergent,3.2,1,15
+detour,3.2,1,78
+detroit,4.35,1,156
+devonian,2.9,1,98
+devotion,3.73,1,134
+diabetes,4.17,1,94
+diagnosis,4.2,1,132
+diagonal,3.36,1,179
+dial,3.93,1,180
+diamond,4.42,1,10 30 105 108 123 132 174
+diamonds,4.02,1,14 128
+diaper,3.49,1,9 18 39 141 187
+dickens,3.52,1,26 124 155 181
+dictatorship,3.64,1,179
+die,5.07,1,153
+diesel,4.05,1,51 146 151
+diet,4.57,1,20 75
+dietitian,2.69,1,16
+dig,4.22,1,140
+digestion,3.31,1,24 55 134
+digestive,3.46,1,19
+digging,3.99,1,149
+digital,4.83,1,96 176
+dime,3.66,1,42
+dimple,2.72,1,129
+dingy,2.82,1,150
+dinner,4.78,1,4 58 59 73 159
+dinosaur,3.77,1,150
+dinosaurs,3.72,1,42 176
+dior,3.15,1,125
+dip,4.05,1,132 182
+dipper,2.83,1,146
+director,5.15,1,87 122
+dirt,4.24,1,132 183
+dirt bike,4.24,1,27
+dirty clothes,4.55,1,15
+disc,4.13,1,189
+disco,3.78,1,13 54
+discount,4.35,1,187
+discounts,3.79,1,162
+disease,4.9,1,94
+dishwasher,3.29,1,119
+disk,4.01,1,79
+dislike,3.89,1,55
+dismount,2.61,1,125
+displacement,3.63,1,113
+dispute,4.27,1,181
+distant,4.19,1,160
+distress,3.95,1,174
+distributor,3.66,1,192
+division,4.86,1,64 110
+divorced,4.04,1,165
+dna,4.49,1,29 118
+do,6.35,1,80
+doc,4.36,1,106
+dock,3.99,1,39
+doctor,4.9,1,4 10 16 29 94 132 173
+docx,1.76,0,150
+dodo,2.88,1,42 150 176
+dog,5.1,1,5 158 198
+dogecoin,2.51,0,117
+dojo,2.99,1,154
+doll,4.06,1,3 98 139 196
+dollar,4.59,1,42 67 125 148
+dolphin,3.67,1,12 32 66 68 79 121 148
+dome,3.9,1,154
+domino,3.23,1,31 60
+dominoes,2.83,1,157
+don,4.6,1,125
+don quixote,2.93,1,60
+donate,4.04,1,81
+donkey,3.62,1,102 123 144 171
+donut,3.31,1,8 18 38 77 180
+door,5.08,1,2 79 167
+doorbell,3.05,1,167
+dope,3.9,1,184
+dorblu,0.0,0,51
+dorm,3.58,1,77
+dostoyevsky,2.46,0,124
+dot,4.05,1,160
+dots,3.76,1,188
+double,5.01,1,170
+double davy,3.18,1,181
+dove,3.67,1,173
+down,5.88,1,148 157
+down payment,4.66,1,179
+downfall,3.54,1,147
+doze,2.64,1,143
+dragon,4.41,1,22 52 70 109 129 134 196 198
+dragonfly,3.03,1,124
+dragonfruit,1.49,0,67 174
+dragons,4.1,1,159
+drain,4.07,1,197
+drama,4.67,1,9 101 112
+dramatic,4.41,1,177
+draw,4.81,1,122 142 146 178
+drawbridge,2.61,1,133
+drawer,3.78,1,84
+drawing,4.58,1,64 75 118
+drawstring,2.63,1,198
+dream,4.91,1,6
+dreams,4.59,1,52 60 100 159
+dreidel,1.89,0,149 181
+dress,4.76,1,98 125 157
+dresser,3.36,1,84 92 112 194
+dressing,4.17,1,169
+dribble,3.06,1,122
+drill,4.09,1,121 165
+drinks,4.43,1,94 191
+driveway,3.65,1,137 161
+driving,4.9,1,74
+drizzle,3.15,1,132
+drone,4.0,1,32 35 54 83 142
+drowning,3.77,1,141
+druid,2.99,1,187
+drum,4.11,1,6 11 18
+drummer,3.68,1,12
+drums,3.93,1,101 138
+dry,4.74,1,100
+dryer,3.54,1,119 123
+duck,4.21,1,79 194
+duel,3.65,1,142
+duffel,2.73,1,148
+duke,4.45,1,134
+dull,3.94,1,186
+dumbbell,2.63,1,20 53
+dumbledore,3.04,1,65
+dumpling,2.67,1,156
+dune,3.28,1,105 182 186 190
+dunes,3.37,1,45 57
+dungeon,3.57,1,57
+dunk,3.54,1,11
+dunning-kruger,2.69,0,164
+duplex,3.13,1,85 184
+durian,2.58,1,50 174
+dusk,3.44,1,53 184
+dust,4.41,1,175
+dustbowl,1.67,0,196
+duster,2.78,1,185 188
+dustpan,1.9,0,153 199
+dvd,4.25,1,133
+dwarf crocodile,3.49,1,135
+dwarves,3.14,1,138
+dynamite,3.59,1,130 178
+dynasty,3.87,1,88 195
+e-book,5.05,0,86
+eagle,4.13,1,8 32 51 77 81 130 137 142 145 190
+ear,4.43,1,3 103 143
+ear muffs,2.18,0,140
+earbuds,3.06,1,137
+earrings,3.62,1,111
+ears,4.36,1,46 196
+earth,5.06,1,13 20 25 49 73 140 150 173 180
+earthquake,4.15,1,33 120
+easel,2.68,1,26 49 193
+east,5.16,1,1 24 121 139 197
+easter,4.12,1,95
+echo,4.04,1,40 51 137
+echolocation,2.33,0,190
+eclair,2.18,0,178
+eclipse,3.81,1,40 87 122 141
+economy,4.87,1,106 155
+ecosystem,3.78,1,118
+ed sheeran,3.08,1,180
+edam,1.9,0,51
+edison,3.57,1,135 153
+edit,4.3,1,50 81
+editor,4.62,1,124
+editorial,4.11,1,44 185
+education,5.28,1,75 177
+egg,4.46,1,3 34 39 102 107 109 136 164
+eggplant,3.01,1,14 37
+eggs,4.5,1,20 56 66 95 98 154
+eggs benedict,3.7,1,165
+egypt,4.45,1,6 38 41 49 77 93
+eiffel,3.23,1,114
+eiffel tower,3.23,1,38 72 78 91 151
+eight,5.02,1,4 182
+einstein,3.74,1,46 173
+el dorado,3.03,1,84 148
+elation,2.7,1,158
+elder,4.06,1,126
+election,5.08,1,36
+electric,4.72,1,11 151
+electricity,4.43,1,119 199
+electron,3.82,1,35 73
+electronics,4.19,1,98
+element,4.46,1,35 103
+elephant,4.08,1,10 19 28 32 79 116 131
+elevator,3.95,1,158 162 185
+eleven,4.12,1,185
+elf,3.65,1,129
+elk,3.49,1,75 78 169 177
+elves,3.4,1,73
+elysium,2.68,1,126
+email,4.68,1,82 150
+ember,2.97,1,6
+emblem,3.58,1,95
+emerald,3.6,1,10 132
+emily,4.14,1,20
+emma,4.23,1,20 166
+emotion,4.19,1,19 104
+emotions,4.37,1,60
+emperor,4.25,1,38 63 71 85 88 114 145 183
+empire,4.54,1,88 89 100
+emu,3.05,1,34 36 42
+en garde,3.34,1,169
+enamel,3.35,1,138
+enchant,2.57,1,58
+encode,2.95,1,61
+encore,3.39,1,101 124 185
+encouragement,3.79,1,167
+encryption,3.56,1,44
+encyclopedia,3.52,1,189
+end,5.68,1,157
+endorse,3.63,1,157 195
+energy,5.23,1,52 90 129 190
+engaged,4.52,1,165
+engine,4.84,1,25 60 62 77 108 120 128 145 151 152 173 191
+engineer,4.5,1,10 61 132 178 181
+engineering,4.8,1,177
+english,5.19,1,31
+enigma,3.24,1,188
+enjoy,5.09,1,133
+enoki,1.68,0,37 115
+ensign,3.27,1,149
+enter,4.81,1,192
+entry,4.67,1,19 38 175
+envelope,3.86,1,44 82 134 150 168
+environment,4.87,1,118
+envy,3.84,1,55 144 157 163
+enzyme,3.82,1,61
+eon,2.7,1,145
+epee,1.8,0,142
+epic,4.35,1,135 140 161
+epilogue,3.13,1,194
+episode,4.97,1,160
+epoch,3.19,1,145
+equation,4.02,1,55 178
+equations,3.77,1,196
+equity,4.3,1,179
+er,4.24,1,163
+era,4.67,1,145 176
+eraser,2.94,1,17 129
+erie,3.57,1,144
+erosion,3.64,1,105
+error,4.55,1,181
+errors,4.25,1,180
+eruption,3.52,1,33 82
+esagila temple,0.0,0,45
+escalator,3.02,1,162
+escrow,3.04,1,179
+esophagus,2.91,1,55
+espresso,3.39,1,5 31 38 61 88 123 132
+essay,4.23,1,44 101
+essence,4.03,1,156 189
+estimate,4.29,1,184
+etching,3.13,1,174
+ethereum,3.21,1,117 194
+eukaryote,1.8,0,195
+euro,4.09,1,18 67 125 148 194
+europe,5.04,1,7 172
+evening,4.86,1,151
+everest,3.43,1,6 127
+everglades,2.93,1,33
+everything,5.54,1,152
+evidence,5.14,1,187
+evolution,4.41,1,115
+exam,4.26,1,186
+excalibur,2.94,1,148
+excavation,3.46,1,119
+excavator,2.7,1,48
+excelsa,1.67,0,42
+exchange,4.85,1,25
+excited,4.74,1,126
+exclamation,3.09,1,147 170
+exercise,4.68,1,75 108
+exhale,3.11,1,19
+exhibit,4.16,1,23
+exile,3.84,1,145
+expansion,4.54,1,95
+expense,4.23,1,62
+experience,5.27,1,100
+experiment,4.38,1,198
+expert,4.56,1,198
+expire,3.54,1,187
+expiry,3.0,1,148
+exploitation,3.84,1,154
+explosion,4.22,1,40 95 128
+explosive,3.97,1,130
+exposition,3.59,1,194
+expository,2.5,0,110
+expression,4.55,1,55
+eye,5.02,1,3 103 143 175
+eye contact,4.99,1,162
+eyelet,2.17,0,8
+eyeliner,3.16,1,15
+eyepatch,2.08,0,124
+eyes,5.21,1,6 25 46 51 63 111 196
+f-150,3.72,0,87
+fa,4.2,1,80
+fable,3.16,1,135 140 179
+fabric,4.08,1,155
+facade,3.42,1,104
+face,5.45,1,25 63 111 168 189
+facebook,4.9,1,34
+facial expressions,3.92,1,162
+factory,4.55,1,57
+failure,4.72,1,181
+fairway,2.93,1,173
+fairy,4.08,1,21 70 134 142
+fake mustache,3.41,1,114
+falafel,2.64,1,148
+falchion,2.09,0,167
+falcon,3.74,1,81 100 145
+fall,5.13,1,46 76
+fallout,3.69,1,147
+fallover,0.0,0,147
+famine,3.61,1,165
+fan,4.92,1,142
+fang,3.34,1,41 139
+fangs,3.02,1,189
+fantasy,4.52,1,35 129 159 183
+faraway,2.99,1,160
+farce,3.33,1,130
+farm,4.75,1,22
+farmer,4.15,1,4 10
+fashion,4.82,1,78
+fast,5.13,1,11
+fast food,5.13,1,184
+father,5.26,1,8 137 178
+fatigue,3.86,1,175
+faucet,3.07,1,197
+fault,4.64,1,33 104
+favor,4.58,1,133 157
+favorite,4.97,1,55
+fawn,3.02,1,75
+fbi,4.43,1,159
+fear,4.95,1,55 60 91
+fearless,3.55,1,155
+feather,3.69,1,95
+feathers,3.79,1,9 74 107
+federalism,2.98,1,199
+fedora,3.06,1,115 133
+feeble,3.21,1,174
+feel,5.67,1,162
+fees,4.53,1,173
+feint,2.52,0,190
+feldspar,2.45,0,66 104
+femur,3.0,1,175
+fen,2.83,1,172
+fence,4.21,1,152 187
+fender,3.4,1,148
+fennel,2.96,1,189
+fern,3.27,1,90
+ferry,4.02,1,54 91 171
+fertilizing,2.36,0,153
+festival,4.72,1,73 83
+feta,2.79,1,115
+fetch,3.65,1,6
+fettuccine,2.15,0,43
+feudalism,2.78,1,118
+fever,4.22,1,5 175
+fiber,4.06,1,155
+fibonacci,2.69,1,186
+fibula,2.59,1,175
+fiction,4.44,1,11
+fief,2.4,0,193
+field,5.24,1,31
+fight,5.23,1,143
+fighter jet,4.29,1,56
+fighting,4.92,1,164
+figure skating,3.84,1,42
+figures,4.73,1,121
+fiji,3.61,1,128
+filet,2.8,1,154
+filter,4.28,1,184
+fin,3.7,1,47 191
+finance,4.65,1,106 177
+finch,3.55,1,125
+finding nemo,3.17,1,165
+finger,4.48,1,138
+finger print,4.48,1,189
+finish,4.91,1,55
+finland,3.95,1,146
+fiona,3.63,1,123
+fire,5.3,1,25 29 49 52 70 122 134 150 198 199
+fire breath,4.52,1,22
+firearms,3.91,1,130
+firecracker,2.69,1,40
+firefly,3.13,1,158
+fireplace,3.54,1,27 29 65 73
+firestarter,2.04,0,175
+firewall,3.24,1,44 56
+firewood,3.16,1,27
+fireworks,3.83,1,106
+first-person,5.44,0,154 187
+fish,4.9,1,5 30 32 48 57 66 69 79 86 135 158
+fishermen,3.65,1,99
+fishing,4.47,1,74 103 128
+fission,3.11,1,59
+five,5.45,1,4 20 71 85
+flag,4.58,1,95
+flame,4.07,1,6 49 70 150 186 199
+flamenco,2.93,1,54 65 85 91 97 137
+flamingo,3.06,1,36 137
+flamma,1.26,0,125
+flared,3.12,1,178
+flash,4.45,1,87 107 161 191
+flashback,3.47,1,60
+flat,4.72,1,141
+flat white,4.72,1,164
+flavor,4.04,1,195
+fleche,1.53,0,169
+fleck,2.57,1,160
+fleece,3.36,1,186
+fleet,4.33,1,66
+fletching,1.66,0,130
+flint,3.77,1,127
+flirt,3.52,1,199
+float,3.94,1,83 145
+floatplane,1.69,0,123
+floats,3.46,1,164
+flood,4.34,1,33 174
+floppy,3.25,1,133
+floppy disk,3.25,1,194
+floral,3.77,1,155
+florence,3.96,1,157
+florida,4.76,1,12
+flour,4.0,1,56 163 174
+flow,4.68,1,47
+flower,4.42,1,12 20 116 151
+flowering,3.53,1,117
+flowers,4.64,1,16 58 73 149
+flu,3.96,1,5 94
+flurries,2.36,0,164
+flute,3.52,1,6 120 129 161
+fly,4.75,1,5 25 77 180 181 184
+flying,4.71,1,68 74
+fm,4.02,1,62
+focaccia,2.07,0,14
+focus,5.0,1,46 87 190
+foggy,3.19,1,22
+foil,3.76,1,142
+fold,4.08,1,111 123 139 174
+folktale,2.16,0,179
+font,3.8,1,160
+food,5.4,1,55 147
+food court,5.4,1,158
+fool,4.29,1,56
+force,5.23,1,89 129 190
+forceps,2.63,1,129
+ford,4.5,1,61 108 153
+forecast,4.09,1,106
+forest,4.7,1,105 141 182
+fork,4.03,1,2 61 70 94 121
+formal,4.45,1,39 109
+formula,4.45,1,55 140
+fortune,4.3,1,172
+fossil,3.99,1,90 119 146
+foundation,4.81,1,15 104 136
+fountain,3.91,1,125 152
+four,5.53,1,4 182
+fox,4.66,1,59 75 78 133 190
+foxglove,2.11,0,163 175
+fraction,3.96,1,166
+fracture,3.7,1,174
+fragile,3.86,1,174
+fragrance,3.53,1,95 111 162
+frame,4.58,1,114
+franc,3.11,1,18
+france,4.94,1,16 72 91 99 145
+freckle,2.36,0,129 150
+freckles,3.0,1,88
+fred,4.21,1,166
+free throw,4.83,1,11
+freedom,4.86,1,150
+freefall,2.56,1,68
+freestyle,3.8,1,42 164
+freeze,4.11,1,138
+freezer,3.66,1,79
+freight,3.99,1,120
+french,5.09,1,31
+french revolution,4.56,1,75
+frequency,4.36,1,69 124
+fresco,3.09,1,150
+fresh water,4.83,1,69
+fret,3.27,1,72
+freya,2.94,1,153
+friday,4.96,1,1 161
+fridge,4.02,1,112 119 161
+fried,4.06,1,39 102
+friend,5.37,1,104
+friends,5.43,1,110
+fries,3.81,1,32 45 131 136 184
+frigate,3.09,1,103
+frigid,2.98,1,169
+frisbee,2.96,1,199
+fritter,2.26,0,154
+frizzy,2.6,1,121
+frodo,2.9,1,53
+frog,3.89,1,51 68 121 130
+frontier,3.97,1,168
+frost,3.95,1,125
+frosting,3.05,1,180
+froth,2.75,1,132
+frother,1.59,0,184
+frown,3.26,1,35 73 150
+frozen,4.32,1,70
+frozen yogurt,3.63,1,126
+fruit,4.57,1,11 37 67 88 98
+fruits,4.07,1,17 105 122
+fry,3.89,1,27 36 132
+fryer,2.99,1,185
+frying,3.42,1,144
+fuchsia,2.69,1,167
+fudge,3.33,1,2 38 128
+fuel,4.72,1,122 145
+fuji,3.22,1,6
+full,5.54,1,192
+full-grain,4.16,0,155
+fumet,0.0,0,184
+fungi,3.48,1,113
+fungus,3.53,1,195
+funnel,3.47,1,19 27
+funnel cake,3.47,1,180
+furikake,1.3,0,175
+furnace,3.62,1,57
+furniture,4.29,1,87
+furtive,2.49,0,180
+fuselage,3.09,1,78
+fusilli,1.69,0,169
+fusion,4.02,1,114
+futon,2.56,1,161
+future,5.33,1,161
+gable,3.08,1,169
+gadget,3.45,1,125
+galaxy,4.28,1,20 70 73 81 155
+gale,3.62,1,119
+galileo,3.2,1,46 173
+galleon,2.57,1,103
+gallery,4.49,1,23 26
+galley,3.22,1,120
+gallon,3.75,1,123 196
+gallop,3.03,1,99 126 179
+gambit,3.1,1,142
+gambrel,1.81,0,169
+game,5.72,1,60
+games,5.44,1,159
+gaming,4.36,1,103
+gamma,3.7,1,122 139 199
+gandalf,3.08,1,53
+gandhi,3.83,1,93
+gang,4.5,1,125
+garage,4.25,1,14 112 161
+garamond,1.85,0,153
+garbage,4.18,1,192 194
+garden,4.77,1,20 23
+gardening,3.67,1,74 86 128 144 172
+garlic,3.92,1,52 92 154 194
+gas,5.01,1,23 80 90 114 193
+gasoline,3.85,1,51 151
+gate,4.47,1,57 94 175 193
+gateway,3.83,1,129
+gauntlets,2.28,0,143
+gavel,2.66,1,41
+gazette,3.61,1,179
+gazpacho,2.19,0,76 96
+gecko,2.91,1,8 79 101 113 135
+geisha,2.78,1,48
+gel,3.84,1,152 175
+gemini,3.38,1,16 108 139 191
+gemstone,2.98,1,30
+gene,4.36,1,118 177 196
+general,5.47,1,26
+generator,3.94,1,59
+genghis,2.84,1,145
+genotype,2.87,1,29
+genre,4.17,1,35
+gentoo,2.37,0,71 183
+geography,3.98,1,133
+geologic,3.25,1,100
+geometric,3.59,1,186
+geometry,3.88,1,196
+george,5.04,1,145
+geothermal,3.18,1,90 119 197
+geppetto,1.94,0,21
+german,4.95,1,31
+germany,4.9,1,72 91
+germination,2.8,1,117
+gestures,3.59,1,162
+gettysburg,3.14,1,99
+geyser,2.8,1,57
+gharial,1.12,0,135
+ghirardelli,1.77,0,165
+ghost,4.42,1,72 95 117 142 169
+ghosts,3.88,1,19
+ghoul,2.89,1,163
+giant,4.62,1,195
+giant squid,3.44,1,45
+gibbon,2.8,1,182
+gibbous,1.87,0,192
+gibson,3.9,1,148
+gif,3.9,1,153
+gift,4.78,1,73 106 133 145
+gifts,4.38,1,97
+giggle,3.35,1,194
+ginger,3.93,1,43 167
+giraffe,3.32,1,10 19 28 116 131
+glacier,3.58,1,26 45 71 85 90 123 165 183
+gladiator,3.19,1,38 154 193
+glass,4.85,1,8 95 97 109 139 150 185
+glasses,4.34,1,22 114 115 126 156
+glaze,3.28,1,132 176 180
+glee,3.49,1,158
+glider,3.09,1,15 32 54 83 123
+glitches,3.15,1,180
+glitter,3.56,1,145 175
+globe,4.28,1,142 161
+glock,3.1,1,130
+gloom,3.31,1,160
+gloomy,3.39,1,148
+glove,3.73,1,134 153
+gloves,4.04,1,22 27 29 86 140 166 186
+glucose,3.75,1,146
+glue,3.8,1,170
+gluon,2.16,0,110
+glyph,2.7,1,160
+goal,5.06,1,190
+goals,4.95,1,62
+goat,4.02,1,1 142
+godfather,3.44,1,65 72
+goggles,3.35,1,11 139 147 186
+going to,5.94,1,143
+gold,5.17,1,21 30 82 105 142 174 188
+gold fish,4.9,1,190
+golden,4.67,1,142
+golden gate,4.47,1,33 153 185
+goldenrod,2.23,0,171
+goldfish,3.28,1,79 95
+golf,4.56,1,13
+gollum,2.7,1,53 65
+goods,4.6,1,25 155 194
+goofy,3.57,1,189
+goose,3.84,1,79 194
+gopher,2.87,1,129
+gorge,3.4,1,59 128
+gorilla,3.62,1,175
+gouda,2.52,0,23 115 170 195
+gown,3.75,1,39
+gps,4.03,1,24 121
+gpu,3.22,1,135
+graduation,4.07,1,73 199
+grain,4.18,1,154 160
+grains,3.7,1,11 37 105 127 184
+gram,3.76,1,7 24
+grammar,4.17,1,78
+grammy,3.73,1,183
+gramophone,2.7,1,124 170
+grand canyon,3.96,1,33
+grandfather,4.24,1,167
+grandstand,2.89,1,156
+granite,3.86,1,80 127
+granola,2.98,1,113
+grant,4.67,1,197
+grape,3.7,1,2 30 96
+grass,4.38,1,12 34 116 151 194
+grasshopper,3.03,1,68 89
+grater,2.51,0,133
+grave,4.31,1,134
+gravel,3.7,1,132
+graveyard,3.56,1,151
+gravity,4.21,1,81 129 152 190
+gray,4.45,1,22
+great wall,5.04,1,38 78 88 121
+great white,5.51,1,34
+greaves,2.8,1,143
+greece,4.28,1,16 99 137
+greed,3.73,1,144 163
+greek,4.5,1,23 88 158 175
+green,5.13,1,1 10 12 61 173
+greenhouse,3.78,1,151
+gregorian,2.74,1,87 176
+grenade,3.65,1,130 178
+griffin,3.9,1,52 70 109 163
+grill,3.84,1,27 36 48 185
+grilling,3.14,1,144
+grimace,2.61,1,150
+grind,3.94,1,126 148 191
+grinder,3.32,1,161 184
+grip,4.11,1,193
+grizzly,3.28,1,90
+grocery,4.06,1,98
+groom,3.63,1,50 121
+ground,5.15,1,112 152
+groundhog,2.9,1,129
+growth,5.03,1,109 117
+grub,3.12,1,129
+grubby,2.78,1,193
+gruyere,2.06,0,170
+guacamole,2.91,1,187
+guardrail,2.45,0,140
+guava,2.61,1,22 37
+gucci,3.33,1,74 83 125
+guernica,2.19,0,179
+guide,4.75,1,78
+guilt,4.13,1,157
+guinea pig,4.06,1,95
+guitar,4.48,1,6 11 12 18 72 101 138 164 168
+gum,3.94,1,27 138
+gumbo,2.7,1,153
+gums,3.21,1,179
+gun,4.96,1,33
+guppy,2.49,0,190
+gust,3.1,1,168
+gutter,3.38,1,142 159
+gym,4.43,1,20 53
+gymnastics,3.6,1,42 164
+gyoza,1.92,0,180
+gyroscope,2.55,1,149 196
+habanero,2.37,0,105
+habitat,3.98,1,118
+hacker,3.67,1,41
+hacksaw,2.54,0,165
+haiku,3.08,1,188
+hailstorm,2.31,0,27
+hair,5.08,1,63 168
+haircare,2.15,0,15
+hairstyle,3.33,1,125 136
+halloween,4.16,1,72 83 95
+halo,3.75,1,172 181
+halo effect,3.75,1,164
+halt,3.93,1,138
+ham,4.12,1,10 115
+hamlet,3.65,1,60
+hammam,2.56,1,26
+hammer,4.16,1,29 45 80 137 149
+hammerhead,2.68,1,34
+hammock,3.14,1,175 194
+hamstrings,2.61,1,139
+hanbok,1.94,0,132
+hand,5.41,1,3 111 138
+hand saw,5.34,1,165
+handball,3.11,1,164
+handle,4.79,1,53 149 167
+handlebar,2.53,0,65 140 143
+handlebars,2.73,1,111
+handler,3.5,1,184
+hands,5.16,1,196
+hanging gardens,4.27,1,45
+hangman,2.68,1,169
+hansel,2.7,1,195
+happy,5.35,1,10 126
+har gow,2.69,1,156
+harbor,4.15,1,39
+hard,5.53,1,161
+hard drive,5.13,1,117
+hard hat,4.53,1,22
+hardware,4.3,1,30
+hare,3.66,1,33
+harmony,4.11,1,28 88 89
+harness,3.67,1,68 100
+harp,3.4,1,164
+harpercollins,2.74,1,124
+harpy,2.5,0,142
+harvard,4.24,1,149 162
+harvesting,3.53,1,153
+hashtag,3.67,1,55 135
+hat,4.53,1,3 4 104 129 166 171 197
+hatch,3.82,1,34 107
+hatching,3.06,1,115
+hatchling,2.17,0,154
+hate,5.11,1,55
+hats,4.01,1,53 115 133
+hawaii,4.21,1,18 41
+hawaiian,3.68,1,32
+hawk,3.81,1,81 145
+hawking,3.24,1,46 173
+haystack,2.81,1,187
+haze,3.42,1,61
+hazel,3.54,1,22
+hazelnut,2.78,1,17 23
+head,5.51,1,168
+headlights,3.33,1,77
+headline,4.03,1,158
+headphones,3.88,1,137
+headrest,2.36,0,174
+hearing,4.82,1,46
+heart,5.31,1,8 25 55 111 133 136 153 157 158 173 195
+heart rate,5.14,1,139
+hearts,4.44,1,14 82 128
+heat,4.86,1,47 49 57 70 78 150 199
+heater,3.55,1,27
+heavyweight,3.62,1,151
+hebrew,3.91,1,165 176
+hedge,3.74,1,152
+hedgehog,3.25,1,50 199
+heel,3.84,1,4 8
+heels,4.06,1,39 88 125 129
+height,4.53,1,44
+heights,4.14,1,141 166
+helen,4.19,1,99
+helicopter,4.13,1,15 32 54
+helium,3.42,1,21 80 83 145
+helix,3.26,1,177
+helmet,4.02,1,29 47 108 133 134 139 143 153 186 188 197
+help,5.75,1,174
+helvetica,2.44,0,153 180
+hemingway,3.3,1,181
+hemlock,2.86,1,163 175
+hemoglobin,2.92,1,28 55
+hen,3.56,1,107
+heptagon,1.33,0,50
+hera,2.97,1,153 157
+herb,3.77,1,152
+herbal,3.36,1,12 61
+herbs,3.65,1,37
+hercules,3.6,1,99 142
+herd,3.77,1,124 186
+hermes,3.29,1,74 83
+hero,4.68,1,147
+herring,3.48,1,30 57 167
+hex,3.31,1,58 147
+hexagon,2.84,1,5 50 186
+hiccup,2.91,1,123 199
+hidden,4.53,1,168
+hieroglyph,1.98,0,195
+hieroglyphs,2.43,0,183
+hierophant,1.82,0,171
+high priestess,2.95,1,56
+hill,4.82,1,2
+himalayas,3.13,1,18 82
+hinduism,3.27,1,150 168
+hinge,3.32,1,167
+hinged,3.07,1,170
+hip,4.46,1,169
+hip-hop,4.13,0,163
+hippopotamus,2.56,1,103
+hiss,3.05,1,162
+history,5.39,1,3 133
+hive,3.5,1,26 84 122 129 144 173
+hives,3.12,1,170
+hobbes,3.04,1,160
+hobbiton,1.89,0,120
+hockey,4.42,1,64 85
+hoe,3.25,1,116
+hogwarts,3.18,1,25 65
+hold,5.19,1,180
+hole,4.66,1,13 180
+holiday,4.66,1,57 127
+hollywood,4.52,1,33
+hologram,3.11,1,188
+home,5.81,1,157
+home run,5.49,1,11
+homework,4.13,1,133 186
+honduras,3.6,1,85
+honest,4.73,1,6
+honey,4.37,1,26 102 122 137 144 159 173
+honey mustard,3.69,1,114
+honeymoon,3.68,1,195
+honors,3.86,1,140
+hood,4.21,1,41
+hoodie,3.4,1,39
+hook,4.37,1,74 99 103 124 128 140
+hoop,3.41,1,11 122
+hoot,2.99,1,82
+hooverville,1.2,0,196
+hop,4.4,1,75
+hope,5.44,1,60 195
+hopping,3.43,1,68
+horde,3.23,1,159
+horn,4.14,1,18 22
+hornet,3.15,1,41
+horoscope,3.1,1,63 110
+horror,4.43,1,9 35 81 117 145 169
+horse,4.76,1,1 22 83 99 100 102 144 171
+horse racing,4.5,1,153
+horses,4.45,1,151
+hose,3.73,1,19 152
+hospital,5.07,1,4 94 173
+hostel,3.43,1,65
+hot,5.16,1,7 139
+hot dog,5.1,1,103
+hot spring,4.92,1,164
+hot tub,3.85,1,192
+hot-air balloon,3.9,0,15
+hotel,4.95,1,78 156
+hour,5.18,1,7 101 127 199
+hourglass,2.92,1,15 127 171
+house,5.71,1,31 69 143 151
+housing,4.77,1,171
+houston,4.42,1,67
+hover,3.26,1,166
+howl,3.18,1,78
+hub,4.08,1,180
+hug,4.09,1,167
+hulk,3.72,1,135 165
+hull,4.06,1,54 128 147
+human,5.35,1,51 79 153
+humanism,2.99,1,75
+hume,3.34,1,160
+hummingbird,2.96,1,122
+hummus,3.0,1,148 187
+hump,3.36,1,102
+humpback,2.81,1,53 123
+humpty dumpty,2.5,0,195
+hunting,4.42,1,74
+hurdle,3.41,1,125
+huron,3.17,1,144
+hurricane,4.1,1,8 27 119 168
+hutch,3.04,1,136
+hybrid,4.11,1,29 151
+hydra,3.31,1,52 163
+hydration,3.18,1,20 75
+hydro,3.63,1,59 90 119 142 197
+hydrogen,3.98,1,80 146 177
+hydrothermal vent,2.69,1,45
+hygrometer,1.87,0,98
+hyphen,2.64,1,158
+hypothalamus,2.67,1,111
+ibex,2.41,0,130
+ibuprofen,2.93,1,94
+ice,5.0,1,17 34 49 73 76 85 124 199
+ice age,5.0,1,70 165
+ice cream,4.62,1,62 108 126 184
+ice diving,4.02,1,68
+ice skating,3.84,1,185
+iceberg,3.35,1,26 183
+iceland,3.79,1,41 45 120
+icicle,2.43,0,85 125
+idaho,3.91,1,64
+idle,3.7,1,193
+igloo,2.64,1,49 85
+iguana,2.74,1,8 79 113 135
+iguazu,1.86,0,67 147
+illusion,3.94,1,104
+imaginary,3.79,1,161
+imam,3.5,1,93
+inca,3.01,1,100 135 140
+incense,3.27,1,156
+inception,3.65,1,72
+inch,4.49,1,7
+incisor,2.22,0,162
+income,4.97,1,62
+independence,4.58,1,128
+independence day,4.58,1,72 83
+independent,4.93,1,180
+index,4.57,1,138
+india,5.04,1,42
+indian,4.91,1,32 141
+indigo,3.31,1,162
+individualism,3.0,1,75
+industrial revolution,4.56,1,75
+indy,3.55,1,189
+infant,3.99,1,126
+infection,4.33,1,26 92
+inflate,3.01,1,145
+inflation,4.14,1,42 105 155
+influenza,3.51,1,151
+informant,3.33,1,184
+infrared,3.71,1,69 139
+inhale,3.25,1,19
+injection,3.99,1,16
+ink,4.07,1,107 174 189
+inquiry,4.25,1,137 187
+inscription,3.54,1,193
+insect,3.76,1,32 68
+insects,4.02,1,173
+inside,5.19,1,152
+inspect,3.63,1,53
+inspection,4.14,1,179
+instagram,4.33,1,34
+installment,3.58,1,198
+instance,4.59,1,177
+insulin,3.81,1,16
+insurance,4.94,1,74
+integer,3.39,1,166
+interest,5.17,1,179
+intermediate,4.04,1,198
+internet,5.06,1,30 120
+interval,3.77,1,192
+intestine,3.23,1,55
+invention,4.04,1,75
+inventor,3.59,1,61
+investigation,4.75,1,134 137
+invisible ink,4.07,1,188
+invoice,3.27,1,135
+ion,4.15,1,114 135
+ionic,3.21,1,177
+ipad,4.1,1,154
+iridium,2.74,1,159
+iris,3.76,1,51 129 143 175
+iron,4.74,1,11 21 55 82
+iron man,4.74,1,165
+ironman,3.17,1,175
+irony,3.86,1,12
+irrigation,3.69,1,153
+ishtar gate,2.53,0,45
+islam,4.42,1,150 168
+islands,4.5,1,18
+isolated,4.24,1,160
+istanbul,3.74,1,104 157
+isthmus,2.82,1,181
+italy,4.66,1,91 137
+itch,3.36,1,138
+itchy eyes,3.34,1,170
+ivory,3.85,1,126 152
+ivy,3.83,1,175
+jab,3.35,1,140 151
+jack sparrow,3.48,1,99
+jack-o’-lantern,3.57,0,95
+jacket,4.32,1,98 129 166 171
+jackpot,3.5,1,122 178
+jackson,4.58,1,197
+jaguar,3.51,1,9 121
+jalapeno,2.56,1,105
+jam,4.17,1,139
+jamaica,3.92,1,18
+janissary,1.59,0,104
+japan,4.89,1,42 88 120 132
+jason,4.46,1,50
+java,4.0,1,74
+jazz,4.31,1,3 13 54 138
+jeans,4.09,1,39
+jedi,3.62,1,89
+jefferson,4.0,1,150
+jelly,3.77,1,139
+jellyfish,3.25,1,6 57 68 121 144 164
+jessica,4.17,1,20 166
+jet,4.29,1,32 78 123 182
+jet fuel,4.29,1,51
+jet ski,4.13,1,171
+jetty,3.04,1,173
+jewel,3.68,1,105
+jewelry,4.12,1,30
+jibe,2.44,0,151
+jigsaw,3.15,1,26 102 165
+jill,3.81,1,195
+jingle,3.21,1,131
+jinx,3.14,1,147
+jobs,4.98,1,42 155
+jockey,3.57,1,179
+john,5.38,1,145
+john deere,2.91,1,89
+john henry,4.74,1,197
+joint,4.71,1,68
+joist,2.25,0,132
+joke,4.68,1,12
+joplin,2.9,1,120
+joule,2.44,0,196
+journal,4.77,1,179 189
+joy,4.55,1,60 91 158
+joyful,3.4,1,35
+jpeg,3.04,1,150 153
+judge,4.95,1,41 55 69
+judiciary,3.86,1,55
+judo,3.25,1,63 164
+juggler,2.55,0,17 104
+juggling,3.23,1,147
+juice,4.36,1,5 22 61 80 85 90 119 183
+juicer,2.52,0,38
+jukebox,3.02,1,170
+julienne,2.26,0,190
+july,5.17,1,119
+jumble,2.81,1,52
+jump,4.69,1,60
+jumpsuit,3.02,1,180
+june,5.21,1,12 119
+jungle,4.12,1,45 107 182
+junk,4.03,1,120
+jupiter,3.68,1,7 41 70 140 173
+jurassic,3.5,1,98
+k2,3.11,1,127
+kanban,2.04,0,114
+kangaroo,3.5,1,33 42 64 68 130 132
+kant,3.12,1,41 76
+karate,3.55,1,63
+karting,2.64,1,153
+katana,2.83,1,48 93 154
+kayak,3.24,1,147 150 171 188
+kebab,3.03,1,45 103
+keel,3.19,1,128
+keeper,4.02,1,166
+kefir,2.13,0,51
+keith,4.17,1,135
+kelp,2.87,1,144 146
+kennedy,4.28,1,49 162
+kennel,3.16,1,84
+kentucky,4.3,1,85
+kernel,3.58,1,40
+kerning,1.83,0,160
+kerosene,3.02,1,51
+ketchup,3.46,1,53 66 141
+kettle,3.54,1,38
+kevin,4.56,1,58
+key,5.12,1,18 175 192
+keyboard,4.11,1,30 43 74 101 135 192
+keychain,2.76,1,131
+keyhole,2.83,1,191
+keys,4.39,1,29 69 72 192
+khinkali,0.0,0,180
+kickflip,1.87,0,148
+kickstand,2.25,0,27
+kid,4.99,1,9 39
+kidney,4.03,1,8 43
+kidneys,3.49,1,195
+killer,4.47,1,182
+kiln,3.11,1,176
+kilogram,3.01,1,7 24
+kimchi,2.84,1,132 156
+kimono,2.95,1,48
+kind,5.45,1,6
+kindergarten,3.79,1,178
+kindness,4.0,1,167
+kinetic,3.44,1,168
+king,5.17,1,7 85 129 134
+kingdom,4.62,1,47 159
+kiss,4.58,1,95 199
+kitchen,4.65,1,14 27 78 112 133 194
+kite,3.55,1,3 32
+kitesurfing,2.01,0,188
+kiwi,3.33,1,34 51 120
+klimt,2.41,0,148
+knee,4.33,1,68
+knife,4.41,1,2 94 118 124 133
+knight,4.28,1,14 31 47 129 154
+knitting,3.45,1,103 107 128 176
+knob,3.49,1,193
+knockout,3.61,1,151
+knowledge,4.96,1,100
+knuckle,3.22,1,191
+koala,3.04,1,42 132 195
+kohlrabi,1.83,0,127
+korea,4.65,1,132
+kraken,2.85,1,109 148 170
+kubota,2.48,0,89
+labor day,4.77,1,72
+laboratory,4.31,1,127
+labrador,3.3,1,198
+lace,3.82,1,4 8
+ladybug,2.67,1,158
+lagoon,3.43,1,137 177
+lake,4.83,1,3 32 58 109
+lamb,4.02,1,60
+lamp,4.05,1,75 81 92 122 170 194
+lance,3.94,1,47 93 143
+land,5.22,1,118 166 173
+landing,4.4,1,180
+landmark,3.89,1,78
+landmine,2.49,0,130
+lane,4.57,1,100 142
+lantern,3.61,1,38 134 175 195 197
+lapel,2.77,1,163
+laptop,4.23,1,29 88 90 96 98
+larva,2.99,1,164
+larvae,3.58,1,123
+lasagna,3.12,1,169
+laser,4.2,1,174
+latch,3.34,1,174
+latency,3.31,1,177
+later,5.49,1,143
+lather,2.72,1,132
+latin,4.48,1,7 165 175
+latkes,1.87,0,181
+latte,3.3,1,5 31 61 88 123 132
+laugh,4.66,1,35 73 194
+launch,4.69,1,145
+launch pad,4.01,1,191
+lava,3.73,1,33 47 82 101 164
+lava lamp,3.73,1,158
+lavender,3.44,1,151
+laws,4.89,1,41
+lawyer,4.67,1,41 69
+lcd,3.47,1,114
+lead,5.2,1,18
+leader,4.95,1,62
+leaf,4.22,1,156
+leaky,3.06,1,155
+leaning tower,3.89,1,114
+learning,4.92,1,100
+leash,3.47,1,6
+leaves,4.79,1,70
+leech,3.17,1,155
+left,5.62,1,157
+leg,4.66,1,3 138 168
+legend,4.44,1,161 179
+legion,3.86,1,88 114
+legolas,2.52,0,65
+lemon,4.1,1,49
+lemonade,3.44,1,22 131
+lemuria,1.84,0,183
+length,4.77,1,7 44 199
+lens,4.17,1,53 65 87 107 139 166 191
+lenses,3.77,1,114
+lentil,2.66,1,162
+leo,4.23,1,21 63 110 139 150
+leonardo dicaprio,3.16,1,162
+leopard,3.59,1,13 56 197
+lepton,1.98,0,159
+letter,4.95,1,44 82 150
+letters,4.66,1,102
+lettuce,3.56,1,2 48 147 169
+level,5.41,1,166
+level-up,5.37,0,103
+lever,3.64,1,193
+leviathan,3.09,1,170
+levitation,2.52,0,135 173
+liberica,0.0,0,42
+liberty,4.34,1,96
+libra,2.93,1,110
+librarian,3.59,1,30 35
+library,4.86,1,35 156 185
+license,4.52,1,74 109 152
+licorice,2.85,1,128
+lieutenant,4.44,1,149
+life,5.89,1,173
+lifebuoy,1.7,0,29
+lift,4.5,1,78 162
+light,5.33,1,46 161
+light bulb,3.66,1,75
+lightbulb,2.71,1,178
+lighter,4.09,1,38
+lighthouse,3.55,1,39 144
+lightning,4.22,1,114 117 141 163 187
+lights,4.64,1,83 110
+lightsaber,2.95,1,89
+like,6.41,1,55 133 157
+lilac,3.11,1,151
+lily,3.95,1,5 37
+lima,3.58,1,105
+lime,3.86,1,49 58 85
+limerick,3.07,1,188
+limestone,3.75,1,80
+limited,5.02,1,154 187
+limousine,3.2,1,124
+limp,3.43,1,174
+lincoln,4.31,1,49 93 99 162
+lindt,2.33,0,165
+line,5.49,1,146
+linen,3.61,1,28 181
+lines,4.95,1,168 179
+linguini,1.87,0,143
+lining,3.88,1,163
+lion,4.25,1,10 32 51 116
+lipid,3.29,1,61
+lips,4.35,1,179 196
+lipstick,3.69,1,15 136
+liquid,4.39,1,17 23 80 193
+listening,4.66,1,167
+litecoin,2.7,1,117 194
+liter,3.46,1,152
+literature,4.62,1,28 75 190
+lithium,3.56,1,51 97
+litre,3.5,1,123
+litter,3.71,1,192
+liver,4.18,1,8 55 195
+lizard,3.63,1,32 79 86 113 135
+llama,2.95,1,100 130
+loader,3.1,1,48
+loam,2.62,1,16 180
+loan,4.68,1,18 44 185
+loath,2.67,1,150
+lobby,4.03,1,158 185 197
+lock,4.51,1,18 44 56 107 167
+locke,3.53,1,160
+lockers,3.07,1,185
+locksmith,2.81,1,178
+lodge,4.08,1,103
+log,4.37,1,29
+logic,4.36,1,19 192
+logo,4.28,1,109
+logs,3.81,1,186
+loki,3.27,1,52 153
+london,5.27,1,12 17 34 115 143 147 153
+london bridge,4.77,1,115
+lonely,4.25,1,35
+long ear,4.43,1,75
+longbow,2.26,0,184
+longship,1.56,0,120
+longsword,1.92,0,167
+loop,4.29,1,36
+lord,5.1,1,47 193
+lost,5.39,1,84
+lot,5.61,1,161
+lotion,3.45,1,168
+louis vuitton,3.21,1,83
+louse,2.6,1,155
+louvre,3.14,1,23 72 151 165
+love,5.82,1,55 95 133 195
+lovers,4.15,1,56
+loveseat,1.84,0,161
+loyalist,3.03,1,195
+lozenges,2.31,0,47
+lucas,4.09,1,50
+ludicrous,3.34,1,179
+luge,2.72,1,115 191
+luggage,3.8,1,94 148
+lullaby,3.08,1,159
+lunar,3.77,1,87 166 176
+lunch,4.66,1,4 59 159
+lung,4.1,1,8 19
+lunge,2.85,1,165 190
+lungs,3.97,1,153 195
+lusitania,2.29,0,192
+lust,3.72,1,163
+lychee,2.25,0,174
+lynx,3.06,1,197
+m&ms,4.59,0,95
+macaque,2.43,0,182 198
+macaroni,3.11,1,43
+macarthur,3.23,1,197
+macchiato,2.34,0,38
+mace,3.33,1,93
+machine,4.9,1,81 146
+machines,4.46,1,48 173
+machu picchu,2.59,1,100 121
+mad libs,3.17,1,169
+madrid,4.3,1,65 91 137
+mafia,3.83,1,65
+magazine,4.74,1,29 34 86
+magazines,4.07,1,77
+magenta,3.02,1,167
+magic,4.76,1,25 136 159 170
+magic spell,4.37,1,58
+magician,3.53,1,17 104
+magma,3.19,1,33 47 101
+magnifying glass,3.0,1,53
+mahogany,3.29,1,163
+mailbox,3.31,1,134
+mailman,2.88,1,44
+main,5.24,1,176
+main course,5.24,1,62 94
+maine,4.16,1,12 64
+maine coon,3.07,1,13
+major,5.3,1,26
+makeup,4.39,1,15 136
+mako,2.97,1,34
+malachite,2.48,0,128
+malamute,1.92,0,158
+malaria,3.65,1,94
+malbec,2.27,0,170
+maldives,3.35,1,18 120 128
+mall,4.29,1,199
+mallard,2.81,1,198
+mamba,2.64,1,65 101
+mammal,3.31,1,8 32
+mammals,3.7,1,51 79 173
+mammoth,3.4,1,42 150 165 176
+manager,4.97,1,10 67
+manchego,1.85,0,170
+mandarin,3.52,1,198
+mandela,3.41,1,162
+mandrill,1.7,0,182 198
+mane,3.33,1,22 99 139
+mango,3.56,1,17 22 37 67 177
+mangosteen,1.84,0,37
+mangrove,2.89,1,174
+manhattan,4.16,1,190
+manicure,2.99,1,136
+mansard,1.84,0,169
+mansion,4.02,1,31 65 108 124 151 184
+mantel,2.91,1,27
+manti,2.27,0,180
+mantle,3.62,1,180
+manual,4.32,1,148 190
+map,4.76,1,24 121 142 197
+maple,3.86,1,64 131 138 177
+maraschino,2.15,0,175
+marathon,4.16,1,83
+marble,3.96,1,80 110
+march,5.26,1,12 53 131
+marching band,3.82,1,164
+margarita,3.3,1,182
+margherita,2.56,1,32 157
+margin,4.27,1,192
+maria,4.34,1,58
+mariachi,2.81,1,85
+marker,3.87,1,7 129
+market,5.29,1,25 105 199
+marmalade,2.89,1,139
+marmot,2.4,0,130 142
+maroon,3.35,1,135 152
+married,5.03,1,165
+mars,4.27,1,4 13 70 140 173
+marsh,3.87,1,172
+martin,4.74,1,148
+martini,3.27,1,182
+martini glass,3.27,1,85
+marty,3.64,1,106
+mascara,3.33,1,15 136
+mashed potatoes,3.39,1,180
+mask,4.31,1,29 114 151
+massage,4.01,1,26 192
+massey ferguson,3.18,1,89
+massive,4.72,1,196
+mastiff,2.58,1,158
+mat,3.84,1,135 165
+matador,2.77,1,97
+matcha,2.67,1,12
+matches,4.59,1,29
+mate,4.55,1,142
+materials,4.78,1,48
+math,4.45,1,3 64 110 133
+maths,3.75,1,49
+matte,3.52,1,175
+matterhorn,2.45,0,127
+mattress,3.67,1,92
+maul,2.9,1,163
+mausoleum,2.94,1,134
+mauve,2.71,1,151
+may,5.98,1,12 53
+maya,3.87,1,100 135 140 183
+mayan,3.11,1,87
+mayo,3.72,1,141
+mayonnaise,3.24,1,53
+maze,3.65,1,26 192
+measles,3.33,1,151
+meat,4.63,1,11 148 189
+mechanic,3.79,1,84
+mechanics,4.13,1,110
+medal,4.39,1,140 176
+medallion,3.1,1,191
+median,4.05,1,140
+medicine,4.73,1,4 16 94 173 177
+medieval,4.05,1,111 155 179
+meditation,3.95,1,20 53 108
+mediterranean,3.99,1,105
+medium,4.61,1,11
+medulla,2.49,0,111
+medusa,3.1,1,99
+meeting,5.15,1,62 88 159
+melancholy,3.39,1,148
+melanin,2.83,1,131
+melee,3.22,1,130
+melody,3.81,1,28 64 89 146 198
+members,5.35,1,62
+membrane,3.82,1,139 141
+meme,3.91,1,55 185
+memoir,3.77,1,11
+memories,4.5,1,60
+memory,4.81,1,19 63 100
+menorah,2.4,0,181
+menu,4.26,1,24 27 58 94 133 152
+meow,3.29,1,5 34 127 170
+mercury,4.02,1,70 80
+meridian,3.38,1,171
+merlot,2.75,1,170
+mermaid,3.47,1,22
+meryl streep,3.02,1,162
+mesa,3.5,1,160
+messenger,3.95,1,198
+met,5.09,1,165
+metal,4.82,1,95
+metallic,3.82,1,177
+meteor,3.55,1,40 163
+meter,4.09,1,7
+metro,4.18,1,120
+mexico,4.75,1,85 97
+mezzo,2.6,1,40
+mi,4.3,1,80
+mica,2.99,1,66 104
+michelangelo,3.16,1,75
+michigan,4.54,1,144
+mick,3.83,1,135
+micro,4.08,1,182
+microbe,2.63,1,155
+microphone,3.72,1,198
+microscope,3.5,1,93
+microwave,3.8,1,90 131 197
+middle,5.18,1,138
+midnight,4.31,1,37 127
+milan,4.05,1,17 115 147
+mile,4.59,1,7
+military,5.2,1,187 198
+milk,4.66,1,3 6 23 51 56 98 102 108 119 144 154 170
+milky way,3.5,1,13 192
+millennium,3.7,1,71
+millilitre,1.6,0,123
+millipede,1.88,0,96
+millstone,2.63,1,169
+mind reading,5.14,1,135
+mindfulness,3.41,1,108
+mine,5.04,1,40
+mineral,4.03,1,104 112
+minestrone,1.89,0,76
+mini,4.44,1,182
+minimalist,3.28,1,43
+minivan,3.06,1,37
+minke,2.27,0,182
+mint,3.92,1,76 108 134 152
+minute,4.98,1,7 101 127 199
+minuteman,2.49,0,195
+mirage,3.29,1,45 57 105 172 181 182 188 190
+mirror,4.47,1,92 109 112
+miso,2.77,1,43 96 156 175
+mississippi,4.19,1,32 52 109
+misstep,2.6,1,181
+mist,3.67,1,61
+mit,3.74,1,162
+mitochondria,3.09,1,139
+mixing,4.11,1,150
+moat,3.12,1,57 133 193
+mob,4.03,1,65 159
+mobile,4.85,1,120
+moby dick,3.0,1,60
+mocha,2.98,1,5 31 61 123
+mockery,3.29,1,130
+moderato,1.82,0,183
+modern,5.07,1,43 111 155 179
+mohawk,3.14,1,136
+moisturizer,2.99,1,122
+mojito,2.53,0,182
+molar,2.99,1,162
+mold,3.77,1,134
+mole,3.67,1,88 129
+molecule,3.67,1,35 103 135
+moment,5.24,1,161
+mona lisa,3.54,1,179
+monarchy,3.67,1,179
+monday,4.8,1,1 161
+monet,3.07,1,148 193
+money,5.64,1,18 30 42 44 125 146 148 194
+mongol,2.97,1,104
+mongolia,3.34,1,88
+monitor,4.37,1,30 43 74 79 113 192
+monk,3.93,1,93
+monkey,4.07,1,121 198
+monkeys,3.86,1,182
+monopoly,3.84,1,14 15 129
+monotonous,2.95,1,186
+monster,4.49,1,117
+month,5.25,1,10 55 127
+months,5.35,1,12 175
+moo,3.15,1,170
+moon,4.7,1,7 37 49 52 60 78 87 188
+moons,3.38,1,173
+moore,4.28,1,120
+moose,3.61,1,75 169
+mop,3.39,1,87 153 185 188
+morel,2.62,1,189
+morning,5.33,1,151
+morocco,3.8,1,49
+morphology,3.41,1,68
+morse,3.52,1,135 147
+morse code,3.52,1,188
+mortadella,1.71,0,183
+mortar,3.75,1,126
+mortgage,4.39,1,179 186
+mosque,3.89,1,53 156 182
+mosquito,3.61,1,77 124
+moss,3.89,1,90 150
+moth,3.5,1,5
+mother,5.24,1,8 60 104 137 178
+motherboard,3.16,1,79
+motion,4.59,1,152 190
+motocross,2.74,1,153
+motor,4.53,1,196
+motorbike,3.19,1,27 108
+motorcycle,4.07,1,54 151
+mound,3.6,1,182
+mount fuji,3.22,1,120
+mountain,4.73,1,45 59 82 105 141 184
+mountain animals,4.73,1,130
+mountains,4.5,1,18
+mouse,4.31,1,30 43 56 74 135 192
+mouth,4.83,1,6 25 63 111 143
+movie,5.16,1,70 138 191
+movies,4.79,1,33
+mower,3.1,1,194
+mozart,3.42,1,31
+mozzarella,3.1,1,23 195
+mp3 player,3.63,1,124
+mp5,2.18,0,130
+mud,4.13,1,89
+muesli,2.24,0,113
+muffin,3.35,1,8 130
+mug,3.71,1,84 125 131 185
+mule,3.44,1,102 144 152 171
+multiplication,3.26,1,64 110
+mummies,2.91,1,38
+mummy,3.57,1,30 190
+munchkin,2.69,1,95
+murder,4.86,1,128
+murderer,3.82,1,41
+muscles,4.14,1,153
+muscovy,2.25,0,198
+muscular,3.67,1,19
+museum,4.71,1,23 66
+mushroom,3.63,1,9 90 177
+mushrooms,3.71,1,37 115
+music,5.52,1,28 46 54 64 110 138
+musical,4.51,1,112
+musician,4.01,1,26
+musk,3.49,1,155
+mussel,2.74,1,36
+mustache,3.41,1,149
+mustang,3.58,1,151
+mustard,3.69,1,53 66 141 171
+mutation,3.64,1,29 118
+mute,3.66,1,180
+mutualism,2.04,0,113
+mystery,4.45,1,35 129 159 168
+myth,4.08,1,22 84 179
+mythology,3.64,1,16
+nachos,2.93,1,62 145
+nail care,4.21,1,15
+nairobi,3.54,1,81
+nap,3.82,1,143
+napa,3.32,1,33
+napoleon,3.77,1,93 99 145
+narrative,4.39,1,110
+narrator,3.81,1,147
+nasa,4.21,1,159
+natto,1.84,0,175
+natural,5.11,1,141
+natural gas,5.01,1,51
+nausea,3.54,1,175
+navajo,3.25,1,67
+navy,4.57,1,66
+neap,1.58,0,174
+neapolitan,2.75,1,12 156 157
+near,5.29,1,152
+nebula,3.23,1,13 95 155
+neck,4.63,1,159
+necklace,3.85,1,87 111 189
+nectar,3.25,1,26 128 144
+needle,3.98,1,169 171 172 181 189
+needles,3.7,1,48 128
+neigh,2.49,0,34
+neon,3.64,1,158
+nephew,4.01,1,106
+neptune,3.36,1,13 20
+nest,4.07,1,41 77 78 84 129 136
+net,4.76,1,59 74 99 149 177
+nettles,2.73,1,144
+neurons,3.71,1,63
+neutrino,2.84,1,159
+neutron,3.44,1,35 73 110
+nevada,4.04,1,64 85
+new,6.25,1,192
+new deal,5.32,1,196
+new holland,4.1,1,89
+new york,5.37,1,17 115 143 147 156
+new zealand,4.5,1,64 120
+news,5.44,1,189
+newsletter,3.76,1,34
+newspaper,4.6,1,29 34 86 88
+newt,3.23,1,51
+newton,3.94,1,152 173
+niagara,3.52,1,67 114 147
+nib,3.06,1,140
+nickel,3.82,1,42 51 97
+niece,3.82,1,106
+nietzsche,3.23,1,164
+night,5.61,1,37 53 117 151 160 184 190
+night time,5.61,1,52
+nightshade,2.55,0,163
+nile,3.64,1,30 32 49 52 81 93 109 166 172 190
+nintendo,4.08,1,189
+nitrogen,3.76,1,52 80 98
+nobel,3.84,1,153 183
+nocturnal,3.24,1,51
+node,3.88,1,177
+nodes,3.78,1,182
+noise,4.55,1,46 137
+nolan,3.64,1,166
+nonfiction,3.26,1,159
+noon,4.11,1,53 151 184 188
+norse,3.23,1,193
+north,5.34,1,1 7 24 121 139 197
+north america,5.22,1,42
+north pole,4.23,1,71
+northern lights,4.64,1,71
+norway,4.15,1,137 146
+nose,4.51,1,6 21 25 63 103 111 143
+nose cone,3.83,1,191
+nostalgia,3.62,1,60
+nostrils,3.1,1,195
+note,5.04,1,64 146
+notebook,3.74,1,53 141 178
+noun,3.61,1,146
+novel,4.63,1,101 110 190
+nozzle,3.24,1,122
+nubuck,1.73,0,155
+nuclear,4.73,1,59 90 119 142
+nucleus,3.59,1,35 73 139
+nudge,3.22,1,160
+nugget,3.16,1,174
+nuggets,3.5,1,131 136 184
+numbat,1.07,0,184
+numbers,4.98,1,122 178 196
+nurse,4.4,1,94 173
+nutrition,4.1,1,108
+nuts,4.3,1,17 23 37 122
+nyt,3.23,1,124
+oak,4.18,1,25 131 177
+oar,2.89,1,136
+oasis,3.56,1,45 57 182 186 190
+oat,2.9,1,11 94 170
+oatmeal,3.37,1,113
+oats,3.4,1,80
+obituary,3.41,1,185
+object,4.56,1,70 163
+objective-c,4.32,0,74
+oboe,2.69,1,72 120
+observatory,3.71,1,65
+observe,4.06,1,184 198
+obsidian,2.95,1,55 127
+obtuse,3.04,1,186
+ocean,4.7,1,18 32 33 47 58 77 84 100 140 141 167 191
+ochre,2.69,1,162
+octagon,2.91,1,5
+octave,3.08,1,64 141
+october,5.11,1,53
+octopus,3.46,1,6 68 93 121 148 164
+odd,4.42,1,161
+odin,3.23,1,41 119 153
+odor,3.49,1,162
+odysseus,2.88,1,142
+odyssey,3.55,1,60 161
+offer,5.05,1,185
+offering,4.6,1,130
+office,5.4,1,183
+often,5.41,1,65
+ogre,3.1,1,123
+ohio,4.61,1,12
+ohm,3.01,1,196
+oil,5.1,1,51 60 67 80 90 150 152 174
+oink,2.3,0,89
+ointment,2.98,1,173 177
+okapi,1.85,0,60
+okra,2.63,1,37 189
+oktoberfest,2.78,1,91
+oleander,2.18,0,163 175
+oled,2.86,1,114
+oligarchy,2.85,1,199
+olive,4.09,1,21 171 175
+ollie,3.3,1,148
+olmec,2.08,0,100
+olympiad,2.6,1,34
+olympics,4.45,1,16
+omega,3.78,1,84 87
+omega-3,3.78,0,17
+omelet,2.63,1,102 113 154 159
+omelette,2.85,1,39 59 164
+omniscient,2.71,1,154 187
+one,6.47,1,20 85
+one way,6.01,1,138
+onion,3.89,1,2 58 152
+online,5.19,1,62
+onyx,2.99,1,30
+oolong,2.38,0,61
+opal,3.2,1,30
+opener,3.88,1,124 137 161 185
+opening,4.94,1,187
+opera,4.27,1,23 40 65 70 72 130
+opera house,4.27,1,64
+operative,3.86,1,184
+opossum,2.47,0,132
+optics,3.58,1,152
+orange,4.62,1,2 10 22 49
+orangutan,2.8,1,175
+orb-weaver,3.1,0,101
+orbit,4.03,1,43 49 81 122
+orca,2.93,1,31 34 53 123
+orchestra,4.01,1,72 172
+orchid,3.3,1,58 134 149
+order,5.49,1,118
+ore,4.1,1,152
+organ,4.14,1,55 133 136
+origami,2.94,1,88
+origin,4.55,1,95
+orion,3.44,1,70 146 150
+ornament,3.32,1,73 194
+orwell,3.15,1,26 181
+oscar,4.31,1,183
+oscars,3.6,1,33
+osmium,2.05,0,159
+osprey,2.89,1,145
+ostrich,3.05,1,34 36 66
+ottawa,3.98,1,92
+otter,3.37,1,103
+ottoman,3.62,1,104 116
+ounce,3.8,1,7 24
+outback,3.21,1,64
+outbreak,3.99,1,26
+outlaw,3.51,1,168
+outsole,1.72,0,8
+oven,4.05,1,90 112 131 185
+overpass,2.96,1,175
+owl,3.87,1,32 77 190
+ox,3.47,1,97
+oxford,4.38,1,149
+oxford press,4.38,1,124
+oxidation,3.39,1,24
+oxygen,4.25,1,19 21 52 80 98 118 146
+oyster,3.54,1,169
+ozone,3.42,1,98
+pacific,4.59,1,32 141
+pacifier,2.64,1,9 18 39 126 187
+pack,4.66,1,78 128
+package,4.46,1,109
+packing,4.06,1,87
+paddle,3.49,1,136
+paddleboarding,1.79,0,188
+pads,3.77,1,139
+paella,2.63,1,91 97 137
+pager,2.63,1,194
+paint,4.52,1,170
+painter,3.93,1,17 26 110
+painting,4.6,1,28 64 74 75 86 98 103 118 144 172
+pajamas,3.31,1,159
+pale,4.08,1,161
+palette,3.74,1,193
+palladium,3.17,1,159 188
+palm,4.23,1,177
+palmistry,1.8,0,110
+palms,3.55,1,137
+pan,4.39,1,58 86
+panama,3.86,1,115
+pancakes,3.59,1,59 113 159
+pancetta,2.29,0,115 183
+panda,3.65,1,31 66 88 90 126
+pandemic,3.68,1,151
+pangolin,2.36,0,60
+panther,3.65,1,47
+pantry,3.23,1,92
+pants,4.48,1,4 98 187
+papaya,2.87,1,17
+paper,5.07,1,8 17 82 97 107 170 178
+paperclip,2.32,0,176
+papers,4.61,1,74
+papillae,2.2,0,195
+paprika,2.96,1,43 174
+papyrus,2.9,1,154 195
+par,4.15,1,190
+paracetamol,2.66,1,94
+parachute,3.51,1,68 180
+parade,4.16,1,40
+paramedic,3.19,1,163
+parasitism,2.27,0,113
+parchment,3.23,1,154
+parentheses,3.13,1,135
+paring,2.54,0,154
+paris,4.82,1,12 17 72 91 92 115 134 143 151
+parish,4.11,1,163
+parisian,3.28,1,151
+park,5.16,1,66
+parking,4.47,1,158
+parliament,4.74,1,184
+parody,3.78,1,81 130 185
+parrot,3.49,1,8 32 51 74 105 121 124 137 178
+parry,3.44,1,190
+parthenon,2.66,1,193
+party,5.49,1,73 106 138
+party hat,4.53,1,145
+pass,5.05,1,19 76 163
+passage,4.27,1,38 129
+passenger,4.38,1,62
+passion,4.44,1,134 168
+passport,4.05,1,94 148
+password,4.06,1,44 56 175
+past,5.36,1,161
+pasta,3.92,1,65 90 91 137 169
+paste,3.91,1,50
+pastries,3.05,1,130
+pat,4.24,1,162
+patches,3.86,1,9
+patent,4.18,1,109
+pathogen,3.17,1,155
+patient,4.77,1,4 16 94 132
+patriot,3.73,1,195
+pattern,4.56,1,48 55 128
+patty,3.58,1,48
+paul,5.03,1,145
+paul bunyan,2.61,1,197
+pause,4.0,1,138
+paved,3.62,1,132
+paw,3.48,1,131
+pawn,3.53,1,14
+payment,4.66,1,135
+pc,4.53,1,96
+pdf,3.84,1,150
+peace,5.02,1,88 108 190
+peach,3.77,1,96
+peanut,3.9,1,5 23 162
+peanuts,3.52,1,175
+pear,3.47,1,17 22 96
+pearl,4.14,1,30
+peat,3.3,1,16
+pecan,2.93,1,17
+pecorino,2.14,0,170
+pecos bill,2.55,0,197
+pedal,3.64,1,29 65 72 111 140 143
+pedals,3.23,1,27
+pegasus,3.15,1,146
+pegs,2.98,1,27 159
+pen,4.38,1,3 7 17 53 136 178
+pencil,3.95,1,7 129 178
+penguin,3.78,1,34 36 51 71 111 124 183
+penicillin,3.04,1,94
+peninsula,4.03,1,181
+penne,2.47,0,43 169
+pennsylvania,4.4,1,99
+pentagon,3.7,1,5 50 186
+penthouse,3.31,1,185 186
+peony,2.57,1,16 129
+pepper,4.14,1,80
+pepperoni,3.01,1,32
+peppers,3.66,1,14 105
+percent,5.04,1,121
+perception,4.18,1,104
+perch,3.29,1,77
+percussion,3.37,1,177
+perfume,3.75,1,125 156 189
+period,5.21,1,145 147 170
+periodical,3.14,1,158
+periscope,2.87,1,54 93 147
+perseus,2.74,1,142
+persian,3.83,1,13 95
+persuasive,3.41,1,110
+peru,3.89,1,59
+peso,3.0,1,148 194
+pestilence,2.78,1,165
+pestle,2.54,0,126
+petal,3.04,1,82 95
+peter pan,4.39,1,21
+petra,3.27,1,45 121 144
+phalanges,2.18,0,175
+phalanx,2.85,1,117
+phantom,3.78,1,188
+pharaoh,3.32,1,6 30 38 49 93 190 195
+phases,3.83,1,87
+philosophy,4.49,1,16 75
+pho,2.9,1,143 158
+phoenician,2.69,1,183
+phoenix,4.21,1,22 70 109 134
+phone,5.3,1,98
+phonetics,2.57,1,68 78
+photo,4.97,1,148
+photograph,4.23,1,60
+photography,4.45,1,64 98 118
+photon,3.32,1,81
+phrase,4.3,1,172
+physical,4.94,1,178
+physicist,3.42,1,181
+physics,4.39,1,64 190
+piano,4.31,1,6 11 18 72 96
+picador,2.0,0,97
+picasso,3.46,1,193
+piccadilly circus,3.02,1,199
+pick,5.08,1,72
+pickleball,1.63,0,149 177
+pickup,3.86,1,48
+picnic,3.8,1,125 138
+pie,4.19,1,5 18 47 62 184
+pier,3.82,1,39
+pierogi,2.04,0,180
+pig,4.14,1,1 89 153
+pigment,3.37,1,131
+pike,3.68,1,69
+pilates,3.0,1,118
+pill,4.03,1,173
+pillar,3.64,1,104
+pillow,3.96,1,6 14 92 112 159 194
+pilot,4.52,1,78
+pimple,2.83,1,176
+pin,4.28,1,70 146
+pine,4.1,1,25 131 177
+pineapple,3.58,1,67 115
+pinky,3.39,1,138
+pinocchio,2.93,1,21
+pinot noir,3.09,1,170
+pins,3.8,1,100 142 159
+pint,3.66,1,123
+pinto,3.12,1,43
+pipe,4.25,1,19 197
+pipette,2.28,0,161
+pirate,3.96,1,142
+pirates,3.99,1,99
+pisces,2.96,1,21 63 110
+piste,2.39,0,169
+pistil,1.91,0,128
+pistol,3.93,1,33 123 168
+piston,3.47,1,152
+pistons,3.34,1,25
+pit,4.27,1,181
+pita,3.0,1,14
+pitch,4.43,1,123
+pitcher,3.79,1,11
+pitcher plant,3.79,1,91
+pitchfork,3.01,1,138
+pitstop,2.29,0,55
+pizza,4.43,1,8 32 48 90 103 131 136 137 157 184
+plain,4.43,1,152 186
+plane,4.72,1,32 45 54 146 149
+planet,4.68,1,20 49 63 155
+planets,4.05,1,7 13 70 140 173
+plank,3.46,1,132 165
+plankton,3.05,1,144
+planner,3.53,1,55
+plants,4.71,1,151
+plaque,3.69,1,191
+plasma,3.95,1,23 28 80 114 193
+plastic,4.51,1,8 95 97
+plate,4.55,1,2 61 94
+plate tectonics,2.71,1,115
+plateau,3.61,1,59 82 154 160 181 184
+platelets,2.83,1,28
+platform,4.67,1,62
+plating,3.14,1,152
+platinum,4.02,1,188
+plato,3.37,1,41 76 160 164
+platoon,3.52,1,117 149
+platypus,2.69,1,42
+player,5.19,1,190
+pliers,2.9,1,137
+ploughing,2.76,1,153
+plum,3.55,1,30 96
+plumber,3.36,1,17
+pluto,3.35,1,4 7 20
+plutonium,3.24,1,86
+png,3.36,1,150 153
+poached,2.99,1,39 102 164
+pocket,4.48,1,159
+pocket watch,4.48,1,15
+pod,3.71,1,128
+poe,3.55,1,194
+poem,4.25,1,101 110 190
+poet,4.21,1,8
+poetry,4.4,1,11
+point,5.54,1,82 146 179
+pointe,3.03,1,72
+points,5.23,1,179
+poison,4.08,1,199
+poker,3.97,1,75 163
+poland,4.24,1,46
+polar bear,3.96,1,26 47 49 71 90 111
+polaris,3.08,1,15 93
+poles,3.88,1,78
+police,5.33,1,137
+polio,3.27,1,151
+political,5.29,1,100 178
+polka,3.2,1,85
+pollen,3.47,1,128 144 175
+polling,3.83,1,172
+pomegranate,2.93,1,37
+pomelo,1.79,0,49
+pomeranian,2.58,1,126 158
+pompeii,3.0,1,45 84 183
+pond,3.98,1,3 32
+ponytail,3.07,1,125 136 168
+poodle,3.02,1,60 198
+pool,4.67,1,11
+pop,4.87,1,3 77 132 138
+popcorn,3.73,1,19 40 130 131 145
+poplar,3.07,1,138
+popsicle,2.82,1,126
+population,5.01,1,118
+porcelain,3.56,1,109 139
+porcini,2.0,0,37 115
+porcupine,2.88,1,50 199
+pore,3.28,1,150
+pores,3.4,1,131
+pork,4.03,1,60 115
+portobello,2.61,1,115 189
+portrait,4.22,1,49
+portugal,4.1,1,72
+pose,4.1,1,60 78 165
+poseidon,3.1,1,157
+posh,3.4,1,167
+post,5.43,1,113 179
+postcard,3.44,1,131 150
+postmark,2.33,0,168
+posture,3.65,1,162
+potato,4.11,1,2 88 105 189
+potential,5.01,1,168
+potion,3.32,1,58 183
+pottery,3.7,1,45 75 139
+potus,3.13,1,159
+pound,4.32,1,7 18 24 67 125 148
+powder,4.25,1,78 189
+power,5.52,1,119
+prada,3.21,1,74 83
+prado,2.85,1,165
+prague,3.65,1,31
+prank,3.7,1,12
+prayer,4.42,1,130
+predator,3.71,1,47 100 131 191
+predicate,2.85,1,172
+prefer,4.57,1,133
+preorder,3.03,1,186
+prescription,4.0,1,114
+present,5.18,1,161
+president,5.45,1,55
+press,5.16,1,160
+pressure,5.01,1,55 118
+pretzel,2.98,1,131 180
+pretzels,2.96,1,145
+pride,4.49,1,139 144 163
+priest,4.33,1,130
+primary,4.88,1,172
+prime,4.81,1,83 109 161 186
+priming,2.89,1,164
+prince,4.72,1,7 21 138
+princess,4.53,1,7
+principal,4.52,1,179
+printer,3.93,1,107
+printing press,4.28,1,75 120
+privacy,4.36,1,56
+prize,4.59,1,159
+probiotic,2.6,1,17 112
+processor,3.87,1,43 192
+produce,4.78,1,155 194
+programming,4.37,1,30
+projection,3.79,1,113
+projector,3.41,1,130
+prokaryote,1.45,0,195
+promote,4.56,1,193
+proofreader,2.14,0,124
+propane,3.21,1,146
+proposal,4.47,1,195 199
+propose,3.99,1,176
+props,3.72,1,23
+proscenium,2.19,0,181
+prosciutto,2.53,0,115 183
+protagonist,3.67,1,147
+protein,4.53,1,11 61
+proton,3.42,1,35 73
+protozoa,2.3,0,113 195
+protractor,2.06,0,139 178
+publicize,2.86,1,195
+publisher,4.13,1,124
+puccini,2.61,1,167
+pudding,3.61,1,62 184
+puddle,3.26,1,175 198
+puddles,2.91,1,22
+pug,3.11,1,60
+pulitzer,3.35,1,183
+pull,4.82,1,193
+pulse,4.06,1,46 55 68 133 136 157
+puma,3.22,1,56
+pump,4.28,1,122
+pumpernickel,1.89,0,130
+pumpkin,3.83,1,21 27 72 95 137 155
+punctuation,3.29,1,163
+pupa,2.51,0,164
+pupil,3.81,1,51 143 175
+puppet,3.8,1,21
+purr,2.75,1,5
+purse,3.95,1,3
+pursuit,4.12,1,187
+pushup,2.06,0,165
+puzzle,3.96,1,3 24 61 98 139 145 157 192 196
+pyramid,3.75,1,6 30 81 144 158 166
+pyramids,3.33,1,38 49 190 193
+pyrenees,2.87,1,18
+python,3.78,1,74 79 113 135 171
+qled,1.32,0,114
+quadriceps,2.37,0,139
+quantum,4.07,1,81 110 115
+quarantine,3.64,1,151
+quark,3.05,1,110 159
+quarter,4.72,1,42
+quarters,4.23,1,123
+quartet,3.54,1,172
+quartz,3.7,1,55 66 104
+quebec,3.97,1,64
+queen,4.86,1,7 31 122 123 129 134 138 173 182
+queen mary,4.78,1,192
+queens,4.06,1,190
+quesadilla,2.33,0,157
+quest,4.27,1,103 159
+question,5.35,1,170
+question mark,5.05,1,147
+questions,5.15,1,102
+quiche,2.62,1,165
+quick,4.98,1,162
+quickly,5.0,1,174
+quidditch,2.74,1,25 65
+quill,3.11,1,131 152
+quiver,2.84,1,33 100 130
+quokka,1.5,0,60 184
+rabbi,3.69,1,93
+rabbit,4.05,1,33 68 75 77 78 126 130
+raccoon,3.27,1,153 190
+rachel,4.15,1,20
+rack,3.9,1,12 159
+racket,3.33,1,149 177
+radar,4.2,1,188
+radiation,4.27,1,40 59 199
+radio,5.01,1,69 124 163 196
+radish,2.78,1,77 126
+radium,2.8,1,86
+raft,3.46,1,7 71
+rafter,2.56,1,132
+rage,4.11,1,35
+rail,4.41,1,127
+railway,4.46,1,54 57
+rain,4.71,1,4 66 106 117 175 187
+rainbow,4.07,1,141 163 172 181 196 198
+raincoat,2.68,1,198
+rainfall,3.82,1,182
+rainforest,3.39,1,174
+rainy,3.74,1,11 22
+raise,4.75,1,139 174
+rake,3.38,1,116 126 138
+rally,4.34,1,153
+ram,4.19,1,87
+rambutan,1.77,0,67 174
+ramen,3.35,1,143 153 158
+ranch,4.03,1,66 67 114 156
+rap,4.12,1,3 13
+rapid,4.38,1,162
+rapids,3.64,1,47
+rapier,2.58,1,93
+rapunzel,2.79,1,21
+rare elements,4.7,1,51
+rarely,4.42,1,65
+rash,3.67,1,138 170
+raspberry,3.5,1,14 37
+rat,4.17,1,56
+rattlesnake,2.87,1,65 79
+ravine,3.15,1,59 128
+ray,4.69,1,179
+razor,3.72,1,14 124
+re,5.23,1,80
+reaction,4.73,1,135
+reactor,3.83,1,59 73
+reading,5.14,1,53 86 110 128 144 172
+reagan,3.95,1,49
+real estate,4.82,1,117 156
+realtor,3.25,1,69 179
+rebound,3.53,1,11
+receipt,3.92,1,135
+recess,3.53,1,187
+recession,3.85,1,155
+rechargeable,2.92,1,97
+recipe,4.23,1,58 78 86
+recluse,2.92,1,101
+record player,5.19,1,170
+recovery,4.58,1,94
+rectangle,3.24,1,2
+recurve,2.11,0,184
+red,5.32,1,1 50 82 160
+redeem,3.53,1,187
+redness,2.95,1,138
+reduce,4.73,1,156
+reef,3.83,1,30 110 144 146 148 169
+reel,3.68,1,103 113 122 128
+referee,3.86,1,190
+reflect,4.39,1,195
+reflective,3.58,1,179
+reflex,3.44,1,186
+reformer,3.13,1,135
+refrigerator,3.61,1,197
+refuse,4.39,1,192
+regiment,3.93,1,149
+regression,3.5,1,113
+reindeer,3.32,1,75 169
+relativity,3.34,1,115
+relay,3.86,1,125
+relic,3.37,1,73 128
+relief,4.55,1,28
+religious building,4.85,1,156
+relish,3.32,1,66 141
+reminder,4.12,1,55
+remnant,3.3,1,40
+remote,4.41,1,137 160 161
+renaissance,3.87,1,75 111 128 155 179
+repeat,4.49,1,195
+reply,4.5,1,195
+report,5.32,1,62
+repost,3.6,1,157
+reproduction,3.79,1,109 134
+reptile,3.25,1,8 32
+reptiles,3.36,1,51 79 173
+republic,4.6,1,179
+rescue,4.48,1,81 174
+research,5.39,1,71 183
+resent,3.38,1,150
+reservation,3.95,1,197
+resistance,4.55,1,199
+resolution,4.59,1,171 194
+resound,2.27,0,195
+rest,5.23,1,141
+restaurant,4.68,1,27 58 118
+restrooms,3.03,1,158
+retina,3.4,1,51 143 175 189
+retractor,2.18,0,129
+reverse,4.37,1,146
+review,5.12,1,44
+revolution,4.56,1,128
+revolver,3.41,1,33 123
+revolving,3.41,1,170
+rhino,3.57,1,19 66
+rhombus,2.12,0,186
+rhythm,4.05,1,28 64 89 137 146
+ribbon,3.81,1,133 145 176
+ribosome,2.42,0,139
+rice,4.55,1,3 48 80 89 146
+richmond,4.12,1,28 92
+ricotta,2.68,1,51
+riddle,3.44,1,24 192
+rider,4.02,1,108
+ridge,4.12,1,154
+rifle,4.18,1,33 74 123 168
+right,5.96,1,133 157 186
+riley,3.9,1,166
+rim,3.85,1,180
+ring,4.81,1,50 111 121 151 174 181
+ringo,3.16,1,145
+rings,4.33,1,73
+rink,3.41,1,154
+rip,4.26,1,174
+riposte,2.44,0,190
+risk,5.05,1,15
+river,5.03,1,3 32 52 58 105 109 111 167
+riverbed,2.58,1,59
+roach,3.44,1,180
+road,5.24,1,2 54 74
+roar,3.7,1,34 127 131 139 170
+robe,3.52,1,41 58
+robert,4.85,1,50
+robert lee,4.73,1,197
+robin,4.33,1,77 79 125
+robot,4.24,1,43 81
+robusta,2.24,0,42
+rock,5.03,1,3 54 100 138 150
+rock climbing,4.12,1,68 180
+rocket,4.31,1,81 145
+rockies,3.39,1,82
+rod,4.14,1,74 103 128
+rodent,3.2,1,103
+role play,5.16,1,157
+rolex,3.35,1,87
+roll out,4.75,1,182
+roller coaster,3.69,1,142
+rolling fork,4.03,1,120
+romance,4.32,1,19 35 129 134 145 169 183
+romanesco,1.48,0,37
+romania,3.78,1,21
+rome,4.45,1,41 88 91 104 114 137
+ronnie,3.7,1,135
+roof,4.55,1,63
+rooftop,3.55,1,185
+rook,3.1,1,14 31 129
+root,4.41,1,9 67 138 156
+rope,4.06,1,68 100 176
+rosary,3.16,1,73
+rose,4.82,1,5 21 37 58 134 149
+rose city,4.82,1,45
+rosemary,3.57,1,76
+roses,4.01,1,82 95 142 165
+rossini,2.52,0,167
+rotary,3.61,1,120
+rotational,3.23,1,179
+rough,4.49,1,173
+roulette,3.39,1,75 163
+route,4.67,1,25
+router,3.5,1,182
+routine,4.37,1,125
+rover,3.76,1,188
+row,4.6,1,140 150
+rowboat,2.38,0,143
+rowling,3.25,1,194
+rubik’s cube,2.7,0,102
+ruby,3.98,1,10 74 132 135 144 174
+ruck,2.76,1,163
+rudder,3.2,1,136
+rug,3.72,1,29 75
+rugby,4.4,1,120
+ruins,4.02,1,45 119
+ruler,3.84,1,139
+run,5.49,1,60
+rune,3.01,1,119
+rung,3.2,1,127 172
+runic,2.39,0,183
+runny,2.94,1,179
+runway,3.92,1,39 78 94
+rupee,3.04,1,194
+rust,3.74,1,134
+rustic,3.37,1,43
+rusting,2.72,1,24
+ruthenium,2.16,0,159
+rye,3.52,1,11 130
+saber,3.18,1,130
+saber-tooth,3.13,0,150 165 176
+sabertooth tiger,1.88,0,42
+sabre,3.02,1,93 142
+sad,4.84,1,10
+saddle,3.73,1,99
+sadness,3.88,1,91
+safari,3.63,1,22
+safe,5.07,1,18 44 163
+saffron,3.21,1,80
+saga,3.87,1,161 198
+sagebrush,2.56,1,89
+sahara,3.4,1,172
+sail,4.01,1,71 148 169
+sailboat,2.95,1,147
+sailfish,2.24,0,100
+sailing,3.99,1,74
+sailors,3.75,1,99
+salad,4.15,1,8 18 37 48 62 158 169
+salamander,2.76,1,51 121
+salary,4.36,1,183
+salmon,4.01,1,30 57 79 90 167
+saloon,3.43,1,142 151 168
+salsa,3.53,1,54 96 163 187
+salt,4.6,1,40 163
+salty,3.74,1,39
+samba,3.18,1,9
+samurai,3.65,1,48 120 132 154 193
+san marco,3.92,1,183
+sand,4.44,1,16 54 57 96 159 169 176 180
+sandals,3.46,1,88
+sandcastle,2.27,0,73
+sandstorm,2.73,1,105 190
+sandwich,4.13,1,32 148
+sanskrit,3.31,1,175
+santa,4.49,1,169
+santa claus,3.48,1,73
+santiago,3.66,1,105
+sapphire,3.44,1,10 132
+sarcasm,3.62,1,12 130
+satchel,2.9,1,198
+satellite,4.33,1,43 62 145
+satin,3.39,1,12 130 153
+satire,3.65,1,135 140 185
+saturn,3.54,1,4 7 20 70 140
+sauce,4.3,1,195
+saucer,3.06,1,83
+sauerkraut,2.66,1,156
+sauna,3.25,1,26 185 192
+saunter,2.23,0,167
+sauron,2.86,1,53
+sausage,3.8,1,10
+savannah,3.62,1,100 139 172
+savings,4.44,1,62
+savory,3.0,1,52
+saw,5.34,1,45 80 149 165
+sawing,2.78,1,173
+saxophone,3.15,1,129 161
+scale,4.83,1,192
+scales,3.98,1,22 52 70 134 198
+scallop,2.75,1,36
+scalpel,2.76,1,29 129
+scalpers,2.3,0,186
+scammer,2.95,1,41
+scapula,2.46,0,175
+scar,3.77,1,88 150
+scarf,3.68,1,27 86 115 128 129 133 140 189
+scarlet,3.64,1,126 135 141
+scent,3.82,1,111 162 195
+schedule,4.67,1,62
+school,5.71,1,178 184 186
+school subjects,4.38,1,3
+schooner,3.03,1,150
+science,5.12,1,3 64 110 133
+science fiction,4.44,1,81 159
+scientist,4.21,1,61 181
+scissors,3.58,1,44 123 170 187
+scone,2.74,1,154 178
+scoop,3.69,1,149 183
+scoops,2.99,1,150
+scooter,3.57,1,27 143 151
+score,4.83,1,13 79
+scoreboard,3.21,1,156
+scorpio,3.15,1,16
+scorpion,3.37,1,41 78 86 101
+scorpius,2.36,0,70 150
+scorsese,2.9,1,166
+scrabble,3.04,1,15 52 60 125 129 169
+scrambled,3.45,1,39 102 164
+scrape,3.4,1,182
+scratch,4.16,1,5
+scrawl,2.27,0,138
+screams,3.84,1,169
+screen,4.85,1,19 35 112 130 154 171 191
+screwdriver,3.13,1,80 137
+scribble,2.73,1,138
+script,4.36,1,70 87 196
+scroll,3.86,1,128 154
+scrum,3.25,1,114
+scuffle,2.79,1,143
+sculpting,2.88,1,98
+sculptor,3.34,1,26 110
+sculpture,3.92,1,28 45 64 67 75 118
+sea,5.06,1,3
+sea world,5.06,1,164
+seafood,3.65,1,127 184
+seahorse,2.5,0,57 68 121
+seal,4.3,1,6 111
+seam,3.44,1,130
+search,4.96,1,81
+season,5.48,1,119 132
+seat,4.82,1,138
+seat belt,4.42,1,151
+seatbelt,3.07,1,25 29 174
+seaweed,3.22,1,48 86 146
+secluded,3.24,1,160
+second,5.63,1,101 127 152 199
+second-person,5.29,0,154
+security,5.2,1,44
+sedan,3.55,1,37 48
+sediment,3.42,1,104
+seed,4.37,1,70 117 156
+seedlings,3.12,1,16
+seeds,4.28,1,27 149
+seiko,2.7,1,87
+seismic,3.54,1,33
+seller,4.01,1,83
+semantics,3.39,1,68 78
+semaphore,2.55,0,147
+semicolon,2.48,0,135 158
+senator,4.58,1,55 63
+sensor,3.92,1,43 107 196
+seoul,3.93,1,132
+serbia,3.71,1,21
+serengeti,2.59,1,172
+serf,2.41,0,193
+sergeant,4.11,1,26
+sermon,3.59,1,163
+serum,3.74,1,9
+serve,4.85,1,59 76 140 149
+server,4.46,1,117 182
+service,5.49,1,142
+sesame,3.46,1,27 152
+session,4.72,1,133
+set square,4.84,1,139
+setlist,2.91,1,185
+settings,4.23,1,81
+seven,5.08,1,20 71 85
+seventeen,3.87,1,185
+sewing,3.69,1,172 176
+sextant,2.28,0,121
+shackle,2.56,1,191
+shading,3.3,1,115
+shadow,4.44,1,160 166
+shaft,3.9,1,158 169
+shaggy,3.18,1,166
+shake,4.33,1,33
+shakespeare,4.0,1,124 194
+shakshuka,1.58,0,165
+shallow,4.04,1,179
+shaman,3.22,1,187
+shampoo,3.58,1,14 44
+shapes,3.99,1,179
+share,5.2,1,133
+shark,4.1,1,12 34 47 148 164
+sharp,4.48,1,179
+shave,3.83,1,123
+shawarma,2.3,0,145
+shears,2.9,1,126
+sheep,4.19,1,77
+sheet,4.4,1,92
+shelf,4.02,1,30 35
+shell,4.39,1,34 78 107 136 141 154 159
+shellfish,3.15,1,175
+shelves,3.76,1,12 77 79
+shepherd,3.9,1,105
+shere khan,2.38,0,107
+sheriff,4.16,1,142 151
+sherman,3.85,1,145
+shibuya crossing,2.7,1,199
+shield,4.3,1,10 29 47 139 143 188
+shift,4.57,1,192
+shiitake,2.17,0,37 189
+ship,4.93,1,7 54 69 71 91 103 105 120 144 178
+ships,4.55,1,171
+shire,3.47,1,65
+shirt,4.63,1,4 98
+shoes,4.67,1,4
+shoestring,2.65,1,190
+shooter,4.05,1,193
+shop,4.88,1,199
+shopping,4.68,1,109 162
+shotgun,3.81,1,33 123
+should,5.99,1,185
+shoulder,4.5,1,68 140
+shoulder pad,4.01,1,188
+shout,4.06,1,35
+shove,3.66,1,162
+shovel,3.5,1,116 138 149
+showdown,3.49,1,168
+shower,4.5,1,14 112 125
+showers,3.89,1,22
+shrek,3.27,1,70 165
+shrimp,3.79,1,36
+shrub,3.19,1,116 151 152
+shrubs,3.37,1,151
+shumai,0.0,0,156
+shutter,3.48,1,107 190 191
+shuttle,3.9,1,81 145
+shy,4.16,1,6
+siamese,2.97,1,13 95 179
+sicilian,3.11,1,156 157
+sicily,3.46,1,41 45 65
+side,5.5,1,176
+sideburns,2.53,0,149
+sidestroke,0.0,0,42
+sienna,2.97,1,162
+sight,4.54,1,4 46
+sign,5.08,1,138
+signal,4.62,1,43 62 69 166 174 188
+signature,4.25,1,197
+silence,4.46,1,30
+silently,3.58,1,174
+silicon valley,4.0,1,33
+silk,4.11,1,12 28 181
+silt,2.96,1,180
+silver,4.81,1,82 174 188
+silverado,2.73,1,87
+simmer,3.27,1,156
+simple,5.08,1,181
+simulation,3.94,1,24 157 193
+sing,4.54,1,82
+singer,4.52,1,138 198
+single,5.41,1,165
+sink,4.21,1,112
+sinker,2.61,1,191
+sioux,3.44,1,67
+siren,3.46,1,107 128 139 163
+sirius,3.26,1,15 93
+sister,4.95,1,8 60 104 137 178
+sitcom,3.55,1,81
+site,5.22,1,48
+situational,3.14,1,177
+six,5.29,1,182
+skateboard,3.21,1,140 143
+skating,3.84,1,89 165
+skeleton,3.8,1,111 191
+sketch,4.04,1,67 81
+skiing,3.84,1,42 89 115 185
+skin,4.91,1,25 103 189
+skincare,3.32,1,15
+skink,2.14,0,135
+skinny,3.99,1,178
+skip,4.21,1,146
+skis,3.19,1,51
+skittles,2.79,1,95
+skull,4.09,1,63
+skunk,3.1,1,127 154 194
+sky,4.72,1,2 117
+skydiving,3.01,1,68 78 180
+skyscraper,3.2,1,106 116 143
+skyscrapers,3.12,1,185
+slave,4.31,1,63
+sled,3.23,1,65
+sledding,2.58,1,185
+sleep,5.05,1,14 37 75 108
+sleeping bag,4.56,1,57
+sleet,2.83,1,164
+sleigh,2.99,1,73
+slice,4.0,1,48
+slick,3.71,1,184
+slider,3.21,1,191
+sliding,3.87,1,170
+slip,4.28,1,110
+slipper,3.08,1,21
+slogan,3.72,1,109
+slope,3.9,1,78
+sloth,3.1,1,195
+slots,3.83,1,75 163
+slovakia,3.4,1,46
+slovenia,3.41,1,46
+slovenly,2.21,0,193
+slow,4.85,1,11
+slowly,4.63,1,174
+slug,3.31,1,158 184
+slumber,3.2,1,143
+slur,3.18,1,179
+sly,3.4,1,180
+small,5.51,1,182
+smartphone,4.06,1,29 35 43 90 120 142
+smartwatch,3.0,1,35 90 142
+smell,4.49,1,4 179 195
+smile,4.64,1,35 73 150 176
+smog,3.05,1,61
+smoke,4.67,1,6 49 70 78 150 199
+smoky,3.33,1,39 188
+sms,3.66,1,82
+snack,3.9,1,62
+snacks,3.86,1,85
+snail,3.67,1,93 158 169 195
+snake,4.23,1,8 32 41 79 86 101 113 135 184
+snap,4.21,1,84 199
+snape,2.96,1,65
+sneakers,3.53,1,39 88
+sneaky,3.52,1,180
+sneeze,3.19,1,123 138 167 170 179 199
+snicker,2.48,0,164 194
+snickers,3.0,1,95
+sniff,3.44,1,179 195
+snooze,2.98,1,133 143
+snout,3.08,1,89 131
+snow,4.66,1,4 65 73 76 90
+snowboarding,3.15,1,78 89 115 165 180 185
+snowdrift,1.9,0,164
+snowflake,3.25,1,125
+snowy,3.46,1,11
+soaked,3.66,1,175
+soap,4.18,1,14
+soccer,4.48,1,122 164
+socialism,3.88,1,118
+society,5.17,1,155
+socks,4.03,1,51 133 187
+socrates,3.27,1,41
+soda,4.04,1,5 6 22 61 90 119 131
+sofa,3.81,1,4 29 75 87 116
+softener,2.51,0,15
+software,4.77,1,30
+soil,4.42,1,2 16 149 150 151
+soiled,2.97,1,193
+solana,2.38,0,194
+solar,4.53,1,59 87 90 119 122 142 166 168 176 197
+soldier,4.46,1,63
+sole,4.29,1,4
+solid,4.73,1,23 80 193 196
+solution,4.84,1,55
+somatic,2.93,1,195
+sombrero,2.57,1,85 192
+sometimes,5.28,1,65
+sommelier,2.48,0,180
+sonar,3.3,1,54 147
+sonata,3.13,1,72
+song,5.26,1,28 74 95
+sonnet,2.96,1,188
+sony,4.19,1,189
+soon,5.32,1,143
+soprano,3.31,1,40 187
+sorbet,2.64,1,126
+sorrow,3.73,1,157
+sound,5.15,1,46 107 137
+soundcheck,2.23,0,185
+soundhole,1.16,0,159
+soup,4.15,1,18 43 62 158 169
+sour,3.88,1,9 152 188
+sourdough,2.78,1,130
+south,5.4,1,1 7 24 121 139 197
+south pole,4.23,1,71
+souvenir,3.36,1,78
+soy,3.63,1,53 94 170
+spa,3.96,1,192
+space,5.23,1,112
+spacebar,2.01,0,192
+spaceship,3.36,1,81
+spades,3.14,1,14 128
+spaghetti,3.65,1,43 169
+spain,4.59,1,16 72 91 97 137
+spandex,2.9,1,192
+spanish,4.73,1,31
+spare,4.28,1,159
+spark plug,3.99,1,25
+sparks,3.76,1,70
+sparrow,3.48,1,32 137
+spartacus,2.83,1,125
+spartan,3.37,1,193
+spatula,2.86,1,118 121 133 152
+speaker,4.49,1,137
+spear,3.7,1,10 33 143
+speck,3.02,1,160
+speech,4.85,1,195
+speed,5.0,1,36 152
+speed limit,4.7,1,78 138 192
+speedway,3.23,1,55
+speedy,3.65,1,162
+spell,4.37,1,104 129 183
+spellbook,1.74,0,36
+sperm,3.84,1,182
+sphere,3.91,1,6
+sphinx,3.0,1,38 49 81 96 158 166 190
+sphynx,1.98,0,13 95
+spices,3.55,1,174
+spicy,3.8,1,52 188
+spider,4.25,1,96 101 189
+spider-man,4.24,0,170
+spiderman,3.2,1,135 175
+spiders,3.75,1,141 166
+spielberg,3.12,1,166
+spike,3.96,1,59 140
+spin,4.38,1,123
+spinach,3.48,1,127 147
+spine,3.93,1,68 131 139 175
+spinner,3.36,1,153
+spit,3.85,1,102
+splash,3.85,1,175
+spokes,2.84,1,180
+sponge,3.59,1,87 97 153
+sponsor,4.04,1,131
+spoon,3.88,1,2 61 94 118
+sporty,3.1,1,109 167
+spots,4.33,1,100
+sprain,2.85,1,174
+spray,4.18,1,111
+spreadsheet,3.31,1,121
+spring,4.92,1,20 46 66 76 109 125 174
+spring roll,4.75,1,62
+sprinkler,3.05,1,194
+sprinkles,2.95,1,180
+sprint,3.96,1,100 125
+spritz,2.46,0,152
+sprout,3.11,1,70
+sputnik,2.77,1,188
+squadron,3.69,1,117
+square,4.84,1,2 5 110 136 181
+squash,3.63,1,59 137 149 177
+squat,3.48,1,165
+squid,3.44,1,34 93 169
+squirrel,3.69,1,56 59 177
+stable,4.48,1,31 99
+staccato,2.58,1,179
+stadium,4.63,1,154 156 185
+stage,5.1,1,23 65 70 101 138 196
+stairs,4.14,1,162
+stalactite,1.81,0,40 160
+stalag,2.32,0,195
+stamen,2.0,0,128
+stamp,4.11,1,44 82 134 148 150 168
+stand-up,5.12,0,81
+stanford,3.98,1,149 162
+stapler,2.53,0,17
+star,5.19,1,20 49 122 155 171
+star chart,4.47,1,24
+star death,5.19,1,40
+starboard,3.17,1,151
+starfish,3.0,1,169
+starry night,3.15,1,179
+stars,4.86,1,7 13 33 37 52 65 70 140
+station,5.01,1,39 54 57 62 124
+statue,4.09,1,28 110 128
+statue of liberty,4.09,1,78
+statuette,2.61,1,191
+steak,3.97,1,8 90 169
+steal,4.41,1,123
+steam,4.52,1,17 57 120
+steam engine,4.52,1,57
+steamer,3.36,1,185
+steel,4.71,1,155 194
+steeplechase,2.59,1,125
+steering,3.93,1,152
+stegosaurus,2.12,0,45 176
+stem,4.3,1,156 195
+step,5.13,1,127 172
+steps,4.73,1,6
+stern,3.9,1,128
+stethoscope,2.66,1,4 132
+sting,3.8,1,41
+stinger,2.92,1,173
+stippling,2.17,0,115
+stirred,3.47,1,152
+stitch,3.64,1,48 130 169 172
+stockings,3.47,1,169
+stocks,4.28,1,106 117 156
+stomach,4.42,1,55
+stomatitis,1.95,0,85
+stone,4.8,1,48 158 193
+stonehenge,2.93,1,193
+stop,5.52,1,78 138 192
+stopwatch,2.59,1,115 127 171 174
+storm,4.66,1,187
+story,5.45,1,110 113 190
+stove,3.71,1,58 86 90 112 166
+straight,5.04,1,121 178
+strand,3.68,1,177
+strap,3.79,1,145 174
+strategy,4.74,1,24
+straw,3.99,1,19 199
+strawberry,3.72,1,12 37 108 134
+stream,4.62,1,69
+street,5.28,1,116
+strength,4.8,1,88
+stress,4.73,1,184
+stretch,4.35,1,60 135 157 165
+stretcher,3.23,1,163
+stride,3.43,1,167
+strike,4.66,1,100 142 159
+strings,4.04,1,29 72 177
+stripes,3.76,1,131
+stroke,4.27,1,160
+stroller,3.08,1,9 18 39 126 140 141 187
+strudel,2.32,0,154
+stub,3.08,1,19 138
+stubble,2.87,1,149
+student,5.02,1,133
+student loan,4.68,1,186
+studio,4.66,1,110
+studios,4.1,1,33
+stuffing,3.47,1,180
+stunt,3.86,1,78
+sty,2.47,0,136
+stylus,3.02,1,154
+styx,2.6,1,126
+subject,4.96,1,70 127 163 172
+subjects,4.38,1,57
+submarine,3.81,1,54 56 66 91 147
+subtraction,2.91,1,64 110
+subway,4.05,1,40 59
+succulent,3.0,1,105
+suction,3.36,1,111
+sudoku,2.64,1,24 26
+suds,2.56,1,132
+suede,3.25,1,155
+sugar,4.68,1,102 174
+suitcase,3.55,1,148
+suite,4.18,1,186 197
+suits,4.25,1,14
+sultan,3.64,1,85 104
+sumer,2.42,0,135 140 183
+summer,5.23,1,46 76 125
+summit,4.3,1,45 100
+sun,4.97,1,4 15 57 122 168 173
+sun tzu,3.02,1,164
+sunbathing,2.78,1,140
+sundae,2.76,1,150
+sunday,4.92,1,1 95 130
+sundew,1.61,0,91
+sundial,2.46,0,96 115 167 171 176
+sundog,1.33,0,172
+sunflower,3.36,1,21 27 134 171
+sunglasses,3.72,1,87
+sunlight,3.86,1,146
+sunny,4.07,1,11
+sunscreen,3.29,1,122 132 156
+sunset,4.04,1,37
+super bowl,4.63,1,34
+superior,4.46,1,144
+superman,4.02,1,135 170 175
+supernova,3.13,1,40 95
+superpowers,3.14,1,136
+supervisor,3.95,1,67
+suplex,2.52,0,174
+supper,3.74,1,59
+supply,4.81,1,105
+support,5.53,1,81 157 195
+supreme,4.69,1,32
+surfing,3.72,1,73 78 100 140 165 188
+surge,3.82,1,33
+surgeon,4.13,1,16 29
+surgery,4.63,1,94
+surprise,4.75,1,133
+survivors,4.1,1,26
+sushi,3.68,1,48 120 132
+suspension,4.24,1,149 170
+suv,3.61,1,37 48
+svg,2.66,1,153
+swag,3.19,1,184
+swamp,3.84,1,123 172
+swan,3.84,1,8
+swan lake,3.84,1,72
+swarm,3.44,1,26 41 124 128 159
+sweden,4.4,1,146
+sweet,4.91,1,9 77 188
+sweet corn,4.19,1,43
+sweetie,3.57,1,137 159
+swell,3.64,1,151
+swift,4.15,1,162
+swim,4.21,1,124
+swimcap,0.0,0,147
+swimming,4.43,1,11 42 68 73 140
+swimsuit,3.28,1,11
+swindle,2.67,1,193
+swings,3.66,1,125
+sword,4.37,1,10 29 33 47 93 105 130 143 178
+sydney,4.53,1,64 134
+sydney harbour,3.98,1,185
+symbol,4.31,1,109 193
+synagogue,3.45,1,53 156 182
+syntax,3.53,1,68 78 127
+syrup,3.76,1,102 173 177
+t-34,4.81,0,145
+t-rex,3.88,0,45 176
+t-shirt,4.57,0,39 131
+tab,3.96,1,150 157
+tabby,2.79,1,179
+table,5.05,1,2 4 12 24 27 58 84 87 112 116 133
+tablet,4.05,1,29 90 98 142 154 177
+tablets,3.91,1,47
+tabouleh,1.07,0,148
+tack,3.37,1,151 176
+tackle,4.15,1,163
+taco,3.69,1,45
+tacoma,3.28,1,87
+tacos,3.43,1,85 157
+taekwondo,2.84,1,63 132 164
+taffy,2.71,1,27 128
+tahoe,3.2,1,58
+tail,4.34,1,9 28 52 70 120 144
+taipan,1.91,0,101
+taj mahal,3.2,1,78
+take,5.92,1,122
+takedown,3.03,1,174
+talk,5.42,1,159
+tamper,2.89,1,184
+tan,4.01,1,163
+tango,3.58,1,9 54 163
+tangram,1.52,0,102
+tangy,2.64,1,52
+tank,4.57,1,56 66 122
+tanning,3.31,1,79
+tanzanite,1.89,0,128
+tap,4.28,1,160
+tapeworm,2.52,0,155
+tarantino,3.04,1,166
+tarantula,2.72,1,41 101
+target,4.82,1,13 33 79 100
+tarot,3.12,1,110
+tarp,2.98,1,175
+tart,3.37,1,130 158 178
+tartar,2.88,1,85
+tarzan,3.17,1,107
+task,4.65,1,55
+tasks,4.23,1,62 183
+taste,4.73,1,4 46 195
+tattoo,4.14,1,88
+taupe,2.54,0,152
+taurus,3.25,1,16 21 150
+taxes,4.65,1,173
+taxi,4.19,1,59
+taylor,4.65,1,148
+taylor swift,4.15,1,180
+tea,4.73,1,5 6 22 61 88 90 119 131 132 183
+teacher,4.88,1,4 178 186
+teal,3.25,1,66 152
+team,5.67,1,62 88 122
+team sports,4.94,1,164
+tease,3.59,1,176
+teddy bear,3.88,1,145
+tedious,3.5,1,186
+tee,3.82,1,13
+teen,4.33,1,9 39 126
+teeth,4.58,1,47 179 191
+telegraph,4.0,1,188
+telephone,4.41,1,120
+telescope,3.75,1,20 75 93
+teller,3.49,1,185
+telomere,2.38,0,196
+temper,3.81,1,35
+temperate,3.33,1,100 174 177
+temperature,4.64,1,7 106 139
+temple,4.45,1,45 53 143 156 182
+tempo,3.74,1,89 146
+tennis,4.35,1,11 34 122 149 177
+tennis bag,4.35,1,177
+tenor,3.4,1,40 65 187
+tension,4.22,1,181
+tent,4.05,1,57 134
+terminal,4.31,1,39
+terrain,3.94,1,130
+terrier,3.24,1,105
+territory,4.6,1,95
+tesla,3.77,1,61 108 135
+tetra,2.72,1,190
+texas,4.89,1,12
+text,5.01,1,150
+textile,3.75,1,57 194
+textiles,3.49,1,155
+thailand,4.22,1,42
+thames,3.73,1,115
+thanksgiving,4.04,1,72 83 95
+thanksgiving day,4.04,1,187
+the matrix,4.07,1,72
+the scream,4.14,1,179
+theater,4.35,1,23 40 54 70 72 130
+theocracy,2.59,1,199
+therapy,4.52,1,94
+thermodynamics,3.1,1,110
+thermometer,3.22,1,98 135
+thermos,2.65,1,84 147
+thermostat,3.1,1,163
+thimble,2.53,0,169 172
+thistle,3.24,1,199
+thor,3.69,1,41 52 99 153 165
+thorium,2.79,1,86
+thorn,3.48,1,82 95 105
+thoroughbred,2.98,1,151
+thought,5.59,1,19
+thoughts,4.75,1,60 63 100
+thread,4.44,1,48 107 169 172
+three,5.78,1,4 20 71 85
+thrill,3.72,1,36
+thriller,3.91,1,19 129
+throne,4.11,1,57
+throng,2.8,1,159
+throttle,3.47,1,196
+throw,4.83,1,13
+thumb,4.01,1,138 161
+thumbs up,3.69,1,55 82
+thunder,4.14,1,27 117 128 187
+thunderstorm,3.25,1,199
+thursday,4.62,1,161
+thyme,3.07,1,76 80
+tick,3.8,1,155
+ticket,4.61,1,19 38 62 69 122 124 130 138 148 159 178
+ticket booth,4.1,1,142
+tide,4.05,1,54
+tie,4.51,1,3 39 189
+tiger,4.3,1,13 34 78 121 127 131 145 198
+tightrope,2.72,1,40 147
+tiktok,2.46,0,34
+tilapia,2.64,1,30
+tile,3.72,1,17 139
+tiller,2.95,1,136
+time,6.29,1,7 44 52 106 176 199
+timer,3.68,1,115 127 133 176
+times,5.56,1,179 180
+times square,4.84,1,106 199
+tiny,4.62,1,182
+tip,4.55,1,140
+tips,4.58,1,173
+tire,4.02,1,60 151 161 173 180
+titanic,3.59,1,72 158 192
+titanium,3.55,1,18
+tnt,3.31,1,178
+toad,3.34,1,51 121
+toast,3.96,1,59 73 113 159
+toaster,3.33,1,131 161 197
+toffee,2.89,1,128
+token,3.82,1,38 153
+tokens,3.53,1,159
+tokyo,4.27,1,12 92 120 132 134 143 147
+tolls,3.3,1,173
+tolstoy,3.0,1,124 155 181
+tom hanks,3.22,1,162
+tomato,3.85,1,21 96 169
+tomato sauce,3.85,1,28
+tomb,3.89,1,6 166
+tombstone,3.15,1,134
+tone,4.49,1,68 171
+toner,3.07,1,9 122
+tongs,2.8,1,121 133
+tongue,4.37,1,179
+toolbox,2.99,1,161
+tools,4.59,1,22 48 84
+tooth,4.08,1,121
+tooth loss,4.08,1,85
+top,5.57,1,149 172
+topic,4.49,1,133
+topographic,3.02,1,100 178
+topping,3.56,1,48
+toppings,3.01,1,195
+torch,3.74,1,38 81
+torn,4.08,1,155
+tornado,3.82,1,8 27 119 120
+toronto,4.49,1,64 134
+torpedo,3.44,1,54 147
+torso,3.41,1,168
+totality,2.98,1,166
+tote,3.27,1,198
+touch,4.91,1,4 46 154
+touche,2.68,1,169
+towel,3.94,1,112 132 156
+tower,4.5,1,57 133 153 171 193 195
+tower bridge,4.5,1,185
+town,5.24,1,92
+toy story,4.3,1,70 165
+toyota,3.95,1,61 108
+toys,4.25,1,98
+track,5.02,1,36 55 62 179
+tracks,4.45,1,54 57 69
+tractor,3.78,1,89 187
+trade,5.12,1,42 155
+trademark,3.89,1,109
+trafalgar square,3.02,1,199
+traffic,4.85,1,2 116
+tragedy,4.14,1,112 135 140
+trail,4.45,1,45
+train,4.96,1,54 57 62 69 103 120
+trainer,4.08,1,20
+tram,3.46,1,59
+translational,3.0,1,179
+transmission,4.33,1,25 43
+trap,4.33,1,74
+trapeze,2.69,1,40
+trapezoid,2.27,0,186
+tread,3.52,1,127
+treadmill,3.35,1,20 53
+treads,2.86,1,56
+treasure,4.17,1,105 134 144 178
+treatment,5.01,1,94
+treble,3.33,1,179
+tree,4.85,1,9 12 73 116 151
+trees,4.69,1,177
+tremor,3.05,1,33 47
+trench,3.7,1,77 128 179
+tri-state,3.71,0,120
+trial,4.87,1,55 69
+triangle,3.93,1,2
+triassic,2.79,1,98
+tribe,4.12,1,124
+triceps,2.61,1,139
+triceratops,2.38,0,45 176
+trick,4.48,1,193
+trigger,4.25,1,168
+trilogy,3.86,1,198
+trim,3.89,1,123
+trio,3.94,1,172
+trip,4.9,1,138
+tripod,3.18,1,87 107 191
+trireme,1.67,0,120
+trolling,3.44,1,185
+trophy,4.17,1,34 176
+tropical,4.18,1,100 177
+trot,3.21,1,126 167
+trough,3.43,1,151
+trout,3.78,1,57 69 151 167
+trowel,2.45,0,27 126
+troy,3.95,1,45 99
+truck,4.64,1,1 87 103 108
+truffle,3.06,1,37 115
+trumpet,3.58,1,161 173
+trunk,4.03,1,9 28 67 70
+trunks,3.43,1,147
+tsunami,3.52,1,33 120
+tuesday,4.63,1,1 161
+tugela,1.54,0,114
+tulip,3.18,1,5 16 58 129 134 149
+tumbler,2.85,1,185 191
+tuna,3.64,1,30 43 57 79 196
+tundra,3.08,1,71 165 182
+tuner,2.91,1,159
+tunisia,3.57,1,49
+tunnel,4.24,1,54 57 160 170 175 182
+turbine,3.63,1,59 78 119 149
+turbo,3.74,1,11
+turf,3.76,1,152
+turk,3.3,1,104
+turkey,4.56,1,180 194
+turmeric,2.87,1,174
+turnip,2.84,1,77 126
+turntable,2.96,1,170
+turquoise,3.33,1,66
+turret,3.42,1,56
+turtle,3.91,1,6 23 32 79 113 195
+tuscany,3.15,1,183
+tusks,2.8,1,28
+tussle,2.63,1,143
+tutu,3.02,1,72
+tuxedo,3.11,1,39
+tv,5.2,1,98
+twain,3.39,1,26 155 194
+tweezers,2.77,1,187
+twenty-three,4.62,0,185
+twilight,3.82,1,92
+twill,2.66,1,130
+twine,2.93,1,126
+twins,4.15,1,51
+twist,4.22,1,175
+twister,3.05,1,27
+twitter,4.83,1,34
+twix,2.21,0,95
+two,6.1,1,71 182 185
+two wheel,4.5,1,108
+tzatziki,1.92,0,148 187
+udon,2.47,0,143
+uffizi,2.17,0,165
+ufo,3.48,1,83
+umami,2.38,0,9
+umber,2.39,0,162
+umbrella,3.89,1,132 156 175 198
+unagi,1.81,0,175
+uncle,4.45,1,60
+undead,3.27,1,26 92
+under,5.73,1,152
+undercover,3.77,1,125
+underground,4.32,1,129
+underpass,2.56,1,175
+undershirt,2.28,0,143
+underwater,3.92,1,84
+unicorn,3.54,1,22 134
+uniform,4.33,1,39 69
+union,5.08,1,99
+universe,4.59,1,155
+university,5.39,1,178
+unkempt,2.64,1,193
+uno,3.28,1,157
+unreliable,3.53,1,187
+up,6.39,1,157
+uppercut,2.63,1,140
+uranium,3.85,1,51 59 86
+uranus,3.01,1,13
+ursa,2.62,1,146
+ursa major,2.62,1,70
+usa,4.79,1,64 85
+usb,3.98,1,117
+username,3.76,1,165
+usually,5.15,1,65
+utensils,3.2,1,27 94
+uv,3.63,1,139
+vaccine,4.0,1,16 29
+vacuum,4.09,1,87 185
+valentine,3.77,1,195
+valhalla,2.96,1,52 119
+valley,4.72,1,59 82 105 154 160 184
+valve,4.13,1,152 157
+vampire,4.03,1,19 52 92 117 142 169
+van gogh,3.24,1,193
+vane,3.0,1,169
+vanilla,3.84,1,12 108 134 150
+vanish,3.39,1,135 173
+vapor,3.56,1,17 61
+vase,3.54,1,139
+vassal,2.92,1,193
+vault,3.9,1,18 44 125 185
+veal,3.08,1,184
+vega,3.42,1,15 93
+vegetables,4.15,1,11 14 37 105 127 189
+veggie,3.26,1,157
+veil,3.66,1,176
+vein,3.77,1,111
+velcro,2.92,1,84
+velma,2.62,1,166
+velociraptor,2.33,0,45 176
+velvet,3.77,1,12 153
+venice,3.93,1,65 91
+venom,3.57,1,41 139 144 189
+ventricles,2.41,0,157
+venus,3.81,1,4 7 173
+venus flytrap,2.05,0,91
+verb,3.72,1,70 127 146 163
+verbal,3.91,1,177
+verdi,2.82,1,167
+verdict,4.03,1,41 55
+vermillion,2.57,1,141
+versace,3.02,1,125
+vest,3.73,1,186
+victoria,4.44,1,58 67 114 147
+victory,4.73,1,187
+vietnam,4.31,1,132
+viking,3.6,1,154 193
+villa,4.2,1,31 65 124
+village,4.82,1,92
+villain,3.88,1,147
+vinaigrette,2.62,1,156
+vinegar,3.64,1,154
+vines,3.57,1,182
+vintage,4.18,1,43 109 149
+violet,3.84,1,151
+violin,3.74,1,11 164
+vip,3.76,1,186
+viper,3.31,1,65 79 113 135 171
+virginia,4.62,1,85
+virgo,3.07,1,16 21 63
+virus,4.42,1,44 113 151 155 156 195
+visa,4.13,1,148
+vise,2.79,1,165
+vision,4.63,1,46 114
+visionary,3.42,1,61
+visor,2.98,1,197
+vitamin,4.01,1,112
+vitamins,3.59,1,47
+vocalist,3.4,1,198
+vocals,3.91,1,12
+voice,5.07,1,189
+volcano,3.76,1,33 57 82 120 171
+volleyball,3.85,1,59 73 122 140 164
+volt,3.32,1,152
+voltage,4.02,1,199
+volume,4.76,1,192
+vortex,3.47,1,27 81
+voucher,3.47,1,38
+vowels,3.21,1,68
+vows,3.7,1,50 176
+voyage,3.89,1,128
+voyager,3.33,1,108 191
+vulture,3.18,1,81
+wacky,3.29,1,179
+waddle,2.58,1,34 124
+waffles,3.23,1,39
+wagner,3.71,1,167
+wagon,3.9,1,62
+waiter,3.61,1,24 27 58 94 133 180
+wake,4.76,1,157 184
+waldorf,3.14,1,188
+walk,5.08,1,60 126
+walking,4.86,1,74
+walking stick,4.76,1,126
+wall,5.04,1,133 167 193
+wall street,5.04,1,106
+wallaby,2.64,1,33 132
+wallet,4.15,1,171
+walnut,3.56,1,5 23
+walrus,2.98,1,111
+waltz,3.38,1,9 54 96 163
+wand,3.47,1,25 36 58 104
+war,5.46,1,165 181
+wardrobe,3.8,1,65 92 161
+warhol,3.11,1,148
+warlock,2.99,1,187
+warm,4.71,1,7 139
+warmth,3.8,1,66
+warrior,4.16,1,187
+warship,3.15,1,66
+wasabi,2.77,1,48
+washer,3.34,1,119 197
+wasp,3.35,1,25 41 144 173
+waste,4.81,1,192
+watch,5.34,1,68 87 108 163
+water,5.52,1,17 25 30 49 54 80 112 118 139 150 163 173
+watercolor,3.23,1,67 150
+watercress,2.49,0,188
+waterfall,3.54,1,59 114 147
+watering,3.57,1,16 27
+watering can,3.57,1,116
+waterloo,3.52,1,99 145
+watermelon,3.35,1,79
+wave,4.62,1,33 82 100 129 159
+waves,4.37,1,54
+wax,3.92,1,152
+waxing,3.02,1,136
+weak,4.66,1,174
+weapon,4.54,1,143
+weathered,3.15,1,149
+weave,3.53,1,155
+weaving,3.54,1,45 176
+web,4.74,1,189
+website,5.09,1,83
+wedding,4.83,1,199
+week,5.56,1,7 10 55 127
+weeks,5.19,1,175
+weight,5.02,1,7 199
+weight room,5.02,1,185
+weights,3.86,1,20
+weighty,2.85,1,196
+well,6.03,1,109 171
+werewolf,3.33,1,92 142
+west,5.29,1,1 24 121 139 197
+western,5.01,1,9 117
+wet,4.54,1,22
+whale,3.98,1,12 19 51
+wharf,3.48,1,39
+what,6.38,1,160
+wheat,4.01,1,11 80 89 146
+wheel,4.5,1,65 77 111 120 140 142 143 176 180
+wheelchair,3.86,1,140
+wheels,4.25,1,25
+wheeze,2.4,0,164
+which,6.3,1,160
+whirlpool,2.99,1,192
+whisk,3.11,1,78 118 121
+whiskers,2.99,1,5
+whisper,3.74,1,168
+whistle,3.88,1,69
+white,5.51,1,31 34 78 107 141 144
+whitetail,2.12,0,169
+who,6.34,1,160
+whole,5.46,1,166
+whose,5.07,1,160
+wi-fi,3.87,0,69
+widow,4.08,1,101
+width,4.02,1,44
+wild,4.8,1,146
+wild dog,4.8,1,56
+wilde,3.43,1,26
+wildlife,4.33,1,22 118
+will,6.45,1,143
+wilt,3.22,1,134
+wily,2.8,1,180
+wimbledon,3.61,1,34
+wind,4.84,1,4 59 90 106 118 119 142 197 198
+window,4.8,1,118 167
+winds,4.22,1,199
+windsurfing,2.48,0,188
+windy,3.57,1,11 22
+wine,4.74,1,28 91 156
+wing,4.61,1,95
+wings,4.44,1,9 22 51 52 70 120 134 166 181 190 198
+wink,3.5,1,73 150 176
+winter,4.89,1,46 76 125
+wire,4.43,1,199
+wisdom,4.3,1,100 162
+wish,5.18,1,170
+witch,4.11,1,19 65
+withdraw,4.05,1,146
+witness,4.52,1,41
+wizard,3.93,1,36 129
+wolf,4.35,1,47 56 75 78 133
+wombat,2.58,1,184
+wonder woman,4.93,1,170
+wood,4.78,1,8 17 48 71 95 198
+woodblock,2.2,0,174
+wooden,4.33,1,21
+woodwinds,2.25,0,177
+woody,3.82,1,155
+wool,3.91,1,28 48 107 154 181 186
+word search,4.96,1,125
+workbench,2.59,1,161
+worker,4.43,1,122
+workers,4.95,1,173
+workout,4.02,1,53
+workshop,4.15,1,84 137
+world,5.89,1,171
+world cup,5.11,1,34
+world war,5.46,1,75
+worm,3.77,1,129 184
+worry,4.84,1,10 184
+would,6.27,1,185
+wrap,4.2,1,77
+wrapping,3.58,1,133
+wrath,3.7,1,144
+wren,3.09,1,125
+wrench,3.37,1,60 80 84 137 166
+wrestling,4.14,1,164
+wrinkle,3.12,1,150
+wrist,4.01,1,68
+wristwatch,2.7,1,15 167
+writer,4.69,1,8 110 124
+writing,5.07,1,110 198
+wyoming,3.78,1,64
+x-ray,4.57,0,139 199
+xylitol,2.0,0,102
+yacht,3.82,1,108 124
+yak,3.12,1,9 97 142
+yale,3.88,1,162
+yarn,3.6,1,48 128 155
+yawn,3.07,1,123 167 199
+year,5.96,1,10 55 71 176
+years,5.96,1,12 175
+yeast,3.67,1,56 163
+yellow,4.69,1,1 10
+yellowstone,3.28,1,33
+yen,3.73,1,18 67 125 194
+yes,5.5,1,133
+yeti,3.01,1,84
+yggdrasil,2.31,0,119
+yield,4.16,1,78 138 192
+yo-yo,4.15,0,139 145 196
+yoga,4.2,1,53 108 118
+yogurt,3.63,1,5 23 51 108 170
+yolk,3.04,1,34 78 107 136 141 154
+yosemite,3.28,1,123
+yucca,2.65,1,89
+zany,2.67,1,179
+zebra,3.4,1,10 28 78 116 127 131 144 171
+zephyr,2.85,1,168
+zeus,3.54,1,41 99 153 157
+ziggurat,2.04,0,45
+zigzag,2.82,1,179
+zinc,3.65,1,11 17
+zion,3.46,1,33 123
+zipper,3.3,1,84 169
+zodiac,3.41,1,63 110 139
+zombie,3.94,1,19 92 117 169
+zoo,4.14,1,22 66 164
+zoom,3.83,1,53
+zucchini,2.96,1,14 137 155
+zumba,2.78,1,118

@@ -1,0 +1,109 @@
+{
+  "category_key": "things_with_seeds",
+  "candidates": [
+    {
+      "word": "kiwi",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "kiwi_fruit",
+      "sense_definition": "A small brown fruit with green flesh and tiny black seeds",
+      "relation_type": "has_property",
+      "reason": "A kiwi is full of tiny edible black seeds",
+      "fit_score": 0.97,
+      "obviousness_score": 0.75,
+      "possible_other_category_keys": ["fruits"],
+      "risk_flags": []
+    },
+    {
+      "word": "avocado",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "avocado_fruit",
+      "sense_definition": "A green fruit with a single large pit in the center",
+      "relation_type": "has_property",
+      "reason": "An avocado has one large seed in the middle",
+      "fit_score": 0.95,
+      "obviousness_score": 0.8,
+      "possible_other_category_keys": ["fruits", "pizza_toppings"],
+      "risk_flags": []
+    },
+    {
+      "word": "sesame",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "sesame_seed",
+      "sense_definition": "A small pale seed used on bread and in cooking",
+      "relation_type": "has_property",
+      "reason": "Sesame is itself a seed used on buns and bread",
+      "fit_score": 0.9,
+      "obviousness_score": 0.6,
+      "possible_other_category_keys": ["baking_ingredients"],
+      "risk_flags": []
+    },
+    {
+      "word": "pinecone",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "pinecone_object",
+      "sense_definition": "The woody cone of a pine tree that holds its seeds",
+      "relation_type": "has_property",
+      "reason": "A pinecone carries the seeds of a pine tree",
+      "fit_score": 0.93,
+      "obviousness_score": 0.55,
+      "possible_other_category_keys": ["trees"],
+      "risk_flags": []
+    },
+    {
+      "word": "fig",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "fig_fruit",
+      "sense_definition": "A soft sweet fruit full of tiny seeds",
+      "relation_type": "has_property",
+      "reason": "A fig is packed with tiny crunchy seeds",
+      "fit_score": 0.95,
+      "obviousness_score": 0.6,
+      "possible_other_category_keys": ["fruits"],
+      "risk_flags": []
+    },
+    {
+      "word": "melon",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "melon_fruit",
+      "sense_definition": "A large round fruit with a hollow seedy center",
+      "relation_type": "has_property",
+      "reason": "A melon has a center full of seeds",
+      "fit_score": 0.97,
+      "obviousness_score": 0.85,
+      "possible_other_category_keys": ["fruits", "round_things"],
+      "risk_flags": []
+    },
+    {
+      "word": "okra",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "okra_vegetable",
+      "sense_definition": "A green seed pod eaten as a vegetable, common in the American South",
+      "relation_type": "has_property",
+      "reason": "Okra pods are lined with rows of edible seeds",
+      "fit_score": 0.9,
+      "obviousness_score": 0.35,
+      "possible_other_category_keys": ["vegetables"],
+      "risk_flags": ["regional"]
+    },
+    {
+      "word": "apple",
+      "part_of_speech": "noun",
+      "is_proper_noun": false,
+      "sense_key": "apple_fruit",
+      "sense_definition": "The round edible fruit of an apple tree",
+      "relation_type": "has_property",
+      "reason": "An apple has a core full of seeds",
+      "fit_score": 0.99,
+      "obviousness_score": 0.85,
+      "possible_other_category_keys": ["fruits"],
+      "risk_flags": ["possible_duplicate"]
+    }
+  ]
+}

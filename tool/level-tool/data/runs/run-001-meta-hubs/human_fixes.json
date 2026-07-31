@@ -1,0 +1,37 @@
+{
+  "_note": "Ручные исправления ошибок модели. raw.jsonl не редактируется — провенанс сохраняется, а правки лежат отдельно и проверяемы построчно.",
+  "_author": "human review, 31.07.2026",
+
+  "rename_categories": {
+    "night_sky": {
+      "category_key": "stargazing",
+      "label": "STARGAZING",
+      "reason_for_fix": "Модель придумала категорию NIGHT SKY, не проверив базу: имя уже занято категорией night_sky_things (moon, star, planet, comet). Переименовано в STARGAZING — занятие, а не место, поэтому пул слов другой."
+    }
+  },
+
+  "drop_categories": {
+    "art_class": "Имя ART CLASS уже занято категорией art_class_things (paint, easel, smock, palette). Новая категория не нужна: мета-слова добавляются в существующую.",
+    "airport_words": "Ключ airport_words уже существует в базе (AIRPORT WORDS: runway, terminal, luggage, pilot). Мета-слова добавляются в существующую категорию."
+  },
+
+  "remap_membership_category": {
+    "night_sky": "stargazing",
+    "art_class": "art_class_things",
+    "dishes": "dishes_and_glassware",
+    "stars": "bright_stars"
+  },
+
+  "_remap_reason": "dishes и stars — это ИМЕНА категорий (DISHES, STARS), а ключи у них dishes_and_glassware и bright_stars. Модель спутала отображаемое имя с ключом: типовая ошибка, ловится ссылочной целостностью.",
+
+  "drop_memberships": [
+    ["easel", "art_class_things"],
+    ["smock", "art_class_things"],
+    ["palette", "art_class_things"],
+    ["gate", "airport_words"],
+    ["passport", "airport_words"],
+    ["terminal", "airport_words"]
+  ],
+
+  "_drop_reason": "Эти слова уже есть в целевых категориях базы. Импорт бы их дедуплицировал, но лучше не отправлять заведомый дубликат: в отчёте прогона видно, сколько записей было реально новыми."
+}

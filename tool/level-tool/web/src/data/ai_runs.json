@@ -1,0 +1,394 @@
+{
+ "generated_by": "scripts/export_ai_runs.py",
+ "prompt_library": [
+  {
+   "id": "meta-hub-v1",
+   "file": "prompts/meta_hub_ideation.md",
+   "purpose": "создание категорий-хабов для мета-связей",
+   "used": true
+  },
+  {
+   "id": "intent-parser-v1",
+   "file": "prompts/intent_parser.md",
+   "purpose": "разбор свободного пожелания в конфиг",
+   "used": true
+  },
+  {
+   "id": "blind-solver-v1",
+   "file": "prompts/blind_solver.md",
+   "purpose": "слепой семантический аудит уровня, два режима",
+   "used": true
+  },
+  {
+   "id": "adversarial-v1",
+   "file": "pipeline/prompts/adversarial_review.txt",
+   "purpose": "критик кандидатов: ищет причину отклонить",
+   "used": true
+  },
+  {
+   "id": "expand-category-v1",
+   "file": "pipeline/prompts/expand_category.txt",
+   "purpose": "наполнение категории словами",
+   "used": true
+  },
+  {
+   "id": "expand-words-v1",
+   "file": "pipeline/prompts/expand_words.txt",
+   "purpose": "обратный проход: в какие категории годится слово",
+   "used": true
+  }
+ ],
+ "runs": [
+  {
+   "run_id": "run-001-meta-hubs",
+   "purpose": "meta_hub_ideation",
+   "prompt_id": "meta-hub-v1",
+   "prompt_file": "prompts/meta_hub_ideation.md",
+   "model": "Claude Opus 5 (сессия Claude Code)",
+   "items_received": 265,
+   "items_rejected_by_schema": 0,
+   "totals": {
+    "items_received": 265,
+    "rejected_by_schema": 20,
+    "categories_rejected": 3,
+    "memberships_rejected": 17,
+    "rejected_by_critic_or_human": 3,
+    "downgraded_by_critic_or_human": 9
+   },
+   "model_errors": [
+    {
+     "type": "hallucinated_existing_category",
+     "severity": "blocking",
+     "what": "NIGHT SKY",
+     "detail": "Модель придумала категорию NIGHT SKY, не проверив базу. Имя уже занято категорией night_sky_things (moon, star, planet, comet, meteor).",
+     "cascade": "7 связей стали невалидными: они ссылались на несуществующий ключ night_sky",
+     "caught_by": "проверка схемы: label_to_key",
+     "fix": "переименовано в STARGAZING — занятие, а не место, поэтому пул слов другой",
+     "lesson": "проходу ideation нужно подавать на вход список уже занятых имён, а не только список категорий-детей"
+    },
+    {
+     "type": "hallucinated_existing_category",
+     "severity": "blocking",
+     "what": "ART CLASS",
+     "detail": "Имя уже занято категорией art_class_things (paint, easel, smock, palette). Модель к тому же предложила в неё те же easel, smock, palette, которые там уже есть.",
+     "cascade": "7 связей невалидны",
+     "caught_by": "проверка схемы: label_to_key",
+     "fix": "новая категория не создавалась. Четыре мета-слова (colors, shapes, patterns, crafts) добавлены в существующую категорию, три дубликата отброшены",
+     "lesson": "дублирующая категория выглядит как новый контент, а на деле дробит существующий"
+    },
+    {
+     "type": "duplicate_key",
+     "severity": "blocking",
+     "what": "airport_words",
+     "detail": "Ключ уже существует в базе (AIRPORT WORDS: runway, terminal, luggage, pilot). Модель предложила и те же gate, passport, terminal.",
+     "caught_by": "проверка схемы: category_key уже существует",
+     "fix": "мета-слова добавлены в существующую категорию, три дубликата отброшены"
+    },
+    {
+     "type": "label_confused_with_key",
+     "severity": "blocking",
+     "what": "dishes → dishes_and_glassware",
+     "detail": "Модель сослалась на категорию по отображаемому ИМЕНИ (DISHES), а не по ключу (dishes_and_glassware). Классическая путаница: имя видно в примерах, ключ — нет.",
+     "caught_by": "ссылочная целостность: категория не существует и не объявлена в прогоне",
+     "fix": "переадресовано на правильный ключ"
+    },
+    {
+     "type": "label_confused_with_key",
+     "severity": "blocking",
+     "what": "stars → bright_stars",
+     "detail": "То же самое: имя STARS против ключа bright_stars.",
+     "caught_by": "ссылочная целостность",
+     "fix": "переадресовано на правильный ключ"
+    },
+    {
+     "type": "association_defended_by_wordplay",
+     "severity": "rejected_by_critic",
+     "what": "teas → cocktails",
+     "scores": {
+      "fit": 0.35,
+      "obviousness": 0.12
+     },
+     "detail": "Модель обосновала связь названием «Long Island iced tea». Это каламбур, а не ассоциация: игрок, увидев пузырь TEAS среди коктейлей, будет прав, решив, что это ошибка данных.",
+     "caught_by": "критик + человек",
+     "lesson": "модель сама выставила очевидность 0.12 и всё равно предложила связь — низкая уверенность не мешает ей защищать кандидата"
+    },
+    {
+     "type": "taxonomically_false",
+     "severity": "rejected_by_critic",
+     "what": "moons → planets",
+     "scores": {
+      "fit": 0.72,
+      "obviousness": 0.36
+     },
+     "detail": "Луна не является планетой. Связь «у планет есть луны» верна для физики, но категория PLANETS означает «планеты», и мета-пузырь MOONS внутри неё учил бы игрока неверному.",
+     "caught_by": "критик + человек",
+     "lesson": "формально высокий fit 0.72 не означает, что связь того типа, который заявлен"
+    },
+    {
+     "type": "true_but_unrecognizable",
+     "severity": "rejected_by_critic",
+     "what": "months → weather_report",
+     "scores": {
+      "fit": 0.7,
+      "obviousness": 0.26
+     },
+     "detail": "Обоснование «в прогнозе называют среднемесячные значения» технически верно, но игрок никогда не сгруппирует MONTHS с forecast, radar и humidity.",
+     "caught_by": "критик + человек"
+    }
+   ],
+   "downgraded": [
+    {
+     "what": "comet → stargazing",
+     "to": "alternative",
+     "why": "слово уже живёт в NIGHT SKY: как дом создало бы пару неразделимых категорий, как ловушка работает честно"
+    },
+    {
+     "what": "digits → bones",
+     "to": "alternative",
+     "why": "пальцы действительно кости, но DIGITS среди skull и spine читается как «цифры»"
+    },
+    {
+     "what": "fasteners → kitchen_drawer",
+     "to": "hard_only",
+     "why": "«зажимы и стяжки оказываются в кухонном ящике» — про конкретную чужую кухню, а не про общее знание"
+    },
+    {
+     "what": "gadgets → toy_chest",
+     "to": "hard_only",
+     "why": "гаджет не игрушка, связь только через «оказалось в ящике»"
+    },
+    {
+     "what": "islands → travel_abroad",
+     "to": "hard_only",
+     "why": "островные страны — частный случай поездки, а не её признак"
+    },
+    {
+     "what": "titles → courtroom",
+     "to": "hard_only",
+     "why": "обращения в суде есть, но TITLES слишком общее слово"
+    },
+    {
+     "what": "shapes → science_fair",
+     "to": "hard_only",
+     "why": "связь общая до пустоты"
+    },
+    {
+     "what": "weeds → garden_center",
+     "to": "hard_only",
+     "why": "садовый центр продаёт средства ОТ сорняков"
+    },
+    {
+     "what": "humidity → weather_report",
+     "to": "approved",
+     "why": "ПОВЫШЕНО человеком: политика дала alternative по формальному порогу, но это буквально строка прогноза погоды"
+    }
+   ],
+   "model_did_well": [
+    "27 категорий-хабов из 30 предложенных оказались живыми свободными ассоциациями, а не таксономическими классами: AQUARIUM, COURTROOM, GARDEN CENTER, NATURAL HISTORY MUSEUM",
+    "таксономические цепочки предложены содержательно верно и дали честную глубину 2-3: crustaceans → shellfish → seafood → grocery aisles",
+    "две числовые оценки на связь заполнены осмысленно и различаются внутри одной категории, а не проставлены шаблоном",
+    "объяснение связи одной фразой почти всегда годится как текст для игрока"
+   ],
+   "schema_rejections": [],
+   "human_fixes": {
+    "renamed_categories": [
+     "night_sky"
+    ],
+    "dropped_categories": [
+     "art_class",
+     "airport_words"
+    ],
+    "retargeted": {
+     "night_sky": "stargazing",
+     "art_class": "art_class_things",
+     "dishes": "dishes_and_glassware",
+     "stars": "bright_stars"
+    },
+    "dropped_memberships": 6,
+    "reasons": {
+     "night_sky": {
+      "category_key": "stargazing",
+      "label": "STARGAZING",
+      "reason_for_fix": "Модель придумала категорию NIGHT SKY, не проверив базу: имя уже занято категорией night_sky_things (moon, star, planet, comet). Переименовано в STARGAZING — занятие, а не место, поэтому пул слов другой."
+     }
+    }
+   },
+   "decisions": {
+    "approved": 182,
+    "alternative": 39,
+    "hard_only": 6,
+    "rejected": 3
+   },
+   "decided_by": {
+    "политика": 218,
+    "критик": 7,
+    "критик+человек": 3,
+    "человек": 2
+   },
+   "overrides": [
+    {
+     "word": "comet",
+     "category": "stargazing",
+     "fit": 0.88,
+     "obviousness": 0.74,
+     "decision": "alternative",
+     "decided_by": "критик",
+     "reason": "Слово уже живёт в категории NIGHT SKY. Как дом слова создало бы пару неразделимых категорий, как ловушка между STARGAZING и NIGHT SKY — работает честно."
+    },
+    {
+     "word": "fasteners",
+     "category": "kitchen_drawer",
+     "fit": 0.7,
+     "obviousness": 0.3,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "«Зажимы и стяжки оказываются в кухонном ящике» — это про конкретную чужую кухню, а не про общее знание."
+    },
+    {
+     "word": "titles",
+     "category": "courtroom",
+     "fit": 0.78,
+     "obviousness": 0.32,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "Обращения в суде существуют, но TITLES — слишком общее слово, чтобы игрок связал его именно с судом."
+    },
+    {
+     "word": "shapes",
+     "category": "science_fair",
+     "fit": 0.75,
+     "obviousness": 0.34,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "Геометрия на научной выставке встречается, но связь общая до пустоты."
+    },
+    {
+     "word": "weeds",
+     "category": "garden_center",
+     "fit": 0.72,
+     "obviousness": 0.3,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "Садовый центр продаёт средства ОТ сорняков. Игрок скорее решит, что это ошибка."
+    },
+    {
+     "word": "gadgets",
+     "category": "toy_chest",
+     "fit": 0.72,
+     "obviousness": 0.3,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "Гаджет — не игрушка. Связь есть только через «оказалось в ящике»."
+    },
+    {
+     "word": "months",
+     "category": "weather_report",
+     "fit": 0.7,
+     "obviousness": 0.26,
+     "decision": "rejected",
+     "decided_by": "критик+человек",
+     "reason": "Обоснование «в прогнозе называют среднемесячные значения» технически верно, но игрок никогда не сгруппирует MONTHS с forecast и radar. Очевидность 0.26 — сама модель это признала и всё равно предложила."
+    },
+    {
+     "word": "humidity",
+     "category": "weather_report",
+     "fit": 0.92,
+     "obviousness": 0.78,
+     "decision": "approved",
+     "decided_by": "человек",
+     "reason": "Политика дала alternative по очевидности 0.78 против порога силы 0.92 — но это буквально строка прогноза погоды. Явное повышение."
+    },
+    {
+     "word": "islands",
+     "category": "travel_abroad",
+     "fit": 0.74,
+     "obviousness": 0.3,
+     "decision": "hard_only",
+     "decided_by": "критик",
+     "reason": "Островные страны — частный случай поездки за границу, а не признак её."
+    },
+    {
+     "word": "moons",
+     "category": "planets",
+     "fit": 0.72,
+     "obviousness": 0.36,
+     "decision": "rejected",
+     "decided_by": "критик+человек",
+     "reason": "Луна не является планетой. Связь «moons принадлежат planets» верна для физики, но категория PLANETS означает «планеты», и мета-пузырь MOONS внутри неё учил бы игрока неверному. Формально высокий fit 0.72 — пример того, как модель защищает кандидата вместо проверки."
+    },
+    {
+     "word": "teas",
+     "category": "cocktails",
+     "fit": 0.35,
+     "obviousness": 0.12,
+     "decision": "rejected",
+     "decided_by": "критик+человек",
+     "reason": "Модель обосновала связь названием «Long Island iced tea». Это каламбур, а не ассоциация: игрок, увидев пузырь TEAS среди коктейлей, будет прав, решив, что это ошибка. Худший кандидат прогона."
+    },
+    {
+     "word": "digits",
+     "category": "bones",
+     "fit": 0.78,
+     "obviousness": 0.4,
+     "decision": "alternative",
+     "decided_by": "человек",
+     "reason": "Пальцы действительно кости, но DIGITS среди skull и spine читается как «цифры». Двусмысленность настоящая, поэтому только ловушка."
+    }
+   ]
+  }
+ ],
+ "content_base": {
+  "categories": 1119,
+  "words": 10110,
+  "senses": 549,
+  "memberships": 17780,
+  "themes": 58,
+  "by_status": {
+   "alternative": 6071,
+   "approved": 9136,
+   "hard_only": 2509,
+   "rejected": 64
+  },
+  "by_source": {
+   "ai_meta_hubs_v1": 230,
+   "seed_manual": 17550
+  },
+  "relation_types": {
+   "is_a": 9553,
+   "found_in": 4027,
+   "has_property": 1092,
+   "used_in": 1010,
+   "does_action": 842,
+   "part_of": 437,
+   "phrase_before": 403,
+   "phrase_after": 201,
+   "made_of": 163,
+   "associated_with": 36,
+   "used_for": 16
+  },
+  "zipf_buckets": {
+   "2.0-2.9 редкие": 2300,
+   "3.0-3.9 нечастые": 4153,
+   "4.0-4.9 частые": 2659,
+   "5.0+ бытовые": 523,
+   "< 2.0 очень редкие": 449,
+   "неизвестно": 26
+  },
+  "multi_category_words": 3163
+ },
+ "where_ai_is_not_used": [
+  "сборка уровня из проверенного контента — детерминированный алгоритм",
+  "арифметика доски и лимита ходов",
+  "проверка ацикличности мета-леса и графа цепей",
+  "счёт глобальных решений уровня",
+  "правила свежести и проверка novelty",
+  "канонический хеш и экспорт"
+ ],
+ "where_ai_helped": [
+  "массовое предложение категорий-хабов для мета-связей",
+  "первичная классификация типов связи",
+  "обратный проход: в какие категории годится слово",
+  "adversarial-ревью кандидатов",
+  "разбор пожелания заказчика в структурированный конфиг"
+ ]
+}

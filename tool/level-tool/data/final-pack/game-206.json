@@ -1,0 +1,281 @@
+{
+  "level_id": 206,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 47,
+    "board_capacity": 24,
+    "move_limit": 58
+  },
+  "categories": [
+    {
+      "key": "ice_cream_flavors",
+      "label": "ICE CREAM",
+      "words": [
+        {
+          "text": "rocky road",
+          "kind": "word"
+        },
+        {
+          "text": "cookies and cream",
+          "kind": "word"
+        },
+        {
+          "text": "cookie dough",
+          "kind": "word"
+        },
+        {
+          "text": "moose tracks",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "desserts",
+      "label": "DESSERTS",
+      "words": [
+        {
+          "text": "ice cream",
+          "kind": "meta",
+          "meta_child": "ice_cream_flavors"
+        },
+        {
+          "text": "pudding",
+          "kind": "word"
+        },
+        {
+          "text": "cheesecake",
+          "kind": "word"
+        },
+        {
+          "text": "cake",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "places_to_eat",
+      "label": "PLACES TO EAT",
+      "words": [
+        {
+          "text": "restaurant",
+          "kind": "word"
+        },
+        {
+          "text": "cafeteria",
+          "kind": "word"
+        },
+        {
+          "text": "pub",
+          "kind": "word"
+        },
+        {
+          "text": "deli",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "teas",
+      "label": "TEAS",
+      "words": [
+        {
+          "text": "hibiscus",
+          "kind": "word"
+        },
+        {
+          "text": "matcha",
+          "kind": "word"
+        },
+        {
+          "text": "darjeeling",
+          "kind": "word"
+        },
+        {
+          "text": "chamomile",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "patterns",
+      "label": "PATTERNS",
+      "words": [
+        {
+          "text": "tartan",
+          "kind": "word"
+        },
+        {
+          "text": "argyle",
+          "kind": "word"
+        },
+        {
+          "text": "checkered",
+          "kind": "word"
+        },
+        {
+          "text": "stripe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "silverware",
+      "label": "SILVERWARE",
+      "words": [
+        {
+          "text": "spoon",
+          "kind": "word"
+        },
+        {
+          "text": "salad fork",
+          "kind": "word"
+        },
+        {
+          "text": "teaspoon",
+          "kind": "word"
+        },
+        {
+          "text": "fork",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dental_words",
+      "label": "DENTAL WORDS",
+      "words": [
+        {
+          "text": "braces",
+          "kind": "word"
+        },
+        {
+          "text": "retainer",
+          "kind": "word"
+        },
+        {
+          "text": "plaque",
+          "kind": "word"
+        },
+        {
+          "text": "canine",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "locksmith_words",
+      "label": "LOCKS & KEYS",
+      "words": [
+        {
+          "text": "safe",
+          "kind": "word"
+        },
+        {
+          "text": "key",
+          "kind": "word"
+        },
+        {
+          "text": "latch",
+          "kind": "word"
+        },
+        {
+          "text": "master key",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wind_instruments",
+      "label": "WIND INSTRUMENTS",
+      "words": [
+        {
+          "text": "recorder",
+          "kind": "word"
+        },
+        {
+          "text": "french horn",
+          "kind": "word"
+        },
+        {
+          "text": "clarinet",
+          "kind": "word"
+        },
+        {
+          "text": "piccolo",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
+      "words": [
+        {
+          "text": "plate",
+          "kind": "word"
+        },
+        {
+          "text": "rolling pin",
+          "kind": "word"
+        },
+        {
+          "text": "cutting board",
+          "kind": "word"
+        },
+        {
+          "text": "pan",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "japanese_names",
+      "label": "JAPANESE NAMES",
+      "words": [
+        {
+          "text": "Hana",
+          "kind": "word"
+        },
+        {
+          "text": "Sakura",
+          "kind": "word"
+        },
+        {
+          "text": "Yuki",
+          "kind": "word"
+        },
+        {
+          "text": "Mei",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "plumbing_words",
+      "label": "PLUMBING WORDS",
+      "words": [
+        {
+          "text": "plunger",
+          "kind": "word"
+        },
+        {
+          "text": "gasket",
+          "kind": "word"
+        },
+        {
+          "text": "flange",
+          "kind": "word"
+        },
+        {
+          "text": "pipe",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

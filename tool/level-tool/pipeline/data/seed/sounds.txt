@@ -1,0 +1,39 @@
+# sounds — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+onomatopoeia | SOUND WORDS | is_a | 0.35 | 0.78 | A | Words that imitate the sound they name | $W is a word that imitates a sound
+bang, boom, crash, pop, click, buzz, hiss, splash, thud, clang, ping, whoosh, sizzle, crackle, rumble, zap, beep, ring, tick, plop, whack, snap, drip, squeak, jingle
+
+machine_sounds | MACHINE SOUNDS | does_action | 0.4 | 0.7 | C | Sounds that machines make | $W is a sound a machine makes
+hum, whir, rattle, grind, roar, click, beep, buzz, clank, chug, purr, screech, rev, ding, whine, sputter
+
+water_sounds | WATER SOUNDS | does_action | 0.4 | 0.7 | C | Sounds that water makes | $W is a sound water makes
+splash, drip, gurgle, trickle, roar, patter, slosh, babble, spray, ripple, plop, whoosh, hiss, lap
+
+kitchen_sounds | KITCHEN SOUNDS | does_action | 0.45 | 0.65 | C | Sounds heard in a kitchen | $W is a sound heard in a kitchen
+sizzle, boil, chop, clatter, whisk, ding, pop, crunch, bubble, hiss, slam, clink, grind, whir
+
+nature_sounds | NATURE SOUNDS | does_action | 0.4 | 0.7 | C | Sounds heard outdoors in nature | $W is a sound heard in nature
+rustle, chirp, howl, thunder, whistle, buzz, croak, crackle, splash, hoot, roar, patter, hum, whisper, crunch
+
+scary_sounds | SCARY SOUNDS | does_action | 0.45 | 0.65 | C | Sounds that make people uneasy | $W is a sound that makes people uneasy
+creak, howl, scream, whisper, groan, thud, scratch, rattle, moan, shriek, wail, footstep, growl, snap
+
+musical_sounds | MUSIC SOUNDS | is_a | 0.4 | 0.7 | A | Words for the sound a musical instrument makes | $W is a sound a musical instrument makes
+strum, toot, boom, jingle, twang, blare, trill, hum, clang, chime, thump, ring, riff, drumroll
+
+city_sounds | CITY SOUNDS | does_action | 0.4 | 0.7 | C | Sounds heard on a city street | $W is a sound heard on a city street
+honk, siren, chatter, rumble, screech, jackhammer, footsteps, engine, whistle, bell, shout, brakes, traffic, alarm
+
+loud_noises | LOUD NOISES | is_a | 0.35 | 0.75 | C | Words for very loud noises | $W is a word for a very loud noise
+bang, boom, crash, blast, roar, thunder, explosion, slam, clash, screech, blare, wail, rumble, shatter
+
+quiet_sounds | QUIET SOUNDS | is_a | 0.4 | 0.68 | C | Words for very soft sounds | $W is a word for a very soft sound
+whisper, rustle, murmur, hum, patter, sigh, tick, purr, shuffle, creak, tinkle, breath, drip
+
+voice_sounds | VOICE SOUNDS | does_action | 0.35 | 0.75 | A | Sounds a human voice makes without words | $W is a sound the human voice makes without words
+laugh, cry, sigh, groan, gasp, hum, whistle, scream, cough, yawn, grunt, snort, sob, giggle, shout, moan
+
+bell_and_alarm | ALARM SOUNDS | is_a | 0.4 | 0.7 | C | Sounds made by alarms and signals | $W is a sound made by an alarm or signal
+ring, buzz, beep, siren, chime, ding, bell, horn, whistle, klaxon, alert, gong, tone, blare

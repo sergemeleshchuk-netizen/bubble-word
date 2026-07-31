@@ -1,0 +1,54 @@
+# medicine — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+medical_tools | MEDICAL TOOLS | used_in | 0.3 | 0.8 | A | Instruments a doctor or nurse uses | $W is an instrument a doctor or nurse uses
+stethoscope, syringe, scalpel, thermometer, forceps, clamp, otoscope, tweezers, catheter, speculum, needle, gauze, splint, tourniquet, defibrillator, ventilator, monitor, IV, gurney, sling
+
+first_aid | FIRST AID | used_in | 0.25 | 0.85 | A | Things kept in a first aid kit | $W is kept in a first aid kit
+bandage, gauze, tape, antiseptic, scissors, tweezers, gloves, ice pack, ointment, aspirin, sling, splint, wipe, cotton ball, thermometer, burn cream, eye wash
+
+medicine_forms | FORMS OF MEDICINE | is_a | 0.35 | 0.75 | A | Forms in which medicine is taken | $W is a form in which medicine is taken
+pill, tablet, capsule, syrup, injection, cream, ointment, drop, patch, inhaler, spray, lozenge, powder, suppository, gel
+
+vitamins_and_minerals | VITAMINS AND MINERALS | is_a | 0.35 | 0.75 | A | Nutrients the body needs in small amounts | $W is a nutrient the body needs
+calcium, iron, zinc, magnesium, potassium, vitamin C, vitamin D, folate, niacin, iodine, biotin, selenium, thiamine, riboflavin, sodium
+
+medical_specialties | MEDICAL SPECIALTIES | is_a | 0.4 | 0.68 | A | Branches of medical practice | $W is a branch of medical practice
+surgery, pediatrics, cardiology, dermatology, neurology, oncology, psychiatry, radiology, orthopedics, obstetrics, urology, pathology, anesthesia, immunology, geriatrics
+
+hospital_departments | HOSPITAL DEPARTMENTS | part_of | 0.35 | 0.75 | A | Departments and units inside a hospital | $W is a department inside a hospital
+emergency, maternity, surgery, radiology, pharmacy, laboratory, intensive care, pediatrics, oncology, cardiology, recovery, admissions, morgue, dialysis, physical therapy
+
+injuries | INJURIES | is_a | 0.25 | 0.85 | A | Kinds of physical injury | $W is a kind of physical injury
+cut, bruise, burn, sprain, fracture, break, scrape, blister, concussion, strain, dislocation, laceration, whiplash, puncture, bite, splinter, sunburn, frostbite
+
+diseases | DISEASES | is_a | 0.3 | 0.8 | A | Diseases an average person can name | $W is a disease
+flu, measles, mumps, chickenpox, malaria, tuberculosis, pneumonia, diabetes, asthma, arthritis, cancer, hepatitis, cholera, rabies, polio, shingles, bronchitis, tetanus, typhoid, anemia
+
+body_fluids | BODY FLUIDS | is_a | 0.4 | 0.7 | C | Fluids produced by the human body | $W is a fluid produced by the body
+blood, sweat, tear, saliva, mucus, plasma, bile, urine, lymph, milk, serum, sputum
+
+dental_words | DENTAL WORDS | found_in | 0.35 | 0.75 | A | Words used at a dental office | $W is used at a dental office
+cavity, filling, crown, braces, floss, plaque, enamel, molar, incisor, canine, root canal, retainer, denture, gum, tartar, whitening, extraction, bridge
+
+vision_words | VISION WORDS | found_in | 0.35 | 0.75 | A | Words used about eyesight and glasses | $W is used when talking about eyesight
+glasses, contacts, lens, frame, prescription, nearsighted, farsighted, astigmatism, eye chart, pupil, cornea, blind, squint, bifocal, optometrist
+
+therapy_words | THERAPY WORDS | found_in | 0.4 | 0.68 | C | Words used in physical and mental therapy | $W is used in therapy
+session, exercise, stretch, rehab, counselor, progress, recovery, brace, crutch, walker, massage, treatment, appointment, goal
+
+pregnancy_words | BIRTH WORDS | found_in | 0.4 | 0.7 | A | Words used about pregnancy and childbirth | $W is used about pregnancy or childbirth
+midwife, ultrasound, delivery, labor, newborn, crib, due date, nursery, trimester, stroller, formula, incubator, obstetrician, cradle, twins
+
+sleep_and_rest | SLEEP WORDS | found_in | 0.35 | 0.75 | A | Words about sleep and its problems | $W is a word about sleep
+insomnia, nap, dream, nightmare, snore, pillow, mattress, alarm, jetlag, rest, drowsy, sleepwalk, apnea, bedtime, doze
+
+nutrition_words | NUTRITION WORDS | found_in | 0.35 | 0.75 | A | Words used to talk about diet and nutrition | $W is used when talking about nutrition
+calorie, protein, carbohydrate, fat, fiber, sugar, vitamin, mineral, portion, diet, serving, nutrient, cholesterol, sodium, organic, whole grain
+
+emergency_words | EMERGENCY WORDS | found_in | 0.3 | 0.8 | A | Words used during a medical emergency | $W is used during a medical emergency
+ambulance, siren, stretcher, CPR, oxygen, paramedic, triage, trauma, code, dispatcher, defibrillator, response, rescue, evacuation, hotline
+
+hygiene | HYGIENE THINGS | used_in | 0.25 | 0.85 | A | Things used to keep the body clean | $W is used to keep the body clean
+soap, shampoo, toothbrush, toothpaste, deodorant, razor, floss, towel, comb, nail clipper, sanitizer, washcloth, mouthwash, tissue, cotton swab, lotion

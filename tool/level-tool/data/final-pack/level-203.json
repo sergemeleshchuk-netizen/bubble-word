@@ -1,0 +1,810 @@
+{
+  "level_spec": {
+    "levelId": 203,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 12,
+      "wordsPerCategory": 4,
+      "startBubbles": 47,
+      "boardCapacity": 24,
+      "moveFloor": 36,
+      "moveLimit": 58,
+      "moveLimitK": 1.6,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "storms",
+        "label": "STORMS",
+        "rule": "Kinds of violent weather events",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "ice storm",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "hurricane",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "gale",
+            "kind": "word",
+            "zipf": 3.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "cyclone",
+            "kind": "word",
+            "zipf": 3.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "weather_report",
+        "isQuickwin": true
+      },
+      {
+        "key": "weather_report",
+        "label": "WEATHER REPORT",
+        "rule": "What a weather report names or predicts",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "storms",
+            "kind": "meta",
+            "metaChild": "storms",
+            "zipf": 3.94,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "forecast",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "humidity",
+            "kind": "word",
+            "zipf": 3.83,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.92,
+            "obviousness": 0.78
+          },
+          {
+            "text": "radar",
+            "kind": "word",
+            "zipf": 4.2,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.92,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "writing_words",
+        "label": "WRITING WORDS",
+        "rule": "Words for the parts and marks of written text",
+        "theme": "language",
+        "words": [
+          {
+            "text": "draft",
+            "kind": "word",
+            "zipf": 4.61,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "font",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "margin",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "outline",
+            "kind": "word",
+            "zipf": 3.92,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "artists",
+        "label": "FAMOUS PAINTERS",
+        "rule": "Famous painters from history",
+        "theme": "people",
+        "words": [
+          {
+            "text": "Monet",
+            "kind": "word",
+            "zipf": 3.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Van Gogh",
+            "kind": "word",
+            "zipf": 3.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Michelangelo",
+            "kind": "word",
+            "zipf": 3.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Picasso",
+            "kind": "word",
+            "zipf": 3.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "clothing_brands",
+        "label": "CLOTHING BRANDS",
+        "rule": "Well known clothing and shoe brands",
+        "theme": "brands",
+        "words": [
+          {
+            "text": "New Balance",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "Nike",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "Fruit of the Loom",
+            "kind": "word",
+            "zipf": 3.34,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "Champion",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "wines_and_drinks",
+        "label": "WINE & BEER",
+        "rule": "Kinds of wine and beer",
+        "theme": "world_food",
+        "words": [
+          {
+            "text": "ale",
+            "kind": "word",
+            "zipf": 3.68,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "stout",
+            "kind": "word",
+            "zipf": 3.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "porter",
+            "kind": "word",
+            "zipf": 3.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "ipa",
+            "kind": "word",
+            "zipf": 3.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "crops",
+        "label": "FARM CROPS",
+        "rule": "Plants grown on farms for food or material",
+        "theme": "plants",
+        "words": [
+          {
+            "text": "rye",
+            "kind": "word",
+            "zipf": 3.52,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "corn",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "barley",
+            "kind": "word",
+            "zipf": 3.49,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "rice",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "berries",
+        "label": "BERRIES",
+        "rule": "Small soft fruits called berries in everyday American English",
+        "theme": "food",
+        "words": [
+          {
+            "text": "gooseberry",
+            "kind": "word",
+            "zipf": 2.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "currant",
+            "kind": "word",
+            "zipf": 2.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "huckleberry",
+            "kind": "word",
+            "zipf": 2.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "blackberry",
+            "kind": "word",
+            "zipf": 3.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "capital_cities_more",
+        "label": "MORE CAPITALS",
+        "rule": "Capital cities less commonly named",
+        "theme": "cities",
+        "words": [
+          {
+            "text": "Wellington",
+            "kind": "word",
+            "zipf": 3.82,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Nairobi",
+            "kind": "word",
+            "zipf": 3.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Sofia",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Bern",
+            "kind": "word",
+            "zipf": 3.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "birds_of_prey",
+        "label": "BIRDS OF PREY",
+        "rule": "Birds that hunt other animals",
+        "theme": "species",
+        "words": [
+          {
+            "text": "osprey",
+            "kind": "word",
+            "zipf": 2.89,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "buzzard",
+            "kind": "word",
+            "zipf": 2.83,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "condor",
+            "kind": "word",
+            "zipf": 2.96,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "falcon",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "lab_equipment",
+        "label": "LAB EQUIPMENT",
+        "rule": "Equipment found in a school science laboratory",
+        "theme": "science",
+        "words": [
+          {
+            "text": "beaker",
+            "kind": "word",
+            "zipf": 2.8,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "petri dish",
+            "kind": "word",
+            "zipf": 2.98,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "dropper",
+            "kind": "word",
+            "zipf": 2.57,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "centrifuge",
+            "kind": "word",
+            "zipf": 2.81,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "weapons_of_the_past",
+        "label": "OLD WEAPONS",
+        "rule": "Weapons used before modern firearms",
+        "theme": "history",
+        "words": [
+          {
+            "text": "dagger",
+            "kind": "word",
+            "zipf": 3.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "sword",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "sling",
+            "kind": "word",
+            "zipf": 3.34,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "catapult",
+            "kind": "word",
+            "zipf": 3.01,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T08:51:36.191Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+    "level_spec_hash": "1f7ffa382f23ae6b2f573bfa7fb5941954e052065be998c838cc5cc4f9172def",
+    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 203,
+    "position": 3,
+    "role": "recovery",
+    "categoryCount": 12,
+    "metaCount": 1,
+    "metaDepthTarget": 1,
+    "rareTarget": 10,
+    "trapTarget": 0,
+    "chainCount": 0,
+    "targetDifficulty": [
+      4,
+      5.5
+    ],
+    "targetInterest": [
+      7,
+      9
+    ],
+    "moveLimitK": 1.6
+  },
+  "scoring": {
+    "difficulty": 5.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 4.2722999999999995,
+        "редкие слова (zipf < 3)": 0.9470000000000001,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.22,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.4,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0
+      },
+      "totals": {
+        "base": 5.242,
+        "declared": -0.38,
+        "semantic": 0.4,
+        "mechanical": 0
+      }
+    },
+    "difficulty_explanation": [
+      "47 пузырей на старте при 12 категориях",
+      "10 редких слов, из них 0 очень редких",
+      "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "1 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 58 при минимуме 36 (K = 1.6)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.2,
+      "variety": 1.85,
+      "aha": 0.2,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.20: узнаваемых слов 96%, средняя очевидность связи 0.78",
+      "Variety 1.85: 4 типов связи, 11 тематических сфер, но 75% категорий однотипны",
+      "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 12 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (49 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 1"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 3"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 47, по формуле 4 × 12 − 1 = 47"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 58, минимум мерджей 36, K = 1.6 → ожидалось 58"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 8: storms, writing_words, artists, clothing_brands, wines_and_drinks, crops, capital_cities_more, weapons_of_the_past"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 95.8% пузырей (порог zipf 2.55, вне порога 2)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 30, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 49
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "rejected",
+        "stage": "единственность решения",
+        "reason": "найдено две полные раскладки: слова двоятся между berries и fruits",
+        "relaxations": []
+      },
+      {
+        "index": 1,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "12 категорий, 1 мета-связей, 10 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

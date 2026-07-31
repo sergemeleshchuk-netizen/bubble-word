@@ -1,0 +1,39 @@
+# space — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+constellations | CONSTELLATIONS | is_a | 0.4 | 0.7 | AP | Constellations in the night sky | $W is a constellation
+Orion, Big Dipper, Little Dipper, Cassiopeia, Ursa Major, Ursa Minor, Draco, Pegasus, Andromeda, Perseus, Lyra, Cygnus, Hercules, Centaurus, Crux
+
+bright_stars | STARS | is_a | 0.45 | 0.65 | AP | Individual stars people can name | $W is a named star
+Sirius, Polaris, Vega, Betelgeuse, Rigel, Arcturus, Antares, Altair, Aldebaran, Capella, Deneb, Spica, Procyon, Castor, Pollux
+
+moons | MOONS | is_a | 0.45 | 0.65 | AP | Named moons of the solar system | $W is a moon in the solar system
+Luna, Europa, Titan, Ganymede, Callisto, Io, Phobos, Deimos, Enceladus, Triton, Charon, Rhea, Miranda, Iapetus
+
+spacecraft | SPACECRAFT | is_a | 0.4 | 0.72 | AP | Famous spacecraft and space missions | $W is a famous spacecraft or space mission
+Apollo, Voyager, Sputnik, Hubble, Challenger, Discovery, Curiosity, Cassini, Galileo, Pioneer, Soyuz, Columbia, Atlantis, Juno, Viking
+
+space_agencies_and_places | SPACE PLACES | is_a | 0.45 | 0.65 | AP | Places and organizations connected with space flight | $W is connected with space flight
+NASA, Cape Canaveral, Houston, Baikonur, Kennedy Space Center, ISS, Mission Control, Roscosmos, launch pad, observatory, Jet Propulsion Lab
+
+astronaut_gear | ASTRONAUT GEAR | used_in | 0.35 | 0.75 | A | Equipment an astronaut uses | $W is used by an astronaut
+spacesuit, helmet, glove, boot, tether, oxygen tank, visor, jetpack, camera, tool belt, backpack, checklist, communicator
+
+solar_system_words | SOLAR SYSTEM | found_in | 0.35 | 0.75 | A | Words describing the solar system | $W describes something in the solar system
+orbit, sun, planet, moon, asteroid belt, comet, meteor, ring, gravity, eclipse, solar wind, dwarf planet, kuiper belt, corona
+
+telescope_words | TELESCOPE WORDS | found_in | 0.4 | 0.68 | C | Parts and words used with a telescope | $W is used with a telescope
+lens, mirror, eyepiece, tripod, aperture, focus, mount, finder, magnification, observatory, dome, filter, reflector, refractor
+
+space_phenomena | SPACE PHENOMENA | is_a | 0.4 | 0.7 | A | Events and phenomena seen in space | $W is a phenomenon seen in space
+eclipse, supernova, black hole, aurora, meteor shower, solar flare, nebula, comet tail, big bang, gravity well, sunspot, quasar
+
+rocket_parts | ROCKET PARTS | part_of | 0.4 | 0.7 | A | Parts of a rocket | $W is a part of a rocket
+booster, nose cone, engine, fuel tank, fin, stage, payload, nozzle, capsule, thruster, launch pad, heat shield
+
+space_measurements | SPACE MEASUREMENTS | is_a | 0.45 | 0.62 | C | Units used to measure distance and time in space | $W is a unit used to measure space
+light year, parsec, astronomical unit, orbit, rotation, revolution, magnitude, gravity, kilometer, mile, degree
+
+science_fiction_space | SCI FI | found_in | 0.4 | 0.7 | C | Words used in space science fiction | $W is used in space science fiction
+warp, laser, alien, android, starship, hyperdrive, galaxy, colony, teleport, force field, cyborg, mothership, wormhole, ray gun

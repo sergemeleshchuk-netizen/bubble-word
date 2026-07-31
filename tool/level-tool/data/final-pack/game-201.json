@@ -1,0 +1,304 @@
+{
+  "level_id": 201,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 13,
+    "words_per_category": 4,
+    "start_bubbles": 50,
+    "board_capacity": 24,
+    "move_limit": 57
+  },
+  "categories": [
+    {
+      "key": "salads",
+      "label": "SALADS",
+      "words": [
+        {
+          "text": "coleslaw",
+          "kind": "word"
+        },
+        {
+          "text": "chef salad",
+          "kind": "word"
+        },
+        {
+          "text": "macaroni salad",
+          "kind": "word"
+        },
+        {
+          "text": "waldorf",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "picnic_basket",
+      "label": "PICNIC BASKET",
+      "words": [
+        {
+          "text": "salads",
+          "kind": "meta",
+          "meta_child": "salads"
+        },
+        {
+          "text": "thermos",
+          "kind": "word"
+        },
+        {
+          "text": "fruits",
+          "kind": "word"
+        },
+        {
+          "text": "desserts",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "houseplants",
+      "label": "HOUSEPLANTS",
+      "words": [
+        {
+          "text": "geranium",
+          "kind": "word"
+        },
+        {
+          "text": "Ivy",
+          "kind": "word"
+        },
+        {
+          "text": "peace lily",
+          "kind": "word"
+        },
+        {
+          "text": "spider plant",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "garden_center",
+      "label": "GARDEN CENTER",
+      "words": [
+        {
+          "text": "houseplants",
+          "kind": "meta",
+          "meta_child": "houseplants"
+        },
+        {
+          "text": "trowel",
+          "kind": "word"
+        },
+        {
+          "text": "seedling",
+          "kind": "word"
+        },
+        {
+          "text": "trees",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "voice_sounds",
+      "label": "VOICE SOUNDS",
+      "words": [
+        {
+          "text": "whistle",
+          "kind": "word"
+        },
+        {
+          "text": "moan",
+          "kind": "word"
+        },
+        {
+          "text": "sob",
+          "kind": "word"
+        },
+        {
+          "text": "grunt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sports_legends",
+      "label": "SPORTS LEGENDS",
+      "words": [
+        {
+          "text": "Gretzky",
+          "kind": "word"
+        },
+        {
+          "text": "Nicklaus",
+          "kind": "word"
+        },
+        {
+          "text": "Ruth",
+          "kind": "word"
+        },
+        {
+          "text": "Ali",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baby_things",
+      "label": "BABY THINGS",
+      "words": [
+        {
+          "text": "diaper",
+          "kind": "word"
+        },
+        {
+          "text": "formula",
+          "kind": "word"
+        },
+        {
+          "text": "crib",
+          "kind": "word"
+        },
+        {
+          "text": "cradle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "laundry_things",
+      "label": "LAUNDRY THINGS",
+      "words": [
+        {
+          "text": "basket",
+          "kind": "word"
+        },
+        {
+          "text": "starch",
+          "kind": "word"
+        },
+        {
+          "text": "detergent",
+          "kind": "word"
+        },
+        {
+          "text": "washer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bible_books",
+      "label": "BIBLE BOOKS",
+      "words": [
+        {
+          "text": "Genesis",
+          "kind": "word"
+        },
+        {
+          "text": "Isaiah",
+          "kind": "word"
+        },
+        {
+          "text": "Revelation",
+          "kind": "word"
+        },
+        {
+          "text": "Proverbs",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "famous_museums",
+      "label": "FAMOUS MUSEUMS",
+      "words": [
+        {
+          "text": "Prado",
+          "kind": "word"
+        },
+        {
+          "text": "Hermitage",
+          "kind": "word"
+        },
+        {
+          "text": "MoMA",
+          "kind": "word"
+        },
+        {
+          "text": "British Museum",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "disney_characters",
+      "label": "DISNEY CHARACTERS",
+      "words": [
+        {
+          "text": "Snow White",
+          "kind": "word"
+        },
+        {
+          "text": "Nemo",
+          "kind": "word"
+        },
+        {
+          "text": "Peter Pan",
+          "kind": "word"
+        },
+        {
+          "text": "Anna",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "trees_more",
+      "label": "MORE TREES",
+      "words": [
+        {
+          "text": "linden",
+          "kind": "word"
+        },
+        {
+          "text": "eucalyptus",
+          "kind": "word"
+        },
+        {
+          "text": "mulberry",
+          "kind": "word"
+        },
+        {
+          "text": "olive",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "famous_stadiums",
+      "label": "FAMOUS STADIUMS",
+      "words": [
+        {
+          "text": "Rose Bowl",
+          "kind": "word"
+        },
+        {
+          "text": "Madison Square Garden",
+          "kind": "word"
+        },
+        {
+          "text": "Daytona",
+          "kind": "word"
+        },
+        {
+          "text": "Churchill Downs",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

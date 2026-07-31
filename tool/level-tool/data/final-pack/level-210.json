@@ -1,0 +1,857 @@
+{
+  "level_spec": {
+    "levelId": 210,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 13,
+      "wordsPerCategory": 4,
+      "startBubbles": 50,
+      "boardCapacity": 24,
+      "moveFloor": 39,
+      "moveLimit": 59,
+      "moveLimitK": 1.5,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "superheroes",
+        "label": "SUPERHEROES",
+        "rule": "Comic book superheroes most people can name",
+        "theme": "media",
+        "words": [
+          {
+            "text": "Ant Man",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Superman",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Green Lantern",
+            "kind": "word",
+            "zipf": 3.61,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Supergirl",
+            "kind": "word",
+            "zipf": 3.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "costume_party",
+        "isQuickwin": true
+      },
+      {
+        "key": "costume_party",
+        "label": "COSTUME PARTY",
+        "rule": "What you put on or need for a costume party",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "superheroes",
+            "kind": "meta",
+            "metaChild": "superheroes",
+            "zipf": 3.4,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "mask",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.95,
+            "obviousness": 0.86
+          },
+          {
+            "text": "cape",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.92,
+            "obviousness": 0.8
+          },
+          {
+            "text": "makeup",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.88,
+            "obviousness": 0.6
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "farm_morning",
+        "label": "FARM",
+        "rule": "What a farm has, keeps or fights",
+        "theme": "farming",
+        "words": [
+          {
+            "text": "livestock",
+            "kind": "word",
+            "zipf": 3.83,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "silo",
+            "kind": "word",
+            "zipf": 3.02,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.9,
+            "obviousness": 0.7
+          },
+          {
+            "text": "pests",
+            "kind": "word",
+            "zipf": 3.41,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.86,
+            "obviousness": 0.5
+          },
+          {
+            "text": "barn",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.96,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "places_with_animals",
+        "isQuickwin": true
+      },
+      {
+        "key": "places_with_animals",
+        "label": "PLACES WITH ANIMALS",
+        "rule": "Places where animals are kept or seen",
+        "theme": "places",
+        "words": [
+          {
+            "text": "farm",
+            "kind": "meta",
+            "metaChild": "farm_morning",
+            "zipf": 4.75,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "pet store",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "ranch",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "shelter",
+            "kind": "word",
+            "zipf": 4.25,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "root_vegetables",
+        "label": "ROOT VEGETABLES",
+        "rule": "Vegetables eaten for the part that grows underground",
+        "theme": "food",
+        "words": [
+          {
+            "text": "potato",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "yam",
+            "kind": "word",
+            "zipf": 3.04,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "ginger",
+            "kind": "word",
+            "zipf": 3.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "carrot",
+            "kind": "word",
+            "zipf": 3.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "insects",
+        "label": "INSECTS",
+        "rule": "Insects and other small bugs an average person recognizes",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "caterpillar",
+            "kind": "word",
+            "zipf": 3.38,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "fly",
+            "kind": "word",
+            "zipf": 4.75,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "roach",
+            "kind": "word",
+            "zipf": 3.44,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "wasp",
+            "kind": "word",
+            "zipf": 3.35,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "fabric_types",
+        "label": "FABRIC TYPES",
+        "rule": "Kinds of cloth used to make things",
+        "theme": "materials",
+        "words": [
+          {
+            "text": "burlap",
+            "kind": "word",
+            "zipf": 2.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "linen",
+            "kind": "word",
+            "zipf": 3.61,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "tweed",
+            "kind": "word",
+            "zipf": 3.25,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "felt",
+            "kind": "word",
+            "zipf": 5.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "egypt_things",
+        "label": "ANCIENT EGYPT",
+        "rule": "Things associated with ancient Egypt",
+        "theme": "history",
+        "words": [
+          {
+            "text": "obelisk",
+            "kind": "word",
+            "zipf": 2.76,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "papyrus",
+            "kind": "word",
+            "zipf": 2.9,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "sarcophagus",
+            "kind": "word",
+            "zipf": 2.79,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "pyramid",
+            "kind": "word",
+            "zipf": 3.75,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "boats",
+        "label": "BOATS AND SHIPS",
+        "rule": "Kinds of watercraft",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "yacht",
+            "kind": "word",
+            "zipf": 3.82,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "ferry",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "canoe",
+            "kind": "word",
+            "zipf": 3.5,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "kayak",
+            "kind": "word",
+            "zipf": 3.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "dog_breeds",
+        "label": "DOG BREEDS",
+        "rule": "Breeds of domestic dog recognized by an average American",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "beagle",
+            "kind": "word",
+            "zipf": 3.06,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "terrier",
+            "kind": "word",
+            "zipf": 3.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "husky",
+            "kind": "word",
+            "zipf": 3.29,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "greyhound",
+            "kind": "word",
+            "zipf": 3.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "rodents",
+        "label": "RODENTS",
+        "rule": "Small gnawing mammals classed as rodents",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "prairie dog",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "beaver",
+            "kind": "word",
+            "zipf": 3.61,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "rat",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "guinea pig",
+            "kind": "word",
+            "zipf": 4.06,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "garden_flowers_summer",
+        "label": "SUMMER FLOWERS",
+        "rule": "Flowers that bloom in summer",
+        "theme": "plants",
+        "words": [
+          {
+            "text": "dahlia",
+            "kind": "word",
+            "zipf": 2.86,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "marigold",
+            "kind": "word",
+            "zipf": 2.75,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "black eyed susan",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "Daisy",
+            "kind": "word",
+            "zipf": 3.78,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.72
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "art_styles",
+        "label": "ART STYLES",
+        "rule": "Named styles of visual art",
+        "theme": "art",
+        "words": [
+          {
+            "text": "surrealism",
+            "kind": "word",
+            "zipf": 2.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "expressionism",
+            "kind": "word",
+            "zipf": 2.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "minimalism",
+            "kind": "word",
+            "zipf": 2.9,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "impressionism",
+            "kind": "word",
+            "zipf": 2.64,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.72
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      }
+    ],
+    "traps": [
+      {
+        "word": "barn",
+        "home": "farm_morning",
+        "decoy": "places_with_animals",
+        "homeObviousness": 0.88,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.8
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T08:51:36.193Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+    "level_spec_hash": "58f27f1d7a61d80d2aa7200cd473e6a936800fada917f2e2d9e2f11b4d03186e",
+    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 210,
+    "position": 10,
+    "role": "exit",
+    "categoryCount": 13,
+    "metaCount": 2,
+    "metaDepthTarget": 1,
+    "rareTarget": 10,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      5,
+      6.5
+    ],
+    "targetInterest": [
+      7.5,
+      9
+    ],
+    "moveLimitK": 1.5
+  },
+  "scoring": {
+    "difficulty": 7,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 4.545,
+        "редкие слова (zipf < 3)": 0.9470000000000001,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.44,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 1.2,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.25714285714285734
+      },
+      "totals": {
+        "base": 5.5147,
+        "declared": -0.15999999999999998,
+        "semantic": 1.2,
+        "mechanical": 0.25714285714285734
+      }
+    },
+    "difficulty_explanation": [
+      "50 пузырей на старте при 13 категориях",
+      "10 редких слов, из них 0 очень редких",
+      "2 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "3 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 59 при минимуме 39 (K = 1.5)"
+    ],
+    "interest": 7,
+    "interest_breakdown": {
+      "clarity": 2.25,
+      "variety": 2.32,
+      "aha": 0.4,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.25: узнаваемых слов 100%, средняя очевидность связи 0.78",
+      "Variety 2.32: 5 типов связи, 11 тематических сфер, но 62% категорий однотипны",
+      "Aha 0.40: 0 честных ловушек, 2 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 13 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (53 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 2"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 3"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 50, по формуле 4 × 13 − 2 = 50"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 59, минимум мерджей 39, K = 1.5 → ожидалось 59"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 7: superheroes, farm_morning, root_vegetables, insects, boats, dog_breeds, rodents"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 30, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 53
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "13 категорий, 2 мета-связей, 10 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

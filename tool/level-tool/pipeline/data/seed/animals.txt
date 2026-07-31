@@ -1,0 +1,93 @@
+# animals — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+farm_animals | FARM ANIMALS | is_a | 0.1 | 0.95 | A | Animals commonly kept on an ordinary farm | $W is an animal commonly kept on a farm
+cow, pig, horse, sheep, goat, chicken, duck, rooster, donkey, turkey, hen, bull, calf, lamb, mule, ox, goose, rabbit, cat, dog
+
+birds | BIRDS | is_a | 0.12 | 0.92 | A | Bird species an average American can name | $W is a bird
+robin, eagle, owl, crow, sparrow, hawk, penguin, pigeon, swan, goose, parrot, duck, chicken, turkey, blue jay, cardinal, woodpecker, seagull, flamingo, ostrich, peacock, pelican, falcon, raven, canary
+
+ocean_animals | OCEAN ANIMALS | is_a | 0.15 | 0.9 | A | Animals that live in the ocean | $W lives in the ocean
+whale, shark, dolphin, octopus, crab, jellyfish, seal, lobster, starfish, tuna, squid, walrus, stingray, eel, seahorse, turtle, clam, oyster, coral, urchin, manatee, swordfish, barnacle, shrimp, orca
+
+insects | INSECTS | is_a | 0.15 | 0.88 | A | Insects and other small bugs an average person recognizes | $W is a common insect
+ant, bee, fly, beetle, moth, butterfly, wasp, cricket, grasshopper, ladybug, mosquito, dragonfly, termite, flea, roach, hornet, firefly, caterpillar, aphid, gnat, locust, tick, spider, centipede, silkworm
+
+pets | PETS | is_a | 0.12 | 0.9 | A | Animals commonly kept as household pets in the United States | $W is commonly kept as a household pet
+dog, cat, hamster, goldfish, rabbit, gerbil, ferret, canary, guinea pig, parrot, turtle, snake, lizard, parakeet, mouse, chinchilla, hedgehog, iguana, cockatiel, pony
+
+flying_animals | FLYING ANIMALS | has_property | 0.2 | 0.85 | A | Animals that can fly under their own power | $W can fly under its own power
+eagle, owl, bee, butterfly, moth, sparrow, hawk, dragonfly, goose, hummingbird, wasp, crow, robin, falcon, pigeon, duck, swan, mosquito, ladybug, hornet, seagull, stork, bluebird, vulture, pelican
+
+animal_babies | BABY ANIMALS | is_a | 0.25 | 0.75 | A | English words for the young of an animal species | $W is the English word for a young animal
+puppy, kitten, calf, foal, lamb, piglet, chick, cub, duckling, fawn, joey, colt, kid, gosling, tadpole, owlet, bunny, pup, fry, calfling
+
+animal_sounds | ANIMAL SOUNDS | does_action | 0.3 | 0.8 | A | English words for the sound an animal makes | $W is the English word for a sound an animal makes
+meow, moo, oink, quack, roar, hiss, chirp, neigh, howl, growl, buzz, cluck, bleat, croak, purr, squeak, whinny, snarl, coo, hoot, bray, grunt, tweet, yelp, caw
+
+nocturnal_animals | NOCTURNAL ANIMALS | has_property | 0.35 | 0.65 | C | Animals that are active at night and rest during the day | $W is active at night and rests during the day
+owl, raccoon, opossum, moth, coyote, badger, hedgehog, firefly, mouse, skunk, fox, wolf, cougar, hamster, cricket, beaver, armadillo, porcupine, mole, leopard
+
+jungle_animals | JUNGLE ANIMALS | found_in | 0.2 | 0.85 | A | Animals that live in tropical jungles and rainforests | $W lives in the jungle
+monkey, tiger, jaguar, parrot, snake, gorilla, sloth, toucan, panther, orangutan, lemur, chimpanzee, anteater, tapir, frog, leopard, boa, iguana, macaw, python
+
+african_animals | AFRICAN ANIMALS | found_in | 0.2 | 0.85 | A | Wild animals associated with the African savanna | $W lives on the African savanna
+lion, elephant, giraffe, zebra, hippo, rhino, cheetah, hyena, gazelle, ostrich, meerkat, baboon, warthog, antelope, buffalo, leopard, wildebeest, crocodile, mongoose, vulture
+
+arctic_animals | ARCTIC ANIMALS | found_in | 0.25 | 0.8 | A | Animals that live in the cold polar regions | $W lives in a cold polar region
+polar bear, penguin, seal, walrus, reindeer, arctic fox, snowy owl, moose, caribou, husky, narwhal, puffin, lemming, orca, wolverine, musk ox, beluga, ptarmigan
+
+reptiles | REPTILES | is_a | 0.25 | 0.8 | A | Cold-blooded scaly animals classed as reptiles | $W is a reptile
+snake, lizard, turtle, crocodile, alligator, iguana, gecko, chameleon, cobra, python, tortoise, rattlesnake, boa, viper, skink, monitor, anaconda, terrapin
+
+amphibians_and_bugs | AMPHIBIANS | is_a | 0.35 | 0.65 | C | Animals that live both in water and on land as amphibians | $W is an amphibian
+frog, toad, salamander, newt, tadpole, bullfrog, axolotl, caecilian, treefrog, mudpuppy
+
+rodents | RODENTS | is_a | 0.3 | 0.75 | A | Small gnawing mammals classed as rodents | $W is a rodent
+mouse, rat, squirrel, hamster, beaver, chipmunk, gerbil, guinea pig, porcupine, groundhog, capybara, muskrat, vole, prairie dog, gopher, chinchilla
+
+wild_cats | WILD CATS | is_a | 0.25 | 0.8 | A | Wild members of the cat family | $W is a wild cat
+lion, tiger, leopard, cheetah, jaguar, panther, cougar, lynx, bobcat, ocelot, puma, caracal, serval
+
+dog_breeds | DOG BREEDS | is_a | 0.25 | 0.8 | A | Breeds of domestic dog recognized by an average American | $W is a breed of dog
+poodle, beagle, bulldog, husky, terrier, retriever, dachshund, boxer, collie, chihuahua, pug, greyhound, mastiff, spaniel, corgi, dalmatian, rottweiler, doberman, shepherd, labrador
+
+horse_words | HORSE WORDS | found_in | 0.35 | 0.7 | A | Words for kinds of horses and horse gear | $W is a word used about horses
+mare, stallion, colt, foal, pony, saddle, bridle, stirrup, mane, hoof, gallop, trot, canter, harness, reins, stable, jockey, thoroughbred, halter, groom
+
+animal_homes | ANIMAL HOMES | is_a | 0.3 | 0.75 | A | Words for the places animals live in | $W is a place an animal lives in
+nest, den, burrow, hive, web, cave, barn, stable, coop, lodge, warren, kennel, cocoon, hole, pen, roost, hutch, anthill, mound, shell
+
+animal_groups | ANIMAL GROUPS | is_a | 0.4 | 0.6 | C | Collective nouns for groups of animals | $W is the word for a group of animals
+herd, flock, school, pack, swarm, pride, colony, litter, pod, gaggle, hive, troop, nest, brood, drove
+
+animal_coverings | ANIMAL COVERINGS | part_of | 0.35 | 0.7 | A | Things that cover an animal body | $W covers the body of an animal
+fur, feather, scale, shell, skin, hide, wool, hair, quill, spine, plate, coat, plume, down, fleece
+
+animal_body_parts | ANIMAL PARTS | part_of | 0.25 | 0.85 | A | Body parts that animals have but people do not | $W is a body part animals have
+tail, paw, hoof, claw, beak, wing, fin, horn, antler, snout, whisker, mane, trunk, tusk, gill, fang, talon, hump, muzzle, flipper
+
+zoo_animals | ZOO ANIMALS | found_in | 0.15 | 0.9 | A | Animals commonly seen at an American zoo | $W is commonly seen at a zoo
+lion, elephant, giraffe, monkey, bear, zebra, penguin, tiger, seal, gorilla, hippo, rhino, camel, kangaroo, panda, flamingo, koala, otter, sloth, peacock
+
+spotted_and_striped | STRIPED ANIMALS | has_property | 0.4 | 0.6 | C | Animals whose coat has clear stripes | $W has a striped coat
+zebra, tiger, skunk, badger, chipmunk, bee, wasp, raccoon, lemur, clownfish, angelfish, snake, hyena, okapi
+
+pond_animals | POND ANIMALS | found_in | 0.3 | 0.78 | A | Animals that live in or around a freshwater pond | $W lives in or around a pond
+frog, duck, fish, turtle, dragonfly, beaver, newt, tadpole, heron, goose, snail, crayfish, otter, mosquito, swan, carp, salamander, water bug
+
+farm_bird_words | POULTRY | is_a | 0.35 | 0.7 | A | Birds raised for meat or eggs on a farm | $W is a bird raised on a farm for food
+chicken, turkey, duck, goose, hen, rooster, quail, pheasant, guinea fowl, pigeon, chick, capon
+
+extinct_animals | EXTINCT ANIMALS | is_a | 0.3 | 0.75 | A | Animal species that no longer exist | $W is an extinct animal
+dinosaur, mammoth, dodo, saber tooth, tyrannosaurus, triceratops, velociraptor, stegosaurus, pterodactyl, mastodon, trilobite, brontosaurus, raptor, megalodon
+
+pests | PESTS | is_a | 0.35 | 0.7 | A | Animals treated as household or garden pests | $W is treated as a household or garden pest
+rat, mouse, roach, termite, flea, tick, mosquito, ant, moth, weevil, gopher, mole, aphid, slug, snail, wasp, silverfish, bedbug, raccoon, pigeon
+
+animals_with_shells | ANIMALS WITH SHELLS | has_property | 0.35 | 0.7 | C | Animals whose body is protected by a hard shell | $W has a hard protective shell
+turtle, snail, crab, clam, oyster, lobster, tortoise, armadillo, mussel, scallop, beetle, barnacle, nautilus, conch, cockle
+
+animal_verbs | ANIMAL MOVEMENTS | does_action | 0.4 | 0.65 | C | Verbs for the way particular animals move | $W is a way an animal moves
+slither, gallop, hop, swoop, scurry, waddle, pounce, burrow, glide, crawl, dart, prowl, swim, flutter, perch, leap, trot, soar

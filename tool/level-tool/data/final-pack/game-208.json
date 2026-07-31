@@ -1,0 +1,348 @@
+{
+  "level_id": 208,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 15,
+    "words_per_category": 4,
+    "start_bubbles": 58,
+    "board_capacity": 24,
+    "move_limit": 61
+  },
+  "categories": [
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "rocker",
+          "kind": "word"
+        },
+        {
+          "text": "table",
+          "kind": "word"
+        },
+        {
+          "text": "dresser",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "home_decor",
+      "label": "HOME DECOR",
+      "words": [
+        {
+          "text": "furniture",
+          "kind": "meta",
+          "meta_child": "furniture"
+        },
+        {
+          "text": "colors",
+          "kind": "word"
+        },
+        {
+          "text": "lighting",
+          "kind": "word"
+        },
+        {
+          "text": "curtains",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bones",
+      "label": "BONES",
+      "words": [
+        {
+          "text": "femur",
+          "kind": "word"
+        },
+        {
+          "text": "shin bone",
+          "kind": "word"
+        },
+        {
+          "text": "skull",
+          "kind": "word"
+        },
+        {
+          "text": "hip bone",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "natural_history_museum",
+      "label": "NATURAL HISTORY MUSEUM",
+      "words": [
+        {
+          "text": "bones",
+          "kind": "meta",
+          "meta_child": "bones"
+        },
+        {
+          "text": "gemstones",
+          "kind": "word"
+        },
+        {
+          "text": "diorama",
+          "kind": "word"
+        },
+        {
+          "text": "fossil",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hats",
+      "label": "HATS",
+      "words": [
+        {
+          "text": "helmet",
+          "kind": "word"
+        },
+        {
+          "text": "sun hat",
+          "kind": "word"
+        },
+        {
+          "text": "cap",
+          "kind": "word"
+        },
+        {
+          "text": "headband",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hotel_chains",
+      "label": "HOTEL CHAINS",
+      "words": [
+        {
+          "text": "Westin",
+          "kind": "word"
+        },
+        {
+          "text": "Days Inn",
+          "kind": "word"
+        },
+        {
+          "text": "Hyatt",
+          "kind": "word"
+        },
+        {
+          "text": "Holiday Inn",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sleep_and_rest",
+      "label": "SLEEP WORDS",
+      "words": [
+        {
+          "text": "rest",
+          "kind": "word"
+        },
+        {
+          "text": "bedtime",
+          "kind": "word"
+        },
+        {
+          "text": "nightmare",
+          "kind": "word"
+        },
+        {
+          "text": "insomnia",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "flowers",
+      "label": "FLOWERS",
+      "words": [
+        {
+          "text": "rose",
+          "kind": "word"
+        },
+        {
+          "text": "lavender",
+          "kind": "word"
+        },
+        {
+          "text": "Violet",
+          "kind": "word"
+        },
+        {
+          "text": "sunflower",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "national_parks_us",
+      "label": "NATIONAL PARKS",
+      "words": [
+        {
+          "text": "Denali",
+          "kind": "word"
+        },
+        {
+          "text": "Everglades",
+          "kind": "word"
+        },
+        {
+          "text": "Badlands",
+          "kind": "word"
+        },
+        {
+          "text": "Acadia",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "oceania_places",
+      "label": "OCEANIA PLACES",
+      "words": [
+        {
+          "text": "Papua New Guinea",
+          "kind": "word"
+        },
+        {
+          "text": "Tonga",
+          "kind": "word"
+        },
+        {
+          "text": "Samoa",
+          "kind": "word"
+        },
+        {
+          "text": "Solomon Islands",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "harvest_words",
+      "label": "HARVEST WORDS",
+      "words": [
+        {
+          "text": "field",
+          "kind": "word"
+        },
+        {
+          "text": "reap",
+          "kind": "word"
+        },
+        {
+          "text": "sickle",
+          "kind": "word"
+        },
+        {
+          "text": "bale",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "injuries",
+      "label": "INJURIES",
+      "words": [
+        {
+          "text": "blister",
+          "kind": "word"
+        },
+        {
+          "text": "fracture",
+          "kind": "word"
+        },
+        {
+          "text": "puncture",
+          "kind": "word"
+        },
+        {
+          "text": "burn",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "vegetables",
+      "label": "VEGETABLES",
+      "words": [
+        {
+          "text": "lettuce",
+          "kind": "word"
+        },
+        {
+          "text": "beet",
+          "kind": "word"
+        },
+        {
+          "text": "cabbage",
+          "kind": "word"
+        },
+        {
+          "text": "squash",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "snakes",
+      "label": "SNAKES",
+      "words": [
+        {
+          "text": "garter",
+          "kind": "word"
+        },
+        {
+          "text": "rattlesnake",
+          "kind": "word"
+        },
+        {
+          "text": "anaconda",
+          "kind": "word"
+        },
+        {
+          "text": "mamba",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "classic_novels",
+      "label": "CLASSIC NOVELS",
+      "words": [
+        {
+          "text": "Treasure Island",
+          "kind": "word"
+        },
+        {
+          "text": "Call of the Wild",
+          "kind": "word"
+        },
+        {
+          "text": "Of Mice and Men",
+          "kind": "word"
+        },
+        {
+          "text": "Oliver Twist",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

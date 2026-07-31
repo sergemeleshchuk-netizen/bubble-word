@@ -1,0 +1,63 @@
+# education — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+school_supplies | SCHOOL SUPPLIES | used_in | 0.15 | 0.9 | A | Items a student brings to school in a backpack | $W is an item a student brings to school
+backpack, notebook, pencil, eraser, ruler, crayon, glue, folder, marker, calculator, binder, scissors, highlighter, protractor, compass, pen, lunchbox, planner, sharpener, tape, stapler, index card, paper, textbook, pencil case
+
+school_subjects | SCHOOL SUBJECTS | is_a | 0.15 | 0.9 | A | Subjects taught in an American school | $W is a subject taught in school
+math, history, science, art, music, geography, biology, chemistry, English, gym, algebra, physics, geometry, calculus, literature, civics, economics, spanish, drama, health, computer science, band, shop, home economics, trigonometry
+
+classroom_things | CLASSROOM THINGS | found_in | 0.2 | 0.88 | A | Things found in a school classroom | $W is found in a school classroom
+desk, chalkboard, whiteboard, globe, poster, chair, clock, bookshelf, projector, flag, locker, calendar, alphabet, map, cubby, bell, chalk, textbook, easel, hall pass
+
+school_places | SCHOOL PLACES | part_of | 0.2 | 0.88 | A | Rooms and places inside a school | $W is a place inside a school
+classroom, cafeteria, gym, library, hallway, auditorium, playground, office, lab, locker room, nurse office, art room, computer lab, field, bathroom, principal office, stage, courtyard
+
+school_events | SCHOOL EVENTS | is_a | 0.3 | 0.8 | A | Events that happen during a school year | $W is an event in the school year
+recess, assembly, field trip, exam, graduation, prom, homecoming, science fair, pep rally, spelling bee, talent show, open house, orientation, detention, book fair, picture day
+
+grades_and_marks | GRADING WORDS | found_in | 0.3 | 0.8 | A | Words used to grade and evaluate students | $W is used to grade or evaluate a student
+grade, score, test, quiz, exam, report card, average, pass, fail, credit, honor roll, GPA, rubric, essay, homework, final, midterm, transcript
+
+college_words | COLLEGE WORDS | found_in | 0.3 | 0.8 | A | Words used about university education | $W is used when talking about college
+campus, dorm, lecture, professor, major, minor, semester, tuition, thesis, degree, dean, seminar, credit, scholarship, freshman, sophomore, junior, senior, alumni, fraternity
+
+degrees_and_titles | ACADEMIC DEGREES | is_a | 0.35 | 0.75 | A | Degrees and academic qualifications | $W is an academic degree or qualification
+bachelor, master, doctorate, diploma, certificate, associate, PhD, MBA, honors, license, fellowship, credential
+
+library_words | LIBRARY WORDS | found_in | 0.3 | 0.8 | A | Things and rules found in a library | $W is found in a library
+book, shelf, catalog, librarian, card, due date, fine, reference, periodical, aisle, study room, checkout, silence, encyclopedia, atlas, archive, stack, magazine
+
+learning_actions | LEARNING ACTIONS | does_action | 0.3 | 0.8 | A | Things students do while learning | $W is something students do while learning
+read, write, memorize, practice, review, listen, note, question, discuss, solve, research, rehearse, summarize, outline, drill, quiz
+
+writing_tools | WRITING TOOLS | is_a | 0.25 | 0.85 | A | Tools used to write or draw | $W is used to write or draw
+pen, pencil, marker, crayon, chalk, quill, brush, stylus, keyboard, highlighter, charcoal, pastel, typewriter, fountain pen, felt tip
+
+paper_types | KINDS OF PAPER | is_a | 0.3 | 0.78 | A | Kinds of paper used at school and home | $W is a kind of paper
+notebook, construction, graph, tracing, tissue, wax, printer, loose leaf, cardstock, parchment, carbon, newsprint, sticky note, index card
+
+reading_words | READING WORDS | found_in | 0.35 | 0.75 | A | Words used when reading and studying text | $W is used when reading text
+chapter, page, paragraph, index, glossary, footnote, preface, appendix, title, summary, quote, excerpt, passage, table of contents, bibliography
+
+testing_words | TEST WORDS | found_in | 0.35 | 0.75 | A | Words for kinds of test questions and formats | $W is a kind of test question or format
+multiple choice, essay, true false, fill in the blank, matching, short answer, oral, open book, timed, pop quiz, practical, final
+
+alphabet_and_numbers | FIRST LESSONS | is_a | 0.3 | 0.82 | A | The very first things children learn at school | $W is one of the first things children learn at school
+alphabet, number, color, shape, letter, count, sound, word, rhyme, sight word, addition, name, day, month, season
+
+art_class_things | ART CLASS | found_in | 0.25 | 0.85 | A | Things used in a school art class | $W is used in a school art class
+paint, brush, easel, smock, clay, palette, canvas, glitter, glue, scissors, construction paper, marker, chalk, kiln, sketchbook, pastel, stencil, apron
+
+gym_class_things | GYM CLASS | found_in | 0.25 | 0.85 | A | Things used in a school gym class | $W is used in a school gym class
+ball, jump rope, mat, whistle, cone, hoop, sneakers, scoreboard, bleachers, uniform, net, parachute, hurdle, stopwatch, locker, dodgeball
+
+music_class_things | MUSIC CLASS | found_in | 0.3 | 0.8 | A | Things used in a school music class | $W is used in a school music class
+recorder, triangle, tambourine, sheet music, stand, xylophone, piano, choir, metronome, drum, maraca, conductor, riser, bell
+
+school_people | SCHOOL PEOPLE | is_a | 0.25 | 0.85 | A | People you meet at a school | $W is a person you meet at school
+student, teacher, principal, janitor, coach, nurse, librarian, counselor, classmate, substitute, tutor, volunteer, crossing guard, aide, bus driver, cafeteria worker
+
+field_trip_places | FIELD TRIPS | found_in | 0.3 | 0.8 | A | Places classes visit on a field trip | $W is a place a class visits on a field trip
+museum, zoo, aquarium, farm, planetarium, factory, park, theater, capitol, fire station, science center, orchard, gallery, historical site, bakery

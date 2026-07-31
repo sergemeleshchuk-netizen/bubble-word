@@ -1,0 +1,281 @@
+{
+  "level_id": 203,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 47,
+    "board_capacity": 24,
+    "move_limit": 58
+  },
+  "categories": [
+    {
+      "key": "storms",
+      "label": "STORMS",
+      "words": [
+        {
+          "text": "ice storm",
+          "kind": "word"
+        },
+        {
+          "text": "hurricane",
+          "kind": "word"
+        },
+        {
+          "text": "gale",
+          "kind": "word"
+        },
+        {
+          "text": "cyclone",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_report",
+      "label": "WEATHER REPORT",
+      "words": [
+        {
+          "text": "storms",
+          "kind": "meta",
+          "meta_child": "storms"
+        },
+        {
+          "text": "forecast",
+          "kind": "word"
+        },
+        {
+          "text": "humidity",
+          "kind": "word"
+        },
+        {
+          "text": "radar",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "writing_words",
+      "label": "WRITING WORDS",
+      "words": [
+        {
+          "text": "draft",
+          "kind": "word"
+        },
+        {
+          "text": "font",
+          "kind": "word"
+        },
+        {
+          "text": "margin",
+          "kind": "word"
+        },
+        {
+          "text": "outline",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "artists",
+      "label": "FAMOUS PAINTERS",
+      "words": [
+        {
+          "text": "Monet",
+          "kind": "word"
+        },
+        {
+          "text": "Van Gogh",
+          "kind": "word"
+        },
+        {
+          "text": "Michelangelo",
+          "kind": "word"
+        },
+        {
+          "text": "Picasso",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "clothing_brands",
+      "label": "CLOTHING BRANDS",
+      "words": [
+        {
+          "text": "New Balance",
+          "kind": "word"
+        },
+        {
+          "text": "Nike",
+          "kind": "word"
+        },
+        {
+          "text": "Fruit of the Loom",
+          "kind": "word"
+        },
+        {
+          "text": "Champion",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wines_and_drinks",
+      "label": "WINE & BEER",
+      "words": [
+        {
+          "text": "ale",
+          "kind": "word"
+        },
+        {
+          "text": "stout",
+          "kind": "word"
+        },
+        {
+          "text": "porter",
+          "kind": "word"
+        },
+        {
+          "text": "ipa",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "crops",
+      "label": "FARM CROPS",
+      "words": [
+        {
+          "text": "rye",
+          "kind": "word"
+        },
+        {
+          "text": "corn",
+          "kind": "word"
+        },
+        {
+          "text": "barley",
+          "kind": "word"
+        },
+        {
+          "text": "rice",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "berries",
+      "label": "BERRIES",
+      "words": [
+        {
+          "text": "gooseberry",
+          "kind": "word"
+        },
+        {
+          "text": "currant",
+          "kind": "word"
+        },
+        {
+          "text": "huckleberry",
+          "kind": "word"
+        },
+        {
+          "text": "blackberry",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "capital_cities_more",
+      "label": "MORE CAPITALS",
+      "words": [
+        {
+          "text": "Wellington",
+          "kind": "word"
+        },
+        {
+          "text": "Nairobi",
+          "kind": "word"
+        },
+        {
+          "text": "Sofia",
+          "kind": "word"
+        },
+        {
+          "text": "Bern",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds_of_prey",
+      "label": "BIRDS OF PREY",
+      "words": [
+        {
+          "text": "osprey",
+          "kind": "word"
+        },
+        {
+          "text": "buzzard",
+          "kind": "word"
+        },
+        {
+          "text": "condor",
+          "kind": "word"
+        },
+        {
+          "text": "falcon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "lab_equipment",
+      "label": "LAB EQUIPMENT",
+      "words": [
+        {
+          "text": "beaker",
+          "kind": "word"
+        },
+        {
+          "text": "petri dish",
+          "kind": "word"
+        },
+        {
+          "text": "dropper",
+          "kind": "word"
+        },
+        {
+          "text": "centrifuge",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weapons_of_the_past",
+      "label": "OLD WEAPONS",
+      "words": [
+        {
+          "text": "dagger",
+          "kind": "word"
+        },
+        {
+          "text": "sword",
+          "kind": "word"
+        },
+        {
+          "text": "sling",
+          "kind": "word"
+        },
+        {
+          "text": "catapult",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,75 @@
+# sports — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+baseball_equipment | BASEBALL EQUIPMENT | used_in | 0.25 | 0.85 | A | Physical equipment used to play a game of baseball | $W is equipment used to play baseball
+glove, helmet, base, mitt, cleats, cap, mask, plate, ball, chest protector, batting glove, pine tar, rosin bag, shin guard
+
+baseball_words | BASEBALL WORDS | found_in | 0.3 | 0.75 | A | Words used to describe plays, places or roles in a baseball game | $W is a word used in a baseball game
+strike, inning, home run, bunt, dugout, umpire, mound, outfield, steal, slider, curveball, fastball, walk, foul, grand slam, shortstop, catcher, pitcher, double play, bullpen, infield, single, triple, error, lineup
+
+team_sports | TEAM SPORTS | is_a | 0.15 | 0.92 | A | Sports played by two opposing teams | $W is played by two opposing teams
+soccer, baseball, basketball, hockey, football, volleyball, rugby, cricket, lacrosse, handball, water polo, softball, polo, field hockey, dodgeball, kickball, ultimate frisbee, netball
+
+olympic_sports | OLYMPIC SPORTS | is_a | 0.25 | 0.8 | A | Sports contested at the modern Olympic Games | $W is contested at the Olympic Games
+swimming, gymnastics, fencing, archery, judo, rowing, boxing, skiing, diving, wrestling, curling, skating, luge, biathlon, triathlon, weightlifting, hurdles, shot put, javelin, bobsled, canoeing, sailing, taekwondo, badminton, marathon
+
+gym_equipment | GYM EQUIPMENT | used_in | 0.25 | 0.8 | A | Equipment used for exercise in a fitness gym | $W is equipment used for exercise in a gym
+treadmill, dumbbell, barbell, mat, rope, kettlebell, elliptical, weights, jump rope, punching bag, bench, rowing machine, stair climber, resistance band, medicine ball, pull up bar, foam roller, stationary bike
+
+basketball_words | BASKETBALL WORDS | found_in | 0.3 | 0.8 | A | Words used to describe plays and roles in basketball | $W is a word used in a basketball game
+dunk, dribble, rebound, foul, layup, free throw, court, hoop, backboard, guard, forward, center, assist, block, three pointer, timeout, jump ball, travel, buzzer, screen
+
+football_words | FOOTBALL WORDS | found_in | 0.3 | 0.78 | A | Words used to describe plays and roles in American football | $W is a word used in an American football game
+touchdown, quarterback, tackle, fumble, punt, field goal, huddle, sack, end zone, kickoff, interception, lineman, snap, blitz, down, receiver, helmet, referee, yard line, safety
+
+soccer_words | SOCCER WORDS | found_in | 0.3 | 0.78 | A | Words used to describe plays and roles in soccer | $W is a word used in a soccer game
+goal, penalty, corner kick, offside, striker, goalkeeper, header, dribble, midfielder, free kick, red card, yellow card, pitch, net, throw in, assist, defender, whistle
+
+hockey_words | HOCKEY WORDS | found_in | 0.35 | 0.72 | A | Words used to describe plays and gear in ice hockey | $W is a word used in ice hockey
+puck, stick, rink, goalie, slapshot, faceoff, penalty box, power play, blue line, skate, helmet, net, check, icing, period, zamboni, pad, crease
+
+tennis_words | TENNIS WORDS | found_in | 0.3 | 0.78 | A | Words used to describe play and scoring in tennis | $W is a word used in tennis
+serve, volley, ace, deuce, love, racket, net, baseline, backhand, forehand, match point, set, court, fault, rally, lob, umpire, tiebreak
+
+golf_words | GOLF WORDS | found_in | 0.3 | 0.75 | A | Words used to describe play and equipment in golf | $W is a word used in golf
+birdie, eagle, par, bogey, tee, green, fairway, bunker, putter, caddy, driver, hole in one, rough, iron, wedge, course, sand trap, flag
+
+water_sports | WATER SPORTS | is_a | 0.25 | 0.82 | A | Sports played in or on the water | $W is a sport played in or on the water
+swimming, surfing, diving, rowing, sailing, kayaking, water polo, snorkeling, rafting, wakeboarding, canoeing, windsurfing, water skiing, paddleboarding, synchronized swimming
+
+winter_sports | WINTER SPORTS | is_a | 0.25 | 0.85 | A | Sports played on snow or ice | $W is a sport played on snow or ice
+skiing, snowboarding, skating, hockey, sledding, curling, bobsled, luge, snowshoeing, figure skating, biathlon, ice climbing, speed skating, tobogganing
+
+martial_arts | MARTIAL ARTS | is_a | 0.3 | 0.78 | A | Fighting sports and self defense disciplines | $W is a martial art or fighting sport
+karate, judo, boxing, taekwondo, kung fu, wrestling, jujitsu, aikido, kickboxing, fencing, sumo, muay thai, capoeira, kendo
+
+racing_sports | RACING SPORTS | is_a | 0.3 | 0.8 | A | Sports where competitors race to finish first | $W is a sport where competitors race
+marathon, sprint, cycling, swimming, rowing, motocross, horse racing, sailing, speed skating, hurdles, relay, drag racing, cross country, triathlon, dog sled racing
+
+sports_venues | SPORTS VENUES | is_a | 0.3 | 0.8 | A | Places built for playing or watching sports | $W is a place built for playing or watching sports
+stadium, arena, court, field, rink, track, pool, gym, course, ring, pitch, diamond, dome, alley, velodrome, ballpark, racetrack, dojo
+
+sports_officials | SPORTS OFFICIALS | is_a | 0.35 | 0.75 | A | People who enforce the rules of a sport | $W enforces the rules of a sport
+referee, umpire, judge, linesman, official, scorer, timekeeper, marshal, steward, starter
+
+sports_scoring | SCORING WORDS | found_in | 0.35 | 0.72 | A | Words used for scoring and results in sports | $W is used to talk about scoring or results
+point, goal, score, tie, win, loss, draw, record, lead, streak, overtime, shutout, comeback, standing, ranking, medal, trophy, title, playoff, championship
+
+camping_and_outdoors | OUTDOOR ACTIVITIES | is_a | 0.25 | 0.85 | A | Recreational activities done outdoors | $W is a recreational activity done outdoors
+hiking, camping, fishing, climbing, kayaking, biking, running, skiing, surfing, hunting, birdwatching, picnicking, sailing, snorkeling, geocaching, rafting, backpacking, canoeing
+
+sports_balls | BALLS | is_a | 0.25 | 0.85 | A | Balls used in different sports | $W is a ball used in a sport
+basketball, baseball, football, soccer ball, tennis ball, golf ball, volleyball, softball, bowling ball, ping pong ball, cricket ball, beach ball, medicine ball, rugby ball
+
+sports_gear_worn | PROTECTIVE GEAR | used_in | 0.3 | 0.78 | A | Gear athletes wear to protect the body | $W is worn to protect an athlete
+helmet, pad, mouthguard, shin guard, goggles, glove, knee pad, elbow pad, chest protector, mask, brace, cup, wrist guard, harness
+
+fishing_things | FISHING THINGS | used_in | 0.3 | 0.78 | A | Things used to catch fish | $W is used to catch fish
+rod, reel, hook, bait, line, net, lure, tackle box, bobber, sinker, worm, fly, waders, cooler, boat, pole, spear, trap
+
+cycling_words | CYCLING WORDS | found_in | 0.35 | 0.7 | A | Words used about riding and racing bicycles | $W is used when talking about cycling
+pedal, gear, helmet, chain, sprint, peloton, tour, saddle, spoke, brake, trail, cadence, jersey, handlebar, tire, drafting
+
+board_and_card_games | GAMES OF SKILL | is_a | 0.3 | 0.75 | A | Competitive indoor games of skill | $W is an indoor game of skill
+chess, checkers, poker, darts, billiards, bowling, table tennis, foosball, air hockey, shuffleboard, bridge, backgammon, dominoes, cornhole

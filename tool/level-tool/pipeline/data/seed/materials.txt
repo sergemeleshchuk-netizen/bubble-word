@@ -1,0 +1,51 @@
+# materials — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+building_materials | BUILDING MATERIALS | made_of | 0.25 | 0.85 | A | Materials used to construct buildings | $W is used to construct buildings
+brick, concrete, wood, steel, glass, stone, plaster, tile, shingle, drywall, insulation, cement, lumber, marble, plywood, aluminum, vinyl, stucco, granite, slate
+
+things_made_of_wood | WOODEN THINGS | made_of | 0.3 | 0.78 | C | Everyday things normally made of wood | $W is normally made of wood
+table, chair, pencil, door, fence, bat, spoon, broom handle, ladder, canoe, guitar, shelf, deck, crate, barrel, toothpick, cabinet, drum
+
+things_made_of_glass | GLASS THINGS | made_of | 0.3 | 0.78 | C | Everyday things normally made of glass | $W is normally made of glass
+window, bottle, mirror, jar, lens, bulb, vase, aquarium, screen, marble, thermometer, prism, greenhouse, tumbler, ornament
+
+things_made_of_metal | METAL THINGS | made_of | 0.3 | 0.78 | C | Everyday things normally made of metal | $W is normally made of metal
+key, coin, nail, spoon, wrench, pipe, chain, can, sword, anchor, wire, faucet, hinge, bell, armor, kettle, safe, ladder
+
+things_made_of_paper | PAPER THINGS | made_of | 0.3 | 0.78 | C | Everyday things normally made of paper | $W is normally made of paper
+book, newspaper, envelope, napkin, ticket, map, card, poster, receipt, calendar, tissue, kite, origami, wallpaper, carton, bag
+
+things_made_of_plastic | PLASTIC THINGS | made_of | 0.35 | 0.75 | C | Everyday things normally made of plastic | $W is normally made of plastic
+bottle, straw, bag, toy, comb, ruler, container, crate, chair, pipe, card, keyboard, cup, hanger, bucket, helmet
+
+things_made_of_leather | LEATHER THINGS | made_of | 0.35 | 0.75 | C | Everyday things normally made of leather | $W is normally made of leather
+belt, wallet, shoe, jacket, glove, saddle, briefcase, boot, purse, holster, strap, ball, couch, bookmark
+
+things_made_of_rubber | RUBBER THINGS | made_of | 0.35 | 0.72 | C | Everyday things normally made of rubber | $W is normally made of rubber
+tire, band, eraser, boot, glove, hose, ball, mat, duck, seal, stamp, tube, bumper, gasket
+
+fabric_types | FABRIC TYPES | is_a | 0.3 | 0.78 | A | Kinds of cloth used to make things | $W is a kind of cloth
+cotton, wool, silk, linen, denim, velvet, satin, corduroy, flannel, lace, canvas, tweed, chiffon, burlap, felt, jersey, muslin, terry, gingham, taffeta
+
+minerals | MINERALS | is_a | 0.4 | 0.68 | A | Minerals found in the earth | $W is a mineral found in the earth
+quartz, mica, feldspar, calcite, gypsum, talc, pyrite, hematite, graphite, sulfur, halite, magnetite, fluorite, azurite
+
+precious_materials | PRECIOUS MATERIALS | is_a | 0.35 | 0.75 | A | Rare and valuable materials | $W is a rare and valuable material
+gold, silver, platinum, diamond, pearl, ivory, jade, amber, silk, marble, mahogany, sapphire, ruby, emerald, opal
+
+recycled_materials | RECYCLABLE MATERIALS | has_property | 0.35 | 0.75 | C | Materials that can be recycled | $W can be recycled
+paper, glass, plastic, aluminum, cardboard, steel, tin, battery, electronics, cloth, rubber, compost, newspaper, carton
+
+liquids | LIQUIDS | is_a | 0.25 | 0.85 | A | Common liquids found around a home | $W is a common household liquid
+water, milk, juice, oil, vinegar, soap, shampoo, paint, glue, bleach, gasoline, syrup, ink, alcohol, coffee, tea, soda, broth, lotion, polish
+
+powders | POWDERS | is_a | 0.4 | 0.7 | C | Common substances that come as a powder | $W comes as a powder
+flour, sugar, salt, baking soda, cocoa, cinnamon, detergent, chalk, talcum, cement, sand, dust, powdered milk, protein powder, spice
+
+things_that_burn | FUELS | is_a | 0.35 | 0.75 | A | Materials burned to produce heat or power | $W is burned to produce heat or power
+wood, coal, gasoline, oil, propane, charcoal, kerosene, natural gas, diesel, ethanol, peat, wax, paper, alcohol
+
+insulating_materials | INSULATING MATERIALS | used_in | 0.45 | 0.6 | C | Materials used to keep heat or sound in or out | $W is used to keep heat or sound in or out
+foam, fiberglass, wool, cork, rubber, styrofoam, felt, plastic, straw, cotton, air, cellulose, drywall

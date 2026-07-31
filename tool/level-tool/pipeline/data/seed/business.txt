@@ -1,0 +1,54 @@
+# business — категории темы
+# key | LABEL | relation_type | difficulty | obviousness | flags | rule | reason_template
+# flags: A = можно approved, C = только candidate; P = имена собственные
+
+tech_companies | TECH COMPANIES | is_a | 0.25 | 0.85 | AP | Well-known technology companies or consumer technology brands | $W is a well-known technology company
+Google, Microsoft, Amazon, Intel, Oracle, Netflix, Adobe, Dell, Nvidia, IBM, Samsung, Cisco, Sony, Uber, Spotify, Tesla, Qualcomm, Nintendo, PayPal, Zoom
+
+money_words | MONEY WORDS | is_a | 0.25 | 0.85 | A | Everyday English words for money, payments and personal finance | $W is an everyday word for money or payment
+cash, coin, bill, check, credit, debit, loan, salary, budget, change, wallet, interest, tip, fee, refund, deposit, savings, debt, rent, tax, wage, bonus, invoice, receipt, allowance
+
+currencies | CURRENCIES | is_a | 0.35 | 0.75 | A | Names of national currencies | $W is a national currency
+dollar, euro, yen, pound, peso, ruble, franc, rupee, won, real, lira, krona, shekel, dinar, baht
+
+coins_and_bills | US MONEY | is_a | 0.25 | 0.85 | A | Coins and bills used in the United States | $W is a coin or bill used in the United States
+penny, nickel, dime, quarter, dollar, half dollar, five, ten, twenty, fifty, hundred, cent, bill, coin, note
+
+store_types | KINDS OF STORES | is_a | 0.2 | 0.88 | A | Kinds of shops found in a town or mall | $W is a kind of shop
+bakery, pharmacy, bookstore, hardware store, grocery, boutique, deli, florist, butcher, salon, cafe, newsstand, thrift store, pet shop, toy store, jeweler, shoe store, barbershop, gift shop, market
+
+business_words | BUSINESS WORDS | found_in | 0.3 | 0.78 | A | Words used in running a business | $W is used when running a business
+profit, loss, invoice, contract, client, revenue, expense, budget, merger, startup, payroll, inventory, quota, vendor, market, brand, asset, stock, partner, franchise
+
+office_words | OFFICE WORDS | found_in | 0.25 | 0.82 | A | Things and routines found in an office workplace | $W is part of an office workplace
+cubicle, meeting, memo, deadline, printer, copier, badge, break room, inbox, boss, overtime, shift, desk, calendar, intern, conference call, water cooler, spreadsheet
+
+job_hunting | JOB HUNTING | found_in | 0.35 | 0.75 | A | Words used when looking for a job | $W is used when looking for a job
+resume, interview, application, reference, cover letter, offer, hire, salary, position, opening, recruiter, screening, portfolio, contract, benefits, orientation
+
+banking_words | BANKING WORDS | found_in | 0.3 | 0.78 | A | Words used at a bank | $W is used at a bank
+account, deposit, withdrawal, teller, vault, balance, statement, transfer, ATM, mortgage, loan, interest, overdraft, branch, safe deposit, PIN, check, ledger
+
+shopping_words | SHOPPING WORDS | found_in | 0.25 | 0.85 | A | Words used while shopping in a store | $W is used while shopping
+cart, aisle, checkout, receipt, sale, coupon, discount, cashier, bag, price, register, clearance, refund, barcode, basket, tag, shelf, line
+
+advertising_words | ADVERTISING WORDS | found_in | 0.35 | 0.72 | A | Words used in advertising and marketing | $W is used in advertising
+ad, slogan, jingle, billboard, campaign, brand, logo, commercial, coupon, sponsor, banner, tagline, promo, mascot, endorsement, flyer
+
+famous_brands | FAMOUS BRANDS | is_a | 0.3 | 0.8 | AP | Brand names most Americans recognize | $W is a brand name most Americans recognize
+Nike, Coca Cola, Ford, Disney, McDonalds, Pepsi, Levi, Kellogg, Gillette, Kodak, Nestle, Harley, Chevrolet, Adidas, Lego, Crayola, Hershey, Colgate
+
+car_brands | CAR BRANDS | is_a | 0.3 | 0.82 | AP | Car manufacturers sold in the United States | $W is a car manufacturer
+Ford, Toyota, Honda, Chevrolet, BMW, Mercedes, Nissan, Jeep, Subaru, Volkswagen, Hyundai, Kia, Mazda, Volvo, Audi, Dodge, Lexus, Buick
+
+restaurant_words | RESTAURANT WORDS | found_in | 0.25 | 0.85 | A | Things and roles found at a restaurant | $W is found at a restaurant
+menu, waiter, tip, table, bill, reservation, chef, host, special, appetizer, entree, dessert, napkin, order, bar, booth, counter, kitchen, receipt, buffet
+
+mail_words | MAIL WORDS | found_in | 0.3 | 0.8 | A | Things involved in sending mail | $W is involved in sending mail
+stamp, envelope, package, address, postcard, mailbox, courier, zip code, postage, parcel, letter, carrier, tracking, return address, post office, label
+
+insurance_and_legal | CONTRACT WORDS | found_in | 0.4 | 0.62 | C | Words used in contracts and agreements | $W is a word used in contracts
+signature, clause, term, policy, premium, deductible, claim, witness, waiver, agreement, renewal, liability, notice, breach
+
+startup_words | STARTUP WORDS | found_in | 0.4 | 0.62 | C | Words used when starting a new company | $W is used when starting a new company
+founder, investor, pitch, funding, prototype, launch, equity, venture, incubator, valuation, scale, runway, seed round, cofounder
