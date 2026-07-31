@@ -12,3 +12,6 @@ level-generator/bubble_jam_pipeline/output/
 # Системный мусор
 .DS_Store
 node_modules/
+
+# Архивы для передачи наружу собираются командой, в git не нужны
+*.zip

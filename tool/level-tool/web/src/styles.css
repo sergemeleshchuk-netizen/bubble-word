@@ -127,17 +127,57 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
 .phone { width: 330px; height: 620px; margin: 0 auto; border: 10px solid #222b36;
   border-radius: 32px; background: linear-gradient(180deg, #0b2233, #071722);
   position: relative; overflow: hidden; }
+.board { position: absolute; inset: 44px 0 0 0; }
 .bubble { position: absolute; border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; text-align: center; cursor: pointer; user-select: none;
+  justify-content: center; text-align: center; cursor: grab; user-select: none;
   border: 2px solid rgba(255,255,255,0.22); transition: transform 0.12s;
-  padding: 3px; line-height: 1.1; }
+  padding: 3px; line-height: 1.1; touch-action: none; }
 .bubble:hover { transform: scale(1.06); }
 .bubble.picked { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,0.4); }
-.bubble.bad { animation: shake 0.3s; border-color: var(--fail); }
+.bubble.bad { animation: shake 0.3s; border-color: var(--fail);
+  box-shadow: 0 0 0 3px rgba(248,81,73,0.55), 0 0 18px rgba(248,81,73,0.5); }
+.bubble.blocked { animation: shake 0.3s; border-color: #9fd8ee;
+  box-shadow: 0 0 0 3px rgba(159,216,238,0.5); }
 @keyframes shake {
   0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); }
   75% { transform: translateX(4px); }
 }
+
+/* драг: траектория, подсветка пройденных пузырей, точка остановки */
+.bubble.dragging { cursor: grabbing; transition: none;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.45), 0 0 0 2px rgba(255,255,255,0.5); }
+.bubble.dragging:hover { transform: none; }
+.bubble.snapping { transition: transform 0.24s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.bubble.snapping:hover { transform: none; }
+.bubble.trail { border-color: rgba(76,194,255,0.55);
+  box-shadow: 0 0 12px rgba(76,194,255,0.35); }
+.bubble.over { border-color: #fff; transform: scale(1.12);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.55), 0 0 22px rgba(76,194,255,0.6); }
+.trace { position: absolute; inset: 0; pointer-events: none; z-index: 45; }
+.trace line { stroke: rgba(76,194,255,0.65); stroke-width: 2; stroke-dasharray: 5 5; }
+.slot-ghost { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px;
+  border-radius: 50%; border: 2px dashed rgba(255,255,255,0.25); pointer-events: none; }
+
+/* модификаторы */
+.bubble.half { border-style: dashed; border-color: rgba(255,255,255,0.5);
+  font-family: var(--mono); }
+.bubble.iced { cursor: not-allowed; border-color: rgba(255,255,255,0.75);
+  box-shadow: inset 0 0 14px rgba(255,255,255,0.5); }
+.bubble.veiled { cursor: not-allowed; border-style: dotted; }
+.bubble .counter { font-family: var(--mono); font-size: 9px; opacity: 0.9; }
+.chain { position: absolute; left: 0; right: 0; height: 8px; margin-top: -4px;
+  background: repeating-linear-gradient(90deg,
+    #7d8794 0 9px, #454f5c 9px 14px);
+  box-shadow: 0 0 12px rgba(0,0,0,0.5); z-index: 30; transition: opacity 0.3s; }
+.chain.off { opacity: 0.18; }
+.chain-badge { position: absolute; right: 8px; top: -8px; font-family: var(--mono);
+  font-size: 10px; padding: 1px 6px; border-radius: 9px; background: #1b2530;
+  border: 1px solid #7d8794; color: #cfe6f5; }
+
+.verdict { position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; flex-direction: column; gap: 6px; z-index: 60; }
+.verdict.ok { background: rgba(4,20,30,0.86); }
+.verdict.fail { background: rgba(30,6,6,0.86); }
 .hud { display: flex; justify-content: space-between; padding: 8px 12px;
   font-family: var(--mono); font-size: 12px; color: #cfe6f5;
   background: rgba(0,0,0,0.25); }

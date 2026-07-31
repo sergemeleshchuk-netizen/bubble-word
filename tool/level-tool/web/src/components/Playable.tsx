@@ -6,46 +6,50 @@
  * ошибочный мердж подсвечивается, ходы тратятся, собранная категория остаётся
  * на поле мета-пузырём и может войти в следующую.
  *
+ * Драг вместо тапа. В целевой игре пузырь тащат, и по дороге подсвечиваются те
+ * пузыри, над которыми он проходит: игрок видит траекторию и понимает, на каком
+ * шаре будет остановка. Пока пузырь в руке, структура поля не меняется — место
+ * не заполняется досыпкой, ничего не пересобирается. Реконфигурация происходит
+ * только в момент финального решения, то есть после успешного мерджа. Неверный
+ * мердж подсвечивает цель красным, пузырь возвращается на своё место, ход
+ * не тратится.
+ *
+ * Модификаторы (половинки, лёд, «?», цепь) — отдельный слой поверх спека:
+ * см. core/playableModifiers.ts, там объяснено, почему они не входят в level_spec.
+ *
  * Досыпка воспроизведена: на поле одновременно не больше board_capacity пузырей,
  * остальные ждут очереди — так в целевой игре (наблюдение по видеозаписям).
  */
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { PointerEvent as ReactPointerEvent } from 'react';
 import type { GeneratedLevel, LevelSpec } from '../core/types.ts';
-
-interface Bubble {
-  id: number;
-  words: string[];
-  /** категория, если пузырь уже собран целиком */
-  completedCategory?: string;
-  x: number;
-  y: number;
-  size: number;
-}
+import {
+  MODIFIERS, buildSetup,
+  type PlayableBubble, type PlayableModifier, type PlayableSetup,
+} from '../core/playableModifiers.ts';
 
 const COLORS = ['#2f6f9f', '#2f8f6f', '#6f4f9f', '#c8781f'];
+const HALF_COLOR = '#3aa0d8';
+const ICE_COLOR = '#7fb6cc';
+const HIDDEN_COLOR = '#5c5f8f';
 
-function bubblesOf(spec: LevelSpec): { board: Bubble[]; queue: Bubble[] } {
-  const all: Bubble[] = [];
-  let id = 0;
-  for (const category of spec.categories) {
-    for (const word of category.words) {
-      // мета-слово не спавнится на старте: оно появится, когда соберут дочернюю
-      if (word.kind === 'meta') continue;
-      all.push({ id: id += 1, words: [word.text], x: 0, y: 0, size: 0 });
-    }
-  }
-  // Детерминированная раскладка сеткой: одинаковый уровень выглядит одинаково.
-  // Раньше здесь была формула вида (i * 37) % 74 — она давала ровно две колонки,
-  // потому что множитель и модуль не взаимно просты, и пузыри слипались в столбики.
-  const COLS = 4;
-  const placed = all.map((b, i) => ({
-    ...b,
-    x: 15 + (i % COLS) * 23 + ((i * 5) % 4),
-    y: 7 + Math.floor(i / COLS) * 15 + ((i * 3) % 4),
-    size: 0,
-  }));
-  const capacity = spec.board.boardCapacity;
-  return { board: placed.slice(0, capacity), queue: placed.slice(capacity) };
+/** Причина отказа: цвет подсветки цели зависит от того, ошибка это или блокировка. */
+type Reject = { id: number; reason: 'wrong' | 'ice' | 'hidden' | 'chain' } | null;
+
+interface Board {
+  board: PlayableBubble[];
+  queue: PlayableBubble[];
+}
+
+const sizeOf = (b: PlayableBubble): number =>
+  b.kind === 'half' ? 40 : 44 + b.words.length * 7;
+
+function initial(setup: PlayableSetup): Board {
+  // копия: состояние партии мутирует счётчики льда и «?»
+  return {
+    board: setup.board.map((b) => ({ ...b })),
+    queue: setup.queue.map((b) => ({ ...b })),
+  };
 }
 
 export function Playable({ level, levels, onSelect }: {
@@ -53,21 +57,40 @@ export function Playable({ level, levels, onSelect }: {
   levels: GeneratedLevel[];
   onSelect: (id: number) => void;
 }) {
-  const spec = level.spec;
-  const [state, setState] = useState(() => bubblesOf(spec));
+  const spec: LevelSpec = level.spec;
+  const [modifier, setModifier] = useState<PlayableModifier>('none');
+  const setup = useMemo(() => buildSetup(spec, modifier), [spec, modifier]);
+
+  const [state, setState] = useState<Board>(() => initial(setup));
   const [picked, setPicked] = useState<number | null>(null);
-  const [bad, setBad] = useState<number | null>(null);
-  const unlimited = spec.board.moveLimit === null;   // туториальный уровень
-  const [moves, setMoves] = useState(spec.board.moveLimit ?? Infinity);
+  const [reject, setReject] = useState<Reject>(null);
+  const unlimited = setup.moveLimit === null;          // туториальный уровень
+  const [moves, setMoves] = useState(setup.moveLimit ?? Infinity);
   const [done, setDone] = useState<string[]>([]);
+  const [glued, setGlued] = useState(0);               // склеек половинок сделано
+  const [rescue, setRescue] = useState<string | null>(null);
   const [showDev, setShowDev] = useState(false);
 
-  useEffect(() => {
-    setState(bubblesOf(spec));
+  const boardRef = useRef<HTMLDivElement>(null);
+  const grabRef = useRef<{ cx: number; cy: number; ox: number; oy: number } | null>(null);
+  const [drag, setDrag] = useState<
+    { id: number; dx: number; dy: number; over: number | null; trail: number[] } | null
+  >(null);
+  const [snap, setSnap] = useState<{ id: number; dx: number; dy: number } | null>(null);
+
+  const reset = useCallback(() => {
+    setState(initial(setup));
     setPicked(null);
-    setMoves(spec.board.moveLimit ?? Infinity);
+    setReject(null);
+    setMoves(setup.moveLimit ?? Infinity);
     setDone([]);
-  }, [spec]);
+    setGlued(0);
+    setRescue(null);
+    setDrag(null);
+    setSnap(null);
+  }, [setup]);
+
+  useEffect(reset, [reset]);
 
   /** слово → ключ категории, где оно живёт (истина уровня, игроку не показывается) */
   const homeOf = useMemo(() => {
@@ -76,60 +99,229 @@ export function Playable({ level, levels, onSelect }: {
     return map;
   }, [spec]);
 
-  const sizeFor = (words: string[]) => 44 + words.length * 7;
+  const chain = setup.chain;
+  const chainDown = !chain || done.length >= chain.need || rescue !== null;
+  const zoneOf = useCallback(
+    (b: PlayableBubble) => (chain && setup.slots[b.slot].y > chain.y ? 1 : 0),
+    [chain, setup.slots],
+  );
 
-  const merge = (aId: number, bId: number) => {
-    const a = state.board.find((b) => b.id === aId)!;
-    const b = state.board.find((x) => x.id === bId)!;
-    const merged = [...a.words, ...b.words];
-    const homes = new Set(merged.map((w) => homeOf.get(w)));
+  const blocked = (b: PlayableBubble) => b.ice > 0 || b.hidden > 0;
 
-    if (homes.size !== 1 || merged.length > spec.board.wordsPerCategory) {
-      setBad(bId);
-      setTimeout(() => setBad(null), 320);
-      return;                                    // ошибочный мердж хода не тратит
-    }
-
-    const categoryKey = merged[0] ? homeOf.get(merged[0])! : '';
-    const complete = merged.length === spec.board.wordsPerCategory;
-    if (!unlimited) setMoves((m) => m - 1);
-
-    setState((prev) => {
-      let board = prev.board.filter((x) => x.id !== aId && x.id !== bId);
-      const queue = [...prev.queue];
-
-      if (complete) {
-        const category = spec.categories.find((c) => c.key === categoryKey)!;
-        setDone((d) => [...d, category.label]);
-        // собранная категория остаётся на поле мета-пузырём, если она чей-то ребёнок
-        const parent = spec.categories.find((c) =>
-          c.words.some((w) => w.kind === 'meta' && w.metaChild === categoryKey));
-        if (parent) {
-          board.push({ id: 10000 + board.length, words: [category.label],
-            completedCategory: categoryKey, x: a.x, y: a.y, size: 0 });
+  /** Существует ли хоть один легальный мердж — страховка от запертой раскладки. */
+  const hasLegalMove = useCallback((board: PlayableBubble[], withChain: boolean) => {
+    const free = board.filter((b) => !blocked(b));
+    for (let i = 0; i < free.length; i += 1) {
+      for (let j = i + 1; j < free.length; j += 1) {
+        const a = free[i];
+        const b = free[j];
+        if (withChain && zoneOf(a) !== zoneOf(b)) continue;
+        if (a.kind === 'half' || b.kind === 'half') {
+          if (a.kind === 'half' && b.kind === 'half'
+            && a.pair!.id === b.pair!.id && a.pair!.side !== b.pair!.side) return true;
+          continue;
         }
-      } else {
-        board.push({ ...a, id: a.id, words: merged });
+        const words = [...a.words, ...b.words];
+        if (words.length > spec.board.wordsPerCategory) continue;
+        if (new Set(words.map((w) => homeOf.get(w))).size === 1) return true;
       }
+    }
+    return false;
+  }, [homeOf, spec.board.wordsPerCategory, zoneOf]);
 
-      // досыпка: поле держит не больше capacity пузырей
-      while (board.length < spec.board.boardCapacity && queue.length) {
-        board.push(queue.shift()!);
+  // Страховка. Лёд тает только от успешных мерджей, а цепь снимается только
+  // сбором категорий: если легальных мерджей не осталось, игрок заперт навсегда.
+  // Прототип в этом случае снимает препятствие и говорит об этом вслух — молча
+  // показывать неразрешимое поле было бы хуже, чем признать ограничение раскладки.
+  useEffect(() => {
+    if (rescue || moves <= 0 || done.length === spec.categories.length) return;
+    if (hasLegalMove(state.board, !chainDown)) return;
+    if (chain && !chainDown) {
+      setRescue('цепь снята автоматически: легального мерджа под ней не осталось');
+      return;
+    }
+    if (state.board.some(blocked)) {
+      setState((prev) => ({
+        ...prev,
+        board: prev.board.map((b) => ({ ...b, ice: 0, hidden: 0 })),
+      }));
+      setRescue('лёд растоплен и «?» раскрыты автоматически: '
+        + 'других легальных мерджей на поле не осталось');
+    }
+  }, [state.board, chain, chainDown, done.length, hasLegalMove, moves, rescue,
+    spec.categories.length]);
+
+  /** Успешное действие: снимает слой льда и «?» со всего поля и тратит ход. */
+  const applySuccess = (
+    change: (board: PlayableBubble[], queue: PlayableBubble[]) => Board,
+  ) => {
+    if (!unlimited) setMoves((m) => m - 1);
+    setState((prev) => {
+      const next = change(prev.board.map((b) => ({ ...b })), prev.queue.slice());
+      const board = next.board.map((b) => ({
+        ...b,
+        ice: Math.max(0, b.ice - 1),
+        hidden: Math.max(0, b.hidden - 1),
+      }));
+      const queue = next.queue;
+      const taken = new Set(board.map((b) => b.slot));
+      // досыпка: поле держит не больше capacity пузырей, освободившийся слот
+      // отдаётся следующему из очереди
+      while (board.length < setup.slots.length && queue.length) {
+        const slot = setup.refillOrder.find((s) => !taken.has(s));
+        if (slot === undefined) break;
+        taken.add(slot);
+        board.push({ ...queue.shift()!, slot });
       }
       return { board, queue };
     });
     setPicked(null);
   };
 
-  const tap = (id: number) => {
-    if (moves <= 0) return;
-    if (picked === null) { setPicked(id); return; }
-    if (picked === id) { setPicked(null); return; }
-    merge(picked, id);
+  const fail = (id: number, reason: Exclude<Reject, null>['reason']) => {
+    setReject({ id, reason });
+    setTimeout(() => setReject(null), 420);
+    setPicked(null);
+  };
+
+  /** Возвращает true, если действие состоялось (поле пересобирается). */
+  const attempt = (aId: number, bId: number): boolean => {
+    if (moves <= 0) return false;
+    const a = state.board.find((x) => x.id === aId);
+    const b = state.board.find((x) => x.id === bId);
+    if (!a || !b || a.id === b.id) return false;
+
+    if (b.ice > 0) { fail(bId, 'ice'); return false; }
+    if (b.hidden > 0) { fail(bId, 'hidden'); return false; }
+    if (!chainDown && zoneOf(a) !== zoneOf(b)) { fail(bId, 'chain'); return false; }
+
+    // половинки: сначала слово, потом категория
+    if (a.kind === 'half' || b.kind === 'half') {
+      const pairOk = a.kind === 'half' && b.kind === 'half'
+        && a.pair!.id === b.pair!.id && a.pair!.side !== b.pair!.side;
+      if (!pairOk) { fail(bId, 'wrong'); return false; }
+      const whole = a.pair!.whole;
+      setGlued((g) => g + 1);
+      applySuccess((board, queue) => ({
+        board: board
+          .filter((x) => x.id !== bId)
+          .map((x) => (x.id === aId
+            ? { ...x, kind: 'word' as const, words: [whole], pair: undefined }
+            : x)),
+        queue,
+      }));
+      return true;
+    }
+
+    const merged = [...a.words, ...b.words];
+    const homes = new Set(merged.map((w) => homeOf.get(w)));
+    if (homes.size !== 1 || merged.length > spec.board.wordsPerCategory) {
+      fail(bId, 'wrong');
+      return false;
+    }
+
+    const categoryKey = homeOf.get(merged[0])!;
+    const complete = merged.length === spec.board.wordsPerCategory;
+    if (complete) {
+      const category = spec.categories.find((c) => c.key === categoryKey)!;
+      setDone((d) => [...d, category.label]);
+    }
+    applySuccess((board, queue) => {
+      let next = board.filter((x) => x.id !== aId && x.id !== bId);
+      if (complete) {
+        const category = spec.categories.find((c) => c.key === categoryKey)!;
+        // собранная категория остаётся на поле мета-пузырём, если она чей-то ребёнок
+        const parent = spec.categories.find((c) =>
+          c.words.some((w) => w.kind === 'meta' && w.metaChild === categoryKey));
+        if (parent) {
+          next.push({
+            id: 10000 + next.length, kind: 'meta', words: [category.label],
+            completedCategory: categoryKey, ice: 0, hidden: 0, slot: a.slot,
+          });
+        }
+      } else {
+        next = next.concat([{ ...a, words: merged }]);
+      }
+      return { board: next, queue };
+    });
+    return true;
+  };
+
+  // ------------------------------------------------------------------ драг
+  const centerOf = (b: PlayableBubble, rect: DOMRect) => ({
+    x: (setup.slots[b.slot].x / 100) * rect.width,
+    y: (setup.slots[b.slot].y / 100) * rect.height,
+  });
+
+  const onPointerDown = (e: ReactPointerEvent, b: PlayableBubble) => {
+    if (moves <= 0 || done.length === spec.categories.length) return;
+    if (blocked(b)) { fail(b.id, b.ice > 0 ? 'ice' : 'hidden'); return; }
+    const rect = boardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const c = centerOf(b, rect);
+    grabRef.current = { cx: e.clientX, cy: e.clientY, ox: c.x, oy: c.y };
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+    setDrag({ id: b.id, dx: 0, dy: 0, over: null, trail: [] });
+    setSnap(null);
+  };
+
+  const onPointerMove = (e: ReactPointerEvent) => {
+    const grab = grabRef.current;
+    const rect = boardRef.current?.getBoundingClientRect();
+    if (!grab || !rect || !drag) return;
+    const dx = e.clientX - grab.cx;
+    const dy = e.clientY - grab.cy;
+    const px = grab.ox + dx;
+    const py = grab.oy + dy;
+    let over: number | null = null;
+    let best = Infinity;
+    for (const b of state.board) {
+      if (b.id === drag.id) continue;
+      const c = centerOf(b, rect);
+      const d = Math.hypot(c.x - px, c.y - py);
+      if (d < sizeOf(b) / 2 + 10 && d < best) { best = d; over = b.id; }
+    }
+    setDrag((prev) => {
+      if (!prev) return prev;
+      const trail = over !== null && !prev.trail.includes(over)
+        ? [...prev.trail, over].slice(-6)
+        : prev.trail;
+      return { ...prev, dx, dy, over, trail };
+    });
+  };
+
+  const onPointerUp = () => {
+    const d = drag;
+    grabRef.current = null;
+    setDrag(null);
+    if (!d) return;
+    const tap = Math.abs(d.dx) < 6 && Math.abs(d.dy) < 6;
+    if (tap) {
+      // тап-тап оставлен как альтернатива драгу: удобнее мышью на длинных полях
+      if (picked === null) setPicked(d.id);
+      else if (picked === d.id) setPicked(null);
+      else attempt(picked, d.id);
+      return;
+    }
+    const merged = d.over !== null && attempt(d.id, d.over);
+    if (!merged) {
+      // пузырь возвращается на своё место: поле за время драга не менялось
+      setSnap({ id: d.id, dx: d.dx, dy: d.dy });
+      requestAnimationFrame(() => requestAnimationFrame(() =>
+        setSnap((s) => (s && s.id === d.id ? { ...s, dx: 0, dy: 0 } : s))));
+      setTimeout(() => setSnap((s) => (s && s.id === d.id ? null : s)), 400);
+    }
   };
 
   const total = spec.categories.length;
   const solved = done.length;
+  const won = solved === total;
+  const lost = moves <= 0 && !won;
+  const iceLeft = state.board.filter((b) => b.ice > 0).length;
+  const hiddenLeft = state.board.filter((b) => b.hidden > 0).length;
+  const halvesLeft = state.board.filter((b) => b.kind === 'half').length
+    + state.queue.filter((b) => b.kind === 'half').length;
+  const modifierMeta = MODIFIERS.find((m) => m.id === modifier)!;
 
   return (
     <>
@@ -138,9 +330,11 @@ export function Playable({ level, levels, onSelect }: {
           <div>
             <h2>Играбельный прототип</h2>
             <p className="hint">
-              Имена категорий скрыты — их надо угадать. Тапните два пузыря, чтобы
-              объединить. Ошибка подсвечивается и хода не тратит. Собранная категория
-              остаётся на поле, если она входит в другую.
+              Имена категорий скрыты — их надо угадать. Тащите пузырь: по дороге
+              подсвечиваются те, над которыми он проходит, обведённый — точка
+              остановки. Неверный мердж подсвечивает цель красным, пузырь
+              возвращается на место, ход не тратится. Поле пересобирается только
+              после удачного мерджа.
             </p>
           </div>
           <div className="row">
@@ -149,14 +343,25 @@ export function Playable({ level, levels, onSelect }: {
                 className={`ghost ${l.spec.levelId === spec.levelId ? 'on' : ''}`}
                 onClick={() => onSelect(l.spec.levelId)}>{l.spec.levelId}</button>
             ))}
-            <button className="ghost" onClick={() => {
-              setState(bubblesOf(spec)); setMoves(spec.board.moveLimit ?? Infinity);
-              setDone([]); setPicked(null);
-            }}>Сброс</button>
+            <button className="ghost" onClick={reset}>Сброс</button>
             <button className={`ghost ${showDev ? 'on' : ''}`}
               onClick={() => setShowDev((v) => !v)}>Показать ответы</button>
           </div>
         </div>
+
+        <div className="row" style={{ marginTop: 12, alignItems: 'baseline' }}>
+          <span className="small muted">модификатор:</span>
+          {MODIFIERS.map((m) => (
+            <button key={m.id} className={`ghost ${modifier === m.id ? 'on' : ''}`}
+              onClick={() => setModifier(m.id)}>{m.label}</button>
+          ))}
+        </div>
+        <p className="hint" style={{ marginBottom: 0 }}>{modifierMeta.hint}</p>
+        {setup.notes.length > 0 && (
+          <ul className="small muted" style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+            {setup.notes.map((n) => <li key={n}>{n}</li>)}
+          </ul>
+        )}
       </div>
 
       <div className="panel">
@@ -166,63 +371,127 @@ export function Playable({ level, levels, onSelect }: {
             <span>{solved}/{total}</span>
             <span>в очереди {state.queue.length}</span>
           </div>
-          <div style={{ position: 'absolute', inset: '44px 0 0 0' }}>
+          <div className="board" ref={boardRef}>
+            {chain && (
+              <div className={`chain ${chainDown ? 'off' : ''}`} style={{ top: `${chain.y}%` }}>
+                <span className="chain-badge">
+                  {chainDown ? 'цепь снята' : `${Math.min(solved, chain.need)}/${chain.need}`}
+                </span>
+              </div>
+            )}
+
+            {/* траектория: откуда пузырь и где он сейчас */}
+            {drag && (() => {
+              const from = setup.slots[state.board.find((b) => b.id === drag.id)?.slot ?? 0];
+              const rect = boardRef.current?.getBoundingClientRect();
+              if (!rect) return null;
+              const x1 = (from.x / 100) * rect.width;
+              const y1 = (from.y / 100) * rect.height;
+              return (
+                <>
+                  <svg className="trace" width={rect.width} height={rect.height}>
+                    <line x1={x1} y1={y1} x2={x1 + drag.dx} y2={y1 + drag.dy} />
+                  </svg>
+                  <div className="slot-ghost" style={{ left: `${from.x}%`, top: `${from.y}%` }} />
+                </>
+              );
+            })()}
+
             {state.board.map((b) => {
-              const size = sizeFor(b.words);
-              const color = b.completedCategory
-                ? COLORS[3]
+              const slot = setup.slots[b.slot];
+              const size = sizeOf(b);
+              const dragged = drag?.id === b.id;
+              const snapping = snap?.id === b.id;
+              const offset = dragged ? drag! : snapping ? snap! : null;
+              const color = b.hidden > 0 ? HIDDEN_COLOR
+                : b.ice > 0 ? ICE_COLOR
+                : b.kind === 'half' ? HALF_COLOR
+                : b.completedCategory ? COLORS[3]
                 : COLORS[Math.min(b.words.length - 1, 2)];
+              const classes = ['bubble'];
+              if (picked === b.id) classes.push('picked');
+              if (dragged) classes.push('dragging');
+              if (snapping) classes.push('snapping');
+              if (drag?.over === b.id) classes.push('over');
+              else if (drag?.trail.includes(b.id)) classes.push('trail');
+              if (reject?.id === b.id) classes.push(reject.reason === 'wrong' ? 'bad' : 'blocked');
+              if (b.ice > 0) classes.push('iced');
+              if (b.hidden > 0) classes.push('veiled');
+              if (b.kind === 'half') classes.push('half');
               return (
                 <div
                   key={b.id}
-                  className={`bubble ${picked === b.id ? 'picked' : ''} ${bad === b.id ? 'bad' : ''}`}
+                  className={classes.join(' ')}
                   style={{
-                    left: `${b.x}%`, top: `${b.y}%`,
-                    width: size, height: size, marginLeft: -size / 2, marginTop: -size / 2,
+                    left: `${slot.x}%`, top: `${slot.y}%`,
+                    width: size, height: size,
+                    marginLeft: -size / 2, marginTop: -size / 2,
                     background: `radial-gradient(circle at 32% 28%, ${color}dd, ${color}88)`,
                     fontSize: b.words.length > 1 ? 8.5 : 10,
                     color: '#eaf4ff',
                     flexDirection: 'column',
-                    zIndex: b.words.length,
+                    transform: offset
+                      ? `translate(${offset.dx}px, ${offset.dy}px)${dragged ? ' scale(1.08)' : ''}`
+                      : undefined,
+                    zIndex: dragged ? 50 : snapping ? 40 : b.words.length,
                   }}
-                  onClick={() => tap(b.id)}
+                  onPointerDown={(e) => onPointerDown(e, b)}
+                  onPointerMove={onPointerMove}
+                  onPointerUp={onPointerUp}
+                  onPointerCancel={onPointerUp}
                 >
-                  {b.words.map((w) => (
-                    <div key={w} style={{ fontWeight: b.completedCategory ? 700 : 400 }}>
-                      {w}
-                    </div>
-                  ))}
+                  {b.hidden > 0 ? (
+                    <>
+                      <div style={{ fontSize: 18, fontWeight: 700 }}>?</div>
+                      <div className="counter">{b.hidden}</div>
+                    </>
+                  ) : (
+                    <>
+                      {b.words.map((w) => (
+                        <div key={w} style={{ fontWeight: b.completedCategory ? 700 : 400 }}>
+                          {b.kind === 'half' ? (b.pair!.side === 0 ? `${w}·` : `·${w}`) : w}
+                        </div>
+                      ))}
+                      {b.ice > 0 && <div className="counter">❄ {b.ice}</div>}
+                    </>
+                  )}
                 </div>
               );
             })}
           </div>
-          {solved === total && (
-            <div style={{ position: 'absolute', inset: 0, display: 'flex',
-              alignItems: 'center', justifyContent: 'center',
-              background: 'rgba(4,20,30,0.86)', flexDirection: 'column', gap: 6 }}>
+
+          {won && (
+            <div className="verdict ok">
               <strong style={{ fontSize: 18 }}>Уровень собран</strong>
               <span className="muted small">
                 {unlimited
                   ? 'лимита ходов нет: туториальный уровень'
-                  : `осталось ходов: ${moves} из ${spec.board.moveLimit}`}
+                  : `осталось ходов: ${moves} из ${setup.moveLimit}`}
               </span>
             </div>
           )}
-          {moves <= 0 && solved < total && (
-            <div style={{ position: 'absolute', inset: 0, display: 'flex',
-              alignItems: 'center', justifyContent: 'center',
-              background: 'rgba(30,6,6,0.86)', flexDirection: 'column', gap: 6 }}>
+          {lost && (
+            <div className="verdict fail">
               <strong style={{ fontSize: 18 }}>Ходы закончились</strong>
               <span className="muted small">собрано {solved} из {total}</span>
             </div>
           )}
         </div>
 
-        <div className="row" style={{ justifyContent: 'center', marginTop: 12 }}>
-          <span className="muted small">
-            собрано: {done.join(' · ') || '—'}
-          </span>
+        <div className="row" style={{ justifyContent: 'center', marginTop: 12, flexWrap: 'wrap' }}>
+          <span className="muted small">собрано: {done.join(' · ') || '—'}</span>
+          {modifier === 'halves' && (
+            <span className="muted small">· половинок на поле {halvesLeft}, склеек {glued}</span>
+          )}
+          {modifier === 'ice' && <span className="muted small">· под льдом {iceLeft}</span>}
+          {modifier === 'hidden' && <span className="muted small">· закрыто {hiddenLeft}</span>}
+          {chain && (
+            <span className="muted small">
+              · цепь {chainDown ? 'снята' : `держится (${solved}/${chain.need})`}
+            </span>
+          )}
         </div>
+        {rescue && <p className="hint" style={{ textAlign: 'center' }}>{rescue}</p>}
       </div>
 
       {showDev && (
@@ -242,6 +511,14 @@ export function Playable({ level, levels, onSelect }: {
             В квадратных скобках — мета-пузыри: они появляются на поле только после
             того, как игрок соберёт соответствующую категорию.
           </p>
+          {modifier === 'halves' && (
+            <p className="small muted">
+              Половинки:{' '}
+              {[...setup.board, ...setup.queue]
+                .filter((b) => b.kind === 'half' && b.pair!.side === 0)
+                .map((b) => b.pair!.whole).join(', ') || '—'}
+            </p>
+          )}
         </div>
       )}
     </>
