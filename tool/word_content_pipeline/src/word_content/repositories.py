@@ -316,6 +316,24 @@ def membership_exists(
     return row is not None
 
 
+def find_membership(
+    conn: sqlite3.Connection, normalized: str, category_key: str, sense_key: str | None = None
+) -> sqlite3.Row | None:
+    """Ищет связь по слову и категории — запасной путь, если membership_id уехал."""
+    sql = """
+        SELECT m.id, m.review_status FROM memberships m
+          JOIN words w ON w.id = m.word_id
+          JOIN categories c ON c.id = m.category_id
+          LEFT JOIN word_senses s ON s.id = m.sense_id
+         WHERE w.normalized = ? AND c.category_key = ?
+    """
+    params: list[Any] = [normalized, category_key]
+    if sense_key:
+        sql += " AND s.sense_key = ?"
+        params.append(sense_key)
+    return conn.execute(sql + " ORDER BY m.id LIMIT 1", params).fetchone()
+
+
 def set_review_status(
     conn: sqlite3.Connection, membership_id: int, decision: str, comment: str | None
 ) -> bool:
@@ -336,6 +354,7 @@ SELECT m.id                AS membership_id,
        w.text              AS word,
        w.normalized        AS normalized,
        w.language          AS language,
+       w.familiarity_score AS familiarity_score,
        s.sense_key         AS sense_key,
        s.definition        AS sense_definition,
        c.category_key      AS category_key,

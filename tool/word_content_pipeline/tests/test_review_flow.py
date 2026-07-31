@@ -49,11 +49,45 @@ def test_empty_decision_is_skipped(seeded, tmp_path: Path):
     assert (report.total, report.updated) == (0, 0)
 
 
-def test_unknown_membership_id_is_rejected(seeded, tmp_path: Path):
+def test_decision_survives_shifted_membership_id(seeded, tmp_path: Path):
+    """id зависит от порядка вставки; решение должно найтись по слову и категории."""
+    path = tmp_path / "review.csv"
+    export_review_csv(seeded, path, ["candidate"])
+    rows = _read_csv(path)
+    target = next(r for r in rows if r["category_key"] == "tech_companies")
+    target["membership_id"] = "4242"  # id уехал после пересборки базы
+    target["decision"] = "hard_only"
+    _write_csv(path, rows)
+
+    report = import_review_csv(seeded, path)
+    assert report.rejected == 0
+
+    row = next(
+        r for r in memberships_for_word(seeded, "apple") if r["category_key"] == "tech_companies"
+    )
+    assert row["review_status"] == "hard_only"
+
+
+def test_wrong_id_without_word_columns_is_rejected(seeded, tmp_path: Path):
+    """Если в CSV нет слова и категории, довериться нечему — строка отклоняется."""
+    path = tmp_path / "minimal.csv"
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["membership_id", "decision", "review_comment"])
+        writer.writeheader()
+        writer.writerow({"membership_id": "99999", "decision": "approved", "review_comment": ""})
+
+    report = import_review_csv(seeded, path)
+    assert report.rejected == 1
+
+
+def test_unknown_membership_is_rejected(seeded, tmp_path: Path):
+    """Ни id, ни пара слово+категория не находятся — строку отклоняем."""
     path = tmp_path / "review.csv"
     export_review_csv(seeded, path, ["candidate"])
     rows = _read_csv(path)
     rows[0]["membership_id"] = "99999"
+    rows[0]["normalized"] = "no_such_word"
+    rows[0]["category_key"] = "no_such_category"
     rows[0]["decision"] = "approved"
     _write_csv(path, rows)
 

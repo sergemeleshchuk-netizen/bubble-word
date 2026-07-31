@@ -15,6 +15,7 @@ from pydantic import ValidationError
 from .db import transaction
 from .models import CategoryInput, MembershipCandidateInput, ReviewDecisionInput
 from .repositories import (
+    find_membership,
     record_import_run,
     set_review_status,
     upsert_category,
@@ -28,6 +29,7 @@ REVIEW_CSV_COLUMNS = [
     "membership_id",
     "word",
     "normalized",
+    "familiarity",
     "sense_key",
     "sense_definition",
     "category_key",
@@ -266,6 +268,36 @@ def import_memberships(
 # ----------------------------------------------------------------------------- review
 
 
+def _resolve_membership_id(
+    conn: sqlite3.Connection, membership_id: int, row: dict[str, Any]
+) -> int | None:
+    """Проверяет, что id указывает на ту же связь; иначе ищет по слову и категории.
+
+    Нужно потому, что membership_id зависит от порядка вставки: после пересборки
+    базы из изменившегося JSONL старые id могут указывать на другие связи.
+    """
+    normalized = (row.get("normalized") or "").strip().lower()
+    category_key = (row.get("category_key") or "").strip()
+    if not normalized or not category_key:
+        return membership_id  # старый формат CSV — доверяем id
+
+    current = conn.execute(
+        """
+        SELECT w.normalized AS normalized, c.category_key AS category_key
+          FROM memberships m
+          JOIN words w ON w.id = m.word_id
+          JOIN categories c ON c.id = m.category_id
+         WHERE m.id = ?
+        """,
+        (membership_id,),
+    ).fetchone()
+    if current and current["normalized"] == normalized and current["category_key"] == category_key:
+        return membership_id
+
+    found = find_membership(conn, normalized, category_key, (row.get("sense_key") or "").strip() or None)
+    return int(found["id"]) if found else None
+
+
 def import_review_csv(conn: sqlite3.Connection, path: Path) -> ImportReport:
     """Читает CSV решений reviewer и обновляет review_status/review_comment."""
     if not path.exists():
@@ -293,7 +325,10 @@ def import_review_csv(conn: sqlite3.Connection, path: Path) -> ImportReport:
                 report.add_error(line_no, _format_validation_error(exc), json.dumps(row))
                 continue
 
-            if set_review_status(conn, item.membership_id, item.decision, item.review_comment):
+            membership_id = _resolve_membership_id(conn, item.membership_id, row)
+            if membership_id is not None and set_review_status(
+                conn, membership_id, item.decision, item.review_comment
+            ):
                 report.updated += 1
             else:
                 report.add_error(

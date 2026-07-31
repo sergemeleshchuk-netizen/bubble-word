@@ -4,13 +4,13 @@
 может принадлежать нескольким категориям и в разных значениях.
 
 ```
-APPLE -> FRUITS, PIE INGREDIENTS, THINGS WITH SEEDS, RED THINGS,
-         WORDS BEFORE "SAUCE"   (значение apple_fruit)
-      -> TECH COMPANIES         (значение apple_company)
-BANK  -> PLACES IN A TOWN, MONEY WORDS (bank_finance)
-      -> RIVER FEATURES                (bank_river)
-BAT   -> FLYING ANIMALS, NOCTURNAL ANIMALS (bat_animal)
-      -> BASEBALL EQUIPMENT, BASEBALL WORDS (bat_equipment)
+APPLE   -> FRUITS, PIE INGREDIENTS, THINGS WITH SEEDS, ___ SAUCE  (apple_fruit)
+        -> TECH COMPANIES                                        (apple_company)
+BANK    -> TOWN PLACES, MONEY WORDS                              (bank_finance)
+        -> RIVER FEATURES                                        (bank_river)
+MONITOR -> COMPUTER PARTS, SCREENS      (monitor_screen)
+        -> HOSPITAL THINGS, FIRST AID   (monitor_medical)
+        -> LIZARDS, REPTILES            (monitor_lizard)
 ```
 
 Хранится не только пара «слово — категория», но и **значение** слова, **тип связи**,
@@ -99,7 +99,7 @@ categories                     import_runs            generation_runs
 cd tool/word_content_pipeline
 python3.12 -m venv .venv
 .venv/bin/pip install -e ".[dev]"     # pydantic v2, typer, pytest, wordfreq
-.venv/bin/pytest -q                   # 88 тестов
+.venv/bin/pytest -q                   # 90 тестов
 ```
 
 `wordfreq` — необязательная зависимость (`pip install -e ".[freq]"`): она даёт
@@ -118,10 +118,14 @@ PYTHONPATH=src .venv/bin/python -m word_content.cli <команда> ...
 Сборка базы с нуля из seed-данных:
 
 ```bash
-word-content init-db --db database/content.sqlite
+word-content init-db            --db database/content.sqlite
 word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
 word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
+word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
 ```
+
+Последний шаг возвращает ручные решения по 4929 связям — без него всё, что было
+разобрано вручную, останется в статусе `candidate`.
 
 | Команда | Что делает |
 |---|---|
@@ -192,9 +196,27 @@ import-memberships  ->  export-review  ->  человек заполняет dec
 2. `export-review` выгружает их в CSV с пустыми колонками `decision` и `review_comment`.
 3. Reviewer заполняет `decision`: `approved`, `hard_only`, `rejected` или `candidate`
    (пустая ячейка = строка пропущена и не трогается). Образец заполнения — `data/review_example.csv`.
-4. `import-review` возвращает решения; неизвестные `membership_id` и решения перечисляются в отчёте.
+4. `import-review` возвращает решения; неизвестные связи и решения перечисляются в отчёте.
 5. Повторный импорт того же AI-кандидата **не сбрасывает** ручное решение обратно в `candidate`.
    Сбросить можно только явным флагом `--overwrite-review-status`.
+
+В CSV есть колонка `familiarity` (частотность слова, 0..1) — по ней сразу видно,
+не тащит ли кандидат редкое слово.
+
+**Решения хранятся отдельным слоем.** `data/review_decisions.csv` лежит в репозитории
+и применяется после импорта связей — иначе пересборка базы из JSONL стёрла бы всю
+ручную работу. Полная сборка базы это четыре шага:
+
+```bash
+word-content init-db            --db database/content.sqlite
+word-content import-categories  --db database/content.sqlite --input data/categories.jsonl
+word-content import-memberships --db database/content.sqlite --input data/membership_candidates.jsonl
+word-content import-review      --db database/content.sqlite --input data/review_decisions.csv
+```
+
+`membership_id` зависит от порядка вставки, поэтому после изменения JSONL старые id
+могут указывать на другие связи. Импорт решений это учитывает: если id не сходится
+со словом и категорией из той же строки, связь ищется по паре слово + категория.
 
 ## 7. fit_score и obviousness_score
 
@@ -339,9 +361,9 @@ apple, banana, orange, grape, peach, cherry, lemon, strawberry, pear, watermelon
 ```bash
 .venv/bin/python scripts/build_seed.py
 # категорий: 1092 в 58 темах
-# связей:    17555
-# слов:      10007 (в двух и более категориях: 3456)
-# approved:  12623
+# связей:    17550
+# слов:      10005 (в двух и более категориях: 3456)
+# approved:  12621
 # редких слов (zipf < 2.5): 1232 -> mukluk, chiffonade, marionberry, ...
 ```
 
@@ -354,8 +376,8 @@ apple, banana, orange, grape, peach, cherry, lemon, strawberry, pear, watermelon
 
 ```bash
 word-content coverage --db database/content.sqlite --target 25
-# Категорий: 1092 | слов: 10007 | в 2+ категориях: 3456 (34%)
-# До глубины 25 слов на категорию не хватает 9756 связей
+# Категорий: 1092 | слов: 10005 | в 2+ категориях: 3455 (34%)
+# До глубины 25 слов на категорию не хватает 9761 связей
 # ... таблица по темам и список самых тонких категорий
 ```
 
@@ -391,8 +413,8 @@ temple, star, moon, ring.
 | | было | стало | цель |
 |---|---|---|---|
 | категорий | 92 | **1092** | ~600 |
-| слов | 902 | **10 007** | ~10 000 |
-| связей | 1039 | **17 555** | ~15 000 |
+| слов | 902 | **10 005** | ~10 000 |
+| связей | 1039 | **17 550** | ~15 000 |
 | слов в 2+ категориях | 12% | **34%** | 30–40% |
 
 Порядок работы:
@@ -406,9 +428,36 @@ temple, star, moon, ring.
 4. **Чистка** — `stats` показывает редкие слова, `review-membership-candidates`
    даёт AI-критику, `export-review` выгружает спорное человеку.
 
-## 12. Ограничения текущей версии
+## 12. Состояние проверки контента
+
+Очередь ручной проверки разобрана полностью: `candidate` в базе не осталось.
+
+| статус | связей | что значит |
+|---|---|---|
+| `approved` | 12 897 | годится для любого уровня |
+| `hard_only` | 4 592 | связь верна, но неочевидна или слово редкое — только для сложных уровней |
+| `rejected` | 61 | слово практически не встречается в английском |
+
+Как принимались решения (правило проверяемое, а не «на глаз»):
+
+1. Слова из курируемого списка «редкое в текстах, но знает каждый» (colander,
+   jackhammer, unicycle) — `approved`, если сама категория очевидная.
+2. Частотность ниже 0.20 и не в списке — `rejected`: слова вроде `caecilian`,
+   `mudpuppy`, `taramasalata` средний игрок не узнает никогда.
+3. Всё остальное — `hard_only`. Сюда попали неочевидные категории целиком
+   (`RED THINGS`, `___ SAUCE`, `THINGS WITH SEEDS`): связи верные, но для лёгких
+   уровней не годятся.
+
+Результат: **1031 категория из 1092 имеет 12 и более пригодных слов**
+(`approved` + `hard_only`). Тонкими остались три, и они конечны по природе:
+`SEASONS` (5), `MOSS & LICHEN` (6), `AMPHIBIANS` (7).
+
+## 13. Ограничения текущей версии
 
 - Дедупликация значений — только по точному совпадению определения, без семантики.
+- Значения разведены у 59 слов-омонимов (149 значений). У остальных слов значение
+  не указано: для однозначных это нормально, но неразведённая многозначность
+  в базе наверняка ещё есть.
 - Частотность считается только при установленном `wordfreq`; она измеряет
   употребимость, а не узнаваемость, поэтому по умолчанию не отсекает слова.
 - Нет проверки, что слово реально существует в английском языке (нет словаря-оракула).
@@ -419,7 +468,7 @@ temple, star, moon, ring.
 - Нет связи с игровой базой `tool/data/categories.json` — по договорённости
   этот пайплайн пока живёт отдельно.
 
-## 13. Следующие шаги
+## 14. Следующие шаги
 
 1. AI candidate generator в боевом режиме (реальная модель вместо mock, батчи по каталогу).
 2. Reverse expansion по всем approved-словам — набрать пересечения для «ловушек».

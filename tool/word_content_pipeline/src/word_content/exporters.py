@@ -28,6 +28,9 @@ def export_review_csv(
                     "membership_id": row["membership_id"],
                     "word": row["word"],
                     "normalized": row["normalized"],
+                    "familiarity": row["familiarity_score"]
+                    if row["familiarity_score"] is not None
+                    else "",
                     "sense_key": row["sense_key"] or "",
                     "sense_definition": row["sense_definition"] or "",
                     "category_key": row["category_key"],

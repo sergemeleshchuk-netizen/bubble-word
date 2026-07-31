@@ -9,7 +9,7 @@ kitchen_jobs | KITCHEN JOBS | is_a | 0.3 | 0.8 | A | Jobs held by people who wor
 chef, cook, baker, butcher, dishwasher, waiter, host, barista, sous chef, line cook, busser, bartender, pastry chef, server, caterer, prep cook, food runner, sommelier
 
 school_jobs | SCHOOL JOBS | is_a | 0.25 | 0.85 | A | Jobs held by adults who work at a school | $W is a job held by an adult working at a school
-teacher, principal, janitor, coach, librarian, counselor, tutor, bus driver, secretary, aide, nurse, professor, dean, custodian, lunch lady, registrar, substitute, monitor
+teacher, principal, janitor, coach, librarian, counselor, tutor, bus driver, secretary, aide, nurse, professor, dean, custodian, lunch lady, registrar, substitute, crossing guard
 
 building_trades | BUILDING TRADES | is_a | 0.25 | 0.85 | A | Skilled trades that build and repair buildings | $W is a skilled building trade
 carpenter, plumber, electrician, mason, roofer, painter, welder, glazier, tiler, drywaller, contractor, surveyor, bricklayer, foreman, laborer, plasterer, framer, installer
