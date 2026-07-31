@@ -33,13 +33,24 @@ const snapshot = JSON.parse(
 const scoring = JSON.parse(
   readFileSync(join(ROOT, 'web/src/data/scoring.config.json'), 'utf8')) as ScoringConfig;
 
+// Режим проверки на копирование референса. По умолчанию off: пока своя база не
+// наполнена, очевидные четвёрки совпадают с чужими сами собой. Включается флагом
+// --novelty soft|hard, когда сравнивать станет осмысленно.
+const noveltyArg = (process.argv.indexOf('--novelty') >= 0
+  ? process.argv[process.argv.indexOf('--novelty') + 1] : 'off') as 'off' | 'soft' | 'hard';
+if (!['off', 'soft', 'hard'].includes(noveltyArg)) {
+  throw new Error(`--novelty ждёт off|soft|hard, получено «${noveltyArg}»`);
+}
+
 let referenceQuadrupleHashes: Set<string> | undefined;
-try {
-  const raw = JSON.parse(readFileSync(
-    join(ROOT, 'data/reference-derived/reference-quadruple-hashes.json'), 'utf8'));
-  referenceQuadrupleHashes = new Set<string>(raw.hashes);
-} catch {
-  referenceQuadrupleHashes = undefined;
+if (noveltyArg !== 'off') {
+  try {
+    const raw = JSON.parse(readFileSync(
+      join(ROOT, 'data/reference-derived/reference-quadruple-hashes.json'), 'utf8'));
+    referenceQuadrupleHashes = new Set<string>(raw.hashes);
+  } catch {
+    referenceQuadrupleHashes = undefined;
+  }
 }
 
 const rangeArg = arg('range');
@@ -55,7 +66,9 @@ if (rangeArg) {
 
 const rhythm = checkBlockRhythm(buildBlockPlan(config));
 const started = Date.now();
-const result = generateBlock({ snapshot, config, scoring, referenceQuadrupleHashes });
+const result = generateBlock({
+  snapshot, config, scoring, referenceQuadrupleHashes, referenceNovelty: noveltyArg,
+});
 const elapsed = Date.now() - started;
 
 console.log(`снимок базы   ${snapshot.content_snapshot_hash.slice(0, 16)}…`);

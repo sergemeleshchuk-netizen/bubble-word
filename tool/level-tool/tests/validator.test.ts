@@ -179,12 +179,37 @@ test('фрагмент половинки совпадает со словом �
   assertFailsWith(spec, 'HALF_COLLISION');
 });
 
-test('уровень копирует четвёрку референса → REFERENCE_NOVELTY', () => {
+test('копия четвёрки референса по умолчанию НЕ браковывается', () => {
+  // referenceNovelty по умолчанию off: пока своя база не наполнена, очевидные
+  // четвёрки совпадают с чужими сами собой, и это не повод отклонять уровень.
   const spec = validLevel();
   const copied = hashQuadruple(spec.categories[0].words.map((w) => w.text));
   const result = checkOf(spec, { referenceQuadrupleHashes: new Set([copied]) });
-  assert.ok(result.issues.some((i) => i.code === 'REFERENCE_NOVELTY'),
-    `упали: ${result.issues.map((i) => i.code).join(', ')}`);
+  assert.ok(!result.issues.some((i) => i.code === 'REFERENCE_NOVELTY'),
+    `не должно быть замечания: ${result.issues.map((i) => i.code).join(', ')}`);
+  assert.ok(result.passed, 'уровень должен проходить');
+});
+
+test('referenceNovelty=soft: копия отмечается, но уровень проходит', () => {
+  const spec = validLevel();
+  const copied = hashQuadruple(spec.categories[0].words.map((w) => w.text));
+  const result = checkOf(spec, {
+    referenceQuadrupleHashes: new Set([copied]), referenceNovelty: 'soft' });
+  const issue = result.issues.find((i) => i.code === 'REFERENCE_NOVELTY');
+  assert.ok(issue, `ждали замечание: ${result.issues.map((i) => i.code).join(', ')}`);
+  assert.equal(issue?.severity, 'soft');
+  assert.ok(result.passed, 'soft не должен браковать уровень');
+});
+
+test('referenceNovelty=hard: копия четвёрки референса браковывает уровень', () => {
+  const spec = validLevel();
+  const copied = hashQuadruple(spec.categories[0].words.map((w) => w.text));
+  const result = checkOf(spec, {
+    referenceQuadrupleHashes: new Set([copied]), referenceNovelty: 'hard' });
+  const issue = result.issues.find((i) => i.code === 'REFERENCE_NOVELTY');
+  assert.ok(issue, `ждали замечание: ${result.issues.map((i) => i.code).join(', ')}`);
+  assert.equal(issue?.severity, 'hard');
+  assert.ok(!result.passed, 'hard должен браковать уровень');
 });
 
 test('связь не в статусе approved → APPROVED_CONTENT_ONLY', () => {

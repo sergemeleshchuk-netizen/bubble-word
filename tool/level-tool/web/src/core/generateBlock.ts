@@ -26,6 +26,8 @@ export interface BlockGenerationOptions {
   scoring: ScoringConfig;
   /** хеши четвёрок референса для проверки novelty */
   referenceQuadrupleHashes?: Set<string>;
+  /** режим проверки на копирование референса; по умолчанию off (см. validator.ts) */
+  referenceNovelty?: 'off' | 'soft' | 'hard';
   /** эмпирика прогонов слепого решателя, по номеру уровня */
   solverEvidence?: Map<number, SemanticEvidence & InterestEvidence>;
   history?: PackHistory;
@@ -127,6 +129,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
         categoryWindow: config.categoryFreshnessWindow,
       },
       referenceQuadrupleHashes: options.referenceQuadrupleHashes,
+      referenceNovelty: options.referenceNovelty,
       hashQuadruple,
       maxMetaDepth: config.maxMetaDepth,
       decadeGates: config.decadeGates,

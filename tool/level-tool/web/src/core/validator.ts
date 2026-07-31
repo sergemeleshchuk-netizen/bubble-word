@@ -24,6 +24,21 @@ export interface ValidationContext {
   };
   /** хеши четвёрок референса: проверка, что уровень не копия чужого контента */
   referenceQuadrupleHashes?: Set<string>;
+  /**
+   * Режим проверки на копирование референса.
+   *
+   *   off  — не проверяем (ЗНАЧЕНИЕ ПО УМОЛЧАНИЮ)
+   *   soft — сообщаем, но уровень не браковываем
+   *   hard — уровень с четвёркой референса не проходит
+   *
+   * Раньше проверка была жёстко hard и включалась сама, стоило файлу с хешами
+   * оказаться на диске. Пока своя база не наполнена, это мешает: почти любая
+   * очевидная четвёрка вроде «красный, синий, зелёный, жёлтый» совпадает с чужой
+   * не потому, что её списали, а потому что она одна такая. Вернём в hard, когда
+   * база будет полной, — либо когда рядом появится отдельная база референсов и
+   * сравнивать будет с чем осмысленно.
+   */
+  referenceNovelty?: 'off' | 'soft' | 'hard';
   /** максимальная разрешённая глубина мета */
   maxMetaDepth?: number;
   /** хеш-функция для novelty (передаётся, чтобы модуль не зависел от порядка импортов) */
@@ -51,6 +66,13 @@ function percentile(sorted: number[], p: number): number {
 interface Check {
   code: string;
   severity: Severity;
+  /**
+   * Строгость, зависящая от контекста. Нужна там, где проверку можно ослабить
+   * параметром: объявленная severity остаётся максимальной, а фактическая
+   * считается на прогоне. Hard-инварианты своей severityOf не имеют — их
+   * ослабить нельзя по определению.
+   */
+  severityOf?: (ctx: ValidationContext) => Severity;
   run: (spec: LevelSpec, ctx: ValidationContext) => { passed: boolean; detail: string;
     entities?: string[]; suggestion?: string };
 }
@@ -453,8 +475,14 @@ const CHECKS: Check[] = [
   },
   {
     code: 'REFERENCE_NOVELTY',
-    severity: 'hard',
+    severity: 'soft',
+    severityOf: (ctx) => (ctx.referenceNovelty === 'hard' ? 'hard' : 'soft'),
     run: (spec, ctx) => {
+      // По умолчанию выключено: см. ValidationContext.referenceNovelty.
+      const mode = ctx.referenceNovelty ?? 'off';
+      if (mode === 'off') {
+        return { passed: true, detail: 'проверка на копирование референса выключена (referenceNovelty=off)' };
+      }
       if (!ctx.referenceQuadrupleHashes || !ctx.hashQuadruple) {
         return { passed: true, detail: 'хеши четвёрок референса не переданы: проверка пропущена' };
       }
@@ -670,12 +698,13 @@ export function validateLevel(spec: LevelSpec, ctx: ValidationContext): Validati
 
   for (const check of CHECKS) {
     const result = check.run(spec, ctx);
+    const severity = check.severityOf ? check.severityOf(ctx) : check.severity;
     checks.push({ code: check.code, passed: result.passed,
-      severity: check.severity, detail: result.detail });
+      severity, detail: result.detail });
     if (!result.passed) {
       issues.push({
         code: check.code,
-        severity: check.severity,
+        severity,
         message: result.detail,
         entities: result.entities ?? [],
         suggestion: result.suggestion,
