@@ -121,6 +121,33 @@
     .steps li{flex-wrap:wrap;}
     .s-tool{order:3;margin:10px 0 0 46px;}
   }
+  /* work map table inside 01 */
+  .wmap-intro{
+    max-width:1020px;font-size:14px;font-weight:500;line-height:1.6;
+    color:var(--ink-soft);margin:2px 0 16px;
+  }
+  .wmap-intro b{color:var(--ink);font-weight:600;}
+  .wmap-wrap{overflow-x:auto;max-width:1160px;padding-bottom:4px;}
+  .wmap{
+    width:100%;min-width:760px;border-collapse:collapse;
+    font-size:14px;font-weight:500;line-height:1.5;color:var(--ink-soft);
+  }
+  .wmap th{
+    text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--violet);
+    padding:0 22px 11px 0;border-bottom:1px solid var(--line);
+  }
+  .wmap td{padding:14px 22px 14px 0;border-bottom:1px dashed var(--line);vertical-align:top;}
+  .wmap tr:last-child td{border-bottom:none;}
+  .wmap th:last-child,.wmap td:last-child{padding-right:0;}
+  .wmap .w-stage{color:var(--ink);font-weight:600;width:1%;white-space:nowrap;}
+  .wmap .w-stage span{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:6px;margin-right:9px;
+    background:var(--chip);color:var(--violet);
+    font-size:11px;font-weight:700;vertical-align:middle;
+  }
+  .wmap .w-res{color:var(--ink);font-weight:600;}
   .soon{font-size:14px;font-weight:500;color:var(--ink-soft);}
 
   /* GDD content inside 03 */
@@ -316,6 +343,66 @@
       <div class="row">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
           <span class="row-num">01</span>
+          <span class="row-label">Work Map</span>
+          <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <div class="row-body"><div class="row-body-inner">
+          <p class="wmap-intro"><b>Карта работы.</b> Порядок этапов и главный результат каждого:
+          что должно быть готово, прежде чем имеет смысл браться за следующий шаг.</p>
+          <div class="wmap-wrap">
+            <table class="wmap">
+              <thead>
+                <tr>
+                  <th>Этап</th>
+                  <th>Главный результат</th>
+                  <th>Почему он важнее следующего</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="w-stage"><span>1</span>Проверка целевой игры</td>
+                  <td class="w-res">формальная модель механики</td>
+                  <td>без неё нельзя честно проверять тупики и ходы</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>2</span>Аудит данных и спеки</td>
+                  <td class="w-res">исправленная основа</td>
+                  <td>иначе ошибки попадут в код и UI</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>3</span>Контентный snapshot</td>
+                  <td class="w-res">достаточно approved-контента</td>
+                  <td>без него generator будет постоянно не сходиться</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>4</span>Generator + validator</td>
+                  <td class="w-res">работающий детерминированный core</td>
+                  <td>это центральная техническая ценность</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>5</span>D/I + semantic audit</td>
+                  <td class="w-res">объяснимое продуктовое качество</td>
+                  <td>это центральная ценность для level design</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>6</span>Hosted UI + playable</td>
+                  <td class="w-res">видимый рабочий продукт</td>
+                  <td>именно это проверяющий сможет оценить руками</td>
+                </tr>
+                <tr>
+                  <td class="w-stage"><span>7</span>Final pack + reports</td>
+                  <td class="w-res">доказательство завершённости</td>
+                  <td>превращает прототип в отличный результат задания</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="row">
+        <button class="row-head" aria-expanded="false" onclick="toggle(this)">
+          <span class="row-num">02</span>
           <span class="row-label">Research</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
@@ -403,7 +490,7 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 
       <div class="row">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
-          <span class="row-num">02</span>
+          <span class="row-num">03</span>
           <span class="row-label">Prompting</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
@@ -412,7 +499,7 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 
       <div class="row">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
-          <span class="row-num">03</span>
+          <span class="row-num">04</span>
           <span class="row-label">GDD Readme MD</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
@@ -612,7 +699,7 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 
       <div class="row">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
-          <span class="row-num">04</span>
+          <span class="row-num">05</span>
           <span class="row-label">Build Playable</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
@@ -663,7 +750,7 @@ solver that must reproduce the intended grouping without seeing answers.</div>
 
       <div class="row">
         <button class="row-head" aria-expanded="false" onclick="toggle(this)">
-          <span class="row-num">05</span>
+          <span class="row-num">06</span>
           <span class="row-label">Level Design Tool</span>
           <span class="row-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </button>
