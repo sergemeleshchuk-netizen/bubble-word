@@ -28,6 +28,7 @@ import sqlite3
 from dataclasses import dataclass, replace
 from itertools import combinations
 
+from . import scoring
 from .readiness import NORMAL_READY, NORMAL_STATUSES, QUARTET_SIZE
 from .solver import category_pools, quartet_locally_unique
 
@@ -103,24 +104,6 @@ def _pool_rows(conn: sqlite3.Connection, category_key: str) -> list[sqlite3.Row]
     )
 
 
-def _foreign_pressure(
-    pools: dict[str, set[str]], category_key: str, words: tuple[str, ...]
-) -> float:
-    """Доля слов четвёрки, которые встречаются ещё хотя бы в одной категории.
-
-    Это и есть управляемая двусмысленность: слово тянет игрока в сторону, но
-    дом у него здесь один. Ноль — четвёрка без соблазна, единица — каждое слово
-    спорно.
-    """
-    hits = 0
-    for word in words:
-        if any(
-            other_key != category_key and word in pool for other_key, pool in pools.items()
-        ):
-            hits += 1
-    return hits / len(words)
-
-
 def build(
     conn: sqlite3.Connection,
     *,
@@ -129,6 +112,7 @@ def build(
 ) -> tuple[list[QuartetCandidate], dict[str, int]]:
     """Собирает четвёрки по готовым категориям. Возвращает (кандидаты, статистика)."""
     pools = category_pools(conn)  # включая hard_only: чужая категория опасна любая
+    scoring_config = scoring.load_config()
     placeholders = ",".join("?" for _ in NORMAL_READY)
     sql = f"SELECT category_key FROM categories WHERE readiness IN ({placeholders})"
     params: list[object] = list(NORMAL_READY)
@@ -180,11 +164,13 @@ def build(
                         round(sum(difficulties) / len(difficulties), 3) if difficulties else None
                     ),
                     note=result.reason,
-                    cohesion_score=round(sum(m["fit"] for m in members) / len(members), 3),
+                    cohesion_score=scoring.cohesion(
+                        [m["fit"] for m in members], scoring_config
+                    ).rounded(),
                     familiarity_score=(
                         round(sum(familiarity) / len(familiarity), 3) if familiarity else 0.0
                     ),
-                    ambiguity_pressure=round(_foreign_pressure(pools, category_key, group), 3),
+                    ambiguity_pressure=scoring.foreign_pressure(pools, category_key, group),
                     anchor_count=sum(1 for value in familiarity if value >= ANCHOR_FAMILIARITY),
                     risk_state="flagged" if any(m["risk_flags"] for m in members) else "clear",
                     intended_relation=members[0]["relation_type"],

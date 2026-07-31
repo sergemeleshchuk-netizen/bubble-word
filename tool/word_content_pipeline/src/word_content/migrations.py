@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from .db import utc_now
 
 # Текущая целевая версия схемы: номер последнего шага в MIGRATIONS.
-TARGET_VERSION = 4
+TARGET_VERSION = 5
 
 
 @dataclass(frozen=True)
@@ -509,6 +509,104 @@ CREATE VIEW IF NOT EXISTS v_membership_eligibility AS
 """
 
 
+# --------------------------------------------------------------------------- 005
+
+
+def _migrate_005_quality_scores(conn: sqlite3.Connection) -> list[str]:
+    """Рейтинги качества: параметры слова, названия категории и четвёрки.
+
+    Слово и название получают собственные таблицы производных значений, а не
+    колонки в `words` и `categories`. Причина простая: это кэш, целиком
+    пересчитываемый командой `score-*`. Лежи он рядом с источником правды —
+    его начали бы править руками, и через месяц было бы непонятно, какая
+    цифра посчитана, а какая написана.
+
+    У четвёрки, наоборот, три нужных поля уже есть (`cohesion_score`,
+    `familiarity_score`, `ambiguity_pressure`), поэтому недостающие
+    добавляются рядом, а не заводится вторая таблица с теми же смыслами.
+    Сопоставление целиком — `docs/scoring_mapping.md`.
+    """
+    changes: list[str] = []
+
+    if not _table_exists(conn, "word_scores"):
+        conn.executescript(_SQL_005)
+        changes.append("созданы: word_scores, category_label_scores")
+
+    for column, definition in (
+        ("min_word_familiarity", "REAL NULL"),
+        ("avg_word_accessibility", "REAL NULL"),
+        ("min_word_accessibility", "REAL NULL"),
+        ("avg_word_length", "REAL NULL"),
+        ("max_word_length", "INTEGER NULL"),
+        ("quartet_clarity_score", "REAL NULL"),
+        ("quartet_novelty_score", "REAL NULL"),
+        ("quartet_interest_score", "REAL NULL"),
+        ("quartet_quality_score", "REAL NULL"),
+        ("label_quality_score", "REAL NULL"),
+        ("scoring_version", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "quartets", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    return changes
+
+
+_SQL_005 = """
+-- Метрики одной игровой надписи. Единица — не слово, а display form:
+-- `rose` (цветок) и `Rose` (имя) живут в одной строке words, но выглядят
+-- по-разному и имеют разную знакомость.
+--
+-- Таблица целиком производная: DELETE + пересчёт командой score-words.
+CREATE TABLE IF NOT EXISTS word_scores (
+    id                        INTEGER PRIMARY KEY,
+    word_id                   INTEGER NOT NULL REFERENCES words (id) ON DELETE CASCADE,
+    sense_id                  INTEGER NULL REFERENCES word_senses (id) ON DELETE CASCADE,
+    display_text              TEXT    NOT NULL,
+    char_count                INTEGER NOT NULL,
+    token_count               INTEGER NOT NULL,
+    display_width_score       REAL    NOT NULL,
+    spelling_difficulty_score REAL    NOT NULL,
+    ambiguity_score           REAL    NOT NULL,
+    novelty_score             REAL    NOT NULL,
+    accessibility_score       REAL    NOT NULL,
+    word_quality_score        REAL    NOT NULL,
+    scoring_version           TEXT    NOT NULL,
+    updated_at                TEXT    NOT NULL
+);
+
+-- sense_id NULL в UNIQUE не сравнивается, поэтому ключ через COALESCE.
+CREATE UNIQUE INDEX IF NOT EXISTS ux_word_scores
+    ON word_scores (word_id, COALESCE(sense_id, 0));
+
+-- Качество игровой формулировки категории. Тоже производная таблица.
+CREATE TABLE IF NOT EXISTS category_label_scores (
+    id                        INTEGER PRIMARY KEY,
+    category_id               INTEGER NOT NULL UNIQUE
+                                      REFERENCES categories (id) ON DELETE CASCADE,
+    label_char_count          INTEGER NOT NULL,
+    label_token_count         INTEGER NOT NULL,
+    label_display_width_score REAL    NOT NULL,
+    label_familiarity_score   REAL    NOT NULL,
+    label_naturalness_score   REAL    NOT NULL,
+    label_clarity_score       REAL    NOT NULL,
+    label_specificity_score   REAL    NOT NULL,
+    label_novelty_score       REAL    NOT NULL,
+    label_quality_score       REAL    NOT NULL,
+    scoring_version           TEXT    NOT NULL,
+    updated_at                TEXT    NOT NULL
+);
+
+-- Витрина для генератора и экспорта: слово, надпись и все её метрики разом.
+CREATE VIEW IF NOT EXISTS v_word_display_metrics AS
+    SELECT ws.word_id, ws.sense_id, ws.display_text, ws.char_count, ws.token_count,
+           w.normalized, w.familiarity_score, ws.accessibility_score,
+           ws.novelty_score, ws.ambiguity_score, ws.display_width_score,
+           ws.word_quality_score, ws.scoring_version
+      FROM word_scores ws JOIN words w ON w.id = ws.word_id;
+"""
+
+
 MIGRATIONS: tuple[Migration, ...] = (
     Migration(
         version=3,
@@ -521,6 +619,12 @@ MIGRATIONS: tuple[Migration, ...] = (
         name="content_model",
         description="concept/variant/alias, полная модель четвёрки, структуры, уровень как сущность",
         apply=_migrate_004_content_model,
+    ),
+    Migration(
+        version=5,
+        name="quality_scores",
+        description="метрики слова, названия категории и четвёрки для управляемой генерации",
+        apply=_migrate_005_quality_scores,
     ),
 )
 

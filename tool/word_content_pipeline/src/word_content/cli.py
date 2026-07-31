@@ -26,8 +26,11 @@ from . import (
     level_review,
     level_solver,
     migrations,
+    normalization,
+    profiles,
     quartet_builder,
     readiness,
+    scoring,
     sense_gaps,
     solver,
     structured,
@@ -940,6 +943,337 @@ def cmd_solve_level(
         raise typer.Exit(code=1)
 
 
+ScoringConfigOption = Annotated[
+    Path | None, typer.Option("--config", help="Конфиг формул (по умолчанию data/content/)")
+]
+ScoringVersionOption = Annotated[
+    str | None,
+    typer.Option("--scoring-version", help="Записать эту версию формул вместо конфиговой"),
+]
+DryRunOption = Annotated[bool, typer.Option("--dry-run", help="Не сохранять в базу")]
+
+
+def _scoring_config(config: Path | None, version: str | None, keys: tuple[str, ...]) -> dict:
+    try:
+        values = scoring.load_config(config)
+    except scoring.flat_config.ConfigError as exc:
+        _fail(str(exc))
+        raise
+    if version:
+        try:
+            for key in keys:
+                values[key] = float(version)
+        except ValueError:
+            _fail(f"--scoring-version должен быть числом, получено {version!r}")
+    return values
+
+
+def _run_scoring(
+    db: Path,
+    config: Path | None,
+    version: str | None,
+    dry_run: bool,
+    output: Path | None,
+    steps: tuple[str, ...],
+) -> None:
+    """Общий запуск любого набора шагов пересчёта: один код на четыре команды."""
+    keys = {
+        "words": ("word_scoring_version",),
+        "labels": ("label_scoring_version",),
+        "quartets": ("quartet_scoring_version",),
+    }
+    values = _scoring_config(config, version, tuple(k for s in steps for k in keys[s]))
+    conn = _open(db)
+    summary: dict[str, Any] = {}
+    try:
+        # Порядок обязателен: агрегаты четвёрки считаются из свежих оценок
+        # слов и названий, иначе получится смесь двух версий формул.
+        with conn:
+            if "words" in steps:
+                _count, stats = scoring.score_words(conn, values)
+                summary["слова"] = stats
+            if "labels" in steps:
+                _count, stats = scoring.score_labels(conn, values)
+                summary["названия"] = stats
+            if "quartets" in steps:
+                _count, stats = scoring.score_quartets(conn, values)
+                summary["четвёрки"] = stats
+            if dry_run:
+                conn.rollback()
+    finally:
+        conn.close()
+
+    for section, stats in summary.items():
+        typer.echo(f"{section}:")
+        for key, value in stats.items():
+            typer.echo(f"    {key}: {value}")
+    if dry_run:
+        typer.secho("--dry-run: в базу ничего не записано", fg=typer.colors.YELLOW)
+    if output:
+        baseline.write_json(output, summary)
+        typer.echo(f"JSON: {output}")
+
+
+@app.command("score-words")
+def cmd_score_words(
+    db: DbOption,
+    config: ScoringConfigOption = None,
+    scoring_version: ScoringVersionOption = None,
+    dry_run: DryRunOption = False,
+    output: Annotated[Path | None, typer.Option("--output", help="Сводка в JSON")] = None,
+) -> None:
+    """Пересчитывает метрики слов: длина, вместимость, знакомость, новизна, доступность."""
+    _run_scoring(db, config, scoring_version, dry_run, output, ("words",))
+
+
+@app.command("score-labels")
+def cmd_score_labels(
+    db: DbOption,
+    config: ScoringConfigOption = None,
+    scoring_version: ScoringVersionOption = None,
+    dry_run: DryRunOption = False,
+    output: Annotated[Path | None, typer.Option("--output", help="Сводка в JSON")] = None,
+) -> None:
+    """Пересчитывает качество названий категорий."""
+    _run_scoring(db, config, scoring_version, dry_run, output, ("labels",))
+
+
+@app.command("score-quartets")
+def cmd_score_quartets(
+    db: DbOption,
+    config: ScoringConfigOption = None,
+    scoring_version: ScoringVersionOption = None,
+    dry_run: DryRunOption = False,
+    output: Annotated[Path | None, typer.Option("--output", help="Сводка в JSON")] = None,
+) -> None:
+    """Пересчитывает агрегаты четвёрок из текущих оценок слов и названий."""
+    _run_scoring(db, config, scoring_version, dry_run, output, ("quartets",))
+
+
+@app.command("score-all")
+def cmd_score_all(
+    db: DbOption,
+    config: ScoringConfigOption = None,
+    scoring_version: ScoringVersionOption = None,
+    dry_run: DryRunOption = False,
+    output: Annotated[Path | None, typer.Option("--output", help="Сводка в JSON")] = None,
+) -> None:
+    """Полный пересчёт рейтингов: слова, названия, четвёрки — в этом порядке."""
+    _run_scoring(db, config, scoring_version, dry_run, output, ("words", "labels", "quartets"))
+
+
+def _explain_table(title: str, total: float, parts: dict[str, float]) -> None:
+    typer.echo(f"{title}: {round(total, 4)}")
+    _print_table(
+        ["компонент", "вклад"],
+        [[name, f"{value:+.4f}"] for name, value in parts.items()],
+    )
+
+
+@app.command("explain-word-score")
+def cmd_explain_word_score(
+    db: DbOption,
+    word: Annotated[str, typer.Option("--word", help="Слово в любом написании")],
+    config: ScoringConfigOption = None,
+) -> None:
+    """Разбирает оценку слова по компонентам, а не показывает одно число."""
+    values = _scoring_config(config, None, ())
+    conn = _open(db)
+    try:
+        rows = list(
+            conn.execute(
+                """
+                SELECT ws.*, w.normalized AS normalized, w.familiarity_score AS familiarity,
+                       s.sense_key AS sense_key, s.definition AS definition
+                  FROM word_scores ws
+                  JOIN words w ON w.id = ws.word_id
+                  LEFT JOIN word_senses s ON s.id = ws.sense_id
+                 WHERE w.normalized = ?
+                 ORDER BY ws.sense_id
+                """,
+                (normalization.normalize_word(word),),
+            )
+        )
+    finally:
+        conn.close()
+
+    if not rows:
+        _fail(f"Оценок для {word!r} нет. Сначала выполните: score-words --db …")
+    for row in rows:
+        header = row["display_text"] + (f" ({row['sense_key']})" if row["sense_key"] else "")
+        typer.secho(f"\n{header}", fg=typer.colors.CYAN)
+        if row["definition"]:
+            typer.echo(f"  значение: {row['definition']}")
+        typer.echo(
+            f"  символов {row['char_count']}, слов {row['token_count']}, "
+            f"версия формул {row['scoring_version']}"
+        )
+        familiarity = row["familiarity"]
+        typer.echo(
+            "  знакомость: "
+            + ("неизвестна" if familiarity is None else f"{familiarity:.4f}")
+        )
+        access = scoring.accessibility(
+            familiarity=familiarity,
+            display_width_score=row["display_width_score"],
+            char_count=row["char_count"],
+            spelling_difficulty_score=row["spelling_difficulty_score"],
+            config=values,
+        )
+        _explain_table("  доступность", access.score, access.parts)
+        typer.echo(
+            f"  новизна {row['novelty_score']}, неоднозначность {row['ambiguity_score']}, "
+            f"сложность написания {row['spelling_difficulty_score']}, "
+            f"вместимость {row['display_width_score']}"
+        )
+        typer.echo(f"  общий рейтинг слова: {row['word_quality_score']}")
+
+
+@app.command("explain-label-score")
+def cmd_explain_label_score(
+    db: DbOption,
+    category: Annotated[str, typer.Option("--category", help="category_key")],
+    config: ScoringConfigOption = None,
+) -> None:
+    """Разбирает оценку названия категории по компонентам."""
+    values = _scoring_config(config, None, ())
+    conn = _open(db)
+    try:
+        row = conn.execute(
+            """
+            SELECT ls.*, c.label AS label, c.category_key AS category_key,
+                   (SELECT COUNT(*) FROM memberships m
+                     WHERE m.category_id = c.id
+                       AND m.review_status IN ('approved','alternative','hard_only')) AS pool
+              FROM category_label_scores ls
+              JOIN categories c ON c.id = ls.category_id
+             WHERE c.category_key = ?
+            """,
+            (category,),
+        ).fetchone()
+    finally:
+        conn.close()
+
+    if row is None:
+        _fail(f"Оценок для категории {category!r} нет. Сначала выполните: score-labels --db …")
+    typer.secho(f"\n{row['label']} ({row['category_key']})", fg=typer.colors.CYAN)
+    typer.echo(
+        f"  символов {row['label_char_count']}, слов {row['label_token_count']}, "
+        f"пул {row['pool']}, версия формул {row['scoring_version']}"
+    )
+    for title, explained in (
+        ("  естественность", scoring.label_naturalness(row["label"])),
+        ("  ясность", scoring.label_clarity(row["label"])),
+        ("  конкретность", scoring.label_specificity(row["label"], int(row["pool"]))),
+    ):
+        _explain_table(title, explained.score, explained.parts)
+    quality = scoring.label_quality(
+        naturalness=row["label_naturalness_score"],
+        clarity=row["label_clarity_score"],
+        specificity=row["label_specificity_score"],
+        display_width_score=row["label_display_width_score"],
+        familiarity=row["label_familiarity_score"],
+        config=values,
+    )
+    _explain_table("  итог качества названия", quality.score, quality.parts)
+
+
+@app.command("explain-quartet-score")
+def cmd_explain_quartet_score(
+    db: DbOption,
+    quartet: Annotated[
+        str, typer.Option("--quartet-id", help="quartet_key или числовой id")
+    ],
+    config: ScoringConfigOption = None,
+) -> None:
+    """Разбирает оценку четвёрки: связность, ясность, интересность, качество."""
+    values = _scoring_config(config, None, ())
+    conn = _open(db)
+    try:
+        row = conn.execute(
+            "SELECT q.*, c.category_key AS category_key, c.label AS label "
+            "FROM quartets q JOIN categories c ON c.id = q.category_id "
+            "WHERE q.quartet_key = ? OR CAST(q.id AS TEXT) = ?",
+            (quartet, quartet),
+        ).fetchone()
+        if row is None:
+            _fail(f"Четвёрка {quartet!r} не найдена")
+        members = list(
+            conn.execute(
+                """
+                SELECT COALESCE(s.display_text, w.text) AS display,
+                       w.familiarity_score AS familiarity, m.fit_score AS fit,
+                       ws.accessibility_score AS accessibility, ws.novelty_score AS novelty,
+                       ws.ambiguity_score AS ambiguity, ws.char_count AS char_count
+                  FROM quartet_words qw
+                  JOIN words w ON w.id = qw.word_id
+                  LEFT JOIN word_senses s ON s.id = qw.sense_id
+                  LEFT JOIN word_scores ws ON ws.word_id = qw.word_id
+                       AND COALESCE(ws.sense_id, 0) = COALESCE(qw.sense_id, 0)
+                  LEFT JOIN memberships m ON m.word_id = qw.word_id
+                       AND m.category_id = ?
+                       AND COALESCE(m.sense_id, 0) = COALESCE(qw.sense_id, 0)
+                 WHERE qw.quartet_id = ? ORDER BY qw.slot
+                """,
+                (row["category_id"], row["id"]),
+            )
+        )
+    finally:
+        conn.close()
+
+    typer.secho(f"\n{row['quartet_key']} — {row['label']}", fg=typer.colors.CYAN)
+    _print_table(
+        ["слово", "знакомость", "доступность", "новизна", "неоднозн.", "связь", "симв."],
+        [
+            [
+                str(m["display"]),
+                "—" if m["familiarity"] is None else f"{m['familiarity']:.2f}",
+                "—" if m["accessibility"] is None else f"{m['accessibility']:.2f}",
+                "—" if m["novelty"] is None else f"{m['novelty']:.2f}",
+                "—" if m["ambiguity"] is None else f"{m['ambiguity']:.2f}",
+                "—" if m["fit"] is None else f"{m['fit']:.2f}",
+                str(m["char_count"] or len(str(m["display"]))),
+            ]
+            for m in members
+        ],
+    )
+    fits = [m["fit"] for m in members if m["fit"] is not None]
+    access = [m["accessibility"] for m in members if m["accessibility"] is not None]
+    cohesion = scoring.cohesion(fits, values)
+    _explain_table("связность (штраф за слабое звено)", cohesion.score, cohesion.parts)
+    interest = scoring.quartet_interest(
+        novelty_scores=[m["novelty"] or 0.0 for m in members],
+        accessibility_scores=access,
+        cohesion_score=cohesion.score,
+        label_quality_score=row["label_quality_score"] or 0.0,
+        rare_count=sum(
+            1
+            for m in members
+            if m["familiarity"] is not None
+            and m["familiarity"] < values["word_rare_familiarity"]
+        ),
+        config=values,
+    )
+    _explain_table("интересность", interest.score, interest.parts)
+    quality = scoring.quartet_quality(
+        cohesion_score=cohesion.score,
+        avg_accessibility=sum(access) / len(access) if access else 0.0,
+        clarity_score=row["quartet_clarity_score"] or 0.0,
+        label_quality_score=row["label_quality_score"] or 0.0,
+        config=values,
+    )
+    _explain_table("итог качества четвёрки", quality.score, quality.parts)
+    typer.echo(
+        f"\nверсия формул {row['scoring_version']}, "
+        f"ясность {row['quartet_clarity_score']}, сложность {row['difficulty']}"
+    )
+    typer.secho(
+        "Высокий рейтинг не значит, что четвёрку безопасно ставить рядом с любой "
+        "другой: это проверяет только solver полного уровня.",
+        fg=typer.colors.YELLOW,
+    )
+
+
 @app.command("validate-quartets")
 def cmd_validate_quartets(
     db: DbOption,
@@ -1011,6 +1345,13 @@ def cmd_generate_level_candidates(
     target: Annotated[
         float | None, typer.Option("--target-difficulty", help="Целевая сложность 1-10")
     ] = None,
+    profile: Annotated[
+        str | None,
+        typer.Option("--profile", help="Профиль качества: easy_accessible / accessible_fun / hard_knowledge"),
+    ] = None,
+    profiles_config: Annotated[
+        Path | None, typer.Option("--profiles-config", help="Файл профилей генерации")
+    ] = None,
     config: Annotated[
         Path | None, typer.Option("--config", help="Конфиг cooldown")
     ] = None,
@@ -1029,6 +1370,13 @@ def cmd_generate_level_candidates(
         except cooldown.ConfigError as exc:
             _fail(str(exc))
             return
+        chosen_profile = None
+        if profile:
+            try:
+                chosen_profile = profiles.get(profile, profiles_config)
+            except profiles.flat_config.ConfigError as exc:
+                _fail(str(exc))
+                return
         levels, stats = level_generator.generate(
             conn,
             count=count,
@@ -1037,6 +1385,8 @@ def cmd_generate_level_candidates(
             tier=tier,
             target_difficulty=target,
             config=cooldown_config,
+            profile=chosen_profile,
+            rare_familiarity=scoring.load_config(None)["word_rare_familiarity"],
         )
         saved = 0
         if not dry_run and levels:
@@ -1049,6 +1399,7 @@ def cmd_generate_level_candidates(
                         "categories": categories,
                         "tier": tier,
                         "target_difficulty": target,
+                        "profile": profile,
                     },
                     records_out=len(levels),
                     random_seed=seed,

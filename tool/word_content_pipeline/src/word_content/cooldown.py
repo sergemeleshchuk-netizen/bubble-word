@@ -19,6 +19,8 @@ import sqlite3
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from . import flat_config
+
 DEFAULTS: dict[str, int] = {
     "same_word_sense": 20,
     "same_category_variant": 60,
@@ -30,50 +32,24 @@ DEFAULTS: dict[str, int] = {
 }
 
 
-class ConfigError(ValueError):
-    """Конфиг cooldown нельзя прочитать однозначно."""
+ConfigError = flat_config.ConfigError
 
 
 def default_path() -> Path | None:
-    for parent in Path(__file__).resolve().parents:
-        candidate = parent / "data" / "content" / "cooldown_config.yaml"
-        if candidate.exists():
-            return candidate
-    return None
+    return flat_config.find_upwards("data/content/cooldown_config.yaml")
 
 
 def load_config(path: Path | str | None = None) -> dict[str, int]:
-    """Читает плоский конфиг `ключ: число`.
-
-    Парсер намеренно строгий и не тянет зависимость: конфиг плоский, а частично
-    прочитанный конфиг опаснее непрочитанного — он молча меняет правила.
-    """
+    """Читает конфиг повторов. Разбор — общий строгий парсер плоских конфигов."""
     file_path = Path(path) if path else default_path()
-    values = dict(DEFAULTS)
-    if file_path is None:
-        return values
-    if not file_path.exists():
-        raise ConfigError(f"Конфиг cooldown не найден: {file_path}")
-
-    for number, raw in enumerate(file_path.read_text(encoding="utf-8").splitlines(), start=1):
-        line = raw.split("#", 1)[0].strip()
-        if not line:
-            continue
-        if ":" not in line:
-            raise ConfigError(f"{file_path}:{number}: ожидалось «ключ: число», получено {raw!r}")
-        key, _, value = line.partition(":")
-        key, value = key.strip(), value.strip()
-        if key not in DEFAULTS:
-            raise ConfigError(
-                f"{file_path}:{number}: неизвестный ключ {key!r}. "
-                f"Разрешены: {', '.join(sorted(DEFAULTS))}"
-            )
-        try:
-            values[key] = int(value)
-        except ValueError as exc:
-            raise ConfigError(f"{file_path}:{number}: {value!r} — не целое число") from exc
-        if values[key] < 0:
-            raise ConfigError(f"{file_path}:{number}: отрицательный cooldown у {key!r}")
+    raw = flat_config.load(file_path, {key: float(value) for key, value in DEFAULTS.items()})
+    values: dict[str, int] = {}
+    for key, value in raw.items():
+        if value != int(value):
+            raise ConfigError(f"{file_path}: cooldown у {key!r} должен быть целым, получено {value}")
+        if value < 0:
+            raise ConfigError(f"{file_path}: отрицательный cooldown у {key!r}")
+        values[key] = int(value)
     return values
 
 

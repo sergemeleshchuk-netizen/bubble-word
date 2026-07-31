@@ -27,10 +27,10 @@ if [[ ! -x "$PY" ]]; then
   exit 1
 fi
 
-echo "== 1/14 seed -> JSONL =="
+echo "== 1/15 seed -> JSONL =="
 $PY scripts/build_seed.py
 
-echo "== 2/14 статусы связей по SWOW =="
+echo "== 2/15 статусы связей по SWOW =="
 # Датасет SWOW лежит локально и в git не идёт. Без него статусы не пересчитать,
 # но собранные ранее решения в data/review_decisions.csv остаются валидны.
 if [[ -f ../../reference/swow/swow_agg.pkl ]]; then
@@ -39,7 +39,7 @@ else
   echo "   SWOW не найден: беру готовые решения из data/review_decisions.csv"
 fi
 
-echo "== 3/14 пустая база =="
+echo "== 3/15 пустая база =="
 # Именно пустая: init-db повторный запуск переживает, но НЕ чистит. Если собирать
 # поверх старой базы, правки источников дают не замену, а второй экземпляр связи:
 # идентичность связи включает значение слова, поэтому «та же связь, но со смыслом»
@@ -51,13 +51,13 @@ fi
 rm -f "$DB-wal" "$DB-shm"
 $WC init-db --db "$DB"
 
-echo "== 4/14 категории seed =="
+echo "== 4/15 категории seed =="
 $WC import-categories --db "$DB" --input data/categories.jsonl
 
-echo "== 5/14 связи seed =="
+echo "== 5/15 связи seed =="
 $WC import-memberships --db "$DB" --input data/membership_candidates.jsonl
 
-echo "== 6/14 прогоны AI: категории, связи, решения ревью =="
+echo "== 6/15 прогоны AI: категории, связи, решения ревью =="
 # Прогон = отдельный источник с сохранённым провенансом (кто предложил, кто
 # решил). Мета-хабы дают материал для мета-пар: категория STARGAZING держит
 # слово `planets`, а PLANETS — сама категория уровня. Без этого слоя механика
@@ -72,37 +72,44 @@ for run in data/runs/*/; do
     $WC import-memberships --db "$DB" --input "$run/memberships.jsonl"
 done
 
-echo "== 7/14 решения ревью =="
+echo "== 7/15 решения ревью =="
 $WC import-review --db "$DB" --input data/review_decisions.csv
 for run in data/runs/*/; do
   [[ -f "$run/review_decisions.csv" ]] || continue
   $WC import-review --db "$DB" --input "$run/review_decisions.csv"
 done
 
-echo "== 8/14 readiness категорий =="
+echo "== 8/15 readiness категорий =="
 $WC derive-readiness --db "$DB"
 
-echo "== 9/14 запреты на сочетание категорий =="
+echo "== 9/15 запреты на сочетание категорий =="
 $WC derive-conflicts --db "$DB" --output data/category_conflicts.csv
 
-echo "== 10/14 проверенные четвёрки =="
+echo "== 10/15 проверенные четвёрки =="
 $WC build-quartets --db "$DB" --output data/quartets.csv
 
-echo "== 11/14 перепроверка четвёрок =="
+echo "== 11/15 перепроверка четвёрок =="
 $WC validate-quartets --db "$DB"
 
-echo "== 12/14 разбор дублей категорий =="
+echo "== 12/15 разбор дублей категорий =="
 # Только отчёт: слияние принципов — отдельное решение, его применяет
 # dedupe-concepts --apply после просмотра CSV.
 $WC dedupe-concepts --db "$DB" --output data/content/category_duplicates.csv --show 0
 
-echo "== 13/14 уровни-кандидаты и их проверка =="
+echo "== 13/15 рейтинги качества =="
+# Порядок обязателен: агрегаты четвёрки считаются из свежих оценок слов
+# и названий. Профили генерации фильтруют именно по этим числам, поэтому
+# шаг идёт до сборки уровней.
+$WC score-all --db "$DB"
+
+echo "== 14/15 уровни-кандидаты и их проверка =="
 # Пять уровней на фиксированном seed: это дымовой тест генератора на реальной
 # базе, а не кампания. Уровни остаются кандидатами до приёмки человеком.
-$WC generate-level-candidates --db "$DB" --limit 5 --categories 5 --seed 20260731
+$WC generate-level-candidates --db "$DB" --limit 5 --categories 5 --seed 20260731 \
+    --profile accessible_fun
 $WC validate-levels --db "$DB"
 
-echo "== 14/14 версия и приёмка =="
+echo "== 15/15 версия и приёмка =="
 $WC stamp-version --db "$DB" --content-version "$CONTENT_VERSION"
 $WC check-integrity --db "$DB"
 

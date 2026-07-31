@@ -29,7 +29,9 @@ from dataclasses import dataclass, field
 
 from . import cooldown as cooldown_mod
 from . import difficulty as difficulty_mod
-from . import level_solver, structured
+from . import level_solver
+from . import profiles as profiles_mod
+from . import structured
 from .db import utc_now
 
 GENERATOR_VERSION = "level-generator/1.0"
@@ -99,11 +101,19 @@ class LevelCandidate:
 # --------------------------------------------------------------------- источник четвёрок
 
 
-def _usable_quartets(conn: sqlite3.Connection, tier: str) -> dict[int, list[dict]]:
-    """Годные четвёрки по категориям.
+def _usable_quartets(
+    conn: sqlite3.Connection,
+    tier: str,
+    *,
+    profile: profiles_mod.Profile | None = None,
+    rare_familiarity: float = 0.43,
+) -> tuple[dict[int, list[dict]], dict[str, int]]:
+    """Годные четвёрки по категориям и статистика отсева профилем.
 
     Выключенная точечным feedback четвёрка (`disabled`) и провалившая валидаторы
     (`invalid`) в генерацию не попадают — ровно для этого их и выключали.
+    Дальше, если задан профиль, четвёрка проверяется на пороги качества:
+    без этого генератор берёт самые удобные и делает скучные уровни.
     """
     rows = list(
         conn.execute(
@@ -111,15 +121,30 @@ def _usable_quartets(conn: sqlite3.Connection, tier: str) -> dict[int, list[dict
             SELECT q.id AS quartet_id, q.category_id AS category_id,
                    c.category_key AS category_key, c.label AS label,
                    c.concept_id AS concept_id, q.difficulty AS difficulty,
+                   q.quartet_key AS quartet_key,
+                   q.min_word_familiarity AS min_familiarity,
+                   q.familiarity_score AS avg_familiarity,
+                   q.min_word_accessibility AS min_accessibility,
+                   q.label_quality_score AS label_quality,
+                   q.quartet_quality_score AS quartet_quality,
+                   q.quartet_interest_score AS quartet_interest,
+                   q.ambiguity_pressure AS ambiguity,
+                   ls.label_char_count AS label_chars, ls.label_token_count AS label_tokens,
                    qw.slot AS slot, qw.word_id AS word_id, qw.sense_id AS sense_id,
                    qw.role AS role,
                    COALESCE(s.display_text, w.text) AS display,
-                   COALESCE(s.sense_key, '') AS sense_key
+                   COALESCE(s.sense_key, '') AS sense_key,
+                   w.familiarity_score AS word_familiarity,
+                   ws.char_count AS char_count, ws.token_count AS token_count
               FROM quartets q
               JOIN categories c     ON c.id = q.category_id
               JOIN quartet_words qw ON qw.quartet_id = q.id
               JOIN words w          ON w.id = qw.word_id
               LEFT JOIN word_senses s ON s.id = qw.sense_id
+              LEFT JOIN category_label_scores ls ON ls.category_id = c.id
+              LEFT JOIN word_scores ws
+                     ON ws.word_id = qw.word_id
+                    AND COALESCE(ws.sense_id, 0) = COALESCE(qw.sense_id, 0)
              WHERE q.validation_state IN ('auto_validated', 'warning')
                AND q.local_check = 'local_unique'
                AND c.status = 'active'
@@ -135,12 +160,25 @@ def _usable_quartets(conn: sqlite3.Connection, tier: str) -> dict[int, list[dict
             int(row["quartet_id"]),
             {
                 "quartet_id": int(row["quartet_id"]),
+                "quartet_key": row["quartet_key"],
                 "category_id": int(row["category_id"]),
                 "category_key": row["category_key"],
                 "label": row["label"],
                 "concept_id": row["concept_id"],
                 "difficulty": row["difficulty"],
                 "tokens": [],
+                "facts_rows": [],
+                "scores": {
+                    "min_familiarity": row["min_familiarity"],
+                    "avg_familiarity": row["avg_familiarity"],
+                    "min_accessibility": row["min_accessibility"],
+                    "label_quality": row["label_quality"],
+                    "quartet_quality": row["quartet_quality"],
+                    "quartet_interest": row["quartet_interest"],
+                    "ambiguity": row["ambiguity"],
+                    "label_chars": row["label_chars"] or len(row["label"]),
+                    "label_tokens": row["label_tokens"] or len(row["label"].split()),
+                },
             },
         )
         entry["tokens"].append(
@@ -152,11 +190,47 @@ def _usable_quartets(conn: sqlite3.Connection, tier: str) -> dict[int, list[dict
                 row["role"],
             )
         )
+        entry["facts_rows"].append(row)
+
+    stats = {"четвёрок доступно": 0, "отсеяно профилем": 0}
     by_category: dict[int, list[dict]] = {}
     for entry in quartets.values():
-        if len(entry["tokens"]) == level_solver.QUARTET_SIZE:
-            by_category.setdefault(entry["category_id"], []).append(entry)
-    return by_category
+        if len(entry["tokens"]) != level_solver.QUARTET_SIZE:
+            continue
+        entry["facts"] = _quartet_facts(entry, rare_familiarity)
+        if profile is not None and profiles_mod.check_quartet(profile, entry["facts"]):
+            entry["profile_reasons"] = profiles_mod.check_quartet(profile, entry["facts"])
+            stats["отсеяно профилем"] += 1
+            continue
+        stats["четвёрок доступно"] += 1
+        by_category.setdefault(entry["category_id"], []).append(entry)
+    return by_category, stats
+
+
+def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.QuartetFacts:
+    rows = entry["facts_rows"]
+    scores = entry["scores"]
+    chars = [int(row["char_count"] or len(row["display"])) for row in rows]
+    tokens = [int(row["token_count"] or len(str(row["display"]).split())) for row in rows]
+    familiarity = [row["word_familiarity"] for row in rows if row["word_familiarity"] is not None]
+    return profiles_mod.QuartetFacts(
+        quartet_key=entry["quartet_key"],
+        min_familiarity=scores["min_familiarity"]
+        if scores["min_familiarity"] is not None
+        else (min(familiarity) if len(familiarity) == len(rows) else None),
+        avg_familiarity=scores["avg_familiarity"],
+        min_accessibility=scores["min_accessibility"],
+        max_word_chars=max(chars) if chars else 0,
+        max_word_tokens=max(tokens) if tokens else 0,
+        label_chars=int(scores["label_chars"]),
+        label_tokens=int(scores["label_tokens"]),
+        label_quality=scores["label_quality"],
+        quartet_quality=scores["quartet_quality"],
+        quartet_interest=scores["quartet_interest"],
+        ambiguity=scores["ambiguity"],
+        rare_words=sum(1 for value in familiarity if value < rare_familiarity),
+        long_phrases=sum(1 for value in tokens if value >= 3),
+    )
 
 
 def _conflict_map(conn: sqlite3.Connection) -> dict[int, set[int]]:
@@ -183,10 +257,14 @@ def generate(
     target_difficulty: float | None = None,
     config: dict[str, int] | None = None,
     timeout_ms: int = level_solver.DEFAULT_TIMEOUT_MS,
+    profile: profiles_mod.Profile | None = None,
+    rare_familiarity: float = 0.43,
 ) -> tuple[list[LevelCandidate], dict[str, int]]:
     """Собирает `count` уровней-кандидатов. Детерминирована при одинаковом seed."""
     config = config or cooldown_mod.load_config()
-    by_category = _usable_quartets(conn, tier)
+    by_category, profile_stats = _usable_quartets(
+        conn, tier, profile=profile, rare_familiarity=rare_familiarity
+    )
     conflicts = _conflict_map(conn)
     index = level_solver.load_memberships(conn)
     structures = structured.load(conn)
@@ -195,6 +273,8 @@ def generate(
     rng = random.Random(seed)
     category_ids = sorted(by_category)
     stats = {
+        "профиль": profile.name if profile else "без профиля",
+        **profile_stats,
         "уровней запрошено": count,
         "уровней собрано": 0,
         "solver: unique": 0,
@@ -202,6 +282,7 @@ def generate(
         "solver: timeout": 0,
         "solver: прочее": 0,
         "отклонено по cooldown": 0,
+        "отклонено бюджетом уровня": 0,
         "попыток": 0,
     }
     if len(category_ids) < category_count:
@@ -219,10 +300,23 @@ def generate(
             chosen = _pick_categories(rng, category_ids, conflicts, category_count)
             if chosen is None:
                 continue
-            groups = [
-                _group_from(by_category[category_id], rng)
-                for category_id in chosen
-            ]
+            # Бюджет уровня тратится по мере набора групп: одно менее очевидное
+            # слово делает уровень интереснее, четыре редких — непроходимым.
+            budget = profiles_mod.LevelBudget.for_profile(profile) if profile else None
+            groups = []
+            over_budget = False
+            for category_id in chosen:
+                group, facts = _group_from(by_category[category_id], rng)
+                if budget is not None and facts is not None:
+                    problem = budget.fits(facts)
+                    if problem:
+                        over_budget = True
+                        break
+                    budget.spend(facts)
+                groups.append(group)
+            if over_budget:
+                stats["отклонено бюджетом уровня"] += 1
+                continue
             level_key = f"L{number:03d}"
             built = _evaluate(
                 groups,
@@ -298,9 +392,11 @@ def _pick_categories(
     return None
 
 
-def _group_from(quartets: list[dict], rng: random.Random) -> GroupPlan:
+def _group_from(
+    quartets: list[dict], rng: random.Random
+) -> tuple[GroupPlan, profiles_mod.QuartetFacts | None]:
     entry = quartets[rng.randrange(len(quartets))]
-    return GroupPlan(
+    plan = GroupPlan(
         category_id=entry["category_id"],
         category_key=entry["category_key"],
         label=entry["label"],
@@ -308,6 +404,7 @@ def _group_from(quartets: list[dict], rng: random.Random) -> GroupPlan:
         concept_id=entry["concept_id"],
         tokens=list(entry["tokens"]),
     )
+    return plan, entry.get("facts")
 
 
 def _evaluate(

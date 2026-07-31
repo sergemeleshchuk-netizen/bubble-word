@@ -549,6 +549,175 @@ def check_candidate_queue(conn: sqlite3.Connection) -> CheckResult:
     )
 
 
+
+def check_scores_computed(conn: sqlite3.Connection) -> CheckResult:
+    """Длина и число слов посчитаны для каждой игровой надписи.
+
+    Это не декоративная проверка: профили генерации фильтруют по длине, и
+    непосчитанная метрика тихо пропустила бы слово мимо порога.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, s.sense_key AS sense_key
+              FROM words w
+              LEFT JOIN word_senses s ON s.word_id = w.id
+              LEFT JOIN word_scores ws
+                     ON ws.word_id = w.id AND COALESCE(ws.sense_id, 0) = COALESCE(s.id, 0)
+             WHERE ws.id IS NULL
+             ORDER BY w.normalized
+            """
+        )
+    )
+    return CheckResult(
+        name="scores_computed",
+        question="У каждой игровой надписи посчитаны длина и метрики",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: r["word"] + (f" ({r['sense_key']})" if r["sense_key"] else "")
+        ),
+        note="Считается командой score-words.",
+    )
+
+
+def check_scores_in_range(conn: sqlite3.Connection) -> CheckResult:
+    """P0: любой score обязан лежать в 0..1, иначе формула сломана."""
+    problems: list[str] = []
+    for table, columns in (
+        (
+            "word_scores",
+            (
+                "display_width_score", "spelling_difficulty_score", "ambiguity_score",
+                "novelty_score", "accessibility_score", "word_quality_score",
+            ),
+        ),
+        (
+            "category_label_scores",
+            (
+                "label_display_width_score", "label_familiarity_score",
+                "label_naturalness_score", "label_clarity_score",
+                "label_specificity_score", "label_novelty_score", "label_quality_score",
+            ),
+        ),
+        (
+            "quartets",
+            (
+                "cohesion_score", "familiarity_score", "ambiguity_pressure",
+                "min_word_familiarity", "avg_word_accessibility", "min_word_accessibility",
+                "quartet_clarity_score", "quartet_novelty_score",
+                "quartet_interest_score", "quartet_quality_score", "label_quality_score",
+            ),
+        ),
+    ):
+        for column in columns:
+            count = int(
+                conn.execute(
+                    f"SELECT COUNT(*) FROM {table} "
+                    f"WHERE {column} IS NOT NULL AND ({column} < 0 OR {column} > 1)"
+                ).fetchone()[0]
+            )
+            if count:
+                problems.append(f"{table}.{column}: значений вне 0..1 — {count}")
+    return CheckResult(
+        name="scores_in_range",
+        question="Все рейтинги лежат в диапазоне 0..1",
+        severity="blocker",
+        count=len(problems),
+        examples=problems,
+    )
+
+
+def check_familiarity_not_faked(conn: sqlite3.Connection) -> CheckResult:
+    """P0: неизвестная частотность не должна маскироваться нулём.
+
+    Ноль означает «слово известно и при этом крайне редкое». `NULL` означает
+    «мы не знаем». Подмена второго первым делает базу увереннее, чем она есть.
+    """
+    count = int(
+        conn.execute("SELECT COUNT(*) FROM words WHERE familiarity_score = 0").fetchone()[0]
+    )
+    return CheckResult(
+        name="familiarity_not_faked",
+        question="Неизвестная частотность не записана нулём",
+        severity="blocker",
+        count=count,
+        examples=[f"слов с familiarity_score = 0: {count}"] if count else [],
+    )
+
+
+def check_scoring_version_current(conn: sqlite3.Connection) -> CheckResult:
+    """Кэш рейтингов должен соответствовать текущей версии формул.
+
+    Смена весов делает старые значения несопоставимыми с новыми. Проверка не
+    блокирует — она напоминает выполнить `score-all` и сравнить до и после.
+    """
+    from . import scoring
+
+    config = scoring.load_config()
+    problems: list[str] = []
+    for table, key in (
+        ("word_scores", "word_scoring_version"),
+        ("category_label_scores", "label_scoring_version"),
+    ):
+        expected = str(int(config[key]))
+        problems.extend(
+            f"{table}: версия {row[0]}, в конфиге {expected}"
+            for row in conn.execute(
+                f"SELECT DISTINCT scoring_version FROM {table} WHERE scoring_version <> ?",
+                (expected,),
+            )
+        )
+    expected = str(int(config["quartet_scoring_version"]))
+    problems.extend(
+        f"quartets: версия {row[0]}, в конфиге {expected}"
+        for row in conn.execute(
+            "SELECT DISTINCT COALESCE(scoring_version, 'нет') FROM quartets "
+            "WHERE COALESCE(scoring_version, '') <> ?",
+            (expected,),
+        )
+    )
+    return CheckResult(
+        name="scoring_version_current",
+        question="Кэш рейтингов посчитан текущей версией формул",
+        severity="warning",
+        count=len(problems),
+        examples=problems,
+        note="Пересчёт: score-all.",
+    )
+
+
+def check_blocked_not_scored_high(conn: sqlite3.Connection) -> CheckResult:
+    """P0: выключенная четвёрка не должна выглядеть пригодной.
+
+    Если `disabled` сохраняет высокий рейтинг, любой отбор «по качеству»
+    рано или поздно вернёт её обратно в генерацию.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT quartet_key, validation_state, quartet_quality_score
+              FROM quartets
+             WHERE validation_state IN ('disabled', 'invalid')
+               AND quartet_quality_score IS NOT NULL
+               AND quartet_quality_score > 0.7
+            """
+        )
+    )
+    return CheckResult(
+        name="blocked_not_scored_high",
+        question="Выключенные четвёрки не получают высокий рейтинг",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows,
+            lambda r: f"{r['quartet_key']} ({r['validation_state']}): "
+                      f"{r['quartet_quality_score']}",
+        ),
+    )
+
+
+
 CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
     check_sqlite_integrity,
     check_familiarity_gate,
@@ -567,6 +736,11 @@ CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
     check_schema_version,
     check_action_relation_pos,
     check_display_collision,
+    check_scores_in_range,
+    check_familiarity_not_faked,
+    check_blocked_not_scored_high,
+    check_scores_computed,
+    check_scoring_version_current,
     check_wordplay_sense_exemption,
     check_candidate_queue,
 )

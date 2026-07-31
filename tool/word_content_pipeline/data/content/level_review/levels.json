@@ -26,262 +26,367 @@
       "reason": "разбиение единственное",
       "alternative_partition": null,
       "solver_version": "level-exact-cover/1.0",
-      "input_hash": "4fd5204d2ea2b168e56e7b16d866ce9997dafc3e5e06610a04bb638d37e99b7a",
+      "input_hash": "166cc351118710cc1330af0b66e4655a1e70b03401cf7f1db118bd46bc2554ea",
       "duration_ms": 0,
-      "checked_at": "2026-07-31T19:06:34+00:00"
+      "checked_at": "2026-07-31T20:35:02+00:00"
     },
     "groups": [
       {
         "position": 1,
-        "category_key": "animal_homes",
-        "label": "ANIMAL HOMES",
-        "rule": "Words for the places animals live in",
-        "intended_relation": "is_a",
-        "quartet_key": "animal_homes__3",
+        "category_key": "internal_organs",
+        "label": "INTERNAL ORGANS",
+        "rule": "Organs inside the human body",
+        "intended_relation": "part_of",
+        "quartet_key": "internal_organs__1",
         "scores": {
-          "cohesion": 0.97,
-          "familiarity": 0.559,
-          "ambiguity_pressure": 1.0
+          "cohesion": 0.9741,
+          "familiarity": 0.6733,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8815,
+          "quartet_quality": 0.8695,
+          "quartet_interest": 0.7427,
+          "min_word_familiarity": 0.597,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "nest",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.581,
+            "display": "heart",
+            "sense_key": "heart_organ",
+            "definition": "The organ that pumps blood through the body",
+            "sense_mode": "lexical",
+            "familiarity": 0.759,
+            "char_count": 5,
+            "accessibility": 0.855,
+            "novelty": 0.137,
+            "ambiguity": 0.4475,
             "role": null
           },
           {
             "slot": 2,
-            "display": "den",
+            "display": "brain",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.573,
+            "familiarity": 0.706,
+            "char_count": 5,
+            "accessibility": 0.8258,
+            "novelty": 0.3651,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "barn",
+            "display": "stomach",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.57,
+            "familiarity": 0.631,
+            "char_count": 7,
+            "accessibility": 0.7596,
+            "novelty": 0.8318,
+            "ambiguity": 0.1083,
             "role": null
           },
           {
             "slot": 4,
-            "display": "mound",
-            "sense_key": "mound_dirt",
-            "definition": "A raised heap of earth",
-            "sense_mode": "lexical",
-            "familiarity": 0.514,
+            "display": "liver",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.597,
+            "char_count": 5,
+            "accessibility": 0.7659,
+            "novelty": 0.972,
+            "ambiguity": 0.1583,
             "role": null
           }
         ]
       },
       {
         "position": 2,
-        "category_key": "toppings_and_garnish",
-        "label": "GARNISHES",
-        "rule": "Things added on top of a finished dish",
-        "intended_relation": "is_a",
-        "quartet_key": "toppings_and_garnish__1",
+        "category_key": "country_life",
+        "label": "COUNTRY LIFE",
+        "rule": "Things associated with rural country living",
+        "intended_relation": "found_in",
+        "quartet_key": "country_life__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.596,
-          "ambiguity_pressure": 1.0
+          "familiarity": 0.696,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8955,
+          "quartet_quality": 0.8426,
+          "quartet_interest": 0.844,
+          "min_word_familiarity": 0.6,
+          "max_word_length": 13
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "cheese",
+            "display": "general store",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.653,
+            "familiarity": 0.699,
+            "char_count": 13,
+            "accessibility": 0.5695,
+            "novelty": 0.4054,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "cherry",
+            "display": "well",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.597,
+            "familiarity": 0.861,
+            "char_count": 4,
+            "accessibility": 0.9236,
+            "novelty": 0.0082,
+            "ambiguity": 0.2667,
             "role": null
           },
           {
             "slot": 3,
-            "display": "olive",
+            "display": "creek",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.584,
+            "familiarity": 0.624,
+            "char_count": 5,
+            "accessibility": 0.7807,
+            "novelty": 0.8685,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "bacon bits",
+            "display": "dirt road",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.551,
+            "familiarity": 0.6,
+            "char_count": 9,
+            "accessibility": 0.685,
+            "novelty": 0.964,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 3,
-        "category_key": "world_capitals",
-        "label": "WORLD CAPITALS",
-        "rule": "Capital cities of countries around the world",
-        "intended_relation": "is_a",
-        "quartet_key": "world_capitals__3",
+        "category_key": "lab_equipment",
+        "label": "LAB EQUIPMENT",
+        "rule": "Equipment found in a school science laboratory",
+        "intended_relation": "found_in",
+        "quartet_key": "lab_equipment__1",
         "scores": {
-          "cohesion": 0.97,
-          "familiarity": 0.574,
-          "ambiguity_pressure": 0.25
+          "cohesion": 0.9583,
+          "familiarity": 0.6188,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8836,
+          "quartet_quality": 0.8262,
+          "quartet_interest": 0.7837,
+          "min_word_familiarity": 0.557,
+          "max_word_length": 9
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "Dublin",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.583,
+            "display": "scale",
+            "sense_key": "scale_weigh",
+            "definition": "A device used to weigh things",
+            "sense_mode": "lexical",
+            "familiarity": 0.69,
+            "char_count": 5,
+            "accessibility": 0.817,
+            "novelty": 0.46,
+            "ambiguity": 1.0,
             "role": null
           },
           {
             "slot": 2,
-            "display": "Amsterdam",
+            "display": "slide",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.576,
+            "familiarity": 0.614,
+            "char_count": 5,
+            "accessibility": 0.7752,
+            "novelty": 0.9146,
+            "ambiguity": 0.2667,
             "role": null
           },
           {
             "slot": 3,
-            "display": "Ottawa",
+            "display": "test tube",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.569,
+            "familiarity": 0.614,
+            "char_count": 9,
+            "accessibility": 0.7027,
+            "novelty": 0.9146,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "Vienna",
+            "display": "rack",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.569,
+            "familiarity": 0.557,
+            "char_count": 4,
+            "accessibility": 0.7564,
+            "novelty": 0.9812,
+            "ambiguity": 0.5042,
             "role": null
           }
         ]
       },
       {
         "position": 4,
-        "category_key": "law_jobs",
-        "label": "LAW JOBS",
-        "rule": "Jobs held by people who work in the legal system",
-        "intended_relation": "is_a",
-        "quartet_key": "law_jobs__3",
+        "category_key": "computer_actions",
+        "label": "COMPUTER ACTIONS",
+        "rule": "Actions done while using a computer",
+        "intended_relation": "does_action",
+        "quartet_key": "computer_actions__3",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.498,
-          "ambiguity_pressure": 0.0
+          "familiarity": 0.6222,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8857,
+          "quartet_quality": 0.8697,
+          "quartet_interest": 0.7559,
+          "min_word_familiarity": 0.603,
+          "max_word_length": 6
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "investigator",
+            "display": "print",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.547,
+            "familiarity": 0.649,
+            "char_count": 5,
+            "accessibility": 0.7945,
+            "novelty": 0.725,
+            "ambiguity": 0.1875,
             "role": null
           },
           {
             "slot": 2,
-            "display": "magistrate",
+            "display": "log in",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.53,
+            "familiarity": 0.624,
+            "char_count": 6,
+            "accessibility": 0.7682,
+            "novelty": 0.8685,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "mediator",
+            "display": "drag",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.47,
+            "familiarity": 0.613,
+            "char_count": 4,
+            "accessibility": 0.7872,
+            "novelty": 0.9187,
+            "ambiguity": 0.2375,
             "role": null
           },
           {
             "slot": 4,
-            "display": "notary",
+            "display": "delete",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.444,
+            "familiarity": 0.603,
+            "char_count": 6,
+            "accessibility": 0.7567,
+            "novelty": 0.955,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 5,
-        "category_key": "masonry_words",
-        "label": "MASONRY WORDS",
-        "rule": "Things a mason works with",
-        "intended_relation": "found_in",
-        "quartet_key": "masonry_words__1",
+        "category_key": "morning_routine",
+        "label": "MORNING ROUTINE",
+        "rule": "Something a person does first thing in the morning",
+        "intended_relation": "associated_with",
+        "quartet_key": "morning_routine__1",
         "scores": {
-          "cohesion": 0.97,
-          "familiarity": 0.707,
-          "ambiguity_pressure": 1.0
+          "cohesion": 0.9,
+          "familiarity": 0.669,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8995,
+          "quartet_quality": 0.8387,
+          "quartet_interest": 0.673,
+          "min_word_familiarity": 0.643,
+          "max_word_length": 9
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "level",
+            "display": "breakfast",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.773,
+            "familiarity": 0.659,
+            "char_count": 9,
+            "accessibility": 0.745,
+            "novelty": 0.6608,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 2,
-            "display": "block",
-            "sense_key": "block_cube",
-            "definition": "A solid piece of hard material",
-            "sense_mode": "lexical",
-            "familiarity": 0.697,
+            "display": "coffee",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.694,
+            "char_count": 6,
+            "accessibility": 0.8067,
+            "novelty": 0.4354,
+            "ambiguity": 0.6208,
             "role": null
           },
           {
             "slot": 3,
-            "display": "stone",
+            "display": "shower",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.686,
+            "familiarity": 0.643,
+            "char_count": 6,
+            "accessibility": 0.7787,
+            "novelty": 0.7622,
+            "ambiguity": 0.3167,
             "role": null
           },
           {
             "slot": 4,
-            "display": "joint",
+            "display": "wake",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.673,
+            "familiarity": 0.68,
+            "char_count": 4,
+            "accessibility": 0.824,
+            "novelty": 0.5234,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
@@ -289,75 +394,93 @@
     ],
     "plausible_competing_memberships": [
       {
-        "display": "nest",
-        "home_category": "animal_homes",
-        "also_fits": "animal_actions,seasons_spring,bird_watching,spring_season"
+        "display": "scale",
+        "home_category": "lab_equipment",
+        "also_fits": "cooking_hobby,bathroom_items,measurement_devices,measuring_tools,butcher_words,baker_words,world_markets"
       },
       {
-        "display": "cheese",
-        "home_category": "toppings_and_garnish",
-        "also_fits": "dairy_words,farm_products,pizza_toppings,sandwich_fillings,salad_ingredients,dairy_products,things_that_melt,words_before_sauce,words_before_cake,yellow_things,smelly_things,fermented_foods"
+        "display": "print",
+        "home_category": "computer_actions",
+        "also_fits": "words_after_foot,words_after_hand"
       },
       {
-        "display": "level",
-        "home_category": "masonry_words",
-        "also_fits": "building_actions,video_game_words,sewing_and_repair,things_in_a_toolbox,hand_tools,measuring_tools,carpentry_words"
+        "display": "breakfast",
+        "home_category": "morning_routine",
+        "also_fits": "meals_of_the_day"
       },
       {
-        "display": "den",
-        "home_category": "animal_homes",
-        "also_fits": "home_rooms"
+        "display": "well",
+        "home_category": "country_life",
+        "also_fits": "irrigation,things_on_a_farm,body_of_water_types"
       },
       {
-        "display": "cherry",
-        "home_category": "toppings_and_garnish",
-        "also_fits": "fruits,berries,pie_ingredients,ice_cream_flavors,pie_types,dessert_toppings,trees,things_with_seeds,fruit_trees,red_things,tomato_varieties"
+        "display": "slide",
+        "home_category": "lab_equipment",
+        "also_fits": "ways_of_moving,carrying_actions,dance_moves"
       },
       {
-        "display": "block",
-        "home_category": "masonry_words",
-        "also_fits": "butcher_words,city_words"
+        "display": "coffee",
+        "home_category": "morning_routine",
+        "also_fits": "hot_drinks,ice_cream_flavors,pantry_staples,words_before_cake,liquids,vending_machine_items,tropical_plants,experiments,gas_station_things,everyday_drinks"
       },
       {
-        "display": "barn",
-        "home_category": "animal_homes",
-        "also_fits": "dairy_words,farm_buildings,things_on_a_farm,kinds_of_buildings,places_with_animals,red_things,farm_morning"
+        "display": "stomach",
+        "home_category": "internal_organs",
+        "also_fits": "body_parts"
       },
       {
-        "display": "olive",
-        "home_category": "toppings_and_garnish",
-        "also_fits": "color_words_advanced,pizza_toppings,salad_ingredients,trees_more,fruit_trees,black_things,colors,greek_dishes,fermented_foods"
+        "display": "creek",
+        "home_category": "country_life",
+        "also_fits": "bodies_of_water"
       },
       {
-        "display": "Ottawa",
-        "home_category": "world_capitals",
-        "also_fits": "canadian_places"
+        "display": "drag",
+        "home_category": "computer_actions",
+        "also_fits": "carrying_actions,magnets_and_forces"
       },
       {
-        "display": "stone",
-        "home_category": "masonry_words",
-        "also_fits": "sculpture_materials,words_after_head,building_materials,animal_tracks_and_signs"
+        "display": "shower",
+        "home_category": "morning_routine",
+        "also_fits": "bathroom_items,weather_words,juggling_words"
       },
       {
-        "display": "bacon bits",
-        "home_category": "toppings_and_garnish",
-        "also_fits": "salad_ingredients"
+        "display": "liver",
+        "home_category": "internal_organs",
+        "also_fits": "meats"
       },
       {
-        "display": "joint",
-        "home_category": "masonry_words",
-        "also_fits": "hand_parts,robot_words"
+        "display": "rack",
+        "home_category": "lab_equipment",
+        "also_fits": "fashion_show,bowling_words,boxes_and_cases,butcher_words,baker_words,furniture"
       }
     ],
     "cooldowns": [],
     "ui_warnings": [],
     "risk_warnings": [
-      "toppings_and_garnish: риск-статус flagged",
-      "world_capitals: риск-статус flagged"
+      "computer_actions: риск-статус flagged",
+      "country_life: риск-статус flagged",
+      "lab_equipment: риск-статус flagged"
     ],
+    "quality": {
+      "average_familiarity": 0.6558,
+      "minimum_familiarity": 0.557,
+      "average_accessibility": 0.7739,
+      "word_length_distribution": {
+        "1-6": 15,
+        "7-10": 4,
+        "11-14": 1,
+        "15+": 0
+      },
+      "novel_word_ratio": 0.65,
+      "long_phrase_count": 0,
+      "ambiguity_budget_used": 1.0,
+      "average_label_quality": 0.8892,
+      "average_quartet_interest": 0.7599,
+      "words_without_familiarity": 0
+    },
     "generator_version": "level-generator/1.0",
     "random_seed": 20260731,
-    "content_hash": "aaead3eda333c1235aa238e7b726df2f8cff10d1d742334c18b5a1f32537cf68"
+    "content_hash": "a1390d84935d7d3c563d99779b4fa580b7557cb55781b3d42dcfdabc35c9dc44"
   },
   {
     "level_key": "L002",
@@ -365,12 +488,12 @@
     "tier": "normal",
     "solution_count": 1,
     "difficulty": {
-      "score": 3.0,
+      "score": 3.5,
       "components": {
         "category_count": 0.0,
         "rare_words": 0.0,
         "average_familiarity": 0.0,
-        "sense_ambiguity": 0.5,
+        "sense_ambiguity": 1.0,
         "pairwise_category_overlap": 0.0,
         "alternative_partition_pressure": 1.5,
         "number_of_plausible_first_groups": 0.0,
@@ -378,7 +501,7 @@
         "phrase_length_pressure": 0.0,
         "meta_depth": 0.0
       },
-      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +0.5"
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +1.0"
     },
     "solver": {
       "outcome": "unique",
@@ -386,262 +509,367 @@
       "reason": "разбиение единственное",
       "alternative_partition": null,
       "solver_version": "level-exact-cover/1.0",
-      "input_hash": "b4fa0e73e0d2f0f6cab209ddc447da98f6053363ccd53b583a7c9a69db60017a",
+      "input_hash": "1522ab10aec4837f1dd1951feee7f0afb747d410fd7a38150e08f7f818e91481",
       "duration_ms": 0,
-      "checked_at": "2026-07-31T19:06:34+00:00"
+      "checked_at": "2026-07-31T20:35:02+00:00"
     },
     "groups": [
       {
         "position": 1,
-        "category_key": "textures",
-        "label": "TEXTURES",
-        "rule": "Words describing how a surface feels",
-        "intended_relation": "is_a",
-        "quartet_key": "textures__2",
+        "category_key": "cooking_actions",
+        "label": "COOKING ACTIONS",
+        "rule": "Verbs describing something a cook does to food",
+        "intended_relation": "does_action",
+        "quartet_key": "cooking_actions__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.505,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.5905,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8765,
+          "quartet_quality": 0.8521,
+          "quartet_interest": 0.7777,
+          "min_word_familiarity": 0.564,
+          "max_word_length": 5
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "slick",
+            "display": "steam",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.53,
+            "familiarity": 0.646,
+            "char_count": 5,
+            "accessibility": 0.7928,
+            "novelty": 0.7438,
+            "ambiguity": 0.5042,
             "role": null
           },
           {
             "slot": 2,
-            "display": "fuzzy",
+            "display": "drain",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.521,
+            "familiarity": 0.581,
+            "char_count": 5,
+            "accessibility": 0.7571,
+            "novelty": 0.9979,
+            "ambiguity": 0.2667,
             "role": null
           },
           {
             "slot": 3,
-            "display": "matte",
+            "display": "slice",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.503,
+            "familiarity": 0.571,
+            "char_count": 5,
+            "accessibility": 0.7515,
+            "novelty": 0.9991,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "silky",
+            "display": "blend",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.466,
+            "familiarity": 0.564,
+            "char_count": 5,
+            "accessibility": 0.7477,
+            "novelty": 0.9929,
+            "ambiguity": 0.1583,
             "role": null
           }
         ]
       },
       {
         "position": 2,
-        "category_key": "government_jobs",
-        "label": "GOVERNMENT JOBS",
-        "rule": "Jobs held by people who work for a government",
+        "category_key": "zoos_and_aquariums",
+        "label": "FAMOUS ZOOS",
+        "rule": "Well known zoos and aquariums",
         "intended_relation": "is_a",
-        "quartet_key": "government_jobs__3",
+        "quartet_key": "zoos_and_aquariums__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.567,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.588,
+          "ambiguity_pressure": 0.0,
+          "label_quality": 0.895,
+          "quartet_quality": 0.7928,
+          "quartet_interest": 0.7952,
+          "min_word_familiarity": 0.569,
+          "max_word_length": 12
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "inspector",
+            "display": "Lincoln Park",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
             "familiarity": 0.607,
+            "char_count": 12,
+            "accessibility": 0.5364,
+            "novelty": 0.9416,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "clerk",
+            "display": "London Zoo",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.571,
+            "familiarity": 0.587,
+            "char_count": 10,
+            "accessibility": 0.6004,
+            "novelty": 0.9916,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "treasurer",
+            "display": "National Zoo",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.561,
+            "familiarity": 0.589,
+            "char_count": 12,
+            "accessibility": 0.5365,
+            "novelty": 0.9886,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "delegate",
+            "display": "Toronto Zoo",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.529,
+            "familiarity": 0.569,
+            "char_count": 11,
+            "accessibility": 0.563,
+            "novelty": 0.9979,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 3,
-        "category_key": "volcanoes",
-        "label": "VOLCANOES",
-        "rule": "Famous volcanoes",
+        "category_key": "signals_and_codes",
+        "label": "SIGNALS AND CODES",
+        "rule": "Systems used to send coded messages",
         "intended_relation": "is_a",
-        "quartet_key": "volcanoes__2",
+        "quartet_key": "signals_and_codes__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.342,
-          "ambiguity_pressure": 0.25
+          "familiarity": 0.6022,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.857,
+          "quartet_quality": 0.8008,
+          "quartet_interest": 0.8144,
+          "min_word_familiarity": 0.534,
+          "max_word_length": 13
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "Vesuvius",
+            "display": "sign language",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.381,
+            "familiarity": 0.684,
+            "char_count": 13,
+            "accessibility": 0.5412,
+            "novelty": 0.4978,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "Mauna Loa",
+            "display": "smoke signal",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.339,
+            "familiarity": 0.62,
+            "char_count": 12,
+            "accessibility": 0.5335,
+            "novelty": 0.8879,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "Kilauea",
+            "display": "telegraph",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.337,
+            "familiarity": 0.571,
+            "char_count": 9,
+            "accessibility": 0.6965,
+            "novelty": 0.9991,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "Stromboli",
+            "display": "beacon",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.311,
+            "familiarity": 0.534,
+            "char_count": 6,
+            "accessibility": 0.7187,
+            "novelty": 0.906,
+            "ambiguity": 0.1583,
             "role": null
           }
         ]
       },
       {
         "position": 4,
-        "category_key": "facial_expressions",
-        "label": "FACIAL EXPRESSIONS",
-        "rule": "Expressions people make with their face",
-        "intended_relation": "does_action",
-        "quartet_key": "facial_expressions__1",
+        "category_key": "workshop_things",
+        "label": "WORKSHOP THINGS",
+        "rule": "Things found in a home workshop",
+        "intended_relation": "found_in",
+        "quartet_key": "workshop_things__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.575,
-          "ambiguity_pressure": 0.75
+          "familiarity": 0.6262,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.7887,
+          "quartet_quality": 0.81,
+          "quartet_interest": 0.7464,
+          "min_word_familiarity": 0.584,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "smile",
+            "display": "oil can",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.663,
+            "familiarity": 0.726,
+            "char_count": 7,
+            "accessibility": 0.8118,
+            "novelty": 0.2621,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "beam",
-            "sense_key": "beam_smile",
-            "definition": "To smile very broadly",
+            "display": "nail",
+            "sense_key": "nail_metal",
+            "definition": "A thin pointed metal pin hammered into wood",
             "sense_mode": "lexical",
-            "familiarity": 0.591,
+            "familiarity": 0.601,
+            "char_count": 4,
+            "accessibility": 0.7806,
+            "novelty": 0.9611,
+            "ambiguity": 0.79,
             "role": null
           },
           {
             "slot": 3,
-            "display": "blink",
+            "display": "hammer",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.533,
+            "familiarity": 0.594,
+            "char_count": 6,
+            "accessibility": 0.7517,
+            "novelty": 0.979,
+            "ambiguity": 0.375,
             "role": null
           },
           {
             "slot": 4,
-            "display": "grin",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.513,
+            "display": "drill",
+            "sense_key": "drill_tool",
+            "definition": "A tool that bores holes by spinning a bit",
+            "sense_mode": "lexical",
+            "familiarity": 0.584,
+            "char_count": 5,
+            "accessibility": 0.7587,
+            "novelty": 0.9953,
+            "ambiguity": 0.7608,
             "role": null
           }
         ]
       },
       {
         "position": 5,
-        "category_key": "quiet_things",
-        "label": "QUIET THINGS",
-        "rule": "Things that make almost no sound",
-        "intended_relation": "has_property",
-        "quartet_key": "quiet_things__1",
+        "category_key": "parking_words",
+        "label": "PARKING WORDS",
+        "rule": "Words used about parking a car",
+        "intended_relation": "found_in",
+        "quartet_key": "parking_words__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.691,
-          "ambiguity_pressure": 1.0
+          "familiarity": 0.7432,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8158,
+          "quartet_quality": 0.8595,
+          "quartet_interest": 0.5184,
+          "min_word_familiarity": 0.699,
+          "max_word_length": 5
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "sleep",
+            "display": "lot",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.721,
+            "familiarity": 0.801,
+            "char_count": 3,
+            "accessibility": 0.8906,
+            "novelty": 0.0498,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "library",
+            "display": "sign",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.694,
+            "familiarity": 0.726,
+            "char_count": 4,
+            "accessibility": 0.8293,
+            "novelty": 0.2621,
+            "ambiguity": 0.425,
             "role": null
           },
           {
             "slot": 3,
-            "display": "cat",
+            "display": "space",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.683,
+            "familiarity": 0.747,
+            "char_count": 5,
+            "accessibility": 0.8484,
+            "novelty": 0.176,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "snow",
+            "display": "spot",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.666,
+            "familiarity": 0.699,
+            "char_count": 4,
+            "accessibility": 0.8345,
+            "novelty": 0.4054,
+            "ambiguity": 0.1875,
             "role": null
           }
         ]
@@ -649,69 +877,88 @@
     ],
     "plausible_competing_memberships": [
       {
-        "display": "Vesuvius",
-        "home_category": "volcanoes",
-        "also_fits": "world_mountains"
+        "display": "steam",
+        "home_category": "cooking_actions",
+        "also_fits": "laundry_care,cooking_methods,water_states,hot_things,states_of_matter,energy_words"
       },
       {
-        "display": "smile",
-        "home_category": "facial_expressions",
-        "also_fits": "quiet_actions"
+        "display": "drain",
+        "home_category": "cooking_actions",
+        "also_fits": "water_actions,body_of_water_types,plumbing_words"
       },
       {
-        "display": "sleep",
-        "home_category": "quiet_things",
-        "also_fits": "quiet_actions,bedtime_things"
+        "display": "nail",
+        "home_category": "workshop_things",
+        "also_fits": "building_actions,fasteners,hard_things,sewing_and_repair,things_made_of_metal,things_that_are_sharp,things_that_cut,things_that_stick_out"
       },
       {
-        "display": "fuzzy",
-        "home_category": "textures",
-        "also_fits": "temperature_feel"
+        "display": "sign",
+        "home_category": "parking_words",
+        "also_fits": "reading_material,words_before_board,cleaning_trade,road_things,world_markets"
       },
       {
-        "display": "clerk",
-        "home_category": "government_jobs",
-        "also_fits": "office_jobs,law_jobs,store_jobs"
+        "display": "telegraph",
+        "home_category": "signals_and_codes",
+        "also_fits": "industrial_revolution"
       },
       {
-        "display": "library",
-        "home_category": "quiet_things",
-        "also_fits": "school_places,town_places,quiet_places,kinds_of_buildings,monastery_life,programming_words"
+        "display": "hammer",
+        "home_category": "workshop_things",
+        "also_fits": "building_actions,sewing_and_repair,things_in_a_toolbox,hand_tools,things_with_handles"
       },
       {
-        "display": "treasurer",
-        "home_category": "government_jobs",
-        "also_fits": "office_jobs"
+        "display": "space",
+        "home_category": "parking_words",
+        "also_fits": "words_after_air"
       },
       {
-        "display": "blink",
-        "home_category": "facial_expressions",
-        "also_fits": "quiet_actions,body_movements"
+        "display": "blend",
+        "home_category": "cooking_actions",
+        "also_fits": "drawing_words"
       },
       {
-        "display": "cat",
-        "home_category": "quiet_things",
-        "also_fits": "farm_animals,pets,words_before_fish,words_before_bird"
+        "display": "beacon",
+        "home_category": "signals_and_codes",
+        "also_fits": "navigation_tools"
       },
       {
-        "display": "silky",
-        "home_category": "textures",
-        "also_fits": "temperature_feel"
+        "display": "drill",
+        "home_category": "workshop_things",
+        "also_fits": "building_actions,dentist_things,hand_tools,power_tools,things_that_plug_in,things_that_spin"
       },
       {
-        "display": "snow",
-        "home_category": "quiet_things",
-        "also_fits": "weather_actions,things_that_melt,words_before_ball,words_before_man,words_before_board,words_before_bird,weather_words,water_states,mountain_things,seasons_winter,white_things,cold_things"
+        "display": "spot",
+        "home_category": "parking_words",
+        "also_fits": "words_before_light,words_after_sun"
       }
     ],
     "cooldowns": [],
     "ui_warnings": [],
     "risk_warnings": [
-      "volcanoes: риск-статус flagged"
+      "signals_and_codes: риск-статус flagged",
+      "workshop_things: риск-статус flagged",
+      "zoos_and_aquariums: риск-статус flagged"
     ],
+    "quality": {
+      "average_familiarity": 0.63,
+      "minimum_familiarity": 0.534,
+      "average_accessibility": 0.714,
+      "word_length_distribution": {
+        "1-6": 12,
+        "7-10": 3,
+        "11-14": 5,
+        "15+": 0
+      },
+      "novel_word_ratio": 0.7,
+      "long_phrase_count": 0,
+      "ambiguity_budget_used": 0.79,
+      "average_label_quality": 0.8466,
+      "average_quartet_interest": 0.7304,
+      "words_without_familiarity": 0
+    },
     "generator_version": "level-generator/1.0",
     "random_seed": 20260731,
-    "content_hash": "77101d8cd8f7e5dbad4d320dd0fc8594b12d990b7d9611d10e4a5e451b1a5869"
+    "content_hash": "80f7539505681a470002a7d7e6f8c863c43b4e8174591c8f28b3d79d79caf1a8"
   },
   {
     "level_key": "L003",
@@ -740,262 +987,367 @@
       "reason": "разбиение единственное",
       "alternative_partition": null,
       "solver_version": "level-exact-cover/1.0",
-      "input_hash": "f52d9e1e8c634b5dd7abfe7fac21f1e814be5035b257e87a81454295d712e6e0",
+      "input_hash": "00da3c1ef24eb8d7208599adba6df4e5fd462865052c9a8aa11ceb528f0494fe",
       "duration_ms": 0,
-      "checked_at": "2026-07-31T19:06:34+00:00"
+      "checked_at": "2026-07-31T20:35:02+00:00"
     },
     "groups": [
       {
         "position": 1,
-        "category_key": "cleaning_supplies",
-        "label": "CLEANING SUPPLIES",
-        "rule": "Tools and products used to clean a house",
-        "intended_relation": "used_in",
-        "quartet_key": "cleaning_supplies__1",
+        "category_key": "fullness_words",
+        "label": "FULLNESS WORDS",
+        "rule": "Words describing how full something is",
+        "intended_relation": "is_a",
+        "quartet_key": "fullness_words__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.606,
-          "ambiguity_pressure": 1.0
+          "familiarity": 0.6675,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8092,
+          "quartet_quality": 0.8438,
+          "quartet_interest": 0.7419,
+          "min_word_familiarity": 0.607,
+          "max_word_length": 6
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "polish",
-            "sense_key": "polish_product",
-            "definition": "A liquid or paste rubbed on to make something shine",
-            "sense_mode": "lexical",
-            "familiarity": 0.613,
+            "display": "full",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.791,
+            "char_count": 4,
+            "accessibility": 0.8851,
+            "novelty": 0.0646,
+            "ambiguity": 0.2375,
             "role": null
           },
           {
             "slot": 2,
-            "display": "trash bag",
+            "display": "empty",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.609,
+            "familiarity": 0.656,
+            "char_count": 5,
+            "accessibility": 0.7883,
+            "novelty": 0.6803,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 3,
-            "display": "brush",
+            "display": "packed",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.604,
+            "familiarity": 0.616,
+            "char_count": 6,
+            "accessibility": 0.7638,
+            "novelty": 0.906,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "soap",
+            "display": "loaded",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.597,
+            "familiarity": 0.607,
+            "char_count": 6,
+            "accessibility": 0.7589,
+            "novelty": 0.9416,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 2,
-        "category_key": "music_tempo_terms",
-        "label": "TEMPO TERMS",
-        "rule": "Italian words used to mark tempo in music",
+        "category_key": "european_countries",
+        "label": "EUROPEAN COUNTRIES",
+        "rule": "Countries located in Europe",
         "intended_relation": "is_a",
-        "quartet_key": "music_tempo_terms__1",
+        "quartet_key": "european_countries__2",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.53,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.6405,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8588,
+          "quartet_quality": 0.867,
+          "quartet_interest": 0.7289,
+          "min_word_familiarity": 0.611,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "grave",
+            "display": "Ireland",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.616,
+            "familiarity": 0.666,
+            "char_count": 7,
+            "accessibility": 0.7788,
+            "novelty": 0.6149,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "piano",
+            "display": "Spain",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.616,
+            "familiarity": 0.656,
+            "char_count": 5,
+            "accessibility": 0.7983,
+            "novelty": 0.6803,
+            "ambiguity": 0.1083,
             "role": null
           },
           {
             "slot": 3,
-            "display": "forte",
+            "display": "Sweden",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.463,
+            "familiarity": 0.629,
+            "char_count": 6,
+            "accessibility": 0.771,
+            "novelty": 0.8426,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "largo",
+            "display": "Greece",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.427,
+            "familiarity": 0.611,
+            "char_count": 6,
+            "accessibility": 0.7611,
+            "novelty": 0.9267,
+            "ambiguity": 0.1875,
             "role": null
           }
         ]
       },
       {
         "position": 3,
-        "category_key": "great_lakes_and_us_water",
-        "label": "US WATERS",
-        "rule": "Famous lakes and rivers in the United States",
+        "category_key": "energy_words",
+        "label": "ENERGY WORDS",
+        "rule": "Words for kinds and sources of energy",
         "intended_relation": "is_a",
-        "quartet_key": "great_lakes_and_us_water__1",
+        "quartet_key": "energy_words__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.645,
-          "ambiguity_pressure": 1.0
+          "familiarity": 0.6887,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8163,
+          "quartet_quality": 0.8455,
+          "quartet_interest": 0.6029,
+          "min_word_familiarity": 0.674,
+          "max_word_length": 8
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "Ohio",
+            "display": "gas",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.659,
+            "familiarity": 0.716,
+            "char_count": 3,
+            "accessibility": 0.8438,
+            "novelty": 0.3112,
+            "ambiguity": 0.3458,
             "role": null
           },
           {
             "slot": 2,
-            "display": "Michigan",
+            "display": "wind",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.649,
+            "familiarity": 0.691,
+            "char_count": 4,
+            "accessibility": 0.83,
+            "novelty": 0.4538,
+            "ambiguity": 0.2375,
             "role": null
           },
           {
             "slot": 3,
-            "display": "Colorado",
+            "display": "electric",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.637,
+            "familiarity": 0.674,
+            "char_count": 8,
+            "accessibility": 0.7607,
+            "novelty": 0.5624,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "Superior",
+            "display": "fuel",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.637,
+            "familiarity": 0.674,
+            "char_count": 4,
+            "accessibility": 0.8207,
+            "novelty": 0.5624,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 4,
-        "category_key": "ceremonies",
-        "label": "RELIGIOUS CEREMONIES",
-        "rule": "Ceremonies performed in religious life",
-        "intended_relation": "is_a",
-        "quartet_key": "ceremonies__2",
+        "category_key": "baseball_words",
+        "label": "BASEBALL WORDS",
+        "rule": "Words used to describe plays, places or roles in a baseball game",
+        "intended_relation": "found_in",
+        "quartet_key": "baseball_words__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.547,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.7132,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8069,
+          "quartet_quality": 0.8117,
+          "quartet_interest": 0.6379,
+          "min_word_familiarity": 0.666,
+          "max_word_length": 11
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "confirmation",
+            "display": "double play",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.583,
+            "familiarity": 0.701,
+            "char_count": 11,
+            "accessibility": 0.6656,
+            "novelty": 0.3937,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "blessing",
+            "display": "home run",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.58,
+            "familiarity": 0.76,
+            "char_count": 8,
+            "accessibility": 0.7805,
+            "novelty": 0.134,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "communion",
+            "display": "walk",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.514,
+            "familiarity": 0.726,
+            "char_count": 4,
+            "accessibility": 0.8493,
+            "novelty": 0.2621,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "sermon",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.513,
+            "display": "strike",
+            "sense_key": "strike_baseball",
+            "definition": "A pitch counted against the batter",
+            "sense_mode": "lexical",
+            "familiarity": 0.666,
+            "char_count": 6,
+            "accessibility": 0.7813,
+            "novelty": 0.6149,
+            "ambiguity": 0.5967,
             "role": null
           }
         ]
       },
       {
         "position": 5,
-        "category_key": "tea_ceremony",
-        "label": "TEA CEREMONY",
-        "rule": "A vessel, leaf or step of making tea properly",
-        "intended_relation": "used_in",
-        "quartet_key": "tea_ceremony__1",
+        "category_key": "home_electronics",
+        "label": "HOME ELECTRONICS",
+        "rule": "Electronic devices used in a home",
+        "intended_relation": "is_a",
+        "quartet_key": "home_electronics__1",
         "scores": {
-          "cohesion": 0.95,
-          "familiarity": 0.422,
-          "ambiguity_pressure": 0.5
+          "cohesion": 0.97,
+          "familiarity": 0.6575,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.8729,
+          "quartet_quality": 0.8102,
+          "quartet_interest": 0.8318,
+          "min_word_familiarity": 0.611,
+          "max_word_length": 13
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "steep",
+            "display": "radio",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.57,
+            "familiarity": 0.716,
+            "char_count": 5,
+            "accessibility": 0.8313,
+            "novelty": 0.3112,
+            "ambiguity": 0.4042,
             "role": null
           },
           {
             "slot": 2,
-            "display": "darjeeling",
+            "display": "television",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.37,
+            "familiarity": 0.684,
+            "char_count": 10,
+            "accessibility": 0.7412,
+            "novelty": 0.4978,
+            "ambiguity": 0.325,
             "role": null
           },
           {
             "slot": 3,
-            "display": "teapot",
+            "display": "smart speaker",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.416,
+            "familiarity": 0.619,
+            "char_count": 13,
+            "accessibility": 0.5055,
+            "novelty": 0.8925,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "teahouse",
+            "display": "alarm",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.334,
+            "familiarity": 0.611,
+            "char_count": 5,
+            "accessibility": 0.7736,
+            "novelty": 0.9267,
+            "ambiguity": 0.6208,
             "role": null
           }
         ]
@@ -1003,86 +1355,88 @@
     ],
     "plausible_competing_memberships": [
       {
-        "display": "polish",
-        "home_category": "cleaning_supplies",
-        "also_fits": "liquids,nail_words"
+        "display": "full",
+        "home_category": "fullness_words",
+        "also_fits": "opposites,words_before_time"
       },
       {
-        "display": "grave",
-        "home_category": "music_tempo_terms",
-        "also_fits": "words_before_stone"
+        "display": "gas",
+        "home_category": "energy_words",
+        "also_fits": "words_before_light,states_of_matter,welding_words,gas_station_things"
       },
       {
-        "display": "Ohio",
-        "home_category": "great_lakes_and_us_water",
-        "also_fits": "us_states"
+        "display": "radio",
+        "home_category": "home_electronics",
+        "also_fits": "things_with_buttons,things_that_plug_in,police_things,military_things,inventions,sound_devices"
       },
       {
-        "display": "trash bag",
-        "home_category": "cleaning_supplies",
-        "also_fits": "cleaning_trade"
+        "display": "empty",
+        "home_category": "fullness_words",
+        "also_fits": "opposites"
       },
       {
-        "display": "piano",
-        "home_category": "music_tempo_terms",
-        "also_fits": "music_class_things,musical_instruments,instruments_you_strum,heavy_things"
+        "display": "Spain",
+        "home_category": "european_countries",
+        "also_fits": "countries"
       },
       {
-        "display": "Michigan",
-        "home_category": "great_lakes_and_us_water",
-        "also_fits": "us_states,world_lakes"
+        "display": "wind",
+        "home_category": "energy_words",
+        "also_fits": "weather_words,fast_things"
       },
       {
-        "display": "blessing",
-        "home_category": "ceremonies",
-        "also_fits": "prayer_words"
+        "display": "television",
+        "home_category": "home_electronics",
+        "also_fits": "living_room_things,things_on_a_wall,things_that_plug_in,inventions,screens"
       },
       {
-        "display": "darjeeling",
-        "home_category": "tea_ceremony",
-        "also_fits": "teas"
+        "display": "electric",
+        "home_category": "energy_words",
+        "also_fits": "types_of_guitars"
       },
       {
-        "display": "brush",
-        "home_category": "cleaning_supplies",
-        "also_fits": "art_tools,writing_tools,art_class_things,beauty_tools,wardrobe_care,model_building,bathroom_items,pet_supplies,words_after_air,painting_supplies,art_supplies,cleaning_tools,painting_trade,barbershop_words"
+        "display": "walk",
+        "home_category": "baseball_words",
+        "also_fits": "ways_of_moving"
       },
       {
-        "display": "Colorado",
-        "home_category": "great_lakes_and_us_water",
-        "also_fits": "us_states,rivers"
+        "display": "Greece",
+        "home_category": "european_countries",
+        "also_fits": "ancient_civilizations,countries"
       },
       {
-        "display": "teapot",
-        "home_category": "tea_ceremony",
-        "also_fits": "dishes_and_glassware"
-      },
-      {
-        "display": "soap",
-        "home_category": "cleaning_supplies",
-        "also_fits": "bathroom_items,liquids,hygiene,things_that_shrink,experiments"
-      },
-      {
-        "display": "Superior",
-        "home_category": "great_lakes_and_us_water",
-        "also_fits": "world_lakes"
-      },
-      {
-        "display": "sermon",
-        "home_category": "ceremonies",
-        "also_fits": "prayer_words"
+        "display": "alarm",
+        "home_category": "home_electronics",
+        "also_fits": "words_after_fire,sleep_and_rest,things_that_ring,loud_things,city_sounds,phone_words,security_tech,clock_words,morning_routine,under_lock"
       }
     ],
     "cooldowns": [],
     "ui_warnings": [],
     "risk_warnings": [
-      "ceremonies: риск-статус flagged",
-      "cleaning_supplies: риск-статус flagged",
-      "great_lakes_and_us_water: риск-статус flagged"
+      "baseball_words: риск-статус flagged",
+      "european_countries: риск-статус flagged",
+      "home_electronics: риск-статус flagged"
     ],
+    "quality": {
+      "average_familiarity": 0.6735,
+      "minimum_familiarity": 0.607,
+      "average_accessibility": 0.7744,
+      "word_length_distribution": {
+        "1-6": 14,
+        "7-10": 4,
+        "11-14": 2,
+        "15+": 0
+      },
+      "novel_word_ratio": 0.5,
+      "long_phrase_count": 0,
+      "ambiguity_budget_used": 0.6208,
+      "average_label_quality": 0.8328,
+      "average_quartet_interest": 0.7087,
+      "words_without_familiarity": 0
+    },
     "generator_version": "level-generator/1.0",
     "random_seed": 20260731,
-    "content_hash": "82a6e346bf2dcfc94b8ce61612ea8fe3a2b1fcba05a634426d98727796bac8ed"
+    "content_hash": "0e47e612863e2e1cf27fd7ed05ece279c121e84edf42ac0fa6e7149df2dac970"
   },
   {
     "level_key": "L004",
@@ -1090,12 +1444,12 @@
     "tier": "normal",
     "solution_count": 1,
     "difficulty": {
-      "score": 2.5,
+      "score": 3.5,
       "components": {
         "category_count": 0.0,
         "rare_words": 0.0,
         "average_familiarity": 0.0,
-        "sense_ambiguity": 0.0,
+        "sense_ambiguity": 1.0,
         "pairwise_category_overlap": 0.0,
         "alternative_partition_pressure": 1.5,
         "number_of_plausible_first_groups": 0.0,
@@ -1103,7 +1457,7 @@
         "phrase_length_pressure": 0.0,
         "meta_depth": 0.0
       },
-      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5"
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +1.0"
     },
     "solver": {
       "outcome": "unique",
@@ -1111,262 +1465,367 @@
       "reason": "разбиение единственное",
       "alternative_partition": null,
       "solver_version": "level-exact-cover/1.0",
-      "input_hash": "73045a1d50b48fe2e4a905268897c5d87e1de2338b3233a091b29718fb72ee18",
+      "input_hash": "90b32da698a5bbcb760fea074cd6e412d20552eeec6b07bbb5b106fc82f27c54",
       "duration_ms": 0,
-      "checked_at": "2026-07-31T19:06:34+00:00"
+      "checked_at": "2026-07-31T20:35:02+00:00"
     },
     "groups": [
       {
         "position": 1,
-        "category_key": "clothing_sizes",
-        "label": "CLOTHING SIZES",
-        "rule": "Words used for clothing sizes and fit",
-        "intended_relation": "is_a",
-        "quartet_key": "clothing_sizes__1",
+        "category_key": "jewelry_making",
+        "label": "JEWELRY SUPPLIES",
+        "rule": "Things used to make jewelry",
+        "intended_relation": "used_in",
+        "quartet_key": "jewelry_making__2",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.743,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.5815,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8744,
+          "quartet_quality": 0.8142,
+          "quartet_interest": 0.8255,
+          "min_word_familiarity": 0.553,
+          "max_word_length": 10
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "large",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.77,
+            "display": "hook",
+            "sense_key": "hook_fastener",
+            "definition": "A bent piece of metal used to hang or catch things",
+            "sense_mode": "lexical",
+            "familiarity": 0.624,
+            "char_count": 4,
+            "accessibility": 0.7932,
+            "novelty": 0.8685,
+            "ambiguity": 1.0,
             "role": null
           },
           {
             "slot": 2,
-            "display": "plus",
+            "display": "ring blank",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.707,
+            "familiarity": 0.58,
+            "char_count": 10,
+            "accessibility": 0.6365,
+            "novelty": 0.9985,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "regular",
+            "display": "cord",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.707,
+            "familiarity": 0.569,
+            "char_count": 4,
+            "accessibility": 0.763,
+            "novelty": 0.9979,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "small",
+            "display": "gem",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.787,
+            "familiarity": 0.553,
+            "char_count": 3,
+            "accessibility": 0.7542,
+            "novelty": 0.972,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 2,
-        "category_key": "cold_drinks",
-        "label": "COLD DRINKS",
-        "rule": "Drinks normally served cold",
+        "category_key": "clothing_brands",
+        "label": "CLOTHING BRANDS",
+        "rule": "Well known clothing and shoe brands",
         "intended_relation": "is_a",
-        "quartet_key": "cold_drinks__3",
+        "quartet_key": "clothing_brands__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.504,
-          "ambiguity_pressure": 0.75
+          "familiarity": 0.6008,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8759,
+          "quartet_quality": 0.8375,
+          "quartet_interest": 0.7832,
+          "min_word_familiarity": 0.51,
+          "max_word_length": 11
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "cola",
+            "display": "New Balance",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.534,
+            "familiarity": 0.679,
+            "char_count": 11,
+            "accessibility": 0.6135,
+            "novelty": 0.5299,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "ginger ale",
+            "display": "Champion",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.499,
+            "familiarity": 0.66,
+            "char_count": 8,
+            "accessibility": 0.758,
+            "novelty": 0.6543,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "iced tea",
+            "display": "Nike",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.491,
+            "familiarity": 0.554,
+            "char_count": 4,
+            "accessibility": 0.7547,
+            "novelty": 0.9744,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "lemonade",
+            "display": "Adidas",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.491,
+            "familiarity": 0.51,
+            "char_count": 6,
+            "accessibility": 0.7055,
+            "novelty": 0.7803,
+            "ambiguity": 0.1583,
             "role": null
           }
         ]
       },
       {
         "position": 3,
-        "category_key": "knights_and_armor",
-        "label": "KNIGHT THINGS",
-        "rule": "Things a medieval knight used or wore",
+        "category_key": "advertising_words",
+        "label": "ADVERTISING WORDS",
+        "rule": "Words used in advertising and marketing",
         "intended_relation": "found_in",
-        "quartet_key": "knights_and_armor__1",
+        "quartet_key": "advertising_words__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.627,
-          "ambiguity_pressure": 0.75
+          "familiarity": 0.6967,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.7792,
+          "quartet_quality": 0.8246,
+          "quartet_interest": 0.5899,
+          "min_word_familiarity": 0.68,
+          "max_word_length": 10
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "horse",
+            "display": "campaign",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.68,
+            "familiarity": 0.714,
+            "char_count": 8,
+            "accessibility": 0.7727,
+            "novelty": 0.3216,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 2,
-            "display": "sword",
+            "display": "commercial",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.624,
+            "familiarity": 0.703,
+            "char_count": 10,
+            "accessibility": 0.7116,
+            "novelty": 0.3821,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 3,
-            "display": "shield",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.614,
+            "display": "brand",
+            "sense_key": "brand_company",
+            "definition": "The name a company sells its goods under",
+            "sense_mode": "lexical",
+            "familiarity": 0.69,
+            "char_count": 5,
+            "accessibility": 0.817,
+            "novelty": 0.46,
+            "ambiguity": 0.3275,
             "role": null
           },
           {
             "slot": 4,
-            "display": "banner",
+            "display": "ad",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.589,
+            "familiarity": 0.68,
+            "char_count": 2,
+            "accessibility": 0.824,
+            "novelty": 0.5234,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 4,
-        "category_key": "rodent_species",
-        "label": "RODENT SPECIES",
-        "rule": "Particular kinds of rodent",
-        "intended_relation": "is_a",
-        "quartet_key": "rodent_species__1",
+        "category_key": "skateboarding",
+        "label": "SKATEBOARDING WORDS",
+        "rule": "Words used in skateboarding",
+        "intended_relation": "found_in",
+        "quartet_key": "skateboarding__2",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.54,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.596,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.7601,
+          "quartet_quality": 0.8004,
+          "quartet_interest": 0.7484,
+          "min_word_familiarity": 0.574,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "house mouse",
+            "display": "wheels",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.613,
+            "familiarity": 0.607,
+            "char_count": 6,
+            "accessibility": 0.7589,
+            "novelty": 0.9416,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "field mouse",
+            "display": "bearing",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.609,
+            "familiarity": 0.603,
+            "char_count": 7,
+            "accessibility": 0.7442,
+            "novelty": 0.955,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "prairie dog",
+            "display": "trucks",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.526,
+            "familiarity": 0.6,
+            "char_count": 6,
+            "accessibility": 0.745,
+            "novelty": 0.964,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "groundhog",
+            "display": "helmet",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.414,
+            "familiarity": 0.574,
+            "char_count": 6,
+            "accessibility": 0.7407,
+            "novelty": 0.9999,
+            "ambiguity": 0.65,
             "role": null
           }
         ]
       },
       {
         "position": 5,
-        "category_key": "greek_dishes",
-        "label": "GREEK DISHES",
-        "rule": "Dishes from Greek cuisine",
+        "category_key": "days_and_parts_of_day",
+        "label": "DAYS & TIMES",
+        "rule": "Names of weekdays and parts of the day",
         "intended_relation": "is_a",
-        "quartet_key": "greek_dishes__3",
+        "quartet_key": "days_and_parts_of_day__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.276,
-          "ambiguity_pressure": 0.0
+          "familiarity": 0.7435,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.9098,
+          "quartet_quality": 0.8916,
+          "quartet_interest": 0.5298,
+          "min_word_familiarity": 0.703,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "halloumi",
+            "display": "Friday",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.287,
+            "familiarity": 0.709,
+            "char_count": 6,
+            "accessibility": 0.815,
+            "novelty": 0.3484,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "souvlaki",
+            "display": "morning",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.277,
+            "familiarity": 0.761,
+            "char_count": 7,
+            "accessibility": 0.8311,
+            "novelty": 0.1311,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 3,
-            "display": "tzatziki",
+            "display": "night",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.274,
+            "familiarity": 0.801,
+            "char_count": 5,
+            "accessibility": 0.8681,
+            "novelty": 0.0498,
+            "ambiguity": 0.3458,
             "role": null
           },
           {
             "slot": 4,
-            "display": "moussaka",
+            "display": "Sunday",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.267,
+            "familiarity": 0.703,
+            "char_count": 6,
+            "accessibility": 0.8116,
+            "novelty": 0.3821,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
@@ -1374,66 +1833,87 @@
     ],
     "plausible_competing_memberships": [
       {
-        "display": "cola",
-        "home_category": "cold_drinks",
-        "also_fits": "drink_mixers"
+        "display": "hook",
+        "home_category": "jewelry_making",
+        "also_fits": "fasteners,sewing_supplies,things_on_a_wall,things_that_cut,wardrobe_care"
       },
       {
-        "display": "horse",
-        "home_category": "knights_and_armor",
-        "also_fits": "farm_animals,pack_animals,livestock,ranch_words,wild_west,transportation_history,things_that_carry_people"
+        "display": "campaign",
+        "home_category": "advertising_words",
+        "also_fits": "government_branches"
       },
       {
-        "display": "plus",
-        "home_category": "clothing_sizes",
-        "also_fits": "vitamins_letters"
+        "display": "commercial",
+        "home_category": "advertising_words",
+        "also_fits": "tv_words"
       },
       {
-        "display": "ginger ale",
-        "home_category": "cold_drinks",
-        "also_fits": "drink_mixers"
+        "display": "morning",
+        "home_category": "days_and_parts_of_day",
+        "also_fits": "greetings_and_farewells"
       },
       {
-        "display": "sword",
-        "home_category": "knights_and_armor",
-        "also_fits": "weapons_of_the_past,pirate_words,words_before_fish,things_made_of_metal,magic_objects,things_that_are_sharp,things_that_cut"
+        "display": "cord",
+        "home_category": "jewelry_making",
+        "also_fits": "power_and_batteries"
       },
       {
-        "display": "prairie dog",
-        "home_category": "rodent_species",
-        "also_fits": "rodents"
+        "display": "Nike",
+        "home_category": "clothing_brands",
+        "also_fits": "famous_brands"
       },
       {
-        "display": "small",
-        "home_category": "clothing_sizes",
-        "also_fits": "opposites,word_small"
+        "display": "brand",
+        "home_category": "advertising_words",
+        "also_fits": "business_words"
       },
       {
-        "display": "lemonade",
-        "home_category": "cold_drinks",
-        "also_fits": "bbq_foods,drink_mixers,seasons_summer,everyday_drinks,picnic"
+        "display": "trucks",
+        "home_category": "skateboarding",
+        "also_fits": "vehicles"
       },
       {
-        "display": "banner",
-        "home_category": "knights_and_armor",
-        "also_fits": "decorative_things,advertising_words,party_things,castle_things,fan_things"
+        "display": "night",
+        "home_category": "days_and_parts_of_day",
+        "also_fits": "opposites,words_before_light,words_before_time,black_things"
       },
       {
-        "display": "groundhog",
-        "home_category": "rodent_species",
-        "also_fits": "rodents"
+        "display": "Adidas",
+        "home_category": "clothing_brands",
+        "also_fits": "famous_brands"
+      },
+      {
+        "display": "helmet",
+        "home_category": "skateboarding",
+        "also_fits": "hats,knights_and_armor,military_things,things_made_of_plastic,astronaut_gear,baseball_equipment,football_words,hockey_words,sports_gear_worn,cycling_words,racing_words,safety_gear,welding_words"
       }
     ],
     "cooldowns": [],
     "ui_warnings": [],
     "risk_warnings": [
-      "cold_drinks: риск-статус flagged",
-      "greek_dishes: риск-статус flagged",
-      "rodent_species: риск-статус flagged"
+      "clothing_brands: риск-статус flagged",
+      "jewelry_making: риск-статус flagged"
     ],
+    "quality": {
+      "average_familiarity": 0.6437,
+      "minimum_familiarity": 0.51,
+      "average_accessibility": 0.7609,
+      "word_length_distribution": {
+        "1-6": 13,
+        "7-10": 6,
+        "11-14": 1,
+        "15+": 0
+      },
+      "novel_word_ratio": 0.55,
+      "long_phrase_count": 0,
+      "ambiguity_budget_used": 1.0,
+      "average_label_quality": 0.8399,
+      "average_quartet_interest": 0.6954,
+      "words_without_familiarity": 0
+    },
     "generator_version": "level-generator/1.0",
     "random_seed": 20260731,
-    "content_hash": "dcc4f8e27684c456ccda12727df769f76b3c40fa2893182c272ad0955eab5fb5"
+    "content_hash": "1e3f56b292dc5d247d0392bab4363ea7921a7d96f9e9f512dfa114f4c4219198"
   },
   {
     "level_key": "L005",
@@ -1441,12 +1921,12 @@
     "tier": "normal",
     "solution_count": 1,
     "difficulty": {
-      "score": 4.0,
+      "score": 3.0,
       "components": {
         "category_count": 0.0,
         "rare_words": 0.0,
         "average_familiarity": 0.0,
-        "sense_ambiguity": 1.5,
+        "sense_ambiguity": 0.5,
         "pairwise_category_overlap": 0.0,
         "alternative_partition_pressure": 1.5,
         "number_of_plausible_first_groups": 0.0,
@@ -1454,7 +1934,7 @@
         "phrase_length_pressure": 0.0,
         "meta_depth": 0.0
       },
-      "explanation": "5 категорий, 20 слов; главный вклад: sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +0.5"
     },
     "solver": {
       "outcome": "unique",
@@ -1462,262 +1942,367 @@
       "reason": "разбиение единственное",
       "alternative_partition": null,
       "solver_version": "level-exact-cover/1.0",
-      "input_hash": "d14d0e893543b3f2c7ab0f8f3ce9c43187b492df7dcbc343ac96b5d9a6da1167",
+      "input_hash": "68e0002a189fc75473e2e672703e17099874f4ba1123e3ed90477507ae4c5462",
       "duration_ms": 0,
-      "checked_at": "2026-07-31T19:06:34+00:00"
+      "checked_at": "2026-07-31T20:35:02+00:00"
     },
     "groups": [
       {
         "position": 1,
-        "category_key": "restaurant_words",
-        "label": "RESTAURANT WORDS",
-        "rule": "Things and roles found at a restaurant",
-        "intended_relation": "found_in",
-        "quartet_key": "restaurant_words__3",
+        "category_key": "asian_dishes",
+        "label": "ASIAN DISHES",
+        "rule": "Dishes from East and Southeast Asian cuisines eaten in the United States",
+        "intended_relation": "is_a",
+        "quartet_key": "asian_dishes__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.612,
-          "ambiguity_pressure": 0.75
+          "familiarity": 0.5875,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8794,
+          "quartet_quality": 0.8376,
+          "quartet_interest": 0.7974,
+          "min_word_familiarity": 0.526,
+          "max_word_length": 11
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "tip",
-            "sense_key": "tip_money",
-            "definition": "Extra money left for good service",
-            "sense_mode": "lexical",
-            "familiarity": 0.65,
+            "display": "spring roll",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.647,
+            "char_count": 11,
+            "accessibility": 0.6359,
+            "novelty": 0.7376,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "menu",
+            "display": "egg roll",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.609,
+            "familiarity": 0.611,
+            "char_count": 8,
+            "accessibility": 0.7286,
+            "novelty": 0.9267,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "chef",
+            "display": "curry",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.604,
+            "familiarity": 0.566,
+            "char_count": 5,
+            "accessibility": 0.7488,
+            "novelty": 0.9953,
+            "ambiguity": 0.1875,
             "role": null
           },
           {
             "slot": 4,
-            "display": "booth",
+            "display": "sushi",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.586,
+            "familiarity": 0.526,
+            "char_count": 5,
+            "accessibility": 0.7268,
+            "novelty": 0.8685,
+            "ambiguity": 0.2375,
             "role": null
           }
         ]
       },
       {
         "position": 2,
-        "category_key": "book_genres",
-        "label": "BOOK GENRES",
-        "rule": "Categories used to classify books",
+        "category_key": "alphabet_code",
+        "label": "RADIO ALPHABET",
+        "rule": "Code words used to spell letters over a radio",
         "intended_relation": "is_a",
-        "quartet_key": "book_genres__3",
+        "quartet_key": "alphabet_code__3",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.6,
-          "ambiguity_pressure": 0.5
+          "familiarity": 0.5857,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8998,
+          "quartet_quality": 0.8464,
+          "quartet_interest": 0.7819,
+          "min_word_familiarity": 0.577,
+          "max_word_length": 6
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "science fiction",
+            "display": "Victor",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.623,
+            "familiarity": 0.597,
+            "char_count": 6,
+            "accessibility": 0.7534,
+            "novelty": 0.972,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 2,
-            "display": "romance",
-            "sense_key": null,
-            "definition": null,
-            "sense_mode": "surface_form",
-            "familiarity": 0.617,
+            "display": "delta",
+            "sense_key": "delta_letter",
+            "definition": "The fourth letter of the Greek alphabet",
+            "sense_mode": "lexical",
+            "familiarity": 0.589,
+            "char_count": 5,
+            "accessibility": 0.7615,
+            "novelty": 0.9886,
+            "ambiguity": 0.7142,
             "role": null
           },
           {
             "slot": 3,
-            "display": "humor",
+            "display": "Sierra",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.599,
+            "familiarity": 0.58,
+            "char_count": 6,
+            "accessibility": 0.744,
+            "novelty": 0.9985,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "thriller",
+            "display": "Echo",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.559,
+            "familiarity": 0.577,
+            "char_count": 4,
+            "accessibility": 0.7674,
+            "novelty": 0.9998,
+            "ambiguity": 0.2375,
             "role": null
           }
         ]
       },
       {
         "position": 3,
-        "category_key": "zodiac_signs",
-        "label": "ZODIAC SIGNS",
-        "rule": "Signs of the astrological zodiac",
-        "intended_relation": "is_a",
-        "quartet_key": "zodiac_signs__2",
+        "category_key": "detective_words",
+        "label": "DETECTIVE WORDS",
+        "rule": "Words used in a criminal investigation",
+        "intended_relation": "found_in",
+        "quartet_key": "detective_words__2",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.443,
-          "ambiguity_pressure": 0.0
+          "familiarity": 0.5857,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.7981,
+          "quartet_quality": 0.8268,
+          "quartet_interest": 0.7678,
+          "min_word_familiarity": 0.563,
+          "max_word_length": 7
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "Scorpio",
+            "display": "warrant",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.45,
+            "familiarity": 0.606,
+            "char_count": 7,
+            "accessibility": 0.7458,
+            "novelty": 0.9451,
+            "ambiguity": 0.1375,
             "role": null
           },
           {
             "slot": 2,
-            "display": "Aries",
+            "display": "clue",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.447,
+            "familiarity": 0.597,
+            "char_count": 4,
+            "accessibility": 0.7784,
+            "novelty": 0.972,
+            "ambiguity": 0.1875,
             "role": null
           },
           {
             "slot": 3,
-            "display": "Aquarius",
+            "display": "lineup",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.437,
+            "familiarity": 0.577,
+            "char_count": 6,
+            "accessibility": 0.7424,
+            "novelty": 0.9998,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 4,
-            "display": "Virgo",
+            "display": "motive",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.439,
+            "familiarity": 0.563,
+            "char_count": 6,
+            "accessibility": 0.7346,
+            "novelty": 0.9916,
+            "ambiguity": 0.0792,
             "role": null
           }
         ]
       },
       {
         "position": 4,
-        "category_key": "city_sounds",
-        "label": "CITY SOUNDS",
-        "rule": "Sounds heard on a city street",
-        "intended_relation": "does_action",
-        "quartet_key": "city_sounds__3",
+        "category_key": "titles_of_address",
+        "label": "TITLES",
+        "rule": "Titles put before a person name",
+        "intended_relation": "is_a",
+        "quartet_key": "titles_of_address__1",
         "scores": {
           "cohesion": 0.97,
-          "familiarity": 0.472,
-          "ambiguity_pressure": 1.0
+          "familiarity": 0.732,
+          "ambiguity_pressure": 0.5,
+          "label_quality": 0.8724,
+          "quartet_quality": 0.8995,
+          "quartet_interest": 0.482,
+          "min_word_familiarity": 0.723,
+          "max_word_length": 5
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "siren",
-            "sense_key": "siren_device",
-            "definition": "A device that makes a loud rising warning sound",
-            "sense_mode": "lexical",
-            "familiarity": 0.494,
+            "display": "chief",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.73,
+            "char_count": 5,
+            "accessibility": 0.839,
+            "novelty": 0.244,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 2,
-            "display": "rumble",
+            "display": "lord",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.49,
+            "familiarity": 0.729,
+            "char_count": 4,
+            "accessibility": 0.851,
+            "novelty": 0.2484,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "chatter",
+            "display": "miss",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.483,
+            "familiarity": 0.746,
+            "char_count": 4,
+            "accessibility": 0.8603,
+            "novelty": 0.1796,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 4,
-            "display": "honk",
+            "display": "sir",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.421,
+            "familiarity": 0.723,
+            "char_count": 3,
+            "accessibility": 0.8477,
+            "novelty": 0.2763,
+            "ambiguity": 0.1583,
             "role": null
           }
         ]
       },
       {
         "position": 5,
-        "category_key": "under_lock",
-        "label": "UNDER LOCK",
-        "rule": "Something used to lock things away or guard them",
-        "intended_relation": "used_for",
-        "quartet_key": "under_lock__1",
+        "category_key": "yoga_poses",
+        "label": "YOGA POSES",
+        "rule": "Named poses used in yoga",
+        "intended_relation": "is_a",
+        "quartet_key": "yoga_poses__2",
         "scores": {
-          "cohesion": 0.95,
-          "familiarity": 0.706,
-          "ambiguity_pressure": 1.0
+          "cohesion": 0.97,
+          "familiarity": 0.5895,
+          "ambiguity_pressure": 0.75,
+          "label_quality": 0.9015,
+          "quartet_quality": 0.8474,
+          "quartet_interest": 0.7761,
+          "min_word_familiarity": 0.543,
+          "max_word_length": 9
         },
         "tokens": [
           {
             "slot": 1,
-            "display": "code",
+            "display": "half moon",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.726,
+            "familiarity": 0.66,
+            "char_count": 9,
+            "accessibility": 0.708,
+            "novelty": 0.6543,
+            "ambiguity": 0.1583,
             "role": null
           },
           {
             "slot": 2,
-            "display": "lock",
+            "display": "warrior",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.644,
+            "familiarity": 0.594,
+            "char_count": 7,
+            "accessibility": 0.7392,
+            "novelty": 0.979,
+            "ambiguity": 0.0792,
             "role": null
           },
           {
             "slot": 3,
-            "display": "safe",
+            "display": "triangle",
             "sense_key": null,
             "definition": null,
             "sense_mode": "surface_form",
-            "familiarity": 0.724,
+            "familiarity": 0.561,
+            "char_count": 8,
+            "accessibility": 0.6986,
+            "novelty": 0.9886,
+            "ambiguity": 0.3167,
             "role": null
           },
           {
             "slot": 4,
-            "display": "key",
-            "sense_key": "key_lock",
-            "definition": "A small metal object that opens a lock",
-            "sense_mode": "lexical",
-            "familiarity": 0.731,
+            "display": "crow",
+            "sense_key": null,
+            "definition": null,
+            "sense_mode": "surface_form",
+            "familiarity": 0.543,
+            "char_count": 4,
+            "accessibility": 0.7487,
+            "novelty": 0.9416,
+            "ambiguity": 0.3458,
             "role": null
           }
         ]
@@ -1725,81 +2310,92 @@
     ],
     "plausible_competing_memberships": [
       {
-        "display": "tip",
-        "home_category": "restaurant_words",
-        "also_fits": "money_actions,money_words"
+        "display": "warrant",
+        "home_category": "detective_words",
+        "also_fits": "police_things,legal_documents"
       },
       {
-        "display": "siren",
-        "home_category": "city_sounds",
-        "also_fits": "police_things,emergency_words,loud_things,bell_and_alarm,security_tech"
+        "display": "chief",
+        "home_category": "titles_of_address",
+        "also_fits": "famous_job_titles"
       },
       {
-        "display": "code",
-        "home_category": "under_lock",
-        "also_fits": "spy_words,emergency_words,programming_words"
+        "display": "half moon",
+        "home_category": "yoga_poses",
+        "also_fits": "tide_and_moon"
       },
       {
-        "display": "menu",
-        "home_category": "restaurant_words",
-        "also_fits": "reading_material"
+        "display": "delta",
+        "home_category": "alphabet_code",
+        "also_fits": "greek_letters"
       },
       {
-        "display": "romance",
-        "home_category": "book_genres",
-        "also_fits": "movie_genres"
+        "display": "clue",
+        "home_category": "detective_words",
+        "also_fits": "board_games,detective_work"
       },
       {
-        "display": "rumble",
-        "home_category": "city_sounds",
-        "also_fits": "onomatopoeia,loud_noises"
+        "display": "curry",
+        "home_category": "asian_dishes",
+        "also_fits": "indian_dishes,sauces"
       },
       {
-        "display": "lock",
-        "home_category": "under_lock",
-        "also_fits": "words_before_room,security_tech,locksmith_words"
+        "display": "lineup",
+        "home_category": "detective_words",
+        "also_fits": "baseball_words"
       },
       {
-        "display": "chef",
-        "home_category": "restaurant_words",
-        "also_fits": "kitchen_jobs,jobs_that_wear_uniforms,jobs_with_tools,common_professions"
+        "display": "triangle",
+        "home_category": "yoga_poses",
+        "also_fits": "music_class_things,percussion,shapes"
       },
       {
-        "display": "chatter",
-        "home_category": "city_sounds",
-        "also_fits": "ways_of_speaking,words_before_box"
+        "display": "sushi",
+        "home_category": "asian_dishes",
+        "also_fits": "rice_types,japanese_dishes"
       },
       {
-        "display": "safe",
-        "home_category": "under_lock",
-        "also_fits": "words_before_house,things_made_of_metal,heavy_things,security_tech,locksmith_words"
+        "display": "Echo",
+        "home_category": "alphabet_code",
+        "also_fits": "mountain_things,cave_things"
       },
       {
-        "display": "thriller",
-        "home_category": "book_genres",
-        "also_fits": "movie_genres"
+        "display": "sir",
+        "home_category": "titles_of_address",
+        "also_fits": "polite_words"
       },
       {
-        "display": "honk",
-        "home_category": "city_sounds",
-        "also_fits": "driving_actions"
-      },
-      {
-        "display": "key",
-        "home_category": "under_lock",
-        "also_fits": "bedroom_things,collecting_hobbies,things_in_a_junk_drawer,words_before_board,words_before_stone,things_made_of_metal,things_on_a_keychain,locksmith_words,at_the_hotel"
+        "display": "crow",
+        "home_category": "yoga_poses",
+        "also_fits": "birds,flying_animals,pest_control,black_things"
       }
     ],
     "cooldowns": [],
-    "ui_warnings": [
-      "длинный пузырь: science fiction (15 символов)"
-    ],
+    "ui_warnings": [],
     "risk_warnings": [
-      "book_genres: риск-статус flagged",
-      "zodiac_signs: риск-статус flagged"
+      "alphabet_code: риск-статус flagged",
+      "asian_dishes: риск-статус flagged",
+      "yoga_poses: риск-статус flagged"
     ],
+    "quality": {
+      "average_familiarity": 0.6161,
+      "minimum_familiarity": 0.526,
+      "average_accessibility": 0.758,
+      "word_length_distribution": {
+        "1-6": 14,
+        "7-10": 5,
+        "11-14": 1,
+        "15+": 0
+      },
+      "novel_word_ratio": 0.8,
+      "long_phrase_count": 0,
+      "ambiguity_budget_used": 0.7142,
+      "average_label_quality": 0.8702,
+      "average_quartet_interest": 0.721,
+      "words_without_familiarity": 0
+    },
     "generator_version": "level-generator/1.0",
     "random_seed": 20260731,
-    "content_hash": "ebf965b5570bb7e3fb80efe69b9ef75451f49e8e2b56cfc3e9aa20c52a00b378"
+    "content_hash": "14e34a88fd548d742e3b5c5293701ac8025a52271b090038c448f32389d8693e"
   }
 ]

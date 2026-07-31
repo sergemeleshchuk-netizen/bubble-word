@@ -231,12 +231,19 @@ def apply_membership(
     sense_id: int | None = None
     if item.sense_key and item.sense_definition:
         sense_key = resolve_sense_key(conn, item) or item.sense_key
+        # Написание принадлежит значению, а не источнику: `Rose` выглядит
+        # одинаково везде. Поэтому свойства значения берём из карты даже тогда,
+        # когда само значение принёс источник.
+        declared = (sense_map or default_sense_map()).describe(item.word, sense_key)
         sense_id = upsert_sense(
             conn,
             word_id=word_id,
             sense_key=sense_key,
             definition=item.sense_definition,
-            part_of_speech=item.part_of_speech,
+            part_of_speech=(declared.part_of_speech if declared else None)
+            or item.part_of_speech,
+            display_text=declared.display_text if declared else None,
+            is_proper_noun=bool(declared and declared.is_proper_noun) or item.is_proper_noun,
         )
     else:
         # Источник значение не принёс — берём объявленное в карте проекта.

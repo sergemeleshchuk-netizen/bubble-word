@@ -279,7 +279,7 @@ def test_disabled_quartet_leaves_generation_pool(with_levels, tmp_path):
                 ],
             ),
         )
-    usable = level_generator._usable_quartets(with_levels, "normal")
+    usable, _stats = level_generator._usable_quartets(with_levels, "normal")
     keys = {
         entry["quartet_id"]
         for entries in usable.values()

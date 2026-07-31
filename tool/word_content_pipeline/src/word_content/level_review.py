@@ -70,6 +70,7 @@ class LevelPackage:
     cooldowns: list[dict[str, object]]
     ui_warnings: list[str]
     risk_warnings: list[str]
+    quality: dict[str, object]
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -88,6 +89,7 @@ class LevelPackage:
             "cooldowns": self.cooldowns,
             "ui_warnings": self.ui_warnings,
             "risk_warnings": self.risk_warnings,
+            "quality": self.quality,
             "generator_version": self.generator_version,
             "random_seed": self.random_seed,
             "content_hash": self.content_hash,
@@ -119,7 +121,9 @@ def _package(conn: sqlite3.Connection, level: sqlite3.Row) -> LevelPackage:
                c.label AS label, c.rule AS rule, c.relation_type AS relation_type,
                q.quartet_key AS quartet_key, q.cohesion_score AS cohesion,
                q.familiarity_score AS familiarity, q.ambiguity_pressure AS ambiguity,
-               q.risk_state AS risk_state
+               q.risk_state AS risk_state, q.label_quality_score AS label_quality,
+               q.quartet_quality_score AS quartet_quality,
+               q.quartet_interest_score AS quartet_interest
           FROM level_groups g
           JOIN categories c ON c.id = g.category_id
           LEFT JOIN quartets q ON q.id = g.quartet_id
@@ -136,16 +140,24 @@ def _package(conn: sqlite3.Connection, level: sqlite3.Row) -> LevelPackage:
                 "definition": row["definition"],
                 "sense_mode": row["sense_mode"],
                 "familiarity": row["familiarity_score"],
+                "char_count": row["char_count"] or len(str(row["display_text"])),
+                "accessibility": row["accessibility"],
+                "novelty": row["novelty"],
+                "ambiguity": row["ambiguity"],
                 "role": row["role"],
             }
             for row in conn.execute(
                 """
                 SELECT t.slot AS slot, t.display_text AS display_text, t.sense_mode AS sense_mode,
                        t.role AS role, s.sense_key AS sense_key, s.definition AS definition,
-                       w.familiarity_score AS familiarity_score
+                       w.familiarity_score AS familiarity_score,
+                       ws.char_count AS char_count, ws.accessibility_score AS accessibility,
+                       ws.novelty_score AS novelty, ws.ambiguity_score AS ambiguity
                   FROM level_tokens t
                   JOIN words w ON w.id = t.word_id
                   LEFT JOIN word_senses s ON s.id = t.sense_id
+                  LEFT JOIN word_scores ws ON ws.word_id = t.word_id
+                       AND COALESCE(ws.sense_id, 0) = COALESCE(t.sense_id, 0)
                  WHERE t.group_id = ? ORDER BY t.slot
                 """,
                 (group["group_id"],),
@@ -163,6 +175,7 @@ def _package(conn: sqlite3.Connection, level: sqlite3.Row) -> LevelPackage:
         if group["risk_state"] and group["risk_state"] != "clear":
             risk_warnings.append(f"{group['category_key']}: риск-статус {group['risk_state']}")
 
+        familiarity_values = [t["familiarity"] for t in tokens if t["familiarity"] is not None]
         groups.append(
             {
                 "position": int(group["position"]),
@@ -175,6 +188,13 @@ def _package(conn: sqlite3.Connection, level: sqlite3.Row) -> LevelPackage:
                     "cohesion": group["cohesion"],
                     "familiarity": group["familiarity"],
                     "ambiguity_pressure": group["ambiguity"],
+                    "label_quality": group["label_quality"],
+                    "quartet_quality": group["quartet_quality"],
+                    "quartet_interest": group["quartet_interest"],
+                    "min_word_familiarity": (
+                        min(familiarity_values) if familiarity_values else None
+                    ),
+                    "max_word_length": max(int(t["char_count"]) for t in tokens),
                 },
                 "tokens": tokens,
             }
@@ -269,7 +289,62 @@ def _package(conn: sqlite3.Connection, level: sqlite3.Row) -> LevelPackage:
         cooldowns=cooldowns,
         ui_warnings=sorted(set(ui_warnings)),
         risk_warnings=sorted(set(risk_warnings)),
+        quality=level_quality(groups),
     )
+
+
+def level_quality(groups: list[dict[str, object]]) -> dict[str, object]:
+    """Сводка качества по уровню целиком.
+
+    Нужна ровно для одного вопроса человека: почему уровень получился таким.
+    Средняя знакомость 0.8 при нулевой интересности — уровень скучный.
+    Минимальная знакомость 0.2 — где-то спряталось слово, которого игрок
+    не знает. Одно число на всё это не ответит, поэтому здесь их несколько.
+    """
+    tokens = [token for group in groups for token in group["tokens"]]
+    if not tokens:
+        return {}
+
+    familiarity = [t["familiarity"] for t in tokens if t["familiarity"] is not None]
+    accessibility = [t["accessibility"] for t in tokens if t["accessibility"] is not None]
+    novelty = [t["novelty"] for t in tokens if t["novelty"] is not None]
+    ambiguity = [t["ambiguity"] for t in tokens if t["ambiguity"] is not None]
+    lengths = [int(t["char_count"]) for t in tokens]
+    label_quality = [
+        group["scores"]["label_quality"]
+        for group in groups
+        if group["scores"].get("label_quality") is not None
+    ]
+    interest = [
+        group["scores"]["quartet_interest"]
+        for group in groups
+        if group["scores"].get("quartet_interest") is not None
+    ]
+
+    buckets: dict[str, int] = {"1-6": 0, "7-10": 0, "11-14": 0, "15+": 0}
+    for length in lengths:
+        key = "1-6" if length <= 6 else "7-10" if length <= 10 else "11-14" if length <= 14 else "15+"
+        buckets[key] += 1
+
+    def average(values: list[float]) -> float | None:
+        return round(sum(values) / len(values), 4) if values else None
+
+    return {
+        "average_familiarity": average(familiarity),
+        "minimum_familiarity": round(min(familiarity), 4) if familiarity else None,
+        "average_accessibility": average(accessibility),
+        "word_length_distribution": buckets,
+        "novel_word_ratio": (
+            round(sum(1 for value in novelty if value >= 0.6) / len(tokens), 4)
+            if novelty
+            else None
+        ),
+        "long_phrase_count": sum(1 for t in tokens if len(str(t["display"]).split()) >= 3),
+        "ambiguity_budget_used": round(max(ambiguity), 4) if ambiguity else None,
+        "average_label_quality": average(label_quality),
+        "average_quartet_interest": average(interest),
+        "words_without_familiarity": len(tokens) - len(familiarity),
+    }
 
 
 # ------------------------------------------------------------------------- выгрузка
@@ -306,16 +381,50 @@ def write_markdown(path: Path, packages: list[LevelPackage]) -> Path:
             f"за {package.solver.get('duration_ms', '?')} мс."
         )
         lines.append("")
-        lines.append("| # | категория | правило | четыре слова |")
-        lines.append("|---|---|---|---|")
+        if package.quality:
+            quality = package.quality
+            lines.append(
+                "Качество: знакомость средняя "
+                f"{quality.get('average_familiarity')}, минимальная "
+                f"{quality.get('minimum_familiarity')}; доступность "
+                f"{quality.get('average_accessibility')}; интересность четвёрок "
+                f"{quality.get('average_quartet_interest')}; качество названий "
+                f"{quality.get('average_label_quality')}."
+            )
+            lines.append(
+                "Слов новизны: доля "
+                f"{quality.get('novel_word_ratio')}; длинных фраз "
+                f"{quality.get('long_phrase_count')}; израсходовано неоднозначности "
+                f"{quality.get('ambiguity_budget_used')}; длины слов "
+                f"{quality.get('word_length_distribution')}."
+            )
+            lines.append("")
+        lines.append(
+            "| # | категория | четыре слова | название | четвёрка | интерес | мин. знак. | макс. длина |"
+        )
+        lines.append("|---|---|---|---|---|---|---|---|")
         for group in package.groups:
             words = ", ".join(
                 f"{t['display']}" + (f" ({t['sense_key']})" if t["sense_key"] else "")
                 for t in group["tokens"]
             )
+            scores = group["scores"]
             lines.append(
-                f"| {group['position']} | {group['label']} | {group['rule']} | {words} |"
+                f"| {group['position']} | {group['label']} | {words} | "
+                f"{scores.get('label_quality')} | {scores.get('quartet_quality')} | "
+                f"{scores.get('quartet_interest')} | {scores.get('min_word_familiarity')} | "
+                f"{scores.get('max_word_length')} |"
             )
+        lines.append("")
+        lines.append("| слово | знакомость | доступность | новизна | неоднозначность | символов |")
+        lines.append("|---|---|---|---|---|---|")
+        for group in package.groups:
+            for token in group["tokens"]:
+                lines.append(
+                    f"| {token['display']} | {token['familiarity']} | "
+                    f"{token['accessibility']} | {token['novelty']} | "
+                    f"{token['ambiguity']} | {token['char_count']} |"
+                )
         lines.append("")
         if package.competing:
             lines.append("Слова, которые подходят и другим категориям базы:")

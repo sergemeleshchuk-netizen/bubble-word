@@ -1,0 +1,70 @@
+# Профили генерации: чем управляем, собирая уровень.
+#
+# Формат плоский: `профиль.параметр: число`. Ключ без префикса задаёт значение
+# для всех профилей сразу. Парсер строгий — неизвестный параметр роняет команду.
+#
+# Пороги здесь стартовые, а не окончательные. Их положено двигать по итогам
+# приёмки уровней: профиль — это гипотеза о том, какой уровень получится,
+# и проверяется она на реальных уровнях, а не в конфиге.
+#
+# Первая калибровка уже сделана по фактическому распределению базы. Исходный
+# ambiguity_budget 0.35 для лёгкого профиля пропускал 16 четвёрок из 3197:
+# в живой базе почти каждое слово встречается больше чем в одной категории,
+# и средняя ambiguity_pressure равна 0.68. Порог 0.35 отсекал не спорные
+# четвёрки, а базу целиком. Сейчас лёгкий профиль даёт около 190 категорий —
+# этого хватает на уровни без немедленных повторов.
+#
+# Главное, ради чего профили существуют: генератор не должен просто брать
+# четыре самых частотных слова. Так получаются понятные и совершенно скучные
+# уровни. Понятность и интересность — две разные оси, и обе задаются здесь.
+
+# ------------------------------------------------------------------ easy_accessible
+# Первые уровни кампании: всё знакомо, ничего не мешает разобраться в механике.
+easy_accessible.word_familiarity_min: 0.50
+easy_accessible.word_familiarity_avg_min: 0.64
+easy_accessible.word_accessibility_min: 0.60
+easy_accessible.max_word_chars: 12
+easy_accessible.max_word_tokens: 2
+easy_accessible.max_label_chars: 20
+easy_accessible.max_label_tokens: 4
+easy_accessible.label_quality_min: 0.62
+easy_accessible.quartet_quality_min: 0.60
+easy_accessible.quartet_interest_target: 0.35
+easy_accessible.ambiguity_budget: 0.80
+easy_accessible.rare_word_budget: 0
+easy_accessible.long_phrase_budget: 0
+easy_accessible.novel_words_target_ratio: 0.05
+
+# ------------------------------------------------------------------ accessible_fun
+# Основная масса уровней: понятно, но есть за что зацепиться.
+accessible_fun.word_familiarity_min: 0.40
+accessible_fun.word_familiarity_avg_min: 0.58
+accessible_fun.word_accessibility_min: 0.50
+accessible_fun.max_word_chars: 16
+accessible_fun.max_word_tokens: 3
+accessible_fun.max_label_chars: 26
+accessible_fun.max_label_tokens: 5
+accessible_fun.label_quality_min: 0.58
+accessible_fun.quartet_quality_min: 0.55
+accessible_fun.quartet_interest_target: 0.55
+accessible_fun.ambiguity_budget: 0.90
+accessible_fun.rare_word_budget: 2
+accessible_fun.long_phrase_budget: 2
+accessible_fun.novel_words_target_ratio: 0.20
+
+# ------------------------------------------------------------------ hard_knowledge
+# Поздняя кривая: знание предметной области, а не только сообразительность.
+hard_knowledge.word_familiarity_min: 0.20
+hard_knowledge.word_familiarity_avg_min: 0.42
+hard_knowledge.word_accessibility_min: 0.35
+hard_knowledge.max_word_chars: 22
+hard_knowledge.max_word_tokens: 3
+hard_knowledge.max_label_chars: 30
+hard_knowledge.max_label_tokens: 6
+hard_knowledge.label_quality_min: 0.58
+hard_knowledge.quartet_quality_min: 0.45
+hard_knowledge.quartet_interest_target: 0.60
+hard_knowledge.ambiguity_budget: 0.85
+hard_knowledge.rare_word_budget: 8
+hard_knowledge.long_phrase_budget: 4
+hard_knowledge.novel_words_target_ratio: 0.35

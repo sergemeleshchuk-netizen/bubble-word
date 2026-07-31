@@ -94,6 +94,26 @@ class SenseMap:
         """Все объявленные значения слова: нужно для проверки полноты карты."""
         return dict(self._senses.get(normalize_word(word), {}))
 
+    def describe(self, word: str, sense_key: str) -> SenseAssignment | None:
+        """Свойства значения по его ключу, без привязки к категории.
+
+        Надпись на пузыре принадлежит значению, а не паре «слово + категория»:
+        `Rose` выглядит одинаково в NATURE NAMES и в SHORT NAMES. Поэтому
+        источник, принёсший значение сам, всё равно должен получить отсюда
+        написание — иначе `display_text` доезжает до базы только у тех связей,
+        где значение подставила карта.
+        """
+        entry = self._senses.get(normalize_word(word), {}).get(sense_key)
+        if entry is None:
+            return None
+        return SenseAssignment(
+            sense_key=sense_key,
+            definition=entry.get("definition"),
+            display_text=entry.get("display"),
+            is_proper_noun=bool(entry.get("is_proper_noun")),
+            part_of_speech=entry.get("part_of_speech"),
+        )
+
 
 @lru_cache(maxsize=1)
 def default_sense_map() -> SenseMap:

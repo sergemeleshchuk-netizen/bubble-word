@@ -1,0 +1,78 @@
+# Веса формул качества контента.
+#
+# Формат плоский и строгий: `ключ: число`, комментарии со знака #.
+# Любая вложенность, неизвестный ключ или нечисловое значение роняют команду —
+# частично прочитанный конфиг молча меняет правила расчёта.
+#
+# Все итоговые scores нормализованы в 0..1. Меняя веса, поднимайте версию:
+# по ней видно, какие строки кэша устарели, а проверка целостности это ловит.
+
+# ------------------------------------------------------------------ версии формул
+word_scoring_version: 1
+label_scoring_version: 1
+quartet_scoring_version: 1
+
+# ------------------------------------------------------------------ слово: пороги
+# Длина надписи, при которой пузырь ещё удобно читается на телефоне,
+# и длина, после которой текст приходится ужимать.
+word_display_comfort_chars: 8
+word_display_limit_chars: 16
+# Пробел и дефис занимают место, но читаются легче лишней буквы.
+word_display_space_cost: 0.6
+# Каждое лишнее слово в надписи штрафуется отдельно: фраза на пузыре требует
+# переноса и читается как несколько подписей, а не как одно слово.
+word_display_token_cost: 1.5
+
+# Знакомость: ниже первого порога слово редкое, выше второго — банальное.
+word_rare_familiarity: 0.43
+word_common_familiarity: 0.72
+# Ширина колокола новизны. При 0.9 кривая была настолько пологой, что 95%
+# слов базы считались «свежими» — метрика, которая говорит «интересно всё»,
+# не говорит ничего. При 0.45 пик приходится на слова, которые игрок знает,
+# но встречает нечасто, и отличается от банальных и от совсем редких.
+novelty_spread_factor: 0.45
+
+# ------------------------------------------------------------------ слово: веса
+# accessibility = насколько легко слово воспринимается
+accessibility_familiarity_weight: 0.55
+accessibility_display_weight: 0.20
+accessibility_brevity_weight: 0.15
+accessibility_spelling_weight: 0.10
+
+# word_quality = пригодность слова генератору. Не единственный критерий отбора:
+# профили фильтруют по отдельным параметрам, общий рейтинг только сортирует.
+word_quality_accessibility_weight: 0.55
+word_quality_semantic_weight: 0.20
+word_quality_novelty_weight: 0.25
+word_quality_risk_penalty: 0.25
+word_quality_display_penalty: 0.30
+
+# ------------------------------------------------------------------ название категории
+label_display_comfort_chars: 14
+label_display_limit_chars: 28
+
+label_quality_naturalness_weight: 0.20
+label_quality_clarity_weight: 0.35
+# Потолок качества при сломанной формулировке: итог не может превысить
+# естественность плюс это значение. Иначе технический мусор в названии
+# усредняется остальными осями и получает высокий балл.
+label_quality_naturalness_floor: 0.35
+label_quality_specificity_weight: 0.15
+label_quality_display_weight: 0.15
+label_quality_familiarity_weight: 0.15
+
+# ------------------------------------------------------------------ четвёрка
+# Штраф за слабое звено: одна натянутая связь портит четвёрку сильнее,
+# чем четыре средние. Доля минимума в итоговой связности.
+cohesion_weakest_link_weight: 0.45
+
+quartet_interest_novelty_weight: 0.40
+quartet_interest_diversity_weight: 0.20
+quartet_interest_elegance_weight: 0.20
+quartet_interest_label_weight: 0.20
+quartet_interest_obscurity_penalty: 0.35
+
+quartet_quality_cohesion_weight: 0.30
+quartet_quality_accessibility_weight: 0.30
+quartet_quality_clarity_weight: 0.20
+quartet_quality_label_weight: 0.20
