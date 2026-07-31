@@ -1,0 +1,320 @@
+{
+  "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
+  "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+  "generator_version": "gen-1.0",
+  "scoring_version": "d-1.0-calibrated",
+  "seed": "final-03",
+  "funnel": {
+    "candidate_blocks": 32,
+    "rejected": 14,
+    "survivors": 18,
+    "rejection_reasons": {
+      "после максимального пика нет передышки": 4,
+      "сложность и интересность идут одной линией": 10
+    }
+  },
+  "block_criteria": {
+    "seed": "final-03",
+    "levels": 10,
+    "allPassed": true,
+    "allUnique": true,
+    "descents": 3,
+    "dSpread": 4.5,
+    "iSpread": 2,
+    "divergence": 0.43016544401254075,
+    "maxDepth": 3,
+    "trapLevels": 6,
+    "chainLevels": 2,
+    "wordCollisions": 0,
+    "categoryCollisions": 0,
+    "exactCopies": 0,
+    "nearCopies": 9,
+    "recoveryAfterPeak": true,
+    "total": 10.150827220062704,
+    "near": [
+      {
+        "levelId": 203,
+        "category": "FAMOUS PAINTERS",
+        "words": [
+          "Monet",
+          "Van Gogh",
+          "Michelangelo",
+          "Picasso"
+        ],
+        "refLevel": 193,
+        "refCategory": "famous painters",
+        "shared": [
+          "picasso",
+          "monet",
+          "van gogh"
+        ]
+      },
+      {
+        "levelId": 203,
+        "category": "FARM CROPS",
+        "words": [
+          "rye",
+          "corn",
+          "barley",
+          "rice"
+        ],
+        "refLevel": 89,
+        "refCategory": "crop",
+        "shared": [
+          "corn",
+          "rice",
+          "barley"
+        ]
+      },
+      {
+        "levelId": 203,
+        "category": "FARM CROPS",
+        "words": [
+          "rye",
+          "corn",
+          "barley",
+          "rice"
+        ],
+        "refLevel": 146,
+        "refCategory": "crop",
+        "shared": [
+          "corn",
+          "rice",
+          "barley"
+        ]
+      },
+      {
+        "levelId": 205,
+        "category": "REPTILES",
+        "words": [
+          "lizards",
+          "cobra",
+          "python",
+          "boa"
+        ],
+        "refLevel": 113,
+        "refCategory": "snake",
+        "shared": [
+          "cobra",
+          "python",
+          "boa"
+        ]
+      },
+      {
+        "levelId": 205,
+        "category": "REPTILES",
+        "words": [
+          "lizards",
+          "cobra",
+          "python",
+          "boa"
+        ],
+        "refLevel": 135,
+        "refCategory": "snake",
+        "shared": [
+          "cobra",
+          "boa",
+          "python"
+        ]
+      },
+      {
+        "levelId": 205,
+        "category": "HAND TOOLS",
+        "words": [
+          "wrench",
+          "saw",
+          "tape measure",
+          "hammer"
+        ],
+        "refLevel": 80,
+        "refCategory": "tools",
+        "shared": [
+          "hammer",
+          "wrench",
+          "saw"
+        ]
+      },
+      {
+        "levelId": 206,
+        "category": "DESSERTS",
+        "words": [
+          "ice cream",
+          "pudding",
+          "cheesecake",
+          "cake"
+        ],
+        "refLevel": 62,
+        "refCategory": "dessert",
+        "shared": [
+          "cake",
+          "ice cream",
+          "pudding"
+        ]
+      },
+      {
+        "levelId": 206,
+        "category": "DESSERTS",
+        "words": [
+          "ice cream",
+          "pudding",
+          "cheesecake",
+          "cake"
+        ],
+        "refLevel": 184,
+        "refCategory": "dessert",
+        "shared": [
+          "cake",
+          "pudding",
+          "ice cream"
+        ]
+      },
+      {
+        "levelId": 209,
+        "category": "COMPOSERS",
+        "words": [
+          "Beethoven",
+          "Bach",
+          "Wagner",
+          "Mozart"
+        ],
+        "refLevel": 31,
+        "refCategory": "composer",
+        "shared": [
+          "mozart",
+          "bach",
+          "beethoven"
+        ]
+      }
+    ]
+  },
+  "config": {
+    "levelRange": [
+      201,
+      210
+    ],
+    "categoryCorridor": [
+      11,
+      18
+    ],
+    "spikePositions": [
+      5,
+      9
+    ],
+    "recoveryPositions": [
+      3,
+      6,
+      10
+    ],
+    "rarityRange": [
+      9,
+      13
+    ],
+    "maxMetaDepth": 3,
+    "allowedModifiers": [
+      "chains"
+    ],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 30,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "final-03",
+    "categoryPlan": [
+      13,
+      15,
+      12,
+      16,
+      18,
+      12,
+      14,
+      15,
+      17,
+      13
+    ],
+    "metaPlan": [
+      2,
+      3,
+      1,
+      4,
+      5,
+      1,
+      3,
+      2,
+      4,
+      2
+    ]
+  },
+  "levels": [
+    {
+      "level_id": 201,
+      "role": "entry",
+      "difficulty": 7,
+      "interest": 6.5,
+      "level_spec_hash": "68285c26c2fc27fae023716526f4066f5de0055f6f0b0a903d8502d0215af2f8"
+    },
+    {
+      "level_id": 202,
+      "role": "growth",
+      "difficulty": 8.5,
+      "interest": 7,
+      "level_spec_hash": "9a1ce5e94d5bc5e564299459f70fb0cef5cfa5e32913d894ee38029436626b86"
+    },
+    {
+      "level_id": 203,
+      "role": "recovery",
+      "difficulty": 5.5,
+      "interest": 6.5,
+      "level_spec_hash": "1f7ffa382f23ae6b2f573bfa7fb5941954e052065be998c838cc5cc4f9172def"
+    },
+    {
+      "level_id": 204,
+      "role": "growth",
+      "difficulty": 9,
+      "interest": 8,
+      "level_spec_hash": "7af9da521a61d9e22896ae4e4d82243ac849717e7d32505efbc4fb6c155e97f5"
+    },
+    {
+      "level_id": 205,
+      "role": "peak",
+      "difficulty": 10,
+      "interest": 6.5,
+      "level_spec_hash": "8950a1efe28f0d5ef01b88fc76b1ac60ef76738193e6b829c55745dc75e443f1"
+    },
+    {
+      "level_id": 206,
+      "role": "recovery",
+      "difficulty": 6,
+      "interest": 6,
+      "level_spec_hash": "8192ee0a3c291d98cb690f8baef6bd01eb57c27a15f4fdf0da944d833903ca13"
+    },
+    {
+      "level_id": 207,
+      "role": "growth",
+      "difficulty": 8.5,
+      "interest": 7.5,
+      "level_spec_hash": "03c40d58fbf67c6bf871b90ee9c262846d05121e905fac5c5e91ff494c00612f"
+    },
+    {
+      "level_id": 208,
+      "role": "growth",
+      "difficulty": 7.5,
+      "interest": 6,
+      "level_spec_hash": "97bb6981656bd0a134585ad8267240a590e1364350bc3987c9752b2f5ba93969"
+    },
+    {
+      "level_id": 209,
+      "role": "spike",
+      "difficulty": 10,
+      "interest": 7.5,
+      "level_spec_hash": "671ff2f00b5e0e2d4ee0e59cd9982bd454b3fe53186570c28be56ce4288f38cc"
+    },
+    {
+      "level_id": 210,
+      "role": "exit",
+      "difficulty": 7,
+      "interest": 7,
+      "level_spec_hash": "58f27f1d7a61d80d2aa7200cd473e6a936800fada917f2e2d9e2f11b4d03186e"
+    }
+  ]
+}

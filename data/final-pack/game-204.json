@@ -1,0 +1,372 @@
+{
+  "level_id": 204,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 16,
+    "words_per_category": 4,
+    "start_bubbles": 60,
+    "board_capacity": 24,
+    "move_limit": 65
+  },
+  "categories": [
+    {
+      "key": "minerals",
+      "label": "MINERALS",
+      "words": [
+        {
+          "text": "pyrite",
+          "kind": "word"
+        },
+        {
+          "text": "calcite",
+          "kind": "word"
+        },
+        {
+          "text": "magnetite",
+          "kind": "word"
+        },
+        {
+          "text": "talc",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "science_fair",
+      "label": "SCIENCE FAIR",
+      "words": [
+        {
+          "text": "minerals",
+          "kind": "meta",
+          "meta_child": "minerals"
+        },
+        {
+          "text": "hypothesis",
+          "kind": "word"
+        },
+        {
+          "text": "inventions",
+          "kind": "word"
+        },
+        {
+          "text": "volcanoes",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_events",
+      "label": "SCHOOL EVENTS",
+      "words": [
+        {
+          "text": "science fair",
+          "kind": "meta",
+          "meta_child": "science_fair"
+        },
+        {
+          "text": "open house",
+          "kind": "word"
+        },
+        {
+          "text": "field trip",
+          "kind": "word"
+        },
+        {
+          "text": "picture day",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "puzzle_types",
+      "label": "PUZZLES",
+      "words": [
+        {
+          "text": "anagram",
+          "kind": "word"
+        },
+        {
+          "text": "rebus",
+          "kind": "word"
+        },
+        {
+          "text": "maze",
+          "kind": "word"
+        },
+        {
+          "text": "word search",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "toy_chest",
+      "label": "TOY CHEST",
+      "words": [
+        {
+          "text": "puzzles",
+          "kind": "meta",
+          "meta_child": "puzzle_types"
+        },
+        {
+          "text": "marbles",
+          "kind": "word"
+        },
+        {
+          "text": "blocks",
+          "kind": "word"
+        },
+        {
+          "text": "balls",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "storage_containers",
+      "label": "CONTAINERS",
+      "words": [
+        {
+          "text": "cooler",
+          "kind": "word"
+        },
+        {
+          "text": "sack",
+          "kind": "word"
+        },
+        {
+          "text": "box",
+          "kind": "word"
+        },
+        {
+          "text": "bag",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_drawer",
+      "label": "KITCHEN DRAWER",
+      "words": [
+        {
+          "text": "containers",
+          "kind": "meta",
+          "meta_child": "storage_containers"
+        },
+        {
+          "text": "corkscrew",
+          "kind": "word"
+        },
+        {
+          "text": "peeler",
+          "kind": "word"
+        },
+        {
+          "text": "whisk",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "gardening_words",
+      "label": "GARDENING WORDS",
+      "words": [
+        {
+          "text": "soil",
+          "kind": "word"
+        },
+        {
+          "text": "fertilizer",
+          "kind": "word"
+        },
+        {
+          "text": "seed",
+          "kind": "word"
+        },
+        {
+          "text": "sprout",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "religious_books",
+      "label": "SACRED TEXTS",
+      "words": [
+        {
+          "text": "Bible",
+          "kind": "word"
+        },
+        {
+          "text": "gospel",
+          "kind": "word"
+        },
+        {
+          "text": "Torah",
+          "kind": "word"
+        },
+        {
+          "text": "Psalms",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "legendary_places",
+      "label": "LEGENDARY PLACES",
+      "words": [
+        {
+          "text": "Eden",
+          "kind": "word"
+        },
+        {
+          "text": "Troy",
+          "kind": "word"
+        },
+        {
+          "text": "Atlantis",
+          "kind": "word"
+        },
+        {
+          "text": "El Dorado",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "owls",
+      "label": "OWLS",
+      "words": [
+        {
+          "text": "barred owl",
+          "kind": "word"
+        },
+        {
+          "text": "barn owl",
+          "kind": "word"
+        },
+        {
+          "text": "elf owl",
+          "kind": "word"
+        },
+        {
+          "text": "snowy owl",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sandwich_fillings",
+      "label": "SANDWICH FILLINGS",
+      "words": [
+        {
+          "text": "mayo",
+          "kind": "word"
+        },
+        {
+          "text": "cheese",
+          "kind": "word"
+        },
+        {
+          "text": "peanut butter",
+          "kind": "word"
+        },
+        {
+          "text": "onion",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "roman_gods",
+      "label": "ROMAN GODS",
+      "words": [
+        {
+          "text": "Venus",
+          "kind": "word"
+        },
+        {
+          "text": "mercury",
+          "kind": "word"
+        },
+        {
+          "text": "Neptune",
+          "kind": "word"
+        },
+        {
+          "text": "Saturn",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sea_mammals",
+      "label": "SEA MAMMALS",
+      "words": [
+        {
+          "text": "porpoise",
+          "kind": "word"
+        },
+        {
+          "text": "humpback",
+          "kind": "word"
+        },
+        {
+          "text": "walrus",
+          "kind": "word"
+        },
+        {
+          "text": "dolphin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "ways_of_speaking",
+      "label": "WAYS OF SPEAKING",
+      "words": [
+        {
+          "text": "announce",
+          "kind": "word"
+        },
+        {
+          "text": "chant",
+          "kind": "word"
+        },
+        {
+          "text": "shout",
+          "kind": "word"
+        },
+        {
+          "text": "chatter",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cocktails",
+      "label": "COCKTAILS",
+      "words": [
+        {
+          "text": "manhattan",
+          "kind": "word"
+        },
+        {
+          "text": "martini",
+          "kind": "word"
+        },
+        {
+          "text": "tom collins",
+          "kind": "word"
+        },
+        {
+          "text": "moscow mule",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

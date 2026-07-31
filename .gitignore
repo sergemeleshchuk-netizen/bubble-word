@@ -21,3 +21,6 @@ data/reference-derived/reference-levels.json
 .env
 .env.local
 *.key
+
+# полные четвёрки референса: чужой контент, только локально
+data/reference-derived/reference-quadruples.local.json

@@ -1,0 +1,349 @@
+{
+  "level_id": 202,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 15,
+    "words_per_category": 4,
+    "start_bubbles": 57,
+    "board_capacity": 24,
+    "move_limit": 61
+  },
+  "categories": [
+    {
+      "key": "shellfish",
+      "label": "SHELLFISH",
+      "words": [
+        {
+          "text": "crustaceans",
+          "kind": "word"
+        },
+        {
+          "text": "prawn",
+          "kind": "word"
+        },
+        {
+          "text": "abalone",
+          "kind": "word"
+        },
+        {
+          "text": "crab",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "seafood",
+      "label": "SEAFOOD",
+      "words": [
+        {
+          "text": "shellfish",
+          "kind": "meta",
+          "meta_child": "shellfish"
+        },
+        {
+          "text": "eel",
+          "kind": "word"
+        },
+        {
+          "text": "trout",
+          "kind": "word"
+        },
+        {
+          "text": "cod",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "grocery_aisles",
+      "label": "GROCERY AISLES",
+      "words": [
+        {
+          "text": "seafood",
+          "kind": "meta",
+          "meta_child": "seafood"
+        },
+        {
+          "text": "meats",
+          "kind": "word"
+        },
+        {
+          "text": "vegetables",
+          "kind": "word"
+        },
+        {
+          "text": "Frozen",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "constellations",
+      "label": "CONSTELLATIONS",
+      "words": [
+        {
+          "text": "Orion",
+          "kind": "word"
+        },
+        {
+          "text": "Andromeda",
+          "kind": "word"
+        },
+        {
+          "text": "Draco",
+          "kind": "word"
+        },
+        {
+          "text": "Hercules",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "stargazing",
+      "label": "STARGAZING",
+      "words": [
+        {
+          "text": "constellations",
+          "kind": "meta",
+          "meta_child": "constellations"
+        },
+        {
+          "text": "planets",
+          "kind": "word"
+        },
+        {
+          "text": "stars",
+          "kind": "word"
+        },
+        {
+          "text": "moons",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "aircraft",
+      "label": "AIRCRAFT",
+      "words": [
+        {
+          "text": "balloon",
+          "kind": "word"
+        },
+        {
+          "text": "Zeppelin",
+          "kind": "word"
+        },
+        {
+          "text": "cargo plane",
+          "kind": "word"
+        },
+        {
+          "text": "glider",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_adjectives",
+      "label": "WEATHER ADJECTIVES",
+      "words": [
+        {
+          "text": "windy",
+          "kind": "word"
+        },
+        {
+          "text": "mild",
+          "kind": "word"
+        },
+        {
+          "text": "stormy",
+          "kind": "word"
+        },
+        {
+          "text": "icy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "world_currencies_more",
+      "label": "MORE CURRENCIES",
+      "words": [
+        {
+          "text": "baht",
+          "kind": "word"
+        },
+        {
+          "text": "ruble",
+          "kind": "word"
+        },
+        {
+          "text": "dinar",
+          "kind": "word"
+        },
+        {
+          "text": "kroner",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "greek_letters",
+      "label": "GREEK LETTERS",
+      "words": [
+        {
+          "text": "Omega",
+          "kind": "word"
+        },
+        {
+          "text": "eta",
+          "kind": "word"
+        },
+        {
+          "text": "theta",
+          "kind": "word"
+        },
+        {
+          "text": "sigma",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "medical_jobs",
+      "label": "MEDICAL JOBS",
+      "words": [
+        {
+          "text": "doctor",
+          "kind": "word"
+        },
+        {
+          "text": "psychiatrist",
+          "kind": "word"
+        },
+        {
+          "text": "therapist",
+          "kind": "word"
+        },
+        {
+          "text": "surgeon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "facial_expressions",
+      "label": "FACIAL EXPRESSIONS",
+      "words": [
+        {
+          "text": "blink",
+          "kind": "word"
+        },
+        {
+          "text": "smile",
+          "kind": "word"
+        },
+        {
+          "text": "beam",
+          "kind": "word"
+        },
+        {
+          "text": "smirk",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cartoon_characters",
+      "label": "CARTOON CHARACTERS",
+      "words": [
+        {
+          "text": "Yogi",
+          "kind": "word"
+        },
+        {
+          "text": "Mickey",
+          "kind": "word"
+        },
+        {
+          "text": "Goofy",
+          "kind": "word"
+        },
+        {
+          "text": "Bugs Bunny",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "noise_adjectives",
+      "label": "VOLUME WORDS",
+      "words": [
+        {
+          "text": "still",
+          "kind": "word"
+        },
+        {
+          "text": "loud",
+          "kind": "word"
+        },
+        {
+          "text": "roaring",
+          "kind": "word"
+        },
+        {
+          "text": "booming",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pests",
+      "label": "PESTS",
+      "words": [
+        {
+          "text": "insects",
+          "kind": "word"
+        },
+        {
+          "text": "mole",
+          "kind": "word"
+        },
+        {
+          "text": "rodents",
+          "kind": "word"
+        },
+        {
+          "text": "flea",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "arctic_animals",
+      "label": "ARCTIC ANIMALS",
+      "words": [
+        {
+          "text": "beluga",
+          "kind": "word"
+        },
+        {
+          "text": "puffin",
+          "kind": "word"
+        },
+        {
+          "text": "orca",
+          "kind": "word"
+        },
+        {
+          "text": "caribou",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

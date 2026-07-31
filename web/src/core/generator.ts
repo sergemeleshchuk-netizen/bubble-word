@@ -64,6 +64,9 @@ type Relaxation = typeof RELAXATION_ORDER[number];
 
 interface Constraints {
   categoryCount: number;
+  /** окна свежести из конфига, а не захардкоженные числа */
+  wordWindow: number;
+  categoryWindow: number;
   metaCount: number;
   metaDepthTarget: number;
   rareTarget: number;
@@ -123,7 +126,7 @@ function buildPool(
 
     if (c.enforceFreshness) {
       const last = history.categoryLastLevel.get(meta.k);
-      if (last !== undefined && plan.levelId - last <= 40) continue;
+      if (last !== undefined && plan.levelId - last <= c.categoryWindow) continue;
     }
 
     const approved = index.categoryMemberships(cat, STATUS.approved).map((m) => m.word);
@@ -223,11 +226,20 @@ export function planDeepChain(
 function buildMetaForest(
   index: ContentIndex, pool: PoolEntry[], c: Constraints, rng: Rng,
   forcedChain?: MetaEdge[],
+  isWordFresh: (word: number) => boolean = () => true,
 ): { edges: MetaEdge[]; categories: Set<number> } {
   if (c.metaCount === 0) return { edges: [], categories: new Set() };
 
   const inPool = new Set(pool.map((p) => p.category));
-  const allEdges: MetaEdge[] = possibleMetaEdges(index, inPool);
+  /**
+   * Мета-слово тоже подчиняется свежести. Раньше не подчинялось, и получалось
+   * так: слово `desserts` стоит на уровне 201 обычным пузырём, а на 202 приходит
+   * мета-пузырём — формально это повтор слова внутри блока, который правила
+   * свежести обязаны запрещать. Принудительные слова обходили проверку, потому
+   * что ставились до перебора.
+   */
+  const allEdges: MetaEdge[] = possibleMetaEdges(index, inPool)
+    .filter((edge) => isWordFresh(edge.word));
   if (allEdges.length === 0 && !forcedChain?.length) {
     return { edges: [], categories: new Set() };
   }
@@ -330,11 +342,13 @@ function buildMetaForest(
 function selectCategories(
   index: ContentIndex, pool: PoolEntry[], c: Constraints, rng: Rng,
   forcedChain?: MetaEdge[],
+  isWordFresh: (word: number) => boolean = () => true,
 ): { selected: PoolEntry[]; edges: MetaEdge[] } | null {
   if (pool.length < c.categoryCount) return null;
 
   const byIndex = new Map(pool.map((p) => [p.category, p]));
-  const { edges } = buildMetaForest(index, pool, c, rng, forcedChain);
+  const { edges } = buildMetaForest(index, pool, c, rng,
+    forcedChain?.filter((edge) => isWordFresh(edge.word)), isWordFresh);
 
   const selected: PoolEntry[] = [];
   const taken = new Set<number>();
@@ -413,6 +427,7 @@ function assignWords(
   plan: LevelPlan,
   rng: Rng,
   wordsPerCategory: number,
+  isWordFresh: (word: number) => boolean,
 ): AssignmentResult | null {
   const selectedSet = new Set(selected.map((p) => p.category));
   // слова, которые являются именами выбранных категорий: их нельзя ставить
@@ -473,10 +488,7 @@ function assignWords(
 
         if (!index.isRecognizable(w) && unrecognizableUsed >= unrecognizableBudget) return false;
 
-        if (c.enforceFreshness) {
-          const last = history.wordLastLevel.get(word.n);
-          if (last !== undefined && plan.levelId - last <= 30) return false;
-        }
+        if (c.enforceFreshness && !isWordFresh(w)) return false;
         return true;
       });
   };
@@ -764,6 +776,8 @@ export function generateLevel(
 
   const baseConstraints = (): Constraints => ({
     categoryCount: plan.categoryCount,
+    wordWindow: config.wordFreshnessWindow,
+    categoryWindow: config.categoryFreshnessWindow,
     metaCount: plan.metaCount,
     metaDepthTarget: plan.metaDepthTarget,
     rareTarget: plan.rareTarget,
@@ -805,6 +819,17 @@ export function generateLevel(
     const constraints = applyRelaxations(baseConstraints(), active);
     const rng = createRng(`${config.seed}|L${plan.levelId}|a${attempt}`);
 
+    /**
+     * Свежесть слова: одно правило для обычных пузырей и для мета-слов.
+     * Ключ истории — нормализованная форма, чтобы регистр и вид апострофа
+     * не создавали дырку в проверке.
+     */
+    const isWordFresh = (word: number): boolean => {
+      if (!constraints.enforceFreshness) return true;
+      const last = history.wordLastLevel.get(index.words[word].n);
+      return last === undefined || plan.levelId - last > constraints.wordWindow;
+    };
+
     const pool = buildPool(index, plan, constraints, history, options.excludeCategories);
     if (pool.length < constraints.categoryCount) {
       lastStage = 'пул категорий';
@@ -815,7 +840,8 @@ export function generateLevel(
       continue;
     }
 
-    const picked = selectCategories(index, pool, constraints, rng, options.forcedChain);
+    const picked = selectCategories(index, pool, constraints, rng,
+      options.forcedChain, isWordFresh);
     if (!picked) {
       lastStage = 'выбор категорий';
       lastReason = 'не удалось собрать набор с мета-каркасом и категорией быстрой победы';
@@ -825,7 +851,7 @@ export function generateLevel(
     }
 
     const assigned = assignWords(index, picked.selected, picked.edges, constraints,
-      history, plan, rng, wordsPerCategory);
+      history, plan, rng, wordsPerCategory, isWordFresh);
     if (!assigned) {
       lastStage = 'назначение слов';
       lastReason = 'точное покрытие не сошлось: у части категорий не остаётся '
@@ -891,9 +917,20 @@ export function recordLevelInHistory(history: PackHistory, spec: LevelSpec): voi
   for (const category of spec.categories) {
     history.categoryLastLevel.set(category.key, spec.levelId);
     for (const word of category.words) {
-      history.wordLastLevel.set(word.text.toLowerCase(), spec.levelId);
+      // тот же ключ, что использует проверка свежести: иначе слово с необычным
+      // апострофом или регистром проскочило бы мимо неё
+      history.wordLastLevel.set(normalizeWordKey(word.text), spec.levelId);
     }
   }
+}
+
+/** Ключ идентичности слова: как в снимке базы (поле `n`). */
+export function normalizeWordKey(text: string): string {
+  return text.normalize('NFKC')
+    .replace(/[\u2018\u2019\u02bc\u2032]/g, "'")
+    .replace(/[\u2010-\u2015\u2212]/g, '-')
+    .trim().toLowerCase()
+    .replace(/\s+/g, ' ');
 }
 
 export { quadrupleKey };

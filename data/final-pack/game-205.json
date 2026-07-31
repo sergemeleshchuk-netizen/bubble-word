@@ -1,0 +1,426 @@
+{
+  "level_id": 205,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 18,
+    "words_per_category": 4,
+    "start_bubbles": 67,
+    "board_capacity": 24,
+    "move_limit": 68
+  },
+  "categories": [
+    {
+      "key": "lizards",
+      "label": "LIZARDS",
+      "words": [
+        {
+          "text": "gecko",
+          "kind": "word"
+        },
+        {
+          "text": "salamander",
+          "kind": "word"
+        },
+        {
+          "text": "gila monster",
+          "kind": "word"
+        },
+        {
+          "text": "komodo dragon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "reptiles",
+      "label": "REPTILES",
+      "words": [
+        {
+          "text": "lizards",
+          "kind": "meta",
+          "meta_child": "lizards"
+        },
+        {
+          "text": "cobra",
+          "kind": "word"
+        },
+        {
+          "text": "python",
+          "kind": "word"
+        },
+        {
+          "text": "boa",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pet_store",
+      "label": "PET STORE",
+      "words": [
+        {
+          "text": "reptiles",
+          "kind": "meta",
+          "meta_child": "reptiles"
+        },
+        {
+          "text": "birds",
+          "kind": "meta",
+          "meta_child": "birds"
+        },
+        {
+          "text": "kibble",
+          "kind": "word"
+        },
+        {
+          "text": "leash",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "accessories",
+      "label": "ACCESSORIES",
+      "words": [
+        {
+          "text": "suspenders",
+          "kind": "word"
+        },
+        {
+          "text": "cufflinks",
+          "kind": "word"
+        },
+        {
+          "text": "eyewear",
+          "kind": "word"
+        },
+        {
+          "text": "handbag",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "wardrobe",
+      "label": "WARDROBE",
+      "words": [
+        {
+          "text": "accessories",
+          "kind": "meta",
+          "meta_child": "accessories"
+        },
+        {
+          "text": "sleepwear",
+          "kind": "word"
+        },
+        {
+          "text": "hats",
+          "kind": "word"
+        },
+        {
+          "text": "footwear",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds",
+      "label": "BIRDS",
+      "words": [
+        {
+          "text": "blue jay",
+          "kind": "word"
+        },
+        {
+          "text": "crane",
+          "kind": "word"
+        },
+        {
+          "text": "cardinal",
+          "kind": "word"
+        },
+        {
+          "text": "poultry",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "candy",
+      "label": "CANDY",
+      "words": [
+        {
+          "text": "lollipop",
+          "kind": "word"
+        },
+        {
+          "text": "rock candy",
+          "kind": "word"
+        },
+        {
+          "text": "chocolate bar",
+          "kind": "word"
+        },
+        {
+          "text": "chocolate",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "halloween_things",
+      "label": "HALLOWEEN THINGS",
+      "words": [
+        {
+          "text": "candy",
+          "kind": "meta",
+          "meta_child": "candy"
+        },
+        {
+          "text": "treat",
+          "kind": "word"
+        },
+        {
+          "text": "trick",
+          "kind": "word"
+        },
+        {
+          "text": "skeleton",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hand_tools",
+      "label": "HAND TOOLS",
+      "words": [
+        {
+          "text": "wrench",
+          "kind": "word"
+        },
+        {
+          "text": "saw",
+          "kind": "word"
+        },
+        {
+          "text": "tape measure",
+          "kind": "word"
+        },
+        {
+          "text": "hammer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "rivers",
+      "label": "RIVERS",
+      "words": [
+        {
+          "text": "Mississippi",
+          "kind": "word"
+        },
+        {
+          "text": "Nile",
+          "kind": "word"
+        },
+        {
+          "text": "Congo",
+          "kind": "word"
+        },
+        {
+          "text": "Seine",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "scientists",
+      "label": "FAMOUS SCIENTISTS",
+      "words": [
+        {
+          "text": "Einstein",
+          "kind": "word"
+        },
+        {
+          "text": "Galileo",
+          "kind": "word"
+        },
+        {
+          "text": "Fleming",
+          "kind": "word"
+        },
+        {
+          "text": "Kepler",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "seas_and_oceans",
+      "label": "SEAS",
+      "words": [
+        {
+          "text": "Yellow Sea",
+          "kind": "word"
+        },
+        {
+          "text": "Caribbean",
+          "kind": "word"
+        },
+        {
+          "text": "mediterranean",
+          "kind": "word"
+        },
+        {
+          "text": "Dead Sea",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "track_events",
+      "label": "TRACK EVENTS",
+      "words": [
+        {
+          "text": "relay",
+          "kind": "word"
+        },
+        {
+          "text": "triple jump",
+          "kind": "word"
+        },
+        {
+          "text": "high jump",
+          "kind": "word"
+        },
+        {
+          "text": "long jump",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "antelope_and_grazers",
+      "label": "GRAZING ANIMALS",
+      "words": [
+        {
+          "text": "gazelle",
+          "kind": "word"
+        },
+        {
+          "text": "springbok",
+          "kind": "word"
+        },
+        {
+          "text": "wildebeest",
+          "kind": "word"
+        },
+        {
+          "text": "oryx",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "us_landmarks",
+      "label": "US LANDMARKS",
+      "words": [
+        {
+          "text": "Grand Canyon",
+          "kind": "word"
+        },
+        {
+          "text": "Liberty Bell",
+          "kind": "word"
+        },
+        {
+          "text": "Yosemite",
+          "kind": "word"
+        },
+        {
+          "text": "Niagara Falls",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "crimes",
+      "label": "CRIMES",
+      "words": [
+        {
+          "text": "poaching",
+          "kind": "word"
+        },
+        {
+          "text": "fraud",
+          "kind": "word"
+        },
+        {
+          "text": "forgery",
+          "kind": "word"
+        },
+        {
+          "text": "trespassing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "temperature_words",
+      "label": "TEMPERATURE WORDS",
+      "words": [
+        {
+          "text": "boiling",
+          "kind": "word"
+        },
+        {
+          "text": "cool",
+          "kind": "word"
+        },
+        {
+          "text": "chilly",
+          "kind": "word"
+        },
+        {
+          "text": "hot",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sports_injuries",
+      "label": "SPORTS INJURIES",
+      "words": [
+        {
+          "text": "concussion",
+          "kind": "word"
+        },
+        {
+          "text": "pulled muscle",
+          "kind": "word"
+        },
+        {
+          "text": "cramp",
+          "kind": "word"
+        },
+        {
+          "text": "torn acl",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": [
+      {
+        "locks": "antelope_and_grazers",
+        "unlocked_by": "birds"
+      },
+      {
+        "locks": "halloween_things",
+        "unlocked_by": "temperature_words"
+      }
+    ]
+  }
+}

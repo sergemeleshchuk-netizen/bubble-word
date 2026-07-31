@@ -1,0 +1,304 @@
+{
+  "level_id": 210,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 13,
+    "words_per_category": 4,
+    "start_bubbles": 50,
+    "board_capacity": 24,
+    "move_limit": 59
+  },
+  "categories": [
+    {
+      "key": "superheroes",
+      "label": "SUPERHEROES",
+      "words": [
+        {
+          "text": "Ant Man",
+          "kind": "word"
+        },
+        {
+          "text": "Superman",
+          "kind": "word"
+        },
+        {
+          "text": "Green Lantern",
+          "kind": "word"
+        },
+        {
+          "text": "Supergirl",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "costume_party",
+      "label": "COSTUME PARTY",
+      "words": [
+        {
+          "text": "superheroes",
+          "kind": "meta",
+          "meta_child": "superheroes"
+        },
+        {
+          "text": "mask",
+          "kind": "word"
+        },
+        {
+          "text": "cape",
+          "kind": "word"
+        },
+        {
+          "text": "makeup",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_morning",
+      "label": "FARM",
+      "words": [
+        {
+          "text": "livestock",
+          "kind": "word"
+        },
+        {
+          "text": "silo",
+          "kind": "word"
+        },
+        {
+          "text": "pests",
+          "kind": "word"
+        },
+        {
+          "text": "barn",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "places_with_animals",
+      "label": "PLACES WITH ANIMALS",
+      "words": [
+        {
+          "text": "farm",
+          "kind": "meta",
+          "meta_child": "farm_morning"
+        },
+        {
+          "text": "pet store",
+          "kind": "word"
+        },
+        {
+          "text": "ranch",
+          "kind": "word"
+        },
+        {
+          "text": "shelter",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "root_vegetables",
+      "label": "ROOT VEGETABLES",
+      "words": [
+        {
+          "text": "potato",
+          "kind": "word"
+        },
+        {
+          "text": "yam",
+          "kind": "word"
+        },
+        {
+          "text": "ginger",
+          "kind": "word"
+        },
+        {
+          "text": "carrot",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "insects",
+      "label": "INSECTS",
+      "words": [
+        {
+          "text": "caterpillar",
+          "kind": "word"
+        },
+        {
+          "text": "fly",
+          "kind": "word"
+        },
+        {
+          "text": "roach",
+          "kind": "word"
+        },
+        {
+          "text": "wasp",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fabric_types",
+      "label": "FABRIC TYPES",
+      "words": [
+        {
+          "text": "burlap",
+          "kind": "word"
+        },
+        {
+          "text": "linen",
+          "kind": "word"
+        },
+        {
+          "text": "tweed",
+          "kind": "word"
+        },
+        {
+          "text": "felt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "egypt_things",
+      "label": "ANCIENT EGYPT",
+      "words": [
+        {
+          "text": "obelisk",
+          "kind": "word"
+        },
+        {
+          "text": "papyrus",
+          "kind": "word"
+        },
+        {
+          "text": "sarcophagus",
+          "kind": "word"
+        },
+        {
+          "text": "pyramid",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "boats",
+      "label": "BOATS AND SHIPS",
+      "words": [
+        {
+          "text": "yacht",
+          "kind": "word"
+        },
+        {
+          "text": "ferry",
+          "kind": "word"
+        },
+        {
+          "text": "canoe",
+          "kind": "word"
+        },
+        {
+          "text": "kayak",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dog_breeds",
+      "label": "DOG BREEDS",
+      "words": [
+        {
+          "text": "beagle",
+          "kind": "word"
+        },
+        {
+          "text": "terrier",
+          "kind": "word"
+        },
+        {
+          "text": "husky",
+          "kind": "word"
+        },
+        {
+          "text": "greyhound",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "rodents",
+      "label": "RODENTS",
+      "words": [
+        {
+          "text": "prairie dog",
+          "kind": "word"
+        },
+        {
+          "text": "beaver",
+          "kind": "word"
+        },
+        {
+          "text": "rat",
+          "kind": "word"
+        },
+        {
+          "text": "guinea pig",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "garden_flowers_summer",
+      "label": "SUMMER FLOWERS",
+      "words": [
+        {
+          "text": "dahlia",
+          "kind": "word"
+        },
+        {
+          "text": "marigold",
+          "kind": "word"
+        },
+        {
+          "text": "black eyed susan",
+          "kind": "word"
+        },
+        {
+          "text": "Daisy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "art_styles",
+      "label": "ART STYLES",
+      "words": [
+        {
+          "text": "surrealism",
+          "kind": "word"
+        },
+        {
+          "text": "expressionism",
+          "kind": "word"
+        },
+        {
+          "text": "minimalism",
+          "kind": "word"
+        },
+        {
+          "text": "impressionism",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

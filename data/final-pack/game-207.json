@@ -1,0 +1,327 @@
+{
+  "level_id": 207,
+  "schema_version": "2.0",
+  "board": {
+    "categories_count": 14,
+    "words_per_category": 4,
+    "start_bubbles": 53,
+    "board_capacity": 24,
+    "move_limit": 57
+  },
+  "categories": [
+    {
+      "key": "islands",
+      "label": "ISLANDS",
+      "words": [
+        {
+          "text": "Cuba",
+          "kind": "word"
+        },
+        {
+          "text": "Crete",
+          "kind": "word"
+        },
+        {
+          "text": "Sicily",
+          "kind": "word"
+        },
+        {
+          "text": "Greenland",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "landforms",
+      "label": "LANDFORMS",
+      "words": [
+        {
+          "text": "islands",
+          "kind": "meta",
+          "meta_child": "islands"
+        },
+        {
+          "text": "gorge",
+          "kind": "word"
+        },
+        {
+          "text": "butte",
+          "kind": "word"
+        },
+        {
+          "text": "mountain",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "map_legend",
+      "label": "MAP LEGEND",
+      "words": [
+        {
+          "text": "landforms",
+          "kind": "meta",
+          "meta_child": "landforms"
+        },
+        {
+          "text": "scale",
+          "kind": "word"
+        },
+        {
+          "text": "contour",
+          "kind": "word"
+        },
+        {
+          "text": "symbol",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "aquarium_tank",
+      "label": "AQUARIUM",
+      "words": [
+        {
+          "text": "filter",
+          "kind": "word"
+        },
+        {
+          "text": "turtles",
+          "kind": "word"
+        },
+        {
+          "text": "coral",
+          "kind": "word"
+        },
+        {
+          "text": "fish",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "field_trip_places",
+      "label": "FIELD TRIPS",
+      "words": [
+        {
+          "text": "aquarium",
+          "kind": "meta",
+          "meta_child": "aquarium_tank"
+        },
+        {
+          "text": "planetarium",
+          "kind": "word"
+        },
+        {
+          "text": "fire station",
+          "kind": "word"
+        },
+        {
+          "text": "historical site",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "greek_gods",
+      "label": "GREEK GODS",
+      "words": [
+        {
+          "text": "Ares",
+          "kind": "word"
+        },
+        {
+          "text": "Hermes",
+          "kind": "word"
+        },
+        {
+          "text": "Athena",
+          "kind": "word"
+        },
+        {
+          "text": "Artemis",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "nuts_and_seeds",
+      "label": "NUTS AND SEEDS",
+      "words": [
+        {
+          "text": "walnut",
+          "kind": "word"
+        },
+        {
+          "text": "peanut",
+          "kind": "word"
+        },
+        {
+          "text": "pumpkin seed",
+          "kind": "word"
+        },
+        {
+          "text": "chestnut",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "grains_and_beans",
+      "label": "GRAINS AND BEANS",
+      "words": [
+        {
+          "text": "millet",
+          "kind": "word"
+        },
+        {
+          "text": "oat",
+          "kind": "word"
+        },
+        {
+          "text": "couscous",
+          "kind": "word"
+        },
+        {
+          "text": "kidney bean",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
+      "words": [
+        {
+          "text": "binder",
+          "kind": "word"
+        },
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "pencil",
+          "kind": "word"
+        },
+        {
+          "text": "ink",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "olympic_sports",
+      "label": "OLYMPIC SPORTS",
+      "words": [
+        {
+          "text": "triathlon",
+          "kind": "word"
+        },
+        {
+          "text": "wrestling",
+          "kind": "word"
+        },
+        {
+          "text": "sailing",
+          "kind": "word"
+        },
+        {
+          "text": "rowing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "crustaceans",
+      "label": "CRUSTACEANS",
+      "words": [
+        {
+          "text": "barnacle",
+          "kind": "word"
+        },
+        {
+          "text": "crayfish",
+          "kind": "word"
+        },
+        {
+          "text": "krill",
+          "kind": "word"
+        },
+        {
+          "text": "pill bug",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "cutting_tools",
+      "label": "CUTTING TOOLS",
+      "words": [
+        {
+          "text": "razor",
+          "kind": "word"
+        },
+        {
+          "text": "guillotine",
+          "kind": "word"
+        },
+        {
+          "text": "blade",
+          "kind": "word"
+        },
+        {
+          "text": "wire cutter",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "world_rivers",
+      "label": "WORLD RIVERS",
+      "words": [
+        {
+          "text": "Po",
+          "kind": "word"
+        },
+        {
+          "text": "Danube",
+          "kind": "word"
+        },
+        {
+          "text": "Amazon",
+          "kind": "word"
+        },
+        {
+          "text": "Thames",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "comedy_words",
+      "label": "COMEDY WORDS",
+      "words": [
+        {
+          "text": "slapstick",
+          "kind": "word"
+        },
+        {
+          "text": "punchline",
+          "kind": "word"
+        },
+        {
+          "text": "standup",
+          "kind": "word"
+        },
+        {
+          "text": "heckler",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

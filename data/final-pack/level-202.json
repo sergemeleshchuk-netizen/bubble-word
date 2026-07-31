@@ -1,0 +1,949 @@
+{
+  "level_spec": {
+    "levelId": 202,
+    "schemaVersion": "2.0",
+    "board": {
+      "categoriesCount": 15,
+      "wordsPerCategory": 4,
+      "startBubbles": 57,
+      "boardCapacity": 24,
+      "moveFloor": 45,
+      "moveLimit": 61,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "shellfish",
+        "label": "SHELLFISH",
+        "rule": "Sea animals with a shell that people eat",
+        "theme": "ocean",
+        "words": [
+          {
+            "text": "crustaceans",
+            "kind": "word",
+            "zipf": 2.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.94,
+            "obviousness": 0.58
+          },
+          {
+            "text": "prawn",
+            "kind": "word",
+            "zipf": 2.87,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "abalone",
+            "kind": "word",
+            "zipf": 2.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "crab",
+            "kind": "word",
+            "zipf": 3.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 2,
+        "parentKey": "seafood",
+        "isQuickwin": false
+      },
+      {
+        "key": "seafood",
+        "label": "SEAFOOD",
+        "rule": "Fish and shellfish eaten as food",
+        "theme": "food",
+        "words": [
+          {
+            "text": "shellfish",
+            "kind": "meta",
+            "metaChild": "shellfish",
+            "zipf": 3.15,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "eel",
+            "kind": "word",
+            "zipf": 3.23,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "trout",
+            "kind": "word",
+            "zipf": 3.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "cod",
+            "kind": "word",
+            "zipf": 3.89,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "grocery_aisles",
+        "isQuickwin": false
+      },
+      {
+        "key": "grocery_aisles",
+        "label": "GROCERY AISLES",
+        "rule": "The sections a supermarket is divided into",
+        "theme": "food",
+        "words": [
+          {
+            "text": "seafood",
+            "kind": "meta",
+            "metaChild": "seafood",
+            "zipf": 3.65,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "meats",
+            "kind": "word",
+            "zipf": 3.48,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.94,
+            "obviousness": 0.66
+          },
+          {
+            "text": "vegetables",
+            "kind": "word",
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.96,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Frozen",
+            "kind": "word",
+            "zipf": 4.32,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.68
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "constellations",
+        "label": "CONSTELLATIONS",
+        "rule": "Constellations in the night sky",
+        "theme": "space",
+        "words": [
+          {
+            "text": "Orion",
+            "kind": "word",
+            "zipf": 3.44,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Andromeda",
+            "kind": "word",
+            "zipf": 3.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Draco",
+            "kind": "word",
+            "zipf": 3.04,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Hercules",
+            "kind": "word",
+            "zipf": 3.6,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "stargazing",
+        "isQuickwin": true
+      },
+      {
+        "key": "stargazing",
+        "label": "STARGAZING",
+        "rule": "What you look at or name when you look up on a clear night",
+        "theme": "space",
+        "words": [
+          {
+            "text": "constellations",
+            "kind": "meta",
+            "metaChild": "constellations",
+            "zipf": 2.98,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "planets",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.62
+          },
+          {
+            "text": "stars",
+            "kind": "word",
+            "zipf": 4.86,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.72
+          },
+          {
+            "text": "moons",
+            "kind": "word",
+            "zipf": 3.38,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.58
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "aircraft",
+        "label": "AIRCRAFT",
+        "rule": "Machines that fly through the air carrying people or cargo",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "balloon",
+            "kind": "word",
+            "zipf": 3.9,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "Zeppelin",
+            "kind": "word",
+            "zipf": 3.29,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "cargo plane",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "glider",
+            "kind": "word",
+            "zipf": 3.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "weather_adjectives",
+        "label": "WEATHER ADJECTIVES",
+        "rule": "Words describing the weather outside",
+        "theme": "descriptive",
+        "words": [
+          {
+            "text": "windy",
+            "kind": "word",
+            "zipf": 3.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mild",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "stormy",
+            "kind": "word",
+            "zipf": 3.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "icy",
+            "kind": "word",
+            "zipf": 3.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "world_currencies_more",
+        "label": "MORE CURRENCIES",
+        "rule": "Currencies used in particular countries",
+        "theme": "culture",
+        "words": [
+          {
+            "text": "baht",
+            "kind": "word",
+            "zipf": 2.94,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.62
+          },
+          {
+            "text": "ruble",
+            "kind": "word",
+            "zipf": 2.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.62
+          },
+          {
+            "text": "dinar",
+            "kind": "word",
+            "zipf": 2.58,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.62
+          },
+          {
+            "text": "kroner",
+            "kind": "word",
+            "zipf": 2.67,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.62
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "greek_letters",
+        "label": "GREEK LETTERS",
+        "rule": "Letters of the Greek alphabet",
+        "theme": "culture",
+        "words": [
+          {
+            "text": "Omega",
+            "kind": "word",
+            "zipf": 3.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "eta",
+            "kind": "word",
+            "zipf": 3.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "theta",
+            "kind": "word",
+            "zipf": 3.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          },
+          {
+            "text": "sigma",
+            "kind": "word",
+            "zipf": 3.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.78
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "medical_jobs",
+        "label": "MEDICAL JOBS",
+        "rule": "Jobs held by people who treat patients or work in healthcare",
+        "theme": "jobs",
+        "words": [
+          {
+            "text": "doctor",
+            "kind": "word",
+            "zipf": 4.9,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "psychiatrist",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "therapist",
+            "kind": "word",
+            "zipf": 3.97,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "surgeon",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "facial_expressions",
+        "label": "FACIAL EXPRESSIONS",
+        "rule": "Expressions people make with their face",
+        "theme": "people",
+        "words": [
+          {
+            "text": "blink",
+            "kind": "word",
+            "zipf": 3.73,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "smile",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "beam",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "smirk",
+            "kind": "word",
+            "zipf": 3.04,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "cartoon_characters",
+        "label": "CARTOON CHARACTERS",
+        "rule": "Classic cartoon characters",
+        "theme": "media",
+        "words": [
+          {
+            "text": "Yogi",
+            "kind": "word",
+            "zipf": 3.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Mickey",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Goofy",
+            "kind": "word",
+            "zipf": 3.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Bugs Bunny",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "noise_adjectives",
+        "label": "VOLUME WORDS",
+        "rule": "Words describing how loud something is",
+        "theme": "descriptive",
+        "words": [
+          {
+            "text": "still",
+            "kind": "word",
+            "zipf": 5.92,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "loud",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "roaring",
+            "kind": "word",
+            "zipf": 3.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "booming",
+            "kind": "word",
+            "zipf": 3.43,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "pests",
+        "label": "PESTS",
+        "rule": "Animals treated as household or garden pests",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "insects",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.88,
+            "obviousness": 0.64
+          },
+          {
+            "text": "mole",
+            "kind": "word",
+            "zipf": 3.67,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "rodents",
+            "kind": "word",
+            "zipf": 3.32,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.9,
+            "obviousness": 0.66
+          },
+          {
+            "text": "flea",
+            "kind": "word",
+            "zipf": 3.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "arctic_animals",
+        "label": "ARCTIC ANIMALS",
+        "rule": "Animals that live in the cold polar regions",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "beluga",
+            "kind": "word",
+            "zipf": 2.69,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "puffin",
+            "kind": "word",
+            "zipf": 2.66,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "orca",
+            "kind": "word",
+            "zipf": 2.93,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "caribou",
+            "kind": "word",
+            "zipf": 2.97,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      }
+    ],
+    "traps": [
+      {
+        "word": "crab",
+        "home": "shellfish",
+        "decoy": "seafood",
+        "homeObviousness": 0.8,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.8
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-07-31T08:51:36.190Z",
+    "generator_version": "gen-1.0",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
+    "level_spec_hash": "9a1ce5e94d5bc5e564299459f70fb0cef5cfa5e32913d894ee38029436626b86",
+    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
+    "seed": "final-03"
+  },
+  "plan": {
+    "levelId": 202,
+    "position": 2,
+    "role": "growth",
+    "categoryCount": 15,
+    "metaCount": 3,
+    "metaDepthTarget": 2,
+    "rareTarget": 11,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 8.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 5.181299999999999,
+        "редкие слова (zipf < 3)": 1.0417,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.66,
+        "глубина мета сверх 1 (объявлено)": 0.55,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 1.2,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 6.245699999999999,
+        "declared": 0.61,
+        "semantic": 1.2,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "57 пузырей на старте при 15 категориях",
+      "11 редких слов, из них 0 очень редких",
+      "3 мета-связей, максимальная глубина 2. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "9 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "5 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 61 при минимуме 45 (K = 1.35)"
+    ],
+    "interest": 7,
+    "interest_breakdown": {
+      "clarity": 2.22,
+      "variety": 1.63,
+      "aha": 1.1,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.22: узнаваемых слов 100%, средняя очевидность связи 0.76",
+      "Variety 1.63: 3 типов связи, 10 тематических сфер, но 73% категорий однотипны",
+      "Aha 1.10: 0 честных ловушек, 3 мета-связей, глубина 2",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 15 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (61 узлов)"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 3"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 2, разрешено 3"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 57, по формуле 4 × 15 − 3 = 57"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 61, минимум мерджей 45, K = 1.35 → ожидалось 61"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 9: constellations, aircraft, weather_adjectives, greek_letters, medical_jobs, facial_expressions, cartoon_characters, noise_adjectives, pests"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 30, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "точных совпадений с четвёрками референса нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      }
+    ],
+    "issues": [],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 61
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "15 категорий, 3 мета-связей, 11 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}
