@@ -145,9 +145,12 @@ function drafts(spec: LevelSpec): Draft[] {
 /**
  * Точка распила.
  *
- * Жёсткое правило спека: фрагмент не имеет права быть валидным словом уровня
- * (SPEC §4). Словаря в прототипе нет, поэтому проверяется то, что проверяемо:
- * фрагмент не совпадает ни с одним словом уровня и ни с одним другим фрагментом.
+ * Жёсткое правило спека: фрагмент половинки не имеет права быть валидным словом
+ * (SPEC §4) — иначе игрок честно потащит половинку в категорию как слово.
+ * Проверяется по трём спискам: слова уровня, уже выданные фрагменты и весь
+ * лексикон контентной базы (10 тысяч слов), если он передан. Полного словаря
+ * английского у инструмента нет, поэтому «shr|imp» такая проверка не поймает:
+ * ограничение известное, в интерфейсе оно подписано.
  */
 function splitWord(word: string, taken: Set<string>): [string, string] | null {
   if (!/^[\p{L}]{6,}$/u.test(word)) return null;
@@ -189,7 +192,9 @@ function pickBlockers(
   return picked.sort((a, b) => a - b);
 }
 
-export function buildSetup(spec: LevelSpec, modifier: PlayableModifier): PlayableSetup {
+export function buildSetup(
+  spec: LevelSpec, modifier: PlayableModifier, lexicon?: ReadonlySet<string>,
+): PlayableSetup {
   const rng = createRng(`playable::${modifier}::${spec.levelId}`);
   const capacity = spec.board.boardCapacity;
   const slots = slotGrid(capacity);
@@ -205,6 +210,7 @@ export function buildSetup(spec: LevelSpec, modifier: PlayableModifier): Playabl
   let halfPairs = 0;
   if (modifier === 'halves') {
     const taken = new Set(list.map((d) => d.text.toLowerCase()));
+    for (const known of lexicon ?? []) taken.add(known);
     const budget = halfBudget(spec.categories.length);
     const usedCategories = new Set<string>();
     const splits = new Map<number, [string, string]>();
@@ -240,11 +246,15 @@ export function buildSetup(spec: LevelSpec, modifier: PlayableModifier): Playabl
     if (halfPairs > 0) {
       notes.push(`распилено слов: ${halfPairs} (не больше одного в категории, `
         + `затронуто категорий: ${usedCategories.size} из ${spec.categories.length})`);
+      notes.push(lexicon
+        ? `фрагменты сверены с лексиконом базы (${lexicon.size} слов): `
+          + 'ни один не является самостоятельным словом базы'
+        : 'фрагменты сверены только со словами уровня: лексикон не передан');
       notes.push('склейка половинок тратит ход — лимит вырос на число распилов');
       delta = Math.min(DELTA.max, DELTA.halfPair * halfPairs);
     } else {
-      notes.push('распилить нечего: на уровне нет слов от 6 букв, '
-        + 'чьи половинки не совпадают с другими словами уровня');
+      notes.push('распилить нечего: на уровне нет слов от 6 букв, чьи половинки '
+        + 'не совпадают со словами уровня и контентной базы');
     }
   } else {
     for (const d of list) {
@@ -288,29 +298,35 @@ export function buildSetup(spec: LevelSpec, modifier: PlayableModifier): Playabl
   let chain: PlayableChain | null = null;
   if (modifier === 'chain') {
     const lines = rowLines(slots);
-    // цепь снимается сбором категорий, значит хотя бы столько категорий должно
-    // собираться, не пересекая цепь. Категория «целая», если все её стартовые
-    // слова лежат по одну сторону линии. Мета-категории в счёт не берём: их
-    // пузырь появляется там, где схлопнулся ребёнок, — заранее это не зона.
-    const plain = spec.categories.filter((c) => c.words.every((w) => w.kind !== 'meta'));
-    const scoreLine = (y: number) => plain.filter((c) => {
-      const sides = board
-        .filter((b) => b.words.some((w) => c.words.some((cw) => cw.text === w)))
-        .map((b) => slots[b.slot].y > y);
-      const complete = sides.length === spec.board.wordsPerCategory;
-      return complete && new Set(sides).size === 1;
-    }).length;
-    const candidates = lines
-      .map((y) => ({ y, intact: scoreLine(y) }))
-      .sort((a, b) => b.intact - a.intact || Math.abs(a.y - 62) - Math.abs(b.y - 62));
-    const best = candidates[0];
+    // Цепь должна отделять именно нижнюю часть поля, поэтому линия ставится там,
+    // где под ней оказывается около трети слотов. Раньше линия выбиралась по
+    // числу категорий, целиком лежащих по одну сторону, — и всегда уезжала к
+    // самому краю: с 24 слотами и тасованной раскладкой у середины таких
+    // категорий почти не бывает. Проходимость держится не выбором линии, а тем,
+    // что досыпка подносит слова в обе зоны, плюс страховкой прототипа: если
+    // легального мерджа не осталось, цепь снимается сама.
+    const belowShare = (y: number) => slots.filter((s) => s.y > y).length / slots.length;
+    const best = lines
+      .map((y) => ({ y, share: belowShare(y) }))
+      .sort((a, b) => Math.abs(a.share - 1 / 3) - Math.abs(b.share - 1 / 3))[0];
     if (best) {
-      const need = Math.max(1, Math.min(2, best.intact));
+      // сколько категорий собирается прямо сейчас, не пересекая цепь: это не
+      // условие постановки, а честная цифра о том, насколько цепь стесняет старт
+      const plain = spec.categories.filter((c) => c.words.every((w) => w.kind !== 'meta'));
+      const intact = plain.filter((c) => {
+        const sides = board
+          .filter((b) => b.words.some((w) => c.words.some((cw) => cw.text === w)))
+          .map((b) => slots[b.slot].y > best.y);
+        return sides.length === spec.board.wordsPerCategory && new Set(sides).size === 1;
+      }).length;
+      const need = Math.min(2, Math.max(1, spec.categories.length - 1));
       chain = { y: best.y, need };
-      notes.push(`цепь на ${Math.round(best.y)}% высоты поля: мердж между верхом `
-        + 'и низом запрещён, пока цепь висит');
-      notes.push(`счётчик цепи: ${need} собранные категории; целиком по одну сторону `
-        + `лежит категорий: ${best.intact}`);
+      notes.push(`цепь на ${Math.round(best.y)}% высоты поля: под ней `
+        + `${Math.round(best.share * 100)}% слотов, мердж между зонами запрещён, `
+        + 'пока цепь висит');
+      notes.push(`счётчик цепи: ${need} собранные категории; на старте целиком `
+        + `по одну сторону лежит категорий: ${intact}, остальные придётся `
+        + 'добирать досыпкой');
       notes.push('если легального мерджа не осталось, прототип снимает цепь сам — '
         + 'иначе раскладка могла бы запереть игрока');
       delta = DELTA.chain;

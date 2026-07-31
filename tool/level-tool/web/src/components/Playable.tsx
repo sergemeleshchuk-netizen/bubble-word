@@ -52,14 +52,16 @@ function initial(setup: PlayableSetup): Board {
   };
 }
 
-export function Playable({ level, levels, onSelect }: {
+export function Playable({ level, levels, lexicon, onSelect }: {
   level: GeneratedLevel;
   levels: GeneratedLevel[];
+  /** слова контентной базы: по ним проверяются фрагменты половинок */
+  lexicon?: ReadonlySet<string>;
   onSelect: (id: number) => void;
 }) {
   const spec: LevelSpec = level.spec;
   const [modifier, setModifier] = useState<PlayableModifier>('none');
-  const setup = useMemo(() => buildSetup(spec, modifier), [spec, modifier]);
+  const setup = useMemo(() => buildSetup(spec, modifier, lexicon), [spec, modifier, lexicon]);
 
   const [state, setState] = useState<Board>(() => initial(setup));
   const [picked, setPicked] = useState<number | null>(null);
@@ -69,6 +71,7 @@ export function Playable({ level, levels, onSelect }: {
   const [done, setDone] = useState<string[]>([]);
   const [glued, setGlued] = useState(0);               // склеек половинок сделано
   const [rescue, setRescue] = useState<string | null>(null);
+  const [chainHit, setChainHit] = useState(false);      // цепь мигает, когда в неё уперлись
   const [showDev, setShowDev] = useState(false);
 
   const boardRef = useRef<HTMLDivElement>(null);
@@ -86,6 +89,7 @@ export function Playable({ level, levels, onSelect }: {
     setDone([]);
     setGlued(0);
     setRescue(null);
+    setChainHit(false);
     setDrag(null);
     setSnap(null);
   }, [setup]);
@@ -193,7 +197,14 @@ export function Playable({ level, levels, onSelect }: {
 
     if (b.ice > 0) { fail(bId, 'ice'); return false; }
     if (b.hidden > 0) { fail(bId, 'hidden'); return false; }
-    if (!chainDown && zoneOf(a) !== zoneOf(b)) { fail(bId, 'chain'); return false; }
+    if (!chainDown && zoneOf(a) !== zoneOf(b)) {
+      // мигает и цель, и сама цепь: игрок должен понять, что помешала именно она,
+      // а не то, что слова не связаны
+      setChainHit(true);
+      setTimeout(() => setChainHit(false), 420);
+      fail(bId, 'chain');
+      return false;
+    }
 
     // половинки: сначала слово, потом категория
     if (a.kind === 'half' || b.kind === 'half') {
@@ -260,7 +271,9 @@ export function Playable({ level, levels, onSelect }: {
     if (!rect) return;
     const c = centerOf(b, rect);
     grabRef.current = { cx: e.clientX, cy: e.clientY, ox: c.x, oy: c.y };
-    e.currentTarget.setPointerCapture?.(e.pointerId);
+    // захват указателя: без него драг рвётся, когда курсор уходит с пузыря.
+    // В try, потому что при синтетических событиях (автотесты) захватывать нечего
+    try { e.currentTarget.setPointerCapture?.(e.pointerId); } catch { /* нечего захватывать */ }
     setDrag({ id: b.id, dx: 0, dy: 0, over: null, trail: [] });
     setSnap(null);
   };
@@ -373,27 +386,21 @@ export function Playable({ level, levels, onSelect }: {
           </div>
           <div className="board" ref={boardRef}>
             {chain && (
-              <div className={`chain ${chainDown ? 'off' : ''}`} style={{ top: `${chain.y}%` }}>
+              <div className={`chain ${chainDown ? 'off' : ''} ${chainHit ? 'hit' : ''}`}
+                style={{ top: `${chain.y}%` }}>
                 <span className="chain-badge">
                   {chainDown ? 'цепь снята' : `${Math.min(solved, chain.need)}/${chain.need}`}
                 </span>
               </div>
             )}
 
-            {/* траектория: откуда пузырь и где он сейчас */}
+            {/* Метка покинутого места: показывает, что слот держится за пузырём и
+                досыпка его не занимает, пока шар в руке. Линии-траектории здесь
+                нет сознательно — путь читается по подсветке пройденных пузырей. */}
             {drag && (() => {
               const from = setup.slots[state.board.find((b) => b.id === drag.id)?.slot ?? 0];
-              const rect = boardRef.current?.getBoundingClientRect();
-              if (!rect) return null;
-              const x1 = (from.x / 100) * rect.width;
-              const y1 = (from.y / 100) * rect.height;
               return (
-                <>
-                  <svg className="trace" width={rect.width} height={rect.height}>
-                    <line x1={x1} y1={y1} x2={x1 + drag.dx} y2={y1 + drag.dy} />
-                  </svg>
-                  <div className="slot-ghost" style={{ left: `${from.x}%`, top: `${from.y}%` }} />
-                </>
+                <div className="slot-ghost" style={{ left: `${from.x}%`, top: `${from.y}%` }} />
               );
             })()}
 

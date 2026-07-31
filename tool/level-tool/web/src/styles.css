@@ -143,9 +143,11 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
   75% { transform: translateX(4px); }
 }
 
-/* драг: траектория, подсветка пройденных пузырей, точка остановки */
-.bubble.dragging { cursor: grabbing; transition: none;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.45), 0 0 0 2px rgba(255,255,255,0.5); }
+/* драг: подсветка пройденных пузырей и точка остановки — этим и читается путь */
+/* белое кольцо оставлено только цели: иначе пузырь в руке и точка остановки
+   светятся одинаково и перекрывают друг друга */
+.bubble.dragging { cursor: grabbing; transition: none; opacity: 0.9;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.55); }
 .bubble.dragging:hover { transform: none; }
 .bubble.snapping { transition: transform 0.24s cubic-bezier(0.3, 1.4, 0.5, 1); }
 .bubble.snapping:hover { transform: none; }
@@ -153,8 +155,6 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
   box-shadow: 0 0 12px rgba(76,194,255,0.35); }
 .bubble.over { border-color: #fff; transform: scale(1.12);
   box-shadow: 0 0 0 3px rgba(255,255,255,0.55), 0 0 22px rgba(76,194,255,0.6); }
-.trace { position: absolute; inset: 0; pointer-events: none; z-index: 45; }
-.trace line { stroke: rgba(76,194,255,0.65); stroke-width: 2; stroke-dasharray: 5 5; }
 .slot-ghost { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px;
   border-radius: 50%; border: 2px dashed rgba(255,255,255,0.25); pointer-events: none; }
 
@@ -170,6 +170,9 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
     #7d8794 0 9px, #454f5c 9px 14px);
   box-shadow: 0 0 12px rgba(0,0,0,0.5); z-index: 30; transition: opacity 0.3s; }
 .chain.off { opacity: 0.18; }
+.chain.hit { animation: shake 0.3s;
+  background: repeating-linear-gradient(90deg, #f85149 0 9px, #7d2620 9px 14px);
+  box-shadow: 0 0 16px rgba(248,81,73,0.7); }
 .chain-badge { position: absolute; right: 8px; top: -8px; font-family: var(--mono);
   font-size: 10px; padding: 1px 6px; border-radius: 9px; background: #1b2530;
   border: 1px solid #7d8794; color: #cfe6f5; }

@@ -36,6 +36,10 @@ export function App() {
   const [elapsed, setElapsed] = useState<number>(0);
 
   const index = useMemo(() => new ContentIndex(snapshot), []);
+  // лексикон базы нужен прототипу: фрагмент половинки не имеет права быть
+  // самостоятельным словом (SPEC §4), а проверить это можно только по списку слов
+  const lexicon = useMemo(
+    () => new Set(snapshot.words.map((w) => w.n.toLowerCase())), []);
   const plans = useMemo(() => buildBlockPlan(config), [config]);
   const rhythm = useMemo(() => checkBlockRhythm(plans), [plans]);
 
@@ -120,7 +124,8 @@ export function App() {
 
       {tab === 'play' && (
         level
-          ? <Playable level={level} levels={block!.levels} onSelect={setSelectedLevel} />
+          ? <Playable level={level} levels={block!.levels} lexicon={lexicon}
+              onSelect={setSelectedLevel} />
           : <Empty onGenerate={generate} />
       )}
 
