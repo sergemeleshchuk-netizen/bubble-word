@@ -32,8 +32,10 @@ const payload = JSON.parse(readFileSync(
 const spec = payload.level_spec;
 
 const rng = createRng(`solver|${levelId}|${mode}`);
-const words = rng.shuffle(spec.categories.flatMap((c: any) => c.words.map((w: any) => w.text)));
-const labels = rng.shuffle(spec.categories.map((c: any) => c.label));
+const words: string[] = rng.shuffle<string>(
+  spec.categories.flatMap((c: any) => c.words.map((w: any) => String(w.text))));
+const labels: string[] = rng.shuffle<string>(
+  spec.categories.map((c: any) => String(c.label)));
 
 console.log(`# Слепой вход, уровень ${spec.levelId}, режим ${mode}`);
 console.log(`# Слов: ${words.length}, категорий: ${spec.categories.length}`);
@@ -45,6 +47,6 @@ if (mode === 'A') {
   console.log('');
 }
 console.log('Слова:');
-console.log(words.map((w: string) => `  ${w}`).join('\n'));
+console.log(words.map((w) => `  ${w}`).join('\n'));
 console.log('');
 console.log('# Ответ ожидается в формате из prompts/blind_solver.md');
