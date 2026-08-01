@@ -89,6 +89,19 @@ first_lineup.quartet_interest_target: 0.40
 first_lineup.ambiguity_budget: 0.95
 first_lineup.rare_word_budget: 0
 first_lineup.long_phrase_budget: 0
+# Имена собственные. Первая сборка двадцатки дала 236 из 768 пузырей против
+# 81 из 752 в записи: три группы имён на одном поле (COMMON SURNAMES, SPANISH
+# NAMES, SURNAMES FROM TRADES) и туториал из брендов магазинов. Формально
+# слова частотные и однословные — все пороги качества они проходят. Доля
+# записи 11%, потолок ниже держит её примерно там же.
+first_lineup.max_proper_nouns: 2
+first_lineup.proper_noun_budget: 6
+# Вторые значения. Статус `alternative` означает «слово живёт здесь, но дома
+# у него другой»; для поздней кампании это ценный материал, для входа в игру —
+# подвох. Замер: 257 четвёрок пула из 1249 содержат такое слово, и одна из них
+# дала на туториале CARD TRICKS = control / cut / force / pass. Одно второе
+# значение в четвёрке допустимо, четыре — нет.
+first_lineup.max_secondary_senses: 1
 first_lineup.novel_words_target_ratio: 0.10
 first_lineup.forbid_vague_label: 1
 

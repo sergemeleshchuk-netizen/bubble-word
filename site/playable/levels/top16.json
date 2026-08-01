@@ -1,0 +1,121 @@
+{
+  "level_id": 16,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "ways_of_moving",
+      "name": "WAYS OF MOVING",
+      "words": [
+        "race",
+        "spring",
+        "sprint",
+        "wander"
+      ]
+    },
+    {
+      "id": "ways_of_speaking",
+      "name": "WAYS OF SPEAKING",
+      "words": [
+        "scream",
+        "declare",
+        "yell",
+        "hiss"
+      ]
+    },
+    {
+      "id": "reading_material",
+      "name": "READING MATTER",
+      "words": [
+        "book",
+        "map",
+        "blog",
+        "magazine"
+      ]
+    },
+    {
+      "id": "livestock",
+      "name": "LIVESTOCK",
+      "words": [
+        "horse",
+        "chicken",
+        "turkey",
+        "geese"
+      ]
+    },
+    {
+      "id": "tree_parts",
+      "name": "TREE PARTS",
+      "words": [
+        "seed",
+        "leaf",
+        "limb",
+        "pulp"
+      ]
+    },
+    {
+      "id": "navigation_tools",
+      "name": "NAVIGATION TOOLS",
+      "words": [
+        "chart",
+        "radar",
+        "Lighthouse",
+        "sonar"
+      ]
+    },
+    {
+      "id": "voice_sounds",
+      "name": "VOICE SOUNDS",
+      "words": [
+        "laugh",
+        "whistle",
+        "gasp",
+        "sob"
+      ]
+    },
+    {
+      "id": "grocery_aisles",
+      "name": "GROCERY AISLES",
+      "words": [
+        "bakery",
+        "Frozen",
+        "meats",
+        "seafood"
+      ]
+    },
+    {
+      "id": "farm_morning",
+      "name": "FARM",
+      "words": [
+        "barn",
+        "tractor",
+        "livestock",
+        "poultry"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 23,
+    "move_limit": 47,
+    "move_limit_k": 1.47
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP016",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "livestock",
+        "source_group": "LIVESTOCK",
+        "target_group": "FARM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 47
+  }
+}

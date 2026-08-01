@@ -1,0 +1,124 @@
+{
+  "level_id": 14,
+  "difficulty_target": 5.5,
+  "categories": [
+    {
+      "id": "animal_homes",
+      "name": "ANIMAL HOMES",
+      "words": [
+        "shell",
+        "warren",
+        "lodge",
+        "mound"
+      ]
+    },
+    {
+      "id": "animal_coverings",
+      "name": "ANIMAL COVERINGS",
+      "words": [
+        "scale",
+        "coat",
+        "fur",
+        "plume"
+      ]
+    },
+    {
+      "id": "body_parts",
+      "name": "BODY PARTS",
+      "words": [
+        "foot",
+        "leg",
+        "shoulder",
+        "finger"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "art",
+        "science",
+        "spanish",
+        "math"
+      ]
+    },
+    {
+      "id": "landforms",
+      "name": "LANDFORMS",
+      "words": [
+        "mountain",
+        "cave",
+        "delta",
+        "peninsula"
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "DIRECTIONS",
+      "words": [
+        "down",
+        "far",
+        "north",
+        "right"
+      ]
+    },
+    {
+      "id": "kitchen_tools",
+      "name": "KITCHEN TOOLS",
+      "words": [
+        "pan",
+        "fork",
+        "opener",
+        "timer"
+      ]
+    },
+    {
+      "id": "magazines",
+      "name": "MAGAZINE TYPES",
+      "words": [
+        "news",
+        "sports",
+        "hobby",
+        "gossip"
+      ]
+    },
+    {
+      "id": "groups_of_people",
+      "name": "GROUPS OF PEOPLE",
+      "words": [
+        "band",
+        "staff",
+        "audience",
+        "gang"
+      ]
+    },
+    {
+      "id": "hand_tools",
+      "name": "HAND TOOLS",
+      "words": [
+        "saw",
+        "knife",
+        "wrench",
+        "ratchet"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 47,
+    "move_limit_k": 1.27
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP014",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 47
+  }
+}

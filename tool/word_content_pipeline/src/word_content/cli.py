@@ -1478,6 +1478,12 @@ def cmd_generate_level_candidates(
                      help="Сколько ловушек просить на уровень. По умолчанию — "
                           "профиль композиции по номеру уровня, как в записи"),
     ] = None,
+    obvious_until: Annotated[
+        int,
+        typer.Option("--obvious-until",
+                     help="До какого номера уровня брать самые очевидные правила "
+                          "пула вместо случайных: вход в игру объясняет правила"),
+    ] = 0,
     key_prefix: Annotated[
         str,
         typer.Option("--key-prefix",
@@ -1535,6 +1541,7 @@ def cmd_generate_level_candidates(
             meta_target=meta_links,
             use_decoys=traps,
             decoy_target=trap_count,
+            obvious_until=obvious_until,
             key_prefix=key_prefix,
             auto_profile=auto_profile,
             profiles_config=profiles_config,
@@ -1555,6 +1562,7 @@ def cmd_generate_level_candidates(
                         "meta_links": meta_links,
                         "traps": traps,
                         "trap_count": trap_count,
+                        "obvious_until": obvious_until,
                     },
                     records_out=len(levels),
                     random_seed=seed,

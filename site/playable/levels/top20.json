@@ -1,0 +1,111 @@
+{
+  "level_id": 20,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "shape_adjectives",
+      "name": "SHAPE ADJECTIVES",
+      "words": [
+        "round",
+        "thick",
+        "oval",
+        "twisted"
+      ]
+    },
+    {
+      "id": "flower_parts",
+      "name": "FLOWER PARTS",
+      "words": [
+        "stem",
+        "bud",
+        "stalk",
+        "nectar"
+      ]
+    },
+    {
+      "id": "natural_disasters",
+      "name": "NATURAL DISASTERS",
+      "words": [
+        "drought",
+        "volcano",
+        "eruption",
+        "tsunami"
+      ]
+    },
+    {
+      "id": "seeds_and_bulbs",
+      "name": "SEEDS AND BULBS",
+      "words": [
+        "cutting",
+        "seed",
+        "pit",
+        "bulb"
+      ]
+    },
+    {
+      "id": "math_operations",
+      "name": "MATH OPERATIONS",
+      "words": [
+        "add",
+        "Square",
+        "sum",
+        "divide"
+      ]
+    },
+    {
+      "id": "seasons",
+      "name": "SEASONS",
+      "words": [
+        "fall",
+        "spring",
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
+      "words": [
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
+      ]
+    },
+    {
+      "id": "natural_wonders",
+      "name": "NATURAL WONDERS",
+      "words": [
+        "island",
+        "mountains",
+        "ocean",
+        "desert"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": 40,
+    "move_limit_k": 1.67
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP020",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 40
+  }
+}

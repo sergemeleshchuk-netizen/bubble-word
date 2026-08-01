@@ -1,0 +1,133 @@
+{
+  "level_id": 19,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "giving_and_taking",
+      "name": "GIVING AND TAKING",
+      "words": [
+        "give",
+        "trade",
+        "receive",
+        "borrow"
+      ]
+    },
+    {
+      "id": "animal_babies",
+      "name": "BABY ANIMALS",
+      "words": [
+        "chick",
+        "joey",
+        "calf",
+        "colt"
+      ]
+    },
+    {
+      "id": "farm_bird_words",
+      "name": "POULTRY",
+      "words": [
+        "turkey",
+        "goose",
+        "rooster",
+        "quail"
+      ]
+    },
+    {
+      "id": "rights_and_freedoms",
+      "name": "RIGHTS",
+      "words": [
+        "vote",
+        "speech",
+        "religion",
+        "assembly"
+      ]
+    },
+    {
+      "id": "punishments",
+      "name": "PENALTIES",
+      "words": [
+        "jail",
+        "penalty",
+        "suspension",
+        "probation"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "content",
+        "happy",
+        "sad",
+        "proud"
+      ]
+    },
+    {
+      "id": "social_media_words",
+      "name": "SOCIAL MEDIA",
+      "words": [
+        "share",
+        "profile",
+        "thread",
+        "viral"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "objection",
+        "testimony",
+        "penalties",
+        "rights"
+      ]
+    },
+    {
+      "id": "greeting_card",
+      "name": "GREETING CARD",
+      "words": [
+        "envelope",
+        "stamp",
+        "holidays",
+        "feelings"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 41,
+    "move_limit_k": 1.37
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP019",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "feelings",
+        "source_group": "FEELINGS",
+        "target_group": "GREETING CARD",
+        "depth": 1
+      },
+      {
+        "token": "penalties",
+        "source_group": "PENALTIES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      },
+      {
+        "token": "rights",
+        "source_group": "RIGHTS",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 41
+  }
+}

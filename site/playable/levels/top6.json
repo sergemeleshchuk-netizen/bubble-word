@@ -1,0 +1,141 @@
+{
+  "level_id": 6,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "theater_arts",
+      "name": "PERFORMING ARTS",
+      "words": [
+        "play",
+        "recital",
+        "improv",
+        "mime"
+      ]
+    },
+    {
+      "id": "symptoms",
+      "name": "SYMPTOMS",
+      "words": [
+        "fever",
+        "congestion",
+        "nausea",
+        "ache"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "health",
+        "science",
+        "drama",
+        "literature"
+      ]
+    },
+    {
+      "id": "movie_genres",
+      "name": "MOVIE GENRES",
+      "words": [
+        "action",
+        "comedy",
+        "adventure",
+        "documentary"
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "DIRECTIONS",
+      "words": [
+        "north",
+        "over",
+        "south",
+        "through"
+      ]
+    },
+    {
+      "id": "transportation_history",
+      "name": "HISTORIC TRANSPORT",
+      "words": [
+        "foot",
+        "wagon",
+        "carriage",
+        "camel"
+      ]
+    },
+    {
+      "id": "family_members",
+      "name": "FAMILY MEMBERS",
+      "words": [
+        "child",
+        "daughter",
+        "sister",
+        "uncle"
+      ]
+    },
+    {
+      "id": "life_stages",
+      "name": "STAGES OF LIFE",
+      "words": [
+        "senior",
+        "adult",
+        "toddler",
+        "teen"
+      ]
+    },
+    {
+      "id": "car_parts",
+      "name": "CAR PARTS",
+      "words": [
+        "door",
+        "fender",
+        "dashboard",
+        "radiator"
+      ]
+    },
+    {
+      "id": "boats",
+      "name": "BOATS AND SHIPS",
+      "words": [
+        "ship",
+        "canoe",
+        "kayak",
+        "freighter"
+      ]
+    },
+    {
+      "id": "emergency_room",
+      "name": "EMERGENCY ROOM",
+      "words": [
+        "stretcher",
+        "injuries",
+        "symptoms",
+        "bones"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 43,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP006",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "symptoms",
+        "source_group": "SYMPTOMS",
+        "target_group": "EMERGENCY ROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 43
+  }
+}

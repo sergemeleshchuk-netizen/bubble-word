@@ -1,0 +1,104 @@
+{
+  "level_id": 13,
+  "difficulty_target": 5.0,
+  "categories": [
+    {
+      "id": "gym_class_things",
+      "name": "GYM CLASS",
+      "words": [
+        "net",
+        "mat",
+        "hoop",
+        "scoreboard"
+      ]
+    },
+    {
+      "id": "dance_class",
+      "name": "DANCE CLASS",
+      "words": [
+        "spin",
+        "routine",
+        "tights",
+        "barre"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "cabinet",
+        "bench",
+        "wardrobe",
+        "crib"
+      ]
+    },
+    {
+      "id": "law_jobs",
+      "name": "LAW JOBS",
+      "words": [
+        "judge",
+        "marshal",
+        "mediator",
+        "notary"
+      ]
+    },
+    {
+      "id": "game_shows",
+      "name": "GAME SHOWS",
+      "words": [
+        "board",
+        "category",
+        "jackpot",
+        "contestant"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "camera",
+        "television",
+        "telephone",
+        "vaccine"
+      ]
+    },
+    {
+      "id": "gymnastics_events",
+      "name": "GYMNASTICS EVENTS",
+      "words": [
+        "split",
+        "rings",
+        "vault",
+        "tumbling"
+      ]
+    },
+    {
+      "id": "car_parts",
+      "name": "CAR PARTS",
+      "words": [
+        "engine",
+        "bumper",
+        "fender",
+        "windshield"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 22,
+    "move_limit": 42,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP013",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 42
+  }
+}

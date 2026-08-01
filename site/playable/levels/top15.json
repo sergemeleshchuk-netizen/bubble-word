@@ -1,0 +1,101 @@
+{
+  "level_id": 15,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
+      "words": [
+        "pressure",
+        "balance",
+        "sight",
+        "smell"
+      ]
+    },
+    {
+      "id": "movie_genres",
+      "name": "MOVIE GENRES",
+      "words": [
+        "western",
+        "thriller",
+        "noir",
+        "biopic"
+      ]
+    },
+    {
+      "id": "fashion_styles",
+      "name": "FASHION STYLES",
+      "words": [
+        "punk",
+        "vintage",
+        "bohemian",
+        "sporty"
+      ]
+    },
+    {
+      "id": "crimes",
+      "name": "CRIMES",
+      "words": [
+        "fraud",
+        "theft",
+        "kidnapping",
+        "speeding"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "surprised",
+        "curious",
+        "lonely",
+        "frustrated"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "verdict",
+        "jury",
+        "crimes",
+        "rights"
+      ]
+    },
+    {
+      "id": "personality_traits",
+      "name": "PERSONALITY TRAITS",
+      "words": [
+        "kind",
+        "loyal",
+        "polite",
+        "shy"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 42,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP015",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "crimes",
+        "source_group": "CRIMES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 42
+  }
+}

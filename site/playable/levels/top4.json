@@ -1,0 +1,137 @@
+{
+  "level_id": 4,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "animal_babies",
+      "name": "BABY ANIMALS",
+      "words": [
+        "chick",
+        "bunny",
+        "kitten",
+        "cub"
+      ]
+    },
+    {
+      "id": "farm_bird_words",
+      "name": "POULTRY",
+      "words": [
+        "turkey",
+        "goose",
+        "rooster",
+        "quail"
+      ]
+    },
+    {
+      "id": "field_trip_places",
+      "name": "FIELD TRIPS",
+      "words": [
+        "farm",
+        "factory",
+        "gallery",
+        "capitol"
+      ]
+    },
+    {
+      "id": "office_jobs",
+      "name": "OFFICE JOBS",
+      "words": [
+        "consultant",
+        "analyst",
+        "supervisor",
+        "planner"
+      ]
+    },
+    {
+      "id": "famous_job_titles",
+      "name": "LEADERSHIP TITLES",
+      "words": [
+        "captain",
+        "director",
+        "chairman",
+        "mayor"
+      ]
+    },
+    {
+      "id": "vending_machine_items",
+      "name": "VENDING MACHINE",
+      "words": [
+        "chips",
+        "cookies",
+        "gum",
+        "popcorn"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "computer",
+        "battery",
+        "telephone",
+        "airplane"
+      ]
+    },
+    {
+      "id": "science_fair",
+      "name": "SCIENCE FAIR",
+      "words": [
+        "poster",
+        "hypothesis",
+        "volcanoes",
+        "inventions"
+      ]
+    },
+    {
+      "id": "farm_morning",
+      "name": "FARM",
+      "words": [
+        "barn",
+        "tractor",
+        "livestock",
+        "poultry"
+      ]
+    },
+    {
+      "id": "at_the_movies",
+      "name": "AT THE MOVIES",
+      "words": [
+        "admission",
+        "cinema",
+        "screen",
+        "trailer"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP004",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "farm",
+        "source_group": "FARM",
+        "target_group": "FIELD TRIPS",
+        "depth": 1
+      },
+      {
+        "token": "inventions",
+        "source_group": "INVENTIONS",
+        "target_group": "SCIENCE FAIR",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 45
+  }
+}

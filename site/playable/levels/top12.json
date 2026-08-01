@@ -1,0 +1,144 @@
+{
+  "level_id": 12,
+  "difficulty_target": 6.5,
+  "categories": [
+    {
+      "id": "theater_arts",
+      "name": "PERFORMING ARTS",
+      "words": [
+        "dance",
+        "play",
+        "magic",
+        "concert"
+      ]
+    },
+    {
+      "id": "illnesses",
+      "name": "ILLNESSES",
+      "words": [
+        "diabetes",
+        "pneumonia",
+        "asthma",
+        "allergy"
+      ]
+    },
+    {
+      "id": "music_genres",
+      "name": "MUSIC GENRES",
+      "words": [
+        "rock",
+        "blues",
+        "opera",
+        "gospel"
+      ]
+    },
+    {
+      "id": "dishes_and_glassware",
+      "name": "DISHES",
+      "words": [
+        "bottle",
+        "dish",
+        "jar",
+        "mug"
+      ]
+    },
+    {
+      "id": "creative_jobs",
+      "name": "CREATIVE JOBS",
+      "words": [
+        "writer",
+        "singer",
+        "photographer",
+        "composer"
+      ]
+    },
+    {
+      "id": "media_jobs",
+      "name": "MEDIA JOBS",
+      "words": [
+        "journalist",
+        "publisher",
+        "critic",
+        "cameraman"
+      ]
+    },
+    {
+      "id": "military_ranks",
+      "name": "MILITARY RANKS",
+      "words": [
+        "major",
+        "commander",
+        "corporal",
+        "ensign"
+      ]
+    },
+    {
+      "id": "government_jobs",
+      "name": "GOVERNMENT JOBS",
+      "words": [
+        "president",
+        "ambassador",
+        "delegate",
+        "auditor"
+      ]
+    },
+    {
+      "id": "greetings_and_farewells",
+      "name": "GREETINGS",
+      "words": [
+        "later",
+        "welcome",
+        "bye",
+        "goodbye"
+      ]
+    },
+    {
+      "id": "titles_of_address",
+      "name": "TITLES",
+      "words": [
+        "lord",
+        "officer",
+        "professor",
+        "senator"
+      ]
+    },
+    {
+      "id": "auto_repair",
+      "name": "AUTO REPAIR",
+      "words": [
+        "battery",
+        "transmission",
+        "diagnostic",
+        "radiator"
+      ]
+    },
+    {
+      "id": "tubes",
+      "name": "TUBES",
+      "words": [
+        "duct",
+        "hose",
+        "pipe",
+        "straw"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 60,
+    "move_limit_k": 1.36
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP012",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 60
+  }
+}

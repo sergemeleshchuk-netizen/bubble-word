@@ -1,0 +1,147 @@
+{
+  "level_id": 5,
+  "difficulty_target": 8.0,
+  "categories": [
+    {
+      "id": "giving_and_taking",
+      "name": "GIVING AND TAKING",
+      "words": [
+        "buy",
+        "collect",
+        "donate",
+        "swap"
+      ]
+    },
+    {
+      "id": "hats",
+      "name": "HATS",
+      "words": [
+        "crown",
+        "helmet",
+        "bonnet",
+        "fedora"
+      ]
+    },
+    {
+      "id": "laundry_care",
+      "name": "LAUNDRY CARE",
+      "words": [
+        "press",
+        "sort",
+        "dry",
+        "iron"
+      ]
+    },
+    {
+      "id": "gym_class_things",
+      "name": "GYM CLASS",
+      "words": [
+        "uniform",
+        "locker",
+        "parachute",
+        "scoreboard"
+      ]
+    },
+    {
+      "id": "bags",
+      "name": "BAGS AND CASES",
+      "words": [
+        "wallet",
+        "backpack",
+        "suitcase",
+        "tote"
+      ]
+    },
+    {
+      "id": "things_that_plug_in",
+      "name": "PLUGGED IN",
+      "words": [
+        "television",
+        "clock",
+        "vacuum",
+        "heater"
+      ]
+    },
+    {
+      "id": "lighting",
+      "name": "LIGHTING",
+      "words": [
+        "shade",
+        "candle",
+        "bulb",
+        "chandelier"
+      ]
+    },
+    {
+      "id": "military_things",
+      "name": "MILITARY EQUIPMENT",
+      "words": [
+        "tank",
+        "bunker",
+        "canteen",
+        "ration"
+      ]
+    },
+    {
+      "id": "social_media_words",
+      "name": "SOCIAL MEDIA",
+      "words": [
+        "message",
+        "share",
+        "comment",
+        "filter"
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "name": "WARDROBE",
+      "words": [
+        "closet",
+        "hats",
+        "footwear",
+        "accessories"
+      ]
+    },
+    {
+      "id": "home_decor",
+      "name": "HOME DECOR",
+      "words": [
+        "rug",
+        "furniture",
+        "lighting",
+        "colors"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 43,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP005",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "hats",
+        "source_group": "HATS",
+        "target_group": "WARDROBE",
+        "depth": 1
+      },
+      {
+        "token": "lighting",
+        "source_group": "LIGHTING",
+        "target_group": "HOME DECOR",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 43
+  }
+}

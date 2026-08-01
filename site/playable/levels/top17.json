@@ -1,0 +1,153 @@
+{
+  "level_id": 17,
+  "difficulty_target": 7.5,
+  "categories": [
+    {
+      "id": "illnesses",
+      "name": "ILLNESSES",
+      "words": [
+        "cold",
+        "infection",
+        "fever",
+        "diabetes"
+      ]
+    },
+    {
+      "id": "symptoms",
+      "name": "SYMPTOMS",
+      "words": [
+        "cough",
+        "swelling",
+        "nausea",
+        "chills"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "table",
+        "desk",
+        "sofa",
+        "wardrobe"
+      ]
+    },
+    {
+      "id": "lighting",
+      "name": "LIGHTING",
+      "words": [
+        "shade",
+        "spotlight",
+        "fixture",
+        "flashlight"
+      ]
+    },
+    {
+      "id": "people_who_help",
+      "name": "HELPING PROFESSIONS",
+      "words": [
+        "doctor",
+        "volunteer",
+        "interpreter",
+        "firefighter"
+      ]
+    },
+    {
+      "id": "people_in_a_story",
+      "name": "STORY CHARACTERS",
+      "words": [
+        "witness",
+        "detective",
+        "mentor",
+        "narrator"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "computer",
+        "internet",
+        "radio",
+        "camera"
+      ]
+    },
+    {
+      "id": "car_parts",
+      "name": "CAR PARTS",
+      "words": [
+        "battery",
+        "wheel",
+        "trunk",
+        "exhaust"
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "name": "WARDROBE",
+      "words": [
+        "closet",
+        "hats",
+        "footwear",
+        "accessories"
+      ]
+    },
+    {
+      "id": "science_fair",
+      "name": "SCIENCE FAIR",
+      "words": [
+        "poster",
+        "hypothesis",
+        "volcanoes",
+        "inventions"
+      ]
+    },
+    {
+      "id": "home_decor",
+      "name": "HOME DECOR",
+      "words": [
+        "rug",
+        "furniture",
+        "lighting",
+        "colors"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 23,
+    "move_limit": 48,
+    "move_limit_k": 1.37
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP017",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "inventions",
+        "source_group": "INVENTIONS",
+        "target_group": "SCIENCE FAIR",
+        "depth": 1
+      },
+      {
+        "token": "lighting",
+        "source_group": "LIGHTING",
+        "target_group": "HOME DECOR",
+        "depth": 1
+      },
+      {
+        "token": "wardrobe",
+        "source_group": "WARDROBE",
+        "target_group": "FURNITURE",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 48
+  }
+}

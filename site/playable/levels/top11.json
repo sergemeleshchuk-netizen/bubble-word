@@ -1,0 +1,151 @@
+{
+  "level_id": 11,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "shape_adjectives",
+      "name": "SHAPE ADJECTIVES",
+      "words": [
+        "straight",
+        "flat",
+        "thick",
+        "smooth"
+      ]
+    },
+    {
+      "id": "magic_words",
+      "name": "MAGIC SHOW",
+      "words": [
+        "box",
+        "illusion",
+        "dove",
+        "scarf"
+      ]
+    },
+    {
+      "id": "crafting_materials",
+      "name": "CRAFT MATERIALS",
+      "words": [
+        "paint",
+        "clay",
+        "fabric",
+        "ribbon"
+      ]
+    },
+    {
+      "id": "parts_of_a_house",
+      "name": "HOUSE PARTS",
+      "words": [
+        "floor",
+        "deck",
+        "ceiling",
+        "porch"
+      ]
+    },
+    {
+      "id": "office_jobs",
+      "name": "OFFICE JOBS",
+      "words": [
+        "manager",
+        "secretary",
+        "assistant",
+        "consultant"
+      ]
+    },
+    {
+      "id": "sports_jobs",
+      "name": "SPORTS JOBS",
+      "words": [
+        "coach",
+        "trainer",
+        "scout",
+        "referee"
+      ]
+    },
+    {
+      "id": "punishments",
+      "name": "PENALTIES",
+      "words": [
+        "jail",
+        "warning",
+        "expulsion",
+        "curfew"
+      ]
+    },
+    {
+      "id": "vending_machine_items",
+      "name": "VENDING MACHINE",
+      "words": [
+        "chips",
+        "sandwich",
+        "soda",
+        "mints"
+      ]
+    },
+    {
+      "id": "rocks_and_minerals",
+      "name": "ROCKS AND MINERALS",
+      "words": [
+        "salt",
+        "shale",
+        "sandstone",
+        "pebble"
+      ]
+    },
+    {
+      "id": "ocean_zones",
+      "name": "SHORE FEATURES",
+      "words": [
+        "current",
+        "reef",
+        "cove",
+        "lagoon"
+      ]
+    },
+    {
+      "id": "math_operations",
+      "name": "MATH OPERATIONS",
+      "words": [
+        "double",
+        "Square",
+        "estimate",
+        "calculate"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "plaintiff",
+        "subpoena",
+        "jury",
+        "penalties"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 54,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP011",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "penalties",
+        "source_group": "PENALTIES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 54
+  }
+}

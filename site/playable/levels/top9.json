@@ -1,0 +1,124 @@
+{
+  "level_id": 9,
+  "difficulty_target": 5.5,
+  "categories": [
+    {
+      "id": "body_parts",
+      "name": "BODY PARTS",
+      "words": [
+        "head",
+        "neck",
+        "finger",
+        "stomach"
+      ]
+    },
+    {
+      "id": "internal_organs",
+      "name": "INTERNAL ORGANS",
+      "words": [
+        "heart",
+        "colon",
+        "marrow",
+        "appendix"
+      ]
+    },
+    {
+      "id": "hand_parts",
+      "name": "HAND PARTS",
+      "words": [
+        "joint",
+        "thumb",
+        "tendon",
+        "knuckle"
+      ]
+    },
+    {
+      "id": "clothing_parts",
+      "name": "GARMENT PARTS",
+      "words": [
+        "hood",
+        "sleeve",
+        "strap",
+        "cuff"
+      ]
+    },
+    {
+      "id": "music_practice",
+      "name": "MUSIC PRACTICE",
+      "words": [
+        "pick",
+        "bow",
+        "mute",
+        "amplifier"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "bed",
+        "wardrobe",
+        "vanity",
+        "stool"
+      ]
+    },
+    {
+      "id": "medical_jobs",
+      "name": "MEDICAL JOBS",
+      "words": [
+        "nurse",
+        "vet",
+        "orderly",
+        "pharmacist"
+      ]
+    },
+    {
+      "id": "school_jobs",
+      "name": "SCHOOL JOBS",
+      "words": [
+        "professor",
+        "registrar",
+        "janitor",
+        "custodian"
+      ]
+    },
+    {
+      "id": "diving_gear",
+      "name": "DIVING GEAR",
+      "words": [
+        "mask",
+        "gloves",
+        "compass",
+        "regulator"
+      ]
+    },
+    {
+      "id": "places_of_worship",
+      "name": "PLACES OF WORSHIP",
+      "words": [
+        "temple",
+        "sanctuary",
+        "shrine",
+        "synagogue"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP009",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 45
+  }
+}

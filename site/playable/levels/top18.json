@@ -1,0 +1,134 @@
+{
+  "level_id": 18,
+  "difficulty_target": 6.5,
+  "categories": [
+    {
+      "id": "ocean_animals",
+      "name": "OCEAN ANIMALS",
+      "words": [
+        "shark",
+        "crab",
+        "tuna",
+        "squid"
+      ]
+    },
+    {
+      "id": "clothing_parts",
+      "name": "GARMENT PARTS",
+      "words": [
+        "pocket",
+        "sleeve",
+        "seam",
+        "hem"
+      ]
+    },
+    {
+      "id": "field_trip_places",
+      "name": "FIELD TRIPS",
+      "words": [
+        "park",
+        "theater",
+        "zoo",
+        "capitol"
+      ]
+    },
+    {
+      "id": "eyewear",
+      "name": "EYEWEAR",
+      "words": [
+        "mask",
+        "contacts",
+        "frames",
+        "goggles"
+      ]
+    },
+    {
+      "id": "pantry_staples",
+      "name": "PANTRY STAPLES",
+      "words": [
+        "tea",
+        "rice",
+        "beans",
+        "pasta"
+      ]
+    },
+    {
+      "id": "pie_types",
+      "name": "PIE TYPES",
+      "words": [
+        "apple",
+        "peach",
+        "shepherds",
+        "custard"
+      ]
+    },
+    {
+      "id": "weapons_of_the_past",
+      "name": "OLD WEAPONS",
+      "words": [
+        "arrow",
+        "axe",
+        "mace",
+        "sling"
+      ]
+    },
+    {
+      "id": "pet_supplies",
+      "name": "PET SUPPLIES",
+      "words": [
+        "food",
+        "toy",
+        "cage",
+        "collar"
+      ]
+    },
+    {
+      "id": "vitamins_letters",
+      "name": "ALPHABET AND SYMBOLS",
+      "words": [
+        "percent",
+        "bullet",
+        "equals",
+        "hashtag"
+      ]
+    },
+    {
+      "id": "lab_equipment",
+      "name": "LAB EQUIPMENT",
+      "words": [
+        "scale",
+        "magnet",
+        "burner",
+        "microscope"
+      ]
+    },
+    {
+      "id": "racing_words",
+      "name": "MOTOR RACING",
+      "words": [
+        "driver",
+        "lap",
+        "qualifying",
+        "speedway"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 47,
+    "move_limit_k": 1.4
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP018",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": null
+  }
+}

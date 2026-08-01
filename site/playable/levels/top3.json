@@ -1,0 +1,111 @@
+{
+  "level_id": 3,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "animal_coverings",
+      "name": "ANIMAL COVERINGS",
+      "words": [
+        "skin",
+        "hide",
+        "feather",
+        "plume"
+      ]
+    },
+    {
+      "id": "farm_buildings",
+      "name": "FARM BUILDINGS",
+      "words": [
+        "pen",
+        "dairy",
+        "farmhouse",
+        "coop"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "MEATS",
+      "words": [
+        "turkey",
+        "chop",
+        "bologna",
+        "veal"
+      ]
+    },
+    {
+      "id": "video_gaming",
+      "name": "GAMING SETUP",
+      "words": [
+        "cable",
+        "controller",
+        "keyboard",
+        "headset"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "chair",
+        "desk",
+        "vanity",
+        "crib"
+      ]
+    },
+    {
+      "id": "fabric_types",
+      "name": "FABRIC TYPES",
+      "words": [
+        "terry",
+        "wool",
+        "velvet",
+        "linen"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "content",
+        "happy",
+        "sad",
+        "proud"
+      ]
+    },
+    {
+      "id": "grocery_aisles",
+      "name": "GROCERY AISLES",
+      "words": [
+        "bakery",
+        "Frozen",
+        "meats",
+        "seafood"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 22,
+    "move_limit": 39,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP003",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "meats",
+        "source_group": "MEATS",
+        "target_group": "GROCERY AISLES",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 39
+  }
+}

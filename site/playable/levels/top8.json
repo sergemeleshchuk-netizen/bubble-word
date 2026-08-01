@@ -1,0 +1,144 @@
+{
+  "level_id": 8,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "ways_of_moving",
+      "name": "WAYS OF MOVING",
+      "words": [
+        "spring",
+        "jump",
+        "scramble",
+        "jog"
+      ]
+    },
+    {
+      "id": "color_words_advanced",
+      "name": "SHADES OF COLOR",
+      "words": [
+        "coral",
+        "ivory",
+        "scarlet",
+        "charcoal"
+      ]
+    },
+    {
+      "id": "livestock",
+      "name": "LIVESTOCK",
+      "words": [
+        "sheep",
+        "cow",
+        "pig",
+        "geese"
+      ]
+    },
+    {
+      "id": "building_trades",
+      "name": "BUILDING TRADES",
+      "words": [
+        "mason",
+        "foreman",
+        "architect",
+        "plumber"
+      ]
+    },
+    {
+      "id": "government_jobs",
+      "name": "GOVERNMENT JOBS",
+      "words": [
+        "president",
+        "mayor",
+        "senator",
+        "commissioner"
+      ]
+    },
+    {
+      "id": "famous_job_titles",
+      "name": "LEADERSHIP TITLES",
+      "words": [
+        "chief",
+        "manager",
+        "chairman",
+        "commander"
+      ]
+    },
+    {
+      "id": "places_to_eat",
+      "name": "PLACES TO EAT",
+      "words": [
+        "pub",
+        "cafe",
+        "cafeteria",
+        "deli"
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "COLORS",
+      "words": [
+        "red",
+        "purple",
+        "crimson",
+        "maroon"
+      ]
+    },
+    {
+      "id": "metals",
+      "name": "METALS",
+      "words": [
+        "iron",
+        "titanium",
+        "cobalt",
+        "tungsten"
+      ]
+    },
+    {
+      "id": "dance_moves",
+      "name": "DANCE MOVES",
+      "words": [
+        "kick",
+        "spin",
+        "robot",
+        "hustle"
+      ]
+    },
+    {
+      "id": "time_units",
+      "name": "UNITS OF TIME",
+      "words": [
+        "century",
+        "month",
+        "week",
+        "instant"
+      ]
+    },
+    {
+      "id": "birthday_party",
+      "name": "BIRTHDAY PARTY",
+      "words": [
+        "gift",
+        "wish",
+        "balloon",
+        "candles"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 44,
+    "move_limit_k": 1.22
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP008",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 44
+  }
+}

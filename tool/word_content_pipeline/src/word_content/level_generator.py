@@ -212,12 +212,22 @@ def _usable_quartets(
                    COALESCE(s.display_text, w.text) AS display,
                    COALESCE(s.sense_key, '') AS sense_key,
                    w.familiarity_score AS word_familiarity,
+                   COALESCE(sn.is_proper_noun, w.is_proper_noun, 0) AS is_proper_noun,
+                   -- Слово стоит в этой категории первым значением или вторым.
+                   -- `alternative` — законный статус (bark у собаки и у дерева),
+                   -- но четвёрка целиком из вторых значений читается как подвох.
+                   (SELECT COUNT(*) FROM memberships mm
+                     WHERE mm.category_id = q.category_id
+                       AND mm.word_id = qw.word_id
+                       AND mm.review_status IN ('approved', 'auto_approved')
+                       AND mm.semantic_status <> 'incorrect') AS primary_membership,
                    ws.char_count AS char_count, ws.token_count AS token_count
               FROM quartets q
               JOIN categories c     ON c.id = q.category_id
               JOIN quartet_words qw ON qw.quartet_id = q.id
               JOIN words w          ON w.id = qw.word_id
               LEFT JOIN word_senses s ON s.id = qw.sense_id
+              LEFT JOIN word_senses sn ON sn.id = qw.sense_id
               LEFT JOIN category_label_scores ls ON ls.category_id = c.id
               LEFT JOIN word_scores ws
                      ON ws.word_id = qw.word_id
@@ -312,6 +322,8 @@ def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.Quartet
         ambiguity=scores["ambiguity"],
         rare_words=sum(1 for value in familiarity if value < rare_familiarity),
         long_phrases=sum(1 for value in tokens if value >= 3),
+        proper_nouns=sum(1 for row in rows if row["is_proper_noun"]),
+        secondary_senses=sum(1 for row in rows if not row["primary_membership"]),
     )
 
 
@@ -419,6 +431,7 @@ def generate(
     meta_target: int | None = None,
     use_decoys: bool = True,
     decoy_target: int | None = None,
+    obvious_until: int = 0,
     key_prefix: str = "L",
     auto_profile: bool = False,
     profiles_config: Path | None = None,
@@ -432,6 +445,9 @@ def generate(
     ``meta_target``     сколько связей просить на уровень вместо профиля композиции;
     ``use_decoys``      ставить ли ловушки — пары групп вокруг общего слова;
     ``decoy_target``    сколько ловушек просить вместо профиля композиции;
+    ``obvious_until``   до какого номера уровня брать самые очевидные правила
+                        пула, а не случайные: вход в игру объясняет правила,
+                        и случайный набор годных тем делает это плохо;
     ``key_prefix``      префикс ключей уровней. Отдельный пакет живёт под своим
                         префиксом и не затирается дымовым прогоном сборки,
                         который каждый раз пересобирает `L001..L005`;
@@ -475,6 +491,7 @@ def generate(
         "ловушек поставлено": 0,
         "уровней с ловушками": 0,
         "ловушки: недобор до профиля": 0,
+        "отклонено пересечением на чистом уровне": 0,
         "попыток": 0,
     }
     if len(base_pool.category_ids) < (
@@ -530,6 +547,7 @@ def generate(
                 meta_target=wanted_meta,
                 decoy_index=pool.decoys,
                 decoy_target=wanted_decoys,
+                obvious_first=position <= obvious_until,
                 index=index,
                 stats=stats,
             )
@@ -584,6 +602,19 @@ def generate(
             ] += 1
             if built.cooldown_violations:
                 stats["отклонено по cooldown"] += 1
+            # Уровень, которому по записи ловушки не положены, обязан обойтись
+            # без пересечений вообще. Иначе туториал, где игрок ещё учит
+            # правила, приходит со случайным двусмысленным пузырём: сложность
+            # первого уровня записи 1.0, а у первой нашей сборки выходило 4.0.
+            if (
+                wanted_decoys == 0
+                and built.assessment is not None
+                and built.assessment.decoys
+                and attempt < MAX_ATTEMPTS_PER_LEVEL - 1
+            ):
+                stats["отклонено пересечением на чистом уровне"] += 1
+                candidate = built
+                continue
             if built.is_valid:
                 candidate = built
                 break
@@ -718,6 +749,7 @@ def _plan_level(
     meta_target: int,
     decoy_index: decoy_pairs_mod.DecoyIndex | None = None,
     decoy_target: int = 0,
+    obvious_first: bool = False,
     index: level_solver.MembershipIndex | None = None,
     stats: dict[str, int] | None = None,
 ) -> tuple[list[GroupPlan], list[MetaLink], list[PlannedDecoy]] | None:
@@ -849,13 +881,36 @@ def _plan_level(
     ]
     if len(pool) < category_count - len(chosen):
         pool = [category_id for category_id in category_ids if category_id not in chosen]
-    rng.shuffle(pool)
+    if obvious_first:
+        # Туториал не выбирается наугад. В записи первый уровень — это FARM
+        # ANIMALS, COLORS, VEHICLES, COMPASS, DAYS OF THE WEEK: самое понятное,
+        # что вообще бывает. Случайная выборка из двухсот годных правил даёт
+        # вместо этого ANIMAL GENDERS и GEM CUTS — формально годные, а на входе
+        # в игру объясняющие правила хуже некуда.
+        #
+        # Берётся не строгий топ, а короткий список самых очевидных, и он
+        # перемешивается. Строгий порядок сделал бы все попытки сборки
+        # одинаковыми, и правило «на чистом уровне пересечений быть не должно»
+        # не смогло бы ничего исправить: генератор сорок раз собирал бы тот же
+        # набор с тем же случайным двусмысленным пузырём.
+        pool.sort(key=lambda category_id: (-_obviousness(by_category[category_id]),
+                                           by_category[category_id][0]["category_key"]))
+        shortlist = pool[: max(category_count * 3, category_count + 6)]
+        rng.shuffle(shortlist)
+        pool = shortlist + pool[len(shortlist):]
+    else:
+        rng.shuffle(pool)
     for category_id in pool:
         if len(chosen) >= category_count:
             break
         if blocked(category_id):
             continue
         entries = by_category[category_id]
+        if obvious_first:
+            for entry in sorted(entries, key=_entry_obviousness, reverse=True):
+                if take(entry) is not None:
+                    break
+            continue
         # Несколько попыток на правило: у категории обычно много четвёрок, и
         # первая попавшаяся часто занята перезарядкой или уже занятым словом.
         for _ in range(min(FILLER_TRIES_PER_RULE, len(entries))):
@@ -967,6 +1022,23 @@ def _take_rival(rng: random.Random, entries: list[dict], token_norm: str, take):
 
 def _entry_has_word(tokens: list, token_norm: str) -> bool:
     return any(display.strip().lower() == token_norm for _w, _s, display, _sk, _r in tokens)
+
+
+def _entry_obviousness(entry: dict) -> float:
+    """Насколько четвёрка очевидна: знакомость слов плюс качество надписи.
+
+    Обе величины уже посчитаны скорингом; здесь они только складываются, чтобы
+    у сортировки был один ключ. Половинный вес надписи не подобран, а взят из
+    смысла: игрок сначала узнаёт слова и только потом проверяет догадку именем.
+    """
+    scores = entry.get("scores") or {}
+    familiarity = scores.get("avg_familiarity") or 0.0
+    label = scores.get("label_quality") or 0.0
+    return float(familiarity) + 0.5 * float(label)
+
+
+def _obviousness(entries: list[dict]) -> float:
+    return max((_entry_obviousness(entry) for entry in entries), default=0.0)
 
 
 def _pair_pools_are_clean(

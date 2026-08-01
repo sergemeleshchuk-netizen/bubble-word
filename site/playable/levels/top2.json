@@ -1,0 +1,104 @@
+{
+  "level_id": 2,
+  "difficulty_target": 5.0,
+  "categories": [
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "art",
+        "science",
+        "spanish",
+        "math"
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
+      "words": [
+        "letter",
+        "number",
+        "sound",
+        "shape"
+      ]
+    },
+    {
+      "id": "magic_words",
+      "name": "MAGIC SHOW",
+      "words": [
+        "assistant",
+        "illusion",
+        "wand",
+        "handcuffs"
+      ]
+    },
+    {
+      "id": "dance_class",
+      "name": "DANCE CLASS",
+      "words": [
+        "mirror",
+        "stretch",
+        "mat",
+        "tights"
+      ]
+    },
+    {
+      "id": "magazines",
+      "name": "MAGAZINE TYPES",
+      "words": [
+        "business",
+        "cooking",
+        "gossip",
+        "parenting"
+      ]
+    },
+    {
+      "id": "shapes",
+      "name": "SHAPES",
+      "words": [
+        "heart",
+        "star",
+        "Square",
+        "circle"
+      ]
+    },
+    {
+      "id": "math_operations",
+      "name": "MATH OPERATIONS",
+      "words": [
+        "double",
+        "count",
+        "divide",
+        "multiply"
+      ]
+    },
+    {
+      "id": "hand_tools",
+      "name": "HAND TOOLS",
+      "words": [
+        "saw",
+        "knife",
+        "wrench",
+        "ratchet"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 39,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP002",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 39
+  }
+}

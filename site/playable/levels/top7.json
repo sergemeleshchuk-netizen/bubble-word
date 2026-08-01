@@ -1,0 +1,169 @@
+{
+  "level_id": 7,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "ocean_animals",
+      "name": "OCEAN ANIMALS",
+      "words": [
+        "seal",
+        "shark",
+        "whale",
+        "turtle"
+      ]
+    },
+    {
+      "id": "reptiles",
+      "name": "REPTILES",
+      "words": [
+        "python",
+        "viper",
+        "snakes",
+        "turtles"
+      ]
+    },
+    {
+      "id": "reading_material",
+      "name": "READING MATTER",
+      "words": [
+        "letter",
+        "poem",
+        "diary",
+        "textbook"
+      ]
+    },
+    {
+      "id": "legal_documents",
+      "name": "LEGAL DOCUMENTS",
+      "words": [
+        "will",
+        "patent",
+        "testament",
+        "subpoena"
+      ]
+    },
+    {
+      "id": "rights_and_freedoms",
+      "name": "RIGHTS",
+      "words": [
+        "vote",
+        "speech",
+        "religion",
+        "assembly"
+      ]
+    },
+    {
+      "id": "punishments",
+      "name": "PENALTIES",
+      "words": [
+        "fine",
+        "suspension",
+        "curfew",
+        "forfeit"
+      ]
+    },
+    {
+      "id": "book_genres",
+      "name": "BOOK GENRES",
+      "words": [
+        "history",
+        "humor",
+        "thriller",
+        "biography"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "sad",
+        "guilty",
+        "nervous",
+        "jealous"
+      ]
+    },
+    {
+      "id": "seasons",
+      "name": "SEASONS",
+      "words": [
+        "fall",
+        "spring",
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "objection",
+        "testimony",
+        "penalties",
+        "rights"
+      ]
+    },
+    {
+      "id": "greeting_card",
+      "name": "GREETING CARD",
+      "words": [
+        "envelope",
+        "stamp",
+        "holidays",
+        "feelings"
+      ]
+    },
+    {
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
+      "words": [
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 46,
+    "move_limit_k": 1.28
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP007",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "feelings",
+        "source_group": "FEELINGS",
+        "target_group": "GREETING CARD",
+        "depth": 1
+      },
+      {
+        "token": "penalties",
+        "source_group": "PENALTIES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      },
+      {
+        "token": "rights",
+        "source_group": "RIGHTS",
+        "target_group": "COURTROOM",
+        "depth": 1
+      },
+      {
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 46
+  }
+}

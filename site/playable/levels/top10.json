@@ -1,0 +1,104 @@
+{
+  "level_id": 10,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "giving_and_taking",
+      "name": "GIVING AND TAKING",
+      "words": [
+        "take",
+        "deliver",
+        "swap",
+        "lend"
+      ]
+    },
+    {
+      "id": "animal_homes",
+      "name": "ANIMAL HOMES",
+      "words": [
+        "stable",
+        "warren",
+        "nest",
+        "hive"
+      ]
+    },
+    {
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
+      "words": [
+        "touch",
+        "balance",
+        "thirst",
+        "itch"
+      ]
+    },
+    {
+      "id": "job_hunting",
+      "name": "JOB HUNTING",
+      "words": [
+        "offer",
+        "application",
+        "interview",
+        "reference"
+      ]
+    },
+    {
+      "id": "landforms",
+      "name": "LANDFORMS",
+      "words": [
+        "island",
+        "plain",
+        "summit",
+        "cave"
+      ]
+    },
+    {
+      "id": "magazines",
+      "name": "MAGAZINE TYPES",
+      "words": [
+        "trade",
+        "fashion",
+        "comic",
+        "teen"
+      ]
+    },
+    {
+      "id": "olympic_sports",
+      "name": "OLYMPIC SPORTS",
+      "words": [
+        "marathon",
+        "wrestling",
+        "gymnastics",
+        "hurdles"
+      ]
+    },
+    {
+      "id": "the_mind",
+      "name": "THE MIND",
+      "words": [
+        "emotion",
+        "intuition",
+        "logic",
+        "focus"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": 44,
+    "move_limit_k": 1.52
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP010",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 44
+  }
+}

@@ -35,6 +35,17 @@ DEFAULTS: dict[str, float] = {
     "ambiguity_budget": 1.0,
     "rare_word_budget": 99,
     "long_phrase_budget": 99,
+    # Имена собственные: сколько их можно в одной четвёрке и сколько на уровень.
+    # Замер записи оригинала — 81 имя на 752 пузыря (11%); у первой сборки нашей
+    # двадцатки вышло 236 из 768 (31%), то есть три уровня подряд из брендов,
+    # стран и человеческих имён. Это не «трудно», это «не про что».
+    "max_proper_nouns": 4.0,
+    "proper_noun_budget": 99,
+    # Слова, стоящие в категории вторым значением (`alternative`, `hard_only`),
+    # а не основным. Статус законный — `bark` честно и лай, и кора, — но
+    # четвёрка целиком из вторых значений это уже подвох: CARD TRICKS из
+    # control / cut / force / pass выглядит как обычные слова и не является ими.
+    "max_secondary_senses": 4.0,
     "novel_words_target_ratio": 0.0,
     # 1 — не брать группы, названные признаком вместо темы (STRETCHY THINGS,
     # PLUMBING WORDS, KINDS OF FOREST). Правило одно на проект: `labels.is_vague`.
@@ -100,6 +111,8 @@ class QuartetFacts:
     ambiguity: float | None
     rare_words: int
     long_phrases: int
+    proper_nouns: int = 0
+    secondary_senses: int = 0
 
 
 def check_quartet(profile: Profile, facts: QuartetFacts) -> list[str]:
@@ -146,6 +159,15 @@ def check_quartet(profile: Profile, facts: QuartetFacts) -> list[str]:
         reasons.append(
             f"неоднозначность {facts.ambiguity:.2f} > бюджета {profile['ambiguity_budget']}"
         )
+    if facts.secondary_senses > profile["max_secondary_senses"]:
+        reasons.append(
+            f"вторых значений {facts.secondary_senses} > "
+            f"{int(profile['max_secondary_senses'])}"
+        )
+    if facts.proper_nouns > profile["max_proper_nouns"]:
+        reasons.append(
+            f"имён собственных {facts.proper_nouns} > {int(profile['max_proper_nouns'])}"
+        )
     if profile["forbid_vague_label"] >= 1 and labels.is_vague(facts.label_text):
         reasons.append(f"надпись «{facts.label_text}» называет признак, а не тему")
     return reasons
@@ -157,12 +179,14 @@ class LevelBudget:
 
     rare_words: int
     long_phrases: int
+    proper_nouns: int = 99
 
     @classmethod
     def for_profile(cls, profile: Profile) -> LevelBudget:
         return cls(
             rare_words=int(profile["rare_word_budget"]),
             long_phrases=int(profile["long_phrase_budget"]),
+            proper_nouns=int(profile["proper_noun_budget"]),
         )
 
     def fits(self, facts: QuartetFacts) -> str | None:
@@ -175,8 +199,14 @@ class LevelBudget:
                 f"длинных фраз {facts.long_phrases}, "
                 f"в бюджете уровня осталось {self.long_phrases}"
             )
+        if facts.proper_nouns > self.proper_nouns:
+            return (
+                f"имён собственных {facts.proper_nouns}, "
+                f"в бюджете уровня осталось {self.proper_nouns}"
+            )
         return None
 
     def spend(self, facts: QuartetFacts) -> None:
         self.rare_words -= facts.rare_words
         self.long_phrases -= facts.long_phrases
+        self.proper_nouns -= facts.proper_nouns

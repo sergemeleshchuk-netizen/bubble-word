@@ -1,0 +1,5668 @@
+{
+  "format": "bubble-level-pack/1.0",
+  "prefix": "TOP",
+  "levels": [
+    {
+      "level": 1,
+      "level_key": "TOP001",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 3.0,
+        "explanation": "5 категорий, 20 слов; главный вклад: alternative_partition_pressure +1.5, sense_ambiguity +0.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8866,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8866,
+        "planned_decoys": 0,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 5,
+          "recorded": 5
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 0
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "CLOTHING SIZES",
+          "rule_key": "clothing_sizes",
+          "rule": "Words used for clothing sizes and fit",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "large",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "plus",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "regular",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "small",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "LEGAL DOCUMENTS",
+          "rule_key": "legal_documents",
+          "rule": "Documents used in legal matters",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "contract",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "title",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "will",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "license",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FAMILY MEMBERS",
+          "rule_key": "family_members",
+          "rule": "Words for members of a family",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "brother",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sister",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "son",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wife",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "SOCIAL MEDIA",
+          "rule_key": "social_media_words",
+          "rule": "Words used on social media",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "follow",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "like",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "post",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "share",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "DAYS & TIMES",
+          "rule_key": "days_and_parts_of_day",
+          "rule": "Names of weekdays and parts of the day",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "Friday",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "morning",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "night",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Sunday",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "df30cefb3c10efa64c48faa3c3534b7950091cfb3fd091dff0bcb4ebfe916ca5",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 2,
+      "level_key": "TOP002",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 5.0,
+        "explanation": "8 категорий, 32 слов; главный вклад: sense_ambiguity +1.5, alternative_partition_pressure +1.5, category_count +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8771,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8771,
+        "planned_decoys": 4,
+        "unplanned_decoys": 1
+      },
+      "composition": {
+        "categories": {
+          "pack": 8,
+          "recorded": 8
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 0
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "SCHOOL SUBJECTS",
+          "rule_key": "school_subjects",
+          "rule": "Subjects taught in an American school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "art",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "science",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spanish",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "math",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "FIRST LESSONS",
+          "rule_key": "alphabet_and_numbers",
+          "rule": "The very first things children learn at school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "letter",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "number",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sound",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shape",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "MAGIC SHOW",
+          "rule_key": "magic_words",
+          "rule": "Things used in a stage magic performance",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "assistant",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "illusion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wand",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "handcuffs",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "DANCE CLASS",
+          "rule_key": "dance_class",
+          "rule": "Things found in a dance class",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "mirror",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stretch",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mat",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tights",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "MAGAZINE TYPES",
+          "rule_key": "magazines",
+          "rule": "Kinds of magazine sold at a newsstand",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "business",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cooking",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gossip",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "parenting",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "SHAPES",
+          "rule_key": "shapes",
+          "rule": "Geometric shapes taught in school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "heart",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "star",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Square",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "circle",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "MATH OPERATIONS",
+          "rule_key": "math_operations",
+          "rule": "Operations performed on numbers",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "double",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "count",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "divide",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "multiply",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "HAND TOOLS",
+          "rule_key": "hand_tools",
+          "rule": "Tools held in the hand and used for building or repair work",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "saw",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "knife",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wrench",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ratchet",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "71ad467d800d278b53efb2ec7620a1da505218beb0b54c8e502affde59496101",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 3,
+      "level_key": "TOP003",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "8 категорий, 32 слов; главный вклад: sense_ambiguity +1.5, alternative_partition_pressure +1.5, category_count +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8487,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8487,
+        "planned_decoys": 3,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 8,
+          "recorded": 8
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 1
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "ANIMAL COVERINGS",
+          "rule_key": "animal_coverings",
+          "rule": "Things that cover an animal body",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "skin",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hide",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "feather",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "plume",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "FARM BUILDINGS",
+          "rule_key": "farm_buildings",
+          "rule": "Buildings and structures on a farm",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "pen",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "dairy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "farmhouse",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "coop",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "MEATS",
+          "rule_key": "meats",
+          "rule": "Kinds of meat sold at an American butcher counter",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "turkey",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chop",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bologna",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "veal",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "GAMING SETUP",
+          "rule_key": "video_gaming",
+          "rule": "Things in a video gaming setup",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "cable",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "controller",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "keyboard",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "headset",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "FURNITURE",
+          "rule_key": "furniture",
+          "rule": "Movable household furniture",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "chair",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "desk",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vanity",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "crib",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "FABRIC TYPES",
+          "rule_key": "fabric_types",
+          "rule": "Kinds of cloth used to make things",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "terry",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wool",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "velvet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "linen",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "FEELINGS",
+          "rule_key": "feelings",
+          "rule": "Words naming human emotions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "content",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "happy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sad",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "proud",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "GROCERY AISLES",
+          "rule_key": "grocery_aisles",
+          "rule": "The sections a supermarket is divided into",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "bakery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Frozen",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "meats",
+              "kind": "category_output",
+              "emitted_by": "MEATS"
+            },
+            {
+              "text": "seafood",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "meats",
+          "source_group": "MEATS",
+          "target_group": "GROCERY AISLES",
+          "depth": 1
+        }
+      ],
+      "content_hash": "7a969ed0fb7df5925f70e8d6168b68685e86969d5ee2d441da48373f4862a5e8",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 4,
+      "level_key": "TOP004",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "10 категорий, 40 слов; главный вклад: category_count +1.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8407,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8407,
+        "planned_decoys": 3,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 10,
+          "recorded": 10
+        },
+        "meta_links": {
+          "pack": 2,
+          "recorded": 2
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "BABY ANIMALS",
+          "rule_key": "animal_babies",
+          "rule": "English words for the young of an animal species",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "chick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bunny",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "kitten",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cub",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "POULTRY",
+          "rule_key": "farm_bird_words",
+          "rule": "Birds raised for meat or eggs on a farm",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "turkey",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "goose",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "rooster",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "quail",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FIELD TRIPS",
+          "rule_key": "field_trip_places",
+          "rule": "Places classes visit on a field trip",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "farm",
+              "kind": "category_output",
+              "emitted_by": "FARM"
+            },
+            {
+              "text": "factory",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gallery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "capitol",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "OFFICE JOBS",
+          "rule_key": "office_jobs",
+          "rule": "Jobs held by people who work in an office",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "consultant",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "analyst",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "supervisor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "planner",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "LEADERSHIP TITLES",
+          "rule_key": "famous_job_titles",
+          "rule": "Titles held by people in charge of an organization",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "captain",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "director",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chairman",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mayor",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "VENDING MACHINE",
+          "rule_key": "vending_machine_items",
+          "rule": "Things sold from a vending machine",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "chips",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cookies",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gum",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "popcorn",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "INVENTIONS",
+          "rule_key": "inventions",
+          "rule": "Famous inventions that changed everyday life",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "computer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "battery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "telephone",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "airplane",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "SCIENCE FAIR",
+          "rule_key": "science_fair",
+          "rule": "What a school science fair project is about or made of",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "poster",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hypothesis",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "volcanoes",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "inventions",
+              "kind": "category_output",
+              "emitted_by": "INVENTIONS"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "FARM",
+          "rule_key": "farm_morning",
+          "rule": "What a farm has, keeps or fights",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "barn",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tractor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "livestock",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "poultry",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "AT THE MOVIES",
+          "rule_key": "at_the_movies",
+          "rule": "Something you meet at a cinema",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "admission",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cinema",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "screen",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "trailer",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "farm",
+          "source_group": "FARM",
+          "target_group": "FIELD TRIPS",
+          "depth": 1
+        },
+        {
+          "token": "inventions",
+          "source_group": "INVENTIONS",
+          "target_group": "SCIENCE FAIR",
+          "depth": 1
+        }
+      ],
+      "content_hash": "4be77cb60ef8c003d61b7c726be33d4e631fe4aeeae71abf8b18d1e18bbe65fb",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 5,
+      "level_key": "TOP005",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 8.0,
+        "explanation": "11 категорий, 44 слов; главный вклад: category_count +2.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8366,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8366,
+        "planned_decoys": 4,
+        "unplanned_decoys": 2
+      },
+      "composition": {
+        "categories": {
+          "pack": 11,
+          "recorded": 11
+        },
+        "meta_links": {
+          "pack": 2,
+          "recorded": 2
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "GIVING AND TAKING",
+          "rule_key": "giving_and_taking",
+          "rule": "Verbs about transferring something to or from someone",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "buy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "collect",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "donate",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "swap",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "HATS",
+          "rule_key": "hats",
+          "rule": "Things worn on the head",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "crown",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "helmet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bonnet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fedora",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "LAUNDRY CARE",
+          "rule_key": "laundry_care",
+          "rule": "Things done to clothes to keep them clean and neat",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "press",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sort",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "dry",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "iron",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "GYM CLASS",
+          "rule_key": "gym_class_things",
+          "rule": "Things used in a school gym class",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "uniform",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "locker",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "parachute",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scoreboard",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "BAGS AND CASES",
+          "rule_key": "bags",
+          "rule": "Kinds of bag people carry",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "wallet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "backpack",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "suitcase",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tote",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "PLUGGED IN",
+          "rule_key": "things_that_plug_in",
+          "rule": "Household devices powered by plugging into an outlet",
+          "rule_type": "property_group",
+          "words": [
+            {
+              "text": "television",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "clock",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vacuum",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "heater",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "LIGHTING",
+          "rule_key": "lighting",
+          "rule": "Devices that light a home",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "shade",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "candle",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bulb",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chandelier",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "MILITARY EQUIPMENT",
+          "rule_key": "military_things",
+          "rule": "Equipment used by the armed forces",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "tank",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bunker",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "canteen",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ration",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "SOCIAL MEDIA",
+          "rule_key": "social_media_words",
+          "rule": "Words used on social media",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "message",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "share",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "comment",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "filter",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "WARDROBE",
+          "rule_key": "wardrobe",
+          "rule": "What hangs, sits or is stored in the place you keep clothes",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "closet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hats",
+              "kind": "category_output",
+              "emitted_by": "HATS"
+            },
+            {
+              "text": "footwear",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "accessories",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "HOME DECOR",
+          "rule_key": "home_decor",
+          "rule": "What you choose when you decorate a room",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "rug",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "furniture",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lighting",
+              "kind": "category_output",
+              "emitted_by": "LIGHTING"
+            },
+            {
+              "text": "colors",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "hats",
+          "source_group": "HATS",
+          "target_group": "WARDROBE",
+          "depth": 1
+        },
+        {
+          "token": "lighting",
+          "source_group": "LIGHTING",
+          "target_group": "HOME DECOR",
+          "depth": 1
+        }
+      ],
+      "content_hash": "9f4b898b65be3641524948617f2bee7b25a3938667970fe2c431a9600f9a24d4",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 6,
+      "level_key": "TOP006",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "11 категорий, 44 слов; главный вклад: category_count +2.5, alternative_partition_pressure +1.5, meta_depth +0.75"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8776,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8776,
+        "planned_decoys": 4,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 11,
+          "recorded": 11
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 1
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "PERFORMING ARTS",
+          "rule_key": "theater_arts",
+          "rule": "Arts performed in front of an audience",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "play",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "recital",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "improv",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mime",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "SYMPTOMS",
+          "rule_key": "symptoms",
+          "rule": "Signs that a person feels unwell",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "fever",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "congestion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "nausea",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ache",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "SCHOOL SUBJECTS",
+          "rule_key": "school_subjects",
+          "rule": "Subjects taught in an American school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "health",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "science",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "drama",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "literature",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "MOVIE GENRES",
+          "rule_key": "movie_genres",
+          "rule": "Categories used to classify films",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "action",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "comedy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "adventure",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "documentary",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "DIRECTIONS",
+          "rule_key": "directions",
+          "rule": "Words used to give directions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "north",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "over",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "south",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "through",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "HISTORIC TRANSPORT",
+          "rule_key": "transportation_history",
+          "rule": "Ways people traveled before cars",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "foot",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wagon",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "carriage",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "camel",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "FAMILY MEMBERS",
+          "rule_key": "family_members",
+          "rule": "Words for members of a family",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "child",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "daughter",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sister",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "uncle",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "STAGES OF LIFE",
+          "rule_key": "life_stages",
+          "rule": "Words for the stages of a human life",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "senior",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "adult",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "toddler",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "teen",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "CAR PARTS",
+          "rule_key": "car_parts",
+          "rule": "Physical parts of an ordinary passenger car",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "door",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fender",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "dashboard",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radiator",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "BOATS AND SHIPS",
+          "rule_key": "boats",
+          "rule": "Kinds of watercraft",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "ship",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "canoe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "kayak",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "freighter",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "EMERGENCY ROOM",
+          "rule_key": "emergency_room",
+          "rule": "What is treated, seen or used in a hospital emergency room",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "stretcher",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "injuries",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "symptoms",
+              "kind": "category_output",
+              "emitted_by": "SYMPTOMS"
+            },
+            {
+              "text": "bones",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "symptoms",
+          "source_group": "SYMPTOMS",
+          "target_group": "EMERGENCY ROOM",
+          "depth": 1
+        }
+      ],
+      "content_hash": "bd8187cd96a69be1e6fbef8c7c39c34d51fb50ce81453cfa638cbe95266091b0",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 7,
+      "level_key": "TOP007",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 7.0,
+        "explanation": "12 категорий, 48 слов; главный вклад: category_count +2.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8477,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8477,
+        "planned_decoys": 3,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 12,
+          "recorded": 12
+        },
+        "meta_links": {
+          "pack": 4,
+          "recorded": 6
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "OCEAN ANIMALS",
+          "rule_key": "ocean_animals",
+          "rule": "Animals that live in the ocean",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "seal",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shark",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "whale",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "turtle",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "REPTILES",
+          "rule_key": "reptiles",
+          "rule": "Cold-blooded scaly animals classed as reptiles",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "python",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "viper",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "snakes",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "turtles",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "READING MATTER",
+          "rule_key": "reading_material",
+          "rule": "Things people read",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "letter",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "poem",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "diary",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "textbook",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "LEGAL DOCUMENTS",
+          "rule_key": "legal_documents",
+          "rule": "Documents used in legal matters",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "will",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "patent",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "testament",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "subpoena",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "RIGHTS",
+          "rule_key": "rights_and_freedoms",
+          "rule": "Legal rights and freedoms people have",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "vote",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "speech",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "religion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "assembly",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "PENALTIES",
+          "rule_key": "punishments",
+          "rule": "Penalties handed down for breaking rules",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "fine",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "suspension",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "curfew",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "forfeit",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "BOOK GENRES",
+          "rule_key": "book_genres",
+          "rule": "Categories used to classify books",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "history",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "humor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thriller",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "biography",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "FEELINGS",
+          "rule_key": "feelings",
+          "rule": "Words naming human emotions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "sad",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "guilty",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "nervous",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jealous",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "SEASONS",
+          "rule_key": "seasons",
+          "rule": "The four seasons of the year",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "fall",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spring",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "summer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "winter",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "COURTROOM",
+          "rule_key": "courtroom",
+          "rule": "What is heard, handed down or worn in a courtroom",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "objection",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "testimony",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "penalties",
+              "kind": "category_output",
+              "emitted_by": "PENALTIES"
+            },
+            {
+              "text": "rights",
+              "kind": "category_output",
+              "emitted_by": "RIGHTS"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "GREETING CARD",
+          "rule_key": "greeting_card",
+          "rule": "What is printed on, drawn on or sent with a greeting card",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "envelope",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stamp",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "holidays",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "feelings",
+              "kind": "category_output",
+              "emitted_by": "FEELINGS"
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "label": "WEATHER REPORT",
+          "rule_key": "weather_report",
+          "rule": "What a weather report names or predicts",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "forecast",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radar",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "storms",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "seasons",
+              "kind": "category_output",
+              "emitted_by": "SEASONS"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "feelings",
+          "source_group": "FEELINGS",
+          "target_group": "GREETING CARD",
+          "depth": 1
+        },
+        {
+          "token": "penalties",
+          "source_group": "PENALTIES",
+          "target_group": "COURTROOM",
+          "depth": 1
+        },
+        {
+          "token": "rights",
+          "source_group": "RIGHTS",
+          "target_group": "COURTROOM",
+          "depth": 1
+        },
+        {
+          "token": "seasons",
+          "source_group": "SEASONS",
+          "target_group": "WEATHER REPORT",
+          "depth": 1
+        }
+      ],
+      "content_hash": "5a33cf857eecb25ed30a2e7455b75761b53a29b1eb791cc9b73d56ec5e55020f",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 8,
+      "level_key": "TOP008",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 7.0,
+        "explanation": "12 категорий, 48 слов; главный вклад: category_count +2.5, alternative_partition_pressure +1.5, sense_ambiguity +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8657,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8657,
+        "planned_decoys": 5,
+        "unplanned_decoys": 1
+      },
+      "composition": {
+        "categories": {
+          "pack": 12,
+          "recorded": 12
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 2
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "WAYS OF MOVING",
+          "rule_key": "ways_of_moving",
+          "rule": "Verbs describing a way a person moves their body from place to place",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "spring",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jump",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scramble",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jog",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "SHADES OF COLOR",
+          "rule_key": "color_words_advanced",
+          "rule": "Words for particular shades of color",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "coral",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ivory",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scarlet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "charcoal",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "LIVESTOCK",
+          "rule_key": "livestock",
+          "rule": "Animals raised for food or farm work",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "sheep",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cow",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pig",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "geese",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "BUILDING TRADES",
+          "rule_key": "building_trades",
+          "rule": "Skilled trades that build and repair buildings",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "mason",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "foreman",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "architect",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "plumber",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "GOVERNMENT JOBS",
+          "rule_key": "government_jobs",
+          "rule": "Jobs held by people who work for a government",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "president",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mayor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "senator",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "commissioner",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "LEADERSHIP TITLES",
+          "rule_key": "famous_job_titles",
+          "rule": "Titles held by people in charge of an organization",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "chief",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "manager",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chairman",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "commander",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "PLACES TO EAT",
+          "rule_key": "places_to_eat",
+          "rule": "Places where people go to eat a meal",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "pub",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cafe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cafeteria",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "deli",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "COLORS",
+          "rule_key": "colors",
+          "rule": "Basic color names used in everyday English",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "red",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "purple",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "crimson",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "maroon",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "METALS",
+          "rule_key": "metals",
+          "rule": "Metals and metal alloys used in everyday objects",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "iron",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "titanium",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cobalt",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tungsten",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "DANCE MOVES",
+          "rule_key": "dance_moves",
+          "rule": "Named dance moves",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "kick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spin",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "robot",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hustle",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "UNITS OF TIME",
+          "rule_key": "time_units",
+          "rule": "Units used to measure time",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "century",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "month",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "week",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "instant",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "label": "BIRTHDAY PARTY",
+          "rule_key": "birthday_party",
+          "rule": "Something you associate with a birthday party",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "gift",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wish",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "balloon",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "candles",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "e740a389b3aab653b713527ea3e1537a679d0d68e4a7520604870f919f77b94f",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 9,
+      "level_key": "TOP009",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 5.5,
+        "explanation": "10 категорий, 40 слов; главный вклад: category_count +1.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8781,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8781,
+        "planned_decoys": 5,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 10,
+          "recorded": 10
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 3
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "BODY PARTS",
+          "rule_key": "body_parts",
+          "rule": "External parts of the human body",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "head",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "neck",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "finger",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stomach",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "INTERNAL ORGANS",
+          "rule_key": "internal_organs",
+          "rule": "Organs inside the human body",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "heart",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "colon",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "marrow",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "appendix",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "HAND PARTS",
+          "rule_key": "hand_parts",
+          "rule": "Parts of the human hand",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "joint",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thumb",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tendon",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "knuckle",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "GARMENT PARTS",
+          "rule_key": "clothing_parts",
+          "rule": "Parts sewn into a piece of clothing",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "hood",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sleeve",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "strap",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cuff",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "MUSIC PRACTICE",
+          "rule_key": "music_practice",
+          "rule": "Things used when practicing an instrument",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "pick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bow",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mute",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "amplifier",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "FURNITURE",
+          "rule_key": "furniture",
+          "rule": "Movable household furniture",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "bed",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wardrobe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vanity",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stool",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "MEDICAL JOBS",
+          "rule_key": "medical_jobs",
+          "rule": "Jobs held by people who treat patients or work in healthcare",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "nurse",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "orderly",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pharmacist",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "SCHOOL JOBS",
+          "rule_key": "school_jobs",
+          "rule": "Jobs held by adults who work at a school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "professor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "registrar",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "janitor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "custodian",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "DIVING GEAR",
+          "rule_key": "diving_gear",
+          "rule": "Equipment used for scuba diving and snorkeling",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "mask",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gloves",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "compass",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "regulator",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "PLACES OF WORSHIP",
+          "rule_key": "places_of_worship",
+          "rule": "Buildings where people gather to worship",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "temple",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sanctuary",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shrine",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "synagogue",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "2df05dc1b2c7526fec75bee4eb3165388dcdb1e661fd4afd8aef1ab231ff35a9",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 10,
+      "level_key": "TOP010",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 4.0,
+        "explanation": "8 категорий, 32 слов; главный вклад: alternative_partition_pressure +1.5, category_count +1.0, sense_ambiguity +0.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8584,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8584,
+        "planned_decoys": 3,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 8,
+          "recorded": 8
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 0
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "GIVING AND TAKING",
+          "rule_key": "giving_and_taking",
+          "rule": "Verbs about transferring something to or from someone",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "take",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "deliver",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "swap",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lend",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "ANIMAL HOMES",
+          "rule_key": "animal_homes",
+          "rule": "Words for the places animals live in",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "stable",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "warren",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "nest",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hive",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "THE SENSES",
+          "rule_key": "senses_and_perception",
+          "rule": "Ways the human body senses the world",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "touch",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "balance",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thirst",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "itch",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "JOB HUNTING",
+          "rule_key": "job_hunting",
+          "rule": "Words used when looking for a job",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "offer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "application",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "interview",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "reference",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "LANDFORMS",
+          "rule_key": "landforms",
+          "rule": "Natural features of the land surface",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "island",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "plain",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "summit",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cave",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "MAGAZINE TYPES",
+          "rule_key": "magazines",
+          "rule": "Kinds of magazine sold at a newsstand",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "trade",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fashion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "comic",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "teen",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "OLYMPIC SPORTS",
+          "rule_key": "olympic_sports",
+          "rule": "Sports contested at the modern Olympic Games",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "marathon",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wrestling",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gymnastics",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hurdles",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "THE MIND",
+          "rule_key": "the_mind",
+          "rule": "A faculty or activity of the thinking mind",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "emotion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "intuition",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "logic",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "focus",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "bae1ba175fdd2d6fa29aa9e5f56e76ed64b17fbd1d6f70ac1c5c931234afdecb",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 11,
+      "level_key": "TOP011",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 7.0,
+        "explanation": "12 категорий, 48 слов; главный вклад: category_count +2.5, alternative_partition_pressure +1.5, sense_ambiguity +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8567,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8567,
+        "planned_decoys": 5,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 12,
+          "recorded": 12
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 5
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "SHAPE ADJECTIVES",
+          "rule_key": "shape_adjectives",
+          "rule": "Words describing the shape of an object",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "straight",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "flat",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "smooth",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "MAGIC SHOW",
+          "rule_key": "magic_words",
+          "rule": "Things used in a stage magic performance",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "box",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "illusion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "dove",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scarf",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "CRAFT MATERIALS",
+          "rule_key": "crafting_materials",
+          "rule": "Materials used in craft projects",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "paint",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "clay",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fabric",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ribbon",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "HOUSE PARTS",
+          "rule_key": "parts_of_a_house",
+          "rule": "Structural parts of a house",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "floor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "deck",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ceiling",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "porch",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "OFFICE JOBS",
+          "rule_key": "office_jobs",
+          "rule": "Jobs held by people who work in an office",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "manager",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "secretary",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "assistant",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "consultant",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "SPORTS JOBS",
+          "rule_key": "sports_jobs",
+          "rule": "Jobs held by people who work in professional sports",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "coach",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "trainer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scout",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "referee",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "PENALTIES",
+          "rule_key": "punishments",
+          "rule": "Penalties handed down for breaking rules",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "jail",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "warning",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "expulsion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "curfew",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "VENDING MACHINE",
+          "rule_key": "vending_machine_items",
+          "rule": "Things sold from a vending machine",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "chips",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sandwich",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "soda",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mints",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "ROCKS AND MINERALS",
+          "rule_key": "rocks_and_minerals",
+          "rule": "Common rocks and minerals from the ground",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "salt",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shale",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sandstone",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pebble",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "SHORE FEATURES",
+          "rule_key": "ocean_zones",
+          "rule": "Features of the ocean and its shoreline",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "current",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "reef",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cove",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lagoon",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "MATH OPERATIONS",
+          "rule_key": "math_operations",
+          "rule": "Operations performed on numbers",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "double",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Square",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "estimate",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "calculate",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "label": "COURTROOM",
+          "rule_key": "courtroom",
+          "rule": "What is heard, handed down or worn in a courtroom",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "plaintiff",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "subpoena",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jury",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "penalties",
+              "kind": "category_output",
+              "emitted_by": "PENALTIES"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "penalties",
+          "source_group": "PENALTIES",
+          "target_group": "COURTROOM",
+          "depth": 1
+        }
+      ],
+      "content_hash": "21a12057f0e2ff0fbb8d31da70a48ee69c92ff2ce874508f75132b5a90c4c4f8",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 12,
+      "level_key": "TOP012",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.5,
+        "explanation": "12 категорий, 48 слов; главный вклад: category_count +2.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8702,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8702,
+        "planned_decoys": 5,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 12,
+          "recorded": 12
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 1
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "PERFORMING ARTS",
+          "rule_key": "theater_arts",
+          "rule": "Arts performed in front of an audience",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "dance",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "play",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "magic",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "concert",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "ILLNESSES",
+          "rule_key": "illnesses",
+          "rule": "Common illnesses an average person can name",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "diabetes",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pneumonia",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "asthma",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "allergy",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "MUSIC GENRES",
+          "rule_key": "music_genres",
+          "rule": "Styles used to classify music",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "rock",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "blues",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "opera",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gospel",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "DISHES",
+          "rule_key": "dishes_and_glassware",
+          "rule": "Things you eat and drink from at a table",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "bottle",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "dish",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jar",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mug",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "CREATIVE JOBS",
+          "rule_key": "creative_jobs",
+          "rule": "Jobs held by people who make art or entertainment",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "writer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "singer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "photographer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "composer",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "MEDIA JOBS",
+          "rule_key": "media_jobs",
+          "rule": "Jobs held by people who produce news and broadcasts",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "journalist",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "publisher",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "critic",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cameraman",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "MILITARY RANKS",
+          "rule_key": "military_ranks",
+          "rule": "Ranks held by members of the armed forces",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "major",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "commander",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "corporal",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ensign",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "GOVERNMENT JOBS",
+          "rule_key": "government_jobs",
+          "rule": "Jobs held by people who work for a government",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "president",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ambassador",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "delegate",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "auditor",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "GREETINGS",
+          "rule_key": "greetings_and_farewells",
+          "rule": "Words and phrases used to greet or say goodbye",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "later",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "welcome",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bye",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "goodbye",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "TITLES",
+          "rule_key": "titles_of_address",
+          "rule": "Titles put before a person name",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "lord",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "officer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "professor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "senator",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "AUTO REPAIR",
+          "rule_key": "auto_repair",
+          "rule": "Things a mechanic works with",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "battery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "transmission",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "diagnostic",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radiator",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 12,
+          "label": "TUBES",
+          "rule_key": "tubes",
+          "rule": "A hollow tube that something flows through",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "duct",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hose",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pipe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "straw",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "27403ba9781a77bff596b3569cd680644b1edce9b23bbd198611229f43ce8b34",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 13,
+      "level_key": "TOP013",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 5.0,
+        "explanation": "8 категорий, 32 слов; главный вклад: sense_ambiguity +1.5, alternative_partition_pressure +1.5, category_count +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8619,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8619,
+        "planned_decoys": 4,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 8,
+          "recorded": 8
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 4
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "GYM CLASS",
+          "rule_key": "gym_class_things",
+          "rule": "Things used in a school gym class",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "net",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mat",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hoop",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "scoreboard",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "DANCE CLASS",
+          "rule_key": "dance_class",
+          "rule": "Things found in a dance class",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "spin",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "routine",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tights",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "barre",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FURNITURE",
+          "rule_key": "furniture",
+          "rule": "Movable household furniture",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "cabinet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bench",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wardrobe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "crib",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "LAW JOBS",
+          "rule_key": "law_jobs",
+          "rule": "Jobs held by people who work in the legal system",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "judge",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "marshal",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mediator",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "notary",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "GAME SHOWS",
+          "rule_key": "game_shows",
+          "rule": "Things found on a television game show",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "board",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "category",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jackpot",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "contestant",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "INVENTIONS",
+          "rule_key": "inventions",
+          "rule": "Famous inventions that changed everyday life",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "camera",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "television",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "telephone",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vaccine",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "GYMNASTICS EVENTS",
+          "rule_key": "gymnastics_events",
+          "rule": "Events and moves in gymnastics",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "split",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "rings",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vault",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tumbling",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "CAR PARTS",
+          "rule_key": "car_parts",
+          "rule": "Physical parts of an ordinary passenger car",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "engine",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bumper",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fender",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "windshield",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "9900e5bf1fdb43dcc380784693537a6f1429695dca1adc0469f6d43d54fce9f9",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 14,
+      "level_key": "TOP014",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 5.5,
+        "explanation": "10 категорий, 40 слов; главный вклад: category_count +1.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8762,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8762,
+        "planned_decoys": 5,
+        "unplanned_decoys": 1
+      },
+      "composition": {
+        "categories": {
+          "pack": 10,
+          "recorded": 10
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 6
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "ANIMAL HOMES",
+          "rule_key": "animal_homes",
+          "rule": "Words for the places animals live in",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "shell",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "warren",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lodge",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mound",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "ANIMAL COVERINGS",
+          "rule_key": "animal_coverings",
+          "rule": "Things that cover an animal body",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "scale",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "coat",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fur",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "plume",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "BODY PARTS",
+          "rule_key": "body_parts",
+          "rule": "External parts of the human body",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "foot",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "leg",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shoulder",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "finger",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "SCHOOL SUBJECTS",
+          "rule_key": "school_subjects",
+          "rule": "Subjects taught in an American school",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "art",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "science",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spanish",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "math",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "LANDFORMS",
+          "rule_key": "landforms",
+          "rule": "Natural features of the land surface",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "mountain",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cave",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "delta",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "peninsula",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "DIRECTIONS",
+          "rule_key": "directions",
+          "rule": "Words used to give directions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "down",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "far",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "north",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "right",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "KITCHEN TOOLS",
+          "rule_key": "kitchen_tools",
+          "rule": "Handheld tools and utensils used to prepare food in a kitchen",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "pan",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fork",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "opener",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "timer",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "MAGAZINE TYPES",
+          "rule_key": "magazines",
+          "rule": "Kinds of magazine sold at a newsstand",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "news",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sports",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hobby",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gossip",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "GROUPS OF PEOPLE",
+          "rule_key": "groups_of_people",
+          "rule": "Words for gatherings of people",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "band",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "staff",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "audience",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gang",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "HAND TOOLS",
+          "rule_key": "hand_tools",
+          "rule": "Tools held in the hand and used for building or repair work",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "saw",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "knife",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wrench",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ratchet",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "d73c841ede542f1a394d1608c8d93eeaa16b6878e1a6335ca0f942d5ed5ceb1a",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 15,
+      "level_key": "TOP015",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 4.0,
+        "explanation": "7 категорий, 28 слов; главный вклад: alternative_partition_pressure +1.5, category_count +1.0, meta_depth +0.75"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8596,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8596,
+        "planned_decoys": 2,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 7,
+          "recorded": 7
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 1
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "THE SENSES",
+          "rule_key": "senses_and_perception",
+          "rule": "Ways the human body senses the world",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "pressure",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "balance",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sight",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "smell",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "MOVIE GENRES",
+          "rule_key": "movie_genres",
+          "rule": "Categories used to classify films",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "western",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thriller",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "noir",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "biopic",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FASHION STYLES",
+          "rule_key": "fashion_styles",
+          "rule": "Named styles of dressing",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "punk",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "vintage",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bohemian",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sporty",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "CRIMES",
+          "rule_key": "crimes",
+          "rule": "Acts that are against the law",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "fraud",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "theft",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "kidnapping",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "speeding",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "FEELINGS",
+          "rule_key": "feelings",
+          "rule": "Words naming human emotions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "surprised",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "curious",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lonely",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "frustrated",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "COURTROOM",
+          "rule_key": "courtroom",
+          "rule": "What is heard, handed down or worn in a courtroom",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "verdict",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "jury",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "crimes",
+              "kind": "category_output",
+              "emitted_by": "CRIMES"
+            },
+            {
+              "text": "rights",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "PERSONALITY TRAITS",
+          "rule_key": "personality_traits",
+          "rule": "An adjective describing a person's character",
+          "rule_type": "property_group",
+          "words": [
+            {
+              "text": "kind",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "loyal",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "polite",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shy",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "crimes",
+          "source_group": "CRIMES",
+          "target_group": "COURTROOM",
+          "depth": 1
+        }
+      ],
+      "content_hash": "5c2c27766cf13a69aa85338446e0a26545cecad22a145acbe15dca4865fb2f64",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 16,
+      "level_key": "TOP016",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "9 категорий, 36 слов; главный вклад: category_count +1.5, alternative_partition_pressure +1.5, sense_ambiguity +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.846,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.846,
+        "planned_decoys": 2,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 9,
+          "recorded": 9
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 5
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "WAYS OF MOVING",
+          "rule_key": "ways_of_moving",
+          "rule": "Verbs describing a way a person moves their body from place to place",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "race",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spring",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sprint",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wander",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "WAYS OF SPEAKING",
+          "rule_key": "ways_of_speaking",
+          "rule": "Verbs describing a way of saying something aloud",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "scream",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "declare",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "yell",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hiss",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "READING MATTER",
+          "rule_key": "reading_material",
+          "rule": "Things people read",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "book",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "map",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "blog",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "magazine",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "LIVESTOCK",
+          "rule_key": "livestock",
+          "rule": "Animals raised for food or farm work",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "horse",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chicken",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "turkey",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "geese",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "TREE PARTS",
+          "rule_key": "tree_parts",
+          "rule": "Physical parts of a living tree",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "seed",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "leaf",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "limb",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pulp",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "NAVIGATION TOOLS",
+          "rule_key": "navigation_tools",
+          "rule": "Tools used to find the way at sea",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "chart",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radar",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Lighthouse",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sonar",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "VOICE SOUNDS",
+          "rule_key": "voice_sounds",
+          "rule": "Sounds a human voice makes without words",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "laugh",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "whistle",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "gasp",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sob",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "GROCERY AISLES",
+          "rule_key": "grocery_aisles",
+          "rule": "The sections a supermarket is divided into",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "bakery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Frozen",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "meats",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "seafood",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "FARM",
+          "rule_key": "farm_morning",
+          "rule": "What a farm has, keeps or fights",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "barn",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tractor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "livestock",
+              "kind": "category_output",
+              "emitted_by": "LIVESTOCK"
+            },
+            {
+              "text": "poultry",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "livestock",
+          "source_group": "LIVESTOCK",
+          "target_group": "FARM",
+          "depth": 1
+        }
+      ],
+      "content_hash": "3792b4a5cd4c422df15e6ed1a2efae5dd5836a42a5e79d2e3b20b2cd2c4e0e3d",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 17,
+      "level_key": "TOP017",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 7.5,
+        "explanation": "11 категорий, 44 слов; главный вклад: category_count +2.5, alternative_partition_pressure +1.5, sense_ambiguity +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8484,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8484,
+        "planned_decoys": 4,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 11,
+          "recorded": 11
+        },
+        "meta_links": {
+          "pack": 3,
+          "recorded": 6
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "ILLNESSES",
+          "rule_key": "illnesses",
+          "rule": "Common illnesses an average person can name",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "cold",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "infection",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fever",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "diabetes",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "SYMPTOMS",
+          "rule_key": "symptoms",
+          "rule": "Signs that a person feels unwell",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "cough",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "swelling",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "nausea",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "chills",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FURNITURE",
+          "rule_key": "furniture",
+          "rule": "Movable household furniture",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "table",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "desk",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sofa",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wardrobe",
+              "kind": "category_output",
+              "emitted_by": "WARDROBE"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "LIGHTING",
+          "rule_key": "lighting",
+          "rule": "Devices that light a home",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "shade",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spotlight",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "fixture",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "flashlight",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "HELPING PROFESSIONS",
+          "rule_key": "people_who_help",
+          "rule": "Jobs whose main purpose is helping other people directly",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "doctor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "volunteer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "interpreter",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "firefighter",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "STORY CHARACTERS",
+          "rule_key": "people_in_a_story",
+          "rule": "Character roles found in stories",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "witness",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "detective",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mentor",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "narrator",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "INVENTIONS",
+          "rule_key": "inventions",
+          "rule": "Famous inventions that changed everyday life",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "computer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "internet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radio",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "camera",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "CAR PARTS",
+          "rule_key": "car_parts",
+          "rule": "Physical parts of an ordinary passenger car",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "battery",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "wheel",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "trunk",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "exhaust",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "WARDROBE",
+          "rule_key": "wardrobe",
+          "rule": "What hangs, sits or is stored in the place you keep clothes",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "closet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hats",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "footwear",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "accessories",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "SCIENCE FAIR",
+          "rule_key": "science_fair",
+          "rule": "What a school science fair project is about or made of",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "poster",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hypothesis",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "volcanoes",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "inventions",
+              "kind": "category_output",
+              "emitted_by": "INVENTIONS"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "HOME DECOR",
+          "rule_key": "home_decor",
+          "rule": "What you choose when you decorate a room",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "rug",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "furniture",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lighting",
+              "kind": "category_output",
+              "emitted_by": "LIGHTING"
+            },
+            {
+              "text": "colors",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "inventions",
+          "source_group": "INVENTIONS",
+          "target_group": "SCIENCE FAIR",
+          "depth": 1
+        },
+        {
+          "token": "lighting",
+          "source_group": "LIGHTING",
+          "target_group": "HOME DECOR",
+          "depth": 1
+        },
+        {
+          "token": "wardrobe",
+          "source_group": "WARDROBE",
+          "target_group": "FURNITURE",
+          "depth": 1
+        }
+      ],
+      "content_hash": "4e50869cb7ffd9a893793bbc062c2684c8f2b5b93589ba1b92b25e1e9cc1bba1",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 18,
+      "level_key": "TOP018",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.5,
+        "explanation": "11 категорий, 44 слов; главный вклад: category_count +2.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8612,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8612,
+        "planned_decoys": 4,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 11,
+          "recorded": 11
+        },
+        "meta_links": {
+          "pack": 0,
+          "recorded": 5
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "OCEAN ANIMALS",
+          "rule_key": "ocean_animals",
+          "rule": "Animals that live in the ocean",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "shark",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "crab",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tuna",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "squid",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "GARMENT PARTS",
+          "rule_key": "clothing_parts",
+          "rule": "Parts sewn into a piece of clothing",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "pocket",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sleeve",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "seam",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hem",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "FIELD TRIPS",
+          "rule_key": "field_trip_places",
+          "rule": "Places classes visit on a field trip",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "park",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "theater",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "zoo",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "capitol",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "EYEWEAR",
+          "rule_key": "eyewear",
+          "rule": "Things worn over the eyes",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "mask",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "contacts",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "frames",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "goggles",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "PANTRY STAPLES",
+          "rule_key": "pantry_staples",
+          "rule": "Basic foods kept in a kitchen pantry for a long time",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "tea",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "rice",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "beans",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pasta",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "PIE TYPES",
+          "rule_key": "pie_types",
+          "rule": "Kinds of pie",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "apple",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "peach",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "shepherds",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "custard",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "OLD WEAPONS",
+          "rule_key": "weapons_of_the_past",
+          "rule": "Weapons used before modern firearms",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "arrow",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "axe",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mace",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sling",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "PET SUPPLIES",
+          "rule_key": "pet_supplies",
+          "rule": "Things bought to keep a pet at home",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "food",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "toy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "cage",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "collar",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "ALPHABET AND SYMBOLS",
+          "rule_key": "vitamins_letters",
+          "rule": "Symbols and marks used in writing and math",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "percent",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bullet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "equals",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "hashtag",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 10,
+          "label": "LAB EQUIPMENT",
+          "rule_key": "lab_equipment",
+          "rule": "Equipment found in a school science laboratory",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "scale",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "magnet",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "burner",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "microscope",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 11,
+          "label": "MOTOR RACING",
+          "rule_key": "racing_words",
+          "rule": "Words used in motor racing",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "driver",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "lap",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "qualifying",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "speedway",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [],
+      "content_hash": "fb2c077d84f0332e0749fa2a1fd66181e06bddc62eabcec5746077e8a6e35c03",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 19,
+      "level_key": "TOP019",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "9 категорий, 36 слов; главный вклад: category_count +1.5, sense_ambiguity +1.5, alternative_partition_pressure +1.5"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8211,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8211,
+        "planned_decoys": 2,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 9,
+          "recorded": 9
+        },
+        "meta_links": {
+          "pack": 3,
+          "recorded": 3
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "GIVING AND TAKING",
+          "rule_key": "giving_and_taking",
+          "rule": "Verbs about transferring something to or from someone",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "give",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "trade",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "receive",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "borrow",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "BABY ANIMALS",
+          "rule_key": "animal_babies",
+          "rule": "English words for the young of an animal species",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "chick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "joey",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "calf",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "colt",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "POULTRY",
+          "rule_key": "farm_bird_words",
+          "rule": "Birds raised for meat or eggs on a farm",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "turkey",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "goose",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "rooster",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "quail",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "RIGHTS",
+          "rule_key": "rights_and_freedoms",
+          "rule": "Legal rights and freedoms people have",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "vote",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "speech",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "religion",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "assembly",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "PENALTIES",
+          "rule_key": "punishments",
+          "rule": "Penalties handed down for breaking rules",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "jail",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "penalty",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "suspension",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "probation",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "FEELINGS",
+          "rule_key": "feelings",
+          "rule": "Words naming human emotions",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "content",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "happy",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sad",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "proud",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "SOCIAL MEDIA",
+          "rule_key": "social_media_words",
+          "rule": "Words used on social media",
+          "rule_type": "context_hub",
+          "words": [
+            {
+              "text": "share",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "profile",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thread",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "viral",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "COURTROOM",
+          "rule_key": "courtroom",
+          "rule": "What is heard, handed down or worn in a courtroom",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "objection",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "testimony",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "penalties",
+              "kind": "category_output",
+              "emitted_by": "PENALTIES"
+            },
+            {
+              "text": "rights",
+              "kind": "category_output",
+              "emitted_by": "RIGHTS"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "label": "GREETING CARD",
+          "rule_key": "greeting_card",
+          "rule": "What is printed on, drawn on or sent with a greeting card",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "envelope",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stamp",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "holidays",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "feelings",
+              "kind": "category_output",
+              "emitted_by": "FEELINGS"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "feelings",
+          "source_group": "FEELINGS",
+          "target_group": "GREETING CARD",
+          "depth": 1
+        },
+        {
+          "token": "penalties",
+          "source_group": "PENALTIES",
+          "target_group": "COURTROOM",
+          "depth": 1
+        },
+        {
+          "token": "rights",
+          "source_group": "RIGHTS",
+          "target_group": "COURTROOM",
+          "depth": 1
+        }
+      ],
+      "content_hash": "11df449697db60fc3e0589852cd916d873f35adc8c1edf69b80a61eecc992a6a",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    },
+    {
+      "level": 20,
+      "level_key": "TOP020",
+      "status": "solver_valid",
+      "tier": "normal",
+      "difficulty": {
+        "score": 6.0,
+        "explanation": "8 категорий, 32 слов; главный вклад: alternative_partition_pressure +1.5, category_count +1.0, sense_ambiguity +1.0"
+      },
+      "solver": {
+        "solution_count": 1,
+        "intended_partition_score": 0.8563,
+        "best_alternative_score": 0.0,
+        "partition_margin": 0.8563,
+        "planned_decoys": 4,
+        "unplanned_decoys": 0
+      },
+      "composition": {
+        "categories": {
+          "pack": 8,
+          "recorded": 8
+        },
+        "meta_links": {
+          "pack": 1,
+          "recorded": 3
+        },
+        "recorded_source": "recorded"
+      },
+      "groups": [
+        {
+          "position": 1,
+          "label": "SHAPE ADJECTIVES",
+          "rule_key": "shape_adjectives",
+          "rule": "Words describing the shape of an object",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "round",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "thick",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "oval",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "twisted",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 2,
+          "label": "FLOWER PARTS",
+          "rule_key": "flower_parts",
+          "rule": "Parts of a flowering plant",
+          "rule_type": "components",
+          "words": [
+            {
+              "text": "stem",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bud",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "stalk",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "nectar",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "label": "NATURAL DISASTERS",
+          "rule_key": "natural_disasters",
+          "rule": "Destructive natural events",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "drought",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "volcano",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "eruption",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "tsunami",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "label": "SEEDS AND BULBS",
+          "rule_key": "seeds_and_bulbs",
+          "rule": "Plant parts you put in the ground to grow a new plant",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "cutting",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "seed",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "pit",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "bulb",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "label": "MATH OPERATIONS",
+          "rule_key": "math_operations",
+          "rule": "Operations performed on numbers",
+          "rule_type": "functional_group",
+          "words": [
+            {
+              "text": "add",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "Square",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "sum",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "divide",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "label": "SEASONS",
+          "rule_key": "seasons",
+          "rule": "The four seasons of the year",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "fall",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "spring",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "summer",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "winter",
+              "kind": "lexical_word"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "label": "WEATHER REPORT",
+          "rule_key": "weather_report",
+          "rule": "What a weather report names or predicts",
+          "rule_type": "association_hub",
+          "words": [
+            {
+              "text": "forecast",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "radar",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "storms",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "seasons",
+              "kind": "category_output",
+              "emitted_by": "SEASONS"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "label": "NATURAL WONDERS",
+          "rule_key": "natural_wonders",
+          "rule": "A large natural landform or body of water",
+          "rule_type": "taxonomy_instances",
+          "words": [
+            {
+              "text": "island",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "mountains",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "ocean",
+              "kind": "lexical_word"
+            },
+            {
+              "text": "desert",
+              "kind": "lexical_word"
+            }
+          ]
+        }
+      ],
+      "meta_links": [
+        {
+          "token": "seasons",
+          "source_group": "SEASONS",
+          "target_group": "WEATHER REPORT",
+          "depth": 1
+        }
+      ],
+      "content_hash": "3bf2727de46a4304a6246f583232b4ada1c57b47c86ff956388e51669d0aa40b",
+      "generator_version": "level-generator/1.1",
+      "random_seed": 707
+    }
+  ],
+  "totals": {
+    "levels": 20,
+    "groups": 192,
+    "bubbles": 768,
+    "distinct_words": 631,
+    "meta_links": 20,
+    "levels_with_meta": 11,
+    "recorded_groups": 192,
+    "recorded_meta_links": 56,
+    "solver_valid": 20
+  }
+}
