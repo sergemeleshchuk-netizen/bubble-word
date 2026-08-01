@@ -39,6 +39,7 @@ from pathlib import Path
 
 from . import composition as composition_mod
 from . import cooldown as cooldown_mod
+from . import decoy_pairs as decoy_pairs_mod
 from . import difficulty as difficulty_mod
 from . import level_solver
 from . import meta_pairs as meta_pairs_mod
@@ -73,6 +74,26 @@ class GroupPlan:
 
 
 @dataclass(frozen=True)
+class PlannedDecoy:
+    """Объявленная ловушка уровня: пузырь группы A, который просится в B."""
+
+    token_display: str
+    home_key: str
+    rival_key: str
+    home_strength: float
+    rival_strength: float
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "token": self.token_display,
+            "home": self.home_key,
+            "rival": self.rival_key,
+            "home_strength": round(self.home_strength, 3),
+            "rival_strength": round(self.rival_strength, 3),
+        }
+
+
+@dataclass(frozen=True)
 class MetaLink:
     """Связь уровня: собранная группа-источник оставляет пузырь потребителю."""
 
@@ -102,6 +123,7 @@ class LevelCandidate:
     assessment: level_solver.PartitionAssessment | None = None
     meta: meta_validation.MetaValidation | None = None
     meta_links: list[MetaLink] = field(default_factory=list)
+    planned_decoys: list[PlannedDecoy] = field(default_factory=list)
     composition: composition_mod.Composition | None = None
     cooldown_violations: list[cooldown_mod.Violation] = field(default_factory=list)
     reject_reasons: list[str] = field(default_factory=list)
@@ -274,6 +296,7 @@ def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.Quartet
     familiarity = [row["word_familiarity"] for row in rows if row["word_familiarity"] is not None]
     return profiles_mod.QuartetFacts(
         quartet_key=entry["quartet_key"],
+        label_text=entry["label"],
         min_familiarity=scores["min_familiarity"]
         if scores["min_familiarity"] is not None
         else (min(familiarity) if len(familiarity) == len(rows) else None),
@@ -300,6 +323,7 @@ class _QuartetPool:
     by_quartet_id: dict[int, dict]
     category_ids: list[int]
     concept_by_category: dict[int, int]
+    decoys: decoy_pairs_mod.DecoyIndex
     stats: dict[str, int]
 
 
@@ -309,6 +333,11 @@ class _PoolCache:
     Профиль задаётся не на прогон, а на уровень: первые уровни кампании берут
     только знакомые слова, поздние — знание предметной области. Отбор четвёрок
     под каждый профиль считается один раз и переиспользуется.
+
+    Индекс ловушек живёт здесь же, а не рядом: ловушка ставится парой групп, и
+    обе группы обязаны быть годными по одному и тому же профилю. Считать его
+    один раз на всю базу значило бы предлагать генератору соперников, которых
+    он взять не может.
     """
 
     def __init__(
@@ -317,10 +346,14 @@ class _PoolCache:
         *,
         tier: str,
         rare_familiarity: float,
+        index: level_solver.MembershipIndex,
+        conflicts: dict[int, set[int]],
     ) -> None:
         self._conn = conn
         self._tier = tier
         self._rare = rare_familiarity
+        self._index = index
+        self._conflicts = conflicts
         self._pools: dict[str, _QuartetPool] = {}
 
     def get(self, profile: profiles_mod.Profile | None) -> _QuartetPool:
@@ -329,6 +362,14 @@ class _PoolCache:
             by_category, stats = _usable_quartets(
                 self._conn, self._tier, profile=profile, rare_familiarity=self._rare
             )
+            decoys = decoy_pairs_mod.build(
+                (entry for entries in by_category.values() for entry in entries),
+                self._index,
+                available=set(by_category),
+                conflicts=self._conflicts,
+            )
+            stats = dict(stats)
+            stats["ловушек доступно"] = decoys.stats.get("ловушек доступно", 0)
             self._pools[key] = _QuartetPool(
                 by_category=by_category,
                 by_quartet_id={
@@ -342,6 +383,7 @@ class _PoolCache:
                     for category_id, entries in by_category.items()
                     if entries and entries[0]["concept_id"] is not None
                 },
+                decoys=decoys,
                 stats=stats,
             )
         return self._pools[key]
@@ -375,6 +417,8 @@ def generate(
     rare_familiarity: float = 0.43,
     use_meta: bool = True,
     meta_target: int | None = None,
+    use_decoys: bool = True,
+    decoy_target: int | None = None,
     key_prefix: str = "L",
     auto_profile: bool = False,
     profiles_config: Path | None = None,
@@ -386,6 +430,8 @@ def generate(
                         то есть 5 категорий на первом уровне и 12 на седьмом;
     ``use_meta``        собирать ли мета-связи; выключение оставляет плоские уровни;
     ``meta_target``     сколько связей просить на уровень вместо профиля композиции;
+    ``use_decoys``      ставить ли ловушки — пары групп вокруг общего слова;
+    ``decoy_target``    сколько ловушек просить вместо профиля композиции;
     ``key_prefix``      префикс ключей уровней. Отдельный пакет живёт под своим
                         префиксом и не затирается дымовым прогоном сборки,
                         который каждый раз пересобирает `L001..L005`;
@@ -394,11 +440,14 @@ def generate(
                         ``profile`` сильнее и отменяет это.
     """
     config = config or cooldown_mod.load_config()
-    pools = _PoolCache(conn, tier=tier, rare_familiarity=rare_familiarity)
-    base_pool = pools.get(profile)
     conflicts = _conflict_map(conn)
-    meta_index = meta_pairs_mod.load(conn, tier=tier) if use_meta else meta_pairs_mod.MetaIndex()
     index = level_solver.load_memberships(conn)
+    pools = _PoolCache(
+        conn, tier=tier, rare_familiarity=rare_familiarity,
+        index=index, conflicts=conflicts,
+    )
+    base_pool = pools.get(profile)
+    meta_index = meta_pairs_mod.load(conn, tier=tier) if use_meta else meta_pairs_mod.MetaIndex()
     structures = structured.load(conn)
     history = cooldown_mod.load_history(conn)
 
@@ -423,6 +472,9 @@ def generate(
         "уровней с мета": 0,
         "мета: недобор до профиля": 0,
         "отклонено мета-проверкой": 0,
+        "ловушек поставлено": 0,
+        "уровней с ловушками": 0,
+        "ловушки: недобор до профиля": 0,
         "попыток": 0,
     }
     if len(base_pool.category_ids) < (
@@ -451,6 +503,14 @@ def generate(
         )
         if not use_meta:
             wanted_meta = 0
+        # Ловушек столько же, сколько в записи того же номера: 0 на туториале,
+        # 3 на третьем, 5-6 на поздних. Своей таблицы здесь нет намеренно.
+        wanted_decoys = (
+            decoy_target if decoy_target is not None
+            else (plan.traps if use_decoys else 0)
+        )
+        if not use_decoys:
+            wanted_decoys = 0
         for attempt in range(MAX_ATTEMPTS_PER_LEVEL):
             stats["попыток"] += 1
             cooling = _cooling_categories(
@@ -468,12 +528,14 @@ def generate(
                 category_count=level_categories,
                 meta_index=meta_index,
                 meta_target=wanted_meta,
+                decoy_index=pool.decoys,
+                decoy_target=wanted_decoys,
                 index=index,
                 stats=stats,
             )
             if built_plan is None:
                 continue
-            groups, links = built_plan
+            groups, links, planned_decoys = built_plan
             # Бюджет уровня тратится по мере набора групп: одно менее очевидное
             # слово делает уровень интереснее, четыре редких — непроходимым.
             budget = (
@@ -497,6 +559,7 @@ def generate(
             built = _evaluate(
                 groups,
                 links,
+                planned_decoys,
                 level_key=level_key,
                 index=index,
                 structures=structures,
@@ -536,6 +599,11 @@ def generate(
             stats["уровней с мета"] += 1
         if len(candidate.meta_links) < wanted_meta:
             stats["мета: недобор до профиля"] += 1
+        stats["ловушек поставлено"] += len(candidate.planned_decoys)
+        if candidate.planned_decoys:
+            stats["уровней с ловушками"] += 1
+        if len(candidate.planned_decoys) < wanted_decoys:
+            stats["ловушки: недобор до профиля"] += 1
         if candidate.is_valid:
             history.remember(
                 accepted_positions + number,
@@ -648,9 +716,11 @@ def _plan_level(
     category_count: int,
     meta_index: meta_pairs_mod.MetaIndex,
     meta_target: int,
+    decoy_index: decoy_pairs_mod.DecoyIndex | None = None,
+    decoy_target: int = 0,
     index: level_solver.MembershipIndex | None = None,
     stats: dict[str, int] | None = None,
-) -> tuple[list[GroupPlan], list[MetaLink]] | None:
+) -> tuple[list[GroupPlan], list[MetaLink], list[PlannedDecoy]] | None:
     """Набирает состав уровня: сначала мета-ядро, потом обычные группы.
 
     Порядок обязателен. Мета-пара — редкое совпадение: 162 пары, 330 четвёрок
@@ -662,6 +732,11 @@ def _plan_level(
     (несколько источников на одного потребителя) разрешено: именно так устроен
     уровень 7 записи, где `measurements` собирается из четырёх чужих
     результатов.
+
+    Третьим слоем идут ловушки — по той же причине, что и мета: пара «дом плюс
+    соперник вокруг общего слова» внутри случайного набора категорий не
+    находится. До появления этого слоя генератор ставил 0-1 ловушку на уровень
+    против 3-6 в записи, и весь балл фана уходил туда.
     """
     chosen: dict[int, GroupPlan] = {}
     links: list[MetaLink] = []
@@ -745,6 +820,25 @@ def _plan_level(
             if taken:
                 consumers.add(consumer_id)
 
+    # Ловушки ставятся после мета и до добора. Порядок такой же и по той же
+    # причине: пара «дом плюс соперник» — совпадение куда более редкое, чем
+    # свободная категория, и внутри уже набранного состава она не находится.
+    decoys: list[PlannedDecoy] = []
+    if decoy_target > 0 and decoy_index is not None and len(decoy_index) > 0:
+        _attach_decoys(
+            rng, decoy_index,
+            by_category=by_category,
+            by_quartet_id=by_quartet_id,
+            conflicts=conflicts,
+            cooling=cooling,
+            chosen=chosen,
+            decoys=decoys,
+            take=take,
+            blocked=blocked,
+            category_count=category_count,
+            target=decoy_target,
+        )
+
     # Добор обычными группами. Правила на перезарядке не берутся, но если
     # свободных не хватает, лучше собрать уровень и показать нарушение, чем
     # молча вернуть ничего.
@@ -771,7 +865,108 @@ def _plan_level(
     if len(chosen) < category_count:
         return None
     groups = [chosen[category_id] for category_id in sorted(chosen)]
-    return groups, links
+    # Ловушка, чей соперник не дожил до финального состава, ловушкой не
+    # является: объявить пересечение с группой, которой на поле нет, значит
+    # соврать валидатору.
+    on_field = {plan.category_key for plan in chosen.values()}
+    decoys = [
+        decoy for decoy in decoys
+        if decoy.home_key in on_field and decoy.rival_key in on_field
+    ]
+    return groups, links, decoys
+
+
+def _attach_decoys(
+    rng: random.Random,
+    decoy_index: decoy_pairs_mod.DecoyIndex,
+    *,
+    by_category: dict[int, list[dict]],
+    by_quartet_id: dict[int, dict],
+    conflicts: dict[int, set[int]],
+    cooling: set[int],
+    chosen: dict[int, GroupPlan],
+    decoys: list[PlannedDecoy],
+    take,
+    blocked,
+    category_count: int,
+    target: int,
+) -> None:
+    """Ставит на уровень пары «дом плюс соперник» вокруг общего слова.
+
+    Дом обязан стоять именно той четвёркой, в которой лежит слово-ловушка, —
+    иначе соблазна не будет. У соперника четвёрка любая, кроме содержащей то же
+    слово: два одинаковых пузыря на поле это брак, а не ловушка.
+    """
+    quartet_ids = [
+        quartet_id for quartet_id in decoy_index.by_quartet if quartet_id in by_quartet_id
+    ]
+    rng.shuffle(quartet_ids)
+    placed_tokens: set[str] = set()
+    for quartet_id in quartet_ids:
+        if len(decoys) >= target or len(chosen) >= category_count:
+            break
+        home_entry = by_quartet_id[quartet_id]
+        home_id = int(home_entry["category_id"])
+        home_plan = chosen.get(home_id)
+        if home_plan is not None and home_plan.quartet_id != quartet_id:
+            continue  # категория уже стоит, но другой четвёркой — слова нет на поле
+        if home_plan is None and (home_id in cooling or blocked(home_id)):
+            continue
+        candidates = list(decoy_index.for_quartet(quartet_id))
+        rng.shuffle(candidates)
+        for pair in candidates:
+            if len(decoys) >= target:
+                break
+            if pair.token_norm in placed_tokens:
+                continue
+            rival_id = pair.rival_id
+            if rival_id == home_id:
+                continue
+            rival_plan = chosen.get(rival_id)
+            if rival_plan is None:
+                if rival_id in cooling or blocked(rival_id):
+                    continue
+                if rival_id in conflicts.get(home_id, ()):
+                    continue
+            need = (1 if home_plan is None else 0) + (1 if rival_plan is None else 0)
+            if category_count - len(chosen) < need:
+                continue
+            if home_plan is None:
+                home_plan = take(home_entry)
+                if home_plan is None:
+                    break
+            if rival_plan is None:
+                rival_plan = _take_rival(
+                    rng, by_category.get(rival_id) or [], pair.token_norm, take
+                )
+                if rival_plan is None:
+                    continue
+            elif _entry_has_word(rival_plan.tokens, pair.token_norm):
+                continue
+            decoys.append(
+                PlannedDecoy(
+                    token_display=pair.token_display,
+                    home_key=pair.home_key,
+                    rival_key=pair.rival_key,
+                    home_strength=pair.home_strength,
+                    rival_strength=pair.rival_strength,
+                )
+            )
+            placed_tokens.add(pair.token_norm)
+
+
+def _take_rival(rng: random.Random, entries: list[dict], token_norm: str, take):
+    """Четвёрка соперника без слова-ловушки: одинаковых пузырей быть не должно."""
+    clean = [entry for entry in entries if not _entry_has_word(entry["tokens"], token_norm)]
+    for _ in range(min(FILLER_TRIES_PER_RULE, len(clean))):
+        plan = take(clean[rng.randrange(len(clean))])
+        if plan is not None:
+            return plan
+    return None
+
+
+def _entry_has_word(tokens: list, token_norm: str) -> bool:
+    return any(display.strip().lower() == token_norm for _w, _s, display, _sk, _r in tokens)
 
 
 def _pair_pools_are_clean(
@@ -931,6 +1126,7 @@ def _plan_from_entry(
 def _evaluate(
     groups: list[GroupPlan],
     links: list[MetaLink],
+    planned_decoys: list[PlannedDecoy],
     *,
     level_key: str,
     index: level_solver.MembershipIndex,
@@ -967,6 +1163,10 @@ def _evaluate(
     )
     assessment = level_solver.assess_partition(
         tokens, homes, index, structures, timeout_ms=timeout_ms,
+        planned_decoys={
+            (decoy.token_display.strip().lower(), decoy.rival_key)
+            for decoy in planned_decoys
+        },
         meta_ok=meta.ok, meta_problems=meta.problems,
     )
     result = assessment.solver or level_solver.solve_level(
@@ -996,6 +1196,7 @@ def _evaluate(
         assessment=assessment,
         meta=meta,
         meta_links=list(links),
+        planned_decoys=list(planned_decoys),
         composition=composition,
         difficulty=difficulty_mod.score(facts),
         cooldown_violations=violations,
@@ -1169,6 +1370,32 @@ def save(
             conn.execute(
                 "UPDATE level_groups SET emits_token_id = ? WHERE id = ?",
                 (token_id, source_group_id),
+            )
+
+        # Объявленные ловушки пишутся вместе с уровнем, а не выводятся заново.
+        # Различие «спроектировано / вылезло само» существует только как запись
+        # решения автора: `assess-levels` перечитывает эту таблицу и без неё
+        # отклонит ровно то, ради чего уровень собирался.
+        for decoy in level.planned_decoys:
+            token_id = token_ids.get((decoy.home_key, decoy.token_display))
+            rival_group_id = group_ids.get(decoy.rival_key)
+            if token_id is None or rival_group_id is None:
+                continue
+            conn.execute(
+                """
+                INSERT INTO level_decoys
+                    (level_id, token_id, decoy_group_id, decoy_category_id, planned,
+                     plausibility, note, created_at)
+                VALUES (?, ?, ?, NULL, 1, ?, ?, ?)
+                ON CONFLICT (level_id, token_id,
+                             COALESCE(decoy_group_id, 0), COALESCE(decoy_category_id, 0))
+                DO UPDATE SET planned = 1, plausibility = excluded.plausibility,
+                              note = excluded.note
+                """,
+                (
+                    level_id, token_id, rival_group_id, decoy.rival_strength,
+                    f"дом «{decoy.home_key}» {decoy.home_strength:.2f}", now,
+                ),
             )
 
         alternative = level.solver.alternative_partition

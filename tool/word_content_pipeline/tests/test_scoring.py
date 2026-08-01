@@ -276,6 +276,7 @@ def three_profiles():
 def _facts(**overrides) -> profiles.QuartetFacts:
     base = {
         "quartet_key": "test__1",
+        "label_text": "FRUITS",
         "min_familiarity": 0.7,
         "avg_familiarity": 0.8,
         "min_accessibility": 0.75,
@@ -316,6 +317,30 @@ def test_hard_profile_accepts_what_easy_rejects(three_profiles):
     facts = _facts(min_familiarity=0.25, avg_familiarity=0.45, min_accessibility=0.4)
     assert profiles.check_quartet(three_profiles["easy_accessible"], facts)
     assert profiles.check_quartet(three_profiles["hard_knowledge"], facts) == []
+
+
+def test_first_lineup_rejects_a_vague_label():
+    """Надпись-признак не отсекается порогами качества — нужен явный запрет.
+
+    STRETCHY THINGS короткая, частотная и получает высокий label_quality:
+    формально с ней всё в порядке, а игрок такую группу добирает по остатку.
+    В ремейке двадцатки таких надписей вышло 33 из 192 — полтора балла фана.
+    """
+    profile = profiles.get("first_lineup")
+    good = _facts(label_text="FARM ANIMALS")
+    bad = _facts(label_text="STRETCHY THINGS")
+    assert profiles.check_quartet(profile, good) == []
+    assert any("признак" in reason for reason in profiles.check_quartet(profile, bad))
+    # Остальные профили запрет не наследуют: поздняя кампания на таких группах
+    # работает, там игрок уже знает правила.
+    assert profiles.check_quartet(profiles.get("accessible_fun"), bad) == []
+
+
+def test_first_lineup_rejects_a_two_word_bubble():
+    """«harbor seal» — не слово в пузыре: у первой линейки один токен."""
+    profile = profiles.get("first_lineup")
+    reasons = profiles.check_quartet(profile, _facts(max_word_tokens=2, max_word_chars=11))
+    assert any("фраза" in reason for reason in reasons)
 
 
 def test_unknown_score_does_not_pass_a_threshold(three_profiles):

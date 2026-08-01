@@ -1466,6 +1466,18 @@ def cmd_generate_level_candidates(
                      help="Сколько мета-связей просить на уровень. "
                           "По умолчанию — профиль композиции по номеру уровня"),
     ] = None,
+    traps: Annotated[
+        bool,
+        typer.Option("--traps/--no-traps",
+                     help="Ставить ловушки: пара групп вокруг общего слова, "
+                          "где авторский дом сильнее соперника"),
+    ] = True,
+    trap_count: Annotated[
+        int | None,
+        typer.Option("--trap-count",
+                     help="Сколько ловушек просить на уровень. По умолчанию — "
+                          "профиль композиции по номеру уровня, как в записи"),
+    ] = None,
     key_prefix: Annotated[
         str,
         typer.Option("--key-prefix",
@@ -1521,6 +1533,8 @@ def cmd_generate_level_candidates(
             rare_familiarity=scoring.load_config(None)["word_rare_familiarity"],
             use_meta=meta,
             meta_target=meta_links,
+            use_decoys=traps,
+            decoy_target=trap_count,
             key_prefix=key_prefix,
             auto_profile=auto_profile,
             profiles_config=profiles_config,
@@ -1539,6 +1553,8 @@ def cmd_generate_level_candidates(
                         "profile": profile,
                         "meta": meta,
                         "meta_links": meta_links,
+                        "traps": traps,
+                        "trap_count": trap_count,
                     },
                     records_out=len(levels),
                     random_seed=seed,
@@ -1551,7 +1567,7 @@ def cmd_generate_level_candidates(
     for key, value in stats.items():
         typer.echo(f"{key}: {value}")
     _print_table(
-        ["уровень", "статус", "разбиений", "сложность", "мета", "категории"],
+        ["уровень", "статус", "разбиений", "сложность", "мета", "ловушек", "категории"],
         [
             [
                 level.level_key,
@@ -1559,6 +1575,7 @@ def cmd_generate_level_candidates(
                 str(level.solver.solution_count),
                 str(level.difficulty.total_score),
                 str(len(level.meta_links)),
+                str(len(level.planned_decoys)),
                 _truncate(", ".join(g.category_key for g in level.groups), 40),
             ]
             for level in levels
@@ -1569,6 +1586,12 @@ def cmd_generate_level_candidates(
             typer.echo(
                 f"  {level.level_key} мета: «{link.source_label}» выпускает "
                 f"«{link.token_display}» для «{link.consumer_key}»"
+            )
+        for decoy in level.planned_decoys:
+            typer.echo(
+                f"  {level.level_key} ловушка: «{decoy.token_display}» дом "
+                f"«{decoy.home_key}» {decoy.home_strength:.2f}, соблазн "
+                f"«{decoy.rival_key}» {decoy.rival_strength:.2f}"
             )
         if explain:
             typer.echo(f"\n{level.level_key}: {level.difficulty.short_explanation}")

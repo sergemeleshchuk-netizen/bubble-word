@@ -40,6 +40,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import composition as composition_mod
+from . import labels as labels_mod
 from . import level_solver, structured
 
 # ------------------------------------------------------------------ пороги модели
@@ -52,22 +53,14 @@ TRAP_MIN = 0.03
 AHA_MIN = 0.05
 # Насколько чужая группа должна перетягивать, чтобы считаться спорностью.
 PULL_OVER_HOME = 0.02
-# Токен «узнаваемый»: знакомость не ниже, длина не больше.
-FAMILIAR_MIN = 0.50
+# Токен «узнаваемый»: не редкий по той же черте, что и фактор F4, и не длиннее
+# пузыря. Второй, более строгой черты здесь нарочно нет: редкость слова уже
+# посчитана в F4, и считать её ещё раз в фане значит наказывать дважды за одно.
+FAMILIAR_MIN = RARE_FAMILIARITY
 TOKEN_CHARS_MAX = 12
 # «Стартовая» группа для темпа: ни одного токена с притяжением на сторону.
 STARTER_FAMILIARITY = 0.55
 
-# Головные слова надписи, которые ничего не называют. Надпись STRETCHY THINGS
-# описывает не тему, а признак, придуманный ради четвёрки; игрок такую группу
-# не угадывает, он её отгадывает последней по остатку.
-VAGUE_HEADS = frozenset(
-    {
-        "THINGS", "STUFF", "WORDS", "TERMS", "ACTIONS", "ACTIVITIES",
-        "SKILLS", "ITEMS", "OBJECTS",
-    }
-)
-VAGUE_PREFIXES = ("KINDS OF ", "TYPES OF ", "SORTS OF ")
 
 
 def _swow_path() -> Path | None:
@@ -143,11 +136,8 @@ class Group:
 
     @property
     def vague_label(self) -> bool:
-        name = self.label.upper().strip()
-        if name.startswith(VAGUE_PREFIXES):
-            return True
-        tail = name.split()
-        return bool(tail) and tail[-1] in VAGUE_HEADS
+        """Надпись называет признак вместо темы — общее правило `labels`."""
+        return labels_mod.is_vague(self.label)
 
 
 @dataclass(frozen=True)
@@ -270,6 +260,29 @@ def load_groups(conn: sqlite3.Connection, level_id: int) -> list[Group]:
     return groups
 
 
+def _planned_decoys(conn: sqlite3.Connection, level_id: int) -> set[tuple[str, str]]:
+    """Пересечения, объявленные автором уровня как замысел.
+
+    Без этого чтения оценка наказывала бы ровно то, ради чего уровень
+    собирался: спроектированная ловушка выглядит для солвера точно так же, как
+    случайная, и разделяет их только запись решения в `level_decoys`.
+    """
+    return {
+        (row["display"].strip().lower(), row["category_key"])
+        for row in conn.execute(
+            """
+            SELECT t.display_text AS display, c.category_key AS category_key
+              FROM level_decoys d
+              JOIN level_tokens t ON t.id = d.token_id
+              JOIN level_groups g ON g.id = d.decoy_group_id
+              JOIN categories c   ON c.id = g.category_id
+             WHERE d.level_id = ? AND d.planned = 1
+            """,
+            (level_id,),
+        )
+    }
+
+
 def _meta_pairs(conn: sqlite3.Connection, level_id: int) -> set[frozenset[int]]:
     """Пары групп, связанные мета-механикой: их притяжение не ловушка, а замысел."""
     pairs: set[frozenset[int]] = set()
@@ -362,7 +375,9 @@ def evaluate_level(
         for display in group.displays
     }
     assessment = level_solver.assess_partition(
-        tokens, homes, index, structures, timeout_ms=timeout_ms
+        tokens, homes, index, structures,
+        planned_decoys=_planned_decoys(conn, level_id),
+        timeout_ms=timeout_ms,
     )
     solvable = assessment.intended_is_best and assessment.solver is not None and (
         assessment.solver.outcome in ("unique", "ambiguous")
@@ -372,27 +387,44 @@ def evaluate_level(
             f"разбиение не подтверждено солвером: {assessment.solver.outcome if assessment.solver else '—'}"
         )
 
-    # Соблазн и спорность — разные вещи, и разделяет их не сила ассоциации,
-    # а правило соседней группы. `carrot` тянет к FRUITS, потому что морковь
-    # оранжевая, но правилу FRUITS он не подходит: разложить можно только одним
-    # способом, и это ага-момент. `orange` подходит обоим правилам честно —
-    # вот это спорность, и её надо либо объявить ловушкой, либо убрать.
-    accepting = {
+    # Ловушка — это токен, который на этом уровне мог бы уйти к соседу, а
+    # авторский дом всё-таки выигрывает. «Мог бы» бывает двух видов, и оба
+    # считаются одинаково для записи и для наших уровней:
+    #
+    #   по правилу      соседнее правило слово реально принимает (`orange` —
+    #                   и фрукт, и цвет), дом при этом сильнее;
+    #   по ассоциации   правило соседа слово не принимает, но люди связывают
+    #                   его со словами той группы (`carrot` тянет к фруктам,
+    #                   потому что морковь оранжевая).
+    #
+    # Объявленность на счёт ловушек не влияет — она решает только, считается ли
+    # то же пересечение ещё и дефектом. Иначе оценка награждала бы за пометку в
+    # базе, а не за то, что чувствует игрок.
+    by_label = {group.label: group.category_key for group in groups}
+    by_rule = {
+        (decoy.token.strip().lower(), decoy.rival): decoy
+        for decoy in assessment.decoys
+        if decoy.home_strength >= decoy.rival_strength
+    }
+    by_association = {
+        (item.token.strip().lower(), by_label.get(item.rival, "")): item
+        for item in pulls
+    }
+    traps = dict(by_association)
+    traps.update(by_rule)
+    honest = sorted(traps) if solvable else []
+    # Ага-момент — ловушка, которая реально кусает: либо люди уверенно тянут
+    # слово к соседу, либо соседнее правило его честно принимает.
+    aha = [
+        key for key in honest
+        if key in by_rule or (key in by_association and by_association[key].aha)
+    ]
+    # Спорность — пересечение по правилу, которое автор не объявил.
+    disputed = sorted(
         (decoy.token.strip().lower(), decoy.rival)
         for decoy in assessment.decoys
         if not decoy.planned
-    }
-    by_label = {group.label: group.category_key for group in groups}
-    disputed = sorted(accepting)
-    honest = (
-        [
-            item for item in pulls
-            if (item.token.strip().lower(), by_label.get(item.rival, "")) not in accepting
-        ]
-        if solvable
-        else []
     )
-    aha = [item for item in honest if item.aha]
 
     # ---------------------------------------------------------------- сложность D
     count = len(groups)

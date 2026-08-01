@@ -18,7 +18,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from . import flat_config
+from . import flat_config, labels
 
 # Параметр -> значение по умолчанию. Профиль, не задавший параметр, получает его.
 DEFAULTS: dict[str, float] = {
@@ -36,6 +36,11 @@ DEFAULTS: dict[str, float] = {
     "rare_word_budget": 99,
     "long_phrase_budget": 99,
     "novel_words_target_ratio": 0.0,
+    # 1 — не брать группы, названные признаком вместо темы (STRETCHY THINGS,
+    # PLUMBING WORDS, KINDS OF FOREST). Правило одно на проект: `labels.is_vague`.
+    # Порогами качества такая надпись не отсекается: она короткая, частотная и
+    # получает высокий label_quality — в ремейке двадцатки их вышло 33 из 192.
+    "forbid_vague_label": 0.0,
 }
 
 
@@ -81,6 +86,7 @@ class QuartetFacts:
     """Что профиль знает о четвёрке-кандидате."""
 
     quartet_key: str
+    label_text: str
     min_familiarity: float | None
     avg_familiarity: float | None
     min_accessibility: float | None
@@ -140,6 +146,8 @@ def check_quartet(profile: Profile, facts: QuartetFacts) -> list[str]:
         reasons.append(
             f"неоднозначность {facts.ambiguity:.2f} > бюджета {profile['ambiguity_budget']}"
         )
+    if profile["forbid_vague_label"] >= 1 and labels.is_vague(facts.label_text):
+        reasons.append(f"надпись «{facts.label_text}» называет признак, а не тему")
     return reasons
 
 

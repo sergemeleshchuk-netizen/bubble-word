@@ -52,6 +52,46 @@ accessible_fun.rare_word_budget: 2
 accessible_fun.long_phrase_budget: 2
 accessible_fun.novel_words_target_ratio: 0.20
 
+# ------------------------------------------------------------------ first_lineup
+# Вход в игру: двадцать уровней, на которых игрок решает, останется ли он.
+# Профиль строже всех остальных, и строгость взята не с потолка — каждый порог
+# закрывает измеренную потерю фана на ремейке двадцатки
+# (`levels/eval/reference-vs-remake.md`):
+#
+#   max_word_tokens: 1     90 нечитаемых пузырей из 768 против 11 в записи.
+#                          «harbor seal» и «answering phones» — не слово в пузыре.
+#   forbid_vague_label: 1  33 надписи-признака из 192 против 1 из 188. −1.45 фана.
+#   знакомость выше easy   средняя знакомость ремейка 0.538 против 0.594 в записи;
+#                          сложность у нас набиралась редкими словами, а не игрой.
+#
+# Порог средней знакомости заметно ниже, чем у easy_accessible (0.52 против
+# 0.64), и это не послабление, а замер. Мета-пара требует, чтобы надпись
+# правила была обычным словом, и такие правила сидят в средней части базы:
+#
+#   порог средней знакомости   0.60   0.56   0.52   0.48
+#   правил доступно             194    289    362    388
+#   мета-пар доступно             3      7     16      21
+#
+# При 0.60 мета-механика в первой линейке умирает: три пары на двадцать
+# уровней против 52 связей в записи. Знакомость при этом теряется мало —
+# порог отсекает четвёрку по средней, а на уровне слов много, и фактическая
+# знакомость собранных уровней выходит выше 0.63 при пороге 0.52.
+first_lineup.word_familiarity_min: 0.43
+first_lineup.word_familiarity_avg_min: 0.52
+first_lineup.word_accessibility_min: 0.55
+first_lineup.max_word_chars: 12
+first_lineup.max_word_tokens: 1
+first_lineup.max_label_chars: 22
+first_lineup.max_label_tokens: 4
+first_lineup.label_quality_min: 0.60
+first_lineup.quartet_quality_min: 0.58
+first_lineup.quartet_interest_target: 0.40
+first_lineup.ambiguity_budget: 0.95
+first_lineup.rare_word_budget: 0
+first_lineup.long_phrase_budget: 0
+first_lineup.novel_words_target_ratio: 0.10
+first_lineup.forbid_vague_label: 1
+
 # ------------------------------------------------------------------ hard_knowledge
 # Поздняя кривая: знание предметной области, а не только сообразительность.
 hard_knowledge.word_familiarity_min: 0.20
