@@ -1,0 +1,171 @@
+{
+  "level_id": 17,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "jewelry",
+      "name": "JEWELRY",
+      "words": [
+        "charm",
+        "necklace",
+        "earring",
+        "tiara"
+      ]
+    },
+    {
+      "id": "accessories",
+      "name": "ACCESSORIES",
+      "words": [
+        "hat",
+        "gloves",
+        "backpack",
+        "jewelry"
+      ]
+    },
+    {
+      "id": "famous_composers",
+      "name": "COMPOSERS",
+      "words": [
+        "Wagner",
+        "Bach",
+        "Mozart",
+        "Beethoven"
+      ]
+    },
+    {
+      "id": "volcanoes",
+      "name": "VOLCANOES",
+      "words": [
+        "Fuji",
+        "St Helens",
+        "Rainier",
+        "Etna"
+      ]
+    },
+    {
+      "id": "explorers",
+      "name": "EXPLORERS",
+      "words": [
+        "Clark",
+        "Marco Polo",
+        "Balboa",
+        "Cortes"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "radio",
+        "television",
+        "elevator",
+        "airplane"
+      ]
+    },
+    {
+      "id": "swimming_skills",
+      "name": "SWIMMING SKILLS",
+      "words": [
+        "breathing",
+        "kicking",
+        "diving",
+        "backstroke"
+      ]
+    },
+    {
+      "id": "science_fair",
+      "name": "SCIENCE FAIR",
+      "words": [
+        "poster",
+        "hypothesis",
+        "volcanoes",
+        "inventions"
+      ]
+    },
+    {
+      "id": "hall_of_fame",
+      "name": "HALL OF FAME",
+      "words": [
+        "legend",
+        "inventors",
+        "explorers",
+        "composers"
+      ]
+    },
+    {
+      "id": "breathing",
+      "name": "BREATHING",
+      "words": [
+        "breathe",
+        "gasp",
+        "oxygen",
+        "sigh"
+      ]
+    },
+    {
+      "id": "sculptors_studio",
+      "name": "SCULPTORS STUDIO",
+      "words": [
+        "mould",
+        "pedestal",
+        "figurine",
+        "plinth"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 23,
+    "move_limit": 48,
+    "move_limit_k": 1.37
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK017",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "breathing",
+        "source_group": "BREATHING",
+        "target_group": "SWIMMING SKILLS",
+        "depth": 1
+      },
+      {
+        "token": "composers",
+        "source_group": "COMPOSERS",
+        "target_group": "HALL OF FAME",
+        "depth": 1
+      },
+      {
+        "token": "explorers",
+        "source_group": "EXPLORERS",
+        "target_group": "HALL OF FAME",
+        "depth": 1
+      },
+      {
+        "token": "inventions",
+        "source_group": "INVENTIONS",
+        "target_group": "SCIENCE FAIR",
+        "depth": 1
+      },
+      {
+        "token": "jewelry",
+        "source_group": "JEWELRY",
+        "target_group": "ACCESSORIES",
+        "depth": 1
+      },
+      {
+        "token": "volcanoes",
+        "source_group": "VOLCANOES",
+        "target_group": "SCIENCE FAIR",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 48
+  }
+}

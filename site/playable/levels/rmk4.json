@@ -1,0 +1,137 @@
+{
+  "level_id": 4,
+  "difficulty_target": 5.0,
+  "categories": [
+    {
+      "id": "fantasy_creatures",
+      "name": "MYTHICAL CREATURES",
+      "words": [
+        "giant",
+        "pegasus",
+        "ogre",
+        "yeti"
+      ]
+    },
+    {
+      "id": "fashion_styles",
+      "name": "FASHION STYLES",
+      "words": [
+        "formal",
+        "casual",
+        "bohemian",
+        "preppy"
+      ]
+    },
+    {
+      "id": "cheese_dishes",
+      "name": "CHEESE DISHES",
+      "words": [
+        "mac and cheese",
+        "lasagna",
+        "fondue",
+        "quesadilla"
+      ]
+    },
+    {
+      "id": "courtroom_things",
+      "name": "COURTROOM THINGS",
+      "words": [
+        "evidence",
+        "transcript",
+        "plaintiff",
+        "bailiff"
+      ]
+    },
+    {
+      "id": "greek_heroes",
+      "name": "MYTHOLOGICAL HEROES",
+      "words": [
+        "Hercules",
+        "Ajax",
+        "Theseus",
+        "Aeneas"
+      ]
+    },
+    {
+      "id": "natural_disasters",
+      "name": "NATURAL DISASTERS",
+      "words": [
+        "flood",
+        "tsunami",
+        "avalanche",
+        "landslide"
+      ]
+    },
+    {
+      "id": "forest_types",
+      "name": "KINDS OF FOREST",
+      "words": [
+        "old growth",
+        "cloud forest",
+        "jungle",
+        "rainforest"
+      ]
+    },
+    {
+      "id": "places_with_animals",
+      "name": "PLACES WITH ANIMALS",
+      "words": [
+        "pet store",
+        "ranch",
+        "sanctuary",
+        "safari"
+      ]
+    },
+    {
+      "id": "pet_store",
+      "name": "PET STORE",
+      "words": [
+        "birds",
+        "kibble",
+        "reptiles",
+        "rodents"
+      ]
+    },
+    {
+      "id": "rainforest",
+      "name": "RAINFOREST",
+      "words": [
+        "howler",
+        "liana",
+        "undergrowth",
+        "macaw"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK004",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "pet store",
+        "source_group": "PET STORE",
+        "target_group": "PLACES WITH ANIMALS",
+        "depth": 1
+      },
+      {
+        "token": "rainforest",
+        "source_group": "RAINFOREST",
+        "target_group": "KINDS OF FOREST",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 45
+  }
+}

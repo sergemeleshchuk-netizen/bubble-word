@@ -1,0 +1,104 @@
+{
+  "level_id": 2,
+  "difficulty_target": 4.5,
+  "categories": [
+    {
+      "id": "farm_animals",
+      "name": "FARM ANIMALS",
+      "words": [
+        "cat",
+        "goose",
+        "hen",
+        "ox"
+      ]
+    },
+    {
+      "id": "resort_towns",
+      "name": "RESORT DESTINATIONS",
+      "words": [
+        "Key West",
+        "Napa",
+        "Ibiza",
+        "Lake Tahoe"
+      ]
+    },
+    {
+      "id": "salad_ingredients",
+      "name": "SALAD INGREDIENTS",
+      "words": [
+        "egg",
+        "spinach",
+        "cucumber",
+        "cranberry"
+      ]
+    },
+    {
+      "id": "waterfalls",
+      "name": "WATERFALLS",
+      "words": [
+        "Victoria",
+        "Angel Falls",
+        "Niagara",
+        "Sutherland"
+      ]
+    },
+    {
+      "id": "loud_things",
+      "name": "LOUD THINGS",
+      "words": [
+        "crowd",
+        "bell",
+        "speaker",
+        "alarm"
+      ]
+    },
+    {
+      "id": "quiet_things",
+      "name": "QUIET THINGS",
+      "words": [
+        "snow",
+        "Shadow",
+        "silk",
+        "feather"
+      ]
+    },
+    {
+      "id": "tropical_birds",
+      "name": "TROPICAL BIRDS",
+      "words": [
+        "bird of paradise",
+        "parrot",
+        "flamingo",
+        "hummingbird"
+      ]
+    },
+    {
+      "id": "spa_day",
+      "name": "SPA DAY",
+      "words": [
+        "aromatherapy",
+        "jacuzzi",
+        "masseuse",
+        "pampering"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 39,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK002",
+    "pack": "RMK",
+    "meta_links": [],
+    "recorded_move_limit": 39
+  }
+}

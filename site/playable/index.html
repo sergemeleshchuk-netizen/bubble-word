@@ -260,9 +260,14 @@ function applyLevel(L){
     if(ci!==undefined&&TARGETS[ci]!==p) TARGETS[ci].meta={parent:p.v,word:w};
   }));
   METAW=new Set(TARGETS.filter(t=>t.meta).map(t=>t.meta.word));
-  NO_LIMIT=(L.board.move_limit==null);
-  MOVES_START=NO_LIMIT?total*3:L.board.move_limit;
-  FIELD_TARGET=Math.min(L.board.start_bubbles||19,total);
+  /* board может не приехать вовсе: пакет из инструмента (?gen=N) несёт только
+     имена категорий и слова — лимит и досыпку прототип считает сам. Раньше
+     обращение к L.board.move_limit на таком пакете падало, ошибка гасилась
+     общим catch, и вместо своего уровня показывался встроенный демо-контент. */
+  const board=L.board||{};
+  NO_LIMIT=(board.move_limit==null);
+  MOVES_START=NO_LIMIT?total*3:board.move_limit;
+  FIELD_TARGET=Math.min(board.start_bubbles||19,total);
   /* старт: первой полную четвёрку получает категория без мета-слов,
      остальным раздаём почти поровну (не выше числа спавнящихся слов) */
   const spawnable=TARGETS.map(t=>t.ex.filter(w=>!METAW.has(w)).length);

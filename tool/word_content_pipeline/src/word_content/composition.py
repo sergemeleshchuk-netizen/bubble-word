@@ -63,6 +63,12 @@ class Composition:
     meta_links: int
     traps: int
     source: str  # recorded | extrapolated
+    # Поле уровня так, как оно снято с записи. `None` означает «не снято»:
+    # на первом уровне лимита ходов нет вовсе, на восемнадцатом он не попал
+    # в кадр. Подставлять сюда расчёт нельзя — это перестанет быть записью.
+    move_limit: int | None = None
+    start_bubbles: int | None = None
+    k_observed: float | None = None
 
     @property
     def recorded(self) -> bool:
@@ -104,6 +110,7 @@ def _recorded(path: str | None = None) -> dict[int, Composition]:
     fixtures = reference_fixtures.load(Path(path) if path else None)
     table: dict[int, Composition] = {}
     for level in fixtures.levels:
+        board = level.board or {}
         table[level.number] = Composition(
             number=level.number,
             # Именно `groups_expected`: на уровне 18 в кадр попали семь групп
@@ -112,6 +119,9 @@ def _recorded(path: str | None = None) -> dict[int, Composition]:
             meta_links=len(level.meta_links),
             traps=len(level.traps),
             source="recorded",
+            move_limit=board.get("move_limit"),
+            start_bubbles=board.get("bubbles_on_start"),
+            k_observed=board.get("K_observed"),
         )
     return table
 
@@ -132,10 +142,17 @@ def for_level(number: int, path: str | Path | None = None) -> Composition:
         )
     last = sorted(recorded)[-TAIL_WINDOW:]
     tail = [recorded[key] for key in last]
+    known_k = [item.k_observed for item in tail if item.k_observed]
+    bubbles = [item.start_bubbles for item in tail if item.start_bubbles]
     return Composition(
         number=number,
         categories=round(sum(item.categories for item in tail) / len(tail)),
         meta_links=round(sum(item.meta_links for item in tail) / len(tail)),
         traps=round(sum(item.traps for item in tail) / len(tail)),
         source="extrapolated",
+        # Лимит ходов не усредняется: он считается по формуле от числа
+        # категорий, а усреднённый K тут единственное, что можно унаследовать.
+        move_limit=None,
+        start_bubbles=round(sum(bubbles) / len(bubbles)) if bubbles else None,
+        k_observed=round(sum(known_k) / len(known_k), 2) if known_k else None,
     )

@@ -2353,6 +2353,12 @@ def cmd_export_level_pack(
     prefix: Annotated[
         str, typer.Option("--prefix", help="Префикс ключей уровней пакета")
     ] = "L",
+    playable_dir: Annotated[
+        Path | None,
+        typer.Option("--playable-dir",
+                     help="Ещё и по файлу на уровень в формате играбельного "
+                          "прототипа (site/playable/levels)"),
+    ] = None,
 ) -> None:
     """Выгружает уровни пакета в JSON: группы, надписи, мета-связи, состав.
 
@@ -2372,6 +2378,9 @@ def cmd_export_level_pack(
     typer.echo(f"Пакет: {written}")
     for key, value in totals.items():
         typer.echo(f"  {key}: {value}")
+    if playable_dir is not None:
+        files = level_pack.write_playable(playable_dir, pack, prefix=prefix.lower())
+        typer.echo(f"Для прототипа: {len(files)} файлов в {playable_dir}")
 
 
 @app.command("meta-pairs")

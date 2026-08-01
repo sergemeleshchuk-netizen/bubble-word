@@ -1,0 +1,143 @@
+{
+  "level_id": 9,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
+      "words": [
+        "day",
+        "name",
+        "number",
+        "season"
+      ]
+    },
+    {
+      "id": "seabirds",
+      "name": "SEABIRDS",
+      "words": [
+        "booby",
+        "albatross",
+        "cormorant",
+        "petrel"
+      ]
+    },
+    {
+      "id": "garden_flowers_summer",
+      "name": "SUMMER FLOWERS",
+      "words": [
+        "Daisy",
+        "cosmos",
+        "marigold",
+        "petunia"
+      ]
+    },
+    {
+      "id": "sticky_things",
+      "name": "STICKY THINGS",
+      "words": [
+        "jam",
+        "wax",
+        "tar",
+        "caramel"
+      ]
+    },
+    {
+      "id": "holidays",
+      "name": "HOLIDAYS",
+      "words": [
+        "New Year",
+        "Veterans Day",
+        "Halloween",
+        "Passover"
+      ]
+    },
+    {
+      "id": "new_year_things",
+      "name": "NEW YEAR",
+      "words": [
+        "ball drop",
+        "resolution",
+        "sparkler",
+        "noisemaker"
+      ]
+    },
+    {
+      "id": "sauces",
+      "name": "SAUCES",
+      "words": [
+        "relish",
+        "barbecue",
+        "salsa",
+        "tartar"
+      ]
+    },
+    {
+      "id": "bird_watching",
+      "name": "BIRD WATCHING",
+      "words": [
+        "feeder",
+        "songbirds",
+        "seabirds",
+        "waterfowl"
+      ]
+    },
+    {
+      "id": "barbecue",
+      "name": "BARBECUE",
+      "words": [
+        "smoke",
+        "burger",
+        "grill",
+        "ribs"
+      ]
+    },
+    {
+      "id": "medicines",
+      "name": "MEDICINES",
+      "words": [
+        "antibiotic",
+        "pill",
+        "syrup",
+        "ointment"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK009",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "New Year",
+        "source_group": "NEW YEAR",
+        "target_group": "HOLIDAYS",
+        "depth": 1
+      },
+      {
+        "token": "barbecue",
+        "source_group": "BARBECUE",
+        "target_group": "SAUCES",
+        "depth": 1
+      },
+      {
+        "token": "seabirds",
+        "source_group": "SEABIRDS",
+        "target_group": "BIRD WATCHING",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 45
+  }
+}

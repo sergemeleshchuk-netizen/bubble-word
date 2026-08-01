@@ -1,0 +1,181 @@
+{
+  "level_id": 7,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "airlines",
+      "name": "AIRLINES",
+      "words": [
+        "United",
+        "delta",
+        "Emirates",
+        "British Airways"
+      ]
+    },
+    {
+      "id": "video_game_classics",
+      "name": "RETRO GAMES",
+      "words": [
+        "Sonic",
+        "Pong",
+        "Space Invaders",
+        "centipede"
+      ]
+    },
+    {
+      "id": "field_trip_places",
+      "name": "FIELD TRIPS",
+      "words": [
+        "farm",
+        "museum",
+        "zoo",
+        "bakery"
+      ]
+    },
+    {
+      "id": "living_room_things",
+      "name": "LIVING ROOM",
+      "words": [
+        "coffee table",
+        "clock",
+        "console",
+        "lamp"
+      ]
+    },
+    {
+      "id": "home_rooms",
+      "name": "HOUSE ROOMS",
+      "words": [
+        "living room",
+        "basement",
+        "laundry room",
+        "porch"
+      ]
+    },
+    {
+      "id": "rights_and_freedoms",
+      "name": "RIGHTS",
+      "words": [
+        "trial",
+        "speech",
+        "bear arms",
+        "privacy"
+      ]
+    },
+    {
+      "id": "punishments",
+      "name": "PENALTIES",
+      "words": [
+        "community service",
+        "warning",
+        "suspension",
+        "detention"
+      ]
+    },
+    {
+      "id": "things_on_a_keychain",
+      "name": "KEYCHAIN THINGS",
+      "words": [
+        "key",
+        "souvenir",
+        "fob",
+        "lanyard"
+      ]
+    },
+    {
+      "id": "airport_words",
+      "name": "AIRPORT WORDS",
+      "words": [
+        "duty free",
+        "gate",
+        "airlines",
+        "aircraft"
+      ]
+    },
+    {
+      "id": "aircraft",
+      "name": "AIRCRAFT",
+      "words": [
+        "rocket",
+        "jet",
+        "helicopter",
+        "cargo plane"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "objection",
+        "testimony",
+        "penalties",
+        "rights"
+      ]
+    },
+    {
+      "id": "farm_morning",
+      "name": "FARM",
+      "words": [
+        "barn",
+        "tractor",
+        "livestock",
+        "poultry"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 46,
+    "move_limit_k": 1.28
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK007",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "aircraft",
+        "source_group": "AIRCRAFT",
+        "target_group": "AIRPORT WORDS",
+        "depth": 1
+      },
+      {
+        "token": "airlines",
+        "source_group": "AIRLINES",
+        "target_group": "AIRPORT WORDS",
+        "depth": 1
+      },
+      {
+        "token": "farm",
+        "source_group": "FARM",
+        "target_group": "FIELD TRIPS",
+        "depth": 1
+      },
+      {
+        "token": "living room",
+        "source_group": "LIVING ROOM",
+        "target_group": "HOUSE ROOMS",
+        "depth": 1
+      },
+      {
+        "token": "penalties",
+        "source_group": "PENALTIES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      },
+      {
+        "token": "rights",
+        "source_group": "RIGHTS",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 46
+  }
+}

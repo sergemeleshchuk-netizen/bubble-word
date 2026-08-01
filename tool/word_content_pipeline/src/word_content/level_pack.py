@@ -185,6 +185,86 @@ def _totals(levels: list[dict]) -> dict:
     }
 
 
+# Медианный K записи: им считается лимит там, где запись его не сохранила
+# (уровень 18 снят с середины). Наблюдённые значения — 1.25…1.67.
+FALLBACK_K = 1.4
+# Пузырей на старте, если запись не сохранила и это число.
+FALLBACK_START_BUBBLES = 24
+
+
+def to_playable(pack: dict) -> list[dict]:
+    """Пакет в том виде, в котором его читает прототип `site/playable/`.
+
+    Формат прототипа — `levels/SCHEMA.md`: имя категории и четыре слова
+    строками. Мета-пузырь отдельным полем не передаётся: прототип узнаёт его
+    сам, сравнивая слово с именами категорий уровня. Это и есть причина, по
+    которой источник мета-связи показан под той надписью, которую выпускает.
+
+    Поле берётся с записи оригинала того же номера: у нашего уровня столько же
+    категорий, значит и минимум ходов тот же, и лимит сравним.
+    """
+    levels: list[dict] = []
+    for level in pack["levels"]:
+        recorded = composition_mod.for_level(level["level"])
+        groups = level["groups"]
+        moves = _move_limit(recorded, len(groups))
+        levels.append(
+            {
+                "level_id": level["level"],
+                "difficulty_target": level["difficulty"]["score"],
+                "categories": [
+                    {
+                        "id": group["rule_key"],
+                        "name": group["label"],
+                        "words": [word["text"] for word in group["words"]],
+                    }
+                    for group in groups
+                ],
+                "traps": [],
+                "repeats": [],
+                "board": {
+                    "start_bubbles": min(
+                        recorded.start_bubbles or FALLBACK_START_BUBBLES, len(groups) * 4
+                    ),
+                    "move_limit": moves,
+                    "move_limit_k": recorded.k_observed or (None if moves is None else FALLBACK_K),
+                },
+                "extensions": {"chunks": [], "chains": None, "picture_words": []},
+                "source": {
+                    "level_key": level["level_key"],
+                    "pack": pack["prefix"],
+                    "meta_links": level["meta_links"],
+                    "recorded_move_limit": recorded.move_limit,
+                },
+            }
+        )
+    return levels
+
+
+def _move_limit(recorded: composition_mod.Composition, categories: int) -> int | None:
+    """Лимит ходов: с записи, а при её молчании — по формуле от категорий."""
+    if recorded.number == 1 and recorded.move_limit is None:
+        return None  # туториальный уровень записи идёт без лимита
+    if recorded.move_limit is not None:
+        return recorded.move_limit
+    from math import ceil
+
+    return ceil(3 * categories * (recorded.k_observed or FALLBACK_K))
+
+
+def write_playable(directory: Path, pack: dict, *, prefix: str = "rmk") -> list[Path]:
+    """Пишет по файлу на уровень: прототип грузит уровень по одному."""
+    directory.mkdir(parents=True, exist_ok=True)
+    written: list[Path] = []
+    for level in to_playable(pack):
+        path = directory / f"{prefix}{level['level_id']}.json"
+        path.write_text(
+            json.dumps(level, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        written.append(path)
+    return written
+
+
 def write(path: Path, pack: dict) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(

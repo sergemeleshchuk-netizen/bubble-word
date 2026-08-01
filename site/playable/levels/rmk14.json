@@ -1,0 +1,149 @@
+{
+  "level_id": 14,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "amusement_park",
+      "name": "AMUSEMENT PARK",
+      "words": [
+        "ticket",
+        "cotton candy",
+        "midway",
+        "bumper car"
+      ]
+    },
+    {
+      "id": "places_you_wait",
+      "name": "WAITING PLACES",
+      "words": [
+        "restaurant",
+        "grocery store",
+        "amusement park",
+        "checkout"
+      ]
+    },
+    {
+      "id": "things_made_of_wood",
+      "name": "WOODEN THINGS",
+      "words": [
+        "cabinet",
+        "guitar",
+        "drum",
+        "pencil"
+      ]
+    },
+    {
+      "id": "things_made_of_glass",
+      "name": "GLASS THINGS",
+      "words": [
+        "lens",
+        "jar",
+        "aquarium",
+        "thermometer"
+      ]
+    },
+    {
+      "id": "nature_surnames",
+      "name": "SURNAMES FROM TRADES",
+      "words": [
+        "Taylor",
+        "carpenter",
+        "Brewer",
+        "Sawyer"
+      ]
+    },
+    {
+      "id": "flowers",
+      "name": "FLOWERS",
+      "words": [
+        "rose",
+        "azalea",
+        "dahlia",
+        "wildflowers"
+      ]
+    },
+    {
+      "id": "wildflowers",
+      "name": "WILDFLOWERS",
+      "words": [
+        "wild rose",
+        "black eyed susan",
+        "columbine",
+        "primrose"
+      ]
+    },
+    {
+      "id": "skateboarding",
+      "name": "SKATEBOARDING WORDS",
+      "words": [
+        "nose",
+        "trucks",
+        "grip tape",
+        "ramp"
+      ]
+    },
+    {
+      "id": "heavy_trucks",
+      "name": "TRUCKS",
+      "words": [
+        "semi",
+        "delivery truck",
+        "pickup",
+        "cement mixer"
+      ]
+    },
+    {
+      "id": "carpenter",
+      "name": "CARPENTER",
+      "words": [
+        "plywood",
+        "lathe",
+        "sander",
+        "sawdust"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 47,
+    "move_limit_k": 1.27
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK014",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "amusement park",
+        "source_group": "AMUSEMENT PARK",
+        "target_group": "WAITING PLACES",
+        "depth": 1
+      },
+      {
+        "token": "carpenter",
+        "source_group": "CARPENTER",
+        "target_group": "SURNAMES FROM TRADES",
+        "depth": 1
+      },
+      {
+        "token": "trucks",
+        "source_group": "TRUCKS",
+        "target_group": "SKATEBOARDING WORDS",
+        "depth": 1
+      },
+      {
+        "token": "wildflowers",
+        "source_group": "WILDFLOWERS",
+        "target_group": "FLOWERS",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 47
+  }
+}

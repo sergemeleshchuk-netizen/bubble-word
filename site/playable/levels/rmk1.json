@@ -1,0 +1,74 @@
+{
+  "level_id": 1,
+  "difficulty_target": 3.5,
+  "categories": [
+    {
+      "id": "yellow_things",
+      "name": "YELLOW THINGS",
+      "words": [
+        "school bus",
+        "butter",
+        "mustard",
+        "pineapple"
+      ]
+    },
+    {
+      "id": "plumbing_words",
+      "name": "PLUMBING WORDS",
+      "words": [
+        "trap",
+        "pipe",
+        "snake",
+        "sink"
+      ]
+    },
+    {
+      "id": "garden_center",
+      "name": "GARDEN CENTER",
+      "words": [
+        "soil",
+        "flowers",
+        "seedling",
+        "trees"
+      ]
+    },
+    {
+      "id": "cloud_types",
+      "name": "CLOUD TYPES",
+      "words": [
+        "cirrus",
+        "cumulus",
+        "nimbus",
+        "stratus"
+      ]
+    },
+    {
+      "id": "meals_of_the_day",
+      "name": "MEALS OF THE DAY",
+      "words": [
+        "lunch",
+        "brunch",
+        "dessert",
+        "supper"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": null,
+    "move_limit_k": null
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK001",
+    "pack": "RMK",
+    "meta_links": [],
+    "recorded_move_limit": null
+  }
+}

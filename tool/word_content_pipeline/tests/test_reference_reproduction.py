@@ -23,6 +23,7 @@ from typer.testing import CliRunner
 from word_content import (
     composition,
     level_generator,
+    level_pack,
     meta_pairs,
     meta_validation,
     normalization,
@@ -662,6 +663,45 @@ def test_18c_generation_follows_the_recorded_composition(db):
     ]
     # Мета в записи начинается с третьего уровня — и здесь тоже.
     assert not levels[0].meta_links and not levels[1].meta_links
+
+
+@requires_db
+def test_18d_playable_export_keeps_the_meta_link_readable(db):
+    """Прототип узнаёт мета-пузырь сам — по совпадению слова с именем группы.
+
+    Контракт межпроектный: пакет пишет пайплайн, а читает `applyLevel` в
+    `site/playable/index.html`. Если текст пузыря разойдётся с надписью
+    группы-источника, прототип покажет мета-слово обычным пузырём, и связь
+    исчезнет молча.
+    """
+    pack = level_pack.build(db, "RMK")
+    if not pack["levels"]:
+        pytest.skip("пакета RMK в базе нет: word-content generate-level-candidates")
+    levels = level_pack.to_playable(pack)
+    assert len(levels) == len(pack["levels"])
+
+    checked = 0
+    for level, source in zip(levels, pack["levels"]):
+        names = {category["name"].upper() for category in level["categories"]}
+        assert all(len(category["words"]) == 4 for category in level["categories"])
+        assert all(isinstance(word, str) for category in level["categories"]
+                   for word in category["words"])
+        for link in source["meta_links"]:
+            assert link["source_group"].upper() in names
+            assert link["token"].upper() in {
+                word.upper()
+                for category in level["categories"]
+                for word in category["words"]
+            }
+            # Слово-результат и имя выпускающей группы — один и тот же текст.
+            assert link["token"].upper() == link["source_group"].upper()
+            checked += 1
+        # Поле уровня приезжает с записи оригинала того же номера.
+        recorded = composition.for_level(level["level_id"])
+        if recorded.move_limit is not None:
+            assert level["board"]["move_limit"] == recorded.move_limit
+        assert level["board"]["start_bubbles"] <= len(level["categories"]) * 4
+    assert checked > 0, "в пакете нет ни одной мета-связи — проверять нечего"
 
 
 def test_19_composition_profile_is_taken_from_the_recording(fixtures):

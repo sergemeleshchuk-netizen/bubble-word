@@ -1,0 +1,165 @@
+{
+  "level_id": 18,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "birds",
+      "name": "BIRDS",
+      "words": [
+        "turkey",
+        "raven",
+        "sparrow",
+        "owls"
+      ]
+    },
+    {
+      "id": "swimwear",
+      "name": "SWIMWEAR",
+      "words": [
+        "board shorts",
+        "bikini",
+        "trunks",
+        "swimsuit"
+      ]
+    },
+    {
+      "id": "landforms",
+      "name": "LANDFORMS",
+      "words": [
+        "island",
+        "delta",
+        "cliff",
+        "canyon"
+      ]
+    },
+    {
+      "id": "owls",
+      "name": "OWLS",
+      "words": [
+        "snowy owl",
+        "screech owl",
+        "tawny owl",
+        "burrowing owl"
+      ]
+    },
+    {
+      "id": "board_and_card_games",
+      "name": "GAMES OF SKILL",
+      "words": [
+        "table tennis",
+        "darts",
+        "billiards",
+        "backgammon"
+      ]
+    },
+    {
+      "id": "seasons",
+      "name": "SEASONS",
+      "words": [
+        "fall",
+        "spring",
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "workshop_things",
+      "name": "WORKSHOP THINGS",
+      "words": [
+        "nail",
+        "shelf",
+        "clamp",
+        "grinder"
+      ]
+    },
+    {
+      "id": "beach_day",
+      "name": "BEACH DAY",
+      "words": [
+        "sunscreen",
+        "towel",
+        "swimwear",
+        "umbrella"
+      ]
+    },
+    {
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
+      "words": [
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
+      ]
+    },
+    {
+      "id": "map_legend",
+      "name": "MAP LEGEND",
+      "words": [
+        "symbol",
+        "scale",
+        "contour",
+        "landforms"
+      ]
+    },
+    {
+      "id": "billiards",
+      "name": "BILLIARDS",
+      "words": [
+        "felt",
+        "snooker",
+        "chalked",
+        "potting"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 47,
+    "move_limit_k": 1.4
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK018",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "billiards",
+        "source_group": "BILLIARDS",
+        "target_group": "GAMES OF SKILL",
+        "depth": 1
+      },
+      {
+        "token": "landforms",
+        "source_group": "LANDFORMS",
+        "target_group": "MAP LEGEND",
+        "depth": 1
+      },
+      {
+        "token": "owls",
+        "source_group": "OWLS",
+        "target_group": "BIRDS",
+        "depth": 1
+      },
+      {
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
+        "depth": 1
+      },
+      {
+        "token": "swimwear",
+        "source_group": "SWIMWEAR",
+        "target_group": "BEACH DAY",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": null
+  }
+}

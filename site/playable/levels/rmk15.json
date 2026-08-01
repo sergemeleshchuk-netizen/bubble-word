@@ -1,0 +1,101 @@
+{
+  "level_id": 15,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "art_forms",
+      "name": "ART FORMS",
+      "words": [
+        "film",
+        "photography",
+        "weaving",
+        "collage"
+      ]
+    },
+    {
+      "id": "words_before_light",
+      "name": "___ LIGHT",
+      "words": [
+        "star",
+        "night",
+        "stop",
+        "sun"
+      ]
+    },
+    {
+      "id": "languages",
+      "name": "LANGUAGES",
+      "words": [
+        "Chinese",
+        "English",
+        "French",
+        "Russian"
+      ]
+    },
+    {
+      "id": "inventors",
+      "name": "INVENTORS",
+      "words": [
+        "ford",
+        "Edison",
+        "Marconi",
+        "Gutenberg"
+      ]
+    },
+    {
+      "id": "time_units",
+      "name": "UNITS OF TIME",
+      "words": [
+        "century",
+        "minute",
+        "moment",
+        "year"
+      ]
+    },
+    {
+      "id": "kinds_of_plants",
+      "name": "KINDS OF PLANTS",
+      "words": [
+        "tree",
+        "Bush",
+        "flower",
+        "grass"
+      ]
+    },
+    {
+      "id": "weaving",
+      "name": "WEAVING",
+      "words": [
+        "loom",
+        "tapestry",
+        "warp",
+        "weaver"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 42,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK015",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "weaving",
+        "source_group": "WEAVING",
+        "target_group": "ART FORMS",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 42
+  }
+}

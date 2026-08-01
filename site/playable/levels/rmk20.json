@@ -1,0 +1,111 @@
+{
+  "level_id": 20,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "animals_with_shells",
+      "name": "ANIMALS WITH SHELLS",
+      "words": [
+        "turtle",
+        "nautilus",
+        "conch",
+        "scallop"
+      ]
+    },
+    {
+      "id": "condiments",
+      "name": "CONDIMENTS",
+      "words": [
+        "honey",
+        "pesto",
+        "tartar sauce",
+        "wasabi"
+      ]
+    },
+    {
+      "id": "hobby_verbs",
+      "name": "HOBBY ACTIVITIES",
+      "words": [
+        "reading",
+        "baking",
+        "woodworking",
+        "birdwatching"
+      ]
+    },
+    {
+      "id": "office_jobs",
+      "name": "OFFICE JOBS",
+      "words": [
+        "assistant",
+        "analyst",
+        "coordinator",
+        "auditor"
+      ]
+    },
+    {
+      "id": "zoos_and_aquariums",
+      "name": "FAMOUS ZOOS",
+      "words": [
+        "London Zoo",
+        "Berlin Zoo",
+        "Georgia Aquarium",
+        "Monterey Bay"
+      ]
+    },
+    {
+      "id": "world_cities",
+      "name": "WORLD CITIES",
+      "words": [
+        "Manchester",
+        "Sydney",
+        "London",
+        "Paris"
+      ]
+    },
+    {
+      "id": "picnic_basket",
+      "name": "PICNIC BASKET",
+      "words": [
+        "blanket",
+        "thermos",
+        "napkins",
+        "condiments"
+      ]
+    },
+    {
+      "id": "vikings",
+      "name": "VIKINGS",
+      "words": [
+        "mead",
+        "norse",
+        "fjord",
+        "berserker"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": 40,
+    "move_limit_k": 1.67
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "RMK020",
+    "pack": "RMK",
+    "meta_links": [
+      {
+        "token": "condiments",
+        "source_group": "CONDIMENTS",
+        "target_group": "PICNIC BASKET",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 40
+  }
+}
