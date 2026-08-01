@@ -10,7 +10,7 @@
  *
  *   TOOL_VERSION      релиз инструмента: UI, экспорт, что угодно. НЕ входит в хеш.
  *   GENERATOR_VERSION алгоритм сборки уровня. ВХОДИТ в хеш — и обязан входить.
- *   версии моделей    формулы D и F. Живут в конфиге, меняются отдельно от релиза.
+ *   версии моделей    формулы D и I. Живут в конфиге, меняются отдельно от релиза.
  *   SOLVER_VERSION    алгоритм доказательства единственности решения.
  *
  * Почему TOOL_VERSION не в хеше: обещание «тот же конфиг + тот же seed + тот же
@@ -29,15 +29,17 @@ import type { ScoringConfig } from './scoringDifficulty.ts';
  *   minor — новая возможность;
  *   patch — исправление без новых возможностей.
  */
-export const TOOL_VERSION = '1.4.0';
+export const TOOL_VERSION = '1.5.0';
 
 /**
  * Версия счётчика решений. Отдельная от генератора: доказательство
  * единственности можно улучшить, не меняя сборку уровня, и наоборот.
  *
  * 1.0 — полный перебор exact-cover с лимитом узлов и флагом `exhausted`.
+ * 1.1 — обрезанный по лимиту перебор больше не считается доказательством:
+ *       одна найденная раскладка при `exhausted = false` — это «неизвестно».
  */
-export const SOLVER_VERSION = 'solver-1.0';
+export const SOLVER_VERSION = 'solver-1.1';
 
 /**
  * Полный набор версий одного прогона. Кладётся в экспорт и показывается в UI,
@@ -52,7 +54,7 @@ export interface VersionSet {
   generator: string;
   solver: string;
   difficultyModel: string;
-  funModel: string;
+  interestModel: string;
   contentSnapshot: string;
 }
 
@@ -65,7 +67,7 @@ export function versionSet(
     generator: GENERATOR_VERSION,
     solver: SOLVER_VERSION,
     difficultyModel: scoring.scoring_version,
-    funModel: scoring.interest.scoring_version,
+    interestModel: scoring.interest.scoring_version,
     contentSnapshot: contentSnapshotHash,
   };
 }

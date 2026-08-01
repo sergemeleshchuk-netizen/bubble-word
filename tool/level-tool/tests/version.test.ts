@@ -50,7 +50,7 @@ test('набор версий полон и без пустых значений
   const versions = versionSet(scoring, snapshot.content_snapshot_hash);
 
   assert.deepEqual(Object.keys(versions).sort(), [
-    'contentSnapshot', 'difficultyModel', 'funModel', 'generator', 'solver', 'tool',
+    'contentSnapshot', 'difficultyModel', 'generator', 'interestModel', 'solver', 'tool',
   ]);
   for (const [key, value] of Object.entries(versions)) {
     assert.ok(typeof value === 'string' && value.length > 0,
@@ -61,7 +61,7 @@ test('набор версий полон и без пустых значений
   assert.equal(versions.generator, GENERATOR_VERSION);
   assert.equal(versions.solver, SOLVER_VERSION);
   assert.equal(versions.difficultyModel, scoring.scoring_version);
-  assert.equal(versions.funModel, scoring.interest.scoring_version);
+  assert.equal(versions.interestModel, scoring.interest.scoring_version);
 });
 
 test('версия инструмента не участвует в хешировании уровня', () => {

@@ -16,6 +16,7 @@ import {
 } from './generator.ts';
 import { validateLevel } from './validator.ts';
 import { countSolutions } from './solutionCounter.ts';
+import { computeStructuralMetrics } from './structuralMetrics.ts';
 import { computeDifficulty, type ScoringConfig, type SemanticEvidence } from './scoringDifficulty.ts';
 import { computeInterest, type InterestEvidence } from './scoringInterest.ts';
 import { canonicalJson, levelSpecHash, sha256Hex } from './hashing.ts';
@@ -173,8 +174,9 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     // порядок важен: сначала считаем решения, потом валидируем (валидатор
     // использует результат), и только потом выставляем оценки
     const solutions = countSolutions(index, spec);
+    const structural = computeStructuralMetrics(index, spec);
     const validation = validateLevel(spec, {
-      ...validationContext(), solutions, repeatCount: repeatCount(spec, history),
+      ...validationContext(), solutions, structural, repeatCount: repeatCount(spec, history),
     });
 
     const evidence = options.solverEvidence?.get(plan.levelId) ?? {};
@@ -189,6 +191,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       spec,
       validation,
       solutions,
+      structural,
       difficulty,
       interest,
       attempts: outcome.attempts,
@@ -297,6 +300,14 @@ export function toPipelineJson(level: GeneratedLevel, block: BlockResult): unkno
       solution_count: level.solutions.count,
       solution_search_exhausted: level.solutions.exhausted,
       solution_nodes_visited: level.solutions.nodesVisited,
+      structure: level.structural ? {
+        multi_home_words: level.structural.multiHomeWords,
+        max_contested_slots: level.structural.maxContestedSlots,
+        opening_categories: level.structural.openingCategories,
+        deduction_only: level.structural.deductionOnly,
+        forced_steps: level.structural.forcedSteps,
+        explanation: level.structural.explanation,
+      } : undefined,
     },
     generation: { attempts: level.attempts },
   };

@@ -10,11 +10,14 @@ import type {
 } from './types.ts';
 import { STATUS, ZIPF_LEVEL_TOLERANCE } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
+import type { StructuralMetrics } from './structuralMetrics.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
 export interface ValidationContext {
   index: ContentIndex;
   solutions?: SolutionCount;
+  /** структура задачи: вход в уровень, развилки, оспариваемые слоты */
+  structural?: StructuralMetrics;
   /** окна свежести и история пакета */
   history?: {
     wordLastLevel: Map<string, number>;
@@ -193,10 +196,20 @@ const CHECKS: Check[] = [
         return { passed: false, detail: 'счёт решений не выполнен' };
       }
       const { count, exhausted, nodesVisited, secondSolutionExample } = ctx.solutions;
+      if (count === 1 && !exhausted) {
+        // обрезанный перебор — это «не знаем», а не «единственно». Вторая
+        // раскладка могла лежать за лимитом узлов, и тогда PASS был бы ложью
+        return {
+          passed: false,
+          detail: `перебор обрезан по лимиту узлов (${nodesVisited}): единственность `
+            + 'решения не доказана',
+          suggestion: 'упростить уровень или поднять лимит узлов и пересчитать; '
+            + 'состояние «неизвестно» в production не пропускаем',
+        };
+      }
       if (count === 1) {
         return { passed: true,
-          detail: `ровно одна полная раскладка, перебор ${exhausted ? 'исчерпан' : 'обрезан'}`
-            + ` (${nodesVisited} узлов)` };
+          detail: `ровно одна полная раскладка, перебор исчерпан (${nodesVisited} узлов)` };
       }
       if (count === 0) {
         return { passed: false, detail: 'ни одной полной раскладки: уровень нерешаем',
@@ -210,6 +223,50 @@ const CHECKS: Check[] = [
         detail: 'найдено минимум две полные раскладки: уровень семантически двусмыслен',
         entities: example,
         suggestion: 'убрать одну из конкурирующих категорий или заменить спорное слово',
+      };
+    },
+  },
+  {
+    // вход в уровень. Игрок бросает не там, где трудно, а там, где нет
+    // никакого прогресса: доля уходов концентрируется в состоянии
+    // «ноль собранных групп» (docs/SCORING.md §11)
+    code: 'OPENING_CATEGORY',
+    severity: 'soft',
+    run: (spec, ctx) => {
+      if (!ctx.structural) {
+        return { passed: true, detail: 'структурные метрики не переданы: проверка пропущена' };
+      }
+      const { openingCategories } = ctx.structural;
+      if (openingCategories > 0) {
+        return { passed: true,
+          detail: `${openingCategories} категорий можно закрыть сразу: вход в уровень есть` };
+      }
+      return {
+        passed: false,
+        detail: 'ни одной категории нельзя закрыть сразу: каждый первый ход — гипотеза',
+        suggestion: 'дать уровню одну категорию из однодомных слов — это вход, '
+          + 'а не поблажка по сложности',
+      };
+    },
+  },
+  {
+    // уровень, который раскладывается без единой развилки, — работа, а не
+    // головоломка: пересобирать гипотезу негде, значит и «ага» взяться неоткуда
+    code: 'DEDUCTION_ONLY',
+    severity: 'soft',
+    run: (spec, ctx) => {
+      if (!ctx.structural) {
+        return { passed: true, detail: 'структурные метрики не переданы: проверка пропущена' };
+      }
+      if (!ctx.structural.deductionOnly) {
+        return { passed: true,
+          detail: `дедукция доходит до ${ctx.structural.forcedSteps} слов, дальше выбор` };
+      }
+      return {
+        passed: false,
+        detail: 'уровень раскладывается чистой дедукцией: развилок нет',
+        suggestion: 'добавить слово со вторым правдоподобным домом — иначе уровень '
+          + 'проходится как рутина',
       };
     },
   },

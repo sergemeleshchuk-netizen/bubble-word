@@ -408,6 +408,8 @@ export interface GeneratedLevel {
   spec: LevelSpec;
   validation: ValidationResult;
   solutions: SolutionCount;
+  /** структура задачи: вход, развилки, оспариваемые слоты (не входит в D и I) */
+  structural?: import('./structuralMetrics.ts').StructuralMetrics;
   difficulty: DifficultyBreakdown;
   interest: InterestBreakdown;
   /** сколько попыток понадобилось и что отклонялось */

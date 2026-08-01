@@ -19,29 +19,42 @@ import type { ContentIndex } from './snapshot.ts';
 
 const NODE_LIMIT = 200000;
 
-export function countSolutions(index: ContentIndex, spec: LevelSpec): SolutionCount {
+/**
+ * Слово уровня и все категории ЭТОГО уровня, куда оно правдоподобно годится.
+ * Общая заготовка для двух разных вопросов: «сколько всего раскладок»
+ * (countSolutions) и «как устроена задача для игрока» (structuralMetrics).
+ */
+export interface PlausibleItem {
+  /** индекс слова в снимке контента; -1 — слова в базе нет */
+  word: number;
+  text: string;
+  /** индексы категорий уровня (слоты), куда слово правдоподобно годится */
+  plausible: number[];
+  /** слот, в который слово поставил генератор */
+  home: number;
+}
+
+/**
+ * Разбор поля: у какого слова сколько правдоподобных домов на этом уровне.
+ * Порядок — как в спеке (категория за категорией), сортировку каждый
+ * потребитель делает сам под свою задачу.
+ */
+export function plausibleHomes(index: ContentIndex, spec: LevelSpec): PlausibleItem[] {
   const catKeys = spec.categories.map((c) => c.key);
   const catIndices = catKeys.map((k) => index.categoryIndex(k));
-  const slotOf = new Map<string, number>();
-  catKeys.forEach((k, i) => slotOf.set(k, i));
-
-  // мета-связь структурна: имя ребёнка лежит в родителе по построению уровня,
-  // и другого дома у этого пузыря быть не может
-  const forcedSlot = new Map<number, number>();
-
-  interface Item { word: number; text: string; plausible: number[] }
-  const items: Item[] = [];
+  const items: PlausibleItem[] = [];
 
   spec.categories.forEach((category, slot) => {
     for (const word of category.words) {
       const wi = index.wordIndex(word.text.toLowerCase());
       if (wi === undefined) {
-        items.push({ word: -1, text: word.text, plausible: [slot] });
+        items.push({ word: -1, text: word.text, plausible: [slot], home: slot });
         continue;
       }
+      // мета-связь структурна: имя ребёнка лежит в родителе по построению
+      // уровня, и другого дома у этого пузыря быть не может
       if (word.kind === 'meta') {
-        forcedSlot.set(wi, slot);
-        items.push({ word: wi, text: word.text, plausible: [slot] });
+        items.push({ word: wi, text: word.text, plausible: [slot], home: slot });
         continue;
       }
       const plausible: number[] = [];
@@ -50,9 +63,17 @@ export function countSolutions(index: ContentIndex, spec: LevelSpec): SolutionCo
         if (target >= 0) plausible.push(target);
       }
       if (!plausible.includes(slot)) plausible.push(slot);
-      items.push({ word: wi, text: word.text, plausible: Array.from(new Set(plausible)) });
+      items.push({
+        word: wi, text: word.text, home: slot,
+        plausible: Array.from(new Set(plausible)),
+      });
     }
   });
+  return items;
+}
+
+export function countSolutions(index: ContentIndex, spec: LevelSpec): SolutionCount {
+  const items = plausibleHomes(index, spec);
 
   // самые ограниченные слова первыми: дерево перебора схлопывается на однодомных
   items.sort((a, b) => a.plausible.length - b.plausible.length
