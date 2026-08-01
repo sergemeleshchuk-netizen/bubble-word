@@ -128,6 +128,39 @@ def _pool_rows(conn: sqlite3.Connection, category_key: str) -> list[sqlite3.Row]
     )
 
 
+def _form_twins(words: list[str]) -> dict[str, set[str]]:
+    """Слова пула, читающиеся как одно и то же: `turtle` и `turtles`.
+
+    Формально это разные слова пула и разные связи, а на поле — два почти
+    одинаковых пузыря, между которыми игрок выбирает наугад. Поймано на
+    собранном пакете: уровень 7 вышел с REPTILES = turtle, viper, boa, turtles.
+
+    Считается один раз на правило, а не на сочетание. Наивная проверка внутри
+    перебора стоила слишком дорого: на C(40,4) сочетаний и 1276 правил это
+    сотни миллионов сравнений, и сборка четвёрок переставала заканчиваться.
+    """
+    twins: dict[str, set[str]] = {}
+    lowered = {word: word.lower() for word in words}
+    for first, second in combinations(words, 2):
+        short, long = sorted((lowered[first], lowered[second]), key=len)
+        if long in (short + "s", short + "es", short[:-1] + "ies"):
+            twins.setdefault(first, set()).add(second)
+            twins.setdefault(second, set()).add(first)
+    return twins
+
+
+def _same_word_twice(group: tuple[str, ...], twins: dict[str, set[str]] | None = None) -> bool:
+    """Есть ли в четвёрке два слова, читающиеся как одно."""
+    if twins is None:
+        twins = _form_twins(list(group))
+    marked = [word for word in group if word in twins]
+    if len(marked) < 2:
+        return False
+    return any(
+        second in twins[first] for first, second in combinations(marked, 2)
+    )
+
+
 def build(
     conn: sqlite3.Connection,
     *,
@@ -159,6 +192,7 @@ def build(
         "четвёрок": 0,
         "отклонено локальной проверкой": 0,
         "отклонено по рискам": 0,
+        "отклонено формой того же слова": 0,
     }
 
     for category_key in keys:
@@ -166,12 +200,16 @@ def build(
         rows = _pool_rows(conn, category_key)[:candidate_pool]
         by_word = {row["normalized"]: row for row in rows}
         available = [row["normalized"] for row in rows]
+        twins = _form_twins(available)
 
         scored: list[QuartetCandidate] = []
         for group in combinations(available, QUARTET_SIZE):
             members = [by_word[word] for word in group]
             if any(m["risk_flags"] and "sensitive" in m["risk_flags"] for m in members):
                 stats["отклонено по рискам"] += 1
+                continue
+            if twins and _same_word_twice(group, twins):
+                stats["отклонено формой того же слова"] += 1
                 continue
             result = quartet_locally_unique(conn, category_key, list(group), pools=pools)
             if not result.unique:

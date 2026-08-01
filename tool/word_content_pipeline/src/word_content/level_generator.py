@@ -35,6 +35,7 @@ import json
 import random
 import sqlite3
 from dataclasses import dataclass, field
+from pathlib import Path
 
 from . import composition as composition_mod
 from . import cooldown as cooldown_mod
@@ -52,6 +53,9 @@ DEFAULT_CATEGORY_COUNT = 5
 # Неоднозначные наборы отсеиваются solver'ом, и без потолка генератор может
 # долго перебирать соседние темы.
 MAX_ATTEMPTS_PER_LEVEL = 40
+# Сколько четвёрок одного правила перебрать при доборе, прежде чем идти
+# к следующему правилу: первая попавшаяся часто занята перезарядкой.
+FILLER_TRIES_PER_RULE = 5
 
 
 @dataclass
@@ -288,6 +292,61 @@ def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.Quartet
     )
 
 
+@dataclass(frozen=True)
+class _QuartetPool:
+    """Годные четвёрки под один профиль качества, разложенные по входам."""
+
+    by_category: dict[int, list[dict]]
+    by_quartet_id: dict[int, dict]
+    category_ids: list[int]
+    concept_by_category: dict[int, int]
+    stats: dict[str, int]
+
+
+class _PoolCache:
+    """Пулы четвёрок по профилям: у каждого профиля свой отбор.
+
+    Профиль задаётся не на прогон, а на уровень: первые уровни кампании берут
+    только знакомые слова, поздние — знание предметной области. Отбор четвёрок
+    под каждый профиль считается один раз и переиспользуется.
+    """
+
+    def __init__(
+        self,
+        conn: sqlite3.Connection,
+        *,
+        tier: str,
+        rare_familiarity: float,
+    ) -> None:
+        self._conn = conn
+        self._tier = tier
+        self._rare = rare_familiarity
+        self._pools: dict[str, _QuartetPool] = {}
+
+    def get(self, profile: profiles_mod.Profile | None) -> _QuartetPool:
+        key = profile.name if profile else ""
+        if key not in self._pools:
+            by_category, stats = _usable_quartets(
+                self._conn, self._tier, profile=profile, rare_familiarity=self._rare
+            )
+            self._pools[key] = _QuartetPool(
+                by_category=by_category,
+                by_quartet_id={
+                    entry["quartet_id"]: entry
+                    for entries in by_category.values()
+                    for entry in entries
+                },
+                category_ids=sorted(by_category),
+                concept_by_category={
+                    category_id: entries[0]["concept_id"]
+                    for category_id, entries in by_category.items()
+                    if entries and entries[0]["concept_id"] is not None
+                },
+                stats=stats,
+            )
+        return self._pools[key]
+
+
 def _conflict_map(conn: sqlite3.Connection) -> dict[int, set[int]]:
     conflicts: dict[int, set[int]] = {}
     for row in conn.execute(
@@ -306,7 +365,7 @@ def generate(
     conn: sqlite3.Connection,
     *,
     count: int = 5,
-    category_count: int = DEFAULT_CATEGORY_COUNT,
+    category_count: int | None = DEFAULT_CATEGORY_COUNT,
     seed: int = 20260731,
     tier: str = "normal",
     target_difficulty: float | None = None,
@@ -316,37 +375,39 @@ def generate(
     rare_familiarity: float = 0.43,
     use_meta: bool = True,
     meta_target: int | None = None,
+    key_prefix: str = "L",
+    auto_profile: bool = False,
+    profiles_config: Path | None = None,
 ) -> tuple[list[LevelCandidate], dict[str, int]]:
     """Собирает `count` уровней-кандидатов. Детерминирована при одинаковом seed.
 
-    ``use_meta``     собирать ли мета-связи; выключение оставляет плоские уровни;
-    ``meta_target``  сколько связей просить на уровень вместо профиля композиции.
+    ``category_count``  сколько категорий в уровне; ``None`` означает «по записи»:
+                        состав каждого номера берётся из профиля композиции,
+                        то есть 5 категорий на первом уровне и 12 на седьмом;
+    ``use_meta``        собирать ли мета-связи; выключение оставляет плоские уровни;
+    ``meta_target``     сколько связей просить на уровень вместо профиля композиции;
+    ``key_prefix``      префикс ключей уровней. Отдельный пакет живёт под своим
+                        префиксом и не затирается дымовым прогоном сборки,
+                        который каждый раз пересобирает `L001..L005`;
+    ``auto_profile``    брать профиль качества по номеру уровня: первые уровни
+                        только из знакомых слов, поздние — со знанием. Явный
+                        ``profile`` сильнее и отменяет это.
     """
     config = config or cooldown_mod.load_config()
-    by_category, profile_stats = _usable_quartets(
-        conn, tier, profile=profile, rare_familiarity=rare_familiarity
-    )
+    pools = _PoolCache(conn, tier=tier, rare_familiarity=rare_familiarity)
+    base_pool = pools.get(profile)
     conflicts = _conflict_map(conn)
     meta_index = meta_pairs_mod.load(conn, tier=tier) if use_meta else meta_pairs_mod.MetaIndex()
-    by_quartet_id = {
-        entry["quartet_id"]: entry
-        for entries in by_category.values()
-        for entry in entries
-    }
     index = level_solver.load_memberships(conn)
     structures = structured.load(conn)
     history = cooldown_mod.load_history(conn)
 
     rng = random.Random(seed)
-    category_ids = sorted(by_category)
-    concept_by_category = {
-        category_id: entries[0]["concept_id"]
-        for category_id, entries in by_category.items()
-        if entries and entries[0]["concept_id"] is not None
-    }
     stats = {
-        "профиль": profile.name if profile else "без профиля",
-        **profile_stats,
+        "профиль": profile.name if profile else (
+            "по номеру уровня" if auto_profile else "без профиля"
+        ),
+        **base_pool.stats,
         "мета-пар в базе": len(meta_index.distinct_pairs()),
         "уровней запрошено": count,
         "уровней собрано": 0,
@@ -357,13 +418,16 @@ def generate(
         "отклонено по cooldown": 0,
         "отклонено бюджетом уровня": 0,
         "четвёрок пропущено по повтору слова": 0,
+        "четвёрок пропущено по перезарядке": 0,
         "мета-связей поставлено": 0,
         "уровней с мета": 0,
         "мета: недобор до профиля": 0,
         "отклонено мета-проверкой": 0,
         "попыток": 0,
     }
-    if len(category_ids) < category_count:
+    if len(base_pool.category_ids) < (
+        category_count or composition_mod.MAX_RECORDED_CATEGORIES
+    ):
         return [], stats
 
     levels: list[LevelCandidate] = []
@@ -375,8 +439,15 @@ def generate(
         candidate: LevelCandidate | None = None
         position = accepted_positions + number
         plan = composition_mod.for_level(position)
+        # Без явного числа категорий уровень повторяет состав записи: пять
+        # категорий на первом, двенадцать на седьмом, семь на пятнадцатом.
+        level_categories = category_count or plan.categories
+        level_profile = profile
+        if level_profile is None and auto_profile:
+            level_profile = profiles_mod.get(plan.profile, profiles_config)
+        pool = pools.get(level_profile)
         wanted_meta = (
-            meta_target if meta_target is not None else plan.meta_target(category_count)
+            meta_target if meta_target is not None else plan.meta_target(level_categories)
         )
         if not use_meta:
             wanted_meta = 0
@@ -384,18 +455,20 @@ def generate(
             stats["попыток"] += 1
             cooling = _cooling_categories(
                 history, config, position=position,
-                concept_by_category=concept_by_category,
+                concept_by_category=pool.concept_by_category,
             )
             built_plan = _plan_level(
                 rng,
-                by_category=by_category,
-                by_quartet_id=by_quartet_id,
-                category_ids=category_ids,
+                by_category=pool.by_category,
+                by_quartet_id=pool.by_quartet_id,
+                category_ids=pool.category_ids,
                 conflicts=conflicts,
                 cooling=cooling,
-                category_count=category_count,
+                hot=_cooling_content(history, config, position=position),
+                category_count=level_categories,
                 meta_index=meta_index,
                 meta_target=wanted_meta,
+                index=index,
                 stats=stats,
             )
             if built_plan is None:
@@ -403,11 +476,14 @@ def generate(
             groups, links = built_plan
             # Бюджет уровня тратится по мере набора групп: одно менее очевидное
             # слово делает уровень интереснее, четыре редких — непроходимым.
-            budget = profiles_mod.LevelBudget.for_profile(profile) if profile else None
+            budget = (
+                profiles_mod.LevelBudget.for_profile(level_profile)
+                if level_profile else None
+            )
             over_budget = False
             if budget is not None:
                 for group in groups:
-                    facts = by_quartet_id[group.quartet_id].get("facts")
+                    facts = pool.by_quartet_id[group.quartet_id].get("facts")
                     if facts is None:
                         continue
                     if budget.fits(facts):
@@ -417,7 +493,7 @@ def generate(
             if over_budget:
                 stats["отклонено бюджетом уровня"] += 1
                 continue
-            level_key = f"L{number:03d}"
+            level_key = f"{key_prefix}{number:03d}"
             built = _evaluate(
                 groups,
                 links,
@@ -514,6 +590,52 @@ def _cooling_categories(
     return cooling
 
 
+@dataclass(frozen=True)
+class _HotContent:
+    """Что сейчас на перезарядке: слова и четвёрки, повтор которых ещё рано."""
+
+    word_senses: frozenset[tuple[int, int | None]] = frozenset()
+    quartets: frozenset[int] = frozenset()
+
+    def blocks(self, entry: dict) -> bool:
+        if entry["quartet_id"] in self.quartets:
+            return True
+        return any(
+            (word_id, sense_id) in self.word_senses
+            for word_id, sense_id, _d, _sk, _r in entry["tokens"]
+        )
+
+
+def _cooling_content(
+    history: cooldown_mod.UsageHistory,
+    config: dict[str, int],
+    *,
+    position: int,
+) -> _HotContent:
+    """Слова и четвёрки, которые на этой позиции повторять ещё нельзя.
+
+    Раньше повтор слова ловился только постфактум: генератор собирал уровень
+    целиком, считал solver и лишь потом узнавал, что слово встречалось восемь
+    уровней назад при требуемых двадцати. На пакете из двадцати уровней по
+    десять категорий так отбраковывалась почти каждая вторая попытка, и часть
+    уровней сохранялась прямо с нарушением. Дешевле не брать такую четвёрку.
+    """
+    word_gap = config.get("same_word_sense", 0)
+    quartet_gap = config.get("same_quartet", 0)
+    return _HotContent(
+        word_senses=frozenset(
+            key
+            for key, last in history.word_sense.items()
+            if word_gap and position - last < word_gap
+        ),
+        quartets=frozenset(
+            quartet_id
+            for quartet_id, last in history.quartet.items()
+            if quartet_gap and position - last < quartet_gap
+        ),
+    )
+
+
 def _plan_level(
     rng: random.Random,
     *,
@@ -522,9 +644,11 @@ def _plan_level(
     category_ids: list[int],
     conflicts: dict[int, set[int]],
     cooling: set[int],
+    hot: _HotContent | None = None,
     category_count: int,
     meta_index: meta_pairs_mod.MetaIndex,
     meta_target: int,
+    index: level_solver.MembershipIndex | None = None,
     stats: dict[str, int] | None = None,
 ) -> tuple[list[GroupPlan], list[MetaLink]] | None:
     """Набирает состав уровня: сначала мета-ядро, потом обычные группы.
@@ -544,6 +668,7 @@ def _plan_level(
     sources: set[int] = set()
     consumers: set[int] = set()
     used_displays: set[str] = set()
+    hot = hot or _HotContent()
 
     def blocked(category_id: int) -> bool:
         if category_id in chosen:
@@ -570,6 +695,10 @@ def _plan_level(
             if stats is not None:
                 stats["четвёрок пропущено по повтору слова"] += 1
             return None
+        if hot.blocks(entry):
+            if stats is not None:
+                stats["четвёрок пропущено по перезарядке"] += 1
+            return None
         plan = _plan_from_entry(
             entry, display_label_id=display_label_id, display_label=display_label
         )
@@ -591,7 +720,11 @@ def _plan_level(
             consumer_id = consumer_entry["category_id"]
             if consumer_id in sources or consumer_id in cooling or blocked(consumer_id):
                 continue
-            pairs = list(meta_index.for_quartet(quartet_id))
+            pairs = [
+                pair
+                for pair in meta_index.for_quartet(quartet_id)
+                if _pair_pools_are_clean(pair, consumer_entry, by_category, index)
+            ]
             rng.shuffle(pairs)
             taken = _attach_sources(
                 rng, pairs,
@@ -605,6 +738,7 @@ def _plan_level(
                 links=links,
                 take=take,
                 blocked=blocked,
+                index=index,
                 category_count=category_count,
                 remaining=meta_target - len(links),
             )
@@ -627,13 +761,67 @@ def _plan_level(
             break
         if blocked(category_id):
             continue
-        entry = by_category[category_id][rng.randrange(len(by_category[category_id]))]
-        take(entry)
+        entries = by_category[category_id]
+        # Несколько попыток на правило: у категории обычно много четвёрок, и
+        # первая попавшаяся часто занята перезарядкой или уже занятым словом.
+        for _ in range(min(FILLER_TRIES_PER_RULE, len(entries))):
+            if take(entries[rng.randrange(len(entries))]) is not None:
+                break
 
     if len(chosen) < category_count:
         return None
     groups = [chosen[category_id] for category_id in sorted(chosen)]
     return groups, links
+
+
+def _pair_pools_are_clean(
+    pair: meta_pairs_mod.MetaPair,
+    consumer_entry: dict,
+    by_category: dict[int, list[dict]],
+    index: level_solver.MembershipIndex | None,
+) -> bool:
+    """Не тянет ли мета-пара за собой чужое слово.
+
+    Правила мета-пары близки по смыслу по построению: надпись одного является
+    словом другого. Поэтому их пулы пересекаются чаще обычного, и пересечение
+    приходит не в самой связи, а в соседнем слове. Замеренный случай: TURTLES
+    выпускает «turtles» для REPTILES, но в четвёрке TURTLES стоит `tortoise`,
+    который тянет в REPTILES сильнее (0.87 против 0.82). Solver такой уровень
+    отклоняет — правильно, но уже после сборки, и два уровня пакета из двадцати
+    уходили в брак по одной и той же паре.
+
+    Проверяются оба направления: слово источника, годное потребителю, и слово
+    потребителя, годное источнику. Сам мета-токен исключён — он и должен быть
+    словом потребителя.
+    """
+    if index is None:
+        return True
+    if not _entry_free_of(consumer_entry, pair.source_key, index, skip=pair.token_display):
+        return False
+    return any(
+        _entry_free_of(entry, pair.consumer_key, index)
+        for entry in by_category.get(pair.source_id, ())
+    )
+
+
+def _entry_free_of(
+    entry: dict,
+    rule_key: str,
+    index: level_solver.MembershipIndex,
+    *,
+    skip: str | None = None,
+) -> bool:
+    """Нет ли в четвёрке слова, которое годится и чужому правилу."""
+    return not any(
+        index.matches(
+            rule_key,
+            level_solver.Token(
+                word=display.strip().lower(), sense_key=sense or None, display=display
+            ),
+        )
+        for _w, _s, display, sense, _r in entry["tokens"]
+        if display != skip
+    )
 
 
 def _attach_sources(
@@ -650,6 +838,7 @@ def _attach_sources(
     links: list[MetaLink],
     take,
     blocked,
+    index: level_solver.MembershipIndex | None,
     category_count: int,
     remaining: int,
 ) -> bool:
@@ -684,7 +873,11 @@ def _attach_sources(
             if consumer_plan is None:
                 return False
         if already is None:
-            entries = by_category.get(source_id) or []
+            entries = [
+                entry
+                for entry in (by_category.get(source_id) or [])
+                if index is None or _entry_free_of(entry, pair.consumer_key, index)
+            ]
             source_plan = None
             for _ in range(min(4, len(entries))):
                 candidate = entries[rng.randrange(len(entries))]

@@ -32,6 +32,26 @@ TAIL_WINDOW = 5
 # Потолок доли мета-связей: больше половины групп в связке не встречается
 # и в записи (максимум — уровень 14: 6 связей на 10 категорий).
 MAX_META_SHARE = 0.6
+# Самый населённый уровень записи: 12 категорий (уровни 7, 8, 11, 12).
+MAX_RECORDED_CATEGORIES = 12
+
+# Профиль качества по номеру уровня. Границы полос сняты замером: средняя
+# знакомость слов записи по уровням падает с 0.691 на первом до 0.52-0.55 на
+# 14-17, и минимальная — с 0.569 (на первом уровне нет ни одного трудного
+# слова) до 0.19 на четвёртом.
+#
+#   уровни  1-3   avg 0.62-0.69  ->  easy_accessible (порог средней 0.64)
+#   уровни  4-13  avg 0.54-0.64  ->  accessible_fun  (порог средней 0.58)
+#   уровни 14+    avg 0.52-0.55  ->  hard_knowledge  (порог средней 0.42)
+#
+# Кривая записи не строго монотонна — на 18-20 знакомость снова растёт до 0.59.
+# Здесь она сделана монотонной сознательно: кампания идёт дальше двадцатого
+# уровня, а хвост записи снят частично (L18 — семь групп из одиннадцати).
+PROFILE_BANDS: tuple[tuple[int, str], ...] = (
+    (3, "easy_accessible"),
+    (13, "accessible_fun"),
+)
+LATE_PROFILE = "hard_knowledge"
 
 
 @dataclass(frozen=True)
@@ -47,6 +67,14 @@ class Composition:
     @property
     def recorded(self) -> bool:
         return self.source == "recorded"
+
+    @property
+    def profile(self) -> str:
+        """Профиль качества слов для этого номера уровня."""
+        for last_number, name in PROFILE_BANDS:
+            if self.number <= last_number:
+                return name
+        return LATE_PROFILE
 
     def meta_target(self, categories: int) -> int:
         """Сколько мета-связей просить, если категорий в уровне столько-то.
@@ -66,6 +94,7 @@ class Composition:
             "categories": self.categories,
             "meta_links": self.meta_links,
             "traps": self.traps,
+            "profile": self.profile,
             "source": self.source,
         }
 

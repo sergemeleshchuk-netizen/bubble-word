@@ -25,6 +25,7 @@ from . import (
     integrity,
     level_audit,
     level_generator,
+    level_pack,
     level_review,
     level_solver,
     meta_pairs,
@@ -1424,7 +1425,10 @@ def cmd_generate_level_candidates(
     db: DbOption,
     count: Annotated[int, typer.Option("--limit", help="Сколько уровней собрать")] = 5,
     categories: Annotated[
-        int, typer.Option("--categories", help="Категорий в уровне")
+        int,
+        typer.Option("--categories",
+                     help="Категорий в уровне. 0 — по записи оригинала: "
+                          "5 на первом уровне, 12 на седьмом, 7 на пятнадцатом"),
     ] = level_generator.DEFAULT_CATEGORY_COUNT,
     seed: Annotated[int, typer.Option("--seed", help="Зерно случайности")] = 20260731,
     tier: Annotated[str, typer.Option("--tier", help="normal или hard")] = "normal",
@@ -1433,7 +1437,9 @@ def cmd_generate_level_candidates(
     ] = None,
     profile: Annotated[
         str | None,
-        typer.Option("--profile", help="Профиль качества: easy_accessible / accessible_fun / hard_knowledge"),
+        typer.Option("--profile",
+                     help="Профиль качества: easy_accessible / accessible_fun / "
+                          "hard_knowledge, либо auto — по номеру уровня, как в записи"),
     ] = None,
     profiles_config: Annotated[
         Path | None, typer.Option("--profiles-config", help="Файл профилей генерации")
@@ -1459,6 +1465,12 @@ def cmd_generate_level_candidates(
                      help="Сколько мета-связей просить на уровень. "
                           "По умолчанию — профиль композиции по номеру уровня"),
     ] = None,
+    key_prefix: Annotated[
+        str,
+        typer.Option("--key-prefix",
+                     help="Префикс ключей уровней. Отдельный пакет под своим "
+                          "префиксом не затирается дымовым прогоном сборки"),
+    ] = "L",
     skip_reference_gate: Annotated[
         bool,
         typer.Option("--skip-reference-gate",
@@ -1489,7 +1501,8 @@ def cmd_generate_level_candidates(
             _fail(str(exc))
             return
         chosen_profile = None
-        if profile:
+        auto_profile = profile == "auto"
+        if profile and not auto_profile:
             try:
                 chosen_profile = profiles.get(profile, profiles_config)
             except profiles.flat_config.ConfigError as exc:
@@ -1498,7 +1511,7 @@ def cmd_generate_level_candidates(
         levels, stats = level_generator.generate(
             conn,
             count=count,
-            category_count=categories,
+            category_count=categories or None,
             seed=seed,
             tier=tier,
             target_difficulty=target,
@@ -1507,6 +1520,9 @@ def cmd_generate_level_candidates(
             rare_familiarity=scoring.load_config(None)["word_rare_familiarity"],
             use_meta=meta,
             meta_target=meta_links,
+            key_prefix=key_prefix,
+            auto_profile=auto_profile,
+            profiles_config=profiles_config,
         )
         saved = 0
         if not dry_run and levels:
@@ -2328,6 +2344,34 @@ def cmd_validate_meta(
     if broken:
         raise typer.Exit(code=1)
     typer.secho("\nМета-граф всех уровней проходим.", fg=typer.colors.GREEN)
+
+
+@app.command("export-level-pack")
+def cmd_export_level_pack(
+    db: DbOption,
+    output: Annotated[Path, typer.Option("--output", help="Файл пакета")],
+    prefix: Annotated[
+        str, typer.Option("--prefix", help="Префикс ключей уровней пакета")
+    ] = "L",
+) -> None:
+    """Выгружает уровни пакета в JSON: группы, надписи, мета-связи, состав.
+
+    Рядом с каждым уровнем кладётся состав записи оригинала того же номера —
+    расхождение обязано быть видно без пересчёта.
+    """
+    conn = _open(db)
+    try:
+        pack = level_pack.build(conn, prefix)
+    finally:
+        conn.close()
+    if not pack["levels"]:
+        _fail(f"уровней с префиксом {prefix!r} в базе нет")
+        return
+    written = level_pack.write(output, pack)
+    totals = pack["totals"]
+    typer.echo(f"Пакет: {written}")
+    for key, value in totals.items():
+        typer.echo(f"  {key}: {value}")
 
 
 @app.command("meta-pairs")

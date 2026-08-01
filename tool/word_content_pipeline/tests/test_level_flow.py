@@ -125,6 +125,30 @@ def test_quartet_candidates_are_scored_and_limited(flow_db):
     assert scored["origin"] == "derived"
 
 
+def test_same_word_in_two_forms_is_not_a_quartet(flow_db):
+    """`turtle` и `turtles` — два пузыря с одной надписью, а не четвёрка.
+
+    Формально это разные слова пула, на поле — выбор наугад между одинаковыми
+    надписями. Поймано на собранном пакете: уровень 7 вышел с REPTILES =
+    turtle, viper, boa, turtles.
+    """
+    assert quartet_builder._same_word_twice(("turtle", "viper", "boa", "turtles"))
+    assert quartet_builder._same_word_twice(("berry", "cake", "berries", "pie"))
+    assert quartet_builder._same_word_twice(("bus", "car", "buses", "van"))
+    assert not quartet_builder._same_word_twice(("glass", "grass", "sand", "clay"))
+    assert not quartet_builder._same_word_twice(("cat", "dog", "bird", "fish"))
+
+    built, stats = quartet_builder.build(flow_db, max_per_category=5)
+    assert built, "фикстура не собрала ни одной четвёрки"
+    assert "отклонено формой того же слова" in stats
+    assert not any(
+        quartet_builder._same_word_twice(
+            tuple(word.split("#")[0] for word in candidate.words)
+        )
+        for candidate in built
+    )
+
+
 def test_no_human_approved_state_on_quartets(flow_db):
     states = {row[0] for row in flow_db.execute("SELECT DISTINCT validation_state FROM quartets")}
     assert states <= {"proposed", "auto_validated", "warning", "invalid", "disabled"}

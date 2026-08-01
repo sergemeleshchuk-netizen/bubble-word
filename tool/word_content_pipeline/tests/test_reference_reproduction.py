@@ -644,6 +644,26 @@ def test_18b_meta_can_be_switched_off(db):
     assert all(not level.meta_links for level in levels)
 
 
+@requires_db
+def test_18c_generation_follows_the_recorded_composition(db):
+    """Без явного числа категорий уровень повторяет состав записи по номеру.
+
+    Пакет из двадцати уровней и должен быть повтором кривой оригинала: пять
+    категорий на первом, восемь на третьем, двенадцать на седьмом.
+    """
+    levels, _stats = level_generator.generate(
+        db, count=5, category_count=None, seed=101, key_prefix="TST"
+    )
+    assert [level.level_key for level in levels] == [
+        "TST001", "TST002", "TST003", "TST004", "TST005"
+    ]
+    assert [len(level.groups) for level in levels] == [
+        composition.for_level(number).categories for number in range(1, 6)
+    ]
+    # Мета в записи начинается с третьего уровня — и здесь тоже.
+    assert not levels[0].meta_links and not levels[1].meta_links
+
+
 def test_19_composition_profile_is_taken_from_the_recording(fixtures):
     """Профиль композиции — это запись, а не выдумка про кривую сложности."""
     recorded = composition.table()
@@ -665,6 +685,13 @@ def test_19_composition_profile_is_taken_from_the_recording(fixtures):
     beyond = composition.for_level(21)
     assert beyond.source == "extrapolated"
     assert beyond.categories == 10 and beyond.meta_links == 4
+
+    # Профиль качества по полосам: знакомость слов записи падает от уровня к
+    # уровню, и профиль идёт следом.
+    assert composition.for_level(1).profile == "easy_accessible"
+    assert composition.for_level(7).profile == "accessible_fun"
+    assert composition.for_level(17).profile == "hard_knowledge"
+    assert composition.for_level(30).profile == "hard_knowledge"
 
 
 def test_19b_meta_target_keeps_the_share_but_not_the_count():
