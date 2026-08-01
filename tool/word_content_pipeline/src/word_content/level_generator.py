@@ -290,6 +290,11 @@ def generate(
 
     rng = random.Random(seed)
     category_ids = sorted(by_category)
+    concept_by_category = {
+        category_id: entries[0]["concept_id"]
+        for category_id, entries in by_category.items()
+        if entries and entries[0]["concept_id"] is not None
+    }
     stats = {
         "профиль": profile.name if profile else "без профиля",
         **profile_stats,
@@ -316,7 +321,13 @@ def generate(
         candidate: LevelCandidate | None = None
         for attempt in range(MAX_ATTEMPTS_PER_LEVEL):
             stats["попыток"] += 1
-            chosen = _pick_categories(rng, category_ids, conflicts, category_count)
+            chosen = _pick_categories(
+                rng, category_ids, conflicts, category_count,
+                cooling=_cooling_categories(
+                    history, config, position=accepted_positions + number,
+                    concept_by_category=concept_by_category,
+                ),
+            )
             if chosen is None:
                 continue
             # Бюджет уровня тратится по мере набора групп: одно менее очевидное
@@ -400,20 +411,65 @@ def generate(
     return levels, stats
 
 
+def _cooling_categories(
+    history: cooldown_mod.UsageHistory,
+    config: dict[str, int],
+    *,
+    position: int,
+    concept_by_category: dict[int, int],
+) -> set[int]:
+    """Правила, которые сейчас нельзя брать: слишком недавно использовались.
+
+    Без этого множества генератор узнавал о перезарядке слишком поздно: он
+    собирал уровень целиком, прогонял solver и только потом выяснял, что одно
+    из восьми правил встречалось десять уровней назад. На сотом уровне почти
+    любая случайная восьмёрка содержала такое правило, сорок попыток
+    заканчивались ничем, и уровень сохранялся с нарушением. Замер: из 600
+    уровней проверки проходили 343, при этом solver у 161 из отклонённых писал
+    «разбиение единственное» — то есть уровни были правильные.
+    """
+    cooling: set[int] = set()
+    variant_gap = config.get("same_category_variant", 0)
+    concept_gap = config.get("same_category_concept", 0)
+    for category_id, last in history.category_variant.items():
+        if variant_gap and position - last < variant_gap:
+            cooling.add(category_id)
+    if concept_gap:
+        hot_concepts = {
+            concept_id
+            for concept_id, last in history.category_concept.items()
+            if position - last < concept_gap
+        }
+        cooling.update(
+            category_id
+            for category_id, concept_id in concept_by_category.items()
+            if concept_id in hot_concepts
+        )
+    return cooling
+
+
 def _pick_categories(
     rng: random.Random,
     category_ids: list[int],
     conflicts: dict[int, set[int]],
     category_count: int,
+    cooling: set[int] | None = None,
 ) -> list[int] | None:
-    """Выбирает непротиворечивый набор категорий.
+    """Выбирает непротиворечивый набор категорий, не берущий то, что на перезарядке.
 
     Конфликты — это предварительно посчитанные пары, чьи пулы пересекаются
     настолько, что четвёрка одной лежит в другой. Они ускоряют отбор, но
     не заменяют solver: неоднозначность бывает и при пересечении в одно слово.
+
+    Перезарядка отсеивается здесь, а не после сборки: проверять её постфактум
+    значит выбрасывать уже посчитанный solver'ом уровень.
     """
+    cooling = cooling or set()
     chosen: list[int] = []
-    pool = category_ids[:]
+    pool = [item for item in category_ids if item not in cooling]
+    if len(pool) < category_count:
+        # Свободных правил меньше, чем нужно: берём всё, пусть решает проверка.
+        pool = category_ids[:]
     rng.shuffle(pool)
     for category_id in pool:
         if any(category_id in conflicts.get(picked, ()) for picked in chosen):

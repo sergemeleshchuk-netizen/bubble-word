@@ -867,12 +867,24 @@ def cmd_build_quartets(
     category: Annotated[
         str | None, typer.Option("--category", help="Только одна категория")
     ] = None,
+    pool_cap: Annotated[
+        int,
+        typer.Option("--pool-cap",
+                     help="Сколько слов пула рассматривать. Больше — больше "
+                          "четвёрок и дольше перебор"),
+    ] = quartet_builder.CANDIDATE_POOL,
+    max_shared: Annotated[
+        int,
+        typer.Option("--max-shared",
+                     help="Сколько слов могут делить две четвёрки одного правила"),
+    ] = quartet_builder.MAX_SHARED_WORDS,
 ) -> None:
     """Собирает четвёрки из пулов и проверяет каждую solver'ом единственности."""
     conn = _open(db)
     try:
         built, stats = quartet_builder.build(
-            conn, max_per_category=per_category, only_category=category
+            conn, max_per_category=per_category, only_category=category,
+            candidate_pool=pool_cap, max_shared_words=max_shared,
         )
         rows = quartet_builder.to_rows(built)
         inserted = updated = skipped = 0
