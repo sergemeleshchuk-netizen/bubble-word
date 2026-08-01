@@ -1,115 +1,115 @@
 {
   "level_id": 18,
-  "difficulty_target": 6.5,
+  "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "ocean_animals",
-      "name": "OCEAN ANIMALS",
+      "id": "illnesses",
+      "name": "ILLNESSES",
       "words": [
-        "shark",
-        "crab",
-        "tuna",
-        "squid"
+        "cold",
+        "flu",
+        "asthma",
+        "diseases"
       ]
     },
     {
-      "id": "clothing_parts",
-      "name": "GARMENT PARTS",
+      "id": "board_games",
+      "name": "BOARD GAMES",
       "words": [
-        "pocket",
-        "sleeve",
-        "seam",
-        "hem"
+        "Life",
+        "battleship",
+        "checkers",
+        "cards"
       ]
     },
     {
-      "id": "field_trip_places",
-      "name": "FIELD TRIPS",
+      "id": "magic_words",
+      "name": "MAGIC SHOW",
       "words": [
-        "park",
-        "theater",
-        "zoo",
-        "capitol"
+        "assistant",
+        "illusion",
+        "wand",
+        "handcuffs"
       ]
     },
     {
-      "id": "eyewear",
-      "name": "EYEWEAR",
+      "id": "livestock",
+      "name": "LIVESTOCK",
       "words": [
-        "mask",
-        "contacts",
-        "frames",
-        "goggles"
+        "duck",
+        "rabbit",
+        "goat",
+        "geese"
       ]
     },
     {
-      "id": "pantry_staples",
-      "name": "PANTRY STAPLES",
+      "id": "hairstyles",
+      "name": "HAIRSTYLES",
       "words": [
-        "tea",
-        "rice",
-        "beans",
-        "pasta"
+        "bob",
+        "bangs",
+        "afro",
+        "braid"
       ]
     },
     {
-      "id": "pie_types",
-      "name": "PIE TYPES",
+      "id": "lighting",
+      "name": "LIGHTING",
       "words": [
-        "apple",
-        "peach",
-        "shepherds",
-        "custard"
+        "shade",
+        "candle",
+        "bulb",
+        "chandelier"
       ]
     },
     {
-      "id": "weapons_of_the_past",
-      "name": "OLD WEAPONS",
+      "id": "government_jobs",
+      "name": "GOVERNMENT JOBS",
       "words": [
-        "arrow",
-        "axe",
-        "mace",
-        "sling"
+        "official",
+        "senator",
+        "treasurer",
+        "delegate"
       ]
     },
     {
-      "id": "pet_supplies",
-      "name": "PET SUPPLIES",
+      "id": "bodies_of_water",
+      "name": "BODIES OF WATER",
       "words": [
-        "food",
-        "toy",
-        "cage",
-        "collar"
+        "lake",
+        "stream",
+        "gulf",
+        "pond"
       ]
     },
     {
-      "id": "vitamins_letters",
-      "name": "ALPHABET AND SYMBOLS",
+      "id": "natural_disasters",
+      "name": "NATURAL DISASTERS",
       "words": [
-        "percent",
-        "bullet",
-        "equals",
-        "hashtag"
+        "flood",
+        "earthquake",
+        "hurricane",
+        "drought"
       ]
     },
     {
-      "id": "lab_equipment",
-      "name": "LAB EQUIPMENT",
+      "id": "home_decor",
+      "name": "HOME DECOR",
       "words": [
-        "scale",
-        "magnet",
-        "burner",
-        "microscope"
+        "rug",
+        "furniture",
+        "lighting",
+        "colors"
       ]
     },
     {
-      "id": "racing_words",
-      "name": "MOTOR RACING",
+      "id": "the_mind",
+      "name": "THE MIND",
       "words": [
-        "driver",
-        "lap",
-        "qualifying",
-        "speedway"
+        "memory",
+        "reason",
+        "thought",
+        "focus"
       ]
     }
   ],
@@ -128,7 +128,14 @@
   "source": {
     "level_key": "TOP018",
     "pack": "TOP",
-    "meta_links": [],
+    "meta_links": [
+      {
+        "token": "lighting",
+        "source_group": "LIGHTING",
+        "target_group": "HOME DECOR",
+        "depth": 1
+      }
+    ],
     "recorded_move_limit": null
   }
 }

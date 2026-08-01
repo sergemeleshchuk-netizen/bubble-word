@@ -1,85 +1,85 @@
 {
   "level_id": 10,
-  "difficulty_target": 4.0,
+  "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "giving_and_taking",
-      "name": "GIVING AND TAKING",
+      "id": "greek_letters",
+      "name": "GREEK LETTERS",
       "words": [
-        "take",
-        "deliver",
-        "swap",
-        "lend"
+        "beta",
+        "pi",
+        "phi",
+        "sigma"
       ]
     },
     {
-      "id": "animal_homes",
-      "name": "ANIMAL HOMES",
+      "id": "reading_material",
+      "name": "READING MATTER",
       "words": [
-        "stable",
-        "warren",
-        "nest",
-        "hive"
+        "article",
+        "manual",
+        "recipe",
+        "diary"
       ]
     },
     {
-      "id": "senses_and_perception",
-      "name": "THE SENSES",
+      "id": "video_gaming",
+      "name": "GAMING SETUP",
       "words": [
-        "touch",
-        "balance",
-        "thirst",
-        "itch"
+        "monitor",
+        "disc",
+        "keyboard",
+        "microphone"
       ]
     },
     {
-      "id": "job_hunting",
-      "name": "JOB HUNTING",
+      "id": "initials_and_titles",
+      "name": "NAME PARTS",
       "words": [
-        "offer",
-        "application",
-        "interview",
-        "reference"
+        "senior",
+        "initial",
+        "surname",
+        "suffix"
       ]
     },
     {
-      "id": "landforms",
-      "name": "LANDFORMS",
+      "id": "facial_expressions",
+      "name": "FACIAL EXPRESSIONS",
       "words": [
-        "island",
-        "plain",
-        "summit",
-        "cave"
+        "smile",
+        "beam",
+        "blink",
+        "grin"
       ]
     },
     {
-      "id": "magazines",
-      "name": "MAGAZINE TYPES",
+      "id": "swimming_strokes",
+      "name": "SWIM STROKES",
       "words": [
-        "trade",
-        "fashion",
-        "comic",
-        "teen"
+        "distance",
+        "dive",
+        "sprint",
+        "butterfly"
       ]
     },
     {
-      "id": "olympic_sports",
-      "name": "OLYMPIC SPORTS",
+      "id": "painting_supplies",
+      "name": "PAINTING SUPPLIES",
       "words": [
-        "marathon",
-        "wrestling",
-        "gymnastics",
-        "hurdles"
+        "brush",
+        "roller",
+        "palette",
+        "thinner"
       ]
     },
     {
-      "id": "the_mind",
-      "name": "THE MIND",
+      "id": "boats",
+      "name": "BOATS AND SHIPS",
       "words": [
-        "emotion",
-        "intuition",
-        "logic",
-        "focus"
+        "ship",
+        "canoe",
+        "kayak",
+        "freighter"
       ]
     }
   ],

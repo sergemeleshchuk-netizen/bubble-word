@@ -1,65 +1,45 @@
 {
   "level_id": 17,
-  "difficulty_target": 7.5,
+  "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "illnesses",
-      "name": "ILLNESSES",
+      "id": "farm_bird_words",
+      "name": "POULTRY",
       "words": [
-        "cold",
-        "infection",
-        "fever",
-        "diabetes"
+        "turkey",
+        "goose",
+        "rooster",
+        "quail"
       ]
     },
     {
-      "id": "symptoms",
-      "name": "SYMPTOMS",
+      "id": "crafting_materials",
+      "name": "CRAFT MATERIALS",
       "words": [
-        "cough",
-        "swelling",
-        "nausea",
-        "chills"
+        "paint",
+        "clay",
+        "fabric",
+        "ribbon"
       ]
     },
     {
-      "id": "furniture",
-      "name": "FURNITURE",
+      "id": "legal_documents",
+      "name": "LEGAL DOCUMENTS",
       "words": [
-        "table",
-        "desk",
-        "sofa",
-        "wardrobe"
+        "license",
+        "certificate",
+        "patent",
+        "waiver"
       ]
     },
     {
-      "id": "lighting",
-      "name": "LIGHTING",
+      "id": "newspaper_parts",
+      "name": "NEWSPAPER PARTS",
       "words": [
-        "shade",
-        "spotlight",
-        "fixture",
-        "flashlight"
-      ]
-    },
-    {
-      "id": "people_who_help",
-      "name": "HELPING PROFESSIONS",
-      "words": [
-        "doctor",
-        "volunteer",
-        "interpreter",
-        "firefighter"
-      ]
-    },
-    {
-      "id": "people_in_a_story",
-      "name": "STORY CHARACTERS",
-      "words": [
-        "witness",
-        "detective",
-        "mentor",
-        "narrator"
+        "advice",
+        "weather",
+        "obituary",
+        "horoscope"
       ]
     },
     {
@@ -67,29 +47,19 @@
       "name": "INVENTIONS",
       "words": [
         "computer",
-        "internet",
-        "radio",
-        "camera"
-      ]
-    },
-    {
-      "id": "car_parts",
-      "name": "CAR PARTS",
-      "words": [
         "battery",
-        "wheel",
-        "trunk",
-        "exhaust"
+        "telephone",
+        "airplane"
       ]
     },
     {
-      "id": "wardrobe",
-      "name": "WARDROBE",
+      "id": "seasons",
+      "name": "SEASONS",
       "words": [
-        "closet",
-        "hats",
-        "footwear",
-        "accessories"
+        "fall",
+        "spring",
+        "summer",
+        "winter"
       ]
     },
     {
@@ -103,13 +73,43 @@
       ]
     },
     {
-      "id": "home_decor",
-      "name": "HOME DECOR",
+      "id": "farm_morning",
+      "name": "FARM",
       "words": [
-        "rug",
-        "furniture",
-        "lighting",
-        "colors"
+        "barn",
+        "tractor",
+        "livestock",
+        "poultry"
+      ]
+    },
+    {
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
+      "words": [
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
+      ]
+    },
+    {
+      "id": "meals_of_the_day",
+      "name": "MEALS OF THE DAY",
+      "words": [
+        "lunch",
+        "brunch",
+        "dessert",
+        "supper"
+      ]
+    },
+    {
+      "id": "salty_snacks",
+      "name": "SALTY SNACKS",
+      "words": [
+        "chips",
+        "crackers",
+        "peanut",
+        "popcorn"
       ]
     }
   ],
@@ -136,15 +136,15 @@
         "depth": 1
       },
       {
-        "token": "lighting",
-        "source_group": "LIGHTING",
-        "target_group": "HOME DECOR",
+        "token": "poultry",
+        "source_group": "POULTRY",
+        "target_group": "FARM",
         "depth": 1
       },
       {
-        "token": "wardrobe",
-        "source_group": "WARDROBE",
-        "target_group": "FURNITURE",
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
         "depth": 1
       }
     ],

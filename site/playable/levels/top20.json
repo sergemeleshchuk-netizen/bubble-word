@@ -1,15 +1,45 @@
 {
   "level_id": 20,
-  "difficulty_target": 6.0,
+  "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "shape_adjectives",
-      "name": "SHAPE ADJECTIVES",
+      "id": "symptoms",
+      "name": "SYMPTOMS",
       "words": [
-        "round",
-        "thick",
-        "oval",
-        "twisted"
+        "cough",
+        "rash",
+        "congestion",
+        "itching"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "art",
+        "health",
+        "history",
+        "music"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "table",
+        "desk",
+        "sofa",
+        "wardrobe"
+      ]
+    },
+    {
+      "id": "transport_jobs",
+      "name": "TRANSPORT JOBS",
+      "words": [
+        "captain",
+        "conductor",
+        "chauffeur",
+        "dispatcher"
       ]
     },
     {
@@ -23,63 +53,33 @@
       ]
     },
     {
-      "id": "natural_disasters",
-      "name": "NATURAL DISASTERS",
+      "id": "time_units",
+      "name": "UNITS OF TIME",
       "words": [
-        "drought",
-        "volcano",
-        "eruption",
-        "tsunami"
+        "century",
+        "minute",
+        "moment",
+        "year"
       ]
     },
     {
-      "id": "seeds_and_bulbs",
-      "name": "SEEDS AND BULBS",
+      "id": "emergency_room",
+      "name": "EMERGENCY ROOM",
       "words": [
-        "cutting",
-        "seed",
-        "pit",
-        "bulb"
+        "stretcher",
+        "injuries",
+        "symptoms",
+        "bones"
       ]
     },
     {
-      "id": "math_operations",
-      "name": "MATH OPERATIONS",
+      "id": "gardening_work",
+      "name": "GARDENING WORK",
       "words": [
-        "add",
-        "Square",
-        "sum",
-        "divide"
-      ]
-    },
-    {
-      "id": "seasons",
-      "name": "SEASONS",
-      "words": [
-        "fall",
-        "spring",
-        "summer",
-        "winter"
-      ]
-    },
-    {
-      "id": "weather_report",
-      "name": "WEATHER REPORT",
-      "words": [
-        "forecast",
-        "radar",
-        "storms",
-        "seasons"
-      ]
-    },
-    {
-      "id": "natural_wonders",
-      "name": "NATURAL WONDERS",
-      "words": [
-        "island",
-        "mountains",
-        "ocean",
-        "desert"
+        "compost",
+        "soil",
+        "watering",
+        "flowers"
       ]
     }
   ],
@@ -100,9 +100,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "seasons",
-        "source_group": "SEASONS",
-        "target_group": "WEATHER REPORT",
+        "token": "symptoms",
+        "source_group": "SYMPTOMS",
+        "target_group": "EMERGENCY ROOM",
         "depth": 1
       }
     ],

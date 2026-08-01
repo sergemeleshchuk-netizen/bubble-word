@@ -3,93 +3,113 @@
   "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "ocean_animals",
-      "name": "OCEAN ANIMALS",
+      "id": "meats",
+      "name": "MEATS",
       "words": [
-        "seal",
-        "shark",
-        "whale",
-        "turtle"
+        "turkey",
+        "chop",
+        "bologna",
+        "veal"
       ]
     },
     {
-      "id": "reptiles",
-      "name": "REPTILES",
+      "id": "collecting_hobbies",
+      "name": "COLLECTIBLES",
       "words": [
-        "python",
-        "viper",
-        "snakes",
-        "turtles"
+        "record",
+        "magnet",
+        "autograph",
+        "postcard"
       ]
     },
     {
-      "id": "reading_material",
-      "name": "READING MATTER",
+      "id": "kitchen_tools",
+      "name": "KITCHEN TOOLS",
       "words": [
-        "letter",
-        "poem",
-        "diary",
-        "textbook"
-      ]
-    },
-    {
-      "id": "legal_documents",
-      "name": "LEGAL DOCUMENTS",
-      "words": [
-        "will",
-        "patent",
-        "testament",
-        "subpoena"
+        "pan",
+        "fork",
+        "opener",
+        "timer"
       ]
     },
     {
       "id": "rights_and_freedoms",
       "name": "RIGHTS",
       "words": [
-        "vote",
         "speech",
-        "religion",
-        "assembly"
+        "appeal",
+        "protest",
+        "petition"
       ]
     },
     {
       "id": "punishments",
       "name": "PENALTIES",
       "words": [
-        "fine",
-        "suspension",
-        "curfew",
-        "forfeit"
+        "jail",
+        "warning",
+        "expulsion",
+        "curfew"
       ]
     },
     {
-      "id": "book_genres",
-      "name": "BOOK GENRES",
+      "id": "diseases",
+      "name": "DISEASES",
       "words": [
-        "history",
-        "humor",
-        "thriller",
-        "biography"
+        "cancer",
+        "pneumonia",
+        "malaria",
+        "arthritis"
       ]
     },
     {
-      "id": "feelings",
-      "name": "FEELINGS",
+      "id": "vending_machine_items",
+      "name": "VENDING MACHINE",
       "words": [
-        "sad",
-        "guilty",
-        "nervous",
-        "jealous"
+        "chips",
+        "sandwich",
+        "soda",
+        "mints"
       ]
     },
     {
-      "id": "seasons",
-      "name": "SEASONS",
+      "id": "navigation_tools",
+      "name": "NAVIGATION TOOLS",
       "words": [
-        "fall",
-        "spring",
-        "summer",
-        "winter"
+        "log",
+        "beacon",
+        "compass",
+        "sonar"
+      ]
+    },
+    {
+      "id": "metals",
+      "name": "METALS",
+      "words": [
+        "iron",
+        "titanium",
+        "cobalt",
+        "tungsten"
+      ]
+    },
+    {
+      "id": "adhesives",
+      "name": "GLUES AND TAPES",
+      "words": [
+        "cement",
+        "glue",
+        "mortar",
+        "epoxy"
+      ]
+    },
+    {
+      "id": "grocery_aisles",
+      "name": "GROCERY AISLES",
+      "words": [
+        "bakery",
+        "Frozen",
+        "meats",
+        "seafood"
       ]
     },
     {
@@ -100,26 +120,6 @@
         "testimony",
         "penalties",
         "rights"
-      ]
-    },
-    {
-      "id": "greeting_card",
-      "name": "GREETING CARD",
-      "words": [
-        "envelope",
-        "stamp",
-        "holidays",
-        "feelings"
-      ]
-    },
-    {
-      "id": "weather_report",
-      "name": "WEATHER REPORT",
-      "words": [
-        "forecast",
-        "radar",
-        "storms",
-        "seasons"
       ]
     }
   ],
@@ -140,9 +140,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "feelings",
-        "source_group": "FEELINGS",
-        "target_group": "GREETING CARD",
+        "token": "meats",
+        "source_group": "MEATS",
+        "target_group": "GROCERY AISLES",
         "depth": 1
       },
       {
@@ -155,12 +155,6 @@
         "token": "rights",
         "source_group": "RIGHTS",
         "target_group": "COURTROOM",
-        "depth": 1
-      },
-      {
-        "token": "seasons",
-        "source_group": "SEASONS",
-        "target_group": "WEATHER REPORT",
         "depth": 1
       }
     ],

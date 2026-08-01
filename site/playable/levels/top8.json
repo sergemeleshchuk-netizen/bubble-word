@@ -3,123 +3,123 @@
   "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "ways_of_moving",
-      "name": "WAYS OF MOVING",
+      "id": "ways_of_looking",
+      "name": "WAYS OF LOOKING",
       "words": [
-        "spring",
-        "jump",
-        "scramble",
-        "jog"
+        "peer",
+        "glance",
+        "gaze",
+        "inspect"
       ]
     },
     {
-      "id": "color_words_advanced",
-      "name": "SHADES OF COLOR",
+      "id": "ocean_animals",
+      "name": "OCEAN ANIMALS",
       "words": [
-        "coral",
-        "ivory",
-        "scarlet",
-        "charcoal"
+        "shark",
+        "crab",
+        "tuna",
+        "squid"
       ]
     },
     {
-      "id": "livestock",
-      "name": "LIVESTOCK",
+      "id": "internal_organs",
+      "name": "INTERNAL ORGANS",
       "words": [
-        "sheep",
-        "cow",
-        "pig",
-        "geese"
+        "heart",
+        "thyroid",
+        "gland",
+        "pancreas"
       ]
     },
     {
-      "id": "building_trades",
-      "name": "BUILDING TRADES",
+      "id": "symptoms",
+      "name": "SYMPTOMS",
       "words": [
-        "mason",
-        "foreman",
-        "architect",
-        "plumber"
+        "fever",
+        "headache",
+        "cough",
+        "fatigue"
       ]
     },
     {
-      "id": "government_jobs",
-      "name": "GOVERNMENT JOBS",
+      "id": "clothing_parts",
+      "name": "GARMENT PARTS",
       "words": [
-        "president",
-        "mayor",
-        "senator",
-        "commissioner"
+        "button",
+        "collar",
+        "sleeve",
+        "lining"
       ]
     },
     {
-      "id": "famous_job_titles",
-      "name": "LEADERSHIP TITLES",
+      "id": "furniture",
+      "name": "FURNITURE",
       "words": [
-        "chief",
-        "manager",
-        "chairman",
-        "commander"
+        "table",
+        "desk",
+        "sofa",
+        "wardrobe"
       ]
     },
     {
-      "id": "places_to_eat",
-      "name": "PLACES TO EAT",
+      "id": "trees",
+      "name": "TREES",
       "words": [
-        "pub",
-        "cafe",
-        "cafeteria",
-        "deli"
+        "cherry",
+        "oak",
+        "walnut",
+        "chestnut"
       ]
     },
     {
-      "id": "colors",
-      "name": "COLORS",
+      "id": "martial_arts",
+      "name": "MARTIAL ARTS",
       "words": [
-        "red",
-        "purple",
-        "crimson",
-        "maroon"
+        "boxing",
+        "wrestling",
+        "fencing",
+        "karate"
       ]
     },
     {
-      "id": "metals",
-      "name": "METALS",
+      "id": "parts_of_a_bike",
+      "name": "BICYCLE PARTS",
       "words": [
-        "iron",
-        "titanium",
-        "cobalt",
-        "tungsten"
+        "spoke",
+        "wheel",
+        "rim",
+        "pedal"
       ]
     },
     {
-      "id": "dance_moves",
-      "name": "DANCE MOVES",
+      "id": "emergency_room",
+      "name": "EMERGENCY ROOM",
       "words": [
-        "kick",
-        "spin",
-        "robot",
-        "hustle"
+        "stretcher",
+        "injuries",
+        "symptoms",
+        "bones"
       ]
     },
     {
-      "id": "time_units",
-      "name": "UNITS OF TIME",
+      "id": "natural_wonders",
+      "name": "NATURAL WONDERS",
       "words": [
-        "century",
-        "month",
-        "week",
-        "instant"
+        "island",
+        "mountains",
+        "ocean",
+        "desert"
       ]
     },
     {
-      "id": "birthday_party",
-      "name": "BIRTHDAY PARTY",
+      "id": "tickets_and_passes",
+      "name": "TICKETS AND PASSES",
       "words": [
-        "gift",
-        "wish",
-        "balloon",
-        "candles"
+        "entry",
+        "pass",
+        "fare",
+        "admission"
       ]
     }
   ],
@@ -138,7 +138,14 @@
   "source": {
     "level_key": "TOP008",
     "pack": "TOP",
-    "meta_links": [],
+    "meta_links": [
+      {
+        "token": "symptoms",
+        "source_group": "SYMPTOMS",
+        "target_group": "EMERGENCY ROOM",
+        "depth": 1
+      }
+    ],
     "recorded_move_limit": 44
   }
 }

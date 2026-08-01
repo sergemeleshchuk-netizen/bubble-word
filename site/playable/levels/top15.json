@@ -1,35 +1,45 @@
 {
   "level_id": 15,
-  "difficulty_target": 4.0,
+  "difficulty_target": 6.0,
   "categories": [
     {
-      "id": "senses_and_perception",
-      "name": "THE SENSES",
+      "id": "weather_adjectives",
+      "name": "WEATHER ADJECTIVES",
       "words": [
-        "pressure",
-        "balance",
-        "sight",
-        "smell"
+        "clear",
+        "rainy",
+        "windy",
+        "icy"
       ]
     },
     {
-      "id": "movie_genres",
-      "name": "MOVIE GENRES",
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
       "words": [
-        "western",
-        "thriller",
-        "noir",
-        "biopic"
+        "letter",
+        "number",
+        "sound",
+        "shape"
       ]
     },
     {
-      "id": "fashion_styles",
-      "name": "FASHION STYLES",
+      "id": "fast_food_items",
+      "name": "DRIVE THRU",
       "words": [
-        "punk",
-        "vintage",
-        "bohemian",
-        "sporty"
+        "sub",
+        "soda",
+        "chili",
+        "biscuit"
+      ]
+    },
+    {
+      "id": "building_trades",
+      "name": "BUILDING TRADES",
+      "words": [
+        "mason",
+        "contractor",
+        "painter",
+        "carpenter"
       ]
     },
     {
@@ -43,13 +53,13 @@
       ]
     },
     {
-      "id": "feelings",
-      "name": "FEELINGS",
+      "id": "gymnastics_events",
+      "name": "GYMNASTICS EVENTS",
       "words": [
-        "surprised",
-        "curious",
-        "lonely",
-        "frustrated"
+        "split",
+        "rings",
+        "vault",
+        "tumbling"
       ]
     },
     {
@@ -60,16 +70,6 @@
         "jury",
         "crimes",
         "rights"
-      ]
-    },
-    {
-      "id": "personality_traits",
-      "name": "PERSONALITY TRAITS",
-      "words": [
-        "kind",
-        "loyal",
-        "polite",
-        "shy"
       ]
     }
   ],

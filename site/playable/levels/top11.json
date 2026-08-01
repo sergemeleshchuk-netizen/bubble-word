@@ -3,63 +3,43 @@
   "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "shape_adjectives",
-      "name": "SHAPE ADJECTIVES",
+      "id": "hats",
+      "name": "HATS",
       "words": [
-        "straight",
-        "flat",
-        "thick",
-        "smooth"
+        "crown",
+        "helmet",
+        "bonnet",
+        "fedora"
       ]
     },
     {
-      "id": "magic_words",
-      "name": "MAGIC SHOW",
+      "id": "fabrics",
+      "name": "FABRICS",
       "words": [
-        "box",
-        "illusion",
-        "dove",
-        "scarf"
-      ]
-    },
-    {
-      "id": "crafting_materials",
-      "name": "CRAFT MATERIALS",
-      "words": [
-        "paint",
-        "clay",
-        "fabric",
-        "ribbon"
+        "canvas",
+        "lace",
+        "linen",
+        "suede"
       ]
     },
     {
       "id": "parts_of_a_house",
       "name": "HOUSE PARTS",
       "words": [
-        "floor",
-        "deck",
-        "ceiling",
+        "foundation",
+        "window",
+        "threshold",
         "porch"
       ]
     },
     {
-      "id": "office_jobs",
-      "name": "OFFICE JOBS",
+      "id": "military_branches",
+      "name": "MILITARY BRANCHES",
       "words": [
-        "manager",
-        "secretary",
-        "assistant",
-        "consultant"
-      ]
-    },
-    {
-      "id": "sports_jobs",
-      "name": "SPORTS JOBS",
-      "words": [
-        "coach",
-        "trainer",
-        "scout",
-        "referee"
+        "navy",
+        "infantry",
+        "militia",
+        "cavalry"
       ]
     },
     {
@@ -67,49 +47,59 @@
       "name": "PENALTIES",
       "words": [
         "jail",
-        "warning",
-        "expulsion",
-        "curfew"
+        "penalty",
+        "suspension",
+        "probation"
       ]
     },
     {
-      "id": "vending_machine_items",
-      "name": "VENDING MACHINE",
+      "id": "rooms_in_public_buildings",
+      "name": "PUBLIC ROOMS",
       "words": [
-        "chips",
-        "sandwich",
-        "soda",
-        "mints"
+        "gallery",
+        "elevator",
+        "corridor",
+        "foyer"
       ]
     },
     {
-      "id": "rocks_and_minerals",
-      "name": "ROCKS AND MINERALS",
+      "id": "places_to_eat",
+      "name": "PLACES TO EAT",
       "words": [
-        "salt",
-        "shale",
-        "sandstone",
-        "pebble"
+        "pub",
+        "cafe",
+        "cafeteria",
+        "deli"
       ]
     },
     {
-      "id": "ocean_zones",
-      "name": "SHORE FEATURES",
+      "id": "songbirds",
+      "name": "SONGBIRDS",
       "words": [
-        "current",
-        "reef",
-        "cove",
-        "lagoon"
+        "robin",
+        "cardinal",
+        "swallow",
+        "finch"
       ]
     },
     {
-      "id": "math_operations",
-      "name": "MATH OPERATIONS",
+      "id": "pond_fish",
+      "name": "FRESHWATER FISH",
       "words": [
-        "double",
-        "Square",
-        "estimate",
-        "calculate"
+        "bass",
+        "trout",
+        "pike",
+        "koi"
+      ]
+    },
+    {
+      "id": "locksmith_words",
+      "name": "LOCKS & KEYS",
+      "words": [
+        "key",
+        "combination",
+        "lock",
+        "bolt"
       ]
     },
     {
@@ -120,6 +110,16 @@
         "subpoena",
         "jury",
         "penalties"
+      ]
+    },
+    {
+      "id": "wellness",
+      "name": "WELLNESS",
+      "words": [
+        "balance",
+        "diet",
+        "meditation",
+        "yoga"
       ]
     }
   ],

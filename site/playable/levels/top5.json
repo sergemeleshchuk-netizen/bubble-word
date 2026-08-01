@@ -1,115 +1,115 @@
 {
   "level_id": 5,
-  "difficulty_target": 8.0,
+  "difficulty_target": 6.0,
   "categories": [
     {
-      "id": "giving_and_taking",
-      "name": "GIVING AND TAKING",
+      "id": "extinct_animals",
+      "name": "EXTINCT ANIMALS",
       "words": [
-        "buy",
-        "collect",
-        "donate",
-        "swap"
+        "bones",
+        "dinosaur",
+        "mammoth",
+        "raptor"
       ]
     },
     {
-      "id": "hats",
-      "name": "HATS",
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
       "words": [
-        "crown",
-        "helmet",
-        "bonnet",
-        "fedora"
+        "health",
+        "science",
+        "drama",
+        "literature"
       ]
     },
     {
-      "id": "laundry_care",
-      "name": "LAUNDRY CARE",
+      "id": "comic_words",
+      "name": "COMIC BOOKS",
       "words": [
-        "press",
-        "sort",
-        "dry",
-        "iron"
+        "cover",
+        "issue",
+        "series",
+        "artist"
       ]
     },
     {
-      "id": "gym_class_things",
-      "name": "GYM CLASS",
+      "id": "monsters",
+      "name": "SCARY CREATURES",
       "words": [
-        "uniform",
-        "locker",
-        "parachute",
-        "scoreboard"
+        "monster",
+        "ghost",
+        "witch",
+        "demon"
       ]
     },
     {
-      "id": "bags",
-      "name": "BAGS AND CASES",
+      "id": "feelings",
+      "name": "FEELINGS",
       "words": [
-        "wallet",
-        "backpack",
-        "suitcase",
-        "tote"
+        "sad",
+        "surprised",
+        "angry",
+        "scared"
       ]
     },
     {
-      "id": "things_that_plug_in",
-      "name": "PLUGGED IN",
+      "id": "inventions",
+      "name": "INVENTIONS",
       "words": [
-        "television",
-        "clock",
-        "vacuum",
-        "heater"
+        "internet",
+        "wheel",
+        "vaccine",
+        "elevator"
       ]
     },
     {
-      "id": "lighting",
-      "name": "LIGHTING",
+      "id": "seasons",
+      "name": "SEASONS",
       "words": [
-        "shade",
-        "candle",
-        "bulb",
-        "chandelier"
+        "fall",
+        "spring",
+        "summer",
+        "winter"
       ]
     },
     {
-      "id": "military_things",
-      "name": "MILITARY EQUIPMENT",
+      "id": "science_fair",
+      "name": "SCIENCE FAIR",
       "words": [
-        "tank",
-        "bunker",
-        "canteen",
-        "ration"
+        "poster",
+        "hypothesis",
+        "volcanoes",
+        "inventions"
       ]
     },
     {
-      "id": "social_media_words",
-      "name": "SOCIAL MEDIA",
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
       "words": [
-        "message",
-        "share",
-        "comment",
-        "filter"
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
       ]
     },
     {
-      "id": "wardrobe",
-      "name": "WARDROBE",
+      "id": "meals_of_the_day",
+      "name": "MEALS OF THE DAY",
       "words": [
-        "closet",
-        "hats",
-        "footwear",
-        "accessories"
+        "lunch",
+        "brunch",
+        "dessert",
+        "supper"
       ]
     },
     {
-      "id": "home_decor",
-      "name": "HOME DECOR",
+      "id": "personality_traits",
+      "name": "PERSONALITY TRAITS",
       "words": [
-        "rug",
-        "furniture",
-        "lighting",
-        "colors"
+        "kind",
+        "loyal",
+        "polite",
+        "shy"
       ]
     }
   ],
@@ -130,15 +130,15 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "hats",
-        "source_group": "HATS",
-        "target_group": "WARDROBE",
+        "token": "inventions",
+        "source_group": "INVENTIONS",
+        "target_group": "SCIENCE FAIR",
         "depth": 1
       },
       {
-        "token": "lighting",
-        "source_group": "LIGHTING",
-        "target_group": "HOME DECOR",
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
         "depth": 1
       }
     ],

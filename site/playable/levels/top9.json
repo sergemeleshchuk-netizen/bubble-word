@@ -1,105 +1,105 @@
 {
   "level_id": 9,
-  "difficulty_target": 5.5,
+  "difficulty_target": 6.0,
   "categories": [
     {
-      "id": "body_parts",
-      "name": "BODY PARTS",
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
       "words": [
-        "head",
-        "neck",
-        "finger",
-        "stomach"
+        "pain",
+        "smell",
+        "hunger",
+        "itch"
       ]
     },
     {
-      "id": "internal_organs",
-      "name": "INTERNAL ORGANS",
+      "id": "string_instruments",
+      "name": "STRING INSTRUMENTS",
       "words": [
-        "heart",
-        "colon",
-        "marrow",
-        "appendix"
+        "guitar",
+        "fiddle",
+        "harp",
+        "banjo"
       ]
     },
     {
-      "id": "hand_parts",
-      "name": "HAND PARTS",
+      "id": "breakfast_foods",
+      "name": "BREAKFAST FOODS",
       "words": [
-        "joint",
-        "thumb",
-        "tendon",
-        "knuckle"
+        "egg",
+        "bacon",
+        "danish",
+        "cereal"
       ]
     },
     {
-      "id": "clothing_parts",
-      "name": "GARMENT PARTS",
+      "id": "science_jobs",
+      "name": "SCIENCE JOBS",
       "words": [
-        "hood",
-        "sleeve",
-        "strap",
-        "cuff"
+        "engineer",
+        "chemist",
+        "physicist",
+        "biologist"
       ]
     },
     {
-      "id": "music_practice",
-      "name": "MUSIC PRACTICE",
+      "id": "game_shows",
+      "name": "GAME SHOWS",
       "words": [
-        "pick",
-        "bow",
-        "mute",
-        "amplifier"
+        "round",
+        "audience",
+        "podium",
+        "contestant"
       ]
     },
     {
-      "id": "furniture",
-      "name": "FURNITURE",
+      "id": "garden_bugs",
+      "name": "GARDEN BUGS",
       "words": [
-        "bed",
-        "wardrobe",
-        "vanity",
-        "stool"
+        "spider",
+        "ant",
+        "caterpillar",
+        "grub"
       ]
     },
     {
-      "id": "medical_jobs",
-      "name": "MEDICAL JOBS",
+      "id": "titles_of_address",
+      "name": "TITLES",
       "words": [
-        "nurse",
-        "vet",
-        "orderly",
-        "pharmacist"
+        "miss",
+        "sergeant",
+        "reverend",
+        "madam"
       ]
     },
     {
-      "id": "school_jobs",
-      "name": "SCHOOL JOBS",
+      "id": "feelings",
+      "name": "FEELINGS",
       "words": [
-        "professor",
-        "registrar",
-        "janitor",
-        "custodian"
+        "content",
+        "tired",
+        "curious",
+        "nervous"
       ]
     },
     {
-      "id": "diving_gear",
-      "name": "DIVING GEAR",
+      "id": "pet_store",
+      "name": "PET STORE",
       "words": [
-        "mask",
-        "gloves",
-        "compass",
-        "regulator"
+        "pets",
+        "leash",
+        "cage",
+        "birds"
       ]
     },
     {
-      "id": "places_of_worship",
-      "name": "PLACES OF WORSHIP",
+      "id": "greeting_card",
+      "name": "GREETING CARD",
       "words": [
-        "temple",
-        "sanctuary",
-        "shrine",
-        "synagogue"
+        "envelope",
+        "stamp",
+        "holidays",
+        "feelings"
       ]
     }
   ],
@@ -118,7 +118,14 @@
   "source": {
     "level_key": "TOP009",
     "pack": "TOP",
-    "meta_links": [],
+    "meta_links": [
+      {
+        "token": "feelings",
+        "source_group": "FEELINGS",
+        "target_group": "GREETING CARD",
+        "depth": 1
+      }
+    ],
     "recorded_move_limit": 45
   }
 }

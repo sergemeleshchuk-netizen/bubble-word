@@ -3,83 +3,83 @@
   "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "gym_class_things",
-      "name": "GYM CLASS",
+      "id": "animal_coverings",
+      "name": "ANIMAL COVERINGS",
       "words": [
-        "net",
-        "mat",
-        "hoop",
-        "scoreboard"
+        "down",
+        "spine",
+        "wool",
+        "plume"
       ]
     },
     {
-      "id": "dance_class",
-      "name": "DANCE CLASS",
+      "id": "internal_organs",
+      "name": "INTERNAL ORGANS",
       "words": [
-        "spin",
-        "routine",
-        "tights",
-        "barre"
+        "brain",
+        "vein",
+        "womb",
+        "thyroid"
       ]
     },
     {
-      "id": "furniture",
-      "name": "FURNITURE",
+      "id": "clothing_parts",
+      "name": "GARMENT PARTS",
       "words": [
-        "cabinet",
-        "bench",
-        "wardrobe",
-        "crib"
+        "pocket",
+        "sleeve",
+        "seam",
+        "hem"
       ]
     },
     {
-      "id": "law_jobs",
-      "name": "LAW JOBS",
+      "id": "shoe_parts",
+      "name": "SHOE PARTS",
       "words": [
-        "judge",
-        "marshal",
-        "mediator",
-        "notary"
+        "upper",
+        "tongue",
+        "sole",
+        "toe"
       ]
     },
     {
-      "id": "game_shows",
-      "name": "GAME SHOWS",
+      "id": "fashion_styles",
+      "name": "FASHION STYLES",
       "words": [
-        "board",
-        "category",
-        "jackpot",
-        "contestant"
+        "punk",
+        "vintage",
+        "bohemian",
+        "sporty"
       ]
     },
     {
-      "id": "inventions",
-      "name": "INVENTIONS",
+      "id": "pie_types",
+      "name": "PIE TYPES",
       "words": [
-        "camera",
-        "television",
-        "telephone",
-        "vaccine"
+        "apple",
+        "peach",
+        "shepherds",
+        "custard"
       ]
     },
     {
-      "id": "gymnastics_events",
-      "name": "GYMNASTICS EVENTS",
+      "id": "seeds_and_bulbs",
+      "name": "SEEDS AND BULBS",
       "words": [
-        "split",
-        "rings",
-        "vault",
-        "tumbling"
+        "cutting",
+        "seed",
+        "pit",
+        "bulb"
       ]
     },
     {
-      "id": "car_parts",
-      "name": "CAR PARTS",
+      "id": "places_of_worship",
+      "name": "PLACES OF WORSHIP",
       "words": [
-        "engine",
-        "bumper",
-        "fender",
-        "windshield"
+        "temple",
+        "abbey",
+        "monastery",
+        "basilica"
       ]
     }
   ],

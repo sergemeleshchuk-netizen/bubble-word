@@ -3,73 +3,83 @@
   "difficulty_target": 6.0,
   "categories": [
     {
-      "id": "giving_and_taking",
-      "name": "GIVING AND TAKING",
+      "id": "animal_coverings",
+      "name": "ANIMAL COVERINGS",
       "words": [
-        "give",
-        "trade",
-        "receive",
-        "borrow"
+        "skin",
+        "hide",
+        "feather",
+        "plume"
       ]
     },
     {
-      "id": "animal_babies",
-      "name": "BABY ANIMALS",
+      "id": "fabrics",
+      "name": "FABRICS",
       "words": [
-        "chick",
-        "joey",
-        "calf",
-        "colt"
+        "cotton",
+        "wool",
+        "linen",
+        "nylon"
       ]
     },
     {
-      "id": "farm_bird_words",
-      "name": "POULTRY",
+      "id": "fantasy_creatures",
+      "name": "MYTHICAL CREATURES",
+      "words": [
+        "phoenix",
+        "griffin",
+        "elf",
+        "mermaid"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "MEATS",
       "words": [
         "turkey",
-        "goose",
-        "rooster",
-        "quail"
+        "chop",
+        "bologna",
+        "veal"
+      ]
+    },
+    {
+      "id": "emergency_jobs",
+      "name": "EMERGENCY JOBS",
+      "words": [
+        "deputy",
+        "Ranger",
+        "firefighter",
+        "paramedic"
       ]
     },
     {
       "id": "rights_and_freedoms",
       "name": "RIGHTS",
       "words": [
-        "vote",
-        "speech",
+        "trial",
         "religion",
-        "assembly"
+        "petition",
+        "counsel"
       ]
     },
     {
       "id": "punishments",
       "name": "PENALTIES",
       "words": [
-        "jail",
-        "penalty",
-        "suspension",
-        "probation"
+        "fine",
+        "warning",
+        "ban",
+        "penalty"
       ]
     },
     {
-      "id": "feelings",
-      "name": "FEELINGS",
+      "id": "grocery_aisles",
+      "name": "GROCERY AISLES",
       "words": [
-        "content",
-        "happy",
-        "sad",
-        "proud"
-      ]
-    },
-    {
-      "id": "social_media_words",
-      "name": "SOCIAL MEDIA",
-      "words": [
-        "share",
-        "profile",
-        "thread",
-        "viral"
+        "bakery",
+        "Frozen",
+        "meats",
+        "seafood"
       ]
     },
     {
@@ -80,16 +90,6 @@
         "testimony",
         "penalties",
         "rights"
-      ]
-    },
-    {
-      "id": "greeting_card",
-      "name": "GREETING CARD",
-      "words": [
-        "envelope",
-        "stamp",
-        "holidays",
-        "feelings"
       ]
     }
   ],
@@ -110,9 +110,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "feelings",
-        "source_group": "FEELINGS",
-        "target_group": "GREETING CARD",
+        "token": "meats",
+        "source_group": "MEATS",
+        "target_group": "GROCERY AISLES",
         "depth": 1
       },
       {

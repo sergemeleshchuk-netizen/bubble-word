@@ -1,85 +1,85 @@
 {
   "level_id": 3,
-  "difficulty_target": 6.0,
+  "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "animal_coverings",
-      "name": "ANIMAL COVERINGS",
+      "id": "art_forms",
+      "name": "ART FORMS",
       "words": [
-        "skin",
-        "hide",
-        "feather",
-        "plume"
+        "film",
+        "photography",
+        "weaving",
+        "collage"
       ]
     },
     {
-      "id": "farm_buildings",
-      "name": "FARM BUILDINGS",
+      "id": "photography_hobby",
+      "name": "PHOTOGRAPHY GEAR",
       "words": [
-        "pen",
-        "dairy",
-        "farmhouse",
-        "coop"
+        "battery",
+        "hood",
+        "strap",
+        "backdrop"
       ]
     },
     {
-      "id": "meats",
-      "name": "MEATS",
+      "id": "medical_procedures",
+      "name": "MEDICAL PROCEDURES",
       "words": [
-        "turkey",
-        "chop",
-        "bologna",
-        "veal"
+        "therapy",
+        "injection",
+        "transplant",
+        "ultrasound"
       ]
     },
     {
-      "id": "video_gaming",
-      "name": "GAMING SETUP",
+      "id": "crimes",
+      "name": "CRIMES",
       "words": [
-        "cable",
-        "controller",
-        "keyboard",
-        "headset"
+        "fraud",
+        "theft",
+        "kidnapping",
+        "speeding"
       ]
     },
     {
-      "id": "furniture",
-      "name": "FURNITURE",
+      "id": "parts_of_a_bike",
+      "name": "BICYCLE PARTS",
       "words": [
-        "chair",
-        "desk",
-        "vanity",
-        "crib"
+        "seat",
+        "fork",
+        "rim",
+        "saddle"
       ]
     },
     {
-      "id": "fabric_types",
-      "name": "FABRIC TYPES",
+      "id": "courtroom",
+      "name": "COURTROOM",
       "words": [
-        "terry",
-        "wool",
-        "velvet",
-        "linen"
+        "verdict",
+        "jury",
+        "crimes",
+        "rights"
       ]
     },
     {
-      "id": "feelings",
-      "name": "FEELINGS",
+      "id": "hall_of_fame",
+      "name": "HALL OF FAME",
       "words": [
-        "content",
-        "happy",
-        "sad",
-        "proud"
+        "plaque",
+        "legend",
+        "awards",
+        "bust"
       ]
     },
     {
-      "id": "grocery_aisles",
-      "name": "GROCERY AISLES",
+      "id": "tickets_and_passes",
+      "name": "TICKETS AND PASSES",
       "words": [
-        "bakery",
-        "Frozen",
-        "meats",
-        "seafood"
+        "pass",
+        "receipt",
+        "stub",
+        "voucher"
       ]
     }
   ],
@@ -100,9 +100,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "meats",
-        "source_group": "MEATS",
-        "target_group": "GROCERY AISLES",
+        "token": "crimes",
+        "source_group": "CRIMES",
+        "target_group": "COURTROOM",
         "depth": 1
       }
     ],

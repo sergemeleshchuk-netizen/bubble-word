@@ -1,115 +1,115 @@
 {
   "level_id": 6,
-  "difficulty_target": 6.0,
+  "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "theater_arts",
-      "name": "PERFORMING ARTS",
+      "id": "gym_class_things",
+      "name": "GYM CLASS",
       "words": [
-        "play",
-        "recital",
-        "improv",
-        "mime"
-      ]
-    },
-    {
-      "id": "symptoms",
-      "name": "SYMPTOMS",
-      "words": [
-        "fever",
-        "congestion",
-        "nausea",
-        "ache"
-      ]
-    },
-    {
-      "id": "school_subjects",
-      "name": "SCHOOL SUBJECTS",
-      "words": [
-        "health",
-        "science",
-        "drama",
-        "literature"
+        "uniform",
+        "locker",
+        "parachute",
+        "scoreboard"
       ]
     },
     {
       "id": "movie_genres",
       "name": "MOVIE GENRES",
       "words": [
-        "action",
-        "comedy",
-        "adventure",
-        "documentary"
+        "war",
+        "documentary",
+        "romance",
+        "animation"
       ]
     },
     {
-      "id": "directions",
-      "name": "DIRECTIONS",
+      "id": "video_gaming",
+      "name": "GAMING SETUP",
       "words": [
-        "north",
-        "over",
-        "south",
-        "through"
+        "monitor",
+        "mouse",
+        "headset",
+        "webcam"
       ]
     },
     {
-      "id": "transportation_history",
-      "name": "HISTORIC TRANSPORT",
+      "id": "parts_of_a_house",
+      "name": "HOUSE PARTS",
       "words": [
-        "foot",
-        "wagon",
-        "carriage",
-        "camel"
+        "wall",
+        "window",
+        "column",
+        "ceiling"
       ]
     },
     {
-      "id": "family_members",
-      "name": "FAMILY MEMBERS",
+      "id": "lighting",
+      "name": "LIGHTING",
       "words": [
-        "child",
-        "daughter",
-        "sister",
-        "uncle"
+        "shade",
+        "candle",
+        "bulb",
+        "chandelier"
       ]
     },
     {
-      "id": "life_stages",
-      "name": "STAGES OF LIFE",
+      "id": "ocean_zones",
+      "name": "SHORE FEATURES",
       "words": [
-        "senior",
-        "adult",
-        "toddler",
-        "teen"
+        "bay",
+        "tide",
+        "cove",
+        "inlet"
       ]
     },
     {
-      "id": "car_parts",
-      "name": "CAR PARTS",
+      "id": "rooms_in_public_buildings",
+      "name": "PUBLIC ROOMS",
       "words": [
-        "door",
-        "fender",
-        "dashboard",
-        "radiator"
+        "office",
+        "corridor",
+        "cafeteria",
+        "restroom"
       ]
     },
     {
-      "id": "boats",
-      "name": "BOATS AND SHIPS",
+      "id": "religious_leaders",
+      "name": "RELIGIOUS LEADERS",
       "words": [
-        "ship",
-        "canoe",
-        "kayak",
-        "freighter"
+        "bishop",
+        "monk",
+        "cardinal",
+        "missionary"
       ]
     },
     {
-      "id": "emergency_room",
-      "name": "EMERGENCY ROOM",
+      "id": "gadgets",
+      "name": "GADGETS",
       "words": [
-        "stretcher",
-        "injuries",
-        "symptoms",
-        "bones"
+        "phone",
+        "scanner",
+        "doorbell",
+        "earbuds"
+      ]
+    },
+    {
+      "id": "home_decor",
+      "name": "HOME DECOR",
+      "words": [
+        "rug",
+        "furniture",
+        "lighting",
+        "colors"
+      ]
+    },
+    {
+      "id": "in_the_classroom",
+      "name": "IN THE CLASSROOM",
+      "words": [
+        "student",
+        "exam",
+        "homework",
+        "lesson"
       ]
     }
   ],
@@ -130,9 +130,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "symptoms",
-        "source_group": "SYMPTOMS",
-        "target_group": "EMERGENCY ROOM",
+        "token": "lighting",
+        "source_group": "LIGHTING",
+        "target_group": "HOME DECOR",
         "depth": 1
       }
     ],

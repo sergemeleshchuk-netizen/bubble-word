@@ -37,6 +37,7 @@
 
 from __future__ import annotations
 
+import sqlite3
 from collections.abc import Iterable
 from dataclasses import dataclass, field
 
@@ -49,6 +50,92 @@ DEFAULT_MIN_RIVAL_STRENGTH = 0.55
 # И насколько она должна быть сопоставима с домом. 0.7 значит «соперник почти
 # так же убедителен»: ровно та зона, где ошибиться легко, а понять — приятно.
 DEFAULT_MIN_RATIO = 0.7
+
+
+def recorded_targets(
+    conn: sqlite3.Connection, index: MembershipIndex
+) -> dict[int, int]:
+    """Сколько пересечений на поле у записи оригинала — по номеру уровня.
+
+    Зачем считать, а не взять готовое. В разборе видео у каждого уровня есть
+    список «ловушек», и профиль композиции его отдаёт: 4 на втором уровне,
+    5 на шестом. Но это список трёх разных вещей сразу. Уровень 2 записи:
+
+        orange — фрукт, а на прошлом уровне был цветом   (память между уровнями)
+        car — на прошлом уровне был в транспорте          (память между уровнями)
+        soil тянет в тему, которой на поле нет            (соседство темы)
+        овощи и фрукты рядом                              (соседство категорий)
+
+    Ни одна из четырёх не является тем, что умеет строить планировщик ловушек:
+    словом, которое подходит двум группам **этого же поля**. Скормить ему число
+    4 значит поставить четыре пересечения туда, где у автора их ноль. Ровно это
+    и произошло: 5.2 пересечения на уровень против 0.2 в записи, и первые же
+    два уровня оказались неиграбельно трудными.
+
+    Здесь число снимается с самих уровней записи тем же способом, которым потом
+    проверяются наши: слово группы A, которое принимает правило группы B того же
+    уровня. Замер по REF001..REF020: всего 4 на двадцать уровней, максимум 1,
+    на шестнадцати уровнях ни одного.
+    """
+    targets: dict[int, int] = {}
+    rows = conn.execute(
+        """
+        SELECT id, level_key, reference_level
+          FROM level_instances
+         WHERE origin = 'reference_video'
+         ORDER BY level_key
+        """
+    )
+    for row in rows:
+        number = row["reference_level"] or _number_from_key(str(row["level_key"]))
+        targets[int(number)] = _count_field_intersections(conn, int(row["id"]), index)
+    return targets
+
+
+def _number_from_key(level_key: str) -> int:
+    digits = "".join(ch for ch in level_key if ch.isdigit())
+    return int(digits) if digits else 0
+
+
+def _count_field_intersections(
+    conn: sqlite3.Connection, level_id: int, index: MembershipIndex
+) -> int:
+    """Токены уровня, которые принимает чужое правило того же уровня.
+
+    Считаются только те, где авторский дом не слабее соперника: обратное — не
+    ловушка, а сломанное разбиение, и его ловит `assess_partition`.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT t.display_text AS display, s.sense_key AS sense_key,
+                   w.normalized AS word, c.category_key AS category_key
+              FROM level_tokens t
+              JOIN level_groups g ON g.id = t.group_id
+              JOIN categories c   ON c.id = g.category_id
+              LEFT JOIN words w       ON w.id = t.word_id
+              LEFT JOIN word_senses s ON s.id = t.sense_id
+             WHERE t.level_id = ?
+            """,
+            (level_id,),
+        )
+    )
+    own = {row["category_key"] for row in rows}
+    found: set[tuple[str, str]] = set()
+    for row in rows:
+        token = Token(
+            word=(row["word"] or row["display"] or "").strip().lower(),
+            sense_key=row["sense_key"],
+            display=row["display"],
+        )
+        home = row["category_key"]
+        home_strength = index.strength_of(home, token)
+        for rival in own:
+            if rival == home or not index.matches(rival, token):
+                continue
+            if home_strength >= index.strength_of(rival, token):
+                found.add((token.word, rival))
+    return len(found)
 
 
 @dataclass(frozen=True)

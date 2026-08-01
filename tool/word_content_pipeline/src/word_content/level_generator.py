@@ -41,6 +41,7 @@ from . import composition as composition_mod
 from . import cooldown as cooldown_mod
 from . import decoy_pairs as decoy_pairs_mod
 from . import difficulty as difficulty_mod
+from . import labels as labels_mod
 from . import level_solver
 from . import meta_pairs as meta_pairs_mod
 from . import meta_validation
@@ -465,6 +466,11 @@ def generate(
     base_pool = pools.get(profile)
     meta_index = meta_pairs_mod.load(conn, tier=tier) if use_meta else meta_pairs_mod.MetaIndex()
     structures = structured.load(conn)
+    recorded_decoys = (
+        decoy_pairs_mod.recorded_targets(conn, index)
+        if use_decoys and decoy_target is None
+        else {}
+    )
     history = cooldown_mod.load_history(conn)
 
     rng = random.Random(seed)
@@ -483,6 +489,7 @@ def generate(
         "отклонено по cooldown": 0,
         "отклонено бюджетом уровня": 0,
         "четвёрок пропущено по повтору слова": 0,
+        "четвёрок пропущено по имени чужой группы": 0,
         "четвёрок пропущено по перезарядке": 0,
         "мета-связей поставлено": 0,
         "уровней с мета": 0,
@@ -492,6 +499,7 @@ def generate(
         "уровней с ловушками": 0,
         "ловушки: недобор до профиля": 0,
         "отклонено пересечением на чистом уровне": 0,
+        "отклонено взаимной парой групп": 0,
         "попыток": 0,
     }
     if len(base_pool.category_ids) < (
@@ -520,11 +528,16 @@ def generate(
         )
         if not use_meta:
             wanted_meta = 0
-        # Ловушек столько же, сколько в записи того же номера: 0 на туториале,
-        # 3 на третьем, 5-6 на поздних. Своей таблицы здесь нет намеренно.
+        # Ловушек столько, сколько их на уровне записи того же номера, — и это
+        # число снимается с самих уровней записи, а не берётся из строки
+        # «ловушки» ручного разбора видео. Разница принципиальная: в разборе
+        # смешаны три разных вида (память между уровнями, соседство тем,
+        # пересечение на поле), а планировщик умеет только третий. Пока цель
+        # бралась оттуда, генератор ставил 5.2 пересечения на уровень против
+        # 0.2 в записи — см. `decoy_pairs.recorded_targets`.
         wanted_decoys = (
             decoy_target if decoy_target is not None
-            else (plan.traps if use_decoys else 0)
+            else (recorded_decoys.get(position, 0) if use_decoys else 0)
         )
         if not use_decoys:
             wanted_decoys = 0
@@ -613,6 +626,10 @@ def generate(
                 and attempt < MAX_ATTEMPTS_PER_LEVEL - 1
             ):
                 stats["отклонено пересечением на чистом уровне"] += 1
+                candidate = built
+                continue
+            if _mutual_pairs(built) and attempt < MAX_ATTEMPTS_PER_LEVEL - 1:
+                stats["отклонено взаимной парой групп"] += 1
                 candidate = built
                 continue
             if built.is_valid:
@@ -787,6 +804,7 @@ def _plan_level(
         *,
         display_label_id: int | None = None,
         display_label: str | None = None,
+        allow_label_clash: bool = False,
     ) -> GroupPlan | None:
         """Ставит четвёрку в уровень, если она не повторяет уже занятое слово.
 
@@ -794,6 +812,11 @@ def _plan_level(
         слово у двух групп — это два пузыря с одной надписью, игрок их не
         различит, а база не сохранит. На пяти категориях совпадение почти не
         встречалось, на восьми ломало сборку.
+
+        Вторая проверка — столкновение пузыря с именем чужой группы. Такое
+        совпадение бывает только объявленной мета-связью; незаявленное читается
+        игроком как ошибка сборки. Поэтому мета-путь зовёт `take` с
+        `allow_label_clash`, а все остальные — нет.
         """
         displays = {
             display.strip().lower() for _w, _s, display, _sk, _r in entry["tokens"]
@@ -805,6 +828,15 @@ def _plan_level(
         if hot.blocks(entry):
             if stats is not None:
                 stats["четвёрок пропущено по перезарядке"] += 1
+            return None
+        label = display_label or entry["label"]
+        if not allow_label_clash and _clashes_with_labels(
+            displays, label, chosen, used_displays
+        ):
+            if stats is not None:
+                stats["четвёрок пропущено по имени чужой группы"] = (
+                    stats.get("четвёрок пропущено по имени чужой группы", 0) + 1
+                )
             return None
         plan = _plan_from_entry(
             entry, display_label_id=display_label_id, display_label=display_label
@@ -867,6 +899,7 @@ def _plan_level(
             decoys=decoys,
             take=take,
             blocked=blocked,
+            index=index,
             category_count=category_count,
             target=decoy_target,
         )
@@ -943,6 +976,7 @@ def _attach_decoys(
     decoys: list[PlannedDecoy],
     take,
     blocked,
+    index: level_solver.MembershipIndex | None,
     category_count: int,
     target: int,
 ) -> None:
@@ -992,7 +1026,8 @@ def _attach_decoys(
                     break
             if rival_plan is None:
                 rival_plan = _take_rival(
-                    rng, by_category.get(rival_id) or [], pair.token_norm, take
+                    rng, by_category.get(rival_id) or [], pair.token_norm, take,
+                    index=index, home_key=pair.home_key,
                 )
                 if rival_plan is None:
                     continue
@@ -1010,9 +1045,24 @@ def _attach_decoys(
             placed_tokens.add(pair.token_norm)
 
 
-def _take_rival(rng: random.Random, entries: list[dict], token_norm: str, take):
-    """Четвёрка соперника без слова-ловушки: одинаковых пузырей быть не должно."""
+def _take_rival(
+    rng: random.Random,
+    entries: list[dict],
+    token_norm: str,
+    take,
+    *,
+    index: level_solver.MembershipIndex | None = None,
+    home_key: str = "",
+):
+    """Четвёрка соперника без слова-ловушки и без слов, годных дому.
+
+    Первое — чтобы на поле не было двух одинаковых пузырей. Второе — чтобы
+    ловушка осталась односторонней: если соперник отдаёт слова обратно в дом,
+    две группы становятся неразличимы и решаются только перебором.
+    """
     clean = [entry for entry in entries if not _entry_has_word(entry["tokens"], token_norm)]
+    if index is not None and home_key:
+        clean = [entry for entry in clean if _entry_free_of(entry, home_key, index)]
     for _ in range(min(FILLER_TRIES_PER_RULE, len(clean))):
         plan = take(clean[rng.randrange(len(clean))])
         if plan is not None:
@@ -1022,6 +1072,53 @@ def _take_rival(rng: random.Random, entries: list[dict], token_norm: str, take):
 
 def _entry_has_word(tokens: list, token_norm: str) -> bool:
     return any(display.strip().lower() == token_norm for _w, _s, display, _sk, _r in tokens)
+
+
+def _clashes_with_labels(
+    displays: set[str],
+    label: str,
+    chosen: dict[int, GroupPlan],
+    used_displays: set[str],
+) -> bool:
+    """Столкнётся ли новая группа с именем уже стоящей — или своим именем с её пузырём.
+
+    Проверяются обе стороны. Слово новой четвёрки, читающееся как имя стоящей
+    группы, и имя новой группы, читающееся как уже выложенный пузырь, — это
+    одна и та же беда с разных концов.
+    """
+    placed_labels = [plan.label for plan in chosen.values()]
+    for display in displays:
+        if any(labels_mod.reads_as(display, name) for name in placed_labels):
+            return True
+    return any(labels_mod.reads_as(display, label) for display in used_displays)
+
+
+def _mutual_pairs(candidate: LevelCandidate) -> list[tuple[str, str]]:
+    """Пары групп, которые обмениваются словами в обе стороны.
+
+    Односторонняя ловушка решается: игрок кладёт `orange` во фрукты, потому что
+    ни одно слово цветов во фрукты не просится, и цвета собираются сами. Пара,
+    которая тянет в обе стороны, не решается по частям вовсе — только
+    одновременным перебором обеих групп.
+
+    Живой пример, ради которого правило появилось (уровень 2 сданной сборки):
+
+        shape   FIRST LESSONS -> SHAPES
+        Square  SHAPES        -> FIRST LESSONS
+        circle  SHAPES        -> FIRST LESSONS
+
+    Формально каждое пересечение честное — авторский дом сильнее соперника, —
+    а на поле это две неразличимые группы. В записи оригинала такой пары нет
+    ни одной на двадцать уровней.
+    """
+    if candidate.assessment is None:
+        return []
+    directed = {(decoy.home, decoy.rival) for decoy in candidate.assessment.decoys}
+    return sorted(
+        (home, rival)
+        for home, rival in directed
+        if home < rival and (rival, home) in directed
+    )
 
 
 def _entry_obviousness(entry: dict) -> float:
@@ -1152,6 +1249,7 @@ def _attach_sources(
                     candidate,
                     display_label_id=pair.source_label_id,
                     display_label=pair.source_label,
+                    allow_label_clash=True,
                 )
                 if source_plan is not None:
                     break

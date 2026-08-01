@@ -1,25 +1,15 @@
 {
   "level_id": 1,
-  "difficulty_target": 3.0,
+  "difficulty_target": 3.5,
   "categories": [
     {
-      "id": "clothing_sizes",
-      "name": "CLOTHING SIZES",
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
       "words": [
-        "large",
-        "plus",
-        "regular",
-        "small"
-      ]
-    },
-    {
-      "id": "legal_documents",
-      "name": "LEGAL DOCUMENTS",
-      "words": [
-        "contract",
-        "title",
-        "will",
-        "license"
+        "art",
+        "health",
+        "history",
+        "music"
       ]
     },
     {
@@ -33,16 +23,6 @@
       ]
     },
     {
-      "id": "social_media_words",
-      "name": "SOCIAL MEDIA",
-      "words": [
-        "follow",
-        "like",
-        "post",
-        "share"
-      ]
-    },
-    {
       "id": "days_and_parts_of_day",
       "name": "DAYS & TIMES",
       "words": [
@@ -50,6 +30,26 @@
         "morning",
         "night",
         "Sunday"
+      ]
+    },
+    {
+      "id": "rice_types",
+      "name": "RICE TYPES",
+      "words": [
+        "black",
+        "red",
+        "white",
+        "wild"
+      ]
+    },
+    {
+      "id": "the_mind",
+      "name": "THE MIND",
+      "words": [
+        "memory",
+        "reason",
+        "thought",
+        "focus"
       ]
     }
   ],

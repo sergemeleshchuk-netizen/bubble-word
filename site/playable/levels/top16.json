@@ -1,95 +1,95 @@
 {
   "level_id": 16,
-  "difficulty_target": 6.0,
+  "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "ways_of_moving",
-      "name": "WAYS OF MOVING",
+      "id": "reptiles",
+      "name": "REPTILES",
       "words": [
-        "race",
-        "spring",
-        "sprint",
-        "wander"
+        "turtle",
+        "cobra",
+        "alligator",
+        "snakes"
       ]
     },
     {
-      "id": "ways_of_speaking",
-      "name": "WAYS OF SPEAKING",
+      "id": "field_trip_places",
+      "name": "FIELD TRIPS",
       "words": [
-        "scream",
-        "declare",
-        "yell",
-        "hiss"
+        "farm",
+        "factory",
+        "gallery",
+        "capitol"
       ]
     },
     {
-      "id": "reading_material",
-      "name": "READING MATTER",
+      "id": "furniture",
+      "name": "FURNITURE",
       "words": [
-        "book",
-        "map",
-        "blog",
-        "magazine"
+        "chair",
+        "couch",
+        "wardrobe",
+        "ottoman"
       ]
     },
     {
-      "id": "livestock",
-      "name": "LIVESTOCK",
+      "id": "fabric_types",
+      "name": "FABRIC TYPES",
       "words": [
-        "horse",
-        "chicken",
-        "turkey",
-        "geese"
+        "terry",
+        "silk",
+        "denim",
+        "satin"
       ]
     },
     {
-      "id": "tree_parts",
-      "name": "TREE PARTS",
+      "id": "book_genres",
+      "name": "BOOK GENRES",
+      "words": [
+        "history",
+        "humor",
+        "thriller",
+        "biography"
+      ]
+    },
+    {
+      "id": "plant_parts",
+      "name": "PLANT PARTS",
       "words": [
         "seed",
-        "leaf",
-        "limb",
-        "pulp"
+        "bud",
+        "node",
+        "stalk"
       ]
     },
     {
-      "id": "navigation_tools",
-      "name": "NAVIGATION TOOLS",
+      "id": "wines_and_drinks",
+      "name": "WINE & BEER",
       "words": [
-        "chart",
-        "radar",
-        "Lighthouse",
-        "sonar"
+        "porter",
+        "champagne",
+        "ale",
+        "cider"
       ]
     },
     {
-      "id": "voice_sounds",
-      "name": "VOICE SOUNDS",
+      "id": "wardrobe",
+      "name": "WARDROBE",
       "words": [
-        "laugh",
-        "whistle",
-        "gasp",
-        "sob"
+        "closet",
+        "hats",
+        "footwear",
+        "accessories"
       ]
     },
     {
-      "id": "grocery_aisles",
-      "name": "GROCERY AISLES",
+      "id": "birthday_party",
+      "name": "BIRTHDAY PARTY",
       "words": [
-        "bakery",
-        "Frozen",
-        "meats",
-        "seafood"
-      ]
-    },
-    {
-      "id": "farm_morning",
-      "name": "FARM",
-      "words": [
-        "barn",
-        "tractor",
-        "livestock",
-        "poultry"
+        "gift",
+        "wish",
+        "balloon",
+        "candles"
       ]
     }
   ],
@@ -110,9 +110,9 @@
     "pack": "TOP",
     "meta_links": [
       {
-        "token": "livestock",
-        "source_group": "LIVESTOCK",
-        "target_group": "FARM",
+        "token": "wardrobe",
+        "source_group": "WARDROBE",
+        "target_group": "FURNITURE",
         "depth": 1
       }
     ],

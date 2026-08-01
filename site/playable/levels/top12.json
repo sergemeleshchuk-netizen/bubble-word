@@ -1,125 +1,125 @@
 {
   "level_id": 12,
-  "difficulty_target": 6.5,
+  "difficulty_target": 6.0,
   "categories": [
     {
-      "id": "theater_arts",
-      "name": "PERFORMING ARTS",
+      "id": "percussion",
+      "name": "PERCUSSION INSTRUMENTS",
       "words": [
-        "dance",
-        "play",
-        "magic",
-        "concert"
+        "drum",
+        "triangle",
+        "gong",
+        "snare"
       ]
     },
     {
-      "id": "illnesses",
-      "name": "ILLNESSES",
+      "id": "furniture",
+      "name": "FURNITURE",
       "words": [
-        "diabetes",
-        "pneumonia",
-        "asthma",
-        "allergy"
+        "bed",
+        "wardrobe",
+        "vanity",
+        "stool"
       ]
     },
     {
-      "id": "music_genres",
-      "name": "MUSIC GENRES",
+      "id": "things_that_plug_in",
+      "name": "PLUGGED IN",
       "words": [
-        "rock",
-        "blues",
-        "opera",
-        "gospel"
+        "television",
+        "clock",
+        "vacuum",
+        "heater"
       ]
     },
     {
-      "id": "dishes_and_glassware",
-      "name": "DISHES",
+      "id": "storage_containers",
+      "name": "CONTAINERS",
       "words": [
-        "bottle",
-        "dish",
-        "jar",
-        "mug"
+        "chest",
+        "folder",
+        "pouch",
+        "canister"
       ]
     },
     {
-      "id": "creative_jobs",
-      "name": "CREATIVE JOBS",
+      "id": "law_jobs",
+      "name": "LAW JOBS",
       "words": [
-        "writer",
-        "singer",
-        "photographer",
-        "composer"
+        "judge",
+        "defender",
+        "clerk",
+        "prosecutor"
       ]
     },
     {
-      "id": "media_jobs",
-      "name": "MEDIA JOBS",
+      "id": "vitamins_letters",
+      "name": "ALPHABET AND SYMBOLS",
       "words": [
-        "journalist",
-        "publisher",
-        "critic",
-        "cameraman"
+        "percent",
+        "bullet",
+        "equals",
+        "hashtag"
       ]
     },
     {
-      "id": "military_ranks",
-      "name": "MILITARY RANKS",
+      "id": "body_of_water_types",
+      "name": "WATER FEATURES",
       "words": [
-        "major",
-        "commander",
-        "corporal",
-        "ensign"
+        "pool",
+        "dam",
+        "fountain",
+        "moat"
       ]
     },
     {
-      "id": "government_jobs",
-      "name": "GOVERNMENT JOBS",
+      "id": "newspaper_parts",
+      "name": "NEWSPAPER PARTS",
       "words": [
-        "president",
-        "ambassador",
-        "delegate",
-        "auditor"
+        "sports",
+        "letters",
+        "headline",
+        "horoscope"
       ]
     },
     {
-      "id": "greetings_and_farewells",
-      "name": "GREETINGS",
+      "id": "vending_machine_items",
+      "name": "VENDING MACHINE",
       "words": [
-        "later",
-        "welcome",
-        "bye",
-        "goodbye"
+        "chips",
+        "cookies",
+        "gum",
+        "popcorn"
       ]
     },
     {
-      "id": "titles_of_address",
-      "name": "TITLES",
+      "id": "magic_creatures",
+      "name": "MAGICAL BEINGS",
       "words": [
-        "lord",
-        "officer",
-        "professor",
-        "senator"
+        "witch",
+        "fairy",
+        "wizard",
+        "imp"
       ]
     },
     {
-      "id": "auto_repair",
-      "name": "AUTO REPAIR",
+      "id": "ancient_greece_ideas",
+      "name": "ANCIENT GREECE IDEAS",
       "words": [
-        "battery",
-        "transmission",
-        "diagnostic",
-        "radiator"
+        "democracy",
+        "Olympics",
+        "Oracle",
+        "philosophy"
       ]
     },
     {
-      "id": "tubes",
-      "name": "TUBES",
+      "id": "parts_of_a_bird",
+      "name": "PARTS OF A BIRD",
       "words": [
-        "duct",
-        "hose",
-        "pipe",
-        "straw"
+        "crest",
+        "feathers",
+        "tail",
+        "wings"
       ]
     }
   ],

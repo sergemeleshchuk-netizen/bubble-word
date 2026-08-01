@@ -43,6 +43,32 @@ VAGUE_HEADS: frozenset[str] = frozenset(
 VAGUE_PREFIXES: tuple[str, ...] = ("KINDS OF ", "TYPES OF ", "SORTS OF ")
 
 
+def reads_as(word: str | None, label: str | None) -> bool:
+    """Читается ли пузырь как имя этой группы: `season` и SEASONS.
+
+    Нужно там, где имя группы и слово на поле сталкиваются. Такое совпадение —
+    это либо объявленная мета-связь (собранная группа SEASONS оставляет пузырь
+    «season» для FIRST LESSONS), либо коллизия, и третьего не дано. Незаявленная
+    коллизия читается игроком как ошибка сборки: он видит пузырь `season` рядом
+    с четырьмя названиями времён года и не понимает, почему тот не подходит.
+
+    Замер, ради которого правило появилось: на втором уровне сданной сборки
+    `season` лежал в FIRST LESSONS при отдельной группе SEASONS, и это дало
+    пять притяжений из пяти — весь перебор уровня.
+
+    Сравнение с точностью до формы слова: имя группы почти всегда во
+    множественном числе, а пузырь в единственном.
+    """
+    left = (word or "").strip().lower()
+    right = (label or "").strip().lower()
+    if not left or not right:
+        return False
+    if left == right:
+        return True
+    short, long = sorted((left, right), key=len)
+    return long in (short + "s", short + "es", short[:-1] + "ies")
+
+
 def is_vague(label: str | None) -> bool:
     """True, если надпись называет признак вместо темы."""
     name = (label or "").upper().strip()

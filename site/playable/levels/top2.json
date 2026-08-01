@@ -3,83 +3,83 @@
   "difficulty_target": 5.0,
   "categories": [
     {
-      "id": "school_subjects",
-      "name": "SCHOOL SUBJECTS",
+      "id": "giving_and_taking",
+      "name": "GIVING AND TAKING",
       "words": [
-        "art",
-        "science",
-        "spanish",
-        "math"
+        "buy",
+        "give",
+        "hand",
+        "take"
       ]
     },
     {
-      "id": "alphabet_and_numbers",
-      "name": "FIRST LESSONS",
+      "id": "body_parts",
+      "name": "BODY PARTS",
       "words": [
-        "letter",
-        "number",
-        "sound",
-        "shape"
+        "back",
+        "arm",
+        "leg",
+        "neck"
       ]
     },
     {
-      "id": "magic_words",
-      "name": "MAGIC SHOW",
+      "id": "board_games",
+      "name": "BOARD GAMES",
       "words": [
-        "assistant",
-        "illusion",
-        "wand",
-        "handcuffs"
+        "Life",
+        "risk",
+        "sorry",
+        "trouble"
       ]
     },
     {
-      "id": "dance_class",
-      "name": "DANCE CLASS",
+      "id": "movie_genres",
+      "name": "MOVIE GENRES",
       "words": [
-        "mirror",
-        "stretch",
-        "mat",
-        "tights"
+        "action",
+        "war",
+        "western",
+        "drama"
       ]
     },
     {
-      "id": "magazines",
-      "name": "MAGAZINE TYPES",
+      "id": "fashion_show",
+      "name": "FASHION SHOW",
       "words": [
-        "business",
-        "cooking",
-        "gossip",
-        "parenting"
+        "collection",
+        "model",
+        "program",
+        "camera"
       ]
     },
     {
-      "id": "shapes",
-      "name": "SHAPES",
+      "id": "government_jobs",
+      "name": "GOVERNMENT JOBS",
       "words": [
-        "heart",
-        "star",
-        "Square",
-        "circle"
+        "official",
+        "president",
+        "secretary",
+        "governor"
       ]
     },
     {
-      "id": "math_operations",
-      "name": "MATH OPERATIONS",
+      "id": "titles_of_address",
+      "name": "TITLES",
       "words": [
-        "double",
-        "count",
-        "divide",
-        "multiply"
+        "chief",
+        "lord",
+        "miss",
+        "sir"
       ]
     },
     {
-      "id": "hand_tools",
-      "name": "HAND TOOLS",
+      "id": "time_units",
+      "name": "UNITS OF TIME",
       "words": [
-        "saw",
-        "knife",
-        "wrench",
-        "ratchet"
+        "day",
+        "hour",
+        "moment",
+        "month"
       ]
     }
   ],

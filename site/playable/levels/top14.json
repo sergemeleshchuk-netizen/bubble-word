@@ -3,103 +3,103 @@
   "difficulty_target": 5.5,
   "categories": [
     {
+      "id": "ways_of_looking",
+      "name": "WAYS OF LOOKING",
+      "words": [
+        "watch",
+        "survey",
+        "spy",
+        "peer"
+      ]
+    },
+    {
       "id": "animal_homes",
       "name": "ANIMAL HOMES",
       "words": [
-        "shell",
+        "hole",
         "warren",
-        "lodge",
-        "mound"
+        "den",
+        "barn"
       ]
     },
     {
-      "id": "animal_coverings",
-      "name": "ANIMAL COVERINGS",
+      "id": "eyewear",
+      "name": "EYEWEAR",
       "words": [
-        "scale",
-        "coat",
-        "fur",
-        "plume"
+        "mask",
+        "contacts",
+        "frames",
+        "goggles"
       ]
     },
     {
-      "id": "body_parts",
-      "name": "BODY PARTS",
+      "id": "sea_jobs",
+      "name": "SEA JOBS",
       "words": [
-        "foot",
-        "leg",
-        "shoulder",
-        "finger"
+        "captain",
+        "pilot",
+        "sailor",
+        "fisherman"
       ]
     },
     {
-      "id": "school_subjects",
-      "name": "SCHOOL SUBJECTS",
+      "id": "creative_jobs",
+      "name": "CREATIVE JOBS",
       "words": [
-        "art",
-        "science",
-        "spanish",
-        "math"
+        "actor",
+        "editor",
+        "musician",
+        "dancer"
       ]
     },
     {
-      "id": "landforms",
-      "name": "LANDFORMS",
+      "id": "ocean_zones",
+      "name": "SHORE FEATURES",
       "words": [
-        "mountain",
-        "cave",
-        "delta",
-        "peninsula"
+        "wave",
+        "gulf",
+        "trench",
+        "cove"
       ]
     },
     {
-      "id": "directions",
-      "name": "DIRECTIONS",
+      "id": "car_parts",
+      "name": "CAR PARTS",
       "words": [
-        "down",
-        "far",
-        "north",
-        "right"
+        "door",
+        "fender",
+        "dashboard",
+        "radiator"
       ]
     },
     {
-      "id": "kitchen_tools",
-      "name": "KITCHEN TOOLS",
+      "id": "card_suits",
+      "name": "CARD SUITS",
       "words": [
-        "pan",
-        "fork",
-        "opener",
-        "timer"
+        "clubs",
+        "diamonds",
+        "hearts",
+        "spades"
       ]
     },
     {
-      "id": "magazines",
-      "name": "MAGAZINE TYPES",
+      "id": "at_the_movies",
+      "name": "AT THE MOVIES",
       "words": [
-        "news",
-        "sports",
-        "hobby",
-        "gossip"
+        "admission",
+        "cinema",
+        "screen",
+        "trailer"
       ]
     },
     {
-      "id": "groups_of_people",
-      "name": "GROUPS OF PEOPLE",
+      "id": "in_a_salad",
+      "name": "IN A SALAD",
       "words": [
-        "band",
-        "staff",
-        "audience",
-        "gang"
-      ]
-    },
-    {
-      "id": "hand_tools",
-      "name": "HAND TOOLS",
-      "words": [
-        "saw",
-        "knife",
-        "wrench",
-        "ratchet"
+        "dressing",
+        "lettuce",
+        "olives",
+        "tomato"
       ]
     }
   ],

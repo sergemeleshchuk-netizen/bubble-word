@@ -1,25 +1,15 @@
 {
   "level_id": 4,
-  "difficulty_target": 6.0,
+  "difficulty_target": 7.0,
   "categories": [
     {
-      "id": "animal_babies",
-      "name": "BABY ANIMALS",
+      "id": "ways_of_speaking",
+      "name": "WAYS OF SPEAKING",
       "words": [
-        "chick",
-        "bunny",
-        "kitten",
-        "cub"
-      ]
-    },
-    {
-      "id": "farm_bird_words",
-      "name": "POULTRY",
-      "words": [
-        "turkey",
-        "goose",
-        "rooster",
-        "quail"
+        "sing",
+        "announce",
+        "scream",
+        "shout"
       ]
     },
     {
@@ -33,53 +23,63 @@
       ]
     },
     {
-      "id": "office_jobs",
-      "name": "OFFICE JOBS",
+      "id": "exploration_words",
+      "name": "AGE OF EXPLORATION",
       "words": [
-        "consultant",
-        "analyst",
-        "supervisor",
-        "planner"
+        "map",
+        "expedition",
+        "voyage",
+        "telescope"
       ]
     },
     {
-      "id": "famous_job_titles",
-      "name": "LEADERSHIP TITLES",
+      "id": "furniture",
+      "name": "FURNITURE",
       "words": [
-        "captain",
-        "director",
-        "chairman",
-        "mayor"
+        "cabinet",
+        "bench",
+        "wardrobe",
+        "crib"
       ]
     },
     {
-      "id": "vending_machine_items",
-      "name": "VENDING MACHINE",
+      "id": "dishes_and_glassware",
+      "name": "DISHES",
       "words": [
-        "chips",
-        "cookies",
-        "gum",
-        "popcorn"
+        "bottle",
+        "dish",
+        "jar",
+        "mug"
       ]
     },
     {
-      "id": "inventions",
-      "name": "INVENTIONS",
+      "id": "garden_flowers_summer",
+      "name": "SUMMER FLOWERS",
       "words": [
-        "computer",
-        "battery",
-        "telephone",
-        "airplane"
+        "rose",
+        "cosmos",
+        "lavender",
+        "sunflower"
       ]
     },
     {
-      "id": "science_fair",
-      "name": "SCIENCE FAIR",
+      "id": "voice_sounds",
+      "name": "VOICE SOUNDS",
       "words": [
-        "poster",
-        "hypothesis",
-        "volcanoes",
-        "inventions"
+        "cry",
+        "hum",
+        "sob",
+        "grunt"
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "name": "WARDROBE",
+      "words": [
+        "closet",
+        "hats",
+        "footwear",
+        "accessories"
       ]
     },
     {
@@ -93,13 +93,13 @@
       ]
     },
     {
-      "id": "at_the_movies",
-      "name": "AT THE MOVIES",
+      "id": "tubes",
+      "name": "TUBES",
       "words": [
-        "admission",
-        "cinema",
-        "screen",
-        "trailer"
+        "duct",
+        "hose",
+        "pipe",
+        "straw"
       ]
     }
   ],
@@ -126,9 +126,9 @@
         "depth": 1
       },
       {
-        "token": "inventions",
-        "source_group": "INVENTIONS",
-        "target_group": "SCIENCE FAIR",
+        "token": "wardrobe",
+        "source_group": "WARDROBE",
+        "target_group": "FURNITURE",
         "depth": 1
       }
     ],
