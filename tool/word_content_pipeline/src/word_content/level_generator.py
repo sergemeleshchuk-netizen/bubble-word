@@ -301,6 +301,7 @@ def generate(
         "solver: прочее": 0,
         "отклонено по cooldown": 0,
         "отклонено бюджетом уровня": 0,
+        "отклонено повтором слова": 0,
         "попыток": 0,
     }
     if len(category_ids) < category_count:
@@ -334,6 +335,19 @@ def generate(
                 groups.append(group)
             if over_budget:
                 stats["отклонено бюджетом уровня"] += 1
+                continue
+            # Слово внутри уровня не повторяется — правило референса без
+            # исключений на всех двадцати уровнях. Две группы с общим словом
+            # это не «сложный уровень», а два пузыря с одной надписью: игрок
+            # не различит их, а база не сохранит. На пяти категориях совпадение
+            # почти не встречалось, на восьми ломало сборку.
+            displays = [
+                display.strip().lower()
+                for group in groups
+                for _w, _s, display, _sk, _r in group.tokens
+            ]
+            if len(set(displays)) != len(displays):
+                stats["отклонено повтором слова"] += 1
                 continue
             level_key = f"L{number:03d}"
             built = _evaluate(
