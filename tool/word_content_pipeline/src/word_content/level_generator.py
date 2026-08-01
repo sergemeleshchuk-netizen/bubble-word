@@ -7,12 +7,21 @@
 
 Порядок сборки:
 
-    выбрать категории (не конфликтующие, не нарушающие cooldown)
+    заложить мета-ядро (кто чей результат выпускает)
+    -> добрать категории (не конфликтующие, не нарушающие cooldown)
     -> взять их четвёрки
     -> собрать токены со значениями и надписями
+    -> проверить мета-граф симуляцией прохождения
     -> прогнать exact-cover solver полного уровня
     -> посчитать сложность
-    -> сохранить уровень, группы, токены и отчёт solver'а
+    -> сохранить уровень, группы, токены, мета-зависимости и отчёт solver'а
+
+Мета-ядро закладывается первым, а не дописывается к готовому набору. Причина
+арифметическая: мета-пара — это совпадение слова одной четвёрки с надписью
+другого правила, и таких совпадений на всю базу 162. Вероятность, что они
+сами найдутся внутри случайно выбранной восьмёрки категорий, околонулевая —
+именно поэтому предыдущая версия генератора выдавала ровно ноль мета-связей
+при 52 в записи оригинала.
 
 Уровень принимается автоматически только при `solution_count == 1`. Всё
 остальное — включая таймаут — сохраняется как отклонённый кандидат с причиной.
@@ -27,15 +36,17 @@ import random
 import sqlite3
 from dataclasses import dataclass, field
 
+from . import composition as composition_mod
 from . import cooldown as cooldown_mod
 from . import difficulty as difficulty_mod
 from . import level_solver
+from . import meta_pairs as meta_pairs_mod
 from . import meta_validation
 from . import profiles as profiles_mod
 from . import structured
 from .db import utc_now
 
-GENERATOR_VERSION = "level-generator/1.0"
+GENERATOR_VERSION = "level-generator/1.1"
 DEFAULT_CATEGORY_COUNT = 5
 # Сколько наборов категорий пробовать на один уровень, прежде чем сдаться.
 # Неоднозначные наборы отсеиваются solver'ом, и без потолка генератор может
@@ -52,6 +63,30 @@ class GroupPlan:
     concept_id: int | None
     tokens: list[tuple[int, int | None, str, str, str | None]]
     # (word_id, sense_id, display, sense_key|'', role)
+    # Надпись, под которой группа показана на этом уровне. Заполняется только
+    # у источника мета-связи: его имя обязано совпасть с выпущенным пузырём.
+    display_label_id: int | None = None
+
+
+@dataclass(frozen=True)
+class MetaLink:
+    """Связь уровня: собранная группа-источник оставляет пузырь потребителю."""
+
+    source_key: str
+    consumer_key: str
+    token_display: str
+    source_label: str
+    source_label_id: int
+    depth: int = 1
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "token": self.token_display,
+            "source_group": self.source_key,
+            "target_group": self.consumer_key,
+            "source_label": self.source_label,
+            "depth": self.depth,
+        }
 
 
 @dataclass
@@ -62,6 +97,8 @@ class LevelCandidate:
     difficulty: difficulty_mod.DifficultyScore
     assessment: level_solver.PartitionAssessment | None = None
     meta: meta_validation.MetaValidation | None = None
+    meta_links: list[MetaLink] = field(default_factory=list)
+    composition: composition_mod.Composition | None = None
     cooldown_violations: list[cooldown_mod.Violation] = field(default_factory=list)
     reject_reasons: list[str] = field(default_factory=list)
     random_seed: int = 0
@@ -277,13 +314,25 @@ def generate(
     timeout_ms: int = level_solver.DEFAULT_TIMEOUT_MS,
     profile: profiles_mod.Profile | None = None,
     rare_familiarity: float = 0.43,
+    use_meta: bool = True,
+    meta_target: int | None = None,
 ) -> tuple[list[LevelCandidate], dict[str, int]]:
-    """Собирает `count` уровней-кандидатов. Детерминирована при одинаковом seed."""
+    """Собирает `count` уровней-кандидатов. Детерминирована при одинаковом seed.
+
+    ``use_meta``     собирать ли мета-связи; выключение оставляет плоские уровни;
+    ``meta_target``  сколько связей просить на уровень вместо профиля композиции.
+    """
     config = config or cooldown_mod.load_config()
     by_category, profile_stats = _usable_quartets(
         conn, tier, profile=profile, rare_familiarity=rare_familiarity
     )
     conflicts = _conflict_map(conn)
+    meta_index = meta_pairs_mod.load(conn, tier=tier) if use_meta else meta_pairs_mod.MetaIndex()
+    by_quartet_id = {
+        entry["quartet_id"]: entry
+        for entries in by_category.values()
+        for entry in entries
+    }
     index = level_solver.load_memberships(conn)
     structures = structured.load(conn)
     history = cooldown_mod.load_history(conn)
@@ -298,6 +347,7 @@ def generate(
     stats = {
         "профиль": profile.name if profile else "без профиля",
         **profile_stats,
+        "мета-пар в базе": len(meta_index.distinct_pairs()),
         "уровней запрошено": count,
         "уровней собрано": 0,
         "solver: unique": 0,
@@ -306,7 +356,11 @@ def generate(
         "solver: прочее": 0,
         "отклонено по cooldown": 0,
         "отклонено бюджетом уровня": 0,
-        "отклонено повтором слова": 0,
+        "четвёрок пропущено по повтору слова": 0,
+        "мета-связей поставлено": 0,
+        "уровней с мета": 0,
+        "мета: недобор до профиля": 0,
+        "отклонено мета-проверкой": 0,
         "попыток": 0,
     }
     if len(category_ids) < category_count:
@@ -319,61 +373,68 @@ def generate(
 
     for number in range(1, count + 1):
         candidate: LevelCandidate | None = None
+        position = accepted_positions + number
+        plan = composition_mod.for_level(position)
+        wanted_meta = (
+            meta_target if meta_target is not None else plan.meta_target(category_count)
+        )
+        if not use_meta:
+            wanted_meta = 0
         for attempt in range(MAX_ATTEMPTS_PER_LEVEL):
             stats["попыток"] += 1
-            chosen = _pick_categories(
-                rng, category_ids, conflicts, category_count,
-                cooling=_cooling_categories(
-                    history, config, position=accepted_positions + number,
-                    concept_by_category=concept_by_category,
-                ),
+            cooling = _cooling_categories(
+                history, config, position=position,
+                concept_by_category=concept_by_category,
             )
-            if chosen is None:
+            built_plan = _plan_level(
+                rng,
+                by_category=by_category,
+                by_quartet_id=by_quartet_id,
+                category_ids=category_ids,
+                conflicts=conflicts,
+                cooling=cooling,
+                category_count=category_count,
+                meta_index=meta_index,
+                meta_target=wanted_meta,
+                stats=stats,
+            )
+            if built_plan is None:
                 continue
+            groups, links = built_plan
             # Бюджет уровня тратится по мере набора групп: одно менее очевидное
             # слово делает уровень интереснее, четыре редких — непроходимым.
             budget = profiles_mod.LevelBudget.for_profile(profile) if profile else None
-            groups = []
             over_budget = False
-            for category_id in chosen:
-                group, facts = _group_from(by_category[category_id], rng)
-                if budget is not None and facts is not None:
-                    problem = budget.fits(facts)
-                    if problem:
+            if budget is not None:
+                for group in groups:
+                    facts = by_quartet_id[group.quartet_id].get("facts")
+                    if facts is None:
+                        continue
+                    if budget.fits(facts):
                         over_budget = True
                         break
                     budget.spend(facts)
-                groups.append(group)
             if over_budget:
                 stats["отклонено бюджетом уровня"] += 1
-                continue
-            # Слово внутри уровня не повторяется — правило референса без
-            # исключений на всех двадцати уровнях. Две группы с общим словом
-            # это не «сложный уровень», а два пузыря с одной надписью: игрок
-            # не различит их, а база не сохранит. На пяти категориях совпадение
-            # почти не встречалось, на восьми ломало сборку.
-            displays = [
-                display.strip().lower()
-                for group in groups
-                for _w, _s, display, _sk, _r in group.tokens
-            ]
-            if len(set(displays)) != len(displays):
-                stats["отклонено повтором слова"] += 1
                 continue
             level_key = f"L{number:03d}"
             built = _evaluate(
                 groups,
+                links,
                 level_key=level_key,
                 index=index,
                 structures=structures,
                 history=history,
                 config=config,
-                position=accepted_positions + number,
+                position=position,
                 timeout_ms=timeout_ms,
                 seed=seed,
                 tier=tier,
                 target_difficulty=target_difficulty,
+                composition=plan,
             )
+            if built.meta is not None and not built.meta.ok:
+                stats["отклонено мета-проверкой"] += 1
             outcome = built.solver.outcome
             stats[
                 {
@@ -394,6 +455,11 @@ def generate(
             continue
         levels.append(candidate)
         stats["уровней собрано"] += 1
+        stats["мета-связей поставлено"] += len(candidate.meta_links)
+        if candidate.meta_links:
+            stats["уровней с мета"] += 1
+        if len(candidate.meta_links) < wanted_meta:
+            stats["мета: недобор до профиля"] += 1
         if candidate.is_valid:
             history.remember(
                 accepted_positions + number,
@@ -448,55 +514,230 @@ def _cooling_categories(
     return cooling
 
 
-def _pick_categories(
+def _plan_level(
     rng: random.Random,
+    *,
+    by_category: dict[int, list[dict]],
+    by_quartet_id: dict[int, dict],
     category_ids: list[int],
     conflicts: dict[int, set[int]],
+    cooling: set[int],
     category_count: int,
-    cooling: set[int] | None = None,
-) -> list[int] | None:
-    """Выбирает непротиворечивый набор категорий, не берущий то, что на перезарядке.
+    meta_index: meta_pairs_mod.MetaIndex,
+    meta_target: int,
+    stats: dict[str, int] | None = None,
+) -> tuple[list[GroupPlan], list[MetaLink]] | None:
+    """Набирает состав уровня: сначала мета-ядро, потом обычные группы.
 
-    Конфликты — это предварительно посчитанные пары, чьи пулы пересекаются
-    настолько, что четвёрка одной лежит в другой. Они ускоряют отбор, но
-    не заменяют solver: неоднозначность бывает и при пересечении в одно слово.
+    Порядок обязателен. Мета-пара — редкое совпадение: 162 пары, 330 четвёрок
+    из 14 184. Искать её внутри уже выбранного набора значит не находить.
 
-    Перезарядка отсеивается здесь, а не после сборки: проверять её постфактум
-    значит выбрасывать уже посчитанный solver'ом уровень.
+    Глубина цепочки держится на одном правиле: **источник не может быть
+    потребителем**. Тогда любая цепочка ровно двухшаговая — как в оригинале,
+    где третьего порядка нет ни на одном из двадцати уровней. Обратное
+    (несколько источников на одного потребителя) разрешено: именно так устроен
+    уровень 7 записи, где `measurements` собирается из четырёх чужих
+    результатов.
     """
-    cooling = cooling or set()
-    chosen: list[int] = []
-    pool = [item for item in category_ids if item not in cooling]
-    if len(pool) < category_count:
-        # Свободных правил меньше, чем нужно: берём всё, пусть решает проверка.
-        pool = category_ids[:]
+    chosen: dict[int, GroupPlan] = {}
+    links: list[MetaLink] = []
+    sources: set[int] = set()
+    consumers: set[int] = set()
+    used_displays: set[str] = set()
+
+    def blocked(category_id: int) -> bool:
+        if category_id in chosen:
+            return True
+        return any(category_id in conflicts.get(picked, ()) for picked in chosen)
+
+    def take(
+        entry: dict,
+        *,
+        display_label_id: int | None = None,
+        display_label: str | None = None,
+    ) -> GroupPlan | None:
+        """Ставит четвёрку в уровень, если она не повторяет уже занятое слово.
+
+        Повтор отсекается здесь, а не проверкой готового уровня: одно общее
+        слово у двух групп — это два пузыря с одной надписью, игрок их не
+        различит, а база не сохранит. На пяти категориях совпадение почти не
+        встречалось, на восьми ломало сборку.
+        """
+        displays = {
+            display.strip().lower() for _w, _s, display, _sk, _r in entry["tokens"]
+        }
+        if len(displays) != level_solver.QUARTET_SIZE or displays & used_displays:
+            if stats is not None:
+                stats["четвёрок пропущено по повтору слова"] += 1
+            return None
+        plan = _plan_from_entry(
+            entry, display_label_id=display_label_id, display_label=display_label
+        )
+        chosen[plan.category_id] = plan
+        used_displays.update(displays)
+        return plan
+
+    if meta_target > 0 and len(meta_index) > 0:
+        quartet_ids = [
+            quartet_id
+            for quartet_id in meta_index.by_quartet
+            if quartet_id in by_quartet_id
+        ]
+        rng.shuffle(quartet_ids)
+        for quartet_id in quartet_ids:
+            if len(links) >= meta_target or len(chosen) >= category_count - 1:
+                break
+            consumer_entry = by_quartet_id[quartet_id]
+            consumer_id = consumer_entry["category_id"]
+            if consumer_id in sources or consumer_id in cooling or blocked(consumer_id):
+                continue
+            pairs = list(meta_index.for_quartet(quartet_id))
+            rng.shuffle(pairs)
+            taken = _attach_sources(
+                rng, pairs,
+                consumer_entry=consumer_entry,
+                by_category=by_category,
+                conflicts=conflicts,
+                cooling=cooling,
+                chosen=chosen,
+                sources=sources,
+                consumers=consumers,
+                links=links,
+                take=take,
+                blocked=blocked,
+                category_count=category_count,
+                remaining=meta_target - len(links),
+            )
+            if taken:
+                consumers.add(consumer_id)
+
+    # Добор обычными группами. Правила на перезарядке не берутся, но если
+    # свободных не хватает, лучше собрать уровень и показать нарушение, чем
+    # молча вернуть ничего.
+    pool = [
+        category_id
+        for category_id in category_ids
+        if category_id not in chosen and category_id not in cooling
+    ]
+    if len(pool) < category_count - len(chosen):
+        pool = [category_id for category_id in category_ids if category_id not in chosen]
     rng.shuffle(pool)
     for category_id in pool:
-        if any(category_id in conflicts.get(picked, ()) for picked in chosen):
+        if len(chosen) >= category_count:
+            break
+        if blocked(category_id):
             continue
-        chosen.append(category_id)
-        if len(chosen) == category_count:
-            return sorted(chosen)
-    return None
+        entry = by_category[category_id][rng.randrange(len(by_category[category_id]))]
+        take(entry)
+
+    if len(chosen) < category_count:
+        return None
+    groups = [chosen[category_id] for category_id in sorted(chosen)]
+    return groups, links
 
 
-def _group_from(
-    quartets: list[dict], rng: random.Random
-) -> tuple[GroupPlan, profiles_mod.QuartetFacts | None]:
-    entry = quartets[rng.randrange(len(quartets))]
-    plan = GroupPlan(
+def _attach_sources(
+    rng: random.Random,
+    pairs: list[meta_pairs_mod.MetaPair],
+    *,
+    consumer_entry: dict,
+    by_category: dict[int, list[dict]],
+    conflicts: dict[int, set[int]],
+    cooling: set[int],
+    chosen: dict[int, GroupPlan],
+    sources: set[int],
+    consumers: set[int],
+    links: list[MetaLink],
+    take,
+    blocked,
+    category_count: int,
+    remaining: int,
+) -> bool:
+    """Ставит потребителя и его источники. Возвращает, получилось ли хоть что-то."""
+    consumer_id = consumer_entry["category_id"]
+    consumer_plan: GroupPlan | None = None
+    added = 0
+    for pair in pairs:
+        if added >= remaining:
+            break
+        room = category_count - len(chosen)
+        source_id = pair.source_id
+        if source_id == consumer_id or source_id in consumers:
+            continue
+        if source_id in cooling and source_id not in chosen:
+            continue
+        if source_id in conflicts.get(consumer_id, ()):
+            continue
+        already = chosen.get(source_id)
+        if already is not None:
+            # Источник уже стоит на уровне: годится, только если он показан под
+            # той же надписью — у группы одно имя, а не список синонимов.
+            if source_id not in sources or already.display_label_id != pair.source_label_id:
+                continue
+        elif blocked(source_id):
+            continue
+        need = (1 if consumer_plan is None else 0) + (1 if already is None else 0)
+        if room < need:
+            break
+        if consumer_plan is None:
+            consumer_plan = take(consumer_entry)
+            if consumer_plan is None:
+                return False
+        if already is None:
+            entries = by_category.get(source_id) or []
+            source_plan = None
+            for _ in range(min(4, len(entries))):
+                candidate = entries[rng.randrange(len(entries))]
+                source_plan = take(
+                    candidate,
+                    display_label_id=pair.source_label_id,
+                    display_label=pair.source_label,
+                )
+                if source_plan is not None:
+                    break
+            if source_plan is None:
+                continue
+        links.append(
+            MetaLink(
+                source_key=pair.source_key,
+                consumer_key=pair.consumer_key,
+                token_display=pair.token_display,
+                source_label=pair.source_label,
+                source_label_id=pair.source_label_id,
+            )
+        )
+        sources.add(source_id)
+        added += 1
+    return added > 0
+
+
+def _plan_from_entry(
+    entry: dict,
+    *,
+    display_label_id: int | None = None,
+    display_label: str | None = None,
+) -> GroupPlan:
+    """Группа уровня из конкретной четвёрки.
+
+    Надпись берётся не всегда из правила: источник мета-связи показан под той
+    надписью, которая совпадает с выпущенным пузырём, иначе связь на экране не
+    читается. Правило при этом остаётся тем же — разделение надписи и правила
+    ради этого и делалось.
+    """
+    return GroupPlan(
         category_id=entry["category_id"],
         category_key=entry["category_key"],
-        label=entry["label"],
+        label=display_label or entry["label"],
         quartet_id=entry["quartet_id"],
         concept_id=entry["concept_id"],
         tokens=list(entry["tokens"]),
+        display_label_id=display_label_id,
     )
-    return plan, entry.get("facts")
 
 
 def _evaluate(
     groups: list[GroupPlan],
+    links: list[MetaLink],
     *,
     level_key: str,
     index: level_solver.MembershipIndex,
@@ -508,6 +749,7 @@ def _evaluate(
     seed: int,
     tier: str,
     target_difficulty: float | None,
+    composition: composition_mod.Composition | None = None,
 ) -> LevelCandidate:
     tokens = [
         level_solver.Token(
@@ -528,7 +770,7 @@ def _evaluate(
             group.category_key: [display for _w, _s, display, _sk, _r in group.tokens]
             for group in groups
         },
-        {},
+        {link.token_display: link.source_key for link in links},
     )
     assessment = level_solver.assess_partition(
         tokens, homes, index, structures, timeout_ms=timeout_ms,
@@ -552,7 +794,7 @@ def _evaluate(
         labels=[group.label for group in groups],
         displays=[token.display_text for token in tokens],
     )
-    facts = _facts(groups, tokens, index, result)
+    facts = _facts(groups, tokens, index, result, meta=meta)
     reject: list[str] = list(assessment.hard_reject)
     return LevelCandidate(
         level_key=level_key,
@@ -560,6 +802,8 @@ def _evaluate(
         solver=result,
         assessment=assessment,
         meta=meta,
+        meta_links=list(links),
+        composition=composition,
         difficulty=difficulty_mod.score(facts),
         cooldown_violations=violations,
         reject_reasons=reject,
@@ -574,6 +818,8 @@ def _facts(
     tokens: list[level_solver.Token],
     index: level_solver.MembershipIndex,
     result: level_solver.LevelSolverResult,
+    *,
+    meta: meta_validation.MetaValidation | None = None,
 ) -> difficulty_mod.LevelFacts:
     """Всё, что модель сложности знает об уровне."""
     own = {group.category_key for group in groups}
@@ -607,7 +853,9 @@ def _facts(
         plausible_first_groups=len(groups),
         structured_categories=0,
         max_phrase_length=max((len(token.display_text.split()) for token in tokens), default=1),
-        meta_depth=0,
+        # Плоский уровень собирается в один слой, и его глубина в симуляции
+        # равна 1. Сложность добавляет только надстройка над этим слоем.
+        meta_depth=max(0, (meta.max_depth if meta else 1) - 1),
     )
 
 
@@ -659,20 +907,27 @@ def save(
         )
         level_id = int(cur.lastrowid)
 
+        group_ids: dict[str, int] = {}
+        token_ids: dict[tuple[str, str], int] = {}
         for position, group in enumerate(level.groups, start=1):
             group_cur = conn.execute(
                 """
                 INSERT INTO level_groups
-                    (level_id, position, category_id, quartet_id, created_at)
-                VALUES (?, ?, ?, ?, ?)
+                    (level_id, position, category_id, quartet_id, display_label_id,
+                     created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
                 """,
-                (level_id, position, group.category_id, group.quartet_id, now),
+                (
+                    level_id, position, group.category_id, group.quartet_id,
+                    group.display_label_id, now,
+                ),
             )
             group_id = int(group_cur.lastrowid)
+            group_ids[group.category_key] = group_id
             for slot, (word_id, sense_id, display, sense_key, role) in enumerate(
                 group.tokens, start=1
             ):
-                conn.execute(
+                token_cur = conn.execute(
                     """
                     INSERT INTO level_tokens
                         (level_id, group_id, slot, word_id, sense_id, sense_mode,
@@ -691,6 +946,37 @@ def save(
                         now,
                     ),
                 )
+                token_ids[(group.category_key, display)] = int(token_cur.lastrowid)
+
+        # Мета-связи: пузырь перестаёт быть обычным словом и становится
+        # результатом другой группы. Пишем обе стороны — и роль токена, и
+        # ребро зависимости, — иначе `validate-meta` увидит плоский уровень.
+        for link in level.meta_links:
+            token_id = token_ids.get((link.consumer_key, link.token_display))
+            source_group_id = group_ids.get(link.source_key)
+            if token_id is None or source_group_id is None:
+                continue
+            conn.execute(
+                """
+                UPDATE level_tokens
+                   SET token_kind = 'category_output', token_form = 'word',
+                       source_group_id = ?
+                 WHERE id = ?
+                """,
+                (source_group_id, token_id),
+            )
+            conn.execute(
+                """
+                INSERT OR IGNORE INTO level_dependencies
+                    (level_id, from_group_id, to_token_id, depth, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (level_id, source_group_id, token_id, link.depth, now),
+            )
+            conn.execute(
+                "UPDATE level_groups SET emits_token_id = ? WHERE id = ?",
+                (token_id, source_group_id),
+            )
 
         alternative = level.solver.alternative_partition
         assessment = level.assessment

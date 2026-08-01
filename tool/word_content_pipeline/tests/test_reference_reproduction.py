@@ -21,7 +21,11 @@ import pytest
 from typer.testing import CliRunner
 
 from word_content import (
+    composition,
+    level_generator,
+    meta_pairs,
     meta_validation,
+    normalization,
     reference_coverage,
     reference_fixtures,
     reference_import,
@@ -410,6 +414,267 @@ def test_12b_gate_passes_on_the_built_base(db, fixtures, overrides):
     assert counts["meta_dependency"] == (17, 17)
     assert counts["observed_label"] == (24, 24)
     assert counts["form_match"] == (380, 380)
+
+
+# ------------------------------------------------- 13-18: мета-механика в генерации
+#
+# Запись оригинала вводит мета на третьем уровне и держит её в 17 уровнях из 20.
+# Генератор до этой работы выдавал ровно ноль мета-связей — уровни были плоские
+# при формально верном solver'е. Проверки ниже закрывают именно этот разрыв.
+
+GENERATED_SEED = 11
+GENERATED_CATEGORIES = 8
+GENERATED_COUNT = 6
+
+
+@pytest.fixture(scope="module")
+def generated(db) -> list:
+    """Один прогон генератора на всю группу тестов: он не бесплатный."""
+    levels, _stats = level_generator.generate(
+        db,
+        count=GENERATED_COUNT,
+        category_count=GENERATED_CATEGORIES,
+        seed=GENERATED_SEED,
+    )
+    return levels
+
+
+@requires_db
+def test_13_meta_pairs_never_borrow_reference_content(db):
+    """Мета-пары собираются только из своего: чужие правила, четвёрки и надписи.
+
+    Надпись оригинала («compass», «doctor», «clothes»), привязанная к нашему
+    правилу при разборе видео, дала бы втрое больше пар — 451 против 162.
+    Это и есть цена честности, и платить её обязательно: имя группы на экране
+    было бы авторским текстом записи.
+    """
+    index = meta_pairs.load(db)
+    assert len(index) > 0, "мета-пар нет — генератору нечем строить мета-уровни"
+
+    consumers = {pair.consumer_id for pair in index.pairs}
+    sources = {pair.source_id for pair in index.pairs}
+    borrowed = list(
+        db.execute(
+            f"""
+            SELECT COUNT(*) AS n FROM categories
+             WHERE origin = 'reference_backfill'
+               AND id IN ({','.join('?' * len(consumers | sources))})
+            """,
+            tuple(consumers | sources),
+        )
+    )[0]["n"]
+    assert borrowed == 0
+
+    label_ids = {pair.source_label_id for pair in index.pairs}
+    borrowed_labels = list(
+        db.execute(
+            f"""
+            SELECT COUNT(*) AS n FROM category_labels
+             WHERE origin = 'reference_backfill'
+               AND id IN ({','.join('?' * len(label_ids))})
+            """,
+            tuple(label_ids),
+        )
+    )[0]["n"]
+    assert borrowed_labels == 0
+
+    quartet_ids = {pair.quartet_id for pair in index.pairs}
+    borrowed_quartets = list(
+        db.execute(
+            f"""
+            SELECT COUNT(*) AS n FROM quartets
+             WHERE origin = 'reference_backfill'
+               AND id IN ({','.join('?' * len(quartet_ids))})
+            """,
+            tuple(quartet_ids),
+        )
+    )[0]["n"]
+    assert borrowed_quartets == 0
+
+
+@requires_db
+def test_14_meta_pair_is_a_real_word_of_a_real_quartet(db):
+    """Пара — не догадка: слово стоит в четвёрке, а надпись принадлежит источнику."""
+    index = meta_pairs.load(db)
+    for pair in index.pairs[:200]:
+        words = {
+            normalization.normalize_word(row["display"])
+            for row in db.execute(
+                """
+                SELECT COALESCE(s.display_text, w.text) AS display
+                  FROM quartet_words qw
+                  JOIN words w ON w.id = qw.word_id
+                  LEFT JOIN word_senses s ON s.id = qw.sense_id
+                 WHERE qw.quartet_id = ?
+                """,
+                (pair.quartet_id,),
+            )
+        }
+        assert pair.token_norm in words
+        label = db.execute(
+            """
+            SELECT l.display_text AS text FROM group_rule_labels grl
+              JOIN category_labels l ON l.id = grl.label_id
+             WHERE grl.category_id = ? AND l.id = ?
+            """,
+            (pair.source_id, pair.source_label_id),
+        ).fetchone()
+        assert label is not None
+        assert normalization.normalize_word(label["text"]) == pair.token_norm
+
+
+@requires_db
+def test_15_generator_builds_meta_levels(generated):
+    """Генератор больше не плоский: мета-связи есть и их не больше, чем просили."""
+    assert len(generated) == GENERATED_COUNT
+    with_meta = [level for level in generated if level.meta_links]
+    assert len(with_meta) >= 3, "мета-уровней почти нет — сборка мета-ядра не работает"
+    assert sum(len(level.meta_links) for level in generated) >= 4
+
+    for level in generated:
+        target = level.composition.meta_target(GENERATED_CATEGORIES)
+        assert len(level.meta_links) <= target, (
+            f"{level.level_key}: связей больше, чем просил профиль композиции"
+        )
+        # Слово внутри уровня не повторяется — правило записи без исключений.
+        displays = [
+            display.strip().lower()
+            for group in level.groups
+            for _w, _s, display, _sk, _r in group.tokens
+        ]
+        assert len(set(displays)) == len(displays)
+
+
+@requires_db
+def test_16_meta_levels_pass_both_checks(generated):
+    """Уровень с мета обязан пройти и симуляцию прохождения, и оценку разбиения."""
+    for level in [item for item in generated if item.meta_links]:
+        assert level.meta is not None and level.meta.ok, level.meta.problems
+        assert level.meta.is_dag
+        assert len(level.meta.order) == len(level.groups)
+        assert level.assessment is not None
+        assert [reason for reason in level.reject_reasons if reason.startswith("мета")] == []
+        # Токен-результат действительно принадлежит потребителю, а не источнику.
+        homes = {
+            display.strip().lower(): group.category_key
+            for group in level.groups
+            for _w, _s, display, _sk, _r in group.tokens
+        }
+        for link in level.meta_links:
+            assert homes[link.token_display.strip().lower()] == link.consumer_key
+
+
+@requires_db
+def test_17_meta_depth_never_exceeds_the_original(generated):
+    """Глубина цепочки не больше 2: источник не бывает потребителем.
+
+    Третий порядок — девять ходов ради одного пузыря. В записи оригинала его
+    нет ни на одном из двадцати уровней.
+    """
+    for level in generated:
+        sources = {link.source_key for link in level.meta_links}
+        consumers = {link.consumer_key for link in level.meta_links}
+        assert sources & consumers == set()
+        assert level.meta.max_depth <= 2
+
+
+@requires_db
+def test_18_meta_survives_the_write_to_base(tmp_path, generated):
+    """Сохранённый уровень остаётся мета-уровнем: и роль токена, и ребро графа."""
+    import shutil
+
+    from word_content.db import connect
+
+    copy = tmp_path / "content.sqlite"
+    shutil.copy(PROJECT_DB, copy)
+    conn = connect(copy)
+    try:
+        with conn:
+            level_generator.save(conn, generated)
+        for level in generated:
+            row = conn.execute(
+                "SELECT id FROM level_instances WHERE level_key = ?", (level.level_key,)
+            ).fetchone()
+            assert row is not None
+            level_id = int(row["id"])
+            deps = list(
+                conn.execute(
+                    "SELECT COUNT(*) AS n FROM level_dependencies WHERE level_id = ?",
+                    (level_id,),
+                )
+            )[0]["n"]
+            outputs = list(
+                conn.execute(
+                    "SELECT COUNT(*) AS n FROM level_tokens "
+                    " WHERE level_id = ? AND token_kind = 'category_output'",
+                    (level_id,),
+                )
+            )[0]["n"]
+            assert deps == len(level.meta_links)
+            assert outputs == len(level.meta_links)
+            # Источник показан под той надписью, которую он выпускает.
+            for link in level.meta_links:
+                shown = conn.execute(
+                    """
+                    SELECT l.display_text AS text
+                      FROM level_dependencies d
+                      JOIN level_groups g ON g.id = d.from_group_id
+                      JOIN category_labels l ON l.id = g.display_label_id
+                      JOIN level_tokens t ON t.id = d.to_token_id
+                     WHERE d.level_id = ? AND t.display_text = ?
+                    """,
+                    (level_id, link.token_display),
+                ).fetchone()
+                assert shown is not None and shown["text"] == link.source_label
+            stored = meta_validation.validate_level_in_db(conn, level_id)
+            assert stored.ok, stored.problems
+            assert stored.max_depth == (2 if level.meta_links else 1)
+    finally:
+        conn.close()
+
+
+@requires_db
+def test_18b_meta_can_be_switched_off(db):
+    """Флаг `--no-meta` возвращает плоскую сборку: механика включается осознанно."""
+    levels, stats = level_generator.generate(
+        db, count=2, category_count=GENERATED_CATEGORIES, seed=GENERATED_SEED,
+        use_meta=False,
+    )
+    assert stats["мета-связей поставлено"] == 0
+    assert all(not level.meta_links for level in levels)
+
+
+def test_19_composition_profile_is_taken_from_the_recording(fixtures):
+    """Профиль композиции — это запись, а не выдумка про кривую сложности."""
+    recorded = composition.table()
+    assert len(recorded) == 20
+    assert all(item.recorded for item in recorded.values())
+
+    # Опорные точки записи: первая мета, пик первой десятки, передышка.
+    assert (recorded[1].categories, recorded[1].meta_links) == (5, 0)
+    assert (recorded[3].categories, recorded[3].meta_links) == (8, 1)
+    assert (recorded[7].categories, recorded[7].meta_links) == (12, 6)
+    assert (recorded[10].categories, recorded[10].meta_links) == (8, 0)
+    assert (recorded[17].categories, recorded[17].meta_links) == (11, 6)
+    # Уровень 18 снят частично, но одиннадцатикатегорийным он был целиком.
+    assert recorded[18].categories == 18 - 7
+
+    totals = reference_fixtures.totals(fixtures.upto(None))
+    assert sum(item.meta_links for item in recorded.values()) == totals["meta_links"]
+
+    beyond = composition.for_level(21)
+    assert beyond.source == "extrapolated"
+    assert beyond.categories == 10 and beyond.meta_links == 4
+
+
+def test_19b_meta_target_keeps_the_share_but_not_the_count():
+    """На меньшем числе категорий доля мета сохраняется, а не переносится числом."""
+    level_seven = composition.for_level(7)  # 12 категорий, 6 мета
+    assert level_seven.meta_target(12) == 6
+    assert level_seven.meta_target(5) == 2
+    assert composition.for_level(1).meta_target(12) == 0
+    # Потолок держится даже при нелепом запросе.
+    assert composition.for_level(7).meta_target(3) <= 3
 
 
 # --------------------------------------------------------------- разбор записи как есть

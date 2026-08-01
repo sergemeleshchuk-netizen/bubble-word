@@ -18,6 +18,7 @@ from pydantic import ValidationError
 from . import baseline
 from . import candidate_generation as gen
 from . import (
+    composition,
     conflicts,
     cooldown,
     dedupe,
@@ -26,6 +27,7 @@ from . import (
     level_generator,
     level_review,
     level_solver,
+    meta_pairs,
     meta_validation,
     migrations,
     normalization,
@@ -1445,6 +1447,18 @@ def cmd_generate_level_candidates(
     explain: Annotated[
         bool, typer.Option("--explain", help="Разложить сложность по компонентам")
     ] = False,
+    meta: Annotated[
+        bool,
+        typer.Option("--meta/--no-meta",
+                     help="Собирать мета-связи: собранная группа оставляет пузырь "
+                          "для другой группы уровня"),
+    ] = True,
+    meta_links: Annotated[
+        int | None,
+        typer.Option("--meta-links",
+                     help="Сколько мета-связей просить на уровень. "
+                          "По умолчанию — профиль композиции по номеру уровня"),
+    ] = None,
     skip_reference_gate: Annotated[
         bool,
         typer.Option("--skip-reference-gate",
@@ -1491,6 +1505,8 @@ def cmd_generate_level_candidates(
             config=cooldown_config,
             profile=chosen_profile,
             rare_familiarity=scoring.load_config(None)["word_rare_familiarity"],
+            use_meta=meta,
+            meta_target=meta_links,
         )
         saved = 0
         if not dry_run and levels:
@@ -1504,6 +1520,8 @@ def cmd_generate_level_candidates(
                         "tier": tier,
                         "target_difficulty": target,
                         "profile": profile,
+                        "meta": meta,
+                        "meta_links": meta_links,
                     },
                     records_out=len(levels),
                     random_seed=seed,
@@ -1516,19 +1534,25 @@ def cmd_generate_level_candidates(
     for key, value in stats.items():
         typer.echo(f"{key}: {value}")
     _print_table(
-        ["уровень", "статус", "разбиений", "сложность", "категории"],
+        ["уровень", "статус", "разбиений", "сложность", "мета", "категории"],
         [
             [
                 level.level_key,
                 level.status,
                 str(level.solver.solution_count),
                 str(level.difficulty.total_score),
-                _truncate(", ".join(g.category_key for g in level.groups), 46),
+                str(len(level.meta_links)),
+                _truncate(", ".join(g.category_key for g in level.groups), 40),
             ]
             for level in levels
         ],
     )
     for level in levels:
+        for link in level.meta_links:
+            typer.echo(
+                f"  {level.level_key} мета: «{link.source_label}» выпускает "
+                f"«{link.token_display}» для «{link.consumer_key}»"
+            )
         if explain:
             typer.echo(f"\n{level.level_key}: {level.difficulty.short_explanation}")
             for name, value in level.difficulty.component_scores.items():
@@ -2304,6 +2328,71 @@ def cmd_validate_meta(
     if broken:
         raise typer.Exit(code=1)
     typer.secho("\nМета-граф всех уровней проходим.", fg=typer.colors.GREEN)
+
+
+@app.command("meta-pairs")
+def cmd_meta_pairs(
+    db: DbOption,
+    limit: Annotated[int, typer.Option("--limit", help="Сколько пар показать")] = 20,
+    tier: Annotated[str, typer.Option("--tier", help="normal или hard")] = "normal",
+) -> None:
+    """Сколько мета-связей вообще собирается из имеющихся надписей.
+
+    Мета-пара — совпадение слова готовой четвёрки с надписью другого правила:
+    на уровне это значит «собранная группа B оставит пузырь для группы A».
+    """
+    conn = _open(db)
+    try:
+        index = meta_pairs.load(conn, tier=tier)
+    finally:
+        conn.close()
+    for key, value in index.stats.items():
+        typer.echo(f"{key}: {value}")
+    if not len(index):
+        typer.secho("\nМета-пар нет: генератор соберёт плоские уровни.",
+                    fg=typer.colors.YELLOW)
+        return
+    _print_table(
+        ["надпись-источник", "токен", "правило-потребитель", "пересечение пулов"],
+        [
+            [
+                pair.source_label,
+                pair.token_display,
+                pair.consumer_key,
+                f"{pair.pool_overlap:.0%}",
+            ]
+            for pair in sorted(
+                {
+                    (pair.consumer_id, pair.source_id): pair for pair in index.pairs
+                }.values(),
+                key=lambda item: (item.source_label, item.consumer_key),
+            )[:limit]
+        ],
+    )
+
+
+@app.command("composition-profile")
+def cmd_composition_profile(
+    upto: Annotated[int, typer.Option("--upto", help="До какого уровня показать")] = 25,
+) -> None:
+    """Опорный состав уровня по номеру: категории, мета-связи, ловушки.
+
+    Числа сняты с записи оригинала. За двадцатым уровнем запись кончается,
+    и профиль честно помечает продолжение кривой как `extrapolated`.
+    """
+    _print_table(
+        ["уровень", "категорий", "мета-связей", "ловушек", "источник"],
+        [
+            [
+                str(item.number),
+                str(item.categories),
+                str(item.meta_links),
+                str(item.traps),
+                item.source,
+            ]
+            for item in (composition.for_level(number) for number in range(1, upto + 1))
+        ],
+    )
 
 
 def main() -> Any:

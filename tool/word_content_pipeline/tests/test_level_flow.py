@@ -12,7 +12,14 @@ from pathlib import Path
 
 import pytest
 
-from word_content import cooldown, integrity, level_generator, level_review, quartet_builder
+from word_content import (
+    cooldown,
+    integrity,
+    level_generator,
+    level_review,
+    meta_pairs,
+    quartet_builder,
+)
 from word_content.db import connect, init_db
 from word_content.importers import import_categories, import_memberships
 from word_content.models import QuartetInput
@@ -173,6 +180,124 @@ def test_level_checks_pass_for_generated_levels(flow_db):
         level_generator.save(flow_db, levels)
     failed = [r for r in integrity.run_level_checks(flow_db) if r.failed]
     assert not failed, [r.question for r in failed]
+
+
+# ----------------------------------------------------------------- мета в генераторе
+
+# Пул, слова которого — имена других категорий этого же набора. Ровно так
+# устроена мета оригинала: собранная группа TREES оставляет пузырь «trees»,
+# и он нужен группе COLLECTIONS.
+META_POOL = {"collections": ["trees", "birds", "rivers", "planets"]}
+META_LABEL = {"collections": ("COLLECTIONS", "Collections of natural things")}
+
+
+@pytest.fixture
+def meta_db(tmp_path: Path):
+    from word_content.repositories import ensure_primary_labels
+
+    pools = {**POOLS, **META_POOL}
+    labels = {**LABELS, **META_LABEL}
+    path = tmp_path / "meta.sqlite"
+    init_db(path)
+    conn = connect(path)
+    (tmp_path / "categories.jsonl").write_text(
+        "\n".join(
+            json.dumps(
+                {
+                    "category_key": key,
+                    "label": labels[key][0],
+                    "rule": labels[key][1],
+                    "relation_type": "is_a",
+                    "theme": "test",
+                    "base_difficulty": 0.3,
+                },
+                ensure_ascii=False,
+            )
+            for key in pools
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "memberships.jsonl").write_text(
+        "\n".join(
+            json.dumps(
+                {
+                    "word": word,
+                    "category_key": key,
+                    "relation_type": "is_a",
+                    "reason": f"{word} принадлежит {key}",
+                    "fit_score": 0.95,
+                    "obviousness_score": 0.9,
+                    "source": "test_fixture",
+                    "review_status": "approved",
+                },
+                ensure_ascii=False,
+            )
+            for key, words in pools.items()
+            for word in words
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    import_categories(conn, tmp_path / "categories.jsonl")
+    import_memberships(conn, tmp_path / "memberships.jsonl", sense_map=SenseMap())
+    derive(conn, {})
+    ensure_primary_labels(conn)
+    conn.commit()
+    built, _stats = quartet_builder.build(conn, max_per_category=2)
+    for row in quartet_builder.to_rows(built):
+        upsert_quartet(conn, QuartetInput.model_validate(row))
+    conn.commit()
+    yield conn
+    conn.close()
+
+
+def test_meta_pairs_are_found_from_labels(meta_db):
+    """Слово четвёрки, совпавшее с надписью другого правила, — готовая мета-пара."""
+    index = meta_pairs.load(meta_db)
+    assert len(index) >= 1
+    pair = index.pairs[0]
+    assert pair.consumer_key == "collections"
+    assert pair.source_key in POOLS
+    assert pair.token_norm == pair.source_label.lower()
+
+
+def test_generator_plants_a_meta_link(meta_db):
+    """Мета-связь попадает в уровень, проходит симуляцию и ложится в базу."""
+    levels, stats = level_generator.generate(
+        meta_db, count=1, category_count=3, seed=5, meta_target=1
+    )
+    assert stats["мета-связей поставлено"] == 1
+    level = levels[0]
+    link = level.meta_links[0]
+    assert level.meta.ok and level.meta.max_depth == 2
+    # Пузырь принадлежит потребителю, а выпускает его источник.
+    consumer = next(g for g in level.groups if g.category_key == link.consumer_key)
+    assert link.token_display in [display for _w, _s, display, _sk, _r in consumer.tokens]
+    assert link.source_key != link.consumer_key
+
+    with meta_db:
+        level_generator.save(meta_db, levels)
+    stored = meta_db.execute(
+        """
+        SELECT t.token_kind AS kind, l.display_text AS shown
+          FROM level_dependencies d
+          JOIN level_tokens t ON t.id = d.to_token_id
+          JOIN level_groups g ON g.id = d.from_group_id
+          JOIN category_labels l ON l.id = g.display_label_id
+        """
+    ).fetchone()
+    assert stored["kind"] == "category_output"
+    # Источник показан ровно под той надписью, которую выпускает.
+    assert stored["shown"] == link.source_label
+
+
+def test_meta_can_be_turned_off(meta_db):
+    levels, stats = level_generator.generate(
+        meta_db, count=1, category_count=3, seed=5, use_meta=False
+    )
+    assert stats["мета-связей поставлено"] == 0
+    assert not levels[0].meta_links
 
 
 # --------------------------------------------------------------------- приёмка уровня
