@@ -24,6 +24,7 @@ from . import (
     dedupe,
     integrity,
     level_audit,
+    level_eval,
     level_generator,
     level_pack,
     level_review,
@@ -2446,6 +2447,89 @@ def cmd_composition_profile(
             for item in (composition.for_level(number) for number in range(1, upto + 1))
         ],
     )
+
+
+@app.command("eval-levels")
+def cmd_eval_levels(
+    db: DbOption,
+    prefix: Annotated[
+        str, typer.Option("--prefix", help="Префикс ключей пакета: REF, RMK, ...")
+    ],
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", help="Куда положить разбор по факторам (JSON)"),
+    ] = None,
+    swow: Annotated[
+        Path | None,
+        typer.Option("--swow", help="Файл ассоциаций SWOW; по умолчанию ищется сам"),
+    ] = None,
+    show: Annotated[
+        int, typer.Option("--show", help="Сколько притяжений печатать на уровень")
+    ] = 0,
+) -> None:
+    """Сложность D и фан F по каждому уровню пакета — по модели `levels/EVAL.md`.
+
+    Считается детерминированно, без слепого решателя: сорок прогонов LLM на два
+    пакета дали бы несравнимые числа ровно там, где нужно сравнение. Подстановки
+    описаны в модуле и в `EVAL.md`.
+    """
+    conn = _open(db)
+    try:
+        results = level_eval.evaluate_pack(conn, prefix, swow=swow)
+    finally:
+        conn.close()
+    if not results:
+        _fail(f"уровней с префиксом {prefix!r} в базе нет")
+        return
+    _print_table(
+        ["уровень", "D", "F", "категорий", "ловушек", "ага", "спорных",
+         "мета", "натужных", "нечитаемых", "знакомость"],
+        [
+            [
+                item.level_key,
+                f"{item.difficulty:.1f}",
+                f"{item.fun:.1f}",
+                str(item.facts["категорий"]),
+                str(item.facts["честных ловушек"]),
+                str(item.facts["ага-моментов"]),
+                str(item.facts["спорных"]),
+                str(item.facts["мета-связей"]),
+                str(len(item.facts["натужных надписей"])),  # type: ignore[arg-type]
+                str(len(item.facts["нечитаемых токенов"])),  # type: ignore[arg-type]
+                str(item.facts["знакомость средняя"]),
+            ]
+            for item in results
+        ],
+    )
+    typer.echo("")
+    for key, value in level_eval.summarise(results).items():
+        typer.echo(f"{key}: {value}")
+    if show:
+        for item in results:
+            for pull in item.temptations[:show]:
+                mark = "ага" if pull.aha else "   "
+                arrow = "ПЕРЕТЯГИВАЕТ" if pull.outpulls_home else "честная"
+                typer.echo(
+                    f"  {item.level_key} {mark} «{pull.token}» {pull.home} -> "
+                    f"{pull.rival}: дом {pull.home_pull:.3f}, чужой "
+                    f"{pull.rival_pull:.3f} — {arrow}"
+                )
+    if output is not None:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(
+            json.dumps(
+                {
+                    "prefix": prefix,
+                    "summary": level_eval.summarise(results),
+                    "levels": [item.as_dict() for item in results],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        typer.echo(f"\nРазбор: {output}")
 
 
 def main() -> Any:
