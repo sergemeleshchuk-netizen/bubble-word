@@ -38,8 +38,14 @@ import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.t
  * gen-1.2 — очередь досыпки строится по ритму (каждая пачка открывает следующий
  *           сбор, см. deal.ts) и в уровень вошёл игровой модификатор: половинки,
  *           лёд, «?» или цепь-линия — с параметрами в спеке и в игровом JSON.
+ * gen-1.3 — рецепты структуры базы оригинала (замер 1025 уровней bwj-org, 02.08):
+ *           четвёрка собирается градиентом очевидности «2+1+1» (якоря 0.71/0.60,
+ *           середина 0.50, неочевидное 0.39), повторы слов из прошлых уровней
+ *           планируются В НОВУЮ категорию по коридору декады, а категория,
+ *           вернувшаяся после окна свежести, пересдаётся новой четвёркой
+ *           (не больше одного слова из прошлой).
  */
-export const GENERATOR_VERSION = 'gen-1.2';
+export const GENERATOR_VERSION = 'gen-1.3';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -56,10 +62,23 @@ export interface PackHistory {
    * против 28 в L171-180 референса).
    */
   wordCategory?: Map<string, string>;
+  /**
+   * Ключ категории → её прошлая четвёрка (нормализованные слова).
+   *
+   * Нужна для ПЕРЕСДАЧИ: в выгрузке оригинала 1725 категорий из 6714 живут
+   * с двумя и более разными наборами слов («violin» — 21 вариант четвёрки).
+   * Категория, вернувшаяся после окна свежести, обязана прийти с другим
+   * составом — иначе возврат читается как повтор уровня, а не как ловушка
+   * на память игрока.
+   */
+  categoryWords?: Map<string, Set<string>>;
 }
 
 export function emptyPackHistory(): PackHistory {
-  return { wordLastLevel: new Map(), categoryLastLevel: new Map(), wordCategory: new Map() };
+  return {
+    wordLastLevel: new Map(), categoryLastLevel: new Map(),
+    wordCategory: new Map(), categoryWords: new Map(),
+  };
 }
 
 export interface LevelGenerationOutcome {
@@ -84,6 +103,14 @@ type Relaxation = typeof RELAXATION_ORDER[number];
 
 interface Constraints {
   categoryCount: number;
+  /**
+   * Сколько слов уровня должны быть повторами из прошлых уровней В ДРУГОЙ
+   * категории. Середина коридора декады (`repeatRange`). Это главный растущий
+   * рычаг оригинала: доля уже виденных слов идёт с 12% (L1-20) до ~80%
+   * (L400+), и 70-80% из них лежат в новой категории — игра сознательно
+   * играет против памяти игрока. Ноль — у пресетов без гейтов декады.
+   */
+  repeatTarget: number;
   /**
    * Гейты формы слова из профиля декады. Фильтруют пул НА ВХОДЕ, а не отбраковывают
    * готовый уровень: когда гейты стояли только в валидаторе, генератор 24 попытки
@@ -222,6 +249,26 @@ const META_WORD_ZIPF = 3.0;
  * слагаемое всё равно вырождается в константу.
  */
 const OBVIOUSNESS_WEIGHT = 0.9;
+
+/**
+ * Градиент очевидности внутри четвёрки — правило «2+1+1».
+ *
+ * Замер 9 987 четвёрок оригинала (bwj-org, 1025 уровней), сопоставленных с
+ * нашей шкалой очевидности: если отсортировать слова четвёрки, средние —
+ * 0.71 / 0.60 / 0.50 / 0.39, разброс max-min в среднем 0.32. То есть рецепт
+ * оригинала стабилен: два слова-якоря, по которым игрок узнаёт категорию,
+ * одно среднее и одно неочевидное, которое доезжает последним.
+ *
+ * До этого отбор предпочитал очевидность МОНОТОННО («чем очевиднее, тем
+ * лучше»), и четвёрка получалась плоской: четыре одинаково явных слова —
+ * скучно, четыре одинаково тихих — «в COMPASS приехал housing». Слот получает
+ * ЦЕЛЬ, а не порог: слово оценивается близостью к цели своего слота, поэтому
+ * категория с узким пулом всё равно собирается — просто без градиента.
+ *
+ * Работает только под гейтами декады и не трогает quick-win: точка входа
+ * обязана остаться четвёркой из одних якорей.
+ */
+const OBVIOUSNESS_SLOT_TARGETS = [0.71, 0.60, 0.50, 0.39] as const;
 
 /**
  * Чем считать очевидность, если связи в индексе не нашлось.
@@ -459,6 +506,38 @@ export interface MetaEdge {
   word: number;
 }
 
+/** Порог неразделимости пары по Жаккару пулов alternative-слов. */
+const UNSEPARABLE_JACCARD = 0.30;
+
+/**
+ * Разделима ли пара категорий на одном уровне: нет запрета в базе и пулы
+ * правдоподобных слов не сливаются. Одно правило для двух мест — отбора
+ * категорий уровня и резервирования мета-цепочки. Раньше правило знало только
+ * первое место, и planDeepChain честно резервировал цепь sauces → condiments,
+ * которую база помечает do_not_pair: первый уровень блока каждый раз пытался
+ * поставить запрещённую пару, отбор её выбрасывал, и уровень оставался с
+ * 0-1 мета-парами при поле коридора 3 — хронический провал META_RANGE.
+ */
+function pairSeparable(
+  index: ContentIndex, a: number, b: number, poolCache: Map<number, Set<number>>,
+): boolean {
+  if (index.conflict(a, b)) return false;
+  const pool = (cat: number): Set<number> => {
+    let set = poolCache.get(cat);
+    if (!set) {
+      set = new Set(index.categoryMemberships(cat, STATUS.alternative).map((m) => m.word));
+      poolCache.set(cat, set);
+    }
+    return set;
+  };
+  const pa = pool(a);
+  const pb = pool(b);
+  let shared = 0;
+  for (const w of pa) if (pb.has(w)) shared += 1;
+  const union = pa.size + pb.size - shared;
+  return !(union > 0 && shared / union >= UNSEPARABLE_JACCARD);
+}
+
 /**
  * Строит мета-лес нужной глубины из доступных пар.
  *
@@ -502,9 +581,20 @@ export function planDeepChain(
   if (depth < 2) return null;
   const usable: number[] = [];
   for (let cat = 0; cat < index.categories.length; cat += 1) {
-    if (index.approvedCount(cat) >= wordsPerCategory) usable.push(cat);
+    // считаем слова, ПРОХОДНЫЕ под гейтами декады, а не сырые approved: на
+    // сводной базе с полом веса 0.70 категория с четырьмя approved-словами
+    // может не иметь ни одной играбельной четвёрки — резерв такой цепи
+    // сжигал все попытки уровня об одно и то же «назначение слов»
+    const playable = index.categoryMemberships(cat, STATUS.approved)
+      .filter((m) => wordFitsGates(index, m.word, gates)).length;
+    if (playable >= wordsPerCategory) usable.push(cat);
   }
-  const edges = possibleMetaEdges(index, usable, gates);
+  // цепь обязана быть СТАВИМОЙ: каждая пара её участников проходит то же
+  // правило разделимости, что и отбор категорий уровня (см. pairSeparable) —
+  // иначе резерв выбрасывается отбором, и уровень остаётся без мета-пар
+  const poolCache = new Map<number, Set<number>>();
+  const edges = possibleMetaEdges(index, usable, gates)
+    .filter((e) => pairSeparable(index, e.child, e.parent, poolCache));
   const outgoing = new Map<number, MetaEdge[]>();
   const rng = createRng(`${seed}|deep-chain|${depth}`);
   for (const edge of rng.shuffle(edges)) {
@@ -514,6 +604,9 @@ export function planDeepChain(
     if (path.length === depth) return path;
     for (const edge of outgoing.get(node) ?? []) {
       if (seen.has(edge.parent)) continue;
+      // разделимость со ВСЕМИ узлами пути, а не только с соседом: на уровне
+      // окажется вся цепь целиком
+      if (![...seen].every((n) => pairSeparable(index, edge.parent, n, poolCache))) continue;
       seen.add(edge.parent);
       const found = walk(edge.parent, [...path, edge], seen);
       if (found) return found;
@@ -690,41 +783,17 @@ function selectCategories(
    * категории как дом, но в соседней читается правдоподобно. Счётчик решений
    * смотрит ровно на этот статус, значит и фильтр пар обязан смотреть на него же,
    * иначе он мерит не то, что потом ломает уровень.
+   *
+   * Запреты пар из базы действуют ВСЕГДА, в том числе без гейтов декады:
+   * derive-conflicts посчитал пересечение играбельных пулов и сохранил пару
+   * с причиной (GEMSTONES + BIRTHSTONES — 15 общих слов). Живой Жаккар
+   * остаётся рядом: он ловит и то, чего в базе ещё нет. Само правило —
+   * в pairSeparable, общем с планировщиком мета-цепочки.
    */
   const plausibleSets = new Map<number, Set<number>>();
-  const approvedSet = (entry: PoolEntry): Set<number> => {
-    let set = plausibleSets.get(entry.category);
-    if (!set) {
-      set = new Set(index.categoryMemberships(entry.category, STATUS.alternative)
-        .map((m) => m.word));
-      plausibleSets.set(entry.category, set);
-    }
-    return set;
-  };
-  const UNSEPARABLE_JACCARD = 0.30;
-  const separableFromSelected = (entry: PoolEntry): boolean => {
-    /**
-     * Запреты пар из базы действуют ВСЕГДА, в том числе без гейтов декады.
-     *
-     * Это не эвристика инструмента, а решение стороны контента: derive-conflicts
-     * посчитал пересечение играбельных пулов и сохранил пару с причиной
-     * (GEMSTONES + BIRTHSTONES — 15 общих слов, FABRICS + UPHOLSTERY — 13).
-     * Живой Жаккар ниже остаётся: он ловит и то, чего в базе ещё нет, но
-     * порог у него один на всех, а в базе есть ручные запреты и severity.
-     */
-    for (const other of selected) {
-      if (index.conflict(entry.category, other.category)) return false;
-    }
-    const a = approvedSet(entry);
-    for (const other of selected) {
-      const b = approvedSet(other);
-      let shared = 0;
-      for (const w of a) if (b.has(w)) shared += 1;
-      const union = a.size + b.size - shared;
-      if (union > 0 && shared / union >= UNSEPARABLE_JACCARD) return false;
-    }
-    return true;
-  };
+  const separableFromSelected = (entry: PoolEntry): boolean =>
+    selected.every((other) =>
+      pairSeparable(index, entry.category, other.category, plausibleSets));
 
   const add = (entry: PoolEntry | undefined): void => {
     if (!entry || taken.has(entry.category) || selected.length >= c.categoryCount) return;
@@ -856,6 +925,32 @@ function assignWords(
   const assignment = new Map<number, number[]>();
   let unrecognizableUsed = 0;
   let rareUsed = 0;
+  let repeatsUsed = 0;
+
+  /**
+   * Повтор ли это слово и какого рода. «Повтор в новой категории» — рычаг
+   * сложности из рецепта оригинала (repeatTarget в Constraints); «повтор в той
+   * же категории» — скучный возврат, его отбор наказывает.
+   */
+  const repeatKind = (w: number, cat: number): 'new-cat' | 'same-cat' | null => {
+    const norm = index.words[w].n;
+    if (!history.wordLastLevel.has(norm)) return null;
+    const lastCat = history.wordCategory?.get(norm);
+    return lastCat !== undefined && lastCat !== index.categories[cat].k
+      ? 'new-cat' : 'same-cat';
+  };
+
+  /**
+   * Прошлая четвёрка вернувшейся категории: при пересдаче разрешено взять из
+   * неё не больше ОДНОГО слова. Одно общее слово — мостик для памяти игрока
+   * («board games» узнаётся), два и больше — повтор уровня вместо пересдачи.
+   */
+  const REDEAL_OVERLAP_MAX = 1;
+  const prevDeal = new Map<number, Set<string>>();
+  for (const p of selected) {
+    const prev = history.categoryWords?.get(index.categories[p.category].k);
+    if (prev && prev.size > 0) prevDeal.set(p.category, prev);
+  }
 
   /**
    * Очевидность связи «слово → эта категория», разложенная по словам.
@@ -905,6 +1000,14 @@ function assignWords(
         if (word.n === catLabelNorm) return false;               // слово = имя своей категории
         if (chosenNorms.some((n) => isNearDuplicate(n, word.n))) return false;
 
+        // пересдача вернувшейся категории: не больше одного слова из её
+        // прошлой четвёрки (REDEAL_OVERLAP_MAX)
+        const prev = prevDeal.get(cat);
+        if (prev?.has(word.n)
+          && chosenNorms.filter((n) => prev.has(n)).length >= REDEAL_OVERLAP_MAX) {
+          return false;
+        }
+
         // слово-имя другой выбранной категории допустимо только как плановая мета
         const labelOf = labelWords.get(w);
         if (labelOf !== undefined) {
@@ -924,8 +1027,11 @@ function assignWords(
 
   const orderCandidates = (cat: number, candidates: number[]): number[] => {
     const rareNeeded = c.rareTarget - rareUsed;
+    const repeatsNeeded = c.repeatTarget - repeatsUsed;
     const isQuickwin = cat === quickwinCat;
     const obviousness = obviousnessIn(cat);
+    // номер заполняемого слота четвёрки: обязательные мета-слова уже стоят
+    const slot = (assignment.get(cat) ?? []).length;
     return candidates
       .map((w) => {
         const z = index.zipf(w);
@@ -941,8 +1047,20 @@ function assignWords(
          * внутри пула. В категории, залитой одним значением, слагаемое —
          * константа, и порядок не меняется вовсе. Это правильное поведение:
          * там, где база ничего не различила, генератору нечего предпочитать.
+         *
+         * Под гейтами декады очевидность меряется не монотонно, а близостью
+         * к ЦЕЛИ СЛОТА — градиент «2+1+1» из замера оригинала
+         * (OBVIOUSNESS_SLOT_TARGETS): якоря, середина, неочевидный хвост.
+         * Quick-win остаётся монотонным: точка входа собирается из якорей.
          */
-        score += OBVIOUSNESS_WEIGHT * (obviousness.get(w) ?? OBVIOUSNESS_UNKNOWN);
+        const obv = obviousness.get(w) ?? OBVIOUSNESS_UNKNOWN;
+        if (c.gates && !isQuickwin) {
+          const target = OBVIOUSNESS_SLOT_TARGETS[
+            Math.min(slot, OBVIOUSNESS_SLOT_TARGETS.length - 1)];
+          score += OBVIOUSNESS_WEIGHT * (1 - Math.abs(obv - target));
+        } else {
+          score += OBVIOUSNESS_WEIGHT * obv;
+        }
         /**
          * Предпочтение по узнаваемости — см. RECOGNITION_SPAN.
          *
@@ -968,8 +1086,19 @@ function assignWords(
           score += LENGTH_WEIGHT * Math.max(0, 1 - over / LENGTH_SPAN);
           if (index.words[w].tok > 1) score -= MULTIWORD_PENALTY;
         }
-        const last = history.wordLastLevel.get(index.words[w].n);
-        if (last === undefined) score += 0.15;                   // новое для пакета слово
+        /**
+         * Повторы планируются, а не случаются. Раньше был один бонус «новое
+         * слово +0.15», то есть отбор системно ИЗБЕГАЛ повторов — а у оригинала
+         * повтор в новой категории и есть главный растущий рычаг. Пока план
+         * декады не набран, повтор-в-новой-категории ценнее нового слова
+         * (+0.6 против +0.15 — тот же вес, что у редкости); сверх плана —
+         * дешевле. Возврат в ту же категорию наказывается всегда: это не
+         * ловушка на память, а дежавю.
+         */
+        const kind = repeatKind(w, cat);
+        if (kind === null) score += 0.15;                        // новое для пакета слово
+        else if (kind === 'new-cat') score += repeatsNeeded > 0 ? 0.6 : -0.2;
+        else score -= 0.25;
         return { w, score };
       })
       .sort((a, b) => b.score - a.score)
@@ -1008,8 +1137,10 @@ function assignWords(
       const wasUnrecognizable = !index.isRecognizable(word);
       const z = index.zipf(word);
       const wasRare = z !== null && z < rareZipfCeiling(c.gates);
+      const wasRepeat = repeatKind(word, target) === 'new-cat';
       if (wasUnrecognizable) unrecognizableUsed += 1;
       if (wasRare) rareUsed += 1;
+      if (wasRepeat) repeatsUsed += 1;
 
       if (solve()) return true;
 
@@ -1018,6 +1149,7 @@ function assignWords(
       used.delete(word);
       if (wasUnrecognizable) unrecognizableUsed -= 1;
       if (wasRare) rareUsed -= 1;
+      if (wasRepeat) repeatsUsed -= 1;
     }
     return false;
   };
@@ -1318,6 +1450,10 @@ export function generateLevel(
 
   const baseConstraints = (): Constraints => ({
     categoryCount: plan.categoryCount,
+    // середина коридора повторов декады; без гейтов повторы не планируются
+    repeatTarget: config.decadeGates
+      ? Math.round((config.decadeGates.repeatRange[0] + config.decadeGates.repeatRange[1]) / 2)
+      : 0,
     gates: config.decadeGates ?? null,
     wordWindow: config.wordFreshnessWindow,
     categoryWindow: config.categoryFreshnessWindow,
@@ -1383,8 +1519,16 @@ export function generateLevel(
       continue;
     }
 
+    /**
+     * Навязанная цепь отпускается в последней трети попыток — та же граница,
+     * что у требования мета-пар ниже. Резерв не всесилен: цепь одна и та же
+     * на всех попытках, и если её категории раз за разом не покрываются
+     * словами, уровень сгорал целиком об один и тот же резерв. Потерять
+     * глубокую цепь хуже, чем мета-пару, но лучше, чем потерять уровень.
+     */
+    const chainForced = attempt < Math.floor((maxAttempts * 2) / 3);
     const picked = selectCategories(index, pool, constraints, rng,
-      options.forcedChain, isWordFresh);
+      chainForced ? options.forcedChain : undefined, isWordFresh);
     if (!picked) {
       lastStage = 'выбор категорий';
       lastReason = 'не удалось собрать набор с мета-каркасом и категорией быстрой победы';
@@ -1484,6 +1628,9 @@ export function generateLevel(
 export function recordLevelInHistory(history: PackHistory, spec: LevelSpec): void {
   for (const category of spec.categories) {
     history.categoryLastLevel.set(category.key, spec.levelId);
+    // прошлая четвёрка категории — для правила пересдачи (см. PackHistory)
+    history.categoryWords?.set(category.key,
+      new Set(category.words.map((w) => normalizeWordKey(w.text))));
     for (const word of category.words) {
       // тот же ключ, что использует проверка свежести: иначе слово с необычным
       // апострофом или регистром проскочило бы мимо неё

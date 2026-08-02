@@ -29,7 +29,7 @@ import type { ScoringConfig } from './scoringDifficulty.ts';
  *   minor — новая возможность;
  *   patch — исправление без новых возможностей.
  */
-export const TOOL_VERSION = '1.10.0';
+export const TOOL_VERSION = '1.11.0';
 
 /**
  * Версия счётчика решений. Отдельная от генератора: доказательство

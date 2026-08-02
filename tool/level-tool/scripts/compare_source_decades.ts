@@ -25,6 +25,7 @@ import { fileURLToPath } from 'node:url';
 import type { Snapshot } from '../web/src/core/types.ts';
 import { checkDecadeFit, configForRange, profileForRange } from '../web/src/core/decadeProfiles.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
+import { emptyPackHistory } from '../web/src/core/generator.ts';
 import { CONTENT_SOURCES } from '../web/src/core/sources.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 
@@ -37,6 +38,13 @@ function arg(name: string): string | undefined {
 
 const lastLevel = Number(arg('to') ?? 100);
 const seed = arg('seed') ?? 'decade-compare';
+/**
+ * История пакета СКВОЗНАЯ по умолчанию: декады одной кривой играются подряд,
+ * и повторы слов из прошлых уровней (главный растущий рычаг оригинала) без
+ * общей истории просто не могут возникнуть — каждый блок начинал бы с чистой
+ * памяти. `--fresh` возвращает старое поведение: каждая декада с нуля.
+ */
+const freshHistory = process.argv.includes('--fresh');
 const scoring = JSON.parse(
   readFileSync(join(ROOT, 'web/src/data/scoring.config.json'), 'utf8')) as ScoringConfig;
 
@@ -51,12 +59,15 @@ function median(values: number[]): number {
   return s.length ? s[Math.floor(s.length / 2)] : 0;
 }
 
-console.log(`кривая 1-${lastLevel}, seed ${seed}\n`);
+console.log(`кривая 1-${lastLevel}, seed ${seed}`
+  + `${freshHistory ? ', история декад раздельная (--fresh)' : ', история сквозная'}\n`);
 console.log('дек.  источник           собр  приёмка  zipf(цель)   букв мед/макс(пред)  '
-  + 'мета  лов   D    I');
+  + 'мета  повт  лов   D    I');
 
 const totals = new Map<string, { built: number; planned: number; passed: number;
   decades: number; overLen: number; }>();
+// сквозная память кривой: у каждого источника своя, декады идут подряд
+const histories = new Map(CONTENT_SOURCES.map((s) => [s.id, emptyPackHistory()]));
 
 for (let from = 1; from <= lastLevel; from += 10) {
   const range: [number, number] = [from, Math.min(from + 9, lastLevel)];
@@ -64,7 +75,8 @@ for (let from = 1; from <= lastLevel; from += 10) {
   for (const source of CONTENT_SOURCES) {
     const snapshot = snapshots.get(source.id)!;
     const config = configForRange(range, seed);
-    const result = generateBlock({ snapshot, config, scoring });
+    const result = generateBlock({ snapshot, config, scoring,
+      history: freshHistory ? undefined : histories.get(source.id) });
     const planned = result.levels.length + result.failures.length;
 
     const lengths = result.levels.flatMap((l) => l.spec.categories
@@ -76,6 +88,13 @@ for (let from = 1; from <= lastLevel; from += 10) {
       ? zipfs.reduce((a, b) => a + b, 0) / zipfs.length : 0;
     const meta = result.levels.map((l) => l.spec.categories
       .reduce((n, c) => n + c.words.filter((w) => w.kind === 'meta').length, 0));
+    // повторы в другой категории уже посчитаны проверкой REPEAT_BUDGET —
+    // читаем её деталь, чтобы не дублировать логику подсчёта
+    const repeats = result.levels.map((l) => {
+      const check = l.validation.checks.find((c) => c.code === 'REPEAT_BUDGET');
+      const m = check?.detail.match(/другой категории: (\d+)/);
+      return m ? Number(m[1]) : 0;
+    });
     const traps = result.levels.map((l) => l.spec.traps.length);
     const d = result.levels.map((l) => l.difficulty.value);
     const i = result.levels.map((l) => l.interest.value);
@@ -114,7 +133,8 @@ for (let from = 1; from <= lastLevel; from += 10) {
       + `${blockZipf.toFixed(2)}(${profile.zipfMedianTarget.toFixed(2)})  `
       + `${String(median(lengths)).padStart(4)}/${String(maxLen).padStart(2)}`
       + `(${String(profile.maxWordLen).padStart(2)})  `
-      + `${mean(meta).toFixed(1).padStart(4)} ${mean(traps).toFixed(1).padStart(4)} `
+      + `${mean(meta).toFixed(1).padStart(4)} ${mean(repeats).toFixed(1).padStart(5)} `
+      + `${mean(traps).toFixed(1).padStart(4)} `
       + `${mean(d).toFixed(1).padStart(4)} ${mean(i).toFixed(1).padStart(4)}`);
   }
   console.log('');

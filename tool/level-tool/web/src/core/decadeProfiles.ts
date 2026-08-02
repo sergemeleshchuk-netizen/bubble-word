@@ -12,6 +12,17 @@
  * Категорий на уровень: плато ~9.5 на L1-120 и плато ~13.5 на L121+, между ними
  * ступенька. А растут внутри плато узнаваемость слов (медиана zipf 4.35 → 3.99),
  * мета-плотность (1.7 → 3.3) и повторы слов из прошлых уровней (2.9 → 18.4).
+ *
+ * Почему калибровка ограничена L1-199 и НЕ пересчитывается по выгрузке 1025
+ * уровней (reference/bwj-org, замер 02.08). Ручной дизайн у оригинала виден
+ * только в начале кривой: примерно с L300 статистика замерзает — среднее 12.4
+ * категории, мин 10, макс 16, десятками декад без единого отклонения. Это
+ * почерк их собственного генератора, а не гейм-дизайнера. Калиброваться по
+ * хвосту значило бы копировать усреднённость машины; сложность позднего
+ * оригинала растёт не размером, а повторами (доля уже виденных слов доходит
+ * до ~80%, и 70-80% повторов лежат в НОВОЙ категории) и неочевидностью
+ * четвёртого слова четвёрки (градиент 0.71/0.60/0.50/0.39 — см. generator.ts,
+ * OBVIOUSNESS_SLOT_TARGETS).
  */
 import type { BlockConfig, Modifier } from './types.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
@@ -281,12 +292,23 @@ export const RHYTHM_INVARIANTS: RhythmInvariants = {
   minSpread: 5, maxSpread: 7, minDescents: 3,
 };
 
-function rhythmOk(counts: number[], corridor: [number, number]): boolean {
+function rhythmOk(
+  counts: number[], corridor: [number, number], categoryMean: number,
+): boolean {
   const spread = Math.max(...counts) - Math.min(...counts);
   if (spread < RHYTHM_INVARIANTS.minSpread || spread > RHYTHM_INVARIANTS.maxSpread) return false;
   const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
   if (descents < RHYTHM_INVARIANTS.minDescents) return false;
   if (counts.some((c) => c < corridor[0] || c > corridor[1])) return false;
+  /**
+   * Среднее плана обязано попадать в цель декады с тем же допуском ±1.0,
+   * что и приёмка CATEGORY_MEAN. Раньше план это не проверял, и декада 51-60
+   * (цель 10.8) стабильно планировалась на 11.9: клэмп к коридору и раздвижка
+   * спайка тащат среднее вверх, а приёмка потом честно ставила FAIL — причём
+   * одинаково на всех трёх источниках, потому что виноват был сам план.
+   */
+  const mean = counts.reduce((a, b) => a + b, 0) / counts.length;
+  if (Math.abs(mean - categoryMean) > 1.0) return false;
   // передышка после спайка — единственная гарантированная фигура референса
   const spike = counts[SPIKE_POSITION - 1];
   const recovery = counts[RECOVERY_POSITION - 1];
@@ -338,7 +360,7 @@ export function planCategoryCounts(
       return Math.min(spike, Math.max(recovery, clamp(value + rng.int(5) - 2)));
     });
     if (isFirstDecade) counts[0] = TUTORIAL_CATEGORY_COUNT;
-    if (rhythmOk(counts, corridor)) return counts;
+    if (rhythmOk(counts, corridor, profile.categoryMean)) return counts;
   }
   // не сошлось за 500 попыток: возвращаем несущую фигуру с растянутыми краями,
   // чтобы разброс всё-таки набрался. Дальше блок отбракует checkBlockRhythm.
