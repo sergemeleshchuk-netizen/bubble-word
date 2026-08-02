@@ -231,7 +231,11 @@ function Empty({ onGenerate }: { onGenerate: () => void }) {
         Генерация идёт целиком в браузере на замороженном снимке базы: без сервера,
         без API-ключа и без сети. Занимает десятки миллисекунд.
       </p>
-      <button className="primary" onClick={onGenerate}>Собрать блок 201–210</button>
+      {/* onClick={onGenerate} НЕЛЬЗЯ: React передаёт первым аргументом событие
+          клика, оно встаёт на место необязательного конфига, и generateBlock
+          получает MouseEvent вместо блока. Типы это пропускают: () => void
+          присваивается обработчику события беспрепятственно. */}
+      <button className="primary" onClick={() => onGenerate()}>Собрать блок 201–210</button>
     </div>
   );
 }

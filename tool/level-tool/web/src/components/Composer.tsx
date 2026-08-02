@@ -502,7 +502,9 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
     return (
       <div className="panel">
         <h2>Блок ещё не собран</h2>
-        <button className="primary" onClick={onGenerate}>Собрать блок</button>
+        {/* см. Empty в App.tsx: голый onGenerate получил бы событие клика
+            на место конфига */}
+        <button className="primary" onClick={() => onGenerate()}>Собрать блок</button>
       </div>
     );
   }
@@ -522,7 +524,7 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
               и имеющим ровно одно глобальное решение.
             </p>
           </div>
-          <button className="ghost" onClick={onGenerate}>Собрать заново</button>
+          <button className="ghost" onClick={() => onGenerate()}>Собрать заново</button>
         </div>
         <div className="grid c4">
           <div className="stat"><div className="v">{block.levels.length}/{plans.length}</div>
