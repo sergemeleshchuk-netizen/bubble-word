@@ -1,0 +1,101 @@
+{
+  "level_id": 15,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "theater_arts",
+      "name": "PERFORMING ARTS",
+      "words": [
+        "dance",
+        "play",
+        "magic",
+        "concert"
+      ]
+    },
+    {
+      "id": "internal_organs",
+      "name": "INTERNAL ORGANS",
+      "words": [
+        "heart",
+        "artery",
+        "bladder",
+        "womb"
+      ]
+    },
+    {
+      "id": "meats",
+      "name": "MEATS",
+      "words": [
+        "turkey",
+        "chop",
+        "bologna",
+        "veal"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "happy",
+        "excited",
+        "tired",
+        "angry"
+      ]
+    },
+    {
+      "id": "religious_leaders",
+      "name": "RELIGIOUS LEADERS",
+      "words": [
+        "pope",
+        "cardinal",
+        "preacher",
+        "chaplain"
+      ]
+    },
+    {
+      "id": "grocery_aisles",
+      "name": "GROCERY AISLES",
+      "words": [
+        "bakery",
+        "Frozen",
+        "meats",
+        "seafood"
+      ]
+    },
+    {
+      "id": "natural_wonders",
+      "name": "NATURAL WONDERS",
+      "words": [
+        "island",
+        "mountains",
+        "ocean",
+        "desert"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 42,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP015",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "meats",
+        "source_group": "MEATS",
+        "target_group": "GROCERY AISLES",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 42
+  }
+}

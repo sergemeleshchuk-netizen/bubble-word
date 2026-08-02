@@ -1,0 +1,151 @@
+{
+  "level_id": 12,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "art",
+        "science",
+        "Spanish",
+        "math"
+      ]
+    },
+    {
+      "id": "farm_products",
+      "name": "FARM PRODUCTS",
+      "words": [
+        "eggs",
+        "leather",
+        "corn",
+        "grain"
+      ]
+    },
+    {
+      "id": "board_game_pieces",
+      "name": "GAME PIECES",
+      "words": [
+        "board",
+        "card",
+        "cup",
+        "chip"
+      ]
+    },
+    {
+      "id": "storage_containers",
+      "name": "CONTAINERS",
+      "words": [
+        "case",
+        "crate",
+        "carton",
+        "canister"
+      ]
+    },
+    {
+      "id": "punishments",
+      "name": "PENALTIES",
+      "words": [
+        "fine",
+        "detention",
+        "expulsion",
+        "restitution"
+      ]
+    },
+    {
+      "id": "family_members",
+      "name": "FAMILY MEMBERS",
+      "words": [
+        "child",
+        "daughter",
+        "sister",
+        "uncle"
+      ]
+    },
+    {
+      "id": "colors",
+      "name": "COLORS",
+      "words": [
+        "black",
+        "green",
+        "pink",
+        "gray"
+      ]
+    },
+    {
+      "id": "elements",
+      "name": "CHEMICAL ELEMENTS",
+      "words": [
+        "iron",
+        "carbon",
+        "calcium",
+        "nitrogen"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "plaintiff",
+        "subpoena",
+        "jury",
+        "penalties"
+      ]
+    },
+    {
+      "id": "emotions",
+      "name": "EMOTIONS",
+      "words": [
+        "fear",
+        "happy",
+        "sad",
+        "worry"
+      ]
+    },
+    {
+      "id": "singing_voices",
+      "name": "SINGING VOICES",
+      "words": [
+        "solo",
+        "alto",
+        "choir",
+        "bass"
+      ]
+    },
+    {
+      "id": "deep_space",
+      "name": "DEEP SPACE",
+      "words": [
+        "stars",
+        "comets",
+        "meteor",
+        "nebula"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 60,
+    "move_limit_k": 1.36
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP012",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "penalties",
+        "source_group": "PENALTIES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 60
+  }
+}

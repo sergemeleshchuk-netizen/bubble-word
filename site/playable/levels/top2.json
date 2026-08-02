@@ -1,0 +1,104 @@
+{
+  "level_id": 2,
+  "difficulty_target": 4.5,
+  "categories": [
+    {
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
+      "words": [
+        "pain",
+        "pressure",
+        "touch",
+        "hearing"
+      ]
+    },
+    {
+      "id": "job_hunting",
+      "name": "JOB HUNTING",
+      "words": [
+        "contract",
+        "offer",
+        "opening",
+        "position"
+      ]
+    },
+    {
+      "id": "clothing_sizes",
+      "name": "CLOTHING SIZES",
+      "words": [
+        "large",
+        "plus",
+        "regular",
+        "small"
+      ]
+    },
+    {
+      "id": "art_forms",
+      "name": "ART FORMS",
+      "words": [
+        "film",
+        "painting",
+        "theater",
+        "sculpture"
+      ]
+    },
+    {
+      "id": "magazines",
+      "name": "MAGAZINE TYPES",
+      "words": [
+        "business",
+        "sports",
+        "travel",
+        "fashion"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "computer",
+        "internet",
+        "radio",
+        "camera"
+      ]
+    },
+    {
+      "id": "social_media_words",
+      "name": "SOCIAL MEDIA",
+      "words": [
+        "follow",
+        "like",
+        "post",
+        "share"
+      ]
+    },
+    {
+      "id": "the_mind",
+      "name": "THE MIND",
+      "words": [
+        "memory",
+        "reason",
+        "thought",
+        "focus"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 39,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP002",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 39
+  }
+}

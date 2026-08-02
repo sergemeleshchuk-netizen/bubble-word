@@ -1,0 +1,141 @@
+{
+  "level_id": 6,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "ways_of_moving",
+      "name": "WAYS OF MOVING",
+      "words": [
+        "run",
+        "jump",
+        "hop",
+        "slide"
+      ]
+    },
+    {
+      "id": "animal_babies",
+      "name": "BABY ANIMALS",
+      "words": [
+        "kid",
+        "calf",
+        "kitten",
+        "pup"
+      ]
+    },
+    {
+      "id": "symptoms",
+      "name": "SYMPTOMS",
+      "words": [
+        "cough",
+        "rash",
+        "congestion",
+        "itching"
+      ]
+    },
+    {
+      "id": "string_instruments",
+      "name": "STRING INSTRUMENTS",
+      "words": [
+        "guitar",
+        "bass",
+        "violin",
+        "viola"
+      ]
+    },
+    {
+      "id": "transportation_history",
+      "name": "HISTORIC TRANSPORT",
+      "words": [
+        "horse",
+        "camel",
+        "sled",
+        "steamboat"
+      ]
+    },
+    {
+      "id": "office_jobs",
+      "name": "OFFICE JOBS",
+      "words": [
+        "manager",
+        "secretary",
+        "assistant",
+        "consultant"
+      ]
+    },
+    {
+      "id": "military_branches",
+      "name": "MILITARY BRANCHES",
+      "words": [
+        "army",
+        "reserves",
+        "artillery",
+        "militia"
+      ]
+    },
+    {
+      "id": "religious_leaders",
+      "name": "RELIGIOUS LEADERS",
+      "words": [
+        "priest",
+        "elder",
+        "missionary",
+        "preacher"
+      ]
+    },
+    {
+      "id": "time_units",
+      "name": "UNITS OF TIME",
+      "words": [
+        "century",
+        "hour",
+        "second",
+        "generation"
+      ]
+    },
+    {
+      "id": "emergency_room",
+      "name": "EMERGENCY ROOM",
+      "words": [
+        "stretcher",
+        "injuries",
+        "symptoms",
+        "bones"
+      ]
+    },
+    {
+      "id": "salty_snacks",
+      "name": "SALTY SNACKS",
+      "words": [
+        "chips",
+        "crackers",
+        "peanut",
+        "popcorn"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 43,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP006",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "symptoms",
+        "source_group": "SYMPTOMS",
+        "target_group": "EMERGENCY ROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 43
+  }
+}

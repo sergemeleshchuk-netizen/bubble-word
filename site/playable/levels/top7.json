@@ -1,0 +1,169 @@
+{
+  "level_id": 7,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "weather_adjectives",
+      "name": "WEATHER ADJECTIVES",
+      "words": [
+        "freezing",
+        "cloudy",
+        "icy",
+        "stormy"
+      ]
+    },
+    {
+      "id": "livestock",
+      "name": "LIVESTOCK",
+      "words": [
+        "duck",
+        "rabbit",
+        "goat",
+        "geese"
+      ]
+    },
+    {
+      "id": "lighting",
+      "name": "LIGHTING",
+      "words": [
+        "shade",
+        "spotlight",
+        "fixture",
+        "flashlight"
+      ]
+    },
+    {
+      "id": "parts_of_speech",
+      "name": "PARTS OF SPEECH",
+      "words": [
+        "article",
+        "conjunction",
+        "verb",
+        "noun"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "surprised",
+        "nervous",
+        "bored",
+        "anxious"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "camera",
+        "television",
+        "telephone",
+        "vaccine"
+      ]
+    },
+    {
+      "id": "team_sports",
+      "name": "TEAM SPORTS",
+      "words": [
+        "football",
+        "basketball",
+        "baseball",
+        "soccer"
+      ]
+    },
+    {
+      "id": "painting_supplies",
+      "name": "PAINTING SUPPLIES",
+      "words": [
+        "paint",
+        "canvas",
+        "sponge",
+        "thinner"
+      ]
+    },
+    {
+      "id": "science_fair",
+      "name": "SCIENCE FAIR",
+      "words": [
+        "poster",
+        "hypothesis",
+        "volcanoes",
+        "inventions"
+      ]
+    },
+    {
+      "id": "home_decor",
+      "name": "HOME DECOR",
+      "words": [
+        "rug",
+        "furniture",
+        "lighting",
+        "colors"
+      ]
+    },
+    {
+      "id": "greeting_card",
+      "name": "GREETING CARD",
+      "words": [
+        "envelope",
+        "stamp",
+        "holidays",
+        "feelings"
+      ]
+    },
+    {
+      "id": "farm_morning",
+      "name": "FARM",
+      "words": [
+        "barn",
+        "tractor",
+        "livestock",
+        "poultry"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 46,
+    "move_limit_k": 1.28
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP007",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "feelings",
+        "source_group": "FEELINGS",
+        "target_group": "GREETING CARD",
+        "depth": 1
+      },
+      {
+        "token": "inventions",
+        "source_group": "INVENTIONS",
+        "target_group": "SCIENCE FAIR",
+        "depth": 1
+      },
+      {
+        "token": "lighting",
+        "source_group": "LIGHTING",
+        "target_group": "HOME DECOR",
+        "depth": 1
+      },
+      {
+        "token": "livestock",
+        "source_group": "LIVESTOCK",
+        "target_group": "FARM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 46
+  }
+}

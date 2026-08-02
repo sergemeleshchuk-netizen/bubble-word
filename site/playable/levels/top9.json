@@ -1,0 +1,124 @@
+{
+  "level_id": 9,
+  "difficulty_target": 5.5,
+  "categories": [
+    {
+      "id": "extinct_animals",
+      "name": "EXTINCT ANIMALS",
+      "words": [
+        "bones",
+        "dinosaur",
+        "mammoth",
+        "raptor"
+      ]
+    },
+    {
+      "id": "body_movements",
+      "name": "BODY MOVEMENTS",
+      "words": [
+        "stretch",
+        "bend",
+        "lean",
+        "clap"
+      ]
+    },
+    {
+      "id": "clothing_sizes",
+      "name": "CLOTHING SIZES",
+      "words": [
+        "large",
+        "medium",
+        "petite",
+        "oversized"
+      ]
+    },
+    {
+      "id": "shape_adjectives",
+      "name": "SHAPE ADJECTIVES",
+      "words": [
+        "straight",
+        "flat",
+        "thick",
+        "smooth"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "bed",
+        "wardrobe",
+        "vanity",
+        "stool"
+      ]
+    },
+    {
+      "id": "rocks_and_minerals",
+      "name": "ROCKS AND MINERALS",
+      "words": [
+        "salt",
+        "limestone",
+        "chalk",
+        "quartz"
+      ]
+    },
+    {
+      "id": "science_fields",
+      "name": "BRANCHES OF SCIENCE",
+      "words": [
+        "physics",
+        "anatomy",
+        "astronomy",
+        "botany"
+      ]
+    },
+    {
+      "id": "adhesives",
+      "name": "GLUES AND TAPES",
+      "words": [
+        "cement",
+        "glue",
+        "mortar",
+        "epoxy"
+      ]
+    },
+    {
+      "id": "parts_of_a_bike",
+      "name": "BICYCLE PARTS",
+      "words": [
+        "seat",
+        "fork",
+        "rim",
+        "saddle"
+      ]
+    },
+    {
+      "id": "tubes",
+      "name": "TUBES",
+      "words": [
+        "duct",
+        "hose",
+        "pipe",
+        "straw"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP009",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 45
+  }
+}

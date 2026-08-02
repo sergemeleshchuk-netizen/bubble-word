@@ -1,0 +1,144 @@
+{
+  "level_id": 11,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "face_parts",
+      "name": "FACE PARTS",
+      "words": [
+        "mouth",
+        "ear",
+        "jaw",
+        "cheek"
+      ]
+    },
+    {
+      "id": "internal_organs",
+      "name": "INTERNAL ORGANS",
+      "words": [
+        "heart",
+        "thyroid",
+        "gland",
+        "pancreas"
+      ]
+    },
+    {
+      "id": "currencies",
+      "name": "CURRENCIES",
+      "words": [
+        "real",
+        "euro",
+        "yen",
+        "franc"
+      ]
+    },
+    {
+      "id": "coins_and_bills",
+      "name": "US MONEY",
+      "words": [
+        "bill",
+        "dollar",
+        "fifty",
+        "nickel"
+      ]
+    },
+    {
+      "id": "clothing_parts",
+      "name": "GARMENT PARTS",
+      "words": [
+        "button",
+        "collar",
+        "sleeve",
+        "lining"
+      ]
+    },
+    {
+      "id": "field_trip_places",
+      "name": "FIELD TRIPS",
+      "words": [
+        "farm",
+        "factory",
+        "gallery",
+        "capitol"
+      ]
+    },
+    {
+      "id": "art_forms",
+      "name": "ART FORMS",
+      "words": [
+        "dance",
+        "film",
+        "music",
+        "drawing"
+      ]
+    },
+    {
+      "id": "office_jobs",
+      "name": "OFFICE JOBS",
+      "words": [
+        "manager",
+        "supervisor",
+        "accountant",
+        "auditor"
+      ]
+    },
+    {
+      "id": "famous_job_titles",
+      "name": "LEADERSHIP TITLES",
+      "words": [
+        "captain",
+        "director",
+        "chairman",
+        "mayor"
+      ]
+    },
+    {
+      "id": "navigation_tools",
+      "name": "NAVIGATION TOOLS",
+      "words": [
+        "chart",
+        "radar",
+        "Lighthouse",
+        "sonar"
+      ]
+    },
+    {
+      "id": "facial_expressions",
+      "name": "FACIAL EXPRESSIONS",
+      "words": [
+        "smile",
+        "beam",
+        "blink",
+        "grin"
+      ]
+    },
+    {
+      "id": "things_measured_in_inches",
+      "name": "MEASURING UNITS",
+      "words": [
+        "yard",
+        "ton",
+        "meter",
+        "gallon"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 54,
+    "move_limit_k": 1.35
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP011",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 54
+  }
+}

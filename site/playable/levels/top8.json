@@ -1,0 +1,157 @@
+{
+  "level_id": 8,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "ways_of_looking",
+      "name": "WAYS OF LOOKING",
+      "words": [
+        "watch",
+        "observe",
+        "scan",
+        "glance"
+      ]
+    },
+    {
+      "id": "breakfast_foods",
+      "name": "BREAKFAST FOODS",
+      "words": [
+        "egg",
+        "bacon",
+        "danish",
+        "cereal"
+      ]
+    },
+    {
+      "id": "roman_things",
+      "name": "ANCIENT ROME",
+      "words": [
+        "senate",
+        "forum",
+        "arena",
+        "emperor"
+      ]
+    },
+    {
+      "id": "media_jobs",
+      "name": "MEDIA JOBS",
+      "words": [
+        "journalist",
+        "publisher",
+        "critic",
+        "cameraman"
+      ]
+    },
+    {
+      "id": "sports_jobs",
+      "name": "SPORTS JOBS",
+      "words": [
+        "coach",
+        "trainer",
+        "scout",
+        "referee"
+      ]
+    },
+    {
+      "id": "greetings_and_farewells",
+      "name": "GREETINGS",
+      "words": [
+        "hi",
+        "evening",
+        "goodbye",
+        "aloha"
+      ]
+    },
+    {
+      "id": "crimes",
+      "name": "CRIMES",
+      "words": [
+        "fraud",
+        "theft",
+        "kidnapping",
+        "speeding"
+      ]
+    },
+    {
+      "id": "rights_and_freedoms",
+      "name": "RIGHTS",
+      "words": [
+        "trial",
+        "religion",
+        "petition",
+        "counsel"
+      ]
+    },
+    {
+      "id": "places_of_worship",
+      "name": "PLACES OF WORSHIP",
+      "words": [
+        "temple",
+        "abbey",
+        "monastery",
+        "basilica"
+      ]
+    },
+    {
+      "id": "loud_noises",
+      "name": "LOUD NOISES",
+      "words": [
+        "crash",
+        "boom",
+        "bang",
+        "blast"
+      ]
+    },
+    {
+      "id": "solar_system_words",
+      "name": "SOLAR SYSTEM",
+      "words": [
+        "moon",
+        "eclipse",
+        "meteor",
+        "corona"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "verdict",
+        "jury",
+        "crimes",
+        "rights"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 44,
+    "move_limit_k": 1.22
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP008",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "crimes",
+        "source_group": "CRIMES",
+        "target_group": "COURTROOM",
+        "depth": 1
+      },
+      {
+        "token": "rights",
+        "source_group": "RIGHTS",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 44
+  }
+}

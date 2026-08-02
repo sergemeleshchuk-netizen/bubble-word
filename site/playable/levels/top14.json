@@ -1,0 +1,124 @@
+{
+  "level_id": 14,
+  "difficulty_target": 5.5,
+  "categories": [
+    {
+      "id": "ways_of_looking",
+      "name": "WAYS OF LOOKING",
+      "words": [
+        "watch",
+        "stare",
+        "gaze",
+        "peek"
+      ]
+    },
+    {
+      "id": "giving_and_taking",
+      "name": "GIVING AND TAKING",
+      "words": [
+        "hand",
+        "sell",
+        "trade",
+        "collect"
+      ]
+    },
+    {
+      "id": "body_parts",
+      "name": "BODY PARTS",
+      "words": [
+        "head",
+        "neck",
+        "finger",
+        "stomach"
+      ]
+    },
+    {
+      "id": "crafting_materials",
+      "name": "CRAFT MATERIALS",
+      "words": [
+        "felt",
+        "fabric",
+        "foam",
+        "cardboard"
+      ]
+    },
+    {
+      "id": "school_jobs",
+      "name": "SCHOOL JOBS",
+      "words": [
+        "teacher",
+        "principal",
+        "tutor",
+        "custodian"
+      ]
+    },
+    {
+      "id": "legal_documents",
+      "name": "LEGAL DOCUMENTS",
+      "words": [
+        "license",
+        "permit",
+        "patent",
+        "waiver"
+      ]
+    },
+    {
+      "id": "ocean_zones",
+      "name": "SHORE FEATURES",
+      "words": [
+        "shore",
+        "cliff",
+        "surf",
+        "cove"
+      ]
+    },
+    {
+      "id": "sports_officials",
+      "name": "SPORTS OFFICIALS",
+      "words": [
+        "official",
+        "referee",
+        "scorer",
+        "steward"
+      ]
+    },
+    {
+      "id": "parts_of_a_bird",
+      "name": "PARTS OF A BIRD",
+      "words": [
+        "crest",
+        "feathers",
+        "tail",
+        "wings"
+      ]
+    },
+    {
+      "id": "personality_traits",
+      "name": "PERSONALITY TRAITS",
+      "words": [
+        "kind",
+        "loyal",
+        "polite",
+        "shy"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 47,
+    "move_limit_k": 1.27
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP014",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 47
+  }
+}

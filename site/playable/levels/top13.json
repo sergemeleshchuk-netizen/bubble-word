@@ -1,0 +1,104 @@
+{
+  "level_id": 13,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
+      "words": [
+        "pressure",
+        "taste",
+        "smell",
+        "hunger"
+      ]
+    },
+    {
+      "id": "roman_things",
+      "name": "ANCIENT ROME",
+      "words": [
+        "arena",
+        "villa",
+        "gladiator",
+        "centurion"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "chair",
+        "couch",
+        "wardrobe",
+        "ottoman"
+      ]
+    },
+    {
+      "id": "science_jobs",
+      "name": "SCIENCE JOBS",
+      "words": [
+        "engineer",
+        "chemist",
+        "physicist",
+        "biologist"
+      ]
+    },
+    {
+      "id": "law_jobs",
+      "name": "LAW JOBS",
+      "words": [
+        "lawyer",
+        "prosecutor",
+        "investigator",
+        "notary"
+      ]
+    },
+    {
+      "id": "book_genres",
+      "name": "BOOK GENRES",
+      "words": [
+        "history",
+        "humor",
+        "thriller",
+        "biography"
+      ]
+    },
+    {
+      "id": "car_parts",
+      "name": "CAR PARTS",
+      "words": [
+        "seat",
+        "hood",
+        "tire",
+        "exhaust"
+      ]
+    },
+    {
+      "id": "medicines",
+      "name": "MEDICINES",
+      "words": [
+        "injection",
+        "insulin",
+        "pill",
+        "vaccine"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 22,
+    "move_limit": 42,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP013",
+    "pack": "TOP",
+    "meta_links": [],
+    "recorded_move_limit": 42
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "level_id": 5,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "coins_and_bills",
+      "name": "US MONEY",
+      "words": [
+        "cent",
+        "hundred",
+        "fifty",
+        "penny"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "English",
+        "health",
+        "shop",
+        "Spanish"
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
+      "words": [
+        "name",
+        "word",
+        "count",
+        "shape"
+      ]
+    },
+    {
+      "id": "pantry_staples",
+      "name": "PANTRY STAPLES",
+      "words": [
+        "coffee",
+        "salt",
+        "beans",
+        "flour"
+      ]
+    },
+    {
+      "id": "furniture",
+      "name": "FURNITURE",
+      "words": [
+        "table",
+        "desk",
+        "sofa",
+        "wardrobe"
+      ]
+    },
+    {
+      "id": "people_who_help",
+      "name": "HELPING PROFESSIONS",
+      "words": [
+        "doctor",
+        "volunteer",
+        "interpreter",
+        "firefighter"
+      ]
+    },
+    {
+      "id": "seasons",
+      "name": "SEASONS",
+      "words": [
+        "fall",
+        "spring",
+        "summer",
+        "winter"
+      ]
+    },
+    {
+      "id": "wardrobe",
+      "name": "WARDROBE",
+      "words": [
+        "closet",
+        "hats",
+        "footwear",
+        "accessories"
+      ]
+    },
+    {
+      "id": "weather_report",
+      "name": "WEATHER REPORT",
+      "words": [
+        "forecast",
+        "radar",
+        "storms",
+        "seasons"
+      ]
+    },
+    {
+      "id": "card_suits",
+      "name": "CARD SUITS",
+      "words": [
+        "clubs",
+        "diamonds",
+        "hearts",
+        "spades"
+      ]
+    },
+    {
+      "id": "gardening_work",
+      "name": "GARDENING WORK",
+      "words": [
+        "compost",
+        "soil",
+        "watering",
+        "flowers"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 43,
+    "move_limit_k": 1.3
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TOP005",
+    "pack": "TOP",
+    "meta_links": [
+      {
+        "token": "seasons",
+        "source_group": "SEASONS",
+        "target_group": "WEATHER REPORT",
+        "depth": 1
+      },
+      {
+        "token": "wardrobe",
+        "source_group": "WARDROBE",
+        "target_group": "FURNITURE",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 43
+  }
+}
