@@ -16,7 +16,10 @@
   слово, слово, слово, ...
 
   flags: A — связи можно ставить approved, C — только candidate; добавьте P
-         для категорий из имён собственных (US STATES, TECH COMPANIES).
+         для категорий из имён собственных (US STATES, TECH COMPANIES); T —
+         категория держит названия, неотличимые от обычных слов (BOARD GAMES:
+         Risk, Sorry, Trouble). P и T оба означают «здесь названия», но P ещё
+         и ставит заглавную букву в пузыре.
   reason_template: $W — слово с заглавной буквы, $w — слово как есть.
 
 Строки, начинающиеся с #, и пустые строки игнорируются.
@@ -72,6 +75,12 @@ def parse_theme_file(path: Path) -> list[dict]:
                 "obviousness": float(obviousness),
                 "approve": "A" in flags.upper(),
                 "is_proper_noun": "P" in flags.upper(),
+                # T — категория держит НАЗВАНИЯ, а не слова: BOARD GAMES,
+                # TEAM NAMES, CEREAL BRANDS. P означает то же самое плюс
+                # заглавную букву в пузыре; T нужен там, где название
+                # неотличимо от обычного слова (`Risk`, `Sorry`, `Trouble`)
+                # и заглавной буквы у него нет.
+                "names_titles": ("P" in flags.upper()) or ("T" in flags.upper()),
                 "rule": rule,
                 "reason_template": template,
                 "theme": theme,
@@ -157,6 +166,7 @@ def build_categories(specs: list[dict]) -> list[dict]:
             "relation_type": spec["relation_type"],
             "theme": spec["theme"],
             "base_difficulty": spec.get("base_difficulty"),
+            "names_titles": bool(spec.get("names_titles")),
         }
         for spec in specs
     ]
@@ -270,7 +280,15 @@ def build_memberships(
             "part_of_speech": row.get("part_of_speech"),
         }
     for word, entries in extra_senses.items():
-        definitions.setdefault(word, {}).update(entries)
+        bucket = definitions.setdefault(word, {})
+        for sense_key, entry in entries.items():
+            # Слияние, а не замена. Запись в `_sense_map.json` может добавлять
+            # только доступность значения — формулировка при этом остаётся
+            # той, что пришла из `_ambiguous.json`, и затирать её пустотой
+            # нельзя.
+            merged = {**bucket.get(sense_key, {}), **entry}
+            merged.setdefault("definition", bucket.get(sense_key, {}).get("definition"))
+            bucket[sense_key] = merged
 
     by_key = {spec["category_key"]: spec for spec in specs}
     for row in ambiguous:
@@ -326,7 +344,7 @@ def build_memberships(
             if assigned:
                 sense_key = assigned["sense"]
                 known = definitions.get(normalized, {}).get(sense_key)
-                if known is None:
+                if known is None or not known.get("definition"):
                     raise SystemExit(
                         f"_sense_map.json: у слова {word!r} нет значения {sense_key!r} — "
                         "опишите его в блоке senses или в _ambiguous.json"

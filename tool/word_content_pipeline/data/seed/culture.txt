@@ -29,10 +29,10 @@ kimono, sari, kilt, poncho, sarong, dirndl, hanbok, kaftan, toga, lederhosen, tu
 world_hats | WORLD HATS | is_a | 0.45 | 0.62 | C | Traditional headwear from world cultures | $W is traditional headwear from a world culture
 sombrero, turban, fez, beret, kufi, conical hat, ushanka, tam, keffiyeh, bowler, panama, tarboosh
 
-card_and_dice_games | CLASSIC GAMES | is_a | 0.35 | 0.75 | A | Classic games played for generations | $W is a classic game played for generations
+card_and_dice_games | CLASSIC GAMES | is_a | 0.35 | 0.75 | AT | Classic games played for generations | $W is a classic game played for generations
 chess, checkers, marbles, jacks, hopscotch, tag, hide and seek, jump rope, dominoes, tiddlywinks, horseshoes, croquet, badminton, charades
 
-playground_games | PLAYGROUND GAMES | is_a | 0.3 | 0.8 | A | Games children play at recess | $W is a game children play at recess
+playground_games | PLAYGROUND GAMES | is_a | 0.3 | 0.8 | AT | Games children play at recess | $W is a game children play at recess
 tag, hopscotch, hide and seek, jump rope, four square, kickball, dodgeball, red rover, freeze tag, duck duck goose, marbles, hot potato, simon says, capture the flag
 
 video_game_classics | RETRO GAMES | is_a | 0.35 | 0.75 | AP | Video games known across generations | $W is a classic video game

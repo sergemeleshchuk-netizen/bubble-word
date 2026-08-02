@@ -20,13 +20,13 @@ note, chord, scale, tempo, rhythm, beat, melody, harmony, verse, chorus, key, pi
 music_genres | MUSIC GENRES | is_a | 0.25 | 0.85 | A | Styles used to classify music | $W is a style of music
 rock, jazz, pop, blues, country, classical, rap, folk, reggae, metal, punk, disco, soul, gospel, techno, opera, funk, swing, indie, hip hop
 
-board_games | BOARD GAMES | is_a | 0.25 | 0.85 | A | Games played on a printed board with pieces | $W is a game played on a board
+board_games | BOARD GAMES | is_a | 0.25 | 0.85 | AT | Games played on a printed board with pieces | $W is a game played on a board
 chess, checkers, monopoly, scrabble, clue, risk, backgammon, battleship, sorry, trouble, life, candy land, chutes and ladders, othello, mancala, parcheesi, trivial pursuit
 
 card_words | CARD WORDS | found_in | 0.3 | 0.8 | A | Words for the cards, suits and parts of a standard deck of playing cards | $W is a word for something in a standard deck of playing cards
 ace, king, queen, jack, joker, deck, suit, trump, face card, cut, shuffle, deal, hand, pair, flush, straight, wild card, discard
 
-card_games | CARD GAMES | is_a | 0.3 | 0.8 | A | Games played with a deck of cards | $W is a card game
+card_games | CARD GAMES | is_a | 0.3 | 0.8 | AT | Games played with a deck of cards | $W is a card game
 poker, solitaire, blackjack, bridge, rummy, hearts, spades, go fish, war, crazy eights, uno, canasta, cribbage, euchre, old maid, pinochle
 
 movie_genres | MOVIE GENRES | is_a | 0.25 | 0.85 | A | Categories used to classify films | $W is a genre used to classify films

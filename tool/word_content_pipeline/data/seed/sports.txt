@@ -71,5 +71,5 @@ rod, reel, hook, bait, line, net, lure, tackle box, bobber, sinker, worm, fly, w
 cycling_words | CYCLING WORDS | found_in | 0.35 | 0.7 | A | Words used about riding and racing bicycles | $W is used when talking about cycling
 pedal, gear, helmet, chain, sprint, peloton, tour, saddle, spoke, brake, trail, cadence, jersey, handlebar, tire, drafting
 
-board_and_card_games | GAMES OF SKILL | is_a | 0.3 | 0.75 | A | Competitive indoor games of skill | $W is an indoor game of skill
+board_and_card_games | GAMES OF SKILL | is_a | 0.3 | 0.75 | AT | Competitive indoor games of skill | $W is an indoor game of skill
 chess, checkers, poker, darts, billiards, bowling, table tennis, foosball, air hockey, shuffleboard, bridge, backgammon, dominoes, cornhole
