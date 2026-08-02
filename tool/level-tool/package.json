@@ -1,13 +1,14 @@
 {
   "name": "bubble-level-tool",
   "private": true,
-  "version": "1.7.0",
+  "version": "1.8.0",
   "type": "module",
   "description": "Инструмент генерации уровней для word-association паззла",
   "scripts": {
     "test": "node --test 'tests/*.test.ts'",
     "audit": "python3 scripts/audit_reference.py",
     "snapshot": "python3 scripts/export_snapshot.py",
+    "snapshot:reference": "python3 scripts/export_reference_snapshot.py",
     "calibrate": "python3 scripts/calibrate_difficulty.py --write",
     "block": "node scripts/generate_block.ts",
     "dev": "vite",

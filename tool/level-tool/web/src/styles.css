@@ -32,6 +32,17 @@ header.top { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline;
 header.top h1 { font-size: 19px; margin: 0; font-weight: 600; }
 header.top .sub { color: var(--muted); font-size: 12px; }
 
+/*
+ * Переключатель источника контента. Стоит НАД закладками и отделён линией:
+ * это не шестая закладка, а состояние, в котором работают все пять.
+ */
+.sources { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  margin-top: 14px; padding: 9px 11px; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 8px; }
+.sources .lbl { color: var(--muted); font-size: 11px; text-transform: uppercase;
+  letter-spacing: 0.04em; margin-right: 2px; }
+.sources button:disabled { opacity: 0.5; cursor: progress; }
+
 nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; margin: 16px 0 20px;
   border-bottom: 1px solid var(--line); padding-bottom: 0; }
 nav.tabs button {

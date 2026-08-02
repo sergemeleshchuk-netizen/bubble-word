@@ -33,6 +33,12 @@ WHAT TO WEIGH
 4. Words that only work once the label is visible score low, even if they are textbook
    members of the category.
 
+IF THE CATEGORY IS GENUINELY UNIFORM
+Some categories really are flat: every Greek letter is equally a Greek letter.
+If that is honestly the case here, still give each word a score AND set
+"uniform": true in the output. Do not use this to avoid the work below — it is
+for categories where a top and a bottom do not exist, not for hard ones.
+
 HARD REQUIREMENT: SPREAD THEM
 The scores you are replacing were filled in one value for the whole category, which is
 why this pass exists. If your output gives every word the same or nearly the same score,

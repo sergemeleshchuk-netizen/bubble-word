@@ -90,6 +90,35 @@ const TUTORIAL_DIFFICULTY_CEILING = 0.2;
  */
 const MIN_WORD_ZIPF = 3.75;
 
+/**
+ * Предельный регистр слова: 0 — в уровень идут только бытовые слова.
+ *
+ * Строже некуда, и это осознанно: игрок жаловался ровно на пассивный слой
+ * (`quail`, `obituary`, `congestion`). Ёмкости хватает — бытовых слов 4924,
+ * связей от них 10788, категорий с полной бытовой четвёркой 980 из 1265.
+ * Если понадобится добрать сложность на поздних декадах, поднимать сюда до 1
+ * (пускать пассивные), но не до 2: специальный слой это `tungsten` и `basilica`.
+ */
+const MAX_WORD_REGISTER = 0 as const;
+
+/**
+ * Регистр по декаде. Ранние — только бытовые, поздние допускают пассивные.
+ *
+ * Замер под жёстким нулём на всех двадцати декадах: собрано 196 уровней из 200,
+ * потеряны по одному-двум на декадах 51, 61 и 91 — там коридор 7-14 категорий,
+ * и бытового словаря на уровень из 14 групп уже не хватает по точному покрытию.
+ *
+ * Порог сдвига — 51-я декада, и это не круглое число, а граница жалобы: игрок
+ * забраковал `quail` и `obituary` на уровнях 17 и 20, то есть в первых двух
+ * декадах. Пятидесятый уровень — это далеко за пределами того, что он смотрел,
+ * и там пассивный слой уже уместен как рычаг: игрок к этому времени сыграл
+ * пятьсот категорий. Специальный слой (`tungsten`, `basilica`) не пускается
+ * никогда — ни на одной декаде.
+ */
+function maxWordRegister(profile: DecadeProfile): 0 | 1 | 2 {
+  return profile.from >= 51 ? 1 : MAX_WORD_REGISTER;
+}
+
 export function categoryDifficultyCeiling(profile: DecadeProfile): number {
   const decadeIndex = Math.floor((profile.from - 1) / 10);       // 0 … 19
   const span = DIFFICULTY_CEILING_LAST - DIFFICULTY_CEILING_FIRST;
@@ -340,7 +369,12 @@ export function configForRange(
       maxTokens: profile.maxTokens,
       maxWordLen: profile.maxWordLen,
       minProperNounZipf: profile.minProperNounZipf,
-      minWordZipf: MIN_WORD_ZIPF,
+      // Пол частотности выключен: его заменил регистр слова. Держать оба
+      // одновременно вредно — пол выбрасывает `omelet` 2.63 и `radish` 2.78
+      // вместе с мусором, а регистр их оставляет. MIN_WORD_ZIPF сохранён рядом
+      // как страховка для базы без разметки (см. типы DecadeGates).
+      minWordZipf: 0,
+      maxWordRegister: maxWordRegister(profile),
       zipfMedianTarget: profile.zipfMedianTarget,
       zipfP25Target: profile.zipfP25Target,
       visibleShareMin: visibleShareMin(profile, 4),

@@ -864,7 +864,7 @@ def cmd_import_word_register(db: DbOption, input: InputOption) -> None:
                 if value not in allowed:
                     bad.append(f"{row.get('word')}: класс {value!r}")
                     continue
-                norm = normalization.normalize(str(row["word"]))
+                norm = normalization.normalize_word(str(row["word"]))
                 found = conn.execute(
                     "SELECT id FROM words WHERE normalized = ?", (norm,)
                 ).fetchone()
@@ -990,6 +990,7 @@ def cmd_grade_obviousness(
         typer.echo(
             f"Категорий отранжировано: {result.graded_categories} | "
             f"связей: {result.graded_memberships} | "
+            f"однородных: {result.uniform_categories} | "
             f"ok={result.batches_ok} failed={result.batches_failed}"
         )
         reasons: dict[str, int] = {}

@@ -8,6 +8,7 @@
 import { useState } from 'react';
 import type { Snapshot } from '../core/types.ts';
 import type { ContentIndex } from '../core/snapshot.ts';
+import type { ContentSource } from '../core/sources.ts';
 
 interface AiRuns {
   prompt_library: { id: string; file: string; purpose: string }[];
@@ -29,12 +30,22 @@ interface AiRuns {
   where_ai_is_not_used: string[];
 }
 
-export function ContentBase({ snapshot, index, runs }: {
-  snapshot: Snapshot; index: ContentIndex; runs: AiRuns;
+export function ContentBase({ snapshot, index, runs, source }: {
+  snapshot: Snapshot; index: ContentIndex; runs: AiRuns; source: ContentSource;
 }) {
   const [tab, setTab] = useState<'stats' | 'ai' | 'errors'>('stats');
   const s = snapshot.stats ?? {};
   const base = runs.content_base as Record<string, number>;
+
+  /**
+   * Журнал AI-прогонов и разбор ошибок модели — это история НАШЕЙ базы
+   * (`ai_runs.json`). У чужого словаря её нет и быть не может, поэтому на нём
+   * показываем один экран из трёх. Показывать все три, подставив чужие цифры
+   * в наши таблицы, было бы прямым враньём о происхождении контента.
+   */
+  if (!source.hasAiWorkflow) {
+    return <ForeignSource snapshot={snapshot} index={index} source={source} />;
+  }
   const byStatus = (runs.content_base.by_status ?? {}) as Record<string, number>;
   const zipf = (runs.content_base.zipf_buckets ?? {}) as Record<string, number>;
   const run = runs.runs[0];
@@ -256,6 +267,163 @@ export function ContentBase({ snapshot, index, runs }: {
           </>
         )}
       </div>
+    </>
+  );
+}
+
+/**
+ * Экран для источника, который мы не выращивали, а прочитали.
+ *
+ * Показывает три вещи, и третья важнее первых двух: размер словаря, чем он
+ * отличается от нашего в цифрах и чего у него нет. Последний список — не
+ * дисклеймер для приличия: генератор на этом источнике работает иначе (ловушки
+ * рождаются из пересечений, а не из размеченного слоя), и не сказать об этом
+ * значит выдать разницу в данных за разницу в качестве сборки.
+ */
+function ForeignSource({ snapshot, index, source }: {
+  snapshot: Snapshot; index: ContentIndex; source: ContentSource;
+}) {
+  const s = snapshot.stats ?? {};
+  const num = (key: string): number | undefined =>
+    (typeof s[key] === 'number' ? s[key] : undefined);
+
+  // самые ходовые категории источника: сколько раз выходили и когда впервые
+  const busiest = [...snapshot.categories]
+    .map((c, i) => ({ c, i }))
+    .filter((x) => (x.c.ref_levels ?? 0) > 1)
+    .sort((a, b) => (b.c.ref_levels ?? 0) - (a.c.ref_levels ?? 0))
+    .slice(0, 12);
+
+  const zipfMedian = num('zipf_median_x100');
+  const poolMedian = num('pool_size_median_x100');
+  const mapped = num('categories_theme_mapped');
+  const categories = num('categories') ?? snapshot.categories.length;
+
+  return (
+    <>
+      <div className="panel">
+        <h2>{source.label}</h2>
+        <p className="hint">{source.summary}</p>
+
+        <div className="grid c4">
+          <Stat v={num('reference_levels')} k="уровней в выгрузке"
+            note="полный отыгранный сезон игры" />
+          <Stat v={categories} k="категорий"
+            note={`${num('reference_category_occurrences')} вхождений в уровни`} />
+          <Stat v={num('words')} k="слов" />
+          <Stat v={num('memberships')} k="связей слово ↔ категория" />
+          <Stat v={num('reference_meta_children')} k="вложенных категорий"
+            note="имя ребёнка лежит пузырём в родителе" />
+          <Stat v={num('trap_capable_words')} k="слов в 2+ категориях"
+            note="единственный источник ловушек здесь" />
+          <Stat v={num('words_above_generator_floor')} k="слов выше пола частотности"
+            note="ниже 3.75 генератор слово не возьмёт" />
+          <Stat v={num('frequency_unknown_words')} k="слов неизвестны частотнику" />
+        </div>
+      </div>
+
+      <div className="panel">
+        <h2>Чем этот словарь отличается от нашего</h2>
+        <p className="hint">
+          Цифры сравнимы: частотность считается тем же способом, шкала сложности
+          категории та же. Разница в цифрах — разница в контенте, а не в методе.
+        </p>
+        <table>
+          <thead>
+            <tr><th>величина</th><th className="num">здесь</th><th>что это значит</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>медиана частотности слова</td>
+              <td className="num">{zipfMedian !== undefined ? (zipfMedian / 100).toFixed(2) : '—'}</td>
+              <td className="small muted">
+                у нашей базы 3.58 — словарь оригинала заметно реже, и пол 3.75
+                срезает здесь больше половины слов
+              </td>
+            </tr>
+            <tr>
+              <td>медиана размера пула категории</td>
+              <td className="num">{poolMedian !== undefined ? (poolMedian / 100).toFixed(1) : '—'}</td>
+              <td className="small muted">
+                у нашей базы 14. Пул ровно из четырёх слов даёт четвёрку
+                единственным способом — точному покрытию негде отступить
+              </td>
+            </tr>
+            <tr>
+              <td>категорий со сферой из нашего словаря</td>
+              <td className="num">{mapped !== undefined ? `${mapped} из ${categories}` : '—'}</td>
+              <td className="small muted">
+                остальным сферой служит голова собственного имени: фильтр тем
+                на них не сработает, разнообразие уровня — сработает
+              </td>
+            </tr>
+            <tr>
+              <td>мета-пригодных категорий</td>
+              <td className="num">{num('meta_capable_categories') ?? '—'}</td>
+              <td className="small muted">
+                вложенность размечена самим источником, а не выведена — это
+                самый богатый слой этого словаря
+              </td>
+            </tr>
+            <tr>
+              <td>запретов на пары категорий</td>
+              <td className="num">{index.conflictCount}</td>
+              <td className="small muted">
+                источник их не объявляет; неразделимые пары ловит живой фильтр
+                по пересечению пулов в генераторе
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="panel">
+        <h2>Чего у источника нет</h2>
+        <p className="hint">
+          Список обязателен. Источник с меньшим числом слоёв разметки даёт другие
+          уровни, и разницу нужно относить на данные, а не на генератор.
+        </p>
+        <ul className="small muted" style={{ paddingLeft: 18, margin: 0 }}>
+          {source.limits.map((limit) => <li key={limit} style={{ marginBottom: 5 }}>{limit}</li>)}
+        </ul>
+        <p className="small" style={{ marginTop: 12, color: 'var(--accent)' }}>
+          Наша база при этом не меняется ни на одну связь: словарь оригинала лежит
+          отдельным снимком и только читается. Решение владельца от 31.07 —
+          чужой словарь в нашу базу не вливать — остаётся в силе.
+        </p>
+      </div>
+
+      {busiest.length > 0 && (
+        <div className="panel">
+          <h2>Самые ходовые категории оригинала</h2>
+          <p className="hint">
+            Сколько раз категория выходила за 1025 уровней и на каком появилась
+            впервые. Пул у переиспользованных категорий шире четырёх слов — именно
+            они и дают генератору свободу выбора.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>категория</th><th>сфера</th>
+                <th className="num">выходов</th><th className="num">впервые</th>
+                <th className="num">слов в пуле</th><th className="num">d</th>
+              </tr>
+            </thead>
+            <tbody>
+              {busiest.map(({ c, i }) => (
+                <tr key={c.k}>
+                  <td className="mono small">{c.l}</td>
+                  <td className="small muted">{c.th}</td>
+                  <td className="num">{c.ref_levels}</td>
+                  <td className="num muted">{c.ref_first_level}</td>
+                  <td className="num">{index.approvedCount(i)}</td>
+                  <td className="num muted">{c.d ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }

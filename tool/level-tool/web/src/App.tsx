@@ -1,8 +1,11 @@
-import { useMemo, useState } from 'react';
-import type { BlockConfig, BlockResult } from './core/types.ts';
+import { useEffect, useMemo, useState } from 'react';
+import type { BlockConfig, BlockResult, Snapshot } from './core/types.ts';
 import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
 import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
+import {
+  CONTENT_SOURCES, DEFAULT_SOURCE_ID, sourceById, type SourceId,
+} from './core/sources.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
 import { TOOL_VERSION } from './core/version.ts';
 import { Composer, RunView } from './components/Composer.tsx';
@@ -14,8 +17,21 @@ import snapshotJson from './data/content.snapshot.json';
 import scoringJson from './data/scoring.config.json';
 import aiRunsJson from './data/ai_runs.json';
 
-const snapshot = snapshotJson as unknown as import('./core/types.ts').Snapshot;
 const scoring = scoringJson as unknown as ScoringConfig;
+const PRODUCTION_SNAPSHOT = snapshotJson as unknown as Snapshot;
+
+/**
+ * Наша база вшита в бандл — с неё инструмент открывается. Словарь оригинала
+ * подтягивается отдельным чанком при первом выборе: он весит 4 МБ (565 КБ в
+ * gzip), и платить за него должен тот, кто его попросил, а не каждый читатель
+ * отчёта. Путь к файлу здесь литеральный сознательно: бандлер выделяет чанк
+ * только по литералу, вычисленный путь он разрешить не сможет.
+ */
+async function loadSnapshot(id: SourceId): Promise<Snapshot> {
+  if (id === 'production') return PRODUCTION_SNAPSHOT;
+  const module = await import('./data/reference.snapshot.json');
+  return module.default as unknown as Snapshot;
+}
 
 const TABS = [
   { id: 'base', label: 'База контента' },
@@ -34,10 +50,55 @@ export function App() {
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [elapsed, setElapsed] = useState<number>(0);
 
-  const index = useMemo(() => new ContentIndex(snapshot), []);
+  /**
+   * Источник контента. Запрошенный и действующий — разные состояния, и это
+   * не педантизм: словарь оригинала весит 4 МБ и приезжает отдельным чанком.
+   * Пока он в пути, на экранах обязан оставаться прежний снимок вместе со
+   * своим описанием — иначе полсекунды инструмент показывает статистику одной
+   * базы под именем другой.
+   */
+  const [requested, setRequested] = useState<SourceId>(DEFAULT_SOURCE_ID);
+  const [active, setActive] = useState<{ id: SourceId; snapshot: Snapshot }>(
+    { id: DEFAULT_SOURCE_ID, snapshot: PRODUCTION_SNAPSHOT });
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const snapshot = active.snapshot;
+  const source = sourceById(active.id);
+  const loadingSource = requested === active.id ? null : requested;
+
+  useEffect(() => {
+    if (requested === active.id) return undefined;
+    let cancelled = false;
+    setLoadError(null);
+    loadSnapshot(requested)
+      .then((loaded) => {
+        if (!cancelled) setActive({ id: requested, snapshot: loaded });
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return;
+        setRequested(active.id);
+        setLoadError(error instanceof Error ? error.message : String(error));
+      });
+    return () => { cancelled = true; };
+  }, [requested, active.id]);
+
+  const index = useMemo(() => new ContentIndex(snapshot), [snapshot]);
   // план применённого конфига нужен экрану генерации; экран настройки считает
   // свой собственный по черновику формы
   const plans = useMemo(() => buildBlockPlan(config), [config]);
+
+  /**
+   * Смена источника обнуляет собранный блок, и это не удобство, а требование.
+   * Хеш снимка входит в хеш уровня: блок, собранный на одном словаре, на другом
+   * не воспроизводится. Оставить его на экране значило бы показывать пакет
+   * рядом с источником, из которого он не получается.
+   */
+  const switchSource = (next: SourceId) => {
+    if (next === requested) return;
+    setRequested(next);
+    setBlock(null);
+    setSelectedLevel(null);
+    if (tab === 'level' || tab === 'export' || tab === 'run') setTab('base');
+  };
 
   /**
    * Собирает блок по переданному конфигу и одновременно делает его применённым.
@@ -57,6 +118,7 @@ export function App() {
   };
 
   const level = block?.levels.find((l) => l.spec.levelId === selectedLevel) ?? null;
+  const busy = loadingSource !== null;
 
   return (
     <div className="app">
@@ -76,6 +138,32 @@ export function App() {
         </div>
       </header>
 
+      <div className="sources">
+        <span className="lbl">источник контента</span>
+        {CONTENT_SOURCES.map((s) => (
+          <button
+            key={s.id}
+            className={`ghost ${requested === s.id ? 'on' : ''}`}
+            disabled={busy}
+            onClick={() => switchSource(s.id)}
+          >
+            {s.label}
+            {loadingSource === s.id && ' · грузится…'}
+          </button>
+        ))}
+        <span className="muted small">{source.origin}</span>
+      </div>
+
+      {loadError && (
+        <div className="panel">
+          <h2>Источник не загрузился</h2>
+          <p className="small" style={{ color: 'var(--fail)' }}>{loadError}</p>
+          <p className="hint">
+            Инструмент остался на прежнем снимке — собранное этим не затронуто.
+          </p>
+        </div>
+      )}
+
       <nav className="tabs">
         {TABS.map((t, i) => (
           <button
@@ -88,7 +176,14 @@ export function App() {
         ))}
       </nav>
 
-      {tab === 'base' && <ContentBase snapshot={snapshot} index={index} runs={aiRunsJson as never} />}
+      {tab === 'base' && (
+        <ContentBase
+          snapshot={snapshot}
+          index={index}
+          runs={aiRunsJson as never}
+          source={source}
+        />
+      )}
 
       {tab === 'compose' && (
         <Composer config={config} onGenerate={generate} />

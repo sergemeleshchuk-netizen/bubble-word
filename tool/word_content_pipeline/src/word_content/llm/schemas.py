@@ -125,7 +125,19 @@ class ObviousnessGrade(BaseModel):
 
 
 class ObviousnessGradingOutput(BaseModel):
+    """Ответ ранжирования по одной категории.
+
+    `uniform` — заявление «эта категория однородна на самом деле». Нужно оно
+    вот зачем: проверка разброса стоит против ленивого ответа, но отличить
+    ленивый ответ от честно однородной категории она не может. GREEK LETTERS,
+    GREEK GODS, FAMOUS AUTHORS однородны по существу — все двадцать четыре
+    буквы одинаково буквы, — и выдавливать из них разброс значило бы
+    придумывать данные. Поле требует сказать это ЯВНО: молчаливый плоский
+    ответ по-прежнему отказ.
+    """
+
     model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
 
     category_key: str = Field(min_length=1)
     grades: list[ObviousnessGrade] = Field(default_factory=list)
+    uniform: bool = False

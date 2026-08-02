@@ -309,6 +309,12 @@ export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGa
    * попадут в уровень, чем пол окажется необязательным.
    */
   if (gates.minWordZipf > 0 && (w.z === null || w.z < gates.minWordZipf)) return false;
+  /**
+   * Регистр слова — главный фильтр словаря, см. `maxWordRegister` в DecadeGates.
+   * Неразмеченное слово (`e == null`) проходит: снимок, собранный до шага 010,
+   * обязан остаться генерируемым.
+   */
+  if (w.e !== undefined && w.e !== null && w.e > gates.maxWordRegister) return false;
   return true;
 }
 

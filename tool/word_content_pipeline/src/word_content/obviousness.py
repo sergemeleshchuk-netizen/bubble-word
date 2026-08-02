@@ -70,6 +70,19 @@ MIN_SPREAD = 0.10
 # целиком, и порядок внутри неё ни на что не влияет.
 MIN_POOL = 5
 
+# Размах, ниже которого категория считается плоской ПО СУЩЕСТВУ, даже если
+# формально значения в ней разные.
+#
+# Считается не на глаз, а из формулы отбора в генераторе. Там очевидность
+# входит с весом 0.9, а бонус за новое для пакета слово равен 0.15. Значит
+# при размахе меньше 0.15/0.9 = 0.167 слагаемое очевидности не способно
+# перевесить даже бонус за новизну — то есть на выбор слова оно не влияет
+# ни при каком раскладе. Такая категория «отранжирована» только на бумаге.
+#
+# Замер по базе: 163 категории в автосборке имели размах 0.02-0.19 и в
+# прежнюю очередь (строгое равенство min и max) не попадали.
+NOMINAL_SPREAD = 0.17
+
 
 @dataclass
 class GradingResult:
@@ -77,6 +90,8 @@ class GradingResult:
 
     graded_categories: int = 0
     graded_memberships: int = 0
+    uniform_categories: int = 0
+    """Из них признаны однородными по существу — см. `uniform` в схеме ответа."""
     batches_ok: int = 0
     batches_failed: int = 0
     skipped: list[dict[str, Any]] = field(default_factory=list)
@@ -109,8 +124,9 @@ def targets(
 ) -> list[Target]:
     """Плоские категории в порядке убывания пользы от ранжирования.
 
-    Плоская — значит все связи допущенных статусов несут одно значение
-    очевидности. Порядок очереди: сначала те, где плоское число спорит с самой
+    Плоская — значит размах очевидности внутри категории меньше
+    NOMINAL_SPREAD, то есть на отбор слова она влиять не может, даже если
+    формально значения в ней разные. Порядок очереди: сначала те, где плоское число спорит с самой
     базой (`contested`), потом крупные пулы — там одно число накрывает больше
     слов.
     """
@@ -134,9 +150,10 @@ def targets(
            AND m.obviousness_score IS NOT NULL
            AND m.graded_obviousness IS NULL
          GROUP BY m.category_id
-        HAVING COUNT(*) >= ? AND MAX(m.obviousness_score) = MIN(m.obviousness_score)
+        HAVING COUNT(*) >= ?
+           AND MAX(m.obviousness_score) - MIN(m.obviousness_score) < ?
         """,
-        (*GRADED_STATUSES, MIN_POOL),
+        (*GRADED_STATUSES, MIN_POOL, NOMINAL_SPREAD),
     ).fetchall()
 
     # «Сильнейший ЧУЖОЙ дом слова» считаем один раз на всю базу: на 18 815
@@ -302,13 +319,18 @@ def grade(
 
         values = [g[1] for g in graded]
         spread = max(values) - min(values)
-        if spread < MIN_SPREAD:
+        if spread < MIN_SPREAD and not parsed.uniform:
             result.batches_failed += 1
             result.skip(
                 "no_spread",
                 {"category": target.category_key, "spread": round(spread, 3)},
             )
             continue
+        if spread < MIN_SPREAD:
+            # Однородность заявлена явно — записываем и считаем отдельно, чтобы
+            # доля таких категорий была видна: если она поползёт вверх, значит
+            # флагом начали затыкать лень, а не описывать контент.
+            result.uniform_categories += 1
 
         result.batches_ok += 1
         result.graded_categories += 1
@@ -318,6 +340,7 @@ def grade(
                 "category_key": target.category_key,
                 "was": target.flat_value,
                 "spread": round(spread, 3),
+                "uniform": spread < MIN_SPREAD,
                 "grades": [
                     {"word": word, "obviousness_score": score, "reason": reason}
                     for _, score, reason, word in sorted(graded, key=lambda g: -g[1])

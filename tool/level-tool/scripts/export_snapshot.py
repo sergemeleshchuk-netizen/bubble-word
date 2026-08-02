@@ -41,6 +41,9 @@ ZIPF_MAX = 7.0
 TOP50K_ZIPF = 2.55
 QUICKWIN_ZIPF = 3.0
 
+# Код регистра слова в снимке. Порядок фиксирован: индекс попадает в снимок.
+REGISTER_CODES = {"everyday": 0, "passive": 1, "specialist": 2}
+
 # порядок статусов фиксирован: индекс попадает в снимок, менять нельзя без версии схемы
 STATUSES = ["approved", "alternative", "hard_only", "candidate", "rejected"]
 # порядок risk-флагов тоже фиксирован: в связи лежит битовая маска по этому списку
@@ -138,9 +141,15 @@ def build(conn: sqlite3.Connection) -> dict:
         "order by category_key")]
     cat_index = {c["id"]: i for i, c in enumerate(cats)}
 
+    # `everyday_class` появилась шагом 010; на базе, где разметку ещё не
+    # прогоняли, колонки нет — тот же приём, что с derived_difficulty выше.
+    have_register = "everyday_class" in {
+        row[1] for row in conn.execute("PRAGMA table_info(words)")}
+    register_select = ("everyday_class" if have_register
+                       else "NULL as everyday_class")
     words = [dict(r) for r in conn.execute(
-        "select id, text, normalized, part_of_speech, is_proper_noun, familiarity_score "
-        "from words where status='active' order by normalized, id")]
+        "select id, text, normalized, part_of_speech, is_proper_noun, familiarity_score, "
+        f"{register_select} from words where status='active' order by normalized, id")]
     word_index = {w["id"]: i for i, w in enumerate(words)}
 
     senses = {}
@@ -161,6 +170,11 @@ def build(conn: sqlite3.Connection) -> dict:
             "u": 1 if unknown else 0,                       # frequency_unknown
             "l": 1 if lexicon_member(w["text"]) else 0,     # lexicon_membership
             "p": 1 if w["is_proper_noun"] else 0,
+            # Регистр слова: 0 everyday, 1 passive, 2 specialist, null — не размечено.
+            # Почему не порог частотности: `congestion` 3.66 отвергнут владельцем
+            # продукта, `carrot` 3.62 безупречен, `omelet` 2.63 тоже — никакой
+            # порог по zipf эти группы не разделяет (см. миграцию 010).
+            "e": REGISTER_CODES.get(w["everyday_class"]),
             "tok": len(re.split(r"[ \-']+", w["normalized"])),
         })
 

@@ -2,10 +2,15 @@
  * Офлайн-сборка блока уровней тем же ядром, что работает в браузере.
  *
  *   node scripts/generate_block.ts [--seed SEED] [--range 1-10] [--out DIR]
+ *                                 [--source production|reference]
  *
  * Без --range берётся пресет блока 201-210 (он воспроизводит сдаваемый пакет
  * и проверяется хешем). С --range конфиг собирается из профиля декады —
  * docs/DECADE_CALIBRATION.md, web/src/core/decadeProfiles.ts.
+ *
+ * Без --source берётся наша база. `--source reference` собирает тот же блок из
+ * словаря оригинала (web/src/core/sources.ts): тот же генератор, те же гейты,
+ * другой контент.
  *
  * Печатает отчёт по блоку и, если задан --out, пишет туда pipeline JSON и game JSON.
  */
@@ -19,6 +24,7 @@ import {
   checkDecadeFit, configForRange, decadeLabel, profileForRange,
 } from '../web/src/core/decadeProfiles.ts';
 import { generateBlock, toGameJson, toPipelineJson } from '../web/src/core/generateBlock.ts';
+import { CONTENT_SOURCES, DEFAULT_SOURCE_ID } from '../web/src/core/sources.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,8 +34,20 @@ function arg(name: string): string | undefined {
   return i >= 0 ? process.argv[i + 1] : undefined;
 }
 
+/**
+ * Источник контента: `production` (наша база) или `reference` (словарь
+ * оригинала, см. web/src/core/sources.ts). Офлайн-скрипт обязан уметь оба —
+ * иначе второй источник существует только в браузере, и проверить его
+ * тестом или прогоном нечем.
+ */
+const sourceArg = arg('source') ?? DEFAULT_SOURCE_ID;
+const contentSource = CONTENT_SOURCES.find((s) => s.id === sourceArg);
+if (!contentSource) {
+  throw new Error(`--source ждёт ${CONTENT_SOURCES.map((s) => s.id).join('|')}, `
+    + `получено «${sourceArg}»`);
+}
 const snapshot = JSON.parse(
-  readFileSync(join(ROOT, 'web/src/data/content.snapshot.json'), 'utf8')) as Snapshot;
+  readFileSync(join(ROOT, contentSource.snapshotFile), 'utf8')) as Snapshot;
 const scoring = JSON.parse(
   readFileSync(join(ROOT, 'web/src/data/scoring.config.json'), 'utf8')) as ScoringConfig;
 
@@ -71,6 +89,7 @@ const result = generateBlock({
 });
 const elapsed = Date.now() - started;
 
+console.log(`источник      ${contentSource.label} (${contentSource.id})`);
 console.log(`снимок базы   ${snapshot.content_snapshot_hash.slice(0, 16)}…`);
 console.log(`seed          ${config.seed}`);
 console.log(`диапазон      ${config.levelRange.join('-')}`
