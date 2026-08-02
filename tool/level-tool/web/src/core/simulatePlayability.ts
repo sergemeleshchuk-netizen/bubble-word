@@ -92,6 +92,21 @@ function halfKey(category: string, word: string): string {
 }
 
 export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
+  /*
+   * Спек без выкладки симулировать нельзя, и врать «проходим» тут нельзя тоже:
+   * такие спеки приезжают из пакетов до gen-1.1, и тихий зелёный вердикт на
+   * них означал бы, что гейт приёмки пропускает непроверенное. Кто оценивает
+   * уровень (`core/dealShape.ts`), сюда с таким спеком просто не приходит.
+   */
+  if (!spec.deal || !Array.isArray(spec.deal.start) || !Array.isArray(spec.deal.queue)) {
+    return {
+      winnable: false, failReason: 'выкладки нет: симулировать нечего',
+      movesNeeded: 0, moveLimit: spec.board.moveLimit, spareMoves: null,
+      rescues: 0, perceivedDead: 0, maxDrought: 0,
+      refillWaves: 0, refillCompletions: 0,
+      chainRescued: false, blockersRescued: false,
+    };
+  }
   const fullOf = new Map<string, number>();
   for (const c of spec.categories) fullOf.set(c.key, c.words.length);
 

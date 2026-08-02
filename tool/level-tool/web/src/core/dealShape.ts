@@ -59,7 +59,25 @@ function startCounts(spec: LevelSpec): Map<string, number> {
   return counts;
 }
 
+/**
+ * Нейтральный профиль для спека БЕЗ выкладки.
+ *
+ * Такие спеки существуют: сданные пакеты до gen-1.1 (`data/final-pack`) выкладки
+ * не содержат, и `scripts/rescore_block.ts` пересчитывает их оценки под текущую
+ * модель. Формы поля у них нет, значит и фактор обязан молчать — все счётчики
+ * нули, доля продуктивных волн единица. Ноль в доле означал бы «досыпка
+ * бесплодна», то есть наказание за старый формат файла.
+ */
+const NO_DEAL: DealShape = {
+  fullSets: 0, triples: 0, pairs: 0, singles: 0, absent: 0,
+  startFieldSize: 0, refillWaves: 0, refillCompletions: 0,
+  refillCompletionShare: 1,
+};
+
 export function dealShape(spec: LevelSpec): DealShape {
+  if (!spec.deal || !Array.isArray(spec.deal.start) || spec.deal.start.length === 0) {
+    return NO_DEAL;
+  }
   const counts = startCounts(spec);
   const full = spec.board.wordsPerCategory || 4;
 
