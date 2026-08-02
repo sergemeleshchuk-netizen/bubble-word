@@ -1,5 +1,5 @@
 {
-  "scoring_version": "d-1.1-calibrated",
+  "scoring_version": "d-1.2-calibrated",
   "calibrated": true,
   "note": "Веса base откалиброваны scripts/calibrate_difficulty.py на 199 референсных уровнях. Секция declared — объявленные продуктовые веса: референс их НЕ идентифицирует (см. not_identified_by_reference и docs/SCORING.md §7). Секции semantic и mechanical по референсу калибровать нечем: этих признаков в выгрузке ответов нет вообще (SPEC_AUDIT §3).",
   "difficulty": {
@@ -40,7 +40,9 @@
       "meta_link_max": 1.4,
       "meta_depth_beyond_1": 0.55,
       "quickwin_relief": -0.1,
-      "quickwin_relief_max": -0.6
+      "quickwin_relief_max": -0.6,
+      "lone_start_word": 0.05,
+      "lone_start_word_max": 0.6
     },
     "not_identified_by_reference": [
       {

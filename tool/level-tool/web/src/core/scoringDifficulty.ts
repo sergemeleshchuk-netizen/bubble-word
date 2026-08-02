@@ -37,12 +37,37 @@ export interface ScoringConfig {
 
 /** Признаки уровня, по которым считается D_base. Ровно те, что есть в референсе. */
 export interface BaseFeatures {
+  /**
+   * Категорий на уровне (F1 «масштаб» в levels/EVAL.md). В формулу входит не
+   * само M, а `startBubbles` ниже — но в разбор оно обязано попадать числом:
+   * это первое, что спрашивают про сложность уровня.
+   */
+  categories: number;
+  /**
+   * Размер уровня в словах: `4*M − мета`. Мета-слово не спавнится, поэтому
+   * вычитается. Имя историческое и обманчивое — это НЕ 24 пузыря стартового
+   * поля, а весь уровень целиком, включая очередь досыпки.
+   */
   startBubbles: number;
   rareWords: number;
   veryRareWords: number;
   metaLinks: number;
   metaDepth: number;
   quickwinCategories: number;
+  /**
+   * Категории, представленные на стартовом поле ровно одним словом.
+   *
+   * Такой пузырь не сливается ни с чем: его пара ещё в очереди. Он занимает
+   * место на поле и, главное, внимание — игрок перебирает его в каждой
+   * гипотезе, а ход с ним невозможен по построению. Замер по 400 уровням: до
+   * 11 категорий одиночек нет вовсе, на 13 их 4-7, на 16 уже 10-13 — то есть
+   * до 62% поля не участвует в ходе. Это отдельная от объёма нагрузка:
+   * два уровня с одинаковым числом слов, но разной раскладкой играются
+   * по-разному.
+   */
+  loneStartWords: number;
+  /** Слов на стартовом поле — знаменатель для доли «мёртвых» пузырей. */
+  startFieldSize: number;
 }
 
 export function baseFeaturesOf(spec: LevelSpec): BaseFeatures {
@@ -56,13 +81,26 @@ export function baseFeaturesOf(spec: LevelSpec): BaseFeatures {
       if (word.zipf !== null && word.zipf < 2.0) veryRare += 1;
     }
   }
+  // Раскладка старта. У спека без выкладки одиночек считать не из чего —
+  // тогда фактор равен нулю, а не выдумывается из числа категорий.
+  const onField = new Map<string, number>();
+  for (const bubble of spec.deal?.start ?? []) {
+    onField.set(bubble.category, (onField.get(bubble.category) ?? 0) + 1);
+  }
+  const startFieldSize = spec.deal?.start.length ?? 0;
+  let lone = 0;
+  for (const count of onField.values()) if (count === 1) lone += 1;
+
   return {
+    categories: spec.categories.length,
     startBubbles: spec.board.startBubbles,
     rareWords: rare,
     veryRareWords: veryRare,
     metaLinks,
     metaDepth: Math.max(0, ...spec.categories.map((c) => c.metaDepth)),
     quickwinCategories: spec.categories.filter((c) => c.isQuickwin).length,
+    loneStartWords: lone,
+    startFieldSize,
   };
 }
 
@@ -117,15 +155,18 @@ export function computeDifficulty(
 
   // ---------------- base: откалибровано на 199 уровнях ----------------
   const base: Record<string, number> = {
-    'объём (пузырей на старте)': (w.base.start_bubbles ?? 0) * features.startBubbles,
+    // масштаб = число категорий: слов на уровне ровно 4*M − мета, поэтому
+    // именно M и есть то, что этот вес меряет (F1 в levels/EVAL.md)
+    'масштаб (категорий × 4 слова)': (w.base.start_bubbles ?? 0) * features.startBubbles,
     'редкие слова (zipf < 3)': (w.base.rare_words ?? 0) * features.rareWords,
     'очень редкие (zipf < 2)': (w.base.very_rare_words ?? 0) * features.veryRareWords,
   };
   const baseTotal = (w.base.intercept ?? 0)
     + Object.values(base).reduce((a, b) => a + b, 0);
 
-  explanation.push(`${features.startBubbles} пузырей на старте `
-    + `при ${spec.categories.length} категориях`);
+  explanation.push(`${features.categories} категорий — это ${features.startBubbles} слов `
+    + 'на уровне; масштаб растёт линейно по числу категорий и остаётся '
+    + 'главным слагаемым сложности');
   explanation.push(`${features.rareWords} редких слов, из них ${features.veryRareWords} очень редких`);
 
   // ---------------- declared: объявлено, НЕ откалибровано ----------------
@@ -135,22 +176,39 @@ export function computeDifficulty(
   const depthScore = (d.meta_depth_beyond_1 ?? 0) * Math.max(0, features.metaDepth - 1);
   const quickwinScore = Math.max(d.quickwin_relief_max ?? -0.6,
     (d.quickwin_relief ?? 0) * features.quickwinCategories);
+  // Раскладка старта. Вес объявленный по той же причине, что и мета: выкладку
+  // считаем МЫ (core/deal.ts), в выгрузке референса её нет вовсе, значит
+  // калибровать не на чем — но и молчать о ней нельзя.
+  const loneScore = Math.min(d.lone_start_word_max ?? 1.0,
+    (d.lone_start_word ?? 0) * features.loneStartWords);
   const declared: Record<string, number> = {
     'мета-связи (объявлено)': metaScore,
     'глубина мета сверх 1 (объявлено)': depthScore,
     'быстрые победы (объявлено)': quickwinScore,
+    'одиночки на старте (объявлено)': loneScore,
   };
   const declaredTotal = Object.values(declared).reduce((a, b) => a + b, 0);
 
   if (features.metaLinks > 0) {
     explanation.push(`${features.metaLinks} мета-связей, максимальная глубина `
       + `${features.metaDepth}`
-      + (features.metaDepth >= 3 ? ' — глубины 3 в референсе нет ни разу' : '')
+      + (features.metaDepth >= 3
+        ? ' — глубина 3 в оригинале появляется только с L438 (замер 1025 уровней)'
+        : '')
       + '. Вес объявлен, а не откалиброван: по референсу вклад мета не '
       + 'идентифицируется (см. SCORING §7)');
   }
   explanation.push(`${features.quickwinCategories} категорий быстрой победы снижают `
     + 'оценку на объявленную величину: дверь остаётся открытой');
+  if (features.startFieldSize > 0) {
+    const share = Math.round((features.loneStartWords / features.startFieldSize) * 100);
+    explanation.push(features.loneStartWords === 0
+      ? `на старте нет категорий-одиночек: каждый из ${features.startFieldSize} пузырей `
+        + 'поля имеет пару и участвует в ходе'
+      : `${features.loneStartWords} категорий лежат на старте одним словом — `
+        + `${share}% поля не сливается ни с чем и работает отвлечением, `
+        + 'а не материалом для хода');
+  }
 
   // ---------------- semantic ----------------
   // ловушка засчитывается, если она настоящая и тихая: связь есть, но неочевидна

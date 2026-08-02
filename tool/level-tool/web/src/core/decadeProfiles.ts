@@ -251,6 +251,27 @@ export const DECADE_PROFILES: DecadeProfile[] = [
  * 201-210 как раз там) продолжаем последней декадой: экстраполировать тренд не
  * на чем, а последняя декада — ближайшее известное состояние игры.
  */
+/**
+ * С какого уровня оригинала мета-цепь глубины 3 встречается на самом деле.
+ *
+ * Долгое время в трёх местах кода стояло «глубже 2 в референсе не встречается
+ * ни разу», и по этому потолку браковались блоки. Утверждение опиралось на
+ * разбор первых 20 уровней с видео и на спеку. Замер выгрузки 1025 уровней
+ * (`reference-curve.md`) говорит иначе: глубина 2 впервые на L34 и нормой с
+ * L51, а глубина 3 — впервые на **L438**, нормой к L931, всего 23 уровня (2%).
+ *
+ * То есть запрет верен только в пределах первых четырёхсот уровней, а
+ * применялся ко всем блокам подряд — включая 201-400, где мы теперь собираем.
+ * Потолок привязан к номеру уровня: ниже границы глубина 3 действительно
+ * не подтверждена ничем, выше — это замеренное поведение оригинала.
+ */
+export const META_DEPTH_3_FROM_LEVEL = 438;
+
+/** Потолок глубины мета-цепи для конкретного номера уровня. */
+export function maxMetaDepthFor(levelId: number): number {
+  return levelId >= META_DEPTH_3_FROM_LEVEL ? 3 : 2;
+}
+
 export function profileForRange(levelRange: [number, number]): DecadeProfile {
   const first = levelRange[0];
   let profile = DECADE_PROFILES[0];
@@ -418,7 +439,8 @@ export function configForRange(
     spikePositions: [SPIKE_POSITION],
     recoveryPositions: [RECOVERY_POSITION],
     rarityRange: profile.rareRange,
-    maxMetaDepth: 2,          // глубже 2 в референсе не встречается ни разу
+    // глубина 3 в оригинале появляется с L438 — см. META_DEPTH_3_FROM_LEVEL
+    maxMetaDepth: maxMetaDepthFor(levelRange[1]),
     // Игровые модификаторы включаются лесенкой по декадам (решение 02.08:
     // механики входят в генерацию, оценку и игровой JSON разом, а не по одной):
     //   с L11 половинки — в референсе распилы видны уже на уровне 12;
@@ -631,9 +653,18 @@ export function checkDecadeFit(
     + `${profile.metaRange.join('-')}, ниже пола ${belowFloor.length} уровней `
     + `(допустим один и не глубже чем на ${META_FLOOR_SLACK})`);
 
-  add('META_DEPTH', levels.every((l) => l.metaDepth <= 2),
-    `максимальная глубина мета-цепи ${Math.max(...levels.map((l) => l.metaDepth))}, `
-    + 'в референсе глубже 2 не встречается');
+  /*
+   * Потолок глубины — у каждого уровня свой, по его номеру. Раньше здесь стояла
+   * жёсткая двойка с формулировкой «в референсе глубже 2 не встречается»; замер
+   * 1025 уровней это опроверг (глубина 3 с L438), и блоки за четырёхсотым
+   * браковались ни за что. См. META_DEPTH_3_FROM_LEVEL.
+   */
+  const tooDeep = levels.filter((l) => l.metaDepth > maxMetaDepthFor(l.levelId));
+  add('META_DEPTH', tooDeep.length === 0,
+    `максимальная глубина мета-цепи ${Math.max(...levels.map((l) => l.metaDepth))}; `
+    + `потолок до L${META_DEPTH_3_FROM_LEVEL} — 2, дальше 3 (в оригинале глубина 3 `
+    + `впервые на L${META_DEPTH_3_FROM_LEVEL})`
+    + (tooDeep.length ? `; нарушают ${tooDeep.map((l) => l.levelId).join(', ')}` : ''));
 
   const modifiersAllowed = profile.allowedModifiers.includes('chains');
   add('MODIFIERS_BY_DECADE', modifiersAllowed || levels.every((l) => l.chainCount === 0),

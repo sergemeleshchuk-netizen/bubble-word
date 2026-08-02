@@ -314,7 +314,7 @@ function levelCard(level: GeneratedLevel): string {
   L.push(`| Пузырей на старте | ${s.board.startBubbles} (4 × ${s.categories.length} − ${meta.length} мета) |`);
   L.push(`| На поле одновременно | ${s.board.boardCapacity}, остальное досыпается волнами |`);
   L.push(`| Лимит ходов | ${s.board.moveLimit} при минимуме ${s.board.moveFloor} (K = ${s.board.moveLimitK}) |`);
-  L.push(`| Мета-связей | ${meta.length}, максимальная глубина ${depth}${depth >= 3 ? ' — в референсе не встречается ни разу' : ''} |`);
+  L.push(`| Мета-связей | ${meta.length}, максимальная глубина ${depth}${depth >= 3 ? ' — в оригинале такая глубина появляется только с L438' : ''} |`);
   L.push(`| Редких слов (zipf < 3) | ${rare.length} |`);
   L.push(`| Ловушек | ${s.traps.length} |`);
   L.push(`| Модификаторы | ${s.modifiers.chains.length ? `${s.modifiers.chains.length} цепи` : '—'} |`);
