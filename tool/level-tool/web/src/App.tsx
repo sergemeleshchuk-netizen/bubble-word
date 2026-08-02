@@ -137,6 +137,12 @@ export function App() {
   const level = block?.levels.find((l) => l.spec.levelId === selectedLevel) ?? null;
   const busy = loadingSource !== null;
 
+  /**
+   * Следующий шаг для кнопки под содержимым. На последнем экране её нет:
+   * кнопка «Дальше», ведущая в никуда, врёт про то, что работа не закончена.
+   */
+  const nextTab = TABS[TABS.findIndex((t) => t.id === tab) + 1] ?? null;
+
   return (
     <div className="app">
       <header className="top">
@@ -235,6 +241,14 @@ export function App() {
         block
           ? <ExportView block={block} toGameJson={toGameJson} toPipelineJson={toPipelineJson} />
           : <Empty onGenerate={generate} />
+      )}
+
+      {nextTab && (
+        <div className="step-next">
+          <button className="next" onClick={() => setTab(nextTab.id)}>
+            Дальше · {nextTab.label} →
+          </button>
+        </div>
       )}
     </div>
   );

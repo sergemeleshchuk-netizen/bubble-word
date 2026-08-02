@@ -21,7 +21,7 @@ import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
 import {
-  HANDOFF_KEY, HANDOFF_LIST_KEY, HANDOFF_MAX_PACKS,
+  HANDOFF_KEY, HANDOFF_LIST_KEY, HANDOFF_MAX_PACKS, HANDOFF_MESSAGE,
   buildHandoffPack, publishToPlayable, readHandoffPacks,
 } from '../web/src/core/playableHandoff.ts';
 import { TOOL_VERSION } from '../web/src/core/version.ts';
@@ -143,6 +143,12 @@ test('ключ хранилища совпадает у инструмента �
   const report = readFileSync(join(ROOT, '../../site/index.html'), 'utf8');
   assert.ok(report.includes(HANDOFF_LIST_KEY),
     `site/index.html не знает ключа ${HANDOFF_LIST_KEY}: собранные пакеты не переживут перезагрузку`);
+  // Тем же способом связан сигнал «пакет отдан»: инструмент шлёт его страница
+  // отчёта слушает. Разъедутся строки — прототип молча перестанет обновляться
+  // сам, и это заметят не раньше, чем руками свернут пункт и развернут обратно.
+  assert.ok(report.includes(HANDOFF_MESSAGE),
+    `site/index.html не слушает сообщение ${HANDOFF_MESSAGE}: `
+    + 'прототип не обновится после «Добавить в Playable»');
 });
 
 /**

@@ -49,6 +49,24 @@ export const HANDOFF_KEY = 'bubble-level-tool.generated-pack.v1';
 export const HANDOFF_LIST_KEY = 'bubble-level-tool.generated-packs.v1';
 
 /**
+ * Сигнал странице отчёта: пакет только что уехал в хранилище.
+ *
+ * Инструмент и прототип — два соседних iframe одной страницы, и список уровней
+ * прототипа собирается при раскрытии его пункта. Если оба пункта уже открыты,
+ * список к моменту сборки давно построен: человек жал «Добавить в Playable»,
+ * шёл в прототип и своих уровней там не видел, пока не свернёт и не развернёт
+ * пункт обратно. Сообщение закрывает эту дыру — страница пересобирает список и
+ * перезагружает прототип сама.
+ *
+ * Через `postMessage`, а не через событие `storage`: то не приходит вкладке,
+ * которая сама писала в хранилище, а тут это одна и та же вкладка.
+ *
+ * Строка продублирована в `site/index.html` (обычный HTML, tsc его не видит);
+ * при смене править в обоих местах — это закреплено тестом `playable_handoff`.
+ */
+export const HANDOFF_MESSAGE = 'bubble-level-tool:handoff';
+
+/**
  * Сколько собранных пакетов держим. Пакет весит 25-55 КБ, лимит браузера на
  * origin — около 5 МБ, так что упереться в него архивом трудно; ограничение
  * тут не ради места, а чтобы список групп в прототипе оставался читаемым.
@@ -252,8 +270,30 @@ export function publishToPlayable(block: BlockResult): HandoffPack | null {
     const kept = readHandoffPacks().filter((p) => p.pack_hash !== pack.pack_hash);
     writeHandoffPacks([pack, ...kept]);
     window.localStorage.setItem(HANDOFF_KEY, JSON.stringify(pack));
+    notifyHost(pack);
     return pack;
   } catch {
     return null;
+  }
+}
+
+/**
+ * Говорит странице-хосту, что пакет в хранилище и прототип пора обновить.
+ *
+ * Молча ничего не делает, когда инструмент открыт сам по себе (`/tool/` без
+ * обёртки) или когда хост на другом origin: обновлять там нечего, и падать
+ * из-за этого публикация пакета не должна — она уже состоялась.
+ */
+function notifyHost(pack: HandoffPack): void {
+  try {
+    if (window.parent === window) return;
+    window.parent.postMessage({
+      type: HANDOFF_MESSAGE,
+      pack_hash: pack.pack_hash,
+      label: pack.label,
+      levels: pack.levels.length,
+    }, window.location.origin);
+  } catch {
+    /* хост недоступен — пакет от этого не пострадал */
   }
 }

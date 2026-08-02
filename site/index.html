@@ -2079,13 +2079,23 @@ README должен содержать:
       content_snapshot_hash:'', level_range:[1,combined.length], levels:combined
     })); }catch(e){}
   }
-  function mountHandoff(){
+  /* done вызывается ПОСЛЕ отрисовки списка — и только один раз, даже если
+     renderAll упадёт и управление уйдёт в catch: иначе перезагрузка прототипа
+     случится дважды подряд. */
+  function mountHandoff(done){
     /* Собранные пакеты идут первыми группами, свежий сверху: только что
        собранное ищут в начале списка. Берём их из архива, а не из рабочего
        слота, — в слоте лежит наша же склейка с прошлого раскрытия. */
     var sources=readHandoffPacks().map(function(p){
       return {prefixLabel:'Из генератора', label:p.label||'', levels:p.levels};
     });
+    var finished=false;
+    function finish(){
+      if(finished) return;
+      finished=true;
+      renderAll(sources);
+      if(done) done();
+    }
     fetch(PACKS_INDEX).then(function(r){ return r.ok?r.json():null; }).then(function(idx){
       var files=(idx&&idx.packs)||[];
       return Promise.all(files.map(function(f){
@@ -2098,9 +2108,33 @@ README должен содержать:
           sources.push({prefixLabel:'Сдано', label:p.label||'', levels:p.levels});
         }
       });
-      renderAll(sources);
-    }).catch(function(){ renderAll(sources); });
+      finish();
+    }).catch(function(){ finish(); });
   }
+
+  /* Генератор отдал пакет кнопкой «Добавить в Playable».
+     Он живёт в соседнем iframe и присылает сообщение сразу после записи в
+     хранилище (HANDOFF_MESSAGE в tool/level-tool/web/src/core/playableHandoff.ts).
+
+     Без этого список уровней прототипа пересобирался только при раскрытии
+     пункта: у того, у кого оба пункта открыты одновременно — а это обычный
+     способ работы, — свежесобранных уровней в списке не появлялось, пока он
+     не свернёт и не развернёт «Build Playable» руками.
+
+     Свежий пакет всегда идёт первой группой архива, поэтому его первый уровень
+     это gen:0 — на него и переключаемся, чтобы прототип сразу играл только что
+     собранное. */
+  var HANDOFF_MESSAGE='bubble-level-tool:handoff';
+  window.addEventListener('message', function(e){
+    if(e.origin!==location.origin) return;
+    var d=e.data;
+    if(!d||d.type!==HANDOFF_MESSAGE) return;
+    mountHandoff(function(){
+      var sel=document.getElementById('lvlSel');
+      if(sel&&sel.querySelector('option[value="gen:0"]')) sel.value='gen:0';
+      reloadPlay();
+    });
+  });
 
   function reloadPlay(){
     var lv=document.getElementById('lvlSel').value;
