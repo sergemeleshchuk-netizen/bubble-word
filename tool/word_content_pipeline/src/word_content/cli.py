@@ -16,8 +16,10 @@ import typer
 from pydantic import ValidationError
 
 from . import baseline
+from . import importers
 from . import candidate_generation as gen
 from . import (
+    category_difficulty,
     composition,
     conflicts,
     cooldown,
@@ -33,6 +35,7 @@ from . import (
     meta_validation,
     migrations,
     normalization,
+    pack_semantics,
     profiles,
     quartet_builder,
     readiness,
@@ -41,6 +44,8 @@ from . import (
     reference_import,
     scoring,
     sense_gaps,
+    sense_layer,
+    sense_map as sense_map_mod,
     solver,
     structured,
 )
@@ -61,6 +66,8 @@ from .llm.openai_compatible import provider_from_env
 from .models import CategoryConflictInput, QuartetInput
 from .repositories import (
     RepositoryError,
+    membership_semantics_for_word,
+    senses_for_word,
     clear_category_conflicts,
     clear_quartets,
     collect_stats,
@@ -274,34 +281,75 @@ def cmd_word_info(
     word: Annotated[str, typer.Option("--word", help="Слово в любом регистре")],
     statuses: StatusesOption = None,
 ) -> None:
-    """Показывает все категории слова с учётом фильтра статусов."""
+    """Показывает значения слова и все его категории с классом риска."""
     conn = _open(db)
     try:
         status_list = parse_statuses(statuses)
         rows = memberships_for_word(conn, word, status_list)
+        senses = senses_for_word(conn, word)
+        semantics = membership_semantics_for_word(conn, word)
     except ValidationIssue as exc:
         _fail(str(exc))
         return
     finally:
         conn.close()
 
+    def number(value: object) -> str:
+        return "—" if value is None else f"{float(value):.2f}"
+
+    if senses:
+        dominant = next((s["sense_key"] for s in senses if s["is_dominant"]), None)
+        typer.echo(f"Доминантное значение: {dominant or '— (не установлено)'}")
+        _print_table(
+            ["значение", "вид", "ранг", "доступность", "узнав.", "актив.", "источник",
+             "определение"],
+            [
+                [
+                    ("* " if s["is_dominant"] else "  ") + s["sense_key"],
+                    s["sense_kind"],
+                    "—" if s["dominance_rank"] is None else str(s["dominance_rank"]),
+                    s["accessibility_class"],
+                    number(s["recognition_score"]),
+                    number(s["activation_score"]),
+                    s["quality_source"] or "—",
+                    _truncate(s["definition"], 44),
+                ]
+                for s in senses
+            ],
+        )
+        typer.echo("")
+    else:
+        typer.echo("Значений у слова нет: связи не могут сказать, каким смыслом оно стоит.")
+        typer.echo("")
+
+    by_id = {int(row["membership_id"]): row for row in semantics}
+
+    def cell(membership_id: int, key: str, default: str = "—") -> str:
+        found = by_id.get(membership_id)
+        return default if found is None else str(found[key])
+
     _print_table(
-        ["word", "sense", "category", "relation", "fit", "obv", "status", "reason"],
+        ["category", "значение", "доступность", "класс риска", "не главное",
+         "в продакшен", "status"],
         [
             [
-                row["word"],
-                _truncate(row["sense_key"], 22),
                 row["category_key"],
-                row["relation_type"],
-                f"{row['fit_score']:.2f}",
-                f"{row['obviousness_score']:.2f}",
+                _truncate(row["sense_key"] or "—", 22),
+                cell(int(row["membership_id"]), "accessibility_class"),
+                cell(int(row["membership_id"]), "risk_class"),
+                "да" if cell(int(row["membership_id"]), "uses_non_dominant", "0") == "1" else "",
+                "да" if cell(int(row["membership_id"]), "production_eligible", "0") == "1"
+                else "НЕТ",
                 row["review_status"],
-                _truncate(row["reason"], 50),
             ]
             for row in rows
         ],
     )
-    typer.echo(f"Всего связей: {len(rows)}")
+    eligible = sum(
+        1 for row in rows
+        if cell(int(row["membership_id"]), "production_eligible", "0") == "1"
+    )
+    typer.echo(f"Всего связей: {len(rows)}, пригодны для продакшена: {eligible}")
 
 
 @app.command("category-info")
@@ -789,6 +837,46 @@ def cmd_derive_readiness(db: DbOption, meta: MetaOption = None) -> None:
             typer.echo(f"  {row['label']} ({row['category_key']}): {row['readiness_reason']}")
         if len(hard) > 30:
             typer.echo(f"  ... ещё {len(hard) - 30}")
+
+
+@app.command("derive-category-difficulty")
+def cmd_derive_category_difficulty(db: DbOption, show: int = 15) -> None:
+    """Пересчитывает сложность категорий по данным пула, не трогая авторское base_difficulty."""
+    conn = _open(db)
+    try:
+        with conn:
+            added = category_difficulty.ensure_columns(conn)
+            summary = category_difficulty.derive(conn)
+        rows = list(
+            conn.execute(
+                "SELECT label, base_difficulty, derived_difficulty, derived_difficulty_reason "
+                "FROM categories WHERE derived_difficulty IS NOT NULL "
+                "ORDER BY ABS(COALESCE(base_difficulty, 0) - derived_difficulty) DESC"
+            )
+        )
+    finally:
+        conn.close()
+
+    total = sum(summary.values())
+    if added:
+        typer.echo(f"Добавлены колонки: {', '.join(added)}")
+    typer.echo(f"Сложность категорий пересчитана ({category_difficulty.MODEL_VERSION}), "
+               f"всего {total}:")
+    for name, _ in category_difficulty.BANDS:
+        count = summary.get(name, 0)
+        share = f"{100 * count / total:.0f}%" if total else "—"
+        typer.echo(f"  {name:8} {count:5}  {share}")
+    easy = summary.get("easy", 0) + summary.get("light", 0)
+    if total:
+        typer.echo(f"Пригодно для лёгких уровней (easy+light): {easy} = {100 * easy / total:.0f}%")
+    if show and rows:
+        typer.echo(f"\nСильнее всего расходится с авторской оценкой — {min(show, len(rows))}:")
+        for row in rows[:show]:
+            authored = "—" if row["base_difficulty"] is None else f"{row['base_difficulty']:.2f}"
+            typer.echo(
+                f"  {row['label'][:28]:28} автор {authored} -> "
+                f"{row['derived_difficulty']:.3f}  {row['derived_difficulty_reason']}"
+            )
 
 
 @app.command("derive-conflicts")
@@ -1785,6 +1873,60 @@ def cmd_migrate_content_schema(
     typer.echo(f"\nВерсия схемы: {version} -> {after}")
 
 
+@app.command("apply-sense-layer")
+def cmd_apply_sense_layer(
+    db: DbOption,
+    sense_map: Annotated[
+        Path | None, typer.Option("--sense-map", help="Карта значений (по умолчанию проектная)")
+    ] = None,
+) -> None:
+    """Раскладывает значения по связям: объявленные из карты, остальные выводит.
+
+    Однозначному слову значение выводится автоматически, многозначное ждёт
+    разбора в `data/seed/_sense_map.json`. Слово из категории названий
+    автоматически не разбирается никогда: `trouble` в BOARD GAMES — не
+    неприятность, и угадать это машине нечем.
+    """
+    conn = _open(db)
+    try:
+        loaded = sense_map_mod.SenseMap.load(sense_map) if sense_map else None
+        report = sense_layer.apply(conn, sense_map=loaded)
+    finally:
+        conn.close()
+    for line in report.lines():
+        typer.echo(line)
+
+
+@app.command("import-swow-metrics")
+def cmd_import_swow_metrics(
+    db: DbOption,
+    input_path: Annotated[
+        Path, typer.Option("--input", help="Снимок метрик из scripts/swow_quartet_metrics.py")
+    ] = Path("data/content/swow_quartet_metrics.csv"),
+) -> None:
+    """Импортирует готовый снимок связности четвёрок по SWOW.
+
+    Генератор сырой датасет не читает: он локальный, 144 МБ и research-only.
+    Чистая сборка на машине без датасета обязана давать ту же базу, поэтому в
+    репозитории живёт снимок, а не исходник.
+    """
+    if not input_path.exists():
+        typer.echo(f"Снимка нет ({input_path}) — метрики SWOW не импортированы.")
+        typer.echo("Собрать: .venv/bin/python scripts/swow_quartet_metrics.py")
+        return
+    conn = _open(db)
+    try:
+        report = importers.import_swow_metrics(conn, input_path)
+    finally:
+        conn.close()
+    typer.echo(
+        f"строк {report.total}, добавлено {report.inserted}, обновлено {report.updated}, "
+        f"пропущено {report.rejected}"
+    )
+    for line_no, message, _ in report.errors[:5]:
+        typer.echo(f"  строка {line_no}: {message}")
+
+
 @app.command("sense-gaps")
 def cmd_sense_gaps(
     db: DbOption,
@@ -1800,8 +1942,16 @@ def cmd_sense_gaps(
             Path(__file__).resolve().parents[2] / "data" / "seed" / "_not_homonyms.txt"
         )
         gaps = sense_gaps.find(conn, not_homonyms=not_homonyms)
+        items = sense_gaps.unresolved(conn)
     finally:
         conn.close()
+
+    in_levels = sum(1 for item in items if item.used_in_levels)
+    in_quartets = sum(1 for item in items if item.used_in_quartets)
+    titles = sum(1 for item in items if item.suspected_title_sense)
+    by_membership_priority: dict[str, int] = {}
+    for item in items:
+        by_membership_priority[item.priority] = by_membership_priority.get(item.priority, 0) + 1
 
     by_priority: dict[str, int] = {}
     for gap in gaps:
@@ -1816,9 +1966,39 @@ def cmd_sense_gaps(
             for g in gaps[:show]
         ],
     )
+
+    # Вторая, более важная половина отчёта: не «слову нужны значения», а
+    # «связь не знает, каким значением стоит слово». Разница в том, что первое
+    # это работа на будущее, а второе — то, что прямо сейчас закрывает связи
+    # путь в уровень.
+    typer.echo("")
+    typer.echo("Связи без разрешённого значения")
+    typer.echo(f"  всего:                          {len(items)}")
+    typer.echo(f"  стоят в собранных уровнях (P0): {in_levels}")
+    typer.echo(f"  стоят в проверенных четвёрках:  {in_quartets}")
+    typer.echo(f"  подозрение на значение-название:{titles}")
+    typer.echo(
+        "  по приоритету: "
+        + ", ".join(f"{k}={v}" for k, v in sorted(by_membership_priority.items()))
+    )
+    _print_table(
+        ["приоритет", "слово", "категория", "связей", "в уровнях", "в четвёрках", "название"],
+        [
+            [
+                item.priority, item.word, _truncate(item.category_key, 26),
+                str(item.membership_count), str(item.used_in_levels),
+                str(item.used_in_quartets), "да" if item.suspected_title_sense else "",
+            ]
+            for item in items[:show]
+        ],
+    )
+
     if output:
         written = _write_csv(output, sense_gaps.to_rows(gaps))
-        typer.echo(f"\nОчередь: {output} ({written} строк)")
+        typer.echo(f"\nОчередь по словам: {output} ({written} строк)")
+        by_membership = output.with_name(output.stem + "_memberships" + output.suffix)
+        written = _write_csv(by_membership, sense_gaps.unresolved_rows(items))
+        typer.echo(f"Очередь по связям: {by_membership} ({written} строк)")
 
 
 @app.command("baseline-report")
@@ -2497,6 +2677,10 @@ def cmd_eval_levels(
     show: Annotated[
         int, typer.Option("--show", help="Сколько притяжений печатать на уровень")
     ] = 0,
+    profile: Annotated[
+        str | None,
+        typer.Option("--profile", help="Профиль, чьими порогами считать якоря"),
+    ] = None,
 ) -> None:
     """Сложность D и фан F по каждому уровню пакета — по модели `levels/EVAL.md`.
 
@@ -2507,6 +2691,19 @@ def cmd_eval_levels(
     conn = _open(db)
     try:
         results = level_eval.evaluate_pack(conn, prefix, swow=swow)
+        associations = level_eval.Associations(conn, swow=swow)
+        semantic_profile = profiles.get(profile) if profile else None
+        semantics = pack_semantics.evaluate(
+            conn,
+            prefix,
+            associations=associations,
+            anchor_recognition_min=(
+                semantic_profile["anchor_recognition_min"] if semantic_profile else 0.75
+            ),
+            anchor_activation_min=(
+                semantic_profile["anchor_activation_min"] if semantic_profile else 0.60
+            ),
+        )
     finally:
         conn.close()
     if not results:
@@ -2535,6 +2732,14 @@ def cmd_eval_levels(
     typer.echo("")
     for key, value in level_eval.summarise(results).items():
         typer.echo(f"{key}: {value}")
+
+    # Семантика пакета: из чего сделана его сложность. Оценщик выше меряет,
+    # трудно ли; этот блок — честно ли.
+    typer.echo("")
+    typer.echo("Доступность значений")
+    for line in semantics.lines():
+        typer.echo("  " + line)
+
     if show:
         for item in results:
             for pull in item.temptations[:show]:
@@ -2552,6 +2757,7 @@ def cmd_eval_levels(
                 {
                     "prefix": prefix,
                     "summary": level_eval.summarise(results),
+                    "semantics": semantics.as_dict(),
                     "levels": [item.as_dict() for item in results],
                 },
                 ensure_ascii=False,

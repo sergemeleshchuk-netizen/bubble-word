@@ -86,6 +86,13 @@ class CategoryInput(BaseModel):
     theme: str = Field(min_length=1)
     base_difficulty: float | None = Field(default=None, ge=0.0, le=1.0)
     status: str = "active"
+    # Категория держит названия, а не слова: BOARD GAMES, CEREAL BRANDS,
+    # TEAM NAMES. Признак нужен слою значений: обычное английское слово внутри
+    # такой категории почти всегда стоит не своим главным значением
+    # (`trouble` = игра, `Bears` = команда), и разрешать ему значение
+    # автоматически нельзя. Без признака единственный способ поймать такие
+    # случаи — список слов, то есть blocklist.
+    names_titles: bool = False
 
     @field_validator("category_key")
     @classmethod

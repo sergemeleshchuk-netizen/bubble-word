@@ -71,8 +71,8 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
             """
             INSERT INTO categories
                 (category_key, label, rule, relation_type, theme,
-                 base_difficulty, status, concept_id, created_at, updated_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 base_difficulty, status, names_titles, concept_id, created_at, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 item.category_key,
@@ -82,6 +82,7 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
                 item.theme,
                 item.base_difficulty,
                 item.status,
+                int(item.names_titles),
                 concept_id,
                 now,
                 now,
@@ -96,6 +97,9 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
         UPDATE categories
            SET label = ?, rule = ?, relation_type = ?, theme = ?,
                base_difficulty = ?, status = ?,
+               -- Признак «категория из названий» только поднимается: прогон AI,
+               -- не знающий про флаг, не должен снимать решение источника.
+               names_titles = MAX(names_titles, ?),
                concept_id = COALESCE(concept_id, ?), updated_at = ?
          WHERE id = ?
         """,
@@ -106,6 +110,7 @@ def upsert_category(conn: sqlite3.Connection, item: CategoryInput) -> UpsertResu
             item.theme,
             item.base_difficulty,
             item.status,
+            int(item.names_titles),
             concept_id,
             now,
             row["id"],
@@ -513,6 +518,44 @@ def memberships_for_word(
         + " ORDER BY c.category_key"
     )
     return list(conn.execute(sql, [normalize_word(word), language, *params]))
+
+
+def senses_for_word(
+    conn: sqlite3.Connection, word: str, language: str = "en"
+) -> list[sqlite3.Row]:
+    """Значения слова со слоем доступности; доминантное помечено."""
+    return list(
+        conn.execute(
+            """
+            SELECT s.id, s.sense_key, s.definition, s.part_of_speech, s.sense_kind,
+                   s.dominance_rank, s.accessibility_class, s.recognition_score,
+                   s.activation_score, s.audience_profile, s.quality_source,
+                   s.quality_confidence,
+                   CASE WHEN w.dominant_sense_id = s.id THEN 1 ELSE 0 END AS is_dominant
+              FROM word_senses s
+              JOIN words w ON w.id = s.word_id
+             WHERE w.normalized = ? AND w.language = ?
+             ORDER BY COALESCE(s.dominance_rank, 99), s.sense_key
+            """,
+            (normalize_word(word), language),
+        )
+    )
+
+
+def membership_semantics_for_word(
+    conn: sqlite3.Connection, word: str, language: str = "en"
+) -> list[sqlite3.Row]:
+    """Классификация связей слова: класс риска и пригодность для продакшена."""
+    return list(
+        conn.execute(
+            """
+            SELECT v.* FROM v_membership_semantics v
+              JOIN words w ON w.id = v.word_id
+             WHERE w.normalized = ? AND w.language = ?
+            """,
+            (normalize_word(word), language),
+        )
+    )
 
 
 def memberships_for_category(

@@ -20,10 +20,11 @@ import sqlite3
 from collections.abc import Callable
 from dataclasses import dataclass
 
+from . import sense_quality
 from .db import utc_now
 
 # Текущая целевая версия схемы: номер последнего шага в MIGRATIONS.
-TARGET_VERSION = 6
+TARGET_VERSION = 7
 
 
 @dataclass(frozen=True)
@@ -1020,6 +1021,168 @@ CREATE VIEW IF NOT EXISTS v_group_rules AS
 """
 
 
+# --------------------------------------------------------------------------- 007
+
+
+_SQL_007 = """
+-- Производные метрики SWOW по четвёрке. Считаются отдельной research-командой
+-- по локальному датасету и попадают сюда снимком: обычная пересборка не должна
+-- требовать 144 МБ сырых данных с research-only лицензией.
+--
+-- Различать «пара наблюдалась и связи нет» и «пары в датасете нет» обязательно.
+-- Нуль второго рода — это отсутствие наблюдения, а не отсутствие смысла, и
+-- отклонять по нему четвёрку значит наказывать за пробел в чужом датасете.
+CREATE TABLE IF NOT EXISTS quartet_association_metrics (
+    id                INTEGER PRIMARY KEY,
+    quartet_key       TEXT    NOT NULL UNIQUE,
+    metric_version    TEXT    NOT NULL,
+    source_version    TEXT    NOT NULL,
+    source_hash       TEXT    NOT NULL,
+    -- сколько слов четвёрки вообще есть в датасете как стимул или как ответ
+    observed_nodes    INTEGER NOT NULL,
+    -- сколько из шести пар можно было измерить (хотя бы одно слово — стимул)
+    observed_pairs    INTEGER NOT NULL,
+    -- сколько измеримых пар дали ненулевую связь
+    positive_pairs    INTEGER NOT NULL,
+    strongest_edge    REAL    NOT NULL DEFAULT 0,
+    median_edge       REAL    NOT NULL DEFAULT 0,
+    -- 1 — ни одна измеримая пара не дала связи; NULL-эквивалент отсутствия
+    -- данных выражен через observed_pairs = 0, а не через этот флаг
+    disconnected      INTEGER NOT NULL DEFAULT 0,
+    created_at        TEXT    NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS ix_quartet_assoc_key ON quartet_association_metrics (quartet_key);
+
+-- Витрина семантики связи. Одно правило на всех: генератор, проверка
+-- целостности, оценщик и CLI читают отсюда, а не считают каждый по-своему.
+-- Логика продублирована в sense_quality.classify для путей, где связи в базе
+-- ещё нет (фикстуры, проверка кандидата до вставки); тест держит их вместе.
+CREATE VIEW IF NOT EXISTS v_membership_semantics AS
+    SELECT m.id                       AS membership_id,
+           m.word_id                  AS word_id,
+           m.category_id              AS category_id,
+           m.sense_id                 AS sense_id,
+           m.sense_mode               AS sense_mode,
+           m.semantic_status          AS semantic_status,
+           w.dominant_sense_id        AS dominant_sense_id,
+           s.sense_key                AS sense_key,
+           s.sense_kind               AS sense_kind,
+           COALESCE(s.accessibility_class, 'unresolved') AS accessibility_class,
+           s.recognition_score        AS recognition_score,
+           s.activation_score         AS activation_score,
+           CASE
+               WHEN m.sense_mode = 'surface_form' THEN 'surface_form'
+               WHEN m.sense_id IS NULL            THEN 'unresolved'
+               WHEN s.accessibility_class = 'primary'          THEN 'primary'
+               WHEN s.accessibility_class = 'common_secondary' THEN 'fair_secondary'
+               WHEN s.accessibility_class = 'specialist'       THEN 'specialist_trick'
+               WHEN s.accessibility_class = 'obscure'          THEN 'obscure_trick'
+               ELSE 'unresolved'
+           END                        AS risk_class,
+           CASE
+               WHEN m.sense_mode = 'surface_form'    THEN 0
+               WHEN m.sense_id IS NULL               THEN 0
+               WHEN w.dominant_sense_id IS NULL      THEN 0
+               WHEN m.sense_id <> w.dominant_sense_id THEN 1
+               ELSE 0
+           END                        AS uses_non_dominant,
+           CASE
+               WHEN m.semantic_status = 'incorrect' THEN 0
+               WHEN m.sense_mode = 'surface_form'   THEN 1
+               WHEN m.sense_id IS NULL              THEN 0
+               WHEN COALESCE(s.accessibility_class, 'unresolved') = 'unresolved' THEN 0
+               ELSE 1
+           END                        AS production_eligible
+      FROM memberships m
+      JOIN words w            ON w.id = m.word_id
+      LEFT JOIN word_senses s ON s.id = m.sense_id;
+"""
+
+
+def _migrate_007_sense_accessibility(conn: sqlite3.Connection) -> list[str]:
+    """Слой доступности значений: чем `Trouble` в BOARD GAMES отличается от
+    `orange` в COLORS.
+
+    До этого шага база хранила «написание слова -> формально возможная
+    категория» и одно число `fit_score`, у 92% связей равное 0.97. Ответить,
+    какое значение используется и вспомнит ли его игрок, она не могла — поэтому
+    четвёрка `Life / risk / sorry / trouble` проходила все проверки.
+
+    Шаг разделяет три вещи, которые раньше были одной:
+
+    1. **какое значение** — `words.dominant_sense_id` и `word_senses.dominance_rank`
+       говорят, чем слово читается по умолчанию;
+    2. **насколько оно доступно** — `accessibility_class` (дискретный шлюз) плюс
+       `recognition_score` (узнает, если объяснить) и `activation_score`
+       (вспомнит сам, увидев слово без категории). Для названия игры первое
+       заметно выше второго, и одним числом это не записывается;
+    3. **откуда оценка** — `quality_source` и `quality_confidence`: экспертное
+       решение и производная от знакомости слова калибруются порознь.
+
+    Отдельно появляется `categories.names_titles`. Категория BOARD GAMES держит
+    не слова, а названия; обычное английское слово внутри неё почти всегда
+    использует не своё главное значение. Признак нужен именно категории — иначе
+    единственный способ поймать `trouble` это список слов, то есть blocklist.
+    """
+    changes: list[str] = []
+
+    kinds = ", ".join(f"'{name}'" for name in sense_quality.SENSE_KINDS)
+    classes = ", ".join(f"'{name}'" for name in sense_quality.ACCESSIBILITY_CLASSES)
+
+    for column, definition in (
+        ("sense_kind", f"TEXT NOT NULL DEFAULT 'lexical' CHECK (sense_kind IN ({kinds}))"),
+        # 1 — значение, которым слово читается без контекста. Пусто — порядок
+        # не установлен; такое слово не имеет доминантного значения, и признак
+        # uses_non_dominant для него честно не считается.
+        ("dominance_rank", "INTEGER NULL CHECK (dominance_rank IS NULL OR dominance_rank >= 1)"),
+        ("accessibility_class", f"TEXT NOT NULL DEFAULT 'unresolved' "
+                                f"CHECK (accessibility_class IN ({classes}))"),
+        ("recognition_score", "REAL NULL CHECK (recognition_score IS NULL "
+                              "OR recognition_score BETWEEN 0 AND 1)"),
+        ("activation_score", "REAL NULL CHECK (activation_score IS NULL "
+                             "OR activation_score BETWEEN 0 AND 1)"),
+        ("audience_profile", "TEXT NULL"),
+        ("quality_source", "TEXT NULL"),
+        ("quality_confidence", "REAL NULL CHECK (quality_confidence IS NULL "
+                               "OR quality_confidence BETWEEN 0 AND 1)"),
+    ):
+        added = _add_column(conn, "word_senses", column, definition)
+        if added:
+            changes.append(f"добавлена колонка {added}")
+
+    # Ссылка на word_senses без FK: SQLite не умеет добавлять FK через
+    # ALTER TABLE, а перестраивать таблицу слов ради этого дороже, чем проверить
+    # ссылку в check-integrity. Проверка «доминантное значение принадлежит этому
+    # же слову» там есть и является блокирующей.
+    added = _add_column(conn, "words", "dominant_sense_id", "INTEGER NULL")
+    if added:
+        changes.append(f"добавлена колонка {added}")
+
+    added = _add_column(conn, "categories", "names_titles", "INTEGER NOT NULL DEFAULT 0")
+    if added:
+        changes.append(f"добавлена колонка {added}")
+
+    conn.executescript(_SQL_007)
+    changes.append("созданы: quartet_association_metrics, v_membership_semantics")
+
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS ix_word_senses_dominance "
+        "ON word_senses (word_id, dominance_rank)"
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS ix_word_senses_access "
+        "ON word_senses (accessibility_class)"
+    )
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS ix_words_dominant_sense ON words (dominant_sense_id)"
+    )
+    changes.append("индексы: ix_word_senses_dominance, ix_word_senses_access, "
+                   "ix_words_dominant_sense")
+
+    return changes
+
+
 MIGRATIONS: tuple[Migration, ...] = (
     Migration(
         version=3,
@@ -1045,6 +1208,13 @@ MIGRATIONS: tuple[Migration, ...] = (
         description="правило группировки отдельно от надписи, типы токенов, "
                     "авторские назначения и провенанс референса",
         apply=_migrate_006_reference_reproduction,
+    ),
+    Migration(
+        version=7,
+        name="sense_accessibility",
+        description="доступность значения отдельно от семантической верности; "
+                    "доминантное значение слова; снимок метрик SWOW по четвёрке",
+        apply=_migrate_007_sense_accessibility,
     ),
 )
 

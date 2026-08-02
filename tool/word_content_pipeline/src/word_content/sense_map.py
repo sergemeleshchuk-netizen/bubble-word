@@ -46,6 +46,50 @@ class SenseAssignment:
     part_of_speech: str | None = None
 
 
+@dataclass(frozen=True)
+class SenseSpec:
+    """Объявленное значение целиком, включая доступность.
+
+    Расширение формата обратно совместимо: файл, где у значения есть только
+    `definition`, читается по-прежнему, а незаполненная доступность честно
+    становится `unresolved` — то есть в продакшен такое значение не пойдёт,
+    пока его не разберут. Молчаливого повышения до `primary` здесь нет.
+    """
+
+    sense_key: str
+    definition: str | None = None
+    part_of_speech: str | None = None
+    display_text: str | None = None
+    is_proper_noun: bool = False
+    sense_kind: str = "lexical"
+    dominance_rank: int | None = None
+    accessibility_class: str = "unresolved"
+    recognition_score: float | None = None
+    activation_score: float | None = None
+    audience_profile: str | None = None
+    quality_source: str | None = None
+    quality_confidence: float | None = None
+
+
+def _spec(sense_key: str, entry: dict) -> SenseSpec:
+    rank = entry.get("dominance_rank")
+    return SenseSpec(
+        sense_key=sense_key,
+        definition=entry.get("definition"),
+        part_of_speech=entry.get("part_of_speech"),
+        display_text=entry.get("display"),
+        is_proper_noun=bool(entry.get("is_proper_noun")),
+        sense_kind=entry.get("sense_kind") or "lexical",
+        dominance_rank=int(rank) if rank is not None else None,
+        accessibility_class=entry.get("accessibility_class") or "unresolved",
+        recognition_score=entry.get("recognition_score"),
+        activation_score=entry.get("activation_score"),
+        audience_profile=entry.get("audience_profile"),
+        quality_source=entry.get("quality_source"),
+        quality_confidence=entry.get("quality_confidence"),
+    )
+
+
 class SenseMap:
     """Значения слов и привязка «слово + категория -> значение»."""
 
@@ -53,9 +97,11 @@ class SenseMap:
         self,
         senses: dict[str, dict[str, dict]] | None = None,
         assignments: dict[str, dict[str, str]] | None = None,
+        audience_profile: str = "general_en_us_adult",
     ) -> None:
         self._senses = senses or {}
         self._assignments = assignments or {}
+        self.audience_profile = audience_profile
 
     @classmethod
     def load(cls, path: Path | str | None = None) -> SenseMap:
@@ -74,7 +120,21 @@ class SenseMap:
             for category_key, value in by_category.items():
                 # в файле допустимы обе формы: "sense_key" и {"sense": ..., ...}
                 bucket[category_key] = value if isinstance(value, str) else value["sense"]
-        return cls(senses, assignments)
+        return cls(
+            senses,
+            assignments,
+            audience_profile=raw.get("audience_profile") or "general_en_us_adult",
+        )
+
+    def declared_senses(self) -> dict[str, dict[str, SenseSpec]]:
+        """Все объявленные значения с оценками доступности."""
+        return {
+            word: {key: _spec(key, entry) for key, entry in entries.items()}
+            for word, entries in self._senses.items()
+        }
+
+    def declared_assignments(self) -> dict[str, dict[str, str]]:
+        return {word: dict(items) for word, items in self._assignments.items()}
 
     def lookup(self, word: str, category_key: str) -> SenseAssignment | None:
         """Объявленное значение слова в этой категории, если оно есть."""

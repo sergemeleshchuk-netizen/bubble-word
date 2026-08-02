@@ -11,6 +11,7 @@ import sqlite3
 from collections.abc import Callable
 from dataclasses import dataclass, field
 
+from . import sense_quality
 from .readiness import NORMAL_READY, QUARTET_SIZE, category_pools
 
 # Категории игры слов работают с написанием слова, а не со значением: 'starboard'
@@ -725,7 +726,242 @@ def check_blocked_not_scored_high(conn: sqlite3.Connection) -> CheckResult:
 
 
 
+# ------------------------------------------------------- слой доступности значений
+
+
+def check_dominant_sense_owner(conn: sqlite3.Connection) -> CheckResult:
+    """Доминантное значение обязано принадлежать этому же слову.
+
+    Внешнего ключа на `words.dominant_sense_id` нет: SQLite не умеет добавлять
+    FK через ALTER TABLE. Поэтому ссылка проверяется здесь, и проверка
+    блокирующая — чужое значение в роли доминантного тихо ломает признак
+    `uses_non_dominant` у всех связей слова.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, w.dominant_sense_id AS sense_id
+              FROM words w
+             WHERE w.dominant_sense_id IS NOT NULL
+               AND NOT EXISTS (SELECT 1 FROM word_senses s
+                                WHERE s.id = w.dominant_sense_id AND s.word_id = w.id)
+            """
+        )
+    )
+    return CheckResult(
+        name="dominant_sense_owner",
+        question="Доминантное значение принадлежит своему слову",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['word']} -> sense {r['sense_id']}"),
+    )
+
+
+def check_sense_quality_values(conn: sqlite3.Connection) -> CheckResult:
+    """Класс доступности и оценки лежат в допустимых значениях.
+
+    CHECK-констрейнты в схеме это уже стерегут, но база могла быть собрана
+    старой версией и домигрирована: проверка ловит наследство, а не текущие
+    вставки.
+    """
+    classes = ", ".join(f"'{name}'" for name in sense_quality.ACCESSIBILITY_CLASSES)
+    kinds = ", ".join(f"'{name}'" for name in sense_quality.SENSE_KINDS)
+    rows = list(
+        conn.execute(
+            f"""
+            SELECT s.sense_key AS sense_key, w.text AS word,
+                   s.accessibility_class AS cls, s.sense_kind AS kind
+              FROM word_senses s JOIN words w ON w.id = s.word_id
+             WHERE s.accessibility_class NOT IN ({classes})
+                OR s.sense_kind NOT IN ({kinds})
+                OR (s.recognition_score IS NOT NULL
+                    AND s.recognition_score NOT BETWEEN 0 AND 1)
+                OR (s.activation_score IS NOT NULL
+                    AND s.activation_score NOT BETWEEN 0 AND 1)
+            """
+        )
+    )
+    return CheckResult(
+        name="sense_quality_values",
+        question="Класс доступности и оценки значения допустимы",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['word']}/{r['sense_key']}: {r['cls']}/{r['kind']}"
+        ),
+    )
+
+
+def check_surface_exemption_matches_rule(conn: sqlite3.Connection) -> CheckResult:
+    """Освобождение от значения выдано только правилу про написание.
+
+    `sense_mode = 'surface_form'` — это разрешение не иметь значения. Оно
+    законно для `words_before_time`, где `life` держат за буквы, и незаконно
+    для обычной таксономии: там пустое значение просто пробел, который выдают
+    за решение.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, c.category_key AS category_key,
+                   m.relation_type AS relation_type
+              FROM memberships m
+              JOIN words w      ON w.id = m.word_id
+              JOIN categories c ON c.id = m.category_id
+             WHERE m.sense_mode = 'surface_form'
+               AND m.relation_type NOT IN ('phrase_before', 'phrase_after', 'wordplay')
+            """
+        )
+    )
+    return CheckResult(
+        name="surface_exemption_matches_rule",
+        question="Освобождение от значения стоит только у правил про написание",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['word']} -> {r['category_key']} ({r['relation_type']})"
+        ),
+    )
+
+
+def check_raw_candidates_unresolved(conn: sqlite3.Connection) -> CheckResult:
+    """Сколько связей ещё не знает своего значения. Не ошибка, а объём работы."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, c.category_key AS category_key
+              FROM memberships m
+              JOIN words w      ON w.id = m.word_id
+              JOIN categories c ON c.id = m.category_id
+             WHERE m.sense_mode <> 'surface_form' AND m.sense_id IS NULL
+             ORDER BY w.normalized LIMIT 10
+            """
+        )
+    )
+    total = int(
+        conn.execute(
+            "SELECT COUNT(*) FROM memberships "
+            "WHERE sense_mode <> 'surface_form' AND sense_id IS NULL"
+        ).fetchone()[0]
+    )
+    return CheckResult(
+        name="raw_candidates_unresolved",
+        question="Связи без значения в сыром пуле",
+        severity="warning",
+        count=total,
+        examples=_examples(rows, lambda r: f"{r['word']} -> {r['category_key']}"),
+        note="Не ошибка: такая связь живёт в пуле кандидатов, но в продакшен не идёт.",
+    )
+
+
+def check_title_sense_kind(conn: sqlite3.Connection) -> CheckResult:
+    """Значение в категории названий объявлено названием, а не обычным словом.
+
+    `trouble_board_game` с видом `lexical` — признак недоделанного разбора:
+    вид значения и есть то, чем оно отличается от слова.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT DISTINCT w.text AS word, s.sense_key AS sense_key,
+                   c.category_key AS category_key
+              FROM memberships m
+              JOIN categories c   ON c.id = m.category_id
+              JOIN word_senses s  ON s.id = m.sense_id
+              JOIN words w        ON w.id = m.word_id
+             WHERE c.names_titles = 1
+               AND s.sense_kind = 'lexical'
+               AND s.accessibility_class <> 'unresolved'
+               AND (SELECT COUNT(*) FROM word_senses s2 WHERE s2.word_id = w.id) > 1
+            """
+        )
+    )
+    return CheckResult(
+        name="title_sense_kind",
+        question="Значение в категории названий помечено как название",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(
+            rows, lambda r: f"{r['word']}/{r['sense_key']} в {r['category_key']}"
+        ),
+    )
+
+
+def check_dominant_sense_missing(conn: sqlite3.Connection) -> CheckResult:
+    """У слова несколько значений, а доминантное не выбрано.
+
+    Без него признак «связь использует не главное значение» не считается вовсе,
+    и `orange` в COLORS перестаёт отличаться от `orange` в FRUITS.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT w.text AS word, COUNT(*) AS senses
+              FROM word_senses s JOIN words w ON w.id = s.word_id
+             WHERE w.dominant_sense_id IS NULL
+             GROUP BY w.id HAVING COUNT(*) > 1
+            """
+        )
+    )
+    return CheckResult(
+        name="dominant_sense_missing",
+        question="У многозначного слова выбрано доминантное значение",
+        severity="warning",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['word']}: значений {r['senses']}"),
+    )
+
+
+def check_score_clustering(conn: sqlite3.Connection) -> CheckResult:
+    """Слишком много одинаковых оценок — признак, что их не измеряли, а проставили.
+
+    Проверка появилась потому, что ровно это уже случилось: 17 505 связей из
+    18 882 имели `fit_score = 0.97`. Число, одинаковое у всех, не измеряет
+    ничего, и повторять эту историю в новом слое нельзя.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT activation_score AS score, COUNT(*) AS n
+              FROM word_senses
+             WHERE activation_score IS NOT NULL
+             GROUP BY activation_score
+             ORDER BY n DESC LIMIT 5
+            """
+        )
+    )
+    total = int(
+        conn.execute(
+            "SELECT COUNT(*) FROM word_senses WHERE activation_score IS NOT NULL"
+        ).fetchone()[0]
+    )
+    if not total or not rows:
+        return CheckResult(
+            name="score_clustering",
+            question="Оценки доступности не свалены в одно число",
+            severity="warning",
+            count=0,
+        )
+    share = int(rows[0]["n"]) / total
+    over = share > 0.60
+    return CheckResult(
+        name="score_clustering",
+        question="Оценки доступности не свалены в одно число",
+        severity="warning",
+        count=1 if over else 0,
+        examples=[f"{r['score']}: {r['n']} значений" for r in rows] if over else [],
+        note=f"самое частое значение активации занимает {share:.0%} из {total}",
+    )
+
+
 CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
+    check_dominant_sense_owner,
+    check_sense_quality_values,
+    check_surface_exemption_matches_rule,
+    check_raw_candidates_unresolved,
+    check_title_sense_kind,
+    check_dominant_sense_missing,
+    check_score_clustering,
     check_sqlite_integrity,
     check_familiarity_gate,
     check_sense_assignment,
@@ -923,7 +1159,71 @@ def check_levels_without_solver_run(conn: sqlite3.Connection) -> CheckResult:
     )
 
 
+def check_level_slots_resolved(conn: sqlite3.Connection) -> CheckResult:
+    """Слот собранного уровня знает, каким значением стоит слово.
+
+    Это место, где старая база молчала громче всего: у пакета TOP001..020
+    694 лексических слота из 746 не знали значения вообще, и группа
+    `Life / risk / sorry / trouble` прошла все проверки.
+
+    Уровни записи оригинала исключены намеренно: они измерительный эталон,
+    а не наш контент, и правила профиля первой линейки к ним не применяются.
+    Кусочки слова (`chunked_word`) значение иметь обязаны — это форма показа
+    того же слова; результат другой категории (`category_output`) нет — он не
+    слово и проверяется мета-графом.
+    """
+    rows = list(
+        conn.execute(
+            """
+            SELECT li.level_key AS level_key, t.token_form AS token,
+                   t.token_kind AS kind
+              FROM level_tokens t
+              JOIN level_instances li ON li.id = t.level_id
+             WHERE li.origin <> 'reference_video'
+               AND t.token_kind IN ('lexical_word', 'chunked_word')
+               AND t.sense_mode <> 'surface_form'
+               AND t.sense_id IS NULL
+            """
+        )
+    )
+    return CheckResult(
+        name="level_slots_resolved",
+        question="У слота собранного уровня разрешено значение",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['level_key']}: {r['token']} ({r['kind']})"),
+        note="Уровни записи оригинала не проверяются: это эталон, а не наш контент.",
+    )
+
+
+def check_level_slots_accessible(conn: sqlite3.Connection) -> CheckResult:
+    """Значение слота собранного уровня разобрано, а не помечено `unresolved`."""
+    rows = list(
+        conn.execute(
+            """
+            SELECT li.level_key AS level_key, t.token_form AS token,
+                   s.sense_key AS sense_key
+              FROM level_tokens t
+              JOIN level_instances li ON li.id = t.level_id
+              JOIN word_senses s      ON s.id = t.sense_id
+             WHERE li.origin <> 'reference_video'
+               AND t.token_kind IN ('lexical_word', 'chunked_word')
+               AND s.accessibility_class = 'unresolved'
+            """
+        )
+    )
+    return CheckResult(
+        name="level_slots_accessible",
+        question="Значение слота уровня имеет разобранную доступность",
+        severity="blocker",
+        count=len(rows),
+        examples=_examples(rows, lambda r: f"{r['level_key']}: {r['token']}/{r['sense_key']}"),
+    )
+
+
 LEVEL_CHECKS: tuple[Callable[[sqlite3.Connection], CheckResult], ...] = (
+    check_level_slots_resolved,
+    check_level_slots_accessible,
     check_level_groups_cover_tokens,
     check_level_solution_count,
     check_level_solver_outcome,
