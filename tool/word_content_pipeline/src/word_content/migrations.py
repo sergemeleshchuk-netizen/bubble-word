@@ -24,7 +24,7 @@ from . import sense_quality
 from .db import utc_now
 
 # Текущая целевая версия схемы: номер последнего шага в MIGRATIONS.
-TARGET_VERSION = 7
+TARGET_VERSION = 10
 
 
 @dataclass(frozen=True)
@@ -1183,6 +1183,138 @@ def _migrate_007_sense_accessibility(conn: sqlite3.Connection) -> list[str]:
     return changes
 
 
+def _migrate_008_derived_category_difficulty(conn: sqlite3.Connection) -> list[str]:
+    """Сложность категории, выведенная из пула, отдельно от авторской.
+
+    `categories.base_difficulty` заполняет источник контента одним числом на
+    глаз, и замер 02.08 показал, что с содержимым категории оно не связано:
+    корреляция со знакомостью слов пула −0.25, с долей имён собственных +0.03.
+    Генератор фильтрует туториал и предпочитает простые категории по этому полю,
+    то есть по шуму — отсюда THE MIND (0.5) в первом уровне сданного пакета при
+    наличии COLORS и FRUITS. Считает новые значения `category_difficulty.derive`,
+    авторское поле остаётся нетронутым как вход источника.
+
+    Почему шаг появился только сейчас. Сначала колонки добавлялись прямо из
+    модуля, в обход этого файла: на 02.08 база стояла на версии 6, а шаг 007 был
+    неприменён, и запускать `migrate` ради двух колонок значило протащить
+    перестройку слоя значений заодно. Шаг 007 применили — и он пересобрал
+    таблицу `categories`, вместе с ней потеряв колонки, добавленные снаружи.
+    Урок записан здесь: аддитивная колонка тоже обязана идти шагом.
+    """
+    changes: list[str] = []
+    for column, definition in (
+        ("derived_difficulty", "REAL NULL"),
+        ("derived_difficulty_raw", "REAL NULL"),
+        ("derived_difficulty_reason", "TEXT NULL"),
+        ("derived_difficulty_version", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "categories", column, definition)
+        if added:
+            changes.append(added)
+    if not changes:
+        changes.append("колонки уже на месте")
+    changes.append("значения пересчитываются командой derive-category-difficulty")
+    return changes
+
+
+def _migrate_009_graded_obviousness(conn: sqlite3.Connection) -> list[str]:
+    """Очевидность связи, отранжированная внутри категории.
+
+    `memberships.obviousness_score` заполнял сид, и заполнял он его ПО
+    КАТЕГОРИИ, а не по слову: замер 02.08 показал, что в 960 категориях из 1296
+    (74%) на весь пул стоит одно значение, это 14 584 связи из 18 815 (78% базы).
+    Из них 681 категория в статусе `ready`, то есть прямо сейчас идёт в уровни.
+
+    Чем это плохо на практике. В SCHOOL SUBJECTS все 25 слов получили ровно 0.9
+    — от `math` до `gym`. То есть база утверждает, что «физкультура» так же
+    очевидно школьный предмет, как математика. По записанным числам `gym` в
+    предметах (0.9) выходит очевиднее, чем `smile` в выражениях лица (0.75).
+    Отбор слов в генераторе с 1.6.0 это поле читает, и на плоской категории ему
+    нечего предпочитать.
+
+    Точная мера объёма работы: в 878 из 960 плоских категорий есть слово, у
+    которого В ДРУГОМ МЕСТЕ базы записана более высокая очевидность. Таких слов
+    6116. Там плоское число не просто грубое — оно спорит с тем, что база сама
+    же знает про это слово.
+
+    Почему отдельная колонка, а не правка на месте. Тот же довод, что и у шага
+    008: исходное значение остаётся входом источника, пересчёт обратим, а
+    расхождение видно в любой момент. Экспорт снимка предпочитает
+    `graded_obviousness`, когда она есть.
+
+    Почему это НЕ выводится формулой. Очевидность — вопрос «вспомнит ли игрок
+    это значение слова первым», и вывести её из остальных полей базы нельзя:
+    все кандидаты в предикторы (частотность, число домов, fit) либо не про то,
+    либо залиты так же оптом. Число домов особенно обманчиво: у `apple` их 11,
+    у `orange` 6, у `star` 13 — и все трое безупречны для первых уровней, а у
+    `shop` и `health` дом ровно один, и это тот самый «американская школа».
+    Значит источник значений — суждение, то есть прогон модели по категории
+    целиком, где слова ранжируются друг против друга.
+    """
+    changes: list[str] = []
+    for column, definition in (
+        ("graded_obviousness", "REAL NULL"),
+        ("graded_obviousness_reason", "TEXT NULL"),
+        ("graded_obviousness_version", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "memberships", column, definition)
+        if added:
+            changes.append(added)
+    if not changes:
+        changes.append("колонки уже на месте")
+    changes.append("значения проставляются командой grade-obviousness")
+    return changes
+
+
+def _migrate_010_word_register(conn: sqlite3.Connection) -> list[str]:
+    """Регистр слова: бытовое, пассивное или специальное.
+
+    Зачем понадобилось. Пол частотности (`minWordZipf` в генераторе, 02.08)
+    убрал с поля `quail`, `obituary` и `congestion` — и вместе с ними всё, что
+    лежит ниже 3.75. Замер показал, что порогом эти группы не разделяются
+    вообще:
+
+        congestion 3.66 (отвергнуто)   carrot 3.62 (безупречно)
+        obituary   3.41 (отвергнуто)   mop    3.39 (безупречно)
+        quail      3.13 (отвергнуто)   bagel  3.18, sneeze 3.19
+
+    Слова, названные неприемлемыми, ЧАСТОТНЕЕ очевидно бытовых. Значит частотность
+    измеряет не то: `omelet` (2.63) и `radish` (2.78) — слова, которые знает
+    каждый, просто их редко пишут. `familiarity_score` в базе тоже не помогает,
+    это тот же zipf, поделённый на 7.
+
+    Поэтому признак не выводится, а проставляется суждением — по тому же доводу,
+    что и `graded_obviousness` шагом 009:
+      everyday   — вещь из повседневной жизни игрока (carrot, mop, bagel, sneeze)
+      passive    — узнаёт, но сам не употребляет; на поле читается как викторина
+                   (quail, obituary, congestion, basilica)
+      specialist — требует знания области (tungsten, epoxy, pancreas)
+
+    Колонка на слове, а не на связи: регистр — свойство слова, он не меняется от
+    того, в какую категорию слово положили. Исходные поля не трогаются, пересчёт
+    обратим, расхождение с частотностью видно в любой момент.
+    """
+    changes: list[str] = []
+    added = _add_column(
+        conn, "words", "everyday_class",
+        "TEXT NULL CHECK (everyday_class IS NULL OR "
+        "everyday_class IN ('everyday', 'passive', 'specialist'))",
+    )
+    if added:
+        changes.append(added)
+    for column, definition in (
+        ("everyday_source", "TEXT NULL"),
+        ("everyday_note", "TEXT NULL"),
+    ):
+        added = _add_column(conn, "words", column, definition)
+        if added:
+            changes.append(added)
+    if not changes:
+        changes.append("колонки уже на месте")
+    changes.append("значения проставляются командой import-word-register")
+    return changes
+
+
 MIGRATIONS: tuple[Migration, ...] = (
     Migration(
         version=3,
@@ -1215,6 +1347,25 @@ MIGRATIONS: tuple[Migration, ...] = (
         description="доступность значения отдельно от семантической верности; "
                     "доминантное значение слова; снимок метрик SWOW по четвёрке",
         apply=_migrate_007_sense_accessibility,
+    ),
+    Migration(
+        version=8,
+        name="derived_category_difficulty",
+        description="сложность категории, выведенная из пула, отдельно от авторской оценки",
+        apply=_migrate_008_derived_category_difficulty,
+    ),
+    Migration(
+        version=9,
+        name="graded_obviousness",
+        description="очевидность связи, отранжированная внутри категории, "
+                    "отдельно от залитой оптом авторской",
+        apply=_migrate_009_graded_obviousness,
+    ),
+    Migration(
+        version=10,
+        name="word_register",
+        description="регистр слова: бытовое / пассивное / специальное, отдельно от частотности",
+        apply=_migrate_010_word_register,
     ),
 )
 

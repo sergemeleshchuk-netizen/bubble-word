@@ -77,3 +77,23 @@ def build_adversarial_review_prompt(*, memberships: list[dict[str, Any]]) -> str
     return load_prompt("adversarial_review").safe_substitute(
         memberships_json=_json_block(memberships)
     )
+
+
+def build_grade_obviousness_prompt(
+    *,
+    category: dict[str, Any],
+    words: list[dict[str, Any]],
+) -> str:
+    """Промпт ранжирования очевидности внутри ОДНОЙ категории.
+
+    Единица запроса — категория целиком, а не пачка случайных связей: очевидность
+    величина сравнительная, и `math` против `gym` модель может расставить только
+    когда видит их рядом. Пачка из двадцати связей от разных категорий, как в
+    adversarial_review, для этого не годится.
+    """
+    return load_prompt("grade_obviousness").safe_substitute(
+        category_key=category["category_key"],
+        label=category["label"],
+        rule=category["rule"],
+        words_json=_json_block(words),
+    )

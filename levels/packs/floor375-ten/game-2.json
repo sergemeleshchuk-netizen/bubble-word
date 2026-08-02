@@ -1,0 +1,326 @@
+{
+  "level_id": 2,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 32,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "sofa",
+        "category": "furniture"
+      },
+      {
+        "word": "Rachel",
+        "category": "girls_names"
+      },
+      {
+        "word": "arch",
+        "category": "shapes"
+      },
+      {
+        "word": "eagle",
+        "category": "birds"
+      },
+      {
+        "word": "cylinder",
+        "category": "shapes"
+      },
+      {
+        "word": "fishing",
+        "category": "hobby_verbs"
+      },
+      {
+        "word": "Emma",
+        "category": "girls_names"
+      },
+      {
+        "word": "dancing",
+        "category": "hobby_verbs"
+      },
+      {
+        "word": "Georgia",
+        "category": "us_states"
+      },
+      {
+        "word": "collecting",
+        "category": "hobby_verbs"
+      },
+      {
+        "word": "Wednesday",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "noon",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "stomach",
+        "category": "body_parts"
+      },
+      {
+        "word": "Emily",
+        "category": "girls_names"
+      },
+      {
+        "word": "midnight",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "desk",
+        "category": "furniture"
+      },
+      {
+        "word": "robin",
+        "category": "birds"
+      },
+      {
+        "word": "photography",
+        "category": "hobby_verbs"
+      },
+      {
+        "word": "circle",
+        "category": "shapes"
+      },
+      {
+        "word": "chicken",
+        "category": "birds"
+      },
+      {
+        "word": "finger",
+        "category": "body_parts"
+      },
+      {
+        "word": "hip",
+        "category": "body_parts"
+      },
+      {
+        "word": "Kansas",
+        "category": "us_states"
+      },
+      {
+        "word": "couch",
+        "category": "furniture"
+      }
+    ],
+    "queue": [
+      {
+        "word": "chest",
+        "category": "body_parts"
+      },
+      {
+        "word": "Susan",
+        "category": "girls_names"
+      },
+      {
+        "word": "oval",
+        "category": "shapes"
+      },
+      {
+        "word": "Alabama",
+        "category": "us_states"
+      },
+      {
+        "word": "dawn",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "Arizona",
+        "category": "us_states"
+      },
+      {
+        "word": "bench",
+        "category": "furniture"
+      },
+      {
+        "word": "duck",
+        "category": "birds"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "hobby_verbs",
+      "label": "HOBBY ACTIVITIES",
+      "words": [
+        {
+          "text": "photography",
+          "kind": "word"
+        },
+        {
+          "text": "collecting",
+          "kind": "word"
+        },
+        {
+          "text": "dancing",
+          "kind": "word"
+        },
+        {
+          "text": "fishing",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "sofa",
+          "kind": "word"
+        },
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "couch",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "body_parts",
+      "label": "BODY PARTS",
+      "words": [
+        {
+          "text": "stomach",
+          "kind": "word"
+        },
+        {
+          "text": "hip",
+          "kind": "word"
+        },
+        {
+          "text": "chest",
+          "kind": "word"
+        },
+        {
+          "text": "finger",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds",
+      "label": "BIRDS",
+      "words": [
+        {
+          "text": "robin",
+          "kind": "word"
+        },
+        {
+          "text": "duck",
+          "kind": "word"
+        },
+        {
+          "text": "chicken",
+          "kind": "word"
+        },
+        {
+          "text": "eagle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "days_and_parts_of_day",
+      "label": "DAYS & TIMES",
+      "words": [
+        {
+          "text": "dawn",
+          "kind": "word"
+        },
+        {
+          "text": "Wednesday",
+          "kind": "word"
+        },
+        {
+          "text": "midnight",
+          "kind": "word"
+        },
+        {
+          "text": "noon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "shapes",
+      "label": "SHAPES",
+      "words": [
+        {
+          "text": "arch",
+          "kind": "word"
+        },
+        {
+          "text": "oval",
+          "kind": "word"
+        },
+        {
+          "text": "circle",
+          "kind": "word"
+        },
+        {
+          "text": "cylinder",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "girls_names",
+      "label": "GIRLS NAMES",
+      "words": [
+        {
+          "text": "Emma",
+          "kind": "word"
+        },
+        {
+          "text": "Susan",
+          "kind": "word"
+        },
+        {
+          "text": "Emily",
+          "kind": "word"
+        },
+        {
+          "text": "Rachel",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "us_states",
+      "label": "US STATES",
+      "words": [
+        {
+          "text": "Kansas",
+          "kind": "word"
+        },
+        {
+          "text": "Arizona",
+          "kind": "word"
+        },
+        {
+          "text": "Georgia",
+          "kind": "word"
+        },
+        {
+          "text": "Alabama",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

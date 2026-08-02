@@ -2090,28 +2090,79 @@ README должен содержать:
      tool/level-tool/web/src/core/playableHandoff.ts (тот же origin, поэтому
      хранилище общее). Группа называется версией инструмента и хешем пакета. */
   var HANDOFF_KEY='bubble-level-tool.generated-pack.v1';
+  /* Сданные пакеты, положенные файлами рядом с прототипом.
+     Нужны потому, что localStorage живёт в одном браузере: у любого, кто открыл
+     отчёт впервые, список уровней был пуст, и сыграть в сданное он не мог, пока
+     сам не соберёт пакет генератором. Пакеты собирают ДВА разных производителя —
+     Python-пайплайн (levels/packs/ * /pack.json) и TS-генератор (каталог с
+     level-N.json), и ни у одного нет кнопки «Добавить в Playable». Файлы готовит
+     tool/level-tool/scripts/pack_to_handoff.py, порядок задаёт packs/index.json.
+
+     Пакетов несколько сознательно: новый не заменяет старый, иначе «до» и «после»
+     улучшения не сравнить. Прототип читает уровень по ?gen=N как индекс в ОДНОМ
+     массиве levels, поэтому сайт склеивает все пакеты в один и раздаёт группам
+     смещения — так контракт прототипа менять не пришлось. */
+  var PACKS_INDEX='playable/packs/index.json';
   function readHandoff(){
     try{ return JSON.parse(localStorage.getItem(HANDOFF_KEY)||'null'); }
     catch(e){ return null; }
   }
-  function mountHandoff(){
-    var pack=readHandoff();
-    var sel=document.getElementById('lvlSel');
-    if(!sel) return;
-    var old=sel.querySelector('optgroup[data-generated]');
-    if(old) old.remove();
-    if(!pack||!pack.levels||!pack.levels.length) return;
+  /* Одна группа списка: label + уровни, начиная с индекса offset общего массива */
+  function renderGroup(sel, label, levels, offset, first){
     var group=document.createElement('optgroup');
     group.setAttribute('data-generated','1');
-    group.label='Из генератора · '+pack.label;
-    pack.levels.forEach(function(l,i){
+    group.label=label;
+    levels.forEach(function(l,i){
       var o=document.createElement('option');
-      o.value='gen:'+i;
+      o.value='gen:'+(offset+i);
       o.textContent=l.title||('Уровень '+l.level_id);
       group.appendChild(o);
     });
-    /* первой группой: только что собранное ищут в начале списка, а не в хвосте */
-    sel.insertBefore(group, sel.firstChild.nextSibling);
+    if(first) sel.insertBefore(group, sel.firstChild.nextSibling);
+    else sel.appendChild(group);
+    return levels.length;
+  }
+  function renderAll(sources){
+    var sel=document.getElementById('lvlSel');
+    if(!sel) return;
+    var old=sel.querySelectorAll('optgroup[data-generated]');
+    for(var i=0;i<old.length;i++) old[i].remove();
+    var combined=[], offset=0;
+    sources.forEach(function(src,idx){
+      if(!src||!src.levels||!src.levels.length) return;
+      offset+=renderGroup(sel, src.prefixLabel+' · '+src.label, src.levels, offset, idx===0);
+      combined=combined.concat(src.levels);
+    });
+    if(!combined.length) return;
+    /* Прототип берёт уровень из хранилища по индексу, поэтому склейка обязана
+       попасть туда целиком и в том же порядке, в каком отрисованы группы. */
+    try{ localStorage.setItem(HANDOFF_KEY, JSON.stringify({
+      label:'склейка сданных пакетов', tool_version:'site', pack_hash:'',
+      content_snapshot_hash:'', level_range:[1,combined.length], levels:combined
+    })); }catch(e){}
+  }
+  function mountHandoff(){
+    var stored=readHandoff();
+    /* Пакет, собранный инструментом в этой сессии, идёт первой группой: только
+       что собранное ищут в начале списка. Свою же склейку за него не принимаем. */
+    var sources=[];
+    if(stored&&stored.levels&&stored.levels.length&&stored.tool_version!=='site'){
+      sources.push({prefixLabel:'Из генератора', label:stored.label||'', levels:stored.levels});
+    }
+    fetch(PACKS_INDEX).then(function(r){ return r.ok?r.json():null; }).then(function(idx){
+      var files=(idx&&idx.packs)||[];
+      return Promise.all(files.map(function(f){
+        return fetch('playable/packs/'+f).then(function(r){ return r.ok?r.json():null; })
+                                         .catch(function(){ return null; });
+      }));
+    }).then(function(packs){
+      (packs||[]).forEach(function(p){
+        if(p&&p.levels&&p.levels.length){
+          sources.push({prefixLabel:'Сдано', label:p.label||'', levels:p.levels});
+        }
+      });
+      renderAll(sources);
+    }).catch(function(){ renderAll(sources); });
   }
 
   function reloadPlay(){

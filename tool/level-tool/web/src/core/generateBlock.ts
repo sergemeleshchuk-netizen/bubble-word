@@ -238,6 +238,18 @@ export function toGameJson(spec: LevelSpec): unknown {
       board_capacity: spec.board.boardCapacity,
       move_limit: spec.board.moveLimit,
     },
+    /*
+     * Первая выкладка едет в игру вместе с уровнем.
+     *
+     * Без неё клиент раскладывал бы поле сам и со своей случайностью — значит,
+     * уровень, который мы проверили руками и оценили по D, у игрока оказался бы
+     * другим. Порядок массивов значащий: `start` — что лежит на поле, `queue` —
+     * очередь досыпки строго слева направо.
+     */
+    deal: {
+      start: spec.deal.start.map((b) => ({ word: b.word, category: b.category })),
+      queue: spec.deal.queue.map((b) => ({ word: b.word, category: b.category })),
+    },
     categories: spec.categories.map((c) => ({
       key: c.key,
       label: c.label,

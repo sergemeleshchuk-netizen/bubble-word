@@ -35,6 +35,7 @@ from . import (
     meta_validation,
     migrations,
     normalization,
+    obviousness,
     pack_semantics,
     profiles,
     quartet_builder,
@@ -839,6 +840,66 @@ def cmd_derive_readiness(db: DbOption, meta: MetaOption = None) -> None:
             typer.echo(f"  ... ещё {len(hard) - 30}")
 
 
+@app.command("import-word-register")
+def cmd_import_word_register(db: DbOption, input: InputOption) -> None:
+    """Импортирует регистр слов (everyday/passive/specialist) из JSONL.
+
+    Строка: {"word": "carrot", "class": "everyday"} плюс необязательные
+    "note" и "source". Слово ищется по нормализованной форме; неизвестные
+    слова не создаются — регистр это суждение о том, что в базе уже есть.
+    """
+    conn = _open(db)
+    applied = 0
+    unknown: list[str] = []
+    bad: list[str] = []
+    allowed = {"everyday", "passive", "specialist"}
+    try:
+        with conn:
+            for line in Path(input).read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                row = json.loads(line)
+                value = row.get("class")
+                if value not in allowed:
+                    bad.append(f"{row.get('word')}: класс {value!r}")
+                    continue
+                norm = normalization.normalize(str(row["word"]))
+                found = conn.execute(
+                    "SELECT id FROM words WHERE normalized = ?", (norm,)
+                ).fetchone()
+                if found is None:
+                    unknown.append(str(row["word"]))
+                    continue
+                conn.execute(
+                    "UPDATE words SET everyday_class = ?, everyday_source = ?, "
+                    "everyday_note = ?, updated_at = ? WHERE id = ?",
+                    (value, row.get("source", "assistant"), row.get("note"),
+                     utc_now(), int(found["id"])),
+                )
+                applied += 1
+        counts = dict(
+            conn.execute(
+                "SELECT everyday_class, COUNT(*) FROM words "
+                "WHERE everyday_class IS NOT NULL GROUP BY 1"
+            ).fetchall()
+        )
+        total = int(conn.execute("SELECT COUNT(*) FROM words").fetchone()[0])
+    finally:
+        conn.close()
+
+    typer.echo(f"Проставлено в этом файле: {applied}")
+    for name in ("everyday", "passive", "specialist"):
+        typer.echo(f"  {name:11} {counts.get(name, 0)}")
+    done = sum(counts.values())
+    typer.echo(f"Размечено всего: {done} из {total} слов ({100 * done / total:.1f}%)")
+    for item in bad:
+        typer.secho(f"  недопустимый класс: {item}", fg=typer.colors.RED, err=True)
+    if unknown:
+        typer.secho(f"  нет в базе ({len(unknown)}): {', '.join(unknown[:12])}",
+                    fg=typer.colors.YELLOW, err=True)
+
+
 @app.command("derive-category-difficulty")
 def cmd_derive_category_difficulty(db: DbOption, show: int = 15) -> None:
     """Пересчитывает сложность категорий по данным пула, не трогая авторское base_difficulty."""
@@ -877,6 +938,74 @@ def cmd_derive_category_difficulty(db: DbOption, show: int = 15) -> None:
                 f"  {row['label'][:28]:28} автор {authored} -> "
                 f"{row['derived_difficulty']:.3f}  {row['derived_difficulty_reason']}"
             )
+
+
+@app.command("grade-obviousness")
+def cmd_grade_obviousness(
+    db: DbOption,
+    output: OutputOption,
+    readiness: Annotated[
+        str, typer.Option("--readiness", help="Какие категории брать: ready / all")
+    ] = "ready",
+    limit: Annotated[
+        int, typer.Option("--limit", help="Сколько категорий обработать за прогон")
+    ] = 20,
+    apply: Annotated[
+        bool, typer.Option("--apply/--dry-run", help="Писать ли результат в graded_obviousness")
+    ] = False,
+    max_retries: Annotated[int, typer.Option("--max-retries")] = 2,
+    provider: ProviderOption = "mock",
+    model: ModelOption = None,
+    mock_file: MockFileOption = None,
+) -> None:
+    """Ранжирует очевидность внутри плоских категорий — по одному запросу на категорию.
+
+    Очередь строится сама: сначала те категории, где залитое оптом число спорит
+    с самой базой. Без --apply в базу не пишется ничего.
+    """
+    conn = _open(db)
+    try:
+        # readiness — своя шкала категории (ready / curated_only / …), а не
+        # review_status связи: через parse_statuses её гнать нельзя
+        scope = (
+            ()
+            if readiness == "all"
+            else tuple(part.strip() for part in readiness.split(",") if part.strip())
+        )
+        llm = _build_provider(provider, model, mock_file)
+        queue = obviousness.targets(conn, readiness=scope)
+        typer.echo(
+            f"Плоских категорий в очереди: {len(queue)}"
+            + (f", из них спорных: {sum(1 for t in queue if t.contested)}" if queue else "")
+        )
+        result = obviousness.grade(
+            conn,
+            llm,
+            readiness=scope,
+            limit=limit,
+            apply=apply,
+            max_retries=max_retries,
+        )
+        written = write_jsonl(output, result.records)
+        typer.echo(
+            f"Категорий отранжировано: {result.graded_categories} | "
+            f"связей: {result.graded_memberships} | "
+            f"ok={result.batches_ok} failed={result.batches_failed}"
+        )
+        reasons: dict[str, int] = {}
+        for item in result.skipped:
+            reasons[item["reason"]] = reasons.get(item["reason"], 0) + 1
+        if reasons:
+            typer.echo("Отброшено: " + ", ".join(f"{k}={v}" for k, v in sorted(reasons.items())))
+        typer.echo(
+            "Записано в graded_obviousness." if apply
+            else "Сухой прогон: база не менялась (нужен --apply)."
+        )
+        typer.echo(f"Файл: {output}")
+    except (LLMError, ValidationIssue) as exc:
+        _fail(str(exc))
+    finally:
+        conn.close()
 
 
 @app.command("derive-conflicts")

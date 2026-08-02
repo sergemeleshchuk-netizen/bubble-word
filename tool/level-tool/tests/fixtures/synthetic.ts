@@ -9,6 +9,8 @@ import type {
   LevelSpec, LevelCategory, LevelWord, Readiness, Snapshot, SnapshotMembership,
 } from '../../web/src/core/types.ts';
 import { STATUS } from '../../web/src/core/types.ts';
+import { buildDeal } from '../../web/src/core/deal.ts';
+import { BOARD_CAPACITY } from '../../web/src/core/levelMath.ts';
 
 interface CatSpec {
   key: string;
@@ -178,20 +180,22 @@ export function buildSpec(
     n + c.words.filter((w) => w.kind === 'meta').length, 0);
   const k = opts.moveLimitK ?? 1.4;
   const floor = categories.length * 3 + (opts.halves?.length ?? 0);
+  const board = {
+    categoriesCount: categories.length,
+    wordsPerCategory: 4,
+    startBubbles: opts.overrideStartBubbles ?? categories.length * 4 - metaCount,
+    boardCapacity: BOARD_CAPACITY,
+    moveFloor: floor,
+    moveLimit: opts.overrideMoveLimit ?? Math.ceil(floor * k),
+    moveLimitK: k,
+    moveLimitPolicy: 'conservative' as const,
+  };
   return {
     levelId,
-    schemaVersion: '2.0',
-    board: {
-      categoriesCount: categories.length,
-      wordsPerCategory: 4,
-      startBubbles: opts.overrideStartBubbles ?? categories.length * 4 - metaCount,
-      boardCapacity: 24,
-      moveFloor: floor,
-      moveLimit: opts.overrideMoveLimit ?? Math.ceil(floor * k),
-      moveLimitK: k,
-      moveLimitPolicy: 'conservative',
-    },
+    schemaVersion: '2.1',
+    board,
     categories,
+    deal: buildDeal(levelId, categories, board),
     traps: [],
     halves: opts.halves ?? [],
     modifiers: { chains: opts.chains ?? [], frozenBubbles: [], hiddenBubbles: [] },

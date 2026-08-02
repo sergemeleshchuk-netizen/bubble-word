@@ -11,6 +11,7 @@ import type {
 import { STATUS, ZIPF_LEVEL_TOLERANCE } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
 import type { StructuralMetrics } from './structuralMetrics.ts';
+import { checkDeal } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
 export interface ValidationContext {
@@ -379,6 +380,29 @@ const CHECKS: Check[] = [
         detail: `заявлено ${spec.board.startBubbles}, по формуле `
           + `4 × ${spec.categories.length} − ${metaCount} = ${expected}`,
         suggestion: 'число пузырей — производное поле, задавать его руками нельзя',
+      };
+    },
+  },
+  {
+    /*
+     * Выкладка обязана раздать каждое спавнящееся слово ровно один раз.
+     * Потерянное слово делает категорию несобираемой уже в игре, а не в отчёте:
+     * игрок будет искать четвёртый пузырь, которого в уровне нет. Проверка hard
+     * именно поэтому — брак не виден ни глазами, ни решателем, который читает
+     * категории, а не выкладку.
+     */
+    code: 'DEAL_COMPLETE',
+    severity: 'hard',
+    run: (spec) => {
+      const problems = checkDeal(spec, spec.deal);
+      return {
+        passed: problems.length === 0,
+        detail: problems.length === 0
+          ? `на поле ${spec.deal.start.length} из ${spec.board.startBubbles}, `
+            + `в очереди ${spec.deal.queue.length}`
+          : problems.slice(0, 5).join('; '),
+        suggestion: 'выкладку считает core/deal.ts из спека, руками её не правят',
+        entities: problems.slice(0, 5),
       };
     },
   },

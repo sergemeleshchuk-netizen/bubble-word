@@ -1,0 +1,285 @@
+{
+  "level_id": 6,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 27,
+    "board_capacity": 24,
+    "move_limit": 34
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "Swedish",
+        "category": "languages"
+      },
+      {
+        "word": "holiday",
+        "category": "calendar_words"
+      },
+      {
+        "word": "weekend",
+        "category": "calendar_words"
+      },
+      {
+        "word": "testimony",
+        "category": "courtroom"
+      },
+      {
+        "word": "anniversary",
+        "category": "calendar_words"
+      },
+      {
+        "word": "whose",
+        "category": "question_words"
+      },
+      {
+        "word": "whom",
+        "category": "question_words"
+      },
+      {
+        "word": "kicking",
+        "category": "swimming_skills"
+      },
+      {
+        "word": "Dutch",
+        "category": "languages"
+      },
+      {
+        "word": "dozen",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "rescue",
+        "category": "swimming_skills"
+      },
+      {
+        "word": "verdict",
+        "category": "courtroom"
+      },
+      {
+        "word": "crimes",
+        "category": "courtroom"
+      },
+      {
+        "word": "Arabic",
+        "category": "languages"
+      },
+      {
+        "word": "birthday",
+        "category": "calendar_words"
+      },
+      {
+        "word": "Portuguese",
+        "category": "languages"
+      },
+      {
+        "word": "hospital",
+        "category": "quiet_places"
+      },
+      {
+        "word": "jumping",
+        "category": "swimming_skills"
+      },
+      {
+        "word": "jury",
+        "category": "courtroom"
+      },
+      {
+        "word": "twenty",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "museum",
+        "category": "quiet_places"
+      },
+      {
+        "word": "library",
+        "category": "quiet_places"
+      },
+      {
+        "word": "whether",
+        "category": "question_words"
+      },
+      {
+        "word": "thousand",
+        "category": "superstition_numbers"
+      }
+    ],
+    "queue": [
+      {
+        "word": "how",
+        "category": "question_words"
+      },
+      {
+        "word": "breathing",
+        "category": "swimming_skills"
+      },
+      {
+        "word": "pair",
+        "category": "superstition_numbers"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "courtroom",
+      "label": "COURTROOM",
+      "words": [
+        {
+          "text": "crimes",
+          "kind": "word"
+        },
+        {
+          "text": "jury",
+          "kind": "word"
+        },
+        {
+          "text": "verdict",
+          "kind": "word"
+        },
+        {
+          "text": "testimony",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "quiet_places",
+      "label": "QUIET PLACES",
+      "words": [
+        {
+          "text": "courtroom",
+          "kind": "meta",
+          "meta_child": "courtroom"
+        },
+        {
+          "text": "library",
+          "kind": "word"
+        },
+        {
+          "text": "museum",
+          "kind": "word"
+        },
+        {
+          "text": "hospital",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "swimming_skills",
+      "label": "SWIMMING SKILLS",
+      "words": [
+        {
+          "text": "breathing",
+          "kind": "word"
+        },
+        {
+          "text": "jumping",
+          "kind": "word"
+        },
+        {
+          "text": "rescue",
+          "kind": "word"
+        },
+        {
+          "text": "kicking",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "superstition_numbers",
+      "label": "NUMBER WORDS",
+      "words": [
+        {
+          "text": "dozen",
+          "kind": "word"
+        },
+        {
+          "text": "thousand",
+          "kind": "word"
+        },
+        {
+          "text": "pair",
+          "kind": "word"
+        },
+        {
+          "text": "twenty",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "question_words",
+      "label": "QUESTION WORDS",
+      "words": [
+        {
+          "text": "whom",
+          "kind": "word"
+        },
+        {
+          "text": "whose",
+          "kind": "word"
+        },
+        {
+          "text": "whether",
+          "kind": "word"
+        },
+        {
+          "text": "how",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "calendar_words",
+      "label": "CALENDAR WORDS",
+      "words": [
+        {
+          "text": "anniversary",
+          "kind": "word"
+        },
+        {
+          "text": "birthday",
+          "kind": "word"
+        },
+        {
+          "text": "weekend",
+          "kind": "word"
+        },
+        {
+          "text": "holiday",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "languages",
+      "label": "LANGUAGES",
+      "words": [
+        {
+          "text": "Dutch",
+          "kind": "word"
+        },
+        {
+          "text": "Swedish",
+          "kind": "word"
+        },
+        {
+          "text": "Portuguese",
+          "kind": "word"
+        },
+        {
+          "text": "Arabic",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

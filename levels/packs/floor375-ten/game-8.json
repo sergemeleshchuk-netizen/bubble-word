@@ -1,0 +1,396 @@
+{
+  "level_id": 8,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 38,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "blocks",
+        "category": "toy_chest"
+      },
+      {
+        "word": "colors",
+        "category": "home_decor"
+      },
+      {
+        "word": "bubble",
+        "category": "toys"
+      },
+      {
+        "word": "steak",
+        "category": "meats"
+      },
+      {
+        "word": "teen",
+        "category": "life_stages"
+      },
+      {
+        "word": "horse",
+        "category": "livestock"
+      },
+      {
+        "word": "spotlight",
+        "category": "lighting"
+      },
+      {
+        "word": "seat",
+        "category": "car_parts"
+      },
+      {
+        "word": "teenager",
+        "category": "life_stages"
+      },
+      {
+        "word": "Pacific",
+        "category": "continents_and_oceans"
+      },
+      {
+        "word": "puzzle",
+        "category": "toys"
+      },
+      {
+        "word": "candle",
+        "category": "lighting"
+      },
+      {
+        "word": "shade",
+        "category": "lighting"
+      },
+      {
+        "word": "horn",
+        "category": "car_parts"
+      },
+      {
+        "word": "kindly",
+        "category": "polite_words"
+      },
+      {
+        "word": "patterns",
+        "category": "home_decor"
+      },
+      {
+        "word": "lamp",
+        "category": "lighting"
+      },
+      {
+        "word": "robot",
+        "category": "toys"
+      },
+      {
+        "word": "beef",
+        "category": "meats"
+      },
+      {
+        "word": "Asia",
+        "category": "continents_and_oceans"
+      },
+      {
+        "word": "doll",
+        "category": "toy_chest"
+      },
+      {
+        "word": "goat",
+        "category": "livestock"
+      },
+      {
+        "word": "pardon",
+        "category": "polite_words"
+      },
+      {
+        "word": "appreciate",
+        "category": "polite_words"
+      }
+    ],
+    "queue": [
+      {
+        "word": "teddy",
+        "category": "toys"
+      },
+      {
+        "word": "furniture",
+        "category": "home_decor"
+      },
+      {
+        "word": "rabbit",
+        "category": "livestock"
+      },
+      {
+        "word": "liver",
+        "category": "meats"
+      },
+      {
+        "word": "ham",
+        "category": "meats"
+      },
+      {
+        "word": "Arctic",
+        "category": "continents_and_oceans"
+      },
+      {
+        "word": "balls",
+        "category": "toy_chest"
+      },
+      {
+        "word": "hood",
+        "category": "car_parts"
+      },
+      {
+        "word": "Atlantic",
+        "category": "continents_and_oceans"
+      },
+      {
+        "word": "infant",
+        "category": "life_stages"
+      },
+      {
+        "word": "mirror",
+        "category": "car_parts"
+      },
+      {
+        "word": "elder",
+        "category": "life_stages"
+      },
+      {
+        "word": "apologize",
+        "category": "polite_words"
+      },
+      {
+        "word": "duck",
+        "category": "livestock"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "lighting",
+      "label": "LIGHTING",
+      "words": [
+        {
+          "text": "lamp",
+          "kind": "word"
+        },
+        {
+          "text": "spotlight",
+          "kind": "word"
+        },
+        {
+          "text": "candle",
+          "kind": "word"
+        },
+        {
+          "text": "shade",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "home_decor",
+      "label": "HOME DECOR",
+      "words": [
+        {
+          "text": "lighting",
+          "kind": "meta",
+          "meta_child": "lighting"
+        },
+        {
+          "text": "furniture",
+          "kind": "word"
+        },
+        {
+          "text": "colors",
+          "kind": "word"
+        },
+        {
+          "text": "patterns",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "toys",
+      "label": "TOYS",
+      "words": [
+        {
+          "text": "puzzle",
+          "kind": "word"
+        },
+        {
+          "text": "robot",
+          "kind": "word"
+        },
+        {
+          "text": "bubble",
+          "kind": "word"
+        },
+        {
+          "text": "teddy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "toy_chest",
+      "label": "TOY CHEST",
+      "words": [
+        {
+          "text": "toys",
+          "kind": "meta",
+          "meta_child": "toys"
+        },
+        {
+          "text": "blocks",
+          "kind": "word"
+        },
+        {
+          "text": "balls",
+          "kind": "word"
+        },
+        {
+          "text": "doll",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "livestock",
+      "label": "LIVESTOCK",
+      "words": [
+        {
+          "text": "rabbit",
+          "kind": "word"
+        },
+        {
+          "text": "duck",
+          "kind": "word"
+        },
+        {
+          "text": "horse",
+          "kind": "word"
+        },
+        {
+          "text": "goat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "life_stages",
+      "label": "STAGES OF LIFE",
+      "words": [
+        {
+          "text": "elder",
+          "kind": "word"
+        },
+        {
+          "text": "teenager",
+          "kind": "word"
+        },
+        {
+          "text": "infant",
+          "kind": "word"
+        },
+        {
+          "text": "teen",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "car_parts",
+      "label": "CAR PARTS",
+      "words": [
+        {
+          "text": "mirror",
+          "kind": "word"
+        },
+        {
+          "text": "horn",
+          "kind": "word"
+        },
+        {
+          "text": "hood",
+          "kind": "word"
+        },
+        {
+          "text": "seat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "continents_and_oceans",
+      "label": "CONTINENTS AND OCEANS",
+      "words": [
+        {
+          "text": "Arctic",
+          "kind": "word"
+        },
+        {
+          "text": "Atlantic",
+          "kind": "word"
+        },
+        {
+          "text": "Asia",
+          "kind": "word"
+        },
+        {
+          "text": "Pacific",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "meats",
+      "label": "MEATS",
+      "words": [
+        {
+          "text": "beef",
+          "kind": "word"
+        },
+        {
+          "text": "liver",
+          "kind": "word"
+        },
+        {
+          "text": "ham",
+          "kind": "word"
+        },
+        {
+          "text": "steak",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "polite_words",
+      "label": "POLITE WORDS",
+      "words": [
+        {
+          "text": "pardon",
+          "kind": "word"
+        },
+        {
+          "text": "apologize",
+          "kind": "word"
+        },
+        {
+          "text": "kindly",
+          "kind": "word"
+        },
+        {
+          "text": "appreciate",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

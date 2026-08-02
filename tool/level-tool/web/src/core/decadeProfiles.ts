@@ -78,6 +78,18 @@ const DIFFICULTY_CEILING_FIRST = 0.35;
 const DIFFICULTY_CEILING_LAST = 0.6;
 const TUTORIAL_DIFFICULTY_CEILING = 0.2;
 
+/**
+ * Пол частотности слова, одинаковый для всех декад. Смысл и замеры — в
+ * `minWordZipf` (types.ts).
+ *
+ * Почему именно 3.75. Планку назвал владелец продукта, посмотрев два уровня в
+ * прототипе: `quail` 3.13, `obituary` 3.41 и `congestion` 3.66 он назвал
+ * неприемлемыми, а `cough` 3.95 и `rash` 3.67 претензий не вызвали. 3.75
+ * проходит между `congestion` и `rash` — то есть это не круглое число, а
+ * граница, снятая с конкретных примеров.
+ */
+const MIN_WORD_ZIPF = 3.75;
+
 export function categoryDifficultyCeiling(profile: DecadeProfile): number {
   const decadeIndex = Math.floor((profile.from - 1) / 10);       // 0 … 19
   const span = DIFFICULTY_CEILING_LAST - DIFFICULTY_CEILING_FIRST;
@@ -328,6 +340,7 @@ export function configForRange(
       maxTokens: profile.maxTokens,
       maxWordLen: profile.maxWordLen,
       minProperNounZipf: profile.minProperNounZipf,
+      minWordZipf: MIN_WORD_ZIPF,
       zipfMedianTarget: profile.zipfMedianTarget,
       zipfP25Target: profile.zipfP25Target,
       visibleShareMin: visibleShareMin(profile, 4),

@@ -1,0 +1,823 @@
+{
+  "level_spec": {
+    "levelId": 2,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 8,
+      "wordsPerCategory": 4,
+      "startBubbles": 32,
+      "boardCapacity": 24,
+      "moveFloor": 24,
+      "moveLimit": 33,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "hobby_verbs",
+        "label": "HOBBY ACTIVITIES",
+        "rule": "Activities people do as a hobby",
+        "theme": "hobbies",
+        "words": [
+          {
+            "text": "photography",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "collecting",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "dancing",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "fishing",
+            "kind": "word",
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "furniture",
+        "label": "FURNITURE",
+        "rule": "Movable household furniture",
+        "theme": "home",
+        "words": [
+          {
+            "text": "sofa",
+            "kind": "word",
+            "zipf": 3.81,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "bench",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "desk",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "couch",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "body_parts",
+        "label": "BODY PARTS",
+        "rule": "External parts of the human body",
+        "theme": "body",
+        "words": [
+          {
+            "text": "stomach",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "hip",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "chest",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "finger",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "birds",
+        "label": "BIRDS",
+        "rule": "Bird species an average American can name",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "robin",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "duck",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "chicken",
+            "kind": "word",
+            "zipf": 4.63,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "eagle",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "days_and_parts_of_day",
+        "label": "DAYS & TIMES",
+        "rule": "Names of weekdays and parts of the day",
+        "theme": "time",
+        "words": [
+          {
+            "text": "dawn",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "Wednesday",
+            "kind": "word",
+            "zipf": 4.59,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "midnight",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "noon",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "shapes",
+        "label": "SHAPES",
+        "rule": "Geometric shapes taught in school",
+        "theme": "science",
+        "words": [
+          {
+            "text": "arch",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "oval",
+            "kind": "word",
+            "zipf": 3.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "circle",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cylinder",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "girls_names",
+        "label": "GIRLS NAMES",
+        "rule": "Common first names given to girls in the United States",
+        "theme": "people",
+        "words": [
+          {
+            "text": "Emma",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "Susan",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "Emily",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "Rachel",
+            "kind": "word",
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "us_states",
+        "label": "US STATES",
+        "rule": "States of the United States of America",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "Kansas",
+            "kind": "word",
+            "zipf": 4.37,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Arizona",
+            "kind": "word",
+            "zipf": 4.38,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Georgia",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Alabama",
+            "kind": "word",
+            "zipf": 4.26,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "sofa",
+          "category": "furniture"
+        },
+        {
+          "word": "Rachel",
+          "category": "girls_names"
+        },
+        {
+          "word": "arch",
+          "category": "shapes"
+        },
+        {
+          "word": "eagle",
+          "category": "birds"
+        },
+        {
+          "word": "cylinder",
+          "category": "shapes"
+        },
+        {
+          "word": "fishing",
+          "category": "hobby_verbs"
+        },
+        {
+          "word": "Emma",
+          "category": "girls_names"
+        },
+        {
+          "word": "dancing",
+          "category": "hobby_verbs"
+        },
+        {
+          "word": "Georgia",
+          "category": "us_states"
+        },
+        {
+          "word": "collecting",
+          "category": "hobby_verbs"
+        },
+        {
+          "word": "Wednesday",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "noon",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "stomach",
+          "category": "body_parts"
+        },
+        {
+          "word": "Emily",
+          "category": "girls_names"
+        },
+        {
+          "word": "midnight",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "desk",
+          "category": "furniture"
+        },
+        {
+          "word": "robin",
+          "category": "birds"
+        },
+        {
+          "word": "photography",
+          "category": "hobby_verbs"
+        },
+        {
+          "word": "circle",
+          "category": "shapes"
+        },
+        {
+          "word": "chicken",
+          "category": "birds"
+        },
+        {
+          "word": "finger",
+          "category": "body_parts"
+        },
+        {
+          "word": "hip",
+          "category": "body_parts"
+        },
+        {
+          "word": "Kansas",
+          "category": "us_states"
+        },
+        {
+          "word": "couch",
+          "category": "furniture"
+        }
+      ],
+      "queue": [
+        {
+          "word": "chest",
+          "category": "body_parts"
+        },
+        {
+          "word": "Susan",
+          "category": "girls_names"
+        },
+        {
+          "word": "oval",
+          "category": "shapes"
+        },
+        {
+          "word": "Alabama",
+          "category": "us_states"
+        },
+        {
+          "word": "dawn",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "Arizona",
+          "category": "us_states"
+        },
+        {
+          "word": "bench",
+          "category": "furniture"
+        },
+        {
+          "word": "duck",
+          "category": "birds"
+        }
+      ]
+    },
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T16:22:04.406Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "b9c962b135bd19ec07d3bfb654c17cab859f21ab5ef1454b71d275c6c625cda3",
+    "level_spec_hash": "c4b97212379504f497a321b1717e417444b8cc36bac62eafcbf28d86f2089abc",
+    "pack_hash": "1a321a8bd5aae8b0f9144bbdc9a761adfff15f69437c47f908a2220c447d2f40",
+    "seed": "floor375-a"
+  },
+  "plan": {
+    "levelId": 2,
+    "position": 2,
+    "role": "growth",
+    "categoryCount": 8,
+    "metaCount": 0,
+    "metaDepthTarget": 0,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 3,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 2.9088,
+        "редкие слова (zipf < 3)": 0,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 2.9314999999999998,
+        "declared": -0.6,
+        "semantic": 0,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "32 пузырей на старте при 8 категориях",
+      "0 редких слов, из них 0 очень редких",
+      "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 33 при минимуме 24 (K = 1.35)"
+    ],
+    "interest": 5,
+    "interest_breakdown": {
+      "clarity": 2.39,
+      "variety": 0.7,
+      "aha": 0,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.39: узнаваемых слов 100%, средняя очевидность связи 0.90",
+      "Variety 0.70: 1 типов связи, 8 тематических сфер, но 100% категорий однотипны",
+      "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 8 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (33 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "8 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 0"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 0, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 32, по формуле 4 × 8 − 0 = 32"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 32, в очереди 8"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 33, минимум мерджей 24, K = 1.35 → ожидалось 33"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 8: hobby_verbs, furniture, body_parts, birds, days_and_parts_of_day, shapes, girls_names, us_states"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.33 (цель декады 4.35), p25 4.17 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 0, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 75.0% уровня (24 из 32), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 33,
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 8,
+      "deduction_only": true,
+      "forced_steps": 32,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "8 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "8 категорий, 0 мета-связей, 1 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

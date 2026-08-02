@@ -1,0 +1,756 @@
+{
+  "level_spec": {
+    "levelId": 6,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 7,
+      "wordsPerCategory": 4,
+      "startBubbles": 27,
+      "boardCapacity": 24,
+      "moveFloor": 21,
+      "moveLimit": 34,
+      "moveLimitK": 1.6,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "courtroom",
+        "label": "COURTROOM",
+        "rule": "What is heard, handed down or worn in a courtroom",
+        "theme": "law",
+        "words": [
+          {
+            "text": "crimes",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.72
+          },
+          {
+            "text": "jury",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "verdict",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.96,
+            "obviousness": 0.86
+          },
+          {
+            "text": "testimony",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.9,
+            "obviousness": 0.65
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "quiet_places",
+        "isQuickwin": true
+      },
+      {
+        "key": "quiet_places",
+        "label": "QUIET PLACES",
+        "rule": "Places where people are expected to stay quiet",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "courtroom",
+            "kind": "meta",
+            "metaChild": "courtroom",
+            "zipf": 3.58,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "library",
+            "kind": "word",
+            "zipf": 4.86,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "museum",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "hospital",
+            "kind": "word",
+            "zipf": 5.07,
+            "frequencyUnknown": false,
+            "relation": "has_property",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "swimming_skills",
+        "label": "SWIMMING SKILLS",
+        "rule": "Skills learned in swimming lessons",
+        "theme": "skills",
+        "words": [
+          {
+            "text": "breathing",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "jumping",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "rescue",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "kicking",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "superstition_numbers",
+        "label": "NUMBER WORDS",
+        "rule": "Words for numbers and counting",
+        "theme": "culture",
+        "words": [
+          {
+            "text": "dozen",
+            "kind": "word",
+            "zipf": 4.35,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "thousand",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "pair",
+            "kind": "word",
+            "zipf": 4.72,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "twenty",
+            "kind": "word",
+            "zipf": 4.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "question_words",
+        "label": "QUESTION WORDS",
+        "rule": "Words that begin a question in English",
+        "theme": "language",
+        "words": [
+          {
+            "text": "whom",
+            "kind": "word",
+            "zipf": 4.85,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "whose",
+            "kind": "word",
+            "zipf": 5.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "whether",
+            "kind": "word",
+            "zipf": 5.32,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "how",
+            "kind": "word",
+            "zipf": 6.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "calendar_words",
+        "label": "CALENDAR WORDS",
+        "rule": "Everyday English words for dates and periods of time on a calendar",
+        "theme": "time",
+        "words": [
+          {
+            "text": "anniversary",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "birthday",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "weekend",
+            "kind": "word",
+            "zipf": 4.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "holiday",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "languages",
+        "label": "LANGUAGES",
+        "rule": "Languages spoken around the world",
+        "theme": "language",
+        "words": [
+          {
+            "text": "Dutch",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Swedish",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Portuguese",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "Arabic",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "Swedish",
+          "category": "languages"
+        },
+        {
+          "word": "holiday",
+          "category": "calendar_words"
+        },
+        {
+          "word": "weekend",
+          "category": "calendar_words"
+        },
+        {
+          "word": "testimony",
+          "category": "courtroom"
+        },
+        {
+          "word": "anniversary",
+          "category": "calendar_words"
+        },
+        {
+          "word": "whose",
+          "category": "question_words"
+        },
+        {
+          "word": "whom",
+          "category": "question_words"
+        },
+        {
+          "word": "kicking",
+          "category": "swimming_skills"
+        },
+        {
+          "word": "Dutch",
+          "category": "languages"
+        },
+        {
+          "word": "dozen",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "rescue",
+          "category": "swimming_skills"
+        },
+        {
+          "word": "verdict",
+          "category": "courtroom"
+        },
+        {
+          "word": "crimes",
+          "category": "courtroom"
+        },
+        {
+          "word": "Arabic",
+          "category": "languages"
+        },
+        {
+          "word": "birthday",
+          "category": "calendar_words"
+        },
+        {
+          "word": "Portuguese",
+          "category": "languages"
+        },
+        {
+          "word": "hospital",
+          "category": "quiet_places"
+        },
+        {
+          "word": "jumping",
+          "category": "swimming_skills"
+        },
+        {
+          "word": "jury",
+          "category": "courtroom"
+        },
+        {
+          "word": "twenty",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "museum",
+          "category": "quiet_places"
+        },
+        {
+          "word": "library",
+          "category": "quiet_places"
+        },
+        {
+          "word": "whether",
+          "category": "question_words"
+        },
+        {
+          "word": "thousand",
+          "category": "superstition_numbers"
+        }
+      ],
+      "queue": [
+        {
+          "word": "how",
+          "category": "question_words"
+        },
+        {
+          "word": "breathing",
+          "category": "swimming_skills"
+        },
+        {
+          "word": "pair",
+          "category": "superstition_numbers"
+        }
+      ]
+    },
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T16:22:04.408Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "b9c962b135bd19ec07d3bfb654c17cab859f21ab5ef1454b71d275c6c625cda3",
+    "level_spec_hash": "498129461be8aab7bd4b1631f22d6b5001e0fa6607855d246b77df239c416409",
+    "pack_hash": "1a321a8bd5aae8b0f9144bbdc9a761adfff15f69437c47f908a2220c447d2f40",
+    "seed": "floor375-a"
+  },
+  "plan": {
+    "levelId": 6,
+    "position": 6,
+    "role": "recovery",
+    "categoryCount": 7,
+    "metaCount": 1,
+    "metaDepthTarget": 1,
+    "rareTarget": 0,
+    "trapTarget": 0,
+    "chainCount": 0,
+    "targetDifficulty": [
+      4,
+      5.5
+    ],
+    "targetInterest": [
+      7,
+      9
+    ],
+    "moveLimitK": 1.6
+  },
+  "scoring": {
+    "difficulty": 2.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 2.4543,
+        "редкие слова (zipf < 3)": 0,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.22,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.4,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0
+      },
+      "totals": {
+        "base": 2.477,
+        "declared": -0.38,
+        "semantic": 0.4,
+        "mechanical": 0
+      }
+    },
+    "difficulty_explanation": [
+      "27 пузырей на старте при 7 категориях",
+      "0 редких слов, из них 0 очень редких",
+      "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "6 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "1 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 34 при минимуме 21 (K = 1.6)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.28,
+      "variety": 1.91,
+      "aha": 0.2,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.28: узнаваемых слов 100%, средняя очевидность связи 0.81",
+      "Variety 1.91: 4 типов связи, 6 тематических сфер, но 71% категорий однотипны",
+      "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 7 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (29 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "7 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 1"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 27, по формуле 4 × 7 − 1 = 27"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 27, в очереди 3"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 34, минимум мерджей 21, K = 1.6 → ожидалось 34"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 6: courtroom, swimming_skills, superstition_numbers, question_words, calendar_words, languages"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.53 (цель декады 4.35), p25 4.23 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 0, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 85.7% уровня (24 из 28), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 29,
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 7,
+      "deduction_only": true,
+      "forced_steps": 28,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "7 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "7 категорий, 1 мета-связей, 0 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

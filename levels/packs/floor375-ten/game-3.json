@@ -1,0 +1,358 @@
+{
+  "level_id": 3,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 34,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "pencil",
+        "category": "school_supplies"
+      },
+      {
+        "word": "onion",
+        "category": "vegetables"
+      },
+      {
+        "word": "hat",
+        "category": "clothing_items"
+      },
+      {
+        "word": "dairy",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "gray",
+        "category": "colors"
+      },
+      {
+        "word": "pants",
+        "category": "clothing_items"
+      },
+      {
+        "word": "passport",
+        "category": "airport_words"
+      },
+      {
+        "word": "potato",
+        "category": "vegetables"
+      },
+      {
+        "word": "tape",
+        "category": "school_supplies"
+      },
+      {
+        "word": "Frozen",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "pink",
+        "category": "colors"
+      },
+      {
+        "word": "Frontier",
+        "category": "airlines"
+      },
+      {
+        "word": "fruits",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "United",
+        "category": "airlines"
+      },
+      {
+        "word": "plate",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "corn",
+        "category": "vegetables"
+      },
+      {
+        "word": "wheel",
+        "category": "game_shows"
+      },
+      {
+        "word": "customs",
+        "category": "airport_words"
+      },
+      {
+        "word": "category",
+        "category": "game_shows"
+      },
+      {
+        "word": "pitcher",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "bean",
+        "category": "vegetables"
+      },
+      {
+        "word": "prize",
+        "category": "game_shows"
+      },
+      {
+        "word": "Southwest",
+        "category": "airlines"
+      },
+      {
+        "word": "terminal",
+        "category": "airport_words"
+      }
+    ],
+    "queue": [
+      {
+        "word": "bowl",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "pen",
+        "category": "school_supplies"
+      },
+      {
+        "word": "spin",
+        "category": "game_shows"
+      },
+      {
+        "word": "olive",
+        "category": "colors"
+      },
+      {
+        "word": "coat",
+        "category": "clothing_items"
+      },
+      {
+        "word": "Alaska",
+        "category": "airlines"
+      },
+      {
+        "word": "marker",
+        "category": "school_supplies"
+      },
+      {
+        "word": "purple",
+        "category": "colors"
+      },
+      {
+        "word": "jacket",
+        "category": "clothing_items"
+      },
+      {
+        "word": "bottle",
+        "category": "dishes_and_glassware"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "vegetables",
+      "label": "VEGETABLES",
+      "words": [
+        {
+          "text": "potato",
+          "kind": "word"
+        },
+        {
+          "text": "corn",
+          "kind": "word"
+        },
+        {
+          "text": "bean",
+          "kind": "word"
+        },
+        {
+          "text": "onion",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "grocery_aisles",
+      "label": "GROCERY AISLES",
+      "words": [
+        {
+          "text": "vegetables",
+          "kind": "meta",
+          "meta_child": "vegetables"
+        },
+        {
+          "text": "Frozen",
+          "kind": "word"
+        },
+        {
+          "text": "dairy",
+          "kind": "word"
+        },
+        {
+          "text": "fruits",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "airlines",
+      "label": "AIRLINES",
+      "words": [
+        {
+          "text": "Alaska",
+          "kind": "word"
+        },
+        {
+          "text": "Southwest",
+          "kind": "word"
+        },
+        {
+          "text": "Frontier",
+          "kind": "word"
+        },
+        {
+          "text": "United",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "airport_words",
+      "label": "AIRPORT WORDS",
+      "words": [
+        {
+          "text": "airlines",
+          "kind": "meta",
+          "meta_child": "airlines"
+        },
+        {
+          "text": "terminal",
+          "kind": "word"
+        },
+        {
+          "text": "customs",
+          "kind": "word"
+        },
+        {
+          "text": "passport",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "game_shows",
+      "label": "GAME SHOWS",
+      "words": [
+        {
+          "text": "spin",
+          "kind": "word"
+        },
+        {
+          "text": "wheel",
+          "kind": "word"
+        },
+        {
+          "text": "prize",
+          "kind": "word"
+        },
+        {
+          "text": "category",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_supplies",
+      "label": "SCHOOL SUPPLIES",
+      "words": [
+        {
+          "text": "tape",
+          "kind": "word"
+        },
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "marker",
+          "kind": "word"
+        },
+        {
+          "text": "pencil",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "colors",
+      "label": "COLORS",
+      "words": [
+        {
+          "text": "purple",
+          "kind": "word"
+        },
+        {
+          "text": "gray",
+          "kind": "word"
+        },
+        {
+          "text": "pink",
+          "kind": "word"
+        },
+        {
+          "text": "olive",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "clothing_items",
+      "label": "CLOTHING ITEMS",
+      "words": [
+        {
+          "text": "coat",
+          "kind": "word"
+        },
+        {
+          "text": "jacket",
+          "kind": "word"
+        },
+        {
+          "text": "pants",
+          "kind": "word"
+        },
+        {
+          "text": "hat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dishes_and_glassware",
+      "label": "DISHES",
+      "words": [
+        {
+          "text": "pitcher",
+          "kind": "word"
+        },
+        {
+          "text": "plate",
+          "kind": "word"
+        },
+        {
+          "text": "bottle",
+          "kind": "word"
+        },
+        {
+          "text": "bowl",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

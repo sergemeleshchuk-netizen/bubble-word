@@ -107,3 +107,25 @@ class AdversarialReviewOutput(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     verdicts: list[AdversarialVerdict] = Field(default_factory=list)
+
+
+class ObviousnessGrade(BaseModel):
+    """Оценка одного слова внутри одной категории.
+
+    `word` приходит строкой, а не id связи: модель ранжирует слова, которые
+    видит на экране, и сопоставление со связью — работа вызывающей стороны.
+    Слово, которого в запросе не было, отбрасывается там же.
+    """
+
+    model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
+
+    word: str = Field(min_length=1)
+    obviousness_score: Score
+    reason: str = ""
+
+
+class ObviousnessGradingOutput(BaseModel):
+    model_config = ConfigDict(extra="ignore", str_strip_whitespace=True)
+
+    category_key: str = Field(min_length=1)
+    grades: list[ObviousnessGrade] = Field(default_factory=list)

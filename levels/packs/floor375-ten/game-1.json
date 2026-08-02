@@ -1,0 +1,211 @@
+{
+  "level_id": 1,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 5,
+    "words_per_category": 4,
+    "start_bubbles": 20,
+    "board_capacity": 24,
+    "move_limit": null
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "clue",
+        "category": "board_games"
+      },
+      {
+        "word": "era",
+        "category": "time_units"
+      },
+      {
+        "word": "cards",
+        "category": "board_games"
+      },
+      {
+        "word": "math",
+        "category": "school_subjects"
+      },
+      {
+        "word": "Subway",
+        "category": "vehicles"
+      },
+      {
+        "word": "ferry",
+        "category": "vehicles"
+      },
+      {
+        "word": "risk",
+        "category": "board_games"
+      },
+      {
+        "word": "semester",
+        "category": "time_units"
+      },
+      {
+        "word": "garage",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "instant",
+        "category": "time_units"
+      },
+      {
+        "word": "taxi",
+        "category": "vehicles"
+      },
+      {
+        "word": "mall",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "helicopter",
+        "category": "vehicles"
+      },
+      {
+        "word": "gym",
+        "category": "school_subjects"
+      },
+      {
+        "word": "factory",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "physics",
+        "category": "school_subjects"
+      },
+      {
+        "word": "tower",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "chemistry",
+        "category": "school_subjects"
+      },
+      {
+        "word": "chess",
+        "category": "board_games"
+      },
+      {
+        "word": "decade",
+        "category": "time_units"
+      }
+    ],
+    "queue": []
+  },
+  "categories": [
+    {
+      "key": "board_games",
+      "label": "BOARD GAMES",
+      "words": [
+        {
+          "text": "clue",
+          "kind": "word"
+        },
+        {
+          "text": "chess",
+          "kind": "word"
+        },
+        {
+          "text": "cards",
+          "kind": "word"
+        },
+        {
+          "text": "risk",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "vehicles",
+      "label": "VEHICLES",
+      "words": [
+        {
+          "text": "taxi",
+          "kind": "word"
+        },
+        {
+          "text": "Subway",
+          "kind": "word"
+        },
+        {
+          "text": "ferry",
+          "kind": "word"
+        },
+        {
+          "text": "helicopter",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_subjects",
+      "label": "SCHOOL SUBJECTS",
+      "words": [
+        {
+          "text": "physics",
+          "kind": "word"
+        },
+        {
+          "text": "chemistry",
+          "kind": "word"
+        },
+        {
+          "text": "gym",
+          "kind": "word"
+        },
+        {
+          "text": "math",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "time_units",
+      "label": "UNITS OF TIME",
+      "words": [
+        {
+          "text": "instant",
+          "kind": "word"
+        },
+        {
+          "text": "decade",
+          "kind": "word"
+        },
+        {
+          "text": "era",
+          "kind": "word"
+        },
+        {
+          "text": "semester",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kinds_of_buildings",
+      "label": "KINDS OF BUILDINGS",
+      "words": [
+        {
+          "text": "mall",
+          "kind": "word"
+        },
+        {
+          "text": "tower",
+          "kind": "word"
+        },
+        {
+          "text": "garage",
+          "kind": "word"
+        },
+        {
+          "text": "factory",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -32,6 +32,22 @@ export interface HandoffLevel {
   /** подпись в выпадающем списке прототипа */
   title: string;
   categories: { id: string; name: string; words: string[] }[];
+  /**
+   * Вместимость поля: сколько пузырей видно одновременно. Прототип раньше брал
+   * своё число 19, инструмент считал по 24 (замер целевой игры) — и поле в
+   * проверке было разреженнее, чем в уровне, который мы сдаём.
+   */
+  board: { board_capacity: number; start_bubbles: number };
+  /**
+   * Первая выкладка: состав поля и очередь досыпки, посчитанные генератором.
+   * Прототип обязан исполнить её как есть — своей случайности у него больше нет,
+   * иначе наигровка руками проверяет не тот уровень, который сдан.
+   * `category` — это `id` категории из списка выше.
+   */
+  deal: {
+    start: { word: string; category: string }[];
+    queue: { word: string; category: string }[];
+  };
 }
 
 export interface HandoffPack {
@@ -68,6 +84,14 @@ export function buildHandoffPack(block: BlockResult): HandoffPack {
         // распознаёт его сам, сравнивая слово с именами категорий уровня
         words: category.words.map((word) => word.text),
       })),
+      board: {
+        board_capacity: level.spec.board.boardCapacity,
+        start_bubbles: level.spec.board.startBubbles,
+      },
+      deal: {
+        start: level.spec.deal.start.map((b) => ({ word: b.word, category: b.category })),
+        queue: level.spec.deal.queue.map((b) => ({ word: b.word, category: b.category })),
+      },
     })),
   };
 }

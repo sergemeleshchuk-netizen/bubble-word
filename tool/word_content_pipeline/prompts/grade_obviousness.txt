@@ -1,0 +1,57 @@
+TASK: rank the words of ONE category by how obviously each one belongs to it.
+
+AUDIENCE: an average American adult casual player of a word puzzle. They see four
+word bubbles and must realize the four belong together. They are not a specialist.
+
+CATEGORY:
+  key:   $category_key
+  label: $label
+  rule:  $rule
+
+WORDS (with every OTHER category the base already puts each word in — that is what
+competes for the player's first recall):
+$words_json
+
+WHAT obviousness MEANS HERE
+It is not "is this correct" — every word below is already correct. It is one question:
+**when the player reads this word, is THIS the meaning that comes to mind first?**
+
+  1.00-0.90  the word means this and essentially nothing else to a casual player
+  0.89-0.75  a leading meaning; a competing sense exists but does not win
+  0.74-0.60  correct and recognizable, but another meaning arrives first
+  0.59-0.40  the player needs the category label in front of them to accept it
+  0.39-0.00  regional, dated, jargon, or knowable only to someone in the field
+
+WHAT TO WEIGH
+1. Competing senses that arrive FIRST. `gym` is a real American school subject, but a
+   player reads it as a building before a class period. `crane` is a bird and a machine.
+2. A word can sit in many categories and still be obvious in this one. `apple` is in
+   eleven categories and is still a perfect FRUIT; `orange` is a perfect COLOR AND a
+   perfect FRUIT. Count of other homes is NOT the signal — which meaning wins is.
+3. Cultural and regional narrowness. A word obvious inside American schooling, American
+   sports or one US region is not obvious to the average player.
+4. Words that only work once the label is visible score low, even if they are textbook
+   members of the category.
+
+HARD REQUIREMENT: SPREAD THEM
+The scores you are replacing were filled in one value for the whole category, which is
+why this pass exists. If your output gives every word the same or nearly the same score,
+you have not done the task. Real categories have a top and a bottom. Find them.
+Use the full range you believe in — do not compress everything into 0.8-0.9.
+
+OUTPUT: raw JSON only, no markdown, exactly this shape, one entry per word given:
+{
+  "category_key": "$category_key",
+  "grades": [
+    {
+      "word": "math",
+      "obviousness_score": 0.97,
+      "reason": "One meaning only; the first thing anyone names as a school subject."
+    },
+    {
+      "word": "gym",
+      "obviousness_score": 0.55,
+      "reason": "Reads as the room, not the class period; the subject sense is American schoolspeak."
+    }
+  ]
+}

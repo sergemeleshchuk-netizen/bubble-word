@@ -130,16 +130,20 @@ interface Draft {
   kind: 'word' | 'meta';
 }
 
-/** Слова уровня в порядке спека; мета-слово на старте не спавнится (SPEC §5). */
+/**
+ * Слова уровня в порядке ВЫКЛАДКИ: сначала поле, потом очередь досыпки.
+ *
+ * Раньше здесь был порядок спека, и первые `board_capacity` слов давали шесть
+ * категорий целиком — поле из готовых четвёрок, ничего общего с тем, что видел
+ * игрок в HTML-прототипе. Теперь оба прототипа исполняют одну выкладку,
+ * посчитанную генератором (`core/deal.ts`), и наигровка в инструменте
+ * показывает ровно тот уровень, который уедет в игру.
+ *
+ * Мета-слово в выкладке не участвует: оно появляется превращением четвёрки.
+ */
 function drafts(spec: LevelSpec): Draft[] {
-  const out: Draft[] = [];
-  for (const category of spec.categories) {
-    for (const word of category.words) {
-      if (word.kind === 'meta') continue;
-      out.push({ text: word.text, category: category.key, kind: 'word' });
-    }
-  }
-  return out;
+  return [...spec.deal.start, ...spec.deal.queue]
+    .map((b) => ({ text: b.word, category: b.category, kind: 'word' as const }));
 }
 
 /**
@@ -287,9 +291,9 @@ export function buildSetup(
   const boardCount = Math.min(bubbles.length, capacity);
   const board = bubbles.slice(0, boardCount);
   const queue = bubbles.slice(boardCount);
-  // состав поля берётся по порядку спека (так на старте гарантированно есть
-  // готовая четвёрка), а вот КУДА встанет пузырь — тасуется: иначе категория
-  // выкладывалась одним рядом и уровень читался без раздумий
+  // СОСТАВ поля берётся из выкладки уровня как есть (там же и гарантия, что на
+  // старте видна одна полная четвёрка), а вот КУДА встанет пузырь — пока
+  // тасуется здесь: координаты в выкладку ещё не входят, это следующий шаг
   const shuffled = rng.shuffle(slots.map((_, i) => i));
   board.forEach((b, i) => { b.slot = shuffled[i]; });
   const refillOrder = rng.shuffle(slots.map((_, i) => i));

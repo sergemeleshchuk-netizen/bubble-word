@@ -1,0 +1,956 @@
+{
+  "level_spec": {
+    "levelId": 8,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 10,
+      "wordsPerCategory": 4,
+      "startBubbles": 38,
+      "boardCapacity": 24,
+      "moveFloor": 30,
+      "moveLimit": 41,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "lighting",
+        "label": "LIGHTING",
+        "rule": "Devices that light a home",
+        "theme": "home",
+        "words": [
+          {
+            "text": "lamp",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "spotlight",
+            "kind": "word",
+            "zipf": 3.9,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "candle",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "shade",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "home_decor",
+        "isQuickwin": true
+      },
+      {
+        "key": "home_decor",
+        "label": "HOME DECOR",
+        "rule": "What you choose when you decorate a room",
+        "theme": "home",
+        "words": [
+          {
+            "text": "lighting",
+            "kind": "meta",
+            "metaChild": "lighting",
+            "zipf": 4.29,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "furniture",
+            "kind": "word",
+            "zipf": 4.29,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.94,
+            "obviousness": 0.74
+          },
+          {
+            "text": "colors",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.62
+          },
+          {
+            "text": "patterns",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.86,
+            "obviousness": 0.54
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "toys",
+        "label": "TOYS",
+        "rule": "Things children play with",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "puzzle",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "robot",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "bubble",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "teddy",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "toy_chest",
+        "isQuickwin": true
+      },
+      {
+        "key": "toy_chest",
+        "label": "TOY CHEST",
+        "rule": "What gets thrown into a child's toy chest",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "toys",
+            "kind": "meta",
+            "metaChild": "toys",
+            "zipf": 4.25,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "blocks",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.94,
+            "obviousness": 0.82
+          },
+          {
+            "text": "balls",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.7
+          },
+          {
+            "text": "doll",
+            "kind": "word",
+            "zipf": 4.06,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "livestock",
+        "label": "LIVESTOCK",
+        "rule": "Animals raised for food or farm work",
+        "theme": "farming",
+        "words": [
+          {
+            "text": "rabbit",
+            "kind": "word",
+            "zipf": 4.05,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "duck",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "horse",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "goat",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "life_stages",
+        "label": "STAGES OF LIFE",
+        "rule": "Words for the stages of a human life",
+        "theme": "people",
+        "words": [
+          {
+            "text": "elder",
+            "kind": "word",
+            "zipf": 4.06,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "teenager",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "infant",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "teen",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "car_parts",
+        "label": "CAR PARTS",
+        "rule": "Physical parts of an ordinary passenger car",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "mirror",
+            "kind": "word",
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "horn",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "hood",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "seat",
+            "kind": "word",
+            "zipf": 4.82,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "continents_and_oceans",
+        "label": "CONTINENTS AND OCEANS",
+        "rule": "The continents and the world oceans",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "Arctic",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Atlantic",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Asia",
+            "kind": "word",
+            "zipf": 4.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Pacific",
+            "kind": "word",
+            "zipf": 4.59,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "meats",
+        "label": "MEATS",
+        "rule": "Kinds of meat sold at an American butcher counter",
+        "theme": "food",
+        "words": [
+          {
+            "text": "beef",
+            "kind": "word",
+            "zipf": 4.29,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "liver",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "ham",
+            "kind": "word",
+            "zipf": 4.12,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "steak",
+            "kind": "word",
+            "zipf": 3.97,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "polite_words",
+        "label": "POLITE WORDS",
+        "rule": "Words used to be polite in English",
+        "theme": "language",
+        "words": [
+          {
+            "text": "pardon",
+            "kind": "word",
+            "zipf": 3.82,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "apologize",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "kindly",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "appreciate",
+            "kind": "word",
+            "zipf": 4.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.82
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "blocks",
+          "category": "toy_chest"
+        },
+        {
+          "word": "colors",
+          "category": "home_decor"
+        },
+        {
+          "word": "bubble",
+          "category": "toys"
+        },
+        {
+          "word": "steak",
+          "category": "meats"
+        },
+        {
+          "word": "teen",
+          "category": "life_stages"
+        },
+        {
+          "word": "horse",
+          "category": "livestock"
+        },
+        {
+          "word": "spotlight",
+          "category": "lighting"
+        },
+        {
+          "word": "seat",
+          "category": "car_parts"
+        },
+        {
+          "word": "teenager",
+          "category": "life_stages"
+        },
+        {
+          "word": "Pacific",
+          "category": "continents_and_oceans"
+        },
+        {
+          "word": "puzzle",
+          "category": "toys"
+        },
+        {
+          "word": "candle",
+          "category": "lighting"
+        },
+        {
+          "word": "shade",
+          "category": "lighting"
+        },
+        {
+          "word": "horn",
+          "category": "car_parts"
+        },
+        {
+          "word": "kindly",
+          "category": "polite_words"
+        },
+        {
+          "word": "patterns",
+          "category": "home_decor"
+        },
+        {
+          "word": "lamp",
+          "category": "lighting"
+        },
+        {
+          "word": "robot",
+          "category": "toys"
+        },
+        {
+          "word": "beef",
+          "category": "meats"
+        },
+        {
+          "word": "Asia",
+          "category": "continents_and_oceans"
+        },
+        {
+          "word": "doll",
+          "category": "toy_chest"
+        },
+        {
+          "word": "goat",
+          "category": "livestock"
+        },
+        {
+          "word": "pardon",
+          "category": "polite_words"
+        },
+        {
+          "word": "appreciate",
+          "category": "polite_words"
+        }
+      ],
+      "queue": [
+        {
+          "word": "teddy",
+          "category": "toys"
+        },
+        {
+          "word": "furniture",
+          "category": "home_decor"
+        },
+        {
+          "word": "rabbit",
+          "category": "livestock"
+        },
+        {
+          "word": "liver",
+          "category": "meats"
+        },
+        {
+          "word": "ham",
+          "category": "meats"
+        },
+        {
+          "word": "Arctic",
+          "category": "continents_and_oceans"
+        },
+        {
+          "word": "balls",
+          "category": "toy_chest"
+        },
+        {
+          "word": "hood",
+          "category": "car_parts"
+        },
+        {
+          "word": "Atlantic",
+          "category": "continents_and_oceans"
+        },
+        {
+          "word": "infant",
+          "category": "life_stages"
+        },
+        {
+          "word": "mirror",
+          "category": "car_parts"
+        },
+        {
+          "word": "elder",
+          "category": "life_stages"
+        },
+        {
+          "word": "apologize",
+          "category": "polite_words"
+        },
+        {
+          "word": "duck",
+          "category": "livestock"
+        }
+      ]
+    },
+    "traps": [
+      {
+        "word": "blocks",
+        "home": "toy_chest",
+        "decoy": "toys",
+        "homeObviousness": 0.82,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.88
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T16:22:04.408Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "b9c962b135bd19ec07d3bfb654c17cab859f21ab5ef1454b71d275c6c625cda3",
+    "level_spec_hash": "d3e64d91fcdd2ed48e5cf1da9659c26ce90fd73aab6dce5600ea07809d79ac61",
+    "pack_hash": "1a321a8bd5aae8b0f9144bbdc9a761adfff15f69437c47f908a2220c447d2f40",
+    "seed": "floor375-a"
+  },
+  "plan": {
+    "levelId": 8,
+    "position": 8,
+    "role": "growth",
+    "categoryCount": 10,
+    "metaCount": 2,
+    "metaDepthTarget": 1,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.4541999999999997,
+        "редкие слова (zipf < 3)": 0,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.44,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 3.4768999999999997,
+        "declared": -0.15999999999999998,
+        "semantic": 0.8,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "38 пузырей на старте при 10 категориях",
+      "0 редких слов, из них 0 очень редких",
+      "2 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 41 при минимуме 30 (K = 1.35)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.31,
+      "variety": 1.68,
+      "aha": 0.4,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.31: узнаваемых слов 100%, средняя очевидность связи 0.83",
+      "Variety 1.68: 3 типов связи, 8 тематических сфер, но 70% категорий однотипны",
+      "Aha 0.40: 0 честных ловушек, 2 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 98%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 10 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (41 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "9 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 2"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 38, по формуле 4 × 10 − 2 = 38"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 38, в очереди 14"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 41, минимум мерджей 30, K = 1.35 → ожидалось 41"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 8: lighting, toys, livestock, life_stages, car_parts, continents_and_oceans, meats, polite_words"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.18 (цель декады 4.35), p25 4.05 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 0, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 60.0% уровня (24 из 40), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 1, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 41,
+    "structure": {
+      "multi_home_words": 2,
+      "max_contested_slots": 2,
+      "opening_categories": 9,
+      "deduction_only": true,
+      "forced_steps": 40,
+      "explanation": [
+        "2 слов с двумя и более правдоподобными домами",
+        "9 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда",
+        "самая оспариваемая категория: 2 кандидатов сверх своей четвёрки"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "rejected",
+        "stage": "редкость",
+        "reason": "редких слов 3, цель 1",
+        "relaxations": []
+      },
+      {
+        "index": 1,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "10 категорий, 2 мета-связей, 1 редких слов, 2 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,1012 @@
+{
+  "level_spec": {
+    "levelId": 7,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 11,
+      "wordsPerCategory": 4,
+      "startBubbles": 42,
+      "boardCapacity": 24,
+      "moveFloor": 33,
+      "moveLimit": 45,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "planets",
+        "label": "PLANETS",
+        "rule": "Planets of our solar system",
+        "theme": "science",
+        "words": [
+          {
+            "text": "Venus",
+            "kind": "word",
+            "zipf": 3.81,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Mars",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "mercury",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Earth",
+            "kind": "word",
+            "zipf": 5.06,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "deep_space",
+        "isQuickwin": true
+      },
+      {
+        "key": "deep_space",
+        "label": "DEEP SPACE",
+        "rule": "An object seen in deep space beyond the earth",
+        "theme": "space",
+        "words": [
+          {
+            "text": "planets",
+            "kind": "meta",
+            "metaChild": "planets",
+            "zipf": 4.05,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "galaxy",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.7
+          },
+          {
+            "text": "stars",
+            "kind": "word",
+            "zipf": 4.86,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.75
+          },
+          {
+            "text": "moon",
+            "kind": "word",
+            "zipf": 4.7,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "world_lakes",
+        "label": "LAKES",
+        "rule": "Well known lakes of the world",
+        "theme": "nature_more",
+        "words": [
+          {
+            "text": "Ontario",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Superior",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Victoria",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "Michigan",
+            "kind": "word",
+            "zipf": 4.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "geography_class",
+        "isQuickwin": true
+      },
+      {
+        "key": "geography_class",
+        "label": "GEOGRAPHY CLASS",
+        "rule": "What you are asked to name or point at in a geography lesson",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "lakes",
+            "kind": "meta",
+            "metaChild": "world_lakes",
+            "zipf": 4.14,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "rivers",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.94,
+            "obviousness": 0.66
+          },
+          {
+            "text": "globe",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "islands",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.92,
+            "obviousness": 0.62
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "field_trip_places",
+        "label": "FIELD TRIPS",
+        "rule": "Places classes visit on a field trip",
+        "theme": "education",
+        "words": [
+          {
+            "text": "gallery",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "theater",
+            "kind": "word",
+            "zipf": 4.35,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "zoo",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "capitol",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "team_sports",
+        "label": "TEAM SPORTS",
+        "rule": "Sports played by two opposing teams",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "hockey",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "rugby",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "soccer",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cricket",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "art_supplies",
+        "label": "ART SUPPLIES",
+        "rule": "Materials used to make art or crafts",
+        "theme": "tools",
+        "words": [
+          {
+            "text": "ink",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "brush",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "paint",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "canvas",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "pie_ingredients",
+        "label": "PIE INGREDIENTS",
+        "rule": "Ingredients commonly used in pie fillings or pie preparation",
+        "theme": "food",
+        "words": [
+          {
+            "text": "apple",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.99,
+            "obviousness": 0.95
+          },
+          {
+            "text": "egg",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "cream",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "lemon",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "coins_and_bills",
+        "label": "US MONEY",
+        "rule": "Coins and bills used in the United States",
+        "theme": "business",
+        "words": [
+          {
+            "text": "fifty",
+            "kind": "word",
+            "zipf": 4.29,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "coin",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "quarter",
+            "kind": "word",
+            "zipf": 4.72,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "penny",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "relationships",
+        "label": "RELATIONSHIP WORDS",
+        "rule": "Words for how people are connected to each other",
+        "theme": "people",
+        "words": [
+          {
+            "text": "client",
+            "kind": "word",
+            "zipf": 4.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "Ally",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "rival",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "stranger",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "breakfast_foods",
+        "label": "BREAKFAST FOODS",
+        "rule": "Foods typically eaten at breakfast in the United States",
+        "theme": "food",
+        "words": [
+          {
+            "text": "bread",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "rice",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bacon",
+            "kind": "word",
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "jam",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "Venus",
+          "category": "planets"
+        },
+        {
+          "word": "globe",
+          "category": "geography_class"
+        },
+        {
+          "word": "capitol",
+          "category": "field_trip_places"
+        },
+        {
+          "word": "brush",
+          "category": "art_supplies"
+        },
+        {
+          "word": "galaxy",
+          "category": "deep_space"
+        },
+        {
+          "word": "mercury",
+          "category": "planets"
+        },
+        {
+          "word": "canvas",
+          "category": "art_supplies"
+        },
+        {
+          "word": "Earth",
+          "category": "planets"
+        },
+        {
+          "word": "apple",
+          "category": "pie_ingredients"
+        },
+        {
+          "word": "fifty",
+          "category": "coins_and_bills"
+        },
+        {
+          "word": "stars",
+          "category": "deep_space"
+        },
+        {
+          "word": "rivers",
+          "category": "geography_class"
+        },
+        {
+          "word": "Mars",
+          "category": "planets"
+        },
+        {
+          "word": "client",
+          "category": "relationships"
+        },
+        {
+          "word": "lemon",
+          "category": "pie_ingredients"
+        },
+        {
+          "word": "quarter",
+          "category": "coins_and_bills"
+        },
+        {
+          "word": "gallery",
+          "category": "field_trip_places"
+        },
+        {
+          "word": "jam",
+          "category": "breakfast_foods"
+        },
+        {
+          "word": "cricket",
+          "category": "team_sports"
+        },
+        {
+          "word": "rice",
+          "category": "breakfast_foods"
+        },
+        {
+          "word": "Superior",
+          "category": "world_lakes"
+        },
+        {
+          "word": "hockey",
+          "category": "team_sports"
+        },
+        {
+          "word": "stranger",
+          "category": "relationships"
+        },
+        {
+          "word": "Victoria",
+          "category": "world_lakes"
+        }
+      ],
+      "queue": [
+        {
+          "word": "penny",
+          "category": "coins_and_bills"
+        },
+        {
+          "word": "bacon",
+          "category": "breakfast_foods"
+        },
+        {
+          "word": "coin",
+          "category": "coins_and_bills"
+        },
+        {
+          "word": "paint",
+          "category": "art_supplies"
+        },
+        {
+          "word": "rugby",
+          "category": "team_sports"
+        },
+        {
+          "word": "theater",
+          "category": "field_trip_places"
+        },
+        {
+          "word": "ink",
+          "category": "art_supplies"
+        },
+        {
+          "word": "cream",
+          "category": "pie_ingredients"
+        },
+        {
+          "word": "soccer",
+          "category": "team_sports"
+        },
+        {
+          "word": "Ally",
+          "category": "relationships"
+        },
+        {
+          "word": "Michigan",
+          "category": "world_lakes"
+        },
+        {
+          "word": "rival",
+          "category": "relationships"
+        },
+        {
+          "word": "islands",
+          "category": "geography_class"
+        },
+        {
+          "word": "egg",
+          "category": "pie_ingredients"
+        },
+        {
+          "word": "bread",
+          "category": "breakfast_foods"
+        },
+        {
+          "word": "moon",
+          "category": "deep_space"
+        },
+        {
+          "word": "Ontario",
+          "category": "world_lakes"
+        },
+        {
+          "word": "zoo",
+          "category": "field_trip_places"
+        }
+      ]
+    },
+    "traps": [
+      {
+        "word": "egg",
+        "home": "pie_ingredients",
+        "decoy": "breakfast_foods",
+        "homeObviousness": 0.8,
+        "decoyFit": 0.97,
+        "decoyObviousness": 0.9
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T16:22:04.408Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "b9c962b135bd19ec07d3bfb654c17cab859f21ab5ef1454b71d275c6c625cda3",
+    "level_spec_hash": "99d7f683a4e04c63717528abf34b88bb2062e445e1e897529ba6e3dd648b617b",
+    "pack_hash": "1a321a8bd5aae8b0f9144bbdc9a761adfff15f69437c47f908a2220c447d2f40",
+    "seed": "floor375-a"
+  },
+  "plan": {
+    "levelId": 7,
+    "position": 7,
+    "role": "growth",
+    "categoryCount": 11,
+    "metaCount": 2,
+    "metaDepthTarget": 1,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 4.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.8177999999999996,
+        "редкие слова (zipf < 3)": 0,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.44,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.4,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 3.8404999999999996,
+        "declared": -0.15999999999999998,
+        "semantic": 0.4,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "42 пузырей на старте при 11 категориях",
+      "0 редких слов, из них 0 очень редких",
+      "2 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "9 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "1 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 45 при минимуме 33 (K = 1.35)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.3,
+      "variety": 1.93,
+      "aha": 0.4,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.30: узнаваемых слов 100%, средняя очевидность связи 0.82",
+      "Variety 1.93: 3 типов связи, 10 тематических сфер, но 55% категорий однотипны",
+      "Aha 0.40: 0 честных ловушек, 2 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 11 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (45 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "10 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 2"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 42, по формуле 4 × 11 − 2 = 42"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 42, в очереди 18"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 45, минимум мерджей 33, K = 1.35 → ожидалось 45"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 9: planets, world_lakes, field_trip_places, team_sports, art_supplies, pie_ingredients, coins_and_bills, relationships, breakfast_foods"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.30 (цель декады 4.35), p25 4.15 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 0, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 54.5% уровня (24 из 44), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 45,
+    "structure": {
+      "multi_home_words": 1,
+      "max_contested_slots": 1,
+      "opening_categories": 10,
+      "deduction_only": true,
+      "forced_steps": 44,
+      "explanation": [
+        "1 слов с двумя и более правдоподобными домами",
+        "10 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда",
+        "самая оспариваемая категория: 1 кандидатов сверх своей четвёрки"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "11 категорий, 2 мета-связей, 1 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

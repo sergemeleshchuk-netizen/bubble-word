@@ -1,0 +1,437 @@
+{
+  "level_id": 10,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 11,
+    "words_per_category": 4,
+    "start_bubbles": 43,
+    "board_capacity": 24,
+    "move_limit": 50
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "Benjamin",
+        "category": "boys_names"
+      },
+      {
+        "word": "squad",
+        "category": "groups_of_people"
+      },
+      {
+        "word": "mob",
+        "category": "groups_of_people"
+      },
+      {
+        "word": "butterfly",
+        "category": "flying_animals"
+      },
+      {
+        "word": "ring",
+        "category": "jewelry"
+      },
+      {
+        "word": "helmet",
+        "category": "sports_gear_worn"
+      },
+      {
+        "word": "guest",
+        "category": "party_things"
+      },
+      {
+        "word": "exit",
+        "category": "road_things"
+      },
+      {
+        "word": "charm",
+        "category": "jewelry"
+      },
+      {
+        "word": "tunnel",
+        "category": "road_things"
+      },
+      {
+        "word": "iron",
+        "category": "elements"
+      },
+      {
+        "word": "necklace",
+        "category": "jewelry"
+      },
+      {
+        "word": "backpack",
+        "category": "accessories"
+      },
+      {
+        "word": "bee",
+        "category": "flying_animals"
+      },
+      {
+        "word": "gloves",
+        "category": "accessories"
+      },
+      {
+        "word": "chain",
+        "category": "jewelry"
+      },
+      {
+        "word": "candy",
+        "category": "party_things"
+      },
+      {
+        "word": "August",
+        "category": "months"
+      },
+      {
+        "word": "recipe",
+        "category": "reading_material"
+      },
+      {
+        "word": "mask",
+        "category": "sports_gear_worn"
+      },
+      {
+        "word": "sodium",
+        "category": "elements"
+      },
+      {
+        "word": "Lucas",
+        "category": "boys_names"
+      },
+      {
+        "word": "label",
+        "category": "reading_material"
+      },
+      {
+        "word": "November",
+        "category": "months"
+      }
+    ],
+    "queue": [
+      {
+        "word": "September",
+        "category": "months"
+      },
+      {
+        "word": "robin",
+        "category": "flying_animals"
+      },
+      {
+        "word": "cup",
+        "category": "sports_gear_worn"
+      },
+      {
+        "word": "script",
+        "category": "reading_material"
+      },
+      {
+        "word": "gang",
+        "category": "groups_of_people"
+      },
+      {
+        "word": "January",
+        "category": "months"
+      },
+      {
+        "word": "comic",
+        "category": "reading_material"
+      },
+      {
+        "word": "banner",
+        "category": "party_things"
+      },
+      {
+        "word": "oxygen",
+        "category": "elements"
+      },
+      {
+        "word": "favor",
+        "category": "party_things"
+      },
+      {
+        "word": "median",
+        "category": "road_things"
+      },
+      {
+        "word": "belt",
+        "category": "accessories"
+      },
+      {
+        "word": "carbon",
+        "category": "elements"
+      },
+      {
+        "word": "Matthew",
+        "category": "boys_names"
+      },
+      {
+        "word": "tribe",
+        "category": "groups_of_people"
+      },
+      {
+        "word": "pad",
+        "category": "sports_gear_worn"
+      },
+      {
+        "word": "Andrew",
+        "category": "boys_names"
+      },
+      {
+        "word": "bat",
+        "category": "flying_animals"
+      },
+      {
+        "word": "bridge",
+        "category": "road_things"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "jewelry",
+      "label": "JEWELRY",
+      "words": [
+        {
+          "text": "charm",
+          "kind": "word"
+        },
+        {
+          "text": "chain",
+          "kind": "word"
+        },
+        {
+          "text": "ring",
+          "kind": "word"
+        },
+        {
+          "text": "necklace",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "accessories",
+      "label": "ACCESSORIES",
+      "words": [
+        {
+          "text": "jewelry",
+          "kind": "meta",
+          "meta_child": "jewelry"
+        },
+        {
+          "text": "backpack",
+          "kind": "word"
+        },
+        {
+          "text": "belt",
+          "kind": "word"
+        },
+        {
+          "text": "gloves",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sports_gear_worn",
+      "label": "PROTECTIVE GEAR",
+      "words": [
+        {
+          "text": "mask",
+          "kind": "word"
+        },
+        {
+          "text": "pad",
+          "kind": "word"
+        },
+        {
+          "text": "helmet",
+          "kind": "word"
+        },
+        {
+          "text": "cup",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "months",
+      "label": "MONTHS",
+      "words": [
+        {
+          "text": "January",
+          "kind": "word"
+        },
+        {
+          "text": "September",
+          "kind": "word"
+        },
+        {
+          "text": "August",
+          "kind": "word"
+        },
+        {
+          "text": "November",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "reading_material",
+      "label": "READING MATTER",
+      "words": [
+        {
+          "text": "script",
+          "kind": "word"
+        },
+        {
+          "text": "label",
+          "kind": "word"
+        },
+        {
+          "text": "comic",
+          "kind": "word"
+        },
+        {
+          "text": "recipe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "flying_animals",
+      "label": "FLYING ANIMALS",
+      "words": [
+        {
+          "text": "bat",
+          "kind": "word"
+        },
+        {
+          "text": "robin",
+          "kind": "word"
+        },
+        {
+          "text": "butterfly",
+          "kind": "word"
+        },
+        {
+          "text": "bee",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "boys_names",
+      "label": "BOYS NAMES",
+      "words": [
+        {
+          "text": "Matthew",
+          "kind": "word"
+        },
+        {
+          "text": "Benjamin",
+          "kind": "word"
+        },
+        {
+          "text": "Lucas",
+          "kind": "word"
+        },
+        {
+          "text": "Andrew",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "road_things",
+      "label": "ROAD THINGS",
+      "words": [
+        {
+          "text": "exit",
+          "kind": "word"
+        },
+        {
+          "text": "tunnel",
+          "kind": "word"
+        },
+        {
+          "text": "median",
+          "kind": "word"
+        },
+        {
+          "text": "bridge",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "party_things",
+      "label": "PARTY THINGS",
+      "words": [
+        {
+          "text": "candy",
+          "kind": "word"
+        },
+        {
+          "text": "banner",
+          "kind": "word"
+        },
+        {
+          "text": "guest",
+          "kind": "word"
+        },
+        {
+          "text": "favor",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "elements",
+      "label": "CHEMICAL ELEMENTS",
+      "words": [
+        {
+          "text": "oxygen",
+          "kind": "word"
+        },
+        {
+          "text": "carbon",
+          "kind": "word"
+        },
+        {
+          "text": "sodium",
+          "kind": "word"
+        },
+        {
+          "text": "iron",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "groups_of_people",
+      "label": "GROUPS OF PEOPLE",
+      "words": [
+        {
+          "text": "gang",
+          "kind": "word"
+        },
+        {
+          "text": "tribe",
+          "kind": "word"
+        },
+        {
+          "text": "mob",
+          "kind": "word"
+        },
+        {
+          "text": "squad",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

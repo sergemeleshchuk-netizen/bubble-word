@@ -1,0 +1,323 @@
+{
+  "level_id": 4,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 31,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "Halloween",
+        "category": "holidays"
+      },
+      {
+        "word": "feelings",
+        "category": "greeting_card"
+      },
+      {
+        "word": "banana",
+        "category": "fruits"
+      },
+      {
+        "word": "Samsung",
+        "category": "tech_companies"
+      },
+      {
+        "word": "rich",
+        "category": "taste_words"
+      },
+      {
+        "word": "sour",
+        "category": "taste_words"
+      },
+      {
+        "word": "shower",
+        "category": "weather_words"
+      },
+      {
+        "word": "Easter",
+        "category": "holidays"
+      },
+      {
+        "word": "stamp",
+        "category": "greeting_card"
+      },
+      {
+        "word": "Thanksgiving",
+        "category": "holidays"
+      },
+      {
+        "word": "peach",
+        "category": "fruits"
+      },
+      {
+        "word": "spouse",
+        "category": "family_members"
+      },
+      {
+        "word": "nose",
+        "category": "face_parts"
+      },
+      {
+        "word": "ear",
+        "category": "face_parts"
+      },
+      {
+        "word": "Christmas",
+        "category": "holidays"
+      },
+      {
+        "word": "Microsoft",
+        "category": "tech_companies"
+      },
+      {
+        "word": "envelope",
+        "category": "greeting_card"
+      },
+      {
+        "word": "cherry",
+        "category": "fruits"
+      },
+      {
+        "word": "storm",
+        "category": "weather_words"
+      },
+      {
+        "word": "cousin",
+        "category": "family_members"
+      },
+      {
+        "word": "bitter",
+        "category": "taste_words"
+      },
+      {
+        "word": "twin",
+        "category": "family_members"
+      },
+      {
+        "word": "cloud",
+        "category": "weather_words"
+      },
+      {
+        "word": "Sony",
+        "category": "tech_companies"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Amazon",
+        "category": "tech_companies"
+      },
+      {
+        "word": "lip",
+        "category": "face_parts"
+      },
+      {
+        "word": "aunt",
+        "category": "family_members"
+      },
+      {
+        "word": "hurricane",
+        "category": "weather_words"
+      },
+      {
+        "word": "orange",
+        "category": "fruits"
+      },
+      {
+        "word": "chin",
+        "category": "face_parts"
+      },
+      {
+        "word": "mild",
+        "category": "taste_words"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "holidays",
+      "label": "HOLIDAYS",
+      "words": [
+        {
+          "text": "Easter",
+          "kind": "word"
+        },
+        {
+          "text": "Thanksgiving",
+          "kind": "word"
+        },
+        {
+          "text": "Halloween",
+          "kind": "word"
+        },
+        {
+          "text": "Christmas",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "greeting_card",
+      "label": "GREETING CARD",
+      "words": [
+        {
+          "text": "holidays",
+          "kind": "meta",
+          "meta_child": "holidays"
+        },
+        {
+          "text": "stamp",
+          "kind": "word"
+        },
+        {
+          "text": "envelope",
+          "kind": "word"
+        },
+        {
+          "text": "feelings",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "taste_words",
+      "label": "TASTE WORDS",
+      "words": [
+        {
+          "text": "bitter",
+          "kind": "word"
+        },
+        {
+          "text": "mild",
+          "kind": "word"
+        },
+        {
+          "text": "sour",
+          "kind": "word"
+        },
+        {
+          "text": "rich",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "face_parts",
+      "label": "FACE PARTS",
+      "words": [
+        {
+          "text": "ear",
+          "kind": "word"
+        },
+        {
+          "text": "lip",
+          "kind": "word"
+        },
+        {
+          "text": "nose",
+          "kind": "word"
+        },
+        {
+          "text": "chin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_words",
+      "label": "WEATHER WORDS",
+      "words": [
+        {
+          "text": "cloud",
+          "kind": "word"
+        },
+        {
+          "text": "shower",
+          "kind": "word"
+        },
+        {
+          "text": "hurricane",
+          "kind": "word"
+        },
+        {
+          "text": "storm",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tech_companies",
+      "label": "TECH COMPANIES",
+      "words": [
+        {
+          "text": "Microsoft",
+          "kind": "word"
+        },
+        {
+          "text": "Samsung",
+          "kind": "word"
+        },
+        {
+          "text": "Amazon",
+          "kind": "word"
+        },
+        {
+          "text": "Sony",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "family_members",
+      "label": "FAMILY MEMBERS",
+      "words": [
+        {
+          "text": "aunt",
+          "kind": "word"
+        },
+        {
+          "text": "cousin",
+          "kind": "word"
+        },
+        {
+          "text": "twin",
+          "kind": "word"
+        },
+        {
+          "text": "spouse",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruits",
+      "label": "FRUITS",
+      "words": [
+        {
+          "text": "peach",
+          "kind": "word"
+        },
+        {
+          "text": "orange",
+          "kind": "word"
+        },
+        {
+          "text": "banana",
+          "kind": "word"
+        },
+        {
+          "text": "cherry",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

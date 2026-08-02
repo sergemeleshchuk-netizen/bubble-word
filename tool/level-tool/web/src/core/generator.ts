@@ -14,8 +14,9 @@
  *   5. мета-лес
  *   6. ловушки
  *   7. модификаторы
- *   8. счёт решений, валидация, оценки
- *   9. упорядоченное ослабление, если не сошлось
+ *   8. первая выкладка: состав поля на старте и очередь досыпки (core/deal.ts)
+ *   9. счёт решений, валидация, оценки
+ *  10. упорядоченное ослабление, если не сошлось
  */
 import type {
   BlockConfig,
@@ -25,9 +26,16 @@ import type {
 import { STATUS } from './types.ts';
 import { ContentIndex } from './snapshot.ts';
 import { createRng, type Rng } from './rng.ts';
+import { buildDeal } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
-export const GENERATOR_VERSION = 'gen-1.0';
+/**
+ * gen-1.0 — исходный алгоритм сборки.
+ * gen-1.1 — в уровень вошла первая выкладка (`spec.deal`): состав поля на старте
+ *           и очередь досыпки считает генератор, а не клиент. Хеши уровней
+ *           меняются, и обязаны: уровень с другой выкладкой — другой уровень.
+ */
+export const GENERATOR_VERSION = 'gen-1.1';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -139,8 +147,152 @@ interface PoolEntry {
 }
 
 /**
- * Слово проходит форму декады: число токенов, длина, порог для имён собственных.
- * Без гейтов пропускает всё — так ведёт себя пресет блока 201-210.
+ * Порог, ниже которого слово считается редким — рычагом сложности.
+ *
+ * Абсолютное значение 3.0 было верным, пока пола частотности не существовало.
+ * С полом (`minWordZipf` = 3.75) оно стало невыполнимым требованием: ни одно
+ * допущенное слово не бывает ниже 3.0, а таблица декад требует у декады 11
+ * от двух до пяти редких слов. Генератор честно сжигал 48 попыток и терял
+ * уровень — «редких наберём» и «редких не пускаем» противоречили друг другу.
+ *
+ * Поэтому редкость становится ОТНОСИТЕЛЬНОЙ: редкое слово — самое редкое из
+ * разрешённых, то есть попадающее в полосу шириной RARE_BAND над полом. Так и
+ * пол соблюдён, и калибровка декад по референсу сохраняет смысл — уровень
+ * по-прежнему опирается на менее частотный край словаря, просто край стал выше.
+ *
+ * Ширина полосы взята замером, а не на глаз. Первая попытка (0.35) дала полосу
+ * 3.75-4.10, а это 33% всех разрешённых слов: уровень из 48 слов набирал 15.7
+ * редких при цели 2-5, и генератор снова терял уровни — теперь на перевыполнении.
+ * Доля слов в полосе над полом 3.75 (всего разрешённых 4410):
+ *
+ *   +0.05 -> 198 слов (4.5%),  на уровне 48 слов  2.2
+ *   +0.10 -> 411 слов (9.3%),  на уровне          4.5   <- цель декад 2-5
+ *   +0.20 -> 837 слов (19%),   на уровне          9.1
+ *   +0.35 -> 1441 слово (33%), на уровне         15.7
+ *
+ * Отсюда 0.10: редкость снова редкость, а не низ разрешённого диапазона.
+ */
+const RARE_BAND = 0.10;
+const RARE_ZIPF_ABSOLUTE = 3.0;
+
+export function rareZipfCeiling(gates: DecadeGates | null): number {
+  if (!gates || !gates.minWordZipf) return RARE_ZIPF_ABSOLUTE;
+  return gates.minWordZipf + RARE_BAND;
+}
+
+/**
+ * Пол частотности для МЕТА-слова — ниже общего, и это не поблажка.
+ *
+ * Мета-слово это имя категории, которую игрок собрал сам минуту назад: четвёрка
+ * strawberry / blueberry / raspberry / cranberry превращается в пузырь `berries`,
+ * и чтобы его прочитать, держать слово в активном словаре не нужно — значение
+ * установлено ходом игры, а не словарём. Общий пол в этом месте вреден: он
+ * срезал 41% мета-рёбер (151 из 258), и срезал такие слова, как `aquarium` 3.56,
+ * `courtroom` 3.58, `berries` 3.57, `desserts` 3.31, `crafts` 3.73. Декада 11
+ * из-за этого приходила к концу с нулём мета-пар на двух уровнях и падала
+ * приёмкой META_RANGE.
+ *
+ * Пол 3.0 оставляет 229 рёбер из 258 (89%), а отсекает именно тёмное:
+ * `biomes` 2.33, `scrapbooking` 2.41, `beekeeper` 2.54, `crustaceans` 2.78,
+ * `houseplants` 2.15. То есть граница проходит там, где мета-слово перестаёт
+ * читаться даже после сборки четвёрки.
+ */
+const META_WORD_ZIPF = 3.0;
+
+/**
+ * Вес очевидности связи при отборе слов в четвёрку.
+ *
+ * Зачем понадобилось. До этого отбор внутри категории решался частотностью
+ * слова и ничем больше: поле `obviousness` в снимке было, но читали его только
+ * описание ловушек и оценка интереса. Результат разбирали на живом уровне —
+ * в SCHOOL SUBJECTS формула поставила chemistry / physics / economics / gym
+ * (ранги 1, 2, 4, 5 по близости к медиане декады), а math, history, science,
+ * English оказались внизу списка ЗА ТО, ЧТО СЛИШКОМ ЧАСТОТНЫЕ. Слово gym попало
+ * на поле не потому, что база сочла «физкультуру» очевидным школьным предметом,
+ * а потому, что его zipf 4.43 оказался в 0.08 от целевой медианы 4.35.
+ *
+ * Вес 0.9 — тот же, что у оси узнаваемости. Это заявление о равноправии двух
+ * осей: при равной очевидности решает частотность, при равной частотности —
+ * очевидность. Больший вес давать нельзя, пока база не заполнена: 74% категорий
+ * залиты одним значением на весь пул (измерено по снимку b9c962), и на них
+ * слагаемое всё равно вырождается в константу.
+ */
+const OBVIOUSNESS_WEIGHT = 0.9;
+
+/**
+ * Чем считать очевидность, если связи в индексе не нашлось.
+ *
+ * Медиана поля по approved-связям — 0.78 (по всем связям 0.75). Отбор смотрит
+ * только на approved, поэтому берётся 0.78. Ставить 0 значило бы отправлять
+ * такое слово в самый конец очереди, то есть наказывать за пробел в данных;
+ * ставить 1 — наоборот, выдавать пробел за уверенность. Медиана не делает ни
+ * того, ни другого. В оценке интереса (`scoringInterest.ts`) на этом же месте
+ * стоит 0.7 — расхождение оставлено намеренно: это разные решения, свести их
+ * в одну константу можно только замером, а замера пока нет.
+ */
+const OBVIOUSNESS_UNKNOWN = 0.78;
+
+/**
+ * Ширина шкалы узнаваемости при отборе слова — вниз и вверх от целевой медианы.
+ *
+ * Что было. Слово оценивалось по БЛИЗОСТИ к целевой медиане декады:
+ * `0.9 * (1 - |z - target| / 1.5)`, штраф симметричный. Медиана — свойство
+ * распределения уровня, а применялась как идеал к каждому отдельному слову.
+ * Последствие: самые расхожие слова категории проигрывают ЗА ТО, ЧТО СЛИШКОМ
+ * ЧАСТОТНЫЕ. В SCHOOL SUBJECTS декады 1-10 (цель 4.35) отбор выстроил
+ * chemistry 4.35, physics 4.39, economics 4.42, gym 4.43 — и отправил вниз
+ * списка math 4.45, science 5.12, English 5.19, history 5.39, music 5.52.
+ * На поле поехал `gym`.
+ *
+ * Почему нельзя было просто убрать верхнюю сторону штрафа. Замер: чисто
+ * монотонная шкала «чем узнаваемее, тем лучше» поднимает медиану блока до
+ * 4.5-4.6 и выносит ZIPF_BLOCK_MEDIAN на всех 20 декадах. Это арифметика, а
+ * не настройка: пол частотности 3.75 уже срезал нижний хвост распределения,
+ * и держать референсную медиану приходится верхом. Референс держит её
+ * РАЗБРОСОМ — часть слов 5.4, часть 3.3; запретив низ, мы вынудили генератор
+ * срезать верх. По-настоящему это лечится либо порогом, либо переносом
+ * контроля над распределением в квоты (как уже сделано для редких слов), но
+ * и то и другое — решение не генератора.
+ *
+ * Что сделано. Штраф стал АСИММЕТРИЧНЫМ: вниз от медианы прежняя ширина 1.5,
+ * вверх — 2.1. Число выбрано перебором по всем 20 декадам как наибольшее,
+ * которое не добавляет ни одного отказа приёмки:
+ *
+ *   вверх 1.5 (как было): мимо медианы 5 декад, худший перебор допуска 168%
+ *   вверх 1.8:            мимо 5, 169%
+ *   вверх 2.1:            мимо 5, 173%   <- взято
+ *   вверх 2.5:            мимо 6, 174%   (добавляется декада 171-180)
+ *   вверх 3.0:            мимо 7, 184%   (добавляются 41-50 и 171-180)
+ *
+ * Цена — 5 пунктов допуска, выигрыш — состав четвёрки меняется у 484 категорий
+ * из 1718 (28%): `rack` → `chair` в FURNITURE, `mint` → `chocolate` в CANDY,
+ * `Stanley Cup` → `NBA` в SPORTS LEAGUES, `dawn` → `Tuesday` в DAYS AND PARTS
+ * OF DAY. Плюс собирается больше уровней: пул перестал упираться в узкую
+ * полосу вокруг медианы.
+ *
+ * Пять декад, что мимо медианы (31, 121, 151, 161, 181), были мимо и до
+ * правки: их цели 3.70-3.85 лежат ниже того, что пул над полом 3.75 даёт
+ * выжать. Это отдельный долг, здесь он не чинится и не усугубляется.
+ */
+const RECOGNITION_SPAN_BELOW = 1.5;
+const RECOGNITION_SPAN_ABOVE = 2.1;
+
+function recognitionScore(z: number, gates: DecadeGates): number {
+  const target = gates.zipfMedianTarget;
+  const penalty = z >= target
+    ? (z - target) / RECOGNITION_SPAN_ABOVE
+    : (target - z) / RECOGNITION_SPAN_BELOW;
+  return Math.max(0, 1 - penalty);
+}
+
+function metaGates(gates: DecadeGates | null): DecadeGates | null {
+  if (!gates || gates.minWordZipf <= META_WORD_ZIPF) return gates;
+  return { ...gates, minWordZipf: META_WORD_ZIPF };
+}
+
+/**
+ * Слово проходит форму декады: число токенов, длина, порог для имён собственных
+ * и пол частотности. Без гейтов пропускает всё — так ведёт себя пресет 201-210.
  */
 export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGates | null): boolean {
   if (!gates) return true;
@@ -148,6 +300,15 @@ export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGa
   if (w.tok > gates.maxTokens) return false;
   if (w.t.replace(/\s/g, '').length > gates.maxWordLen) return false;
   if (w.p === 1 && (w.z === null || w.z < gates.minProperNounZipf)) return false;
+  /**
+   * Пол частотности — см. `minWordZipf` в DecadeGates.
+   *
+   * Слово без посчитанной частотности (`z === null`, таких в базе 28) пол не
+   * проходит: пропускать его значило бы вернуть ту же дырку, из-за которой
+   * редкие слова оказывались на поле незамеченными. Пусть лучше 28 слов не
+   * попадут в уровень, чем пол окажется необязательным.
+   */
+  if (gates.minWordZipf > 0 && (w.z === null || w.z < gates.minWordZipf)) return false;
   return true;
 }
 
@@ -214,9 +375,10 @@ function buildPool(
     if (approved.length < 4) continue;
 
     const frequentCount = approved.filter((w) => index.isQuickwinWord(w)).length;
+    const rareCeiling = rareZipfCeiling(c.gates);
     const rareCount = approved.filter((w) => {
       const z = index.zipf(w);
-      return z !== null && z < 3.0;
+      return z !== null && z < rareCeiling;
     }).length;
 
     const top4 = approved
@@ -271,7 +433,7 @@ export function possibleMetaEdges(
     // «school subjects» на уровне 1-10 нарушает форму декады ровно так же, как
     // обычное двусловное слово. Без этого фильтра гейты ловили мета-слова
     // уже в валидаторе, и уровень уходил в отказ на 24-й попытке
-    if (!wordFitsGates(index, capable.word, gates)) continue;
+    if (!wordFitsGates(index, capable.word, metaGates(gates))) continue;
     for (const host of capable.hosts) {
       if (!inSet.has(host) || host === cat) continue;
       edges.push({ child: cat, parent: host, word: capable.word });
@@ -650,6 +812,26 @@ function assignWords(
   let unrecognizableUsed = 0;
   let rareUsed = 0;
 
+  /**
+   * Очевидность связи «слово → эта категория», разложенная по словам.
+   *
+   * Считается лениво и один раз на категорию: `orderCandidates` вызывается на
+   * каждом узле перебора, а связей у категории до 28 — линейный поиск в цикле
+   * решателя обошёлся бы дороже самой сортировки.
+   */
+  const obviousnessCache = new Map<number, Map<number, number>>();
+  const obviousnessIn = (cat: number): Map<number, number> => {
+    let map = obviousnessCache.get(cat);
+    if (!map) {
+      map = new Map<number, number>();
+      for (const m of index.categoryMemberships(cat, STATUS.approved)) {
+        map.set(m.word, m.obviousness);
+      }
+      obviousnessCache.set(cat, map);
+    }
+    return map;
+  };
+
   const candidatesFor = (cat: number): number[] => {
     const chosen = assignment.get(cat) ?? [];
     const chosenNorms = chosen.map((w) => index.words[w].n);
@@ -687,27 +869,34 @@ function assignWords(
   const orderCandidates = (cat: number, candidates: number[]): number[] => {
     const rareNeeded = c.rareTarget - rareUsed;
     const isQuickwin = cat === quickwinCat;
+    const obviousness = obviousnessIn(cat);
     return candidates
       .map((w) => {
         const z = index.zipf(w);
-        const isRare = z !== null && z < 3.0;
+        const isRare = z !== null && z < rareZipfCeiling(c.gates);
         let score = rng.stableWeight(`${cat}:${w}`) * 0.25;
         if (!isQuickwin && rareNeeded > 0 && isRare) score += 0.6;
         if (rareNeeded <= 0 && isRare) score -= 0.5;
         /**
-         * Предпочтение по узнаваемости.
+         * Предпочтение по очевидности связи — см. OBVIOUSNESS_WEIGHT.
          *
-         * Без гейтов декады это слабый тай-брейкер «при прочих равных — понятнее»
-         * (вес 0.02). С гейтами узнаваемость становится главной осью: у декады
-         * есть целевая медиана zipf, и слово тем ценнее, чем ближе оно к ней
-         * сверху. Вес 0.9 подобран так, чтобы обгонять бонус за новизну (0.15),
-         * но не перебивать добор редких слов (0.6): 1-2 редких слова на уровень —
-         * тоже требование декады, а не случайность.
+         * Сравниваются только слова ОДНОЙ категории, поэтому постоянная часть
+         * слагаемого на порядок не влияет: работает исключительно разброс
+         * внутри пула. В категории, залитой одним значением, слагаемое —
+         * константа, и порядок не меняется вовсе. Это правильное поведение:
+         * там, где база ничего не различила, генератору нечего предпочитать.
+         */
+        score += OBVIOUSNESS_WEIGHT * (obviousness.get(w) ?? OBVIOUSNESS_UNKNOWN);
+        /**
+         * Предпочтение по узнаваемости — см. RECOGNITION_SPAN.
+         *
+         * Без гейтов декады это слабый тай-брейкер «при прочих равных —
+         * понятнее» (вес 0.02): целевого распределения нет, шкалу не от чего
+         * отсчитывать. С гейтами узнаваемость меряется от пола частотности.
          */
         if (z !== null) {
           if (c.gates) {
-            const target = c.gates.zipfMedianTarget;
-            score += 0.9 * Math.max(0, 1 - Math.abs(z - target) / 1.5);
+            score += 0.9 * recognitionScore(z, c.gates);
           } else {
             score += Math.min(z, 6) * 0.02;       // при прочих равных — понятнее
           }
@@ -751,7 +940,7 @@ function assignWords(
       used.add(word);
       const wasUnrecognizable = !index.isRecognizable(word);
       const z = index.zipf(word);
-      const wasRare = z !== null && z < 3.0;
+      const wasRare = z !== null && z < rareZipfCeiling(c.gates);
       if (wasUnrecognizable) unrecognizableUsed += 1;
       if (wasRare) rareUsed += 1;
 
@@ -930,7 +1119,7 @@ function buildLevelSpec(
 
   const spec: LevelSpec = {
     levelId: plan.levelId,
-    schemaVersion: '2.0',
+    schemaVersion: '2.1',
     board: {
       categoriesCount: categories.length,
       wordsPerCategory,
@@ -943,6 +1132,10 @@ function buildLevelSpec(
       moveLimitPolicy: 'conservative',
     },
     categories,
+    // выкладка считается здесь, а не в прототипе: см. core/deal.ts
+    deal: buildDeal(plan.levelId, categories, {
+      boardCapacity: BOARD_CAPACITY, wordsPerCategory,
+    }),
     traps: traps.slice(0, Math.max(plan.trapTarget, traps.length > 0 ? 1 : 0)),
     halves: [],
     modifiers: { chains, frozenBubbles: [], hiddenBubbles: [] },

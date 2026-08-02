@@ -243,9 +243,22 @@ const DEFAULT_TARGETS=[
  {v:'MAGIC',     ex:['WAND','POTION','SPELL','CAULDRON']},
 ];
 let TARGETS=DEFAULT_TARGETS;
-let START_COUNTS=[4,3,3,3,2,2,2]; /* сколько слов первых категорий лежит на поле */
-let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=19, NO_LIMIT=false;
+/* Сколько слов каждой категории лежит на поле у встроенного демо-контента:
+   полная четвёрка первой категории плюс понемногу от остальных, всего 24 —
+   столько же, сколько на настоящем уровне. Раньше здесь было 19, и демо
+   выглядело разреженнее любого уровня из пакета. */
+let START_COUNTS=[4,2,2,2,2,2,2,2,2,2,1,1];
+/* Вместимость поля: сколько пузырей видно одновременно. 24 — замер целевой игры
+   (TARGET_GAME_OBSERVATIONS §2), то же число стоит в BOARD_CAPACITY инструмента.
+   Раньше здесь было 19, взятое из встроенного демо-контента, и уровень в проверке
+   выглядел разреженнее, чем он есть. */
+const BOARD_CAPACITY=24;
+let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=BOARD_CAPACITY, NO_LIMIT=false;
 let METAW=new Set(); /* мета-слова уровня: не спавнятся, приходят превращением четвёрки */
+/* Выкладка от генератора: [{v:имя категории, e:слово}]. null — генератор её не
+   прислал (демо-контент, старый пакет), тогда состав считается на месте
+   по START_COUNTS, а порядок тасуется. См. комментарий в applyDeal. */
+let DEAL=null;
 function applyContent(){ FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length); CATS_TOTAL=TARGETS.length; }
 applyContent();
 
@@ -272,24 +285,68 @@ function applyLevel(L){
   const board=L.board||{};
   NO_LIMIT=(board.move_limit==null);
   MOVES_START=NO_LIMIT?total*3:board.move_limit;
-  FIELD_TARGET=Math.min(board.start_bubbles||19,total);
-  /* старт: первой полную четвёрку получает категория без мета-слов,
-     остальным раздаём почти поровну (не выше числа спавнящихся слов) */
-  const spawnable=TARGETS.map(t=>t.ex.filter(w=>!METAW.has(w)).length);
-  const order=[...TARGETS.keys()];
-  const ff=spawnable.findIndex(n=>n===4);
-  if(ff>0){order.splice(ff,1);order.unshift(ff);}
-  START_COUNTS=new Array(M).fill(0);
-  if(ff>=0) START_COUNTS[order[0]]=4;
-  let left=FIELD_TARGET-(ff>=0?4:0), i=(ff>=0?1:0);
-  let guard=10*M;
-  while(left>0&&guard-->0){
-    const ci=order[i%M];
-    if(START_COUNTS[ci]<Math.min(4,spawnable[ci])){START_COUNTS[ci]++;left--;}
-    i++;
+  const capacity=board.board_capacity||BOARD_CAPACITY;
+  FIELD_TARGET=Math.min(board.start_bubbles||capacity,capacity,total);
+  DEAL=applyDeal(L);
+  if(DEAL){
+    FIELD_TARGET=DEAL.start.length;
+  }else{
+    /* старт: первой полную четвёрку получает категория без мета-слов,
+       остальным раздаём почти поровну (не выше числа спавнящихся слов) */
+    const spawnable=TARGETS.map(t=>t.ex.filter(w=>!METAW.has(w)).length);
+    const order=[...TARGETS.keys()];
+    const ff=spawnable.findIndex(n=>n===4);
+    if(ff>0){order.splice(ff,1);order.unshift(ff);}
+    START_COUNTS=new Array(M).fill(0);
+    if(ff>=0) START_COUNTS[order[0]]=4;
+    let left=FIELD_TARGET-(ff>=0?4:0), i=(ff>=0?1:0);
+    let guard=10*M;
+    while(left>0&&guard-->0){
+      const ci=order[i%M];
+      if(START_COUNTS[ci]<Math.min(4,spawnable[ci])){START_COUNTS[ci]++;left--;}
+      i++;
+    }
   }
   applyContent();
   document.getElementById('lvl').textContent='LVL '+(L.level_id||1);
+}
+
+/* ===== выкладка от генератора ==============================================
+   Что лежит на поле на старте и в каком порядке приходит досыпка — считает
+   генератор (tool/level-tool/web/src/core/deal.ts) и присылает вместе с уровнем.
+   Прототип её ИСПОЛНЯЕТ. Своей случайности здесь больше нет: раньше слова
+   тасовались через Math.random при каждом заходе, и один и тот же уровень у двух
+   проверяющих выглядел по-разному. Наигровка руками в таких условиях ничего не
+   доказывает — непонятно, уровень тяжёлый или выкладка не повезла.
+
+   Проверяем состав перед тем, как принять: выкладка обязана раздать каждое
+   спавнящееся слово ровно один раз. Не сошлось — считаем сами и говорим об этом
+   в консоль, потому что молча сыграть в другой уровень хуже, чем сыграть в свой
+   со случайной выкладкой. */
+function applyDeal(L){
+  const d=L.deal;
+  if(!d||!Array.isArray(d.start)||!Array.isArray(d.queue)) return null;
+  const byId={}; (L.categories||[]).forEach(c=>byId[c.id]=c.name.toUpperCase());
+  const need={};
+  TARGETS.forEach(t=>t.ex.forEach(w=>{ if(!METAW.has(w)) need[t.v+'::'+w]=(need[t.v+'::'+w]||0)+1; }));
+  const start=[],queue=[];
+  let bad=null;
+  [[d.start,start],[d.queue,queue]].forEach(([src,dst])=>src.forEach(b=>{
+    const v=byId[b.category];
+    const e=String(b.word||'').toUpperCase();
+    if(v===undefined){ bad=bad||('нет категории '+b.category); return; }
+    const key=v+'::'+e;
+    if(!need[key]){ bad=bad||('лишний пузырь '+key); return; }
+    need[key]--;
+    dst.push({v:v,e:e});
+  }));
+  const missing=Object.keys(need).filter(k=>need[k]>0);
+  if(missing.length) bad=bad||('не роздано: '+missing.slice(0,3).join(', '));
+  if(bad){
+    console.warn('[playable] выкладка уровня не сошлась ('+bad+') — раскладываю сам');
+    return null;
+  }
+  return {start:start,queue:queue};
 }
 const W=390,H=600;
 /* сколько собранная категория стоит на поле с открытым именем перед уничтожением */
@@ -476,16 +533,26 @@ function init(){
   chainY=null; chainNeed=0; chainDown=true; halfPairs=0;
   chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
-  const start=[]; queue=[];
-  TARGETS.forEach((t,ti)=>{
-    const ex=t.ex.filter(e=>!METAW.has(e)); /* мета-слова не кладём ни на поле, ни в очередь */
-    for(let i=ex.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ex[i],ex[j]]=[ex[j],ex[i]];}
-    const k=ti<START_COUNTS.length?START_COUNTS[ti]:0;
-    ex.forEach((e,i)=>(i<k?start:queue).push({v:t.v,e}));
-  });
-  for(let i=start.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[start[i],start[j]]=[start[j],start[i]];}
-  for(let i=queue.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]];}
+  let start=[]; queue=[];
+  if(DEAL){
+    /* выкладка от генератора: копии, потому что партию можно перезапустить,
+       а исходные массивы обязаны пережить перезапуск нетронутыми */
+    start=DEAL.start.map(it=>({v:it.v,e:it.e}));
+    queue=DEAL.queue.map(it=>({v:it.v,e:it.e}));
+  }else{
+    TARGETS.forEach((t,ti)=>{
+      const ex=t.ex.filter(e=>!METAW.has(e)); /* мета-слова не кладём ни на поле, ни в очередь */
+      for(let i=ex.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ex[i],ex[j]]=[ex[j],ex[i]];}
+      const k=ti<START_COUNTS.length?START_COUNTS[ti]:0;
+      ex.forEach((e,i)=>(i<k?start:queue).push({v:t.v,e}));
+    });
+    for(let i=start.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[start[i],start[j]]=[start[j],start[i]];}
+    for(let i=queue.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]];}
+  }
   if(MOD==='halves') halfPairs=splitHalves(start);
+  /* КООРДИНАТЫ пока свои: в выкладку они ещё не входят (следующий шаг), поэтому
+     раскладка по полю остаётся случайной, а вот СОСТАВ поля и порядок досыпки —
+     ровно те, что посчитал генератор. */
   start.forEach((it,i)=>
     makeBubble(it.v,it.e, 46+Math.random()*(W-92), H-66-Math.floor(i/5)*80-Math.random()*30,
                it.half?{half:it.half}:null));

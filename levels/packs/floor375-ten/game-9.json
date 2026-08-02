@@ -1,0 +1,361 @@
+{
+  "level_id": 9,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 35,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "humidity",
+        "category": "weather_report"
+      },
+      {
+        "word": "copper",
+        "category": "metals"
+      },
+      {
+        "word": "spring",
+        "category": "seasons"
+      },
+      {
+        "word": "opera",
+        "category": "music_genres"
+      },
+      {
+        "word": "tin",
+        "category": "metals"
+      },
+      {
+        "word": "empire",
+        "category": "royalty"
+      },
+      {
+        "word": "duke",
+        "category": "royalty"
+      },
+      {
+        "word": "steel",
+        "category": "metals"
+      },
+      {
+        "word": "winter",
+        "category": "seasons"
+      },
+      {
+        "word": "radar",
+        "category": "weather_report"
+      },
+      {
+        "word": "grill",
+        "category": "places_to_eat"
+      },
+      {
+        "word": "palace",
+        "category": "royalty"
+      },
+      {
+        "word": "summer",
+        "category": "seasons"
+      },
+      {
+        "word": "pile",
+        "category": "quantity_words"
+      },
+      {
+        "word": "dozens",
+        "category": "quantity_words"
+      },
+      {
+        "word": "symbol",
+        "category": "map_words"
+      },
+      {
+        "word": "Autumn",
+        "category": "seasons"
+      },
+      {
+        "word": "buffalo",
+        "category": "american_east_cities"
+      },
+      {
+        "word": "pub",
+        "category": "places_to_eat"
+      },
+      {
+        "word": "bunch",
+        "category": "quantity_words"
+      },
+      {
+        "word": "folk",
+        "category": "music_genres"
+      },
+      {
+        "word": "Portland",
+        "category": "american_east_cities"
+      },
+      {
+        "word": "route",
+        "category": "map_words"
+      },
+      {
+        "word": "legend",
+        "category": "map_words"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Philadelphia",
+        "category": "american_east_cities"
+      },
+      {
+        "word": "forecast",
+        "category": "weather_report"
+      },
+      {
+        "word": "castle",
+        "category": "royalty"
+      },
+      {
+        "word": "cafe",
+        "category": "places_to_eat"
+      },
+      {
+        "word": "handful",
+        "category": "quantity_words"
+      },
+      {
+        "word": "border",
+        "category": "map_words"
+      },
+      {
+        "word": "restaurant",
+        "category": "places_to_eat"
+      },
+      {
+        "word": "classical",
+        "category": "music_genres"
+      },
+      {
+        "word": "brass",
+        "category": "metals"
+      },
+      {
+        "word": "Baltimore",
+        "category": "american_east_cities"
+      },
+      {
+        "word": "blues",
+        "category": "music_genres"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "seasons",
+      "label": "SEASONS",
+      "words": [
+        {
+          "text": "Autumn",
+          "kind": "word"
+        },
+        {
+          "text": "winter",
+          "kind": "word"
+        },
+        {
+          "text": "spring",
+          "kind": "word"
+        },
+        {
+          "text": "summer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_report",
+      "label": "WEATHER REPORT",
+      "words": [
+        {
+          "text": "seasons",
+          "kind": "meta",
+          "meta_child": "seasons"
+        },
+        {
+          "text": "humidity",
+          "kind": "word"
+        },
+        {
+          "text": "forecast",
+          "kind": "word"
+        },
+        {
+          "text": "radar",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "places_to_eat",
+      "label": "PLACES TO EAT",
+      "words": [
+        {
+          "text": "pub",
+          "kind": "word"
+        },
+        {
+          "text": "restaurant",
+          "kind": "word"
+        },
+        {
+          "text": "cafe",
+          "kind": "word"
+        },
+        {
+          "text": "grill",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "metals",
+      "label": "METALS",
+      "words": [
+        {
+          "text": "copper",
+          "kind": "word"
+        },
+        {
+          "text": "brass",
+          "kind": "word"
+        },
+        {
+          "text": "steel",
+          "kind": "word"
+        },
+        {
+          "text": "tin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "royalty",
+      "label": "ROYAL WORDS",
+      "words": [
+        {
+          "text": "duke",
+          "kind": "word"
+        },
+        {
+          "text": "palace",
+          "kind": "word"
+        },
+        {
+          "text": "empire",
+          "kind": "word"
+        },
+        {
+          "text": "castle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "american_east_cities",
+      "label": "EAST COAST",
+      "words": [
+        {
+          "text": "Portland",
+          "kind": "word"
+        },
+        {
+          "text": "buffalo",
+          "kind": "word"
+        },
+        {
+          "text": "Baltimore",
+          "kind": "word"
+        },
+        {
+          "text": "Philadelphia",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "music_genres",
+      "label": "MUSIC GENRES",
+      "words": [
+        {
+          "text": "blues",
+          "kind": "word"
+        },
+        {
+          "text": "classical",
+          "kind": "word"
+        },
+        {
+          "text": "folk",
+          "kind": "word"
+        },
+        {
+          "text": "opera",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "quantity_words",
+      "label": "QUANTITY WORDS",
+      "words": [
+        {
+          "text": "handful",
+          "kind": "word"
+        },
+        {
+          "text": "pile",
+          "kind": "word"
+        },
+        {
+          "text": "bunch",
+          "kind": "word"
+        },
+        {
+          "text": "dozens",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "map_words",
+      "label": "MAP WORDS",
+      "words": [
+        {
+          "text": "legend",
+          "kind": "word"
+        },
+        {
+          "text": "route",
+          "kind": "word"
+        },
+        {
+          "text": "border",
+          "kind": "word"
+        },
+        {
+          "text": "symbol",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

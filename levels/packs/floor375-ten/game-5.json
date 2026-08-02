@@ -1,0 +1,478 @@
+{
+  "level_id": 5,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 48,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "telephone",
+        "category": "inventions"
+      },
+      {
+        "word": "chocolate",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "volleyball",
+        "category": "sports_balls"
+      },
+      {
+        "word": "gulf",
+        "category": "bodies_of_water"
+      },
+      {
+        "word": "clay",
+        "category": "crafting_materials"
+      },
+      {
+        "word": "canal",
+        "category": "bodies_of_water"
+      },
+      {
+        "word": "bull",
+        "category": "farm_animals"
+      },
+      {
+        "word": "butter",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "vaccine",
+        "category": "inventions"
+      },
+      {
+        "word": "mile",
+        "category": "things_measured_in_inches"
+      },
+      {
+        "word": "forward",
+        "category": "directions"
+      },
+      {
+        "word": "fabric",
+        "category": "crafting_materials"
+      },
+      {
+        "word": "Netherlands",
+        "category": "european_countries"
+      },
+      {
+        "word": "cow",
+        "category": "farm_animals"
+      },
+      {
+        "word": "Moscow",
+        "category": "world_capitals"
+      },
+      {
+        "word": "across",
+        "category": "directions"
+      },
+      {
+        "word": "Berlin",
+        "category": "world_capitals"
+      },
+      {
+        "word": "slate",
+        "category": "rocks_and_minerals"
+      },
+      {
+        "word": "Switzerland",
+        "category": "european_countries"
+      },
+      {
+        "word": "soda",
+        "category": "liquids"
+      },
+      {
+        "word": "football",
+        "category": "sports_balls"
+      },
+      {
+        "word": "baseball",
+        "category": "sports_balls"
+      },
+      {
+        "word": "basketball",
+        "category": "sports_balls"
+      },
+      {
+        "word": "coal",
+        "category": "rocks_and_minerals"
+      }
+    ],
+    "queue": [
+      {
+        "word": "pig",
+        "category": "farm_animals"
+      },
+      {
+        "word": "stream",
+        "category": "bodies_of_water"
+      },
+      {
+        "word": "wire",
+        "category": "crafting_materials"
+      },
+      {
+        "word": "polish",
+        "category": "liquids"
+      },
+      {
+        "word": "harbor",
+        "category": "bodies_of_water"
+      },
+      {
+        "word": "Italy",
+        "category": "european_countries"
+      },
+      {
+        "word": "inch",
+        "category": "things_measured_in_inches"
+      },
+      {
+        "word": "ton",
+        "category": "things_measured_in_inches"
+      },
+      {
+        "word": "pound",
+        "category": "things_measured_in_inches"
+      },
+      {
+        "word": "television",
+        "category": "inventions"
+      },
+      {
+        "word": "juice",
+        "category": "liquids"
+      },
+      {
+        "word": "honey",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "Madrid",
+        "category": "world_capitals"
+      },
+      {
+        "word": "near",
+        "category": "directions"
+      },
+      {
+        "word": "limestone",
+        "category": "rocks_and_minerals"
+      },
+      {
+        "word": "salt",
+        "category": "rocks_and_minerals"
+      },
+      {
+        "word": "string",
+        "category": "crafting_materials"
+      },
+      {
+        "word": "beside",
+        "category": "directions"
+      },
+      {
+        "word": "Poland",
+        "category": "european_countries"
+      },
+      {
+        "word": "battery",
+        "category": "inventions"
+      },
+      {
+        "word": "sheep",
+        "category": "farm_animals"
+      },
+      {
+        "word": "sugar",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "Tokyo",
+        "category": "world_capitals"
+      },
+      {
+        "word": "soap",
+        "category": "liquids"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "sports_balls",
+      "label": "BALLS",
+      "words": [
+        {
+          "text": "baseball",
+          "kind": "word"
+        },
+        {
+          "text": "basketball",
+          "kind": "word"
+        },
+        {
+          "text": "volleyball",
+          "kind": "word"
+        },
+        {
+          "text": "football",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_animals",
+      "label": "FARM ANIMALS",
+      "words": [
+        {
+          "text": "bull",
+          "kind": "word"
+        },
+        {
+          "text": "sheep",
+          "kind": "word"
+        },
+        {
+          "text": "cow",
+          "kind": "word"
+        },
+        {
+          "text": "pig",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "crafting_materials",
+      "label": "CRAFT MATERIALS",
+      "words": [
+        {
+          "text": "string",
+          "kind": "word"
+        },
+        {
+          "text": "clay",
+          "kind": "word"
+        },
+        {
+          "text": "fabric",
+          "kind": "word"
+        },
+        {
+          "text": "wire",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "directions",
+      "label": "DIRECTIONS",
+      "words": [
+        {
+          "text": "beside",
+          "kind": "word"
+        },
+        {
+          "text": "forward",
+          "kind": "word"
+        },
+        {
+          "text": "near",
+          "kind": "word"
+        },
+        {
+          "text": "across",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "things_measured_in_inches",
+      "label": "MEASURING UNITS",
+      "words": [
+        {
+          "text": "pound",
+          "kind": "word"
+        },
+        {
+          "text": "ton",
+          "kind": "word"
+        },
+        {
+          "text": "mile",
+          "kind": "word"
+        },
+        {
+          "text": "inch",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "inventions",
+      "label": "INVENTIONS",
+      "words": [
+        {
+          "text": "telephone",
+          "kind": "word"
+        },
+        {
+          "text": "battery",
+          "kind": "word"
+        },
+        {
+          "text": "vaccine",
+          "kind": "word"
+        },
+        {
+          "text": "television",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "european_countries",
+      "label": "EUROPEAN COUNTRIES",
+      "words": [
+        {
+          "text": "Poland",
+          "kind": "word"
+        },
+        {
+          "text": "Switzerland",
+          "kind": "word"
+        },
+        {
+          "text": "Netherlands",
+          "kind": "word"
+        },
+        {
+          "text": "Italy",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "world_capitals",
+      "label": "WORLD CAPITALS",
+      "words": [
+        {
+          "text": "Madrid",
+          "kind": "word"
+        },
+        {
+          "text": "Tokyo",
+          "kind": "word"
+        },
+        {
+          "text": "Berlin",
+          "kind": "word"
+        },
+        {
+          "text": "Moscow",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baking_ingredients",
+      "label": "BAKING INGREDIENTS",
+      "words": [
+        {
+          "text": "chocolate",
+          "kind": "word"
+        },
+        {
+          "text": "butter",
+          "kind": "word"
+        },
+        {
+          "text": "honey",
+          "kind": "word"
+        },
+        {
+          "text": "sugar",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "rocks_and_minerals",
+      "label": "ROCKS AND MINERALS",
+      "words": [
+        {
+          "text": "limestone",
+          "kind": "word"
+        },
+        {
+          "text": "slate",
+          "kind": "word"
+        },
+        {
+          "text": "coal",
+          "kind": "word"
+        },
+        {
+          "text": "salt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "liquids",
+      "label": "LIQUIDS",
+      "words": [
+        {
+          "text": "polish",
+          "kind": "word"
+        },
+        {
+          "text": "juice",
+          "kind": "word"
+        },
+        {
+          "text": "soda",
+          "kind": "word"
+        },
+        {
+          "text": "soap",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "bodies_of_water",
+      "label": "BODIES OF WATER",
+      "words": [
+        {
+          "text": "gulf",
+          "kind": "word"
+        },
+        {
+          "text": "harbor",
+          "kind": "word"
+        },
+        {
+          "text": "stream",
+          "kind": "word"
+        },
+        {
+          "text": "canal",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

@@ -1,0 +1,434 @@
+{
+  "level_id": 7,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 11,
+    "words_per_category": 4,
+    "start_bubbles": 42,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "Venus",
+        "category": "planets"
+      },
+      {
+        "word": "globe",
+        "category": "geography_class"
+      },
+      {
+        "word": "capitol",
+        "category": "field_trip_places"
+      },
+      {
+        "word": "brush",
+        "category": "art_supplies"
+      },
+      {
+        "word": "galaxy",
+        "category": "deep_space"
+      },
+      {
+        "word": "mercury",
+        "category": "planets"
+      },
+      {
+        "word": "canvas",
+        "category": "art_supplies"
+      },
+      {
+        "word": "Earth",
+        "category": "planets"
+      },
+      {
+        "word": "apple",
+        "category": "pie_ingredients"
+      },
+      {
+        "word": "fifty",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "stars",
+        "category": "deep_space"
+      },
+      {
+        "word": "rivers",
+        "category": "geography_class"
+      },
+      {
+        "word": "Mars",
+        "category": "planets"
+      },
+      {
+        "word": "client",
+        "category": "relationships"
+      },
+      {
+        "word": "lemon",
+        "category": "pie_ingredients"
+      },
+      {
+        "word": "quarter",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "gallery",
+        "category": "field_trip_places"
+      },
+      {
+        "word": "jam",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "cricket",
+        "category": "team_sports"
+      },
+      {
+        "word": "rice",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "Superior",
+        "category": "world_lakes"
+      },
+      {
+        "word": "hockey",
+        "category": "team_sports"
+      },
+      {
+        "word": "stranger",
+        "category": "relationships"
+      },
+      {
+        "word": "Victoria",
+        "category": "world_lakes"
+      }
+    ],
+    "queue": [
+      {
+        "word": "penny",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "bacon",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "coin",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "paint",
+        "category": "art_supplies"
+      },
+      {
+        "word": "rugby",
+        "category": "team_sports"
+      },
+      {
+        "word": "theater",
+        "category": "field_trip_places"
+      },
+      {
+        "word": "ink",
+        "category": "art_supplies"
+      },
+      {
+        "word": "cream",
+        "category": "pie_ingredients"
+      },
+      {
+        "word": "soccer",
+        "category": "team_sports"
+      },
+      {
+        "word": "Ally",
+        "category": "relationships"
+      },
+      {
+        "word": "Michigan",
+        "category": "world_lakes"
+      },
+      {
+        "word": "rival",
+        "category": "relationships"
+      },
+      {
+        "word": "islands",
+        "category": "geography_class"
+      },
+      {
+        "word": "egg",
+        "category": "pie_ingredients"
+      },
+      {
+        "word": "bread",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "moon",
+        "category": "deep_space"
+      },
+      {
+        "word": "Ontario",
+        "category": "world_lakes"
+      },
+      {
+        "word": "zoo",
+        "category": "field_trip_places"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "planets",
+      "label": "PLANETS",
+      "words": [
+        {
+          "text": "Venus",
+          "kind": "word"
+        },
+        {
+          "text": "Mars",
+          "kind": "word"
+        },
+        {
+          "text": "mercury",
+          "kind": "word"
+        },
+        {
+          "text": "Earth",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "deep_space",
+      "label": "DEEP SPACE",
+      "words": [
+        {
+          "text": "planets",
+          "kind": "meta",
+          "meta_child": "planets"
+        },
+        {
+          "text": "galaxy",
+          "kind": "word"
+        },
+        {
+          "text": "stars",
+          "kind": "word"
+        },
+        {
+          "text": "moon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "world_lakes",
+      "label": "LAKES",
+      "words": [
+        {
+          "text": "Ontario",
+          "kind": "word"
+        },
+        {
+          "text": "Superior",
+          "kind": "word"
+        },
+        {
+          "text": "Victoria",
+          "kind": "word"
+        },
+        {
+          "text": "Michigan",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "geography_class",
+      "label": "GEOGRAPHY CLASS",
+      "words": [
+        {
+          "text": "lakes",
+          "kind": "meta",
+          "meta_child": "world_lakes"
+        },
+        {
+          "text": "rivers",
+          "kind": "word"
+        },
+        {
+          "text": "globe",
+          "kind": "word"
+        },
+        {
+          "text": "islands",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "field_trip_places",
+      "label": "FIELD TRIPS",
+      "words": [
+        {
+          "text": "gallery",
+          "kind": "word"
+        },
+        {
+          "text": "theater",
+          "kind": "word"
+        },
+        {
+          "text": "zoo",
+          "kind": "word"
+        },
+        {
+          "text": "capitol",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "team_sports",
+      "label": "TEAM SPORTS",
+      "words": [
+        {
+          "text": "hockey",
+          "kind": "word"
+        },
+        {
+          "text": "rugby",
+          "kind": "word"
+        },
+        {
+          "text": "soccer",
+          "kind": "word"
+        },
+        {
+          "text": "cricket",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "art_supplies",
+      "label": "ART SUPPLIES",
+      "words": [
+        {
+          "text": "ink",
+          "kind": "word"
+        },
+        {
+          "text": "brush",
+          "kind": "word"
+        },
+        {
+          "text": "paint",
+          "kind": "word"
+        },
+        {
+          "text": "canvas",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pie_ingredients",
+      "label": "PIE INGREDIENTS",
+      "words": [
+        {
+          "text": "apple",
+          "kind": "word"
+        },
+        {
+          "text": "egg",
+          "kind": "word"
+        },
+        {
+          "text": "cream",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "coins_and_bills",
+      "label": "US MONEY",
+      "words": [
+        {
+          "text": "fifty",
+          "kind": "word"
+        },
+        {
+          "text": "coin",
+          "kind": "word"
+        },
+        {
+          "text": "quarter",
+          "kind": "word"
+        },
+        {
+          "text": "penny",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "relationships",
+      "label": "RELATIONSHIP WORDS",
+      "words": [
+        {
+          "text": "client",
+          "kind": "word"
+        },
+        {
+          "text": "Ally",
+          "kind": "word"
+        },
+        {
+          "text": "rival",
+          "kind": "word"
+        },
+        {
+          "text": "stranger",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "breakfast_foods",
+      "label": "BREAKFAST FOODS",
+      "words": [
+        {
+          "text": "bread",
+          "kind": "word"
+        },
+        {
+          "text": "rice",
+          "kind": "word"
+        },
+        {
+          "text": "bacon",
+          "kind": "word"
+        },
+        {
+          "text": "jam",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

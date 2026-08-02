@@ -127,9 +127,15 @@ def build(conn: sqlite3.Connection) -> dict:
     conn.row_factory = sqlite3.Row
     resolve_zipf = zipf_resolver()
 
+    # `derived_difficulty` появилась позже авторского `base_difficulty`; на базе,
+    # где команда derive-category-difficulty ещё не прогонялась, колонки нет.
+    have_derived = "derived_difficulty" in {
+        row[1] for row in conn.execute("PRAGMA table_info(categories)")}
+    derived_select = "derived_difficulty" if have_derived else "NULL as derived_difficulty"
     cats = [dict(r) for r in conn.execute(
         "select id, category_key, label, rule, relation_type, theme, base_difficulty, "
-        "readiness from categories where status='active' order by category_key")]
+        f"{derived_select}, readiness from categories where status='active' "
+        "order by category_key")]
     cat_index = {c["id"]: i for i, c in enumerate(cats)}
 
     words = [dict(r) for r in conn.execute(
@@ -163,10 +169,17 @@ def build(conn: sqlite3.Connection) -> dict:
     skipped = 0
     skipped_incorrect = 0
     risk_bit = {flag: 1 << i for i, flag in enumerate(RISK_FLAGS)}
+    # `graded_obviousness` появилась шагом 009; на базе, где команда
+    # grade-obviousness ещё не прогонялась, колонки нет — тот же приём, что и
+    # с `derived_difficulty` выше.
+    have_graded = "graded_obviousness" in {
+        row[1] for row in conn.execute("PRAGMA table_info(memberships)")}
+    graded_select = ("graded_obviousness" if have_graded
+                     else "NULL as graded_obviousness")
     for r in conn.execute(
         "select word_id, sense_id, category_id, relation_type, review_status, "
-        "fit_score, obviousness_score, reason, semantic_status, gameplay_difficulty, "
-        "risk_flags from memberships"
+        f"fit_score, obviousness_score, {graded_select}, reason, semantic_status, "
+        "gameplay_difficulty, risk_flags from memberships"
     ):
         wi, ci = word_index.get(r["word_id"]), cat_index.get(r["category_id"])
         if wi is None or ci is None or r["review_status"] == "rejected":
@@ -185,11 +198,21 @@ def build(conn: sqlite3.Connection) -> dict:
             except json.JSONDecodeError:
                 pass
         gd = r["gameplay_difficulty"]
+        # Очевидность: отранжированное значение важнее исходного.
+        #
+        # `obviousness_score` сид заполнял по категории, а не по слову: в 74%
+        # категорий на весь пул стоит одно число. Отбор слов в генераторе это
+        # поле читает, и на плоской категории ему нечего предпочитать. Шаг
+        # `grade-obviousness` расслаивает пул и пишет результат отдельной
+        # колонкой; исходное значение остаётся на месте как вход источника.
+        obv = r["graded_obviousness"]
+        if obv is None:
+            obv = r["obviousness_score"]
         out_memberships.append([
             wi, ci,
             STATUSES.index(r["review_status"]),
             round(r["fit_score"], 2),
-            round(r["obviousness_score"], 2),
+            round(obv, 2),
             r["relation_type"],
             sense_index.get(r["sense_id"]) if r["sense_id"] is not None else None,
             round(gd, 2) if gd is not None else None,
@@ -267,7 +290,14 @@ def build(conn: sqlite3.Connection) -> dict:
             "r": c["rule"],
             "rel": c["relation_type"],
             "th": c["theme"],
-            "d": c["base_difficulty"],
+            # `d` — то, чем генератор фильтрует туториал и предпочитает простые
+            # категории. С 02.08 это выведенное из пула число, а не авторское:
+            # замер показал, что авторское с содержимым категории не связано
+            # (корреляция со знакомостью слов −0.25). Авторское остаётся рядом
+            # как `d_authored`, чтобы расхождение было видно в снимке.
+            "d": c["derived_difficulty"] if c["derived_difficulty"] is not None
+                 else c["base_difficulty"],
+            "d_authored": c["base_difficulty"],
             "rd": c["readiness"],
         } for c in cats],
         "words": out_words,

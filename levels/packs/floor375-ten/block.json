@@ -1,0 +1,171 @@
+{
+  "pack_hash": "1a321a8bd5aae8b0f9144bbdc9a761adfff15f69437c47f908a2220c447d2f40",
+  "content_snapshot_hash": "b9c962b135bd19ec07d3bfb654c17cab859f21ab5ef1454b71d275c6c625cda3",
+  "generator_version": "gen-1.1",
+  "config": {
+    "levelRange": [
+      1,
+      10
+    ],
+    "categoryCorridor": [
+      5,
+      12
+    ],
+    "spikePositions": [
+      5
+    ],
+    "recoveryPositions": [
+      6
+    ],
+    "rarityRange": [
+      0,
+      2
+    ],
+    "maxMetaDepth": 2,
+    "allowedModifiers": [],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 5,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "floor375-a",
+    "categoryPlan": [
+      5,
+      8,
+      9,
+      8,
+      12,
+      7,
+      11,
+      10,
+      9,
+      11
+    ],
+    "metaPlan": [
+      0,
+      0,
+      2,
+      1,
+      0,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "decadeGates": {
+      "categoryDifficultyTarget": 0.35,
+      "tutorialCategoryDifficultyMax": 0.2,
+      "maxTokens": 1,
+      "maxWordLen": 12,
+      "minProperNounZipf": 3.2,
+      "minWordZipf": 3.75,
+      "zipfMedianTarget": 4.35,
+      "zipfP25Target": 3.8,
+      "visibleShareMin": 0.5,
+      "repeatRange": [
+        0,
+        4
+      ],
+      "tutorialFirstLevel": true
+    }
+  },
+  "rhythm": {
+    "passed": true,
+    "issues": []
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "role": "tutorial",
+      "difficulty": 1.5,
+      "interest": 5,
+      "level_spec_hash": "8b6d09e92f5e3de4fa5eb08c73e2b0e4e2482ea65e779374ee4abf372b5d5afd",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 2,
+      "role": "growth",
+      "difficulty": 3,
+      "interest": 5,
+      "level_spec_hash": "c4b97212379504f497a321b1717e417444b8cc36bac62eafcbf28d86f2089abc",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 3,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6.5,
+      "level_spec_hash": "da9bc9b109014a6497c028f264f23f4aaa34c2d91a9b5f96f3090613fdad376a",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 4,
+      "role": "growth",
+      "difficulty": 3,
+      "interest": 6.5,
+      "level_spec_hash": "bfa3ffc143f8a9957706d9889c7a4cc1567fad50aa367ce3347605ac9889c647",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 5,
+      "role": "peak",
+      "difficulty": 6,
+      "interest": 6,
+      "level_spec_hash": "211a3da53d3dc48ee6256d51b6d16e8234f18530655c83ec92b370671916d266",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 6,
+      "role": "recovery",
+      "difficulty": 2.5,
+      "interest": 6.5,
+      "level_spec_hash": "498129461be8aab7bd4b1631f22d6b5001e0fa6607855d246b77df239c416409",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 7,
+      "role": "growth",
+      "difficulty": 4.5,
+      "interest": 6.5,
+      "level_spec_hash": "99d7f683a4e04c63717528abf34b88bb2062e445e1e897529ba6e3dd648b617b",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 8,
+      "role": "growth",
+      "difficulty": 5,
+      "interest": 6.5,
+      "level_spec_hash": "d3e64d91fcdd2ed48e5cf1da9659c26ce90fd73aab6dce5600ea07809d79ac61",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 9,
+      "role": "growth",
+      "difficulty": 3.5,
+      "interest": 6.5,
+      "level_spec_hash": "093bbb508572919da9ba66bf1558dcb85dffb3b1fe91cd6099f4f3a029c6b89c",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 10,
+      "role": "exit",
+      "difficulty": 5,
+      "interest": 6.5,
+      "level_spec_hash": "30282ddf24ea1061c7514bcca487faa8cefc84c608c5420b24e3546a336c21cd",
+      "validation_passed": true,
+      "solution_count": 1
+    }
+  ],
+  "failures": []
+}
