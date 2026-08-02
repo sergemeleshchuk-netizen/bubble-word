@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import pytest
 
-from word_content import profiles, scoring
+from word_content import profiles, quartet_semantics, scoring
 
 CONFIG = scoring.load_config()
 
@@ -273,8 +273,32 @@ def three_profiles():
     return loaded
 
 
+def _clean_semantics() -> quartet_semantics.QuartetSemantics:
+    """Четвёрка, у которой со значениями всё в порядке.
+
+    Тесты ниже про пороги знакомости и надписи, а не про значения. Профиль
+    `first_lineup` теперь требует разрешённых значений и честно не пропускает
+    четвёрку, о значениях которой ничего не известно, — поэтому фикстура
+    отвечает на этот вопрос явно, а не оставляет его пустым.
+    """
+    slots = tuple(
+        quartet_semantics.SlotSemantics(
+            word=word, sense_id=index, accessibility_class="primary",
+            risk_class="primary", recognition_score=0.95, activation_score=0.92,
+        )
+        for index, word in enumerate(("alpha", "beta", "gamma", "delta"), start=1)
+    )
+    return quartet_semantics.QuartetSemantics(
+        slots=slots,
+        mode=quartet_semantics.TAXONOMIC,
+        anchor_recognition_min=0.75,
+        anchor_activation_min=0.60,
+    )
+
+
 def _facts(**overrides) -> profiles.QuartetFacts:
     base = {
+        "semantics": _clean_semantics(),
         "quartet_key": "test__1",
         "label_text": "FRUITS",
         "min_familiarity": 0.7,

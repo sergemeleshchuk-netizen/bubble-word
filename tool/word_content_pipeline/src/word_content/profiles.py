@@ -18,7 +18,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from . import flat_config, labels
+from . import flat_config, labels, quartet_semantics
 
 # Параметр -> значение по умолчанию. Профиль, не задавший параметр, получает его.
 DEFAULTS: dict[str, float] = {
@@ -52,7 +52,55 @@ DEFAULTS: dict[str, float] = {
     # Порогами качества такая надпись не отсекается: она короткая, частотная и
     # получает высокий label_quality — в ремейке двадцатки их вышло 33 из 192.
     "forbid_vague_label": 0.0,
+    # ------------------------------------------------------- доступность значений
+    # Ось, которой у профилей не было вообще. `max_secondary_senses` выше меряет
+    # СТАТУС связи (`alternative` против `approved`) — то есть решение ревью о
+    # том, первое ли это значение в базе. Он ничего не знает о том, вспомнит ли
+    # игрок значение вообще: `Trouble -> BOARD GAMES` имеет статус `approved`,
+    # потому что связь верна, и все старые пороги проходит.
+    #
+    # 1 — брать только четвёрки, у которых каждое лексическое слово знает своё
+    # значение. Неразрешённое значение перестаёт быть безопасным состоянием.
+    "require_resolved_senses": 0.0,
+    "max_specialist_senses_per_group": 4.0,
+    "max_obscure_senses_per_group": 4.0,
+    "max_common_secondary_senses_per_group": 4.0,
+    # Сколько слов группы должны быть ясными якорями. Якорь — слово, по которому
+    # тему видно, а не только подтверждают задним числом.
+    "min_clear_anchors_per_lexical_group": 0.0,
+    "anchor_recognition_min": 0.0,
+    "anchor_activation_min": 0.0,
+    "group_accessibility_min": 0.0,
+    # 1 — ассоциативная группа обязана иметь хотя бы одну живую попарную связь
+    # по SWOW. Только для ассоциативных и функциональных правил: у закрытого
+    # набора (стороны света) попарных ассоциаций нет по устройству.
+    "forbid_swow_disconnected_associative": 0.0,
+    # Бюджеты уровня: одна ловушка в группе — интересно, ловушка в каждой
+    # группе — уровень, который читается как сплошной подвох.
+    "max_unresolved_senses_per_level": 999.0,
+    "max_specialist_senses_per_level": 999.0,
+    "max_common_secondary_senses_per_level": 999.0,
+    "max_anchorless_groups_per_level": 999.0,
+    # Несвязные по SWOW группы на уровень. Бюджет, а не запрет: одна структурная
+    # группа без попарных ассоциаций — норма (`north / south / east / west`),
+    # двадцать подряд — пакет, в котором нечего чувствовать. Управляет ровно той
+    # метрикой, по которой у первой сборки вышло 52%, а у записи 22%.
+    "max_swow_disconnected_groups_per_level": 999.0,
+    # Пакет целиком: доля групп, у которых SWOW измерил пары и не нашёл связи.
+    "max_anchorless_groups_per_pack": 999.0,
+    "max_swow_disconnected_group_ratio": 1.0,
 }
+
+# Параметры, которые проверяются на уровне четвёрки слоем `quartet_semantics`.
+SEMANTIC_KEYS: tuple[str, ...] = (
+    "require_resolved_senses",
+    "max_specialist_senses_per_group",
+    "max_obscure_senses_per_group",
+    "max_common_secondary_senses_per_group",
+    "min_clear_anchors_per_lexical_group",
+    "group_accessibility_min",
+    "forbid_swow_disconnected_associative",
+)
 
 
 @dataclass(frozen=True)
@@ -113,6 +161,11 @@ class QuartetFacts:
     long_phrases: int
     proper_nouns: int = 0
     secondary_senses: int = 0
+    # Семантика четвёрки. None — слой не посчитан (например, четвёрка проверяется
+    # старым тестом): профиль тогда не применяет семантические пороги вовсе,
+    # а не считает, что всё в порядке. Требование `require_resolved_senses`
+    # ловит это отдельно ниже.
+    semantics: quartet_semantics.QuartetSemantics | None = None
 
 
 def check_quartet(profile: Profile, facts: QuartetFacts) -> list[str]:
@@ -170,6 +223,13 @@ def check_quartet(profile: Profile, facts: QuartetFacts) -> list[str]:
         )
     if profile["forbid_vague_label"] >= 1 and labels.is_vague(facts.label_text):
         reasons.append(f"надпись «{facts.label_text}» называет признак, а не тему")
+
+    if facts.semantics is not None:
+        reasons.extend(quartet_semantics.check(facts.semantics, profile.values))
+    elif profile["require_resolved_senses"] >= 1:
+        reasons.append(
+            f"{quartet_semantics.UNRESOLVED_SENSE}: семантика четвёрки не посчитана"
+        )
     return reasons
 
 
@@ -180,6 +240,14 @@ class LevelBudget:
     rare_words: int
     long_phrases: int
     proper_nouns: int = 99
+    # Ловушки уровня. Одно второе значение в группе делает уровень интереснее;
+    # по одному в каждой группе — это уже уровень, который целиком читается как
+    # подвох, и игрок перестаёт доверять собственному чтению слов.
+    unresolved_senses: int = 999
+    specialist_senses: int = 999
+    common_secondary_senses: int = 999
+    anchorless_groups: int = 999
+    swow_disconnected: int = 999
 
     @classmethod
     def for_profile(cls, profile: Profile) -> LevelBudget:
@@ -187,6 +255,11 @@ class LevelBudget:
             rare_words=int(profile["rare_word_budget"]),
             long_phrases=int(profile["long_phrase_budget"]),
             proper_nouns=int(profile["proper_noun_budget"]),
+            unresolved_senses=int(profile["max_unresolved_senses_per_level"]),
+            specialist_senses=int(profile["max_specialist_senses_per_level"]),
+            common_secondary_senses=int(profile["max_common_secondary_senses_per_level"]),
+            anchorless_groups=int(profile["max_anchorless_groups_per_level"]),
+            swow_disconnected=int(profile["max_swow_disconnected_groups_per_level"]),
         )
 
     def fits(self, facts: QuartetFacts) -> str | None:
@@ -204,9 +277,48 @@ class LevelBudget:
                 f"имён собственных {facts.proper_nouns}, "
                 f"в бюджете уровня осталось {self.proper_nouns}"
             )
+        semantics = facts.semantics
+        if semantics is None:
+            return None
+        if semantics.unresolved_sense_count > self.unresolved_senses:
+            return (
+                f"{quartet_semantics.UNRESOLVED_SENSE}: неразрешённых значений "
+                f"{semantics.unresolved_sense_count}, в бюджете уровня "
+                f"осталось {self.unresolved_senses}"
+            )
+        if semantics.specialist_sense_count > self.specialist_senses:
+            return (
+                f"{quartet_semantics.SPECIALIST_SENSE}: узких значений "
+                f"{semantics.specialist_sense_count}, в бюджете уровня "
+                f"осталось {self.specialist_senses}"
+            )
+        if semantics.common_secondary_sense_count > self.common_secondary_senses:
+            return (
+                f"{quartet_semantics.TOO_MANY_COMMON_SECONDARY_SENSES}: вторых значений "
+                f"{semantics.common_secondary_sense_count}, в бюджете уровня "
+                f"осталось {self.common_secondary_senses}"
+            )
+        if semantics.anchorless and self.anchorless_groups < 1:
+            return (
+                f"{quartet_semantics.INSUFFICIENT_CLEAR_ANCHORS}: группа без якорей, "
+                f"в бюджете уровня их не осталось"
+            )
+        if semantics.swow.no_positive_edges and self.swow_disconnected < 1:
+            return (
+                f"{quartet_semantics.PACK_SWOW_DISCONNECTED_RATIO}: группа без единой "
+                f"живой ассоциации, в бюджете уровня их не осталось"
+            )
         return None
 
     def spend(self, facts: QuartetFacts) -> None:
         self.rare_words -= facts.rare_words
         self.long_phrases -= facts.long_phrases
         self.proper_nouns -= facts.proper_nouns
+        semantics = facts.semantics
+        if semantics is None:
+            return
+        self.unresolved_senses -= semantics.unresolved_sense_count
+        self.specialist_senses -= semantics.specialist_sense_count
+        self.common_secondary_senses -= semantics.common_secondary_sense_count
+        self.anchorless_groups -= 1 if semantics.anchorless else 0
+        self.swow_disconnected -= 1 if semantics.swow.no_positive_edges else 0

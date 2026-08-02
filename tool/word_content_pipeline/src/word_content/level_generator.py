@@ -46,6 +46,7 @@ from . import level_solver
 from . import meta_pairs as meta_pairs_mod
 from . import meta_validation
 from . import profiles as profiles_mod
+from . import quartet_semantics
 from . import structured
 from .db import utc_now
 
@@ -210,6 +211,34 @@ def _usable_quartets(
                    ls.label_char_count AS label_chars, ls.label_token_count AS label_tokens,
                    qw.slot AS slot, qw.word_id AS word_id, qw.sense_id AS sense_id,
                    qw.role AS role,
+                   c.rule_type AS rule_type,
+                   qw.sense_mode AS sense_mode,
+                   w.normalized AS normalized,
+                   -- Слой доступности значения: чем `Trouble` в BOARD GAMES
+                   -- отличается от `orange` в COLORS. Читается прямо со слота
+                   -- четвёрки, а не со связи: значение выбрано именно здесь.
+                   COALESCE(s.accessibility_class, 'unresolved') AS accessibility_class,
+                   CASE
+                       WHEN qw.sense_mode = 'surface_form' THEN 'surface_form'
+                       WHEN qw.sense_id IS NULL            THEN 'unresolved'
+                       WHEN s.accessibility_class = 'primary'          THEN 'primary'
+                       WHEN s.accessibility_class = 'common_secondary' THEN 'fair_secondary'
+                       WHEN s.accessibility_class = 'specialist'       THEN 'specialist_trick'
+                       WHEN s.accessibility_class = 'obscure'          THEN 'obscure_trick'
+                       ELSE 'unresolved'
+                   END AS risk_class,
+                   s.recognition_score AS recognition_score,
+                   s.activation_score AS activation_score,
+                   CASE
+                       WHEN qw.sense_id IS NULL OR w.dominant_sense_id IS NULL THEN 0
+                       WHEN qw.sense_id <> w.dominant_sense_id THEN 1
+                       ELSE 0
+                   END AS uses_non_dominant,
+                   COALESCE((SELECT mm.semantic_status FROM memberships mm
+                              WHERE mm.category_id = q.category_id
+                                AND mm.word_id = qw.word_id
+                                AND COALESCE(mm.sense_id, -1) = COALESCE(qw.sense_id, -1)
+                              LIMIT 1), 'unreviewed') AS semantic_status,
                    COALESCE(s.display_text, w.text) AS display,
                    COALESCE(s.sense_key, '') AS sense_key,
                    w.familiarity_score AS word_familiarity,
@@ -284,19 +313,86 @@ def _usable_quartets(
         )
         entry["facts_rows"].append(row)
 
+    swow = quartet_semantics.load_swow(conn)
     stats = {"четвёрок доступно": 0, "отсеяно профилем": 0}
+    rejected: dict[str, int] = {}
     by_category: dict[int, list[dict]] = {}
     for entry in quartets.values():
         if len(entry["tokens"]) != level_solver.QUARTET_SIZE:
             continue
+        entry["semantics"] = _quartet_semantics(entry, profile, swow)
         entry["facts"] = _quartet_facts(entry, rare_familiarity)
-        if profile is not None and profiles_mod.check_quartet(profile, entry["facts"]):
-            entry["profile_reasons"] = profiles_mod.check_quartet(profile, entry["facts"])
+        reasons = (
+            profiles_mod.check_quartet(profile, entry["facts"]) if profile is not None else []
+        )
+        if reasons:
+            entry["profile_reasons"] = reasons
             stats["отсеяно профилем"] += 1
+            for reason in reasons:
+                code = quartet_semantics.code_of(reason)
+                if code:
+                    rejected[code] = rejected.get(code, 0) + 1
             continue
         stats["четвёрок доступно"] += 1
         by_category.setdefault(entry["category_id"], []).append(entry)
+    # Связные четвёрки идут первыми: генератор берёт их, пока они есть, и
+    # доходит до несвязных только когда выбора не осталось. Это предпочтение,
+    # а не запрет — иначе `north / south / east / west` и части целого,
+    # которые попарными ассоциациями не держатся вовсе, вылетели бы классом.
+    for entries in by_category.values():
+        entries.sort(
+            key=lambda item: (
+                item["semantics"].swow.no_positive_edges,
+                item["quartet_key"],
+            )
+        )
+    for code, count in sorted(rejected.items(), key=lambda item: -item[1]):
+        stats[f"отсеяно: {code}"] = count
     return by_category, stats
+
+
+def _quartet_semantics(
+    entry: dict,
+    profile: profiles_mod.Profile | None,
+    swow: dict[str, quartet_semantics.SwowMetrics],
+) -> quartet_semantics.QuartetSemantics:
+    """Семантический профиль четвёрки: значения, якоря, режим связности."""
+    rows = entry["facts_rows"]
+    slots = quartet_semantics.slots_from_rows(
+        [_SlotRow(row) for row in rows]  # type: ignore[arg-type]
+    )
+    all_surface = bool(slots) and all(
+        slot.sense_mode in ("surface_form",) for slot in slots
+    )
+    return quartet_semantics.QuartetSemantics(
+        slots=slots,
+        mode=quartet_semantics.coherence_mode(
+            rows[0]["rule_type"] if rows else None, all_surface_form=all_surface
+        ),
+        swow=swow.get(entry["quartet_key"], quartet_semantics.SwowMetrics()),
+        anchor_recognition_min=profile["anchor_recognition_min"] if profile else 0.0,
+        anchor_activation_min=profile["anchor_activation_min"] if profile else 0.0,
+    )
+
+
+class _SlotRow:
+    """Адаптер строки выборки под форму, которую читает `quartet_semantics`.
+
+    Нужен, потому что колонка слова здесь называется `normalized`, а слой
+    значений ждёт `word`: подменять имя в SQL значило бы ломать остальные
+    двадцать мест, которые читают ту же выборку.
+    """
+
+    __slots__ = ("_row",)
+
+    def __init__(self, row: sqlite3.Row) -> None:
+        self._row = row
+
+    def __getitem__(self, key: str) -> object:
+        return self._row["normalized"] if key == "word" else self._row[key]
+
+    def keys(self) -> list[str]:
+        return ["word", *self._row.keys()]
 
 
 def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.QuartetFacts:
@@ -325,6 +421,7 @@ def _quartet_facts(entry: dict, rare_familiarity: float) -> profiles_mod.Quartet
         long_phrases=sum(1 for value in tokens if value >= 3),
         proper_nouns=sum(1 for row in rows if row["is_proper_noun"]),
         secondary_senses=sum(1 for row in rows if not row["primary_membership"]),
+        semantics=entry.get("semantics"),
     )
 
 
@@ -368,6 +465,19 @@ class _PoolCache:
         self._index = index
         self._conflicts = conflicts
         self._pools: dict[str, _QuartetPool] = {}
+
+    def semantics_of(self, quartet_id: int) -> quartet_semantics.QuartetSemantics | None:
+        """Семантика четвёрки из любого уже посчитанного пула.
+
+        Уровень мог собраться под своим профилем, а проверка пакета идёт по
+        главному: искать по всем посчитанным пулам дешевле, чем тащить ссылку
+        на семантику через десять слоёв структур уровня.
+        """
+        for pool in self._pools.values():
+            entry = pool.by_quartet_id.get(quartet_id)
+            if entry is not None and entry.get("semantics") is not None:
+                return entry["semantics"]
+        return None
 
     def get(self, profile: profiles_mod.Profile | None) -> _QuartetPool:
         key = profile.name if profile else ""
@@ -579,8 +689,12 @@ def generate(
                     facts = pool.by_quartet_id[group.quartet_id].get("facts")
                     if facts is None:
                         continue
-                    if budget.fits(facts):
+                    exceeded = budget.fits(facts)
+                    if exceeded:
                         over_budget = True
+                        code = quartet_semantics.code_of(exceeded) or "прочее"
+                        key = f"бюджет уровня: {code}"
+                        stats[key] = stats.get(key, 0) + 1
                         break
                     budget.spend(facts)
             if over_budget:
@@ -666,7 +780,82 @@ def generate(
                 ],
                 quartet_ids=[group.quartet_id for group in candidate.groups],
             )
+
+    if profile is not None:
+        stats.update(_pack_gate(levels, profile, pools))
     return levels, stats
+
+
+class PackGateError(RuntimeError):
+    """Пакет собрался, но не проходит проверку целиком.
+
+    Отдельный тип, потому что реакция на него другая: уровни собраны и валидны,
+    проблема в их составе. Молча отдать такой пакет нельзя, тихо ослабить
+    пороги — тем более: ровно так неиграбельная двадцатка и уезжает в сборку.
+    """
+
+
+def _pack_gate(
+    levels: list[LevelCandidate],
+    profile: profiles_mod.Profile,
+    pools: _PoolCache,
+) -> dict[str, object]:
+    """Проверки, которые имеют смысл только для пакета целиком.
+
+    Доля несвязных групп — свойство подборки, а не отдельной четвёрки: одна
+    структурная группа без попарных ассоциаций это норма, двадцать подряд —
+    пакет, в котором нечего чувствовать. Считается той же формулой, которой
+    получены 52% у первой сборки и 22% у записи оригинала.
+    """
+    groups = [
+        pools.semantics_of(group.quartet_id)
+        for level in levels
+        if level.is_valid
+        for group in level.groups
+    ]
+    groups = [item for item in groups if item is not None]
+    if not groups:
+        return {}
+
+    dead = [item for item in groups if item.swow.no_positive_edges]
+    measurable = [item for item in groups if item.swow.has_data]
+    exempt = [item for item in groups if item.swow_exempt]
+    anchorless = [item for item in groups if item.anchorless]
+    ratio = len(dead) / len(groups)
+
+    stats: dict[str, object] = {
+        "групп в пакете": len(groups),
+        "SWOW было чем измерить": len(measurable),
+        "SWOW не применим по типу правила": len(exempt),
+        "SWOW без единой связи": f"{len(dead)} ({ratio:.1%})",
+        "групп без ясного якоря": len(anchorless),
+    }
+
+    problems: list[str] = []
+    limit = profile["max_swow_disconnected_group_ratio"]
+    if limit < 1.0 and ratio > limit:
+        problems.append(
+            f"{quartet_semantics.PACK_SWOW_DISCONNECTED_RATIO}: несвязных групп "
+            f"{len(dead)} из {len(groups)} ({ratio:.1%}) при потолке {limit:.0%}"
+        )
+    allowed = profile["max_anchorless_groups_per_pack"]
+    if len(anchorless) > allowed:
+        problems.append(
+            f"{quartet_semantics.INSUFFICIENT_CLEAR_ANCHORS}: групп без якоря "
+            f"{len(anchorless)} при потолке {int(allowed)}"
+        )
+    if problems:
+        stats["пакет не прошёл проверку"] = "; ".join(problems)
+    return stats
+
+
+def _has_connected(entries: list[dict]) -> bool:
+    """Есть ли у правила четвёрка хоть с одной живой ассоциацией по SWOW."""
+    return any(
+        entry.get("semantics") is not None
+        and not entry["semantics"].swow.no_positive_edges
+        for entry in entries
+    )
 
 
 def _cooling_categories(
@@ -933,6 +1122,12 @@ def _plan_level(
         pool = shortlist + pool[len(shortlist):]
     else:
         rng.shuffle(pool)
+        # Правила, у которых есть хоть одна связная четвёрка, идут первыми.
+        # Без этого генератор одинаково охотно берёт правило, все четвёрки
+        # которого мертвы по SWOW, и упирается в бюджет уровня на середине
+        # набора: 584 отклонённые попытки против семи собранных уровней.
+        # Это порядок, а не фильтр — мёртвые правила остаются доступны хвостом.
+        pool.sort(key=lambda category_id: not _has_connected(by_category[category_id]))
     for category_id in pool:
         if len(chosen) >= category_count:
             break
@@ -946,8 +1141,14 @@ def _plan_level(
             continue
         # Несколько попыток на правило: у категории обычно много четвёрок, и
         # первая попавшаяся часто занята перезарядкой или уже занятым словом.
+        # Выбор внутри правила случайный, но из связного префикса, если он есть:
+        # список уже отсортирован связными вперёд.
+        connected = sum(
+            1 for entry in entries if not entry["semantics"].swow.no_positive_edges
+        ) if entries and entries[0].get("semantics") is not None else len(entries)
+        span = connected or len(entries)
         for _ in range(min(FILLER_TRIES_PER_RULE, len(entries))):
-            if take(entries[rng.randrange(len(entries))]) is not None:
+            if take(entries[rng.randrange(span)]) is not None:
                 break
 
     if len(chosen) < category_count:
@@ -1432,6 +1633,15 @@ def save(
     """Пишет уровни, группы, токены и отчёты solver'а. Повторный запуск перезаписывает."""
     now = utc_now()
     saved = 0
+    # Режим слота — свойство четвёрки, а не следствие того, нашлось ли значение.
+    # Читается один раз на сохранение: иначе подзапрос на каждый из восьмисот
+    # токенов пакета.
+    sense_modes = {
+        (int(row["quartet_id"]), int(row["word_id"])): row["sense_mode"]
+        for row in conn.execute(
+            "SELECT quartet_id, word_id, sense_mode FROM quartet_words"
+        )
+    }
     for level in levels:
         existing = conn.execute(
             "SELECT id, status FROM level_instances WHERE level_key = ?", (level.level_key,)
@@ -1504,7 +1714,13 @@ def save(
                         slot,
                         word_id,
                         sense_id,
-                        "lexical" if sense_key else "surface_form",
+                        # Режим берётся у слота четвёрки, а не выводится из
+                        # наличия значения. Прежняя формула
+                        # («значения нет -> surface_form») превращала пробел в
+                        # объявленное исключение: у пакета TOP001..020 так
+                        # получилось 694 обычных слова, записанных в базу как
+                        # игра слов, и ни одна проверка значений их не видела.
+                        sense_modes.get((group.quartet_id, word_id), "lexical"),
                         display,
                         role,
                         now,
