@@ -7,7 +7,7 @@
  */
 import { useState } from 'react';
 import type { BlockResult, GeneratedLevel, LevelSpec } from '../core/types.ts';
-import { publishToPlayable, type HandoffPack } from '../core/playableHandoff.ts';
+import { HANDOFF_MAX_PACKS, publishToPlayable, type HandoffPack } from '../core/playableHandoff.ts';
 
 export function ExportView({ block, toGameJson, toPipelineJson }: {
   block: BlockResult;
@@ -79,7 +79,10 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
         <p className="hint">
           Пакет уезжает в играбельный прототип — он отдельным пунктом рядом
           («Build Playable»). Уровни появятся там в списке отдельной группой,
-          названной версией инструмента и хешем пакета.
+          названной версией инструмента и хешем пакета. Прошлые сборки
+          остаются на месте (последние {HANDOFF_MAX_PACKS}): иначе «до» и
+          «после» правки не сравнить. Тот же конфиг даёт тот же хеш и не
+          плодит дублей — пакет просто поднимается наверх списка.
         </p>
         <div className="row">
           <button className="primary"

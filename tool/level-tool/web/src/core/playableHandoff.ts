@@ -26,11 +26,34 @@ import type { BlockResult, GeneratedLevel } from './types.ts';
 import { TOOL_VERSION } from './version.ts';
 
 /**
- * Ключ хранилища. Читается сайтом (`site/index.html`) и прототипом
- * (`site/playable/index.html`) — при изменении править во всех трёх местах,
- * поэтому в имени есть версия формата.
+ * Ключей два, и путать их нельзя — на этой путанице пакеты и терялись.
+ *
+ * `HANDOFF_KEY` — «что прототип играет прямо сейчас»: ОДИН массив уровней,
+ * прототип адресует его как `?gen=N`, где N — индекс в массиве. Слот рабочий:
+ * его законно перезаписывает и инструмент (собрал — сыграл сразу), и страница
+ * отчёта (склеивает выложенные пакеты с собранными, чтобы список уровней был
+ * один). Ничего долговечного в нём хранить нельзя.
+ *
+ * `HANDOFF_LIST_KEY` — архив собранных пакетов, и вот он растёт. Раньше архива
+ * не было вовсе: инструмент писал пакет в рабочий слот, страница отчёта клала
+ * туда же свою склейку — и собранный пакет исчезал на первой же перезагрузке,
+ * даже если больше ничего не собирали. Второй прогон генератора затирал первый
+ * по той же причине. Сравнить «до» и «после» правки было нечем.
+ *
+ * Оба читаются обычным HTML сайта, который tsc не проверяет, поэтому строки
+ * продублированы в `site/index.html` и `site/playable/index.html`; при смене
+ * править везде. Версия формата — в имени ключа.
  */
 export const HANDOFF_KEY = 'bubble-level-tool.generated-pack.v1';
+export const HANDOFF_LIST_KEY = 'bubble-level-tool.generated-packs.v1';
+
+/**
+ * Сколько собранных пакетов держим. Пакет весит 25-55 КБ, лимит браузера на
+ * origin — около 5 МБ, так что упереться в него архивом трудно; ограничение
+ * тут не ради места, а чтобы список групп в прототипе оставался читаемым.
+ * Вытесняется всегда самый старый.
+ */
+export const HANDOFF_MAX_PACKS = 5;
 
 export interface HandoffLevel {
   level_id: number;
@@ -130,13 +153,57 @@ export function buildHandoffPack(block: BlockResult): HandoffPack {
 }
 
 /**
- * Кладёт пакет в хранилище. Возвращает false, если хранилище недоступно
+ * Архив собранных пакетов, свежий первым. Битое содержимое — не повод падать:
+ * лучше показать пустой архив, чем сломать страницу целиком.
+ */
+export function readHandoffPacks(): HandoffPack[] {
+  try {
+    const raw = window.localStorage.getItem(HANDOFF_LIST_KEY);
+    const list = raw ? JSON.parse(raw) : null;
+    return Array.isArray(list) ? list.filter((p) => p && Array.isArray(p.levels)) : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Добавляет пакет в архив, вытесняя самый старый, пока не влезет.
+ *
+ * Квота браузера — единственная причина, по которой запись может не пройти, и
+ * реагировать на неё «ничего не сохранилось» неправильно: свежий пакет нужнее
+ * старых. Поэтому при отказе жертвуем хвостом архива и пробуем снова, а
+ * сдаёмся только когда не влезает даже он один.
+ */
+function writeHandoffPacks(list: HandoffPack[]): boolean {
+  const packs = list.slice(0, HANDOFF_MAX_PACKS);
+  while (packs.length > 0) {
+    try {
+      window.localStorage.setItem(HANDOFF_LIST_KEY, JSON.stringify(packs));
+      return true;
+    } catch {
+      packs.pop();
+    }
+  }
+  return false;
+}
+
+/**
+ * Кладёт пакет в хранилище. Возвращает null, если хранилище недоступно
  * (приватный режим, отключённые cookies) — молчать об этом нельзя, иначе
  * человек пойдёт в прототип и не найдёт там своих уровней.
+ *
+ * Пишется в оба ключа, и это не дублирование, а разные роли: в рабочий слот —
+ * чтобы прототип, открытый прямо сейчас, играл именно этот пакет; в архив —
+ * чтобы он пережил и следующую сборку, и склейку от страницы отчёта.
+ *
+ * Пересборка того же конфига даёт тот же `pack_hash`: такой пакет не плодит
+ * второй записи, а поднимается наверх архива как свежий.
  */
 export function publishToPlayable(block: BlockResult): HandoffPack | null {
   const pack = buildHandoffPack(block);
   try {
+    const kept = readHandoffPacks().filter((p) => p.pack_hash !== pack.pack_hash);
+    writeHandoffPacks([pack, ...kept]);
     window.localStorage.setItem(HANDOFF_KEY, JSON.stringify(pack));
     return pack;
   } catch {

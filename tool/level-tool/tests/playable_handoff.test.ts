@@ -20,7 +20,10 @@ import type { Snapshot } from '../web/src/core/types.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
-import { HANDOFF_KEY, buildHandoffPack } from '../web/src/core/playableHandoff.ts';
+import {
+  HANDOFF_KEY, HANDOFF_LIST_KEY, HANDOFF_MAX_PACKS,
+  buildHandoffPack, publishToPlayable, readHandoffPacks,
+} from '../web/src/core/playableHandoff.ts';
 import { TOOL_VERSION } from '../web/src/core/version.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -134,6 +137,94 @@ test('ключ хранилища совпадает у инструмента �
     assert.ok(html.includes(HANDOFF_KEY),
       `${file} не знает ключа ${HANDOFF_KEY}: пакет туда не доедет`);
   }
+  // Архив читает только страница отчёта: прототипу он не нужен, тот играет
+  // рабочий слот. Требовать ключ архива от прототипа значило бы описать не тот
+  // контракт, который исполняется.
+  const report = readFileSync(join(ROOT, '../../site/index.html'), 'utf8');
+  assert.ok(report.includes(HANDOFF_LIST_KEY),
+    `site/index.html не знает ключа ${HANDOFF_LIST_KEY}: собранные пакеты не переживут перезагрузку`);
+});
+
+/**
+ * Накопление пакетов.
+ *
+ * История простая: ключ был один, и в него писали двое — инструмент клал туда
+ * собранный пакет, страница отчёта клала туда же склейку выложенных. Собранный
+ * пакет исчезал на первой перезагрузке, а второй прогон генератора затирал
+ * первый. Сравнить «до» и «после» правки было нечем, хотя у каждого пакета есть
+ * собственный хеш и различать их было чем.
+ */
+function withFakeStorage<T>(body: () => T): T {
+  const data = new Map<string, string>();
+  const previous = (globalThis as { window?: unknown }).window;
+  (globalThis as { window?: unknown }).window = {
+    localStorage: {
+      getItem: (k: string) => (data.has(k) ? data.get(k)! : null),
+      setItem: (k: string, v: string) => { data.set(k, v); },
+    },
+  };
+  try {
+    return body();
+  } finally {
+    (globalThis as { window?: unknown }).window = previous;
+  }
+}
+
+test('вторая сборка не затирает первую: пакеты копятся, свежий сверху', () => {
+  withFakeStorage(() => {
+    assert.deepEqual(readHandoffPacks(), [], 'архив должен стартовать пустым');
+
+    publishToPlayable(block);
+    assert.equal(readHandoffPacks().length, 1);
+
+    // другой пакет = другой хеш; подделываем его, не пересобирая блок заново
+    const other = { ...block, packHash: block.packHash.split('').reverse().join('') };
+    publishToPlayable(other);
+
+    const list = readHandoffPacks();
+    assert.equal(list.length, 2, 'вторая сборка затёрла первую');
+    assert.equal(list[0]!.pack_hash, other.packHash, 'свежий пакет обязан быть первым');
+    assert.equal(list[1]!.pack_hash, block.packHash, 'первый пакет обязан уцелеть');
+  });
+});
+
+test('пересборка того же конфига не плодит дублей, а поднимается наверх', () => {
+  withFakeStorage(() => {
+    const other = { ...block, packHash: block.packHash.split('').reverse().join('') };
+    publishToPlayable(block);
+    publishToPlayable(other);
+    publishToPlayable(block);         // тот же конфиг, тот же хеш
+
+    const list = readHandoffPacks();
+    assert.equal(list.length, 2, 'одинаковый хеш обязан склеиться в одну запись');
+    assert.equal(list[0]!.pack_hash, block.packHash);
+  });
+});
+
+test('архив не растёт бесконечно: держим последние HANDOFF_MAX_PACKS', () => {
+  withFakeStorage(() => {
+    const hashes: string[] = [];
+    for (let i = 0; i < HANDOFF_MAX_PACKS + 3; i += 1) {
+      const hash = `${block.packHash}-${i}`;
+      hashes.push(hash);
+      publishToPlayable({ ...block, packHash: hash });
+    }
+    const list = readHandoffPacks();
+    assert.equal(list.length, HANDOFF_MAX_PACKS);
+    assert.deepEqual(list.map((p) => p.pack_hash), hashes.slice().reverse().slice(0, HANDOFF_MAX_PACKS),
+      'вытесняться должен самый старый, а не самый новый');
+  });
+});
+
+test('рабочий слот получает именно последнюю сборку', () => {
+  // Прототип, открытый сразу после кнопки, обязан играть только что собранное.
+  withFakeStorage(() => {
+    const other = { ...block, packHash: block.packHash.split('').reverse().join('') };
+    publishToPlayable(block);
+    publishToPlayable(other);
+    const slot = JSON.parse(window.localStorage.getItem(HANDOFF_KEY)!) as { pack_hash: string };
+    assert.equal(slot.pack_hash, other.packHash);
+  });
 });
 
 /**
