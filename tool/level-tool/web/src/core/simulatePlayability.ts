@@ -49,6 +49,14 @@ export interface PlayabilityResult {
   perceivedDead: number;
   /** самая длинная серия ходов без единого сбора категории */
   maxDrought: number;
+  /** волн досыпки за партию (пачка после сбора, склейки или страховки) */
+  refillWaves: number;
+  /**
+   * Волн, которые СРАЗУ открыли сбор: после пачки на поле появилась категория,
+   * собираемая целиком. Это мера того, ведёт ли уровень игрока за руку: пачка
+   * либо приносит развязку, либо только добавляет обрывков.
+   */
+  refillCompletions: number;
   /** цепь пришлось снять страховкой, а не сбором категорий */
   chainRescued: boolean;
   /** лёд/«?» пришлось снять страховкой, а не мерджами */
@@ -145,10 +153,42 @@ export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
   let maxDrought = 0;
   let chainRescued = false;
   let blockersRescued = false;
+  let refillWaves = 0;
+  let refillCompletions = 0;
+
+  /**
+   * Категории, которые ПРЯМО СЕЙЧАС собираются целиком: все четыре слова на
+   * поле, ничто из них не заблокировано. Множество, а не флаг: пачка досыпки
+   * считается продуктивной, если после неё появилась НОВАЯ такая категория —
+   * иначе продуктивной выглядела бы любая пачка, пришедшая при уже открытом
+   * сборе.
+   */
+  const completableSet = (): Set<string> => {
+    const sums = new Map<string, number>();
+    const blockedCats = new Set<string>();
+    for (const b of field) {
+      if (b.halfPair) continue;
+      if (b.blocked > 0) blockedCats.add(b.category);
+      sums.set(b.category, (sums.get(b.category) ?? 0) + b.words);
+    }
+    const out = new Set<string>();
+    for (const [cat, n] of sums) {
+      if (blockedCats.has(cat)) continue;
+      if (n >= (fullOf.get(cat) ?? 4)) out.add(cat);
+    }
+    return out;
+  };
 
   const spawn = (n: number): void => {
+    if (n <= 0 || queue.length === 0) return;
+    const before = completableSet();
     for (let i = 0; i < n && queue.length > 0; i += 1) {
       field.push(toBubble(queue.shift()!));
+    }
+    refillWaves += 1;
+    const after = completableSet();
+    for (const cat of after) {
+      if (!before.has(cat)) { refillCompletions += 1; break; }
     }
   };
 
@@ -201,6 +241,7 @@ export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
     movesNeeded: moves, moveLimit: spec.board.moveLimit,
     spareMoves: spec.board.moveLimit === null ? null : spec.board.moveLimit - moves,
     rescues, perceivedDead, maxDrought, chainRescued, blockersRescued,
+    refillWaves, refillCompletions,
   });
 
   // страховочный предел: ходов у любого уровня меньше тысячи на порядки
@@ -285,5 +326,6 @@ export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
     movesNeeded: moves, moveLimit: limit,
     spareMoves: limit === null ? null : limit - moves,
     rescues, perceivedDead, maxDrought, chainRescued, blockersRescued,
+    refillWaves, refillCompletions,
   };
 }

@@ -139,9 +139,28 @@ def simulate(L):
     cur_drought, perceived_dead = 0, 0
     max_drought = 0
 
+    waves = [0, 0]   # [всего волн, волн, открывших новый сбор]
+
+    def completable():
+        sums, blocked_cats = {}, set()
+        for c in field:
+            if c['half']:
+                continue
+            if c['blk'] > 0:
+                blocked_cats.add(c['v'])
+            sums[c['v']] = sums.get(c['v'], 0) + len(c['exs'])
+        return {k for k, n in sums.items()
+                if k not in blocked_cats and n >= full[k]}
+
     def spawn(n):
+        if n <= 0 or not queue:
+            return
+        before = completable()
         for _ in range(min(n, len(queue))):
             field.append(to_bubble(queue.pop(0)))
+        waves[0] += 1
+        if completable() - before:
+            waves[1] += 1
 
     guard = 10000
     while done < total_cats and guard > 0:
@@ -218,7 +237,8 @@ def simulate(L):
                 rescues += 1
                 spawn(4)
     return {'ok': True, 'done': done, 'moves': moves_spent, 'rescues': rescues,
-            'max_drought': max_drought, 'perceived_dead': perceived_dead}
+            'max_drought': max_drought, 'perceived_dead': perceived_dead,
+            'waves': waves[0], 'productive': waves[1]}
 
 
 def run_pack(path):
@@ -242,6 +262,10 @@ def run_pack(path):
               f'досыпок вне ритма {r["rescues"]}; '
               f'состояний-«тупиков» на глаз {r["perceived_dead"]}; '
               f'макс. серия ходов без сбора {r["max_drought"]}')
+        waves, prod = r.get('waves', 0), r.get('productive', 0)
+        share = 1.0 if waves == 0 else prod / waves
+        print(f'      досыпка открывает сбор в {prod} из {waves} волн '
+              f'({share*100:.0f}%)')
 
 
 if __name__ == '__main__':

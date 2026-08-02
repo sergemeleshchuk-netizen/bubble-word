@@ -40,10 +40,18 @@ REPORT_PATH = ROOT / "docs" / "SCORING.md"
 
 # те же признаки, что в web/src/core/scoringDifficulty.ts
 # Откалиброванное ядро: только признаки, чей вклад данные РЕАЛЬНО идентифицируют.
+#
+# repeat_words (ред. 03.08, d-1.3) — слова, уже встречавшиеся в прошлых уровнях
+# в ДРУГОЙ категории. Главный растущий рычаг оригинала после L121: размер уровня
+# выходит на плато, а повторы продолжают расти (2.9 → 25 на уровень внутри
+# L1-199, r с номером уровня 0.794 — сильнее объёма). Семантика подсчёта ровно
+# как в generateBlock.repeatCount: слово знакомо И его последняя категория
+# отличается от текущей.
 FEATURES = [
     "start_bubbles",
     "rare_words",
     "very_rare_words",
+    "repeat_words",
 ]
 
 # Признаки, которые проверены и НЕ вошли в откалиброванную часть. Каждый разобран
@@ -68,6 +76,10 @@ DECLARED = {
     "meta_depth_beyond_1": 0.55,
     "quickwin_relief": -0.1,
     "quickwin_relief_max": -0.6,
+    # раскладка старта (d-1.2): в выгрузке оригинала выкладки поля нет,
+    # калибровать не на чем — вес объявлен, разбор в SCORING §7
+    "lone_start_word": 0.05,
+    "lone_start_word_max": 0.6,
 }
 
 # содержательные ограничения на знак: больше объёма / редкости / глубины
@@ -76,6 +88,7 @@ SIGN = {
     "start_bubbles": +1,
     "rare_words": +1,
     "very_rare_words": +1,
+    "repeat_words": +1,
     "meta_links": +1,
     "quickwin_categories": -1,
 }
@@ -125,9 +138,27 @@ def build_dataset() -> tuple:
     zipf = zipf_lookup(data["vocab"])
     levels = data["levels_raw"]["levels"]
     rows, numbers = [], []
+    # история слов для repeat_words: слово → нормализованное имя последней
+    # категории. Обновляется ПОСЛЕ подсчёта уровня — уровень не может
+    # «повторять» сам себя. Семантика — как в generateBlock.repeatCount.
+    last_category: dict = {}
     for key in sorted(levels, key=int):
-        rows.append(level_features(levels[key], zipf))
+        cats = levels[key]
+        repeats = 0
+        for cat in cats:
+            cat_key = normalize(cat["category"])
+            for w in cat["words"]:
+                word_key = normalize(w)
+                if word_key in last_category and last_category[word_key] != cat_key:
+                    repeats += 1
+        row = level_features(cats, zipf)
+        row["repeat_words"] = repeats
+        rows.append(row)
         numbers.append(int(key))
+        for cat in cats:
+            cat_key = normalize(cat["category"])
+            for w in cat["words"]:
+                last_category[normalize(w)] = cat_key
     return rows, np.array(numbers, dtype=float)
 
 
@@ -285,7 +316,7 @@ def main() -> int:
         config["difficulty"]["base"] = weights
         config["difficulty"]["declared"] = DECLARED
         config["difficulty"]["not_identified_by_reference"] = diagnostics
-        config["scoring_version"] = "d-1.0-calibrated"
+        config["scoring_version"] = "d-1.3-calibrated"
         config["calibrated"] = True
         config["calibration"] = {
             "dataset": "199 референсных уровней Bubble Word Jam",

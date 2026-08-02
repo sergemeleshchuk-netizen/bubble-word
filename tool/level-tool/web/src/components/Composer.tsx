@@ -8,7 +8,9 @@
  */
 import { useState } from 'react';
 import type { BlockConfig, BlockResult, GeneratedLevel, LevelPlan } from '../core/types.ts';
-import { parseIntent, type ParsedIntent } from '../core/intentParser.ts';
+import {
+  DEFAULT_INTENT_PROMPT, parseIntent, type ParsedIntent,
+} from '../core/intentParser.ts';
 import { startBubbles } from '../core/levelMath.ts';
 import {
   configForRange, decadeLabel, profileForRange, visibleShareMin,
@@ -210,9 +212,13 @@ export function Composer({ config, onGenerate }: {
   config: BlockConfig;
   onGenerate: (config: BlockConfig) => void;
 }) {
-  const [text, setText] = useState(
-    'Еда и путешествия, без спорта, два пика, передышка после каждого пика, '
-    + 'несколько честных ловушек на цветах, побольше редких слов.');
+  /**
+   * Предзаполненный промпт — образец формы, а не украшение: по нему видно, из
+   * чего вообще состоит запрос (сколько уровней, где, о чём, с каким ритмом).
+   * Разбирается целиком, без остатка в «не понято», — иначе пример учил бы
+   * писать то, что инструмент не понимает.
+   */
+  const [text, setText] = useState(DEFAULT_INTENT_PROMPT);
   const [parsed, setParsed] = useState<ParsedIntent | null>(null);
   /**
    * Черновик. Инициализируется применённым конфигом при каждом открытии
@@ -229,24 +235,36 @@ export function Composer({ config, onGenerate }: {
   const rhythm = checkBlockRhythm(plans);
   const dirty = canonicalJson(draft) !== canonicalJson(config);
 
-  const interpret = () => setParsed(parseIntent(text));
+  const interpret = () => setParsed(parseIntent(text, draft.levelRange));
   const applyParsed = () => {
-    if (parsed) setDraft((d) => ({ ...d, ...parsed.patch }));
+    if (parsed) {
+      setDraft((d) => {
+        /**
+         * Смена диапазона обязана пересобрать профиль декады целиком — ровно то
+         * же правило, что у поля «диапазон уровней» ниже. Без этого промпт
+         * «10 уровней в линейке 150-160» дал бы номера из полутора сотен, а
+         * коридор категорий, редкость и план по позициям остались бы от
+         * пресета 201-210: блок с чужим содержимым под правильными номерами.
+         */
+        const range = parsed.patch.levelRange;
+        const base = range ? configForRange(range, d.seed) : d;
+        return { ...base, ...parsed.patch };
+      });
+    }
     setParsed(null);
   };
 
   return (
     <>
       <div className="panel">
-        <h2>Свободное пожелание</h2>
+        <h2>Промпт для генерации набора уровней</h2>
         <p className="hint">
           Напишите словами, каким должен быть блок. Инструмент показывает, как понял
-          ваши слова, и вы правите интерпретацию <strong>до</strong> генерации —
-          иначе непонятно, что именно пошло в фильтр.
+          ваши слова, и вы правите интерпретацию <strong>до</strong> генерации.
         </p>
         <textarea value={text} onChange={(e) => setText(e.target.value)} />
         <div className="row" style={{ marginTop: 8 }}>
-          <button className="ghost" onClick={interpret}>Разобрать пожелание</button>
+          <button className="ghost" onClick={interpret}>Разобрать промпт</button>
           {parsed && (
             <button className="primary" onClick={applyParsed}>
               Применить интерпретацию

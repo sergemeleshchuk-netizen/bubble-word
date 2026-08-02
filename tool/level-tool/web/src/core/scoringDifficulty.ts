@@ -17,6 +17,7 @@
 import type { DifficultyBreakdown, LevelSpec, SolutionCount } from './types.ts';
 import { STATUS } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
+import { dealShape, type DealShape } from './dealShape.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
 
 export interface ScoringConfig {
@@ -32,7 +33,13 @@ export interface ScoringConfig {
     not_identified_by_reference?: unknown[];
   };
   calibration?: unknown;
-  interest: { scoring_version: string; weights: Record<string, number>; composite_max: number };
+  interest: {
+    scoring_version: string;
+    weights: Record<string, number>;
+    composite_max: number;
+    /** объявленные веса компонентов: модификатор, новизна, эхо-категории */
+    declared?: Record<string, number>;
+  };
 }
 
 /** Признаки уровня, по которым считается D_base. Ровно те, что есть в референсе. */
@@ -55,6 +62,13 @@ export interface BaseFeatures {
   metaDepth: number;
   quickwinCategories: number;
   /**
+   * Профиль выкладки: четвёрки, тройки, пары и одиночки на старте плюс
+   * продуктивность досыпки. Считается в `core/dealShape.ts`; здесь он живёт
+   * целиком, потому что сложность зависит от ФОРМЫ поля, а не только от того,
+   * сколько на нём мёртвых пузырей (решение владельца 03.08).
+   */
+  shape: DealShape;
+  /**
    * Категории, представленные на стартовом поле ровно одним словом.
    *
    * Такой пузырь не сливается ни с чем: его пара ещё в очереди. Он занимает
@@ -64,6 +78,8 @@ export interface BaseFeatures {
    * до 62% поля не участвует в ходе. Это отдельная от объёма нагрузка:
    * два уровня с одинаковым числом слов, но разной раскладкой играются
    * по-разному.
+   *
+   * Дубль `shape.singles`, оставленный ради читаемости формулы ниже.
    */
   loneStartWords: number;
   /** Слов на стартовом поле — знаменатель для доли «мёртвых» пузырей. */
@@ -81,17 +97,12 @@ export function baseFeaturesOf(spec: LevelSpec): BaseFeatures {
       if (word.zipf !== null && word.zipf < 2.0) veryRare += 1;
     }
   }
-  // Раскладка старта. У спека без выкладки одиночек считать не из чего —
-  // тогда фактор равен нулю, а не выдумывается из числа категорий.
-  const onField = new Map<string, number>();
-  for (const bubble of spec.deal?.start ?? []) {
-    onField.set(bubble.category, (onField.get(bubble.category) ?? 0) + 1);
-  }
-  const startFieldSize = spec.deal?.start.length ?? 0;
-  let lone = 0;
-  for (const count of onField.values()) if (count === 1) lone += 1;
+  // Раскладка старта. У спека без выкладки считать не из чего — тогда все
+  // числа профиля нулевые, а не выдумываются из числа категорий.
+  const shape = dealShape(spec);
 
   return {
+    shape,
     categories: spec.categories.length,
     startBubbles: spec.board.startBubbles,
     rareWords: rare,
@@ -99,8 +110,8 @@ export function baseFeaturesOf(spec: LevelSpec): BaseFeatures {
     metaLinks,
     metaDepth: Math.max(0, ...spec.categories.map((c) => c.metaDepth)),
     quickwinCategories: spec.categories.filter((c) => c.isQuickwin).length,
-    loneStartWords: lone,
-    startFieldSize,
+    loneStartWords: shape.singles,
+    startFieldSize: shape.startFieldSize,
   };
 }
 
@@ -140,6 +151,18 @@ export interface SemanticEvidence {
   unplannedHesitations?: number;
   /** ловушки, на которых решатель реально споткнулся */
   confirmedTraps?: string[];
+  /**
+   * Слов уровня, уже встречавшихся в прошлых уровнях пакета в ДРУГОЙ категории
+   * (generateBlock.repeatCount). Это знание ПАКЕТА, а не спека: одиночный спек
+   * о прошлом ничего не знает, поэтому значение приезжает как evidence — тем же
+   * путём, что newWordShare в модели интереса. Без него берётся 0: спек без
+   * истории честно оценивается как первый уровень пакета.
+   *
+   * Вес откалиброван (d-1.3): повторы — главный растущий рычаг оригинала после
+   * L121 (r с номером уровня 0.794, сильнее объёма), и до этой правки D их
+   * не видела вовсе — блоки после L121 не различались между собой.
+   */
+  repeatedWords?: number;
 }
 
 export function computeDifficulty(
@@ -154,20 +177,27 @@ export function computeDifficulty(
   const explanation: string[] = [];
 
   // ---------------- base: откалибровано на 199 уровнях ----------------
+  const repeatedWords = evidence.repeatedWords ?? 0;
   const base: Record<string, number> = {
     // масштаб = число категорий: слов на уровне ровно 4*M − мета, поэтому
     // именно M и есть то, что этот вес меряет (F1 в levels/EVAL.md)
     'масштаб (категорий × 4 слова)': (w.base.start_bubbles ?? 0) * features.startBubbles,
     'редкие слова (zipf < 3)': (w.base.rare_words ?? 0) * features.rareWords,
     'очень редкие (zipf < 2)': (w.base.very_rare_words ?? 0) * features.veryRareWords,
+    'повторы из прошлых уровней': (w.base.repeat_words ?? 0) * repeatedWords,
   };
   const baseTotal = (w.base.intercept ?? 0)
     + Object.values(base).reduce((a, b) => a + b, 0);
 
   explanation.push(`${features.categories} категорий — это ${features.startBubbles} слов `
-    + 'на уровне; масштаб растёт линейно по числу категорий и остаётся '
-    + 'главным слагаемым сложности');
+    + 'на уровне; масштаб растёт линейно по числу категорий');
   explanation.push(`${features.rareWords} редких слов, из них ${features.veryRareWords} очень редких`);
+  explanation.push(evidence.repeatedWords === undefined
+    ? 'повторы из прошлых уровней не переданы: спек оценивается как первый '
+      + 'уровень пакета (0 повторов)'
+    : `${repeatedWords} слов уже встречались в прошлых уровнях пакета в другой `
+      + 'категории — знакомое слово в незнакомой роли надо переосмыслить, '
+      + 'и после L121 у оригинала это главный растущий рычаг');
 
   // ---------------- declared: объявлено, НЕ откалибровано ----------------
   const d = w.declared ?? {};
@@ -176,16 +206,38 @@ export function computeDifficulty(
   const depthScore = (d.meta_depth_beyond_1 ?? 0) * Math.max(0, features.metaDepth - 1);
   const quickwinScore = Math.max(d.quickwin_relief_max ?? -0.6,
     (d.quickwin_relief ?? 0) * features.quickwinCategories);
-  // Раскладка старта. Вес объявленный по той же причине, что и мета: выкладку
-  // считаем МЫ (core/deal.ts), в выгрузке референса её нет вовсе, значит
-  // калибровать не на чем — но и молчать о ней нельзя.
+  /*
+   * Профиль выкладки. Веса объявленные по той же причине, что и мета: выкладку
+   * считаем МЫ (core/deal.ts), в выгрузке референса раскладки поля нет вовсе,
+   * значит калибровать не на чем — но и молчать о ней нельзя.
+   *
+   * Знаки не симметричны сознательно. Готовая четвёрка и тройка ОБЛЕГЧАЮТ:
+   * гипотеза уже собрана глазами, ход очевиден. Одиночка УСЛОЖНЯЕТ: пузырь не
+   * сливается ни с чем, пара ещё в очереди, и чем таких больше, тем ближе поле
+   * к «ходить некуда». Пара — нейтральная норма, от неё и отсчитываем.
+   *
+   * Продуктивность досыпки — та же ось, но в динамике: пачка либо открывает
+   * сбор, либо приносит обрывки. Штраф берётся за ДОЛЮ бесплодных волн, а не
+   * за их число: у уровня на 16 категорий волн вдвое больше, чем у уровня на 8,
+   * и абсолютный счёт наказывал бы за размер второй раз после масштаба.
+   */
+  const shape = features.shape;
+  const fullSetScore = Math.max(d.deal_full_set_max ?? -0.6,
+    (d.deal_full_set ?? 0) * shape.fullSets);
+  const tripleScore = Math.max(d.deal_triple_max ?? -0.4,
+    (d.deal_triple ?? 0) * shape.triples);
   const loneScore = Math.min(d.lone_start_word_max ?? 1.0,
     (d.lone_start_word ?? 0) * features.loneStartWords);
+  const dryRefillScore = (d.deal_dry_refill ?? 0)
+    * Math.max(0, Math.min(1, 1 - shape.refillCompletionShare));
   const declared: Record<string, number> = {
     'мета-связи (объявлено)': metaScore,
     'глубина мета сверх 1 (объявлено)': depthScore,
     'быстрые победы (объявлено)': quickwinScore,
+    'готовые четвёрки на старте (объявлено)': fullSetScore,
+    'тройки на старте (объявлено)': tripleScore,
     'одиночки на старте (объявлено)': loneScore,
+    'бесплодная досыпка (объявлено)': dryRefillScore,
   };
   const declaredTotal = Object.values(declared).reduce((a, b) => a + b, 0);
 
@@ -202,12 +254,22 @@ export function computeDifficulty(
     + 'оценку на объявленную величину: дверь остаётся открытой');
   if (features.startFieldSize > 0) {
     const share = Math.round((features.loneStartWords / features.startFieldSize) * 100);
+    explanation.push(`раскладка старта: ${shape.fullSets} готовых четвёрок, `
+      + `${shape.triples} троек, ${shape.pairs} пар, ${shape.singles} одиночек`
+      + (shape.absent > 0 ? `, ${shape.absent} категорий целиком в очереди` : ''));
     explanation.push(features.loneStartWords === 0
       ? `на старте нет категорий-одиночек: каждый из ${features.startFieldSize} пузырей `
         + 'поля имеет пару и участвует в ходе'
       : `${features.loneStartWords} категорий лежат на старте одним словом — `
         + `${share}% поля не сливается ни с чем и работает отвлечением, `
         + 'а не материалом для хода');
+    explanation.push(shape.refillWaves === 0
+      ? 'досыпки нет: уровень целиком лежит на поле'
+      : `досыпка открывает сбор в ${shape.refillCompletions} из ${shape.refillWaves} `
+        + `волн (${Math.round(shape.refillCompletionShare * 100)}%): `
+        + (shape.refillCompletionShare >= 0.8
+          ? 'пачка почти всегда приносит развязку'
+          : 'часть пачек добавляет только обрывков'));
   }
 
   // ---------------- semantic ----------------

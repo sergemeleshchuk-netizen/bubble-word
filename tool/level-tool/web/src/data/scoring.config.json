@@ -1,5 +1,5 @@
 {
-  "scoring_version": "d-1.2-calibrated",
+  "scoring_version": "d-1.4-calibrated",
   "calibrated": true,
   "note": "Веса base откалиброваны scripts/calibrate_difficulty.py на 199 референсных уровнях. Секция declared — объявленные продуктовые веса: референс их НЕ идентифицирует (см. not_identified_by_reference и docs/SCORING.md §7). Секции semantic и mechanical по референсу калибровать нечем: этих признаков в выгрузке ответов нет вообще (SPEC_AUDIT §3).",
   "difficulty": {
@@ -42,7 +42,12 @@
       "quickwin_relief": -0.1,
       "quickwin_relief_max": -0.6,
       "lone_start_word": 0.05,
-      "lone_start_word_max": 0.6
+      "lone_start_word_max": 0.6,
+      "deal_full_set": -0.08,
+      "deal_full_set_max": -0.5,
+      "deal_triple": -0.05,
+      "deal_triple_max": -0.3,
+      "deal_dry_refill": 0.5
     },
     "not_identified_by_reference": [
       {
@@ -66,14 +71,19 @@
     ]
   },
   "interest": {
-    "scoring_version": "i-0.1-uncalibrated",
+    "scoring_version": "i-0.2-uncalibrated",
     "weights": {
       "clarity": 1.0,
       "variety": 1.0,
       "aha": 1.0,
       "freshness": 1.0
     },
-    "composite_max": 2.5
+    "composite_max": 2.5,
+    "declared": {
+      "modifier_variety": 0.5,
+      "echo_target": 3,
+      "echo_bonus": 0.2
+    }
   },
   "calibration": {
     "dataset": "199 референсных уровней Bubble Word Jam",

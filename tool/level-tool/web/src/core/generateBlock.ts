@@ -77,6 +77,29 @@ function repeatCount(spec: LevelSpec, history: PackHistory): number {
   return n;
 }
 
+/**
+ * Категории-эхо: ровно ОДНО слово знакомо из прошлых уровней пакета.
+ *
+ * Считается здесь, а не в модели интереса, по той же причине, что и повторы:
+ * «знакомое слово» — свойство пакета и его истории, а спек одного уровня о
+ * прошлом ничего не знает. Мета-слова не считаются: они не спавнятся и игрок
+ * их как слово не встречает.
+ */
+function echoCategories(spec: LevelSpec, history: PackHistory): number {
+  let echo = 0;
+  for (const category of spec.categories) {
+    const known = category.words.filter((w) => w.kind === 'word'
+      && history.wordLastLevel.has(normalizeWordKey(w.text))).length;
+    if (known === 1) echo += 1;
+  }
+  return echo;
+}
+
+/** Категорий, которые в пакете уже были (вернулись после окна свежести). */
+function returningCategories(spec: LevelSpec, history: PackHistory): number {
+  return spec.categories.filter((c) => history.categoryLastLevel.has(c.key)).length;
+}
+
 /** Доля слов уровня, новых для пакета. */
 function newWordShare(spec: LevelSpec, history: PackHistory): number {
   const words = spec.categories.flatMap((c) => c.words);
@@ -93,6 +116,13 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
 
   const levels: GeneratedLevel[] = [];
   const failures: GenerationFailure[] = [];
+  /**
+   * Сколько уровней пакета уже вышли с тем же модификатором. Живёт здесь, а не
+   * в `PackHistory`: это счётчик ОДНОГО прогона, нужный только модели интереса,
+   * а история пакета описывает контент (слова и категории) и участвует в
+   * правилах свежести. Смешивать не стоит.
+   */
+  const modifierSeen = new Map<string, number>();
 
   /**
    * Резервирование глубокой цепочки.
@@ -209,7 +239,14 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     const interest = computeInterest(spec, index, scoring, solutions, {
       ...evidence,
       newWordShare: newWordShare(spec, history),
+      echoCategories: echoCategories(spec, history),
+      returningCategories: returningCategories(spec, history),
+      modifierSeenBefore: plan.modifier === 'none' ? 0
+        : (modifierSeen.get(plan.modifier) ?? 0),
     });
+    if (plan.modifier !== 'none') {
+      modifierSeen.set(plan.modifier, (modifierSeen.get(plan.modifier) ?? 0) + 1);
+    }
 
     levels.push({
       plan,
