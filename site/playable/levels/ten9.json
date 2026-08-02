@@ -1,0 +1,124 @@
+{
+  "level_id": 9,
+  "difficulty_target": 5.5,
+  "categories": [
+    {
+      "id": "animal_coverings",
+      "name": "ANIMAL COVERINGS",
+      "words": [
+        "hair",
+        "skin",
+        "hide",
+        "shell"
+      ]
+    },
+    {
+      "id": "laundry_care",
+      "name": "LAUNDRY CARE",
+      "words": [
+        "dry",
+        "hang",
+        "wash",
+        "soak"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "science",
+        "gym",
+        "chemistry",
+        "geography"
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
+      "words": [
+        "name",
+        "word",
+        "count",
+        "shape"
+      ]
+    },
+    {
+      "id": "magic_words",
+      "name": "MAGIC SHOW",
+      "words": [
+        "box",
+        "trick",
+        "rope",
+        "illusion"
+      ]
+    },
+    {
+      "id": "fashion_show",
+      "name": "FASHION SHOW",
+      "words": [
+        "model",
+        "designer",
+        "fitting",
+        "pose"
+      ]
+    },
+    {
+      "id": "pantry_staples",
+      "name": "PANTRY STAPLES",
+      "words": [
+        "tea",
+        "rice",
+        "beans",
+        "pasta"
+      ]
+    },
+    {
+      "id": "directions",
+      "name": "DIRECTIONS",
+      "words": [
+        "far",
+        "left",
+        "south",
+        "up"
+      ]
+    },
+    {
+      "id": "groups_of_people",
+      "name": "GROUPS OF PEOPLE",
+      "words": [
+        "class",
+        "cast",
+        "squad",
+        "gang"
+      ]
+    },
+    {
+      "id": "seasons",
+      "name": "SEASONS",
+      "words": [
+        "fall",
+        "spring",
+        "summer",
+        "winter"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN009",
+    "pack": "TEN",
+    "meta_links": [],
+    "recorded_move_limit": 45
+  }
+}

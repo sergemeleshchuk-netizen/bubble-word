@@ -1,0 +1,104 @@
+{
+  "level_id": 2,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "senses_and_perception",
+      "name": "THE SENSES",
+      "words": [
+        "pain",
+        "pressure",
+        "touch",
+        "hearing"
+      ]
+    },
+    {
+      "id": "alphabet_and_numbers",
+      "name": "FIRST LESSONS",
+      "words": [
+        "day",
+        "name",
+        "number",
+        "season"
+      ]
+    },
+    {
+      "id": "reading_material",
+      "name": "READING MATTER",
+      "words": [
+        "book",
+        "map",
+        "blog",
+        "magazine"
+      ]
+    },
+    {
+      "id": "art_forms",
+      "name": "ART FORMS",
+      "words": [
+        "dance",
+        "film",
+        "music",
+        "drawing"
+      ]
+    },
+    {
+      "id": "legal_documents",
+      "name": "LEGAL DOCUMENTS",
+      "words": [
+        "contract",
+        "will",
+        "license",
+        "certificate"
+      ]
+    },
+    {
+      "id": "magazines",
+      "name": "MAGAZINE TYPES",
+      "words": [
+        "business",
+        "sports",
+        "travel",
+        "fashion"
+      ]
+    },
+    {
+      "id": "family_members",
+      "name": "FAMILY MEMBERS",
+      "words": [
+        "brother",
+        "sister",
+        "son",
+        "wife"
+      ]
+    },
+    {
+      "id": "days_and_parts_of_day",
+      "name": "DAYS & TIMES",
+      "words": [
+        "Friday",
+        "morning",
+        "night",
+        "Sunday"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 39,
+    "move_limit_k": 1.62
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN002",
+    "pack": "TEN",
+    "meta_links": [],
+    "recorded_move_limit": 39
+  }
+}

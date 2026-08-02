@@ -1,0 +1,74 @@
+{
+  "level_id": 1,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "clothing_sizes",
+      "name": "CLOTHING SIZES",
+      "words": [
+        "large",
+        "plus",
+        "regular",
+        "small"
+      ]
+    },
+    {
+      "id": "comic_words",
+      "name": "COMIC BOOKS",
+      "words": [
+        "cover",
+        "issue",
+        "series",
+        "artist"
+      ]
+    },
+    {
+      "id": "social_media_words",
+      "name": "SOCIAL MEDIA",
+      "words": [
+        "follow",
+        "like",
+        "post",
+        "share"
+      ]
+    },
+    {
+      "id": "rice_types",
+      "name": "RICE TYPES",
+      "words": [
+        "black",
+        "red",
+        "white",
+        "wild"
+      ]
+    },
+    {
+      "id": "the_mind",
+      "name": "THE MIND",
+      "words": [
+        "memory",
+        "reason",
+        "thought",
+        "focus"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": null,
+    "move_limit_k": null
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN001",
+    "pack": "TEN",
+    "meta_links": [],
+    "recorded_move_limit": null
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "level_id": 10,
+  "difficulty_target": 4.0,
+  "categories": [
+    {
+      "id": "illnesses",
+      "name": "ILLNESSES",
+      "words": [
+        "cold",
+        "infection",
+        "fever",
+        "diabetes"
+      ]
+    },
+    {
+      "id": "job_hunting",
+      "name": "JOB HUNTING",
+      "words": [
+        "contract",
+        "interview",
+        "hire",
+        "screening"
+      ]
+    },
+    {
+      "id": "movie_genres",
+      "name": "MOVIE GENRES",
+      "words": [
+        "drama",
+        "comedy",
+        "documentary",
+        "animation"
+      ]
+    },
+    {
+      "id": "reading_material",
+      "name": "READING MATTER",
+      "words": [
+        "book",
+        "manual",
+        "menu",
+        "poem"
+      ]
+    },
+    {
+      "id": "landforms",
+      "name": "LANDFORMS",
+      "words": [
+        "island",
+        "ridge",
+        "basin",
+        "peninsula"
+      ]
+    },
+    {
+      "id": "military_ranks",
+      "name": "MILITARY RANKS",
+      "words": [
+        "captain",
+        "general",
+        "commander",
+        "lieutenant"
+      ]
+    },
+    {
+      "id": "family_members",
+      "name": "FAMILY MEMBERS",
+      "words": [
+        "mother",
+        "cousin",
+        "aunt",
+        "grandmother"
+      ]
+    },
+    {
+      "id": "places_of_worship",
+      "name": "PLACES OF WORSHIP",
+      "words": [
+        "church",
+        "sanctuary",
+        "mosque",
+        "abbey"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 20,
+    "move_limit": 44,
+    "move_limit_k": 1.52
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN010",
+    "pack": "TEN",
+    "meta_links": [],
+    "recorded_move_limit": 44
+  }
+}

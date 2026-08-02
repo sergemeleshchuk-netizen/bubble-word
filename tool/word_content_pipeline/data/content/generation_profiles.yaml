@@ -198,3 +198,60 @@ hard_knowledge.ambiguity_budget: 0.85
 hard_knowledge.rare_word_budget: 8
 hard_knowledge.long_phrase_budget: 4
 hard_knowledge.novel_words_target_ratio: 0.35
+
+# ------------------------------------------------------------------ first_ten
+# Первая десятка: пакет, который должен быть заметно легче записи оригинала и
+# состоять из более расхожих слов. Отдельный профиль, а не «first_lineup с
+# послаблением», потому что двигать надо в разные стороны сразу: пороги
+# знакомости вверх, требования к ясности группы вверх, а сложность вниз.
+#
+# Запись оригинала на первых десяти уровнях даёт D 6.35 при знакомости 0.594,
+# и трудность там набирается редкими словами: `mukluk`, `harbor seal`,
+# `answering phones`. Именно этого здесь быть не должно.
+#
+# Отличия от first_lineup:
+#
+#   знакомость 0.48/0.60/0.58 против 0.43/0.52/0.55 — слова расхожее;
+#   якорей 4 из 4 против 3 — тему видно по любому слову группы, а не по трём;
+#   меньше несвязных групп на уровень — поле читается ассоциациями, а не
+#   перебором.
+#
+# Цена измерена: пул сжимается с 1079 четвёрок в 250 категориях до 430 в 117.
+# На десять уровней (около 95 групп) этого хватает с запасом; на двадцать —
+# уже нет, поэтому профиль называется first_ten, а не «easy».
+first_ten.word_familiarity_min: 0.48
+first_ten.word_familiarity_avg_min: 0.60
+first_ten.word_accessibility_min: 0.58
+first_ten.max_word_chars: 12
+first_ten.max_word_tokens: 1
+first_ten.max_label_chars: 22
+first_ten.max_label_tokens: 4
+first_ten.label_quality_min: 0.60
+first_ten.quartet_quality_min: 0.58
+first_ten.quartet_interest_target: 0.35
+first_ten.ambiguity_budget: 0.95
+first_ten.rare_word_budget: 0
+first_ten.long_phrase_budget: 0
+first_ten.max_proper_nouns: 2
+first_ten.proper_noun_budget: 4
+first_ten.max_secondary_senses: 1
+first_ten.novel_words_target_ratio: 0.05
+first_ten.forbid_vague_label: 1
+
+# Доступность значений: строже, чем у первой линейки, ровно в одном месте —
+# якорем обязано быть каждое слово группы, а не три из четырёх. Одна честная
+# ловушка на группу остаётся: без неё пакет становится не лёгким, а пустым.
+first_ten.require_resolved_senses: 1
+first_ten.max_specialist_senses_per_group: 0
+first_ten.max_obscure_senses_per_group: 0
+first_ten.max_common_secondary_senses_per_group: 1
+first_ten.min_clear_anchors_per_lexical_group: 4
+first_ten.anchor_recognition_min: 0.78
+first_ten.anchor_activation_min: 0.62
+first_ten.max_unresolved_senses_per_level: 0
+first_ten.max_specialist_senses_per_level: 0
+first_ten.max_common_secondary_senses_per_level: 2
+first_ten.max_anchorless_groups_per_level: 0
+first_ten.max_anchorless_groups_per_pack: 0
+first_ten.max_swow_disconnected_group_ratio: 0.22
+first_ten.max_swow_disconnected_groups_per_level: 3

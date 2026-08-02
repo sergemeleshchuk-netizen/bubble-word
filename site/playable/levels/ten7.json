@@ -1,0 +1,151 @@
+{
+  "level_id": 7,
+  "difficulty_target": 7.0,
+  "categories": [
+    {
+      "id": "ways_of_moving",
+      "name": "WAYS OF MOVING",
+      "words": [
+        "race",
+        "hop",
+        "skip",
+        "leap"
+      ]
+    },
+    {
+      "id": "weather_adjectives",
+      "name": "WEATHER ADJECTIVES",
+      "words": [
+        "clear",
+        "mild",
+        "sunny",
+        "freezing"
+      ]
+    },
+    {
+      "id": "shape_adjectives",
+      "name": "SHAPE ADJECTIVES",
+      "words": [
+        "straight",
+        "narrow",
+        "twisted",
+        "curved"
+      ]
+    },
+    {
+      "id": "art_forms",
+      "name": "ART FORMS",
+      "words": [
+        "film",
+        "painting",
+        "theater",
+        "sculpture"
+      ]
+    },
+    {
+      "id": "creative_jobs",
+      "name": "CREATIVE JOBS",
+      "words": [
+        "director",
+        "editor",
+        "singer",
+        "producer"
+      ]
+    },
+    {
+      "id": "greetings_and_farewells",
+      "name": "GREETINGS",
+      "words": [
+        "morning",
+        "welcome",
+        "farewell",
+        "greetings"
+      ]
+    },
+    {
+      "id": "rights_and_freedoms",
+      "name": "RIGHTS",
+      "words": [
+        "speech",
+        "appeal",
+        "protest",
+        "petition"
+      ]
+    },
+    {
+      "id": "book_genres",
+      "name": "BOOK GENRES",
+      "words": [
+        "history",
+        "humor",
+        "thriller",
+        "biography"
+      ]
+    },
+    {
+      "id": "inventions",
+      "name": "INVENTIONS",
+      "words": [
+        "computer",
+        "internet",
+        "radio",
+        "camera"
+      ]
+    },
+    {
+      "id": "team_sports",
+      "name": "TEAM SPORTS",
+      "words": [
+        "football",
+        "basketball",
+        "baseball",
+        "soccer"
+      ]
+    },
+    {
+      "id": "courtroom",
+      "name": "COURTROOM",
+      "words": [
+        "verdict",
+        "jury",
+        "crimes",
+        "rights"
+      ]
+    },
+    {
+      "id": "wellness",
+      "name": "WELLNESS",
+      "words": [
+        "balance",
+        "diet",
+        "meditation",
+        "yoga"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 24,
+    "move_limit": 46,
+    "move_limit_k": 1.28
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN007",
+    "pack": "TEN",
+    "meta_links": [
+      {
+        "token": "rights",
+        "source_group": "RIGHTS",
+        "target_group": "COURTROOM",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 46
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "level_id": 4,
+  "difficulty_target": 6.0,
+  "categories": [
+    {
+      "id": "body_parts",
+      "name": "BODY PARTS",
+      "words": [
+        "back",
+        "shoulder",
+        "hip",
+        "stomach"
+      ]
+    },
+    {
+      "id": "illnesses",
+      "name": "ILLNESSES",
+      "words": [
+        "cold",
+        "flu",
+        "asthma",
+        "diseases"
+      ]
+    },
+    {
+      "id": "job_hunting",
+      "name": "JOB HUNTING",
+      "words": [
+        "offer",
+        "application",
+        "interview",
+        "reference"
+      ]
+    },
+    {
+      "id": "school_subjects",
+      "name": "SCHOOL SUBJECTS",
+      "words": [
+        "English",
+        "history",
+        "literature",
+        "math"
+      ]
+    },
+    {
+      "id": "roman_things",
+      "name": "ANCIENT ROME",
+      "words": [
+        "senate",
+        "forum",
+        "arena",
+        "emperor"
+      ]
+    },
+    {
+      "id": "parts_of_a_house",
+      "name": "HOUSE PARTS",
+      "words": [
+        "door",
+        "ceiling",
+        "threshold",
+        "porch"
+      ]
+    },
+    {
+      "id": "elements_more",
+      "name": "MORE ELEMENTS",
+      "words": [
+        "silver",
+        "aluminum",
+        "platinum",
+        "silicon"
+      ]
+    },
+    {
+      "id": "groups_of_people",
+      "name": "GROUPS OF PEOPLE",
+      "words": [
+        "band",
+        "staff",
+        "audience",
+        "gang"
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "FEELINGS",
+      "words": [
+        "content",
+        "happy",
+        "sad",
+        "proud"
+      ]
+    },
+    {
+      "id": "greeting_card",
+      "name": "GREETING CARD",
+      "words": [
+        "envelope",
+        "stamp",
+        "holidays",
+        "feelings"
+      ]
+    }
+  ],
+  "traps": [],
+  "repeats": [],
+  "board": {
+    "start_bubbles": 21,
+    "move_limit": 45,
+    "move_limit_k": 1.5
+  },
+  "extensions": {
+    "chunks": [],
+    "chains": null,
+    "picture_words": []
+  },
+  "source": {
+    "level_key": "TEN004",
+    "pack": "TEN",
+    "meta_links": [
+      {
+        "token": "feelings",
+        "source_group": "FEELINGS",
+        "target_group": "GREETING CARD",
+        "depth": 1
+      }
+    ],
+    "recorded_move_limit": 45
+  }
+}
