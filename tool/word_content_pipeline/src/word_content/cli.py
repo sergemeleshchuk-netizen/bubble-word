@@ -1947,6 +1947,7 @@ def cmd_sense_gaps(
         conn.close()
 
     in_levels = sum(1 for item in items if item.used_in_levels)
+    in_reference = sum(1 for item in items if item.used_in_reference)
     in_quartets = sum(1 for item in items if item.used_in_quartets)
     titles = sum(1 for item in items if item.suspected_title_sense)
     by_membership_priority: dict[str, int] = {}
@@ -1974,7 +1975,9 @@ def cmd_sense_gaps(
     typer.echo("")
     typer.echo("Связи без разрешённого значения")
     typer.echo(f"  всего:                          {len(items)}")
-    typer.echo(f"  стоят в собранных уровнях (P0): {in_levels}")
+    typer.echo(f"  стоят в наших уровнях (P0):     {in_levels}")
+    typer.echo(f"  стоят в уровнях записи:         {in_reference} "
+               f"(эталон, профилю не подчиняется)")
     typer.echo(f"  стоят в проверенных четвёрках:  {in_quartets}")
     typer.echo(f"  подозрение на значение-название:{titles}")
     typer.echo(

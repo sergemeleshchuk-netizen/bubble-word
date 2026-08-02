@@ -129,6 +129,7 @@ class UnresolvedMembership:
     accessibility_class: str
     membership_count: int
     used_in_levels: int
+    used_in_reference: int
     used_in_quartets: int
     names_titles: bool
     is_proper_noun: bool
@@ -176,10 +177,22 @@ def unresolved(conn: sqlite3.Connection) -> list[UnresolvedMembership]:
                (SELECT COUNT(*) FROM memberships m2
                  WHERE m2.word_id = m.word_id AND m2.sense_mode <> 'surface_form')
                    AS membership_count,
+               -- Уровни записи оригинала считаются отдельно: это измерительный
+               -- эталон, а не наш контент, и правила профиля к нему не
+               -- применяются. Складывать их в одно число значит показывать
+               -- работу, которой нет.
                (SELECT COUNT(*) FROM level_tokens t
-                  JOIN level_groups g ON g.id = t.group_id
-                 WHERE t.word_id = m.word_id AND g.category_id = m.category_id)
+                  JOIN level_groups g     ON g.id = t.group_id
+                  JOIN level_instances li ON li.id = t.level_id
+                 WHERE t.word_id = m.word_id AND g.category_id = m.category_id
+                   AND li.origin <> 'reference_video')
                    AS used_in_levels,
+               (SELECT COUNT(*) FROM level_tokens t
+                  JOIN level_groups g     ON g.id = t.group_id
+                  JOIN level_instances li ON li.id = t.level_id
+                 WHERE t.word_id = m.word_id AND g.category_id = m.category_id
+                   AND li.origin = 'reference_video')
+                   AS used_in_reference,
                (SELECT COUNT(*) FROM quartet_words qw
                   JOIN quartets q ON q.id = qw.quartet_id
                  WHERE qw.word_id = m.word_id AND q.category_id = m.category_id
@@ -205,6 +218,7 @@ def unresolved(conn: sqlite3.Connection) -> list[UnresolvedMembership]:
             accessibility_class=row["accessibility_class"],
             membership_count=int(row["membership_count"]),
             used_in_levels=int(row["used_in_levels"]),
+            used_in_reference=int(row["used_in_reference"]),
             used_in_quartets=int(row["used_in_quartets"]),
             names_titles=bool(row["names_titles"]),
             is_proper_noun=bool(row["is_proper_noun"]),
@@ -228,6 +242,7 @@ def unresolved_rows(items: list[UnresolvedMembership]) -> list[dict[str, object]
             "accessibility_class": item.accessibility_class,
             "membership_count": item.membership_count,
             "used_in_levels": item.used_in_levels,
+            "used_in_reference": item.used_in_reference,
             "used_in_quartets": item.used_in_quartets,
             "suspected_title_sense": int(item.suspected_title_sense),
             "is_proper_noun": int(item.is_proper_noun),
