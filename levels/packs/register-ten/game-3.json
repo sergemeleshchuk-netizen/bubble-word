@@ -1,0 +1,320 @@
+{
+  "level_id": 3,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 30,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "oxford",
+        "category": "footwear"
+      },
+      {
+        "word": "humidity",
+        "category": "weather_report"
+      },
+      {
+        "word": "forecast",
+        "category": "weather_report"
+      },
+      {
+        "word": "boot",
+        "category": "footwear"
+      },
+      {
+        "word": "radar",
+        "category": "weather_report"
+      },
+      {
+        "word": "tornado",
+        "category": "storms"
+      },
+      {
+        "word": "colors",
+        "category": "home_decor"
+      },
+      {
+        "word": "Bush",
+        "category": "kinds_of_plants"
+      },
+      {
+        "word": "jam",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "chain",
+        "category": "jewelry"
+      },
+      {
+        "word": "shade",
+        "category": "lighting"
+      },
+      {
+        "word": "ring",
+        "category": "jewelry"
+      },
+      {
+        "word": "hurricane",
+        "category": "storms"
+      },
+      {
+        "word": "pump",
+        "category": "footwear"
+      },
+      {
+        "word": "bacon",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "furniture",
+        "category": "home_decor"
+      },
+      {
+        "word": "grass",
+        "category": "kinds_of_plants"
+      },
+      {
+        "word": "egg",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "lamp",
+        "category": "lighting"
+      },
+      {
+        "word": "downpour",
+        "category": "storms"
+      },
+      {
+        "word": "patterns",
+        "category": "home_decor"
+      },
+      {
+        "word": "tree",
+        "category": "kinds_of_plants"
+      },
+      {
+        "word": "candle",
+        "category": "lighting"
+      },
+      {
+        "word": "spotlight",
+        "category": "lighting"
+      }
+    ],
+    "queue": [
+      {
+        "word": "bracelet",
+        "category": "jewelry"
+      },
+      {
+        "word": "heel",
+        "category": "footwear"
+      },
+      {
+        "word": "bread",
+        "category": "breakfast_foods"
+      },
+      {
+        "word": "blizzard",
+        "category": "storms"
+      },
+      {
+        "word": "charm",
+        "category": "jewelry"
+      },
+      {
+        "word": "flower",
+        "category": "kinds_of_plants"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "lighting",
+      "label": "LIGHTING",
+      "words": [
+        {
+          "text": "lamp",
+          "kind": "word"
+        },
+        {
+          "text": "spotlight",
+          "kind": "word"
+        },
+        {
+          "text": "shade",
+          "kind": "word"
+        },
+        {
+          "text": "candle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "home_decor",
+      "label": "HOME DECOR",
+      "words": [
+        {
+          "text": "lighting",
+          "kind": "meta",
+          "meta_child": "lighting"
+        },
+        {
+          "text": "furniture",
+          "kind": "word"
+        },
+        {
+          "text": "patterns",
+          "kind": "word"
+        },
+        {
+          "text": "colors",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "storms",
+      "label": "STORMS",
+      "words": [
+        {
+          "text": "hurricane",
+          "kind": "word"
+        },
+        {
+          "text": "tornado",
+          "kind": "word"
+        },
+        {
+          "text": "downpour",
+          "kind": "word"
+        },
+        {
+          "text": "blizzard",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_report",
+      "label": "WEATHER REPORT",
+      "words": [
+        {
+          "text": "storms",
+          "kind": "meta",
+          "meta_child": "storms"
+        },
+        {
+          "text": "forecast",
+          "kind": "word"
+        },
+        {
+          "text": "radar",
+          "kind": "word"
+        },
+        {
+          "text": "humidity",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kinds_of_plants",
+      "label": "KINDS OF PLANTS",
+      "words": [
+        {
+          "text": "flower",
+          "kind": "word"
+        },
+        {
+          "text": "grass",
+          "kind": "word"
+        },
+        {
+          "text": "Bush",
+          "kind": "word"
+        },
+        {
+          "text": "tree",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "jewelry",
+      "label": "JEWELRY",
+      "words": [
+        {
+          "text": "chain",
+          "kind": "word"
+        },
+        {
+          "text": "ring",
+          "kind": "word"
+        },
+        {
+          "text": "charm",
+          "kind": "word"
+        },
+        {
+          "text": "bracelet",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "breakfast_foods",
+      "label": "BREAKFAST FOODS",
+      "words": [
+        {
+          "text": "bread",
+          "kind": "word"
+        },
+        {
+          "text": "bacon",
+          "kind": "word"
+        },
+        {
+          "text": "jam",
+          "kind": "word"
+        },
+        {
+          "text": "egg",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "footwear",
+      "label": "FOOTWEAR",
+      "words": [
+        {
+          "text": "pump",
+          "kind": "word"
+        },
+        {
+          "text": "oxford",
+          "kind": "word"
+        },
+        {
+          "text": "boot",
+          "kind": "word"
+        },
+        {
+          "text": "heel",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

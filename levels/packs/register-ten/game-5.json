@@ -1,0 +1,478 @@
+{
+  "level_id": 5,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 12,
+    "words_per_category": 4,
+    "start_bubbles": 48,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "cloud",
+        "category": "weather_words"
+      },
+      {
+        "word": "Utah",
+        "category": "us_states"
+      },
+      {
+        "word": "growl",
+        "category": "animal_sounds"
+      },
+      {
+        "word": "Indiana",
+        "category": "us_states"
+      },
+      {
+        "word": "gift",
+        "category": "christmas_things"
+      },
+      {
+        "word": "pink",
+        "category": "colors"
+      },
+      {
+        "word": "carol",
+        "category": "christmas_things"
+      },
+      {
+        "word": "globe",
+        "category": "classroom_things"
+      },
+      {
+        "word": "yelp",
+        "category": "animal_sounds"
+      },
+      {
+        "word": "wheel",
+        "category": "car_parts"
+      },
+      {
+        "word": "howl",
+        "category": "animal_sounds"
+      },
+      {
+        "word": "bottle",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "bark",
+        "category": "animal_sounds"
+      },
+      {
+        "word": "literature",
+        "category": "school_subjects"
+      },
+      {
+        "word": "poster",
+        "category": "classroom_things"
+      },
+      {
+        "word": "pot",
+        "category": "kitchen_tools"
+      },
+      {
+        "word": "battery",
+        "category": "car_parts"
+      },
+      {
+        "word": "gray",
+        "category": "colors"
+      },
+      {
+        "word": "thousand",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "thunder",
+        "category": "weather_words"
+      },
+      {
+        "word": "dozen",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "spoon",
+        "category": "kitchen_tools"
+      },
+      {
+        "word": "plate",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "doll",
+        "category": "toys"
+      }
+    ],
+    "queue": [
+      {
+        "word": "wind",
+        "category": "weather_words"
+      },
+      {
+        "word": "math",
+        "category": "school_subjects"
+      },
+      {
+        "word": "bowl",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "elf",
+        "category": "christmas_things"
+      },
+      {
+        "word": "calendar",
+        "category": "classroom_things"
+      },
+      {
+        "word": "robot",
+        "category": "toys"
+      },
+      {
+        "word": "hundred",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "bubble",
+        "category": "toys"
+      },
+      {
+        "word": "Arizona",
+        "category": "us_states"
+      },
+      {
+        "word": "snow",
+        "category": "weather_words"
+      },
+      {
+        "word": "physics",
+        "category": "school_subjects"
+      },
+      {
+        "word": "economics",
+        "category": "school_subjects"
+      },
+      {
+        "word": "fork",
+        "category": "kitchen_tools"
+      },
+      {
+        "word": "dish",
+        "category": "dishes_and_glassware"
+      },
+      {
+        "word": "yellow",
+        "category": "colors"
+      },
+      {
+        "word": "eleven",
+        "category": "superstition_numbers"
+      },
+      {
+        "word": "chalkboard",
+        "category": "classroom_things"
+      },
+      {
+        "word": "mirror",
+        "category": "car_parts"
+      },
+      {
+        "word": "pan",
+        "category": "kitchen_tools"
+      },
+      {
+        "word": "Iowa",
+        "category": "us_states"
+      },
+      {
+        "word": "lights",
+        "category": "christmas_things"
+      },
+      {
+        "word": "tire",
+        "category": "car_parts"
+      },
+      {
+        "word": "purple",
+        "category": "colors"
+      },
+      {
+        "word": "tricycle",
+        "category": "toys"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "animal_sounds",
+      "label": "ANIMAL SOUNDS",
+      "words": [
+        {
+          "text": "bark",
+          "kind": "word"
+        },
+        {
+          "text": "yelp",
+          "kind": "word"
+        },
+        {
+          "text": "growl",
+          "kind": "word"
+        },
+        {
+          "text": "howl",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kitchen_tools",
+      "label": "KITCHEN TOOLS",
+      "words": [
+        {
+          "text": "pot",
+          "kind": "word"
+        },
+        {
+          "text": "pan",
+          "kind": "word"
+        },
+        {
+          "text": "fork",
+          "kind": "word"
+        },
+        {
+          "text": "spoon",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "christmas_things",
+      "label": "CHRISTMAS THINGS",
+      "words": [
+        {
+          "text": "lights",
+          "kind": "word"
+        },
+        {
+          "text": "carol",
+          "kind": "word"
+        },
+        {
+          "text": "gift",
+          "kind": "word"
+        },
+        {
+          "text": "elf",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "classroom_things",
+      "label": "CLASSROOM THINGS",
+      "words": [
+        {
+          "text": "globe",
+          "kind": "word"
+        },
+        {
+          "text": "calendar",
+          "kind": "word"
+        },
+        {
+          "text": "chalkboard",
+          "kind": "word"
+        },
+        {
+          "text": "poster",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "toys",
+      "label": "TOYS",
+      "words": [
+        {
+          "text": "robot",
+          "kind": "word"
+        },
+        {
+          "text": "bubble",
+          "kind": "word"
+        },
+        {
+          "text": "doll",
+          "kind": "word"
+        },
+        {
+          "text": "tricycle",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "car_parts",
+      "label": "CAR PARTS",
+      "words": [
+        {
+          "text": "battery",
+          "kind": "word"
+        },
+        {
+          "text": "mirror",
+          "kind": "word"
+        },
+        {
+          "text": "wheel",
+          "kind": "word"
+        },
+        {
+          "text": "tire",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "colors",
+      "label": "COLORS",
+      "words": [
+        {
+          "text": "gray",
+          "kind": "word"
+        },
+        {
+          "text": "pink",
+          "kind": "word"
+        },
+        {
+          "text": "purple",
+          "kind": "word"
+        },
+        {
+          "text": "yellow",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_subjects",
+      "label": "SCHOOL SUBJECTS",
+      "words": [
+        {
+          "text": "physics",
+          "kind": "word"
+        },
+        {
+          "text": "economics",
+          "kind": "word"
+        },
+        {
+          "text": "literature",
+          "kind": "word"
+        },
+        {
+          "text": "math",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dishes_and_glassware",
+      "label": "DISHES",
+      "words": [
+        {
+          "text": "plate",
+          "kind": "word"
+        },
+        {
+          "text": "bowl",
+          "kind": "word"
+        },
+        {
+          "text": "bottle",
+          "kind": "word"
+        },
+        {
+          "text": "dish",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "weather_words",
+      "label": "WEATHER WORDS",
+      "words": [
+        {
+          "text": "thunder",
+          "kind": "word"
+        },
+        {
+          "text": "cloud",
+          "kind": "word"
+        },
+        {
+          "text": "snow",
+          "kind": "word"
+        },
+        {
+          "text": "wind",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "superstition_numbers",
+      "label": "NUMBER WORDS",
+      "words": [
+        {
+          "text": "hundred",
+          "kind": "word"
+        },
+        {
+          "text": "thousand",
+          "kind": "word"
+        },
+        {
+          "text": "dozen",
+          "kind": "word"
+        },
+        {
+          "text": "eleven",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "us_states",
+      "label": "US STATES",
+      "words": [
+        {
+          "text": "Utah",
+          "kind": "word"
+        },
+        {
+          "text": "Arizona",
+          "kind": "word"
+        },
+        {
+          "text": "Iowa",
+          "kind": "word"
+        },
+        {
+          "text": "Indiana",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

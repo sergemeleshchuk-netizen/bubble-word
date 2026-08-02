@@ -1,0 +1,1013 @@
+{
+  "level_spec": {
+    "levelId": 4,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 11,
+      "wordsPerCategory": 4,
+      "startBubbles": 44,
+      "boardCapacity": 24,
+      "moveFloor": 33,
+      "moveLimit": 45,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "cooking_actions",
+        "label": "COOKING ACTIONS",
+        "rule": "Verbs describing something a cook does to food",
+        "theme": "actions",
+        "words": [
+          {
+            "text": "slice",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "drain",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "steam",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "toss",
+            "kind": "word",
+            "zipf": 3.91,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "shapes",
+        "label": "SHAPES",
+        "rule": "Geometric shapes taught in school",
+        "theme": "science",
+        "words": [
+          {
+            "text": "circle",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cylinder",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "hexagon",
+            "kind": "word",
+            "zipf": 2.84,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cone",
+            "kind": "word",
+            "zipf": 3.83,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "school_supplies",
+        "label": "SCHOOL SUPPLIES",
+        "rule": "Items a student brings to school in a backpack",
+        "theme": "education",
+        "words": [
+          {
+            "text": "pen",
+            "kind": "word",
+            "zipf": 4.38,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "tape",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "marker",
+            "kind": "word",
+            "zipf": 3.87,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "pencil",
+            "kind": "word",
+            "zipf": 3.95,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "months",
+        "label": "MONTHS",
+        "rule": "Months of the Gregorian calendar year",
+        "theme": "time",
+        "words": [
+          {
+            "text": "November",
+            "kind": "word",
+            "zipf": 5.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "October",
+            "kind": "word",
+            "zipf": 5.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "December",
+            "kind": "word",
+            "zipf": 5.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "January",
+            "kind": "word",
+            "zipf": 5.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "farm_animals",
+        "label": "FARM ANIMALS",
+        "rule": "Animals commonly kept on an ordinary farm",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "sheep",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "bull",
+            "kind": "word",
+            "zipf": 4.34,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "horse",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "pig",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "vehicles",
+        "label": "VEHICLES",
+        "rule": "Machines built to carry people or goods from place to place",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "taxi",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "helicopter",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "truck",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "bike",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "question_words",
+        "label": "QUESTION WORDS",
+        "rule": "Words that begin a question in English",
+        "theme": "language",
+        "words": [
+          {
+            "text": "whom",
+            "kind": "word",
+            "zipf": 4.85,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "whose",
+            "kind": "word",
+            "zipf": 5.07,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "whether",
+            "kind": "word",
+            "zipf": 5.32,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "why",
+            "kind": "word",
+            "zipf": 5.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "musical_instruments",
+        "label": "MUSICAL INSTRUMENTS",
+        "rule": "Instruments played to produce music",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "piano",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "guitar",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "drum",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "organ",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "hand_parts",
+        "label": "HAND PARTS",
+        "rule": "Parts of the human hand",
+        "theme": "body",
+        "words": [
+          {
+            "text": "palm",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 1,
+            "obviousness": 0.95
+          },
+          {
+            "text": "nail",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "finger",
+            "kind": "word",
+            "zipf": 4.48,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "joint",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "calendar_words",
+        "label": "CALENDAR WORDS",
+        "rule": "Everyday English words for dates and periods of time on a calendar",
+        "theme": "time",
+        "words": [
+          {
+            "text": "anniversary",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "spring",
+            "kind": "word",
+            "zipf": 4.92,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "birthday",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "holiday",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "days_and_parts_of_day",
+        "label": "DAYS & TIMES",
+        "rule": "Names of weekdays and parts of the day",
+        "theme": "time",
+        "words": [
+          {
+            "text": "dawn",
+            "kind": "word",
+            "zipf": 4.27,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "Wednesday",
+            "kind": "word",
+            "zipf": 4.59,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "midnight",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "noon",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "drum",
+          "category": "musical_instruments"
+        },
+        {
+          "word": "circle",
+          "category": "shapes"
+        },
+        {
+          "word": "pen",
+          "category": "school_supplies"
+        },
+        {
+          "word": "guitar",
+          "category": "musical_instruments"
+        },
+        {
+          "word": "November",
+          "category": "months"
+        },
+        {
+          "word": "spring",
+          "category": "calendar_words"
+        },
+        {
+          "word": "whether",
+          "category": "question_words"
+        },
+        {
+          "word": "drain",
+          "category": "cooking_actions"
+        },
+        {
+          "word": "bull",
+          "category": "farm_animals"
+        },
+        {
+          "word": "cylinder",
+          "category": "shapes"
+        },
+        {
+          "word": "steam",
+          "category": "cooking_actions"
+        },
+        {
+          "word": "slice",
+          "category": "cooking_actions"
+        },
+        {
+          "word": "palm",
+          "category": "hand_parts"
+        },
+        {
+          "word": "Wednesday",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "noon",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "whose",
+          "category": "question_words"
+        },
+        {
+          "word": "pencil",
+          "category": "school_supplies"
+        },
+        {
+          "word": "October",
+          "category": "months"
+        },
+        {
+          "word": "taxi",
+          "category": "vehicles"
+        },
+        {
+          "word": "bike",
+          "category": "vehicles"
+        },
+        {
+          "word": "toss",
+          "category": "cooking_actions"
+        },
+        {
+          "word": "holiday",
+          "category": "calendar_words"
+        },
+        {
+          "word": "horse",
+          "category": "farm_animals"
+        },
+        {
+          "word": "joint",
+          "category": "hand_parts"
+        }
+      ],
+      "queue": [
+        {
+          "word": "finger",
+          "category": "hand_parts"
+        },
+        {
+          "word": "why",
+          "category": "question_words"
+        },
+        {
+          "word": "midnight",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "whom",
+          "category": "question_words"
+        },
+        {
+          "word": "organ",
+          "category": "musical_instruments"
+        },
+        {
+          "word": "piano",
+          "category": "musical_instruments"
+        },
+        {
+          "word": "pig",
+          "category": "farm_animals"
+        },
+        {
+          "word": "cone",
+          "category": "shapes"
+        },
+        {
+          "word": "tape",
+          "category": "school_supplies"
+        },
+        {
+          "word": "truck",
+          "category": "vehicles"
+        },
+        {
+          "word": "helicopter",
+          "category": "vehicles"
+        },
+        {
+          "word": "nail",
+          "category": "hand_parts"
+        },
+        {
+          "word": "January",
+          "category": "months"
+        },
+        {
+          "word": "sheep",
+          "category": "farm_animals"
+        },
+        {
+          "word": "anniversary",
+          "category": "calendar_words"
+        },
+        {
+          "word": "December",
+          "category": "months"
+        },
+        {
+          "word": "birthday",
+          "category": "calendar_words"
+        },
+        {
+          "word": "dawn",
+          "category": "days_and_parts_of_day"
+        },
+        {
+          "word": "hexagon",
+          "category": "shapes"
+        },
+        {
+          "word": "marker",
+          "category": "school_supplies"
+        }
+      ]
+    },
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T17:43:20.241Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2d57e45863a25fcf681cdfa3e7743ff18319c2c5e00a62f10fd68be1269130f0",
+    "level_spec_hash": "a46b1e9dd31f81e564122b2d5981b483ae66df5dd1c8aa55a3efa97072a86a7f",
+    "pack_hash": "e6c3ebfaac2c714baf48e9a8011689e353c3ca039cc827b4d42a86bf5a8c3818",
+    "seed": "register-a"
+  },
+  "plan": {
+    "levelId": 4,
+    "position": 4,
+    "role": "growth",
+    "categoryCount": 11,
+    "metaCount": 0,
+    "metaDepthTarget": 0,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 5.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.9995999999999996,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 1.2,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 4.117,
+        "declared": -0.6,
+        "semantic": 1.2,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "44 пузырей на старте при 11 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "10 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "3 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 45 при минимуме 33 (K = 1.35)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.38,
+      "variety": 1.89,
+      "aha": 0,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.38: узнаваемых слов 100%, средняя очевидность связи 0.90",
+      "Variety 1.89: 4 типов связи, 9 тематических сфер, но 73% категорий однотипны",
+      "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 11 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (45 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "11 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 0"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 0, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 44, по формуле 4 × 11 − 0 = 44"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 44, в очереди 20"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 45, минимум мерджей 33, K = 1.35 → ожидалось 45"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 10: cooking_actions, school_supplies, months, farm_animals, vehicles, question_words, musical_instruments, hand_parts, calendar_words, days_and_parts_of_day"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.44 (цель декады 4.35), p25 4.14 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 54.5% уровня (24 из 44), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 45,
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 11,
+      "deduction_only": true,
+      "forced_steps": 44,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "11 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "11 категорий, 0 мета-связей, 1 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

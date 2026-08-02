@@ -1,0 +1,323 @@
+{
+  "level_id": 10,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 31,
+    "board_capacity": 24,
+    "move_limit": 36
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "fly",
+        "category": "insects"
+      },
+      {
+        "word": "ant",
+        "category": "insects"
+      },
+      {
+        "word": "bunny",
+        "category": "easter"
+      },
+      {
+        "word": "eggs",
+        "category": "easter"
+      },
+      {
+        "word": "Halloween",
+        "category": "holidays"
+      },
+      {
+        "word": "Thanksgiving",
+        "category": "holidays"
+      },
+      {
+        "word": "submarine",
+        "category": "boats"
+      },
+      {
+        "word": "yacht",
+        "category": "boats"
+      },
+      {
+        "word": "referee",
+        "category": "sports_jobs"
+      },
+      {
+        "word": "counter",
+        "category": "restaurant_words"
+      },
+      {
+        "word": "hunt",
+        "category": "easter"
+      },
+      {
+        "word": "ceiling",
+        "category": "parts_of_a_house"
+      },
+      {
+        "word": "cappuccino",
+        "category": "hot_drinks"
+      },
+      {
+        "word": "coffee",
+        "category": "hot_drinks"
+      },
+      {
+        "word": "bee",
+        "category": "insects"
+      },
+      {
+        "word": "tea",
+        "category": "hot_drinks"
+      },
+      {
+        "word": "stairs",
+        "category": "parts_of_a_house"
+      },
+      {
+        "word": "basket",
+        "category": "easter"
+      },
+      {
+        "word": "agent",
+        "category": "sports_jobs"
+      },
+      {
+        "word": "manager",
+        "category": "sports_jobs"
+      },
+      {
+        "word": "Christmas",
+        "category": "holidays"
+      },
+      {
+        "word": "ship",
+        "category": "boats"
+      },
+      {
+        "word": "menu",
+        "category": "restaurant_words"
+      },
+      {
+        "word": "window",
+        "category": "parts_of_a_house"
+      }
+    ],
+    "queue": [
+      {
+        "word": "chef",
+        "category": "restaurant_words"
+      },
+      {
+        "word": "espresso",
+        "category": "hot_drinks"
+      },
+      {
+        "word": "reservation",
+        "category": "restaurant_words"
+      },
+      {
+        "word": "spider",
+        "category": "insects"
+      },
+      {
+        "word": "coach",
+        "category": "sports_jobs"
+      },
+      {
+        "word": "boat",
+        "category": "boats"
+      },
+      {
+        "word": "roof",
+        "category": "parts_of_a_house"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "easter",
+      "label": "EASTER",
+      "words": [
+        {
+          "text": "hunt",
+          "kind": "word"
+        },
+        {
+          "text": "eggs",
+          "kind": "word"
+        },
+        {
+          "text": "basket",
+          "kind": "word"
+        },
+        {
+          "text": "bunny",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "holidays",
+      "label": "HOLIDAYS",
+      "words": [
+        {
+          "text": "Easter",
+          "kind": "meta",
+          "meta_child": "easter"
+        },
+        {
+          "text": "Halloween",
+          "kind": "word"
+        },
+        {
+          "text": "Thanksgiving",
+          "kind": "word"
+        },
+        {
+          "text": "Christmas",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sports_jobs",
+      "label": "SPORTS JOBS",
+      "words": [
+        {
+          "text": "referee",
+          "kind": "word"
+        },
+        {
+          "text": "agent",
+          "kind": "word"
+        },
+        {
+          "text": "coach",
+          "kind": "word"
+        },
+        {
+          "text": "manager",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "boats",
+      "label": "BOATS AND SHIPS",
+      "words": [
+        {
+          "text": "boat",
+          "kind": "word"
+        },
+        {
+          "text": "submarine",
+          "kind": "word"
+        },
+        {
+          "text": "yacht",
+          "kind": "word"
+        },
+        {
+          "text": "ship",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hot_drinks",
+      "label": "HOT DRINKS",
+      "words": [
+        {
+          "text": "tea",
+          "kind": "word"
+        },
+        {
+          "text": "coffee",
+          "kind": "word"
+        },
+        {
+          "text": "cappuccino",
+          "kind": "word"
+        },
+        {
+          "text": "espresso",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "restaurant_words",
+      "label": "RESTAURANT WORDS",
+      "words": [
+        {
+          "text": "menu",
+          "kind": "word"
+        },
+        {
+          "text": "counter",
+          "kind": "word"
+        },
+        {
+          "text": "chef",
+          "kind": "word"
+        },
+        {
+          "text": "reservation",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "insects",
+      "label": "BUGS",
+      "words": [
+        {
+          "text": "bee",
+          "kind": "word"
+        },
+        {
+          "text": "spider",
+          "kind": "word"
+        },
+        {
+          "text": "fly",
+          "kind": "word"
+        },
+        {
+          "text": "ant",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "parts_of_a_house",
+      "label": "HOUSE PARTS",
+      "words": [
+        {
+          "text": "ceiling",
+          "kind": "word"
+        },
+        {
+          "text": "roof",
+          "kind": "word"
+        },
+        {
+          "text": "stairs",
+          "kind": "word"
+        },
+        {
+          "text": "window",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

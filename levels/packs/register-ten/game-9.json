@@ -1,0 +1,358 @@
+{
+  "level_id": 9,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 34,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "injuries",
+        "category": "emergency_room"
+      },
+      {
+        "word": "cream",
+        "category": "dairy_words"
+      },
+      {
+        "word": "bones",
+        "category": "emergency_room"
+      },
+      {
+        "word": "dairy",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "dollar",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "safe",
+        "category": "locksmith_words"
+      },
+      {
+        "word": "branch",
+        "category": "tree_parts"
+      },
+      {
+        "word": "lamb",
+        "category": "meats"
+      },
+      {
+        "word": "curd",
+        "category": "dairy_words"
+      },
+      {
+        "word": "detective",
+        "category": "people_in_a_story"
+      },
+      {
+        "word": "coin",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "illnesses",
+        "category": "emergency_room"
+      },
+      {
+        "word": "stranger",
+        "category": "people_in_a_story"
+      },
+      {
+        "word": "headache",
+        "category": "symptoms"
+      },
+      {
+        "word": "pork",
+        "category": "meats"
+      },
+      {
+        "word": "fatigue",
+        "category": "symptoms"
+      },
+      {
+        "word": "fever",
+        "category": "symptoms"
+      },
+      {
+        "word": "Frozen",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "quarter",
+        "category": "coins_and_bills"
+      },
+      {
+        "word": "swelling",
+        "category": "symptoms"
+      },
+      {
+        "word": "seed",
+        "category": "tree_parts"
+      },
+      {
+        "word": "key",
+        "category": "locksmith_words"
+      },
+      {
+        "word": "herd",
+        "category": "dairy_words"
+      },
+      {
+        "word": "beef",
+        "category": "meats"
+      }
+    ],
+    "queue": [
+      {
+        "word": "witness",
+        "category": "people_in_a_story"
+      },
+      {
+        "word": "fruits",
+        "category": "grocery_aisles"
+      },
+      {
+        "word": "root",
+        "category": "tree_parts"
+      },
+      {
+        "word": "lock",
+        "category": "locksmith_words"
+      },
+      {
+        "word": "victim",
+        "category": "people_in_a_story"
+      },
+      {
+        "word": "shoot",
+        "category": "tree_parts"
+      },
+      {
+        "word": "bolt",
+        "category": "locksmith_words"
+      },
+      {
+        "word": "cheese",
+        "category": "dairy_words"
+      },
+      {
+        "word": "ham",
+        "category": "meats"
+      },
+      {
+        "word": "penny",
+        "category": "coins_and_bills"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "symptoms",
+      "label": "SYMPTOMS",
+      "words": [
+        {
+          "text": "fever",
+          "kind": "word"
+        },
+        {
+          "text": "headache",
+          "kind": "word"
+        },
+        {
+          "text": "fatigue",
+          "kind": "word"
+        },
+        {
+          "text": "swelling",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "emergency_room",
+      "label": "EMERGENCY ROOM",
+      "words": [
+        {
+          "text": "symptoms",
+          "kind": "meta",
+          "meta_child": "symptoms"
+        },
+        {
+          "text": "injuries",
+          "kind": "word"
+        },
+        {
+          "text": "bones",
+          "kind": "word"
+        },
+        {
+          "text": "illnesses",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "meats",
+      "label": "MEATS",
+      "words": [
+        {
+          "text": "pork",
+          "kind": "word"
+        },
+        {
+          "text": "ham",
+          "kind": "word"
+        },
+        {
+          "text": "beef",
+          "kind": "word"
+        },
+        {
+          "text": "lamb",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "grocery_aisles",
+      "label": "GROCERY AISLES",
+      "words": [
+        {
+          "text": "meats",
+          "kind": "meta",
+          "meta_child": "meats"
+        },
+        {
+          "text": "dairy",
+          "kind": "word"
+        },
+        {
+          "text": "fruits",
+          "kind": "word"
+        },
+        {
+          "text": "Frozen",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "people_in_a_story",
+      "label": "STORY CHARACTERS",
+      "words": [
+        {
+          "text": "stranger",
+          "kind": "word"
+        },
+        {
+          "text": "witness",
+          "kind": "word"
+        },
+        {
+          "text": "victim",
+          "kind": "word"
+        },
+        {
+          "text": "detective",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tree_parts",
+      "label": "TREE PARTS",
+      "words": [
+        {
+          "text": "branch",
+          "kind": "word"
+        },
+        {
+          "text": "shoot",
+          "kind": "word"
+        },
+        {
+          "text": "seed",
+          "kind": "word"
+        },
+        {
+          "text": "root",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "locksmith_words",
+      "label": "LOCKS & KEYS",
+      "words": [
+        {
+          "text": "lock",
+          "kind": "word"
+        },
+        {
+          "text": "key",
+          "kind": "word"
+        },
+        {
+          "text": "bolt",
+          "kind": "word"
+        },
+        {
+          "text": "safe",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "coins_and_bills",
+      "label": "US MONEY",
+      "words": [
+        {
+          "text": "quarter",
+          "kind": "word"
+        },
+        {
+          "text": "dollar",
+          "kind": "word"
+        },
+        {
+          "text": "penny",
+          "kind": "word"
+        },
+        {
+          "text": "coin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dairy_words",
+      "label": "DAIRY FARM",
+      "words": [
+        {
+          "text": "cheese",
+          "kind": "word"
+        },
+        {
+          "text": "cream",
+          "kind": "word"
+        },
+        {
+          "text": "curd",
+          "kind": "word"
+        },
+        {
+          "text": "herd",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

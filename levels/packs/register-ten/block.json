@@ -1,0 +1,172 @@
+{
+  "pack_hash": "e6c3ebfaac2c714baf48e9a8011689e353c3ca039cc827b4d42a86bf5a8c3818",
+  "content_snapshot_hash": "2d57e45863a25fcf681cdfa3e7743ff18319c2c5e00a62f10fd68be1269130f0",
+  "generator_version": "gen-1.1",
+  "config": {
+    "levelRange": [
+      1,
+      10
+    ],
+    "categoryCorridor": [
+      5,
+      12
+    ],
+    "spikePositions": [
+      5
+    ],
+    "recoveryPositions": [
+      6
+    ],
+    "rarityRange": [
+      0,
+      2
+    ],
+    "maxMetaDepth": 2,
+    "allowedModifiers": [],
+    "includeThemes": [],
+    "excludeThemes": [],
+    "trapThemes": [],
+    "wordFreshnessWindow": 5,
+    "categoryFreshnessWindow": 40,
+    "wordsPerCategory": 4,
+    "seed": "register-a",
+    "categoryPlan": [
+      5,
+      9,
+      8,
+      11,
+      12,
+      7,
+      8,
+      10,
+      9,
+      8
+    ],
+    "metaPlan": [
+      0,
+      1,
+      2,
+      0,
+      0,
+      1,
+      1,
+      0,
+      2,
+      1
+    ],
+    "decadeGates": {
+      "categoryDifficultyTarget": 0.35,
+      "tutorialCategoryDifficultyMax": 0.2,
+      "maxTokens": 1,
+      "maxWordLen": 12,
+      "minProperNounZipf": 3.2,
+      "minWordZipf": 0,
+      "maxWordRegister": 0,
+      "zipfMedianTarget": 4.35,
+      "zipfP25Target": 3.8,
+      "visibleShareMin": 0.5,
+      "repeatRange": [
+        0,
+        4
+      ],
+      "tutorialFirstLevel": true
+    }
+  },
+  "rhythm": {
+    "passed": true,
+    "issues": []
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "role": "tutorial",
+      "difficulty": 1.5,
+      "interest": 5,
+      "level_spec_hash": "bb92f5431c922f5612ac6e6e8999d547f065f8c5ad4340260eee3ce58f90e107",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 2,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6.5,
+      "level_spec_hash": "f41a6cf6517b63baf8278d9dff9046bebfc6a2f10b540143803b357293544a04",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 3,
+      "role": "growth",
+      "difficulty": 4.5,
+      "interest": 6.5,
+      "level_spec_hash": "e84f8019249090b264c46477b8ee58edd541c089107b7aa235c41405815c01ee",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 4,
+      "role": "growth",
+      "difficulty": 5.5,
+      "interest": 6.5,
+      "level_spec_hash": "a46b1e9dd31f81e564122b2d5981b483ae66df5dd1c8aa55a3efa97072a86a7f",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 5,
+      "role": "peak",
+      "difficulty": 5.5,
+      "interest": 7,
+      "level_spec_hash": "1a3505ba4bca0aa80a6ddd7894ed109b9586b90d6f09da3bab910c82b25be503",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 6,
+      "role": "recovery",
+      "difficulty": 3,
+      "interest": 6.5,
+      "level_spec_hash": "3e12ea6891b7b0be042d12e5c7c2f8e013c28e1bf55e6067543ed7facbdbab52",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 7,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6,
+      "level_spec_hash": "872888d0fbc9ce580e11d7a4d00393005e3e0e7fab21c3be6828d5f2c75221f7",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 8,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 6.5,
+      "level_spec_hash": "049449c417732240642ee428da8ed2fb3d95e204b892891aad10d6c69b5696ae",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 9,
+      "role": "growth",
+      "difficulty": 4,
+      "interest": 7,
+      "level_spec_hash": "223db4a5a3bd19ab02f30f11745b879d1d9f4d918f901207e52b52f765f3106e",
+      "validation_passed": true,
+      "solution_count": 1
+    },
+    {
+      "level_id": 10,
+      "role": "exit",
+      "difficulty": 3,
+      "interest": 6.5,
+      "level_spec_hash": "cb86782723e5764afecdb8df8d56926ea23b931cc8745cac7bbdc39580fd721d",
+      "validation_passed": true,
+      "solution_count": 1
+    }
+  ],
+  "failures": []
+}

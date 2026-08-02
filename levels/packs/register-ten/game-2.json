@@ -1,0 +1,361 @@
+{
+  "level_id": 2,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 9,
+    "words_per_category": 4,
+    "start_bubbles": 35,
+    "board_capacity": 24,
+    "move_limit": 37
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "helmet",
+        "category": "hats"
+      },
+      {
+        "word": "mask",
+        "category": "costume_party"
+      },
+      {
+        "word": "knife",
+        "category": "hand_tools"
+      },
+      {
+        "word": "parent",
+        "category": "family_members"
+      },
+      {
+        "word": "visor",
+        "category": "hats"
+      },
+      {
+        "word": "essay",
+        "category": "testing_words"
+      },
+      {
+        "word": "makeup",
+        "category": "costume_party"
+      },
+      {
+        "word": "matching",
+        "category": "testing_words"
+      },
+      {
+        "word": "cream",
+        "category": "dairy_products"
+      },
+      {
+        "word": "cheese",
+        "category": "dairy_products"
+      },
+      {
+        "word": "bonnet",
+        "category": "hats"
+      },
+      {
+        "word": "drill",
+        "category": "hand_tools"
+      },
+      {
+        "word": "final",
+        "category": "testing_words"
+      },
+      {
+        "word": "cape",
+        "category": "costume_party"
+      },
+      {
+        "word": "bench",
+        "category": "furniture"
+      },
+      {
+        "word": "lip",
+        "category": "face_parts"
+      },
+      {
+        "word": "uncle",
+        "category": "family_members"
+      },
+      {
+        "word": "couch",
+        "category": "furniture"
+      },
+      {
+        "word": "lemon",
+        "category": "fruits"
+      },
+      {
+        "word": "nose",
+        "category": "face_parts"
+      },
+      {
+        "word": "grandfather",
+        "category": "family_members"
+      },
+      {
+        "word": "orange",
+        "category": "fruits"
+      },
+      {
+        "word": "oral",
+        "category": "testing_words"
+      },
+      {
+        "word": "ear",
+        "category": "face_parts"
+      }
+    ],
+    "queue": [
+      {
+        "word": "butter",
+        "category": "dairy_products"
+      },
+      {
+        "word": "cousin",
+        "category": "family_members"
+      },
+      {
+        "word": "chair",
+        "category": "furniture"
+      },
+      {
+        "word": "saw",
+        "category": "hand_tools"
+      },
+      {
+        "word": "desk",
+        "category": "furniture"
+      },
+      {
+        "word": "apple",
+        "category": "fruits"
+      },
+      {
+        "word": "milk",
+        "category": "dairy_products"
+      },
+      {
+        "word": "hammer",
+        "category": "hand_tools"
+      },
+      {
+        "word": "cap",
+        "category": "hats"
+      },
+      {
+        "word": "cherry",
+        "category": "fruits"
+      },
+      {
+        "word": "chin",
+        "category": "face_parts"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "hats",
+      "label": "HATS",
+      "words": [
+        {
+          "text": "cap",
+          "kind": "word"
+        },
+        {
+          "text": "helmet",
+          "kind": "word"
+        },
+        {
+          "text": "visor",
+          "kind": "word"
+        },
+        {
+          "text": "bonnet",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "costume_party",
+      "label": "COSTUME PARTY",
+      "words": [
+        {
+          "text": "hats",
+          "kind": "meta",
+          "meta_child": "hats"
+        },
+        {
+          "text": "cape",
+          "kind": "word"
+        },
+        {
+          "text": "makeup",
+          "kind": "word"
+        },
+        {
+          "text": "mask",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "testing_words",
+      "label": "TEST WORDS",
+      "words": [
+        {
+          "text": "oral",
+          "kind": "word"
+        },
+        {
+          "text": "essay",
+          "kind": "word"
+        },
+        {
+          "text": "matching",
+          "kind": "word"
+        },
+        {
+          "text": "final",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruits",
+      "label": "FRUITS",
+      "words": [
+        {
+          "text": "cherry",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        },
+        {
+          "text": "apple",
+          "kind": "word"
+        },
+        {
+          "text": "orange",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "furniture",
+      "label": "FURNITURE",
+      "words": [
+        {
+          "text": "chair",
+          "kind": "word"
+        },
+        {
+          "text": "desk",
+          "kind": "word"
+        },
+        {
+          "text": "bench",
+          "kind": "word"
+        },
+        {
+          "text": "couch",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hand_tools",
+      "label": "HAND TOOLS",
+      "words": [
+        {
+          "text": "drill",
+          "kind": "word"
+        },
+        {
+          "text": "knife",
+          "kind": "word"
+        },
+        {
+          "text": "hammer",
+          "kind": "word"
+        },
+        {
+          "text": "saw",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "dairy_products",
+      "label": "DAIRY PRODUCTS",
+      "words": [
+        {
+          "text": "butter",
+          "kind": "word"
+        },
+        {
+          "text": "cream",
+          "kind": "word"
+        },
+        {
+          "text": "cheese",
+          "kind": "word"
+        },
+        {
+          "text": "milk",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "face_parts",
+      "label": "FACE PARTS",
+      "words": [
+        {
+          "text": "lip",
+          "kind": "word"
+        },
+        {
+          "text": "ear",
+          "kind": "word"
+        },
+        {
+          "text": "nose",
+          "kind": "word"
+        },
+        {
+          "text": "chin",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "family_members",
+      "label": "FAMILY MEMBERS",
+      "words": [
+        {
+          "text": "cousin",
+          "kind": "word"
+        },
+        {
+          "text": "parent",
+          "kind": "word"
+        },
+        {
+          "text": "grandfather",
+          "kind": "word"
+        },
+        {
+          "text": "uncle",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

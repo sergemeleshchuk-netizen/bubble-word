@@ -1,0 +1,882 @@
+{
+  "level_spec": {
+    "levelId": 2,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 9,
+      "wordsPerCategory": 4,
+      "startBubbles": 35,
+      "boardCapacity": 24,
+      "moveFloor": 27,
+      "moveLimit": 37,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "hats",
+        "label": "HATS",
+        "rule": "Things worn on the head",
+        "theme": "clothing",
+        "words": [
+          {
+            "text": "cap",
+            "kind": "word",
+            "zipf": 4.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "helmet",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "visor",
+            "kind": "word",
+            "zipf": 2.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bonnet",
+            "kind": "word",
+            "zipf": 3.35,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "costume_party",
+        "isQuickwin": false
+      },
+      {
+        "key": "costume_party",
+        "label": "COSTUME PARTY",
+        "rule": "What you put on or need for a costume party",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "hats",
+            "kind": "meta",
+            "metaChild": "hats",
+            "zipf": 4.01,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "cape",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.92,
+            "obviousness": 0.8
+          },
+          {
+            "text": "makeup",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.88,
+            "obviousness": 0.6
+          },
+          {
+            "text": "mask",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "used_for",
+            "fit": 0.95,
+            "obviousness": 0.86
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "testing_words",
+        "label": "TEST WORDS",
+        "rule": "Words for kinds of test questions and formats",
+        "theme": "education",
+        "words": [
+          {
+            "text": "oral",
+            "kind": "word",
+            "zipf": 4.26,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "essay",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "matching",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "final",
+            "kind": "word",
+            "zipf": 5.28,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "fruits",
+        "label": "FRUITS",
+        "rule": "Common edible fruits familiar to an average American adult",
+        "theme": "food",
+        "words": [
+          {
+            "text": "cherry",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "lemon",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "apple",
+            "kind": "word",
+            "zipf": 4.76,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 1,
+            "obviousness": 1
+          },
+          {
+            "text": "orange",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 1,
+            "obviousness": 1
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "furniture",
+        "label": "FURNITURE",
+        "rule": "Movable household furniture",
+        "theme": "home",
+        "words": [
+          {
+            "text": "chair",
+            "kind": "word",
+            "zipf": 4.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "desk",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "bench",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "couch",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "hand_tools",
+        "label": "HAND TOOLS",
+        "rule": "Tools held in the hand and used for building or repair work",
+        "theme": "tools",
+        "words": [
+          {
+            "text": "drill",
+            "kind": "word",
+            "zipf": 4.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "knife",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "hammer",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "saw",
+            "kind": "word",
+            "zipf": 5.34,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "dairy_products",
+        "label": "DAIRY PRODUCTS",
+        "rule": "Foods made from milk or sold in the dairy section",
+        "theme": "food",
+        "words": [
+          {
+            "text": "butter",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.89
+          },
+          {
+            "text": "cream",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.86
+          },
+          {
+            "text": "cheese",
+            "kind": "word",
+            "zipf": 4.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.89
+          },
+          {
+            "text": "milk",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.91
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "face_parts",
+        "label": "FACE PARTS",
+        "rule": "Parts of the human face",
+        "theme": "body",
+        "words": [
+          {
+            "text": "lip",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "ear",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "nose",
+            "kind": "word",
+            "zipf": 4.51,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "chin",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "family_members",
+        "label": "FAMILY MEMBERS",
+        "rule": "Words for members of a family",
+        "theme": "people",
+        "words": [
+          {
+            "text": "cousin",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "parent",
+            "kind": "word",
+            "zipf": 4.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "grandfather",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "uncle",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "helmet",
+          "category": "hats"
+        },
+        {
+          "word": "mask",
+          "category": "costume_party"
+        },
+        {
+          "word": "knife",
+          "category": "hand_tools"
+        },
+        {
+          "word": "parent",
+          "category": "family_members"
+        },
+        {
+          "word": "visor",
+          "category": "hats"
+        },
+        {
+          "word": "essay",
+          "category": "testing_words"
+        },
+        {
+          "word": "makeup",
+          "category": "costume_party"
+        },
+        {
+          "word": "matching",
+          "category": "testing_words"
+        },
+        {
+          "word": "cream",
+          "category": "dairy_products"
+        },
+        {
+          "word": "cheese",
+          "category": "dairy_products"
+        },
+        {
+          "word": "bonnet",
+          "category": "hats"
+        },
+        {
+          "word": "drill",
+          "category": "hand_tools"
+        },
+        {
+          "word": "final",
+          "category": "testing_words"
+        },
+        {
+          "word": "cape",
+          "category": "costume_party"
+        },
+        {
+          "word": "bench",
+          "category": "furniture"
+        },
+        {
+          "word": "lip",
+          "category": "face_parts"
+        },
+        {
+          "word": "uncle",
+          "category": "family_members"
+        },
+        {
+          "word": "couch",
+          "category": "furniture"
+        },
+        {
+          "word": "lemon",
+          "category": "fruits"
+        },
+        {
+          "word": "nose",
+          "category": "face_parts"
+        },
+        {
+          "word": "grandfather",
+          "category": "family_members"
+        },
+        {
+          "word": "orange",
+          "category": "fruits"
+        },
+        {
+          "word": "oral",
+          "category": "testing_words"
+        },
+        {
+          "word": "ear",
+          "category": "face_parts"
+        }
+      ],
+      "queue": [
+        {
+          "word": "butter",
+          "category": "dairy_products"
+        },
+        {
+          "word": "cousin",
+          "category": "family_members"
+        },
+        {
+          "word": "chair",
+          "category": "furniture"
+        },
+        {
+          "word": "saw",
+          "category": "hand_tools"
+        },
+        {
+          "word": "desk",
+          "category": "furniture"
+        },
+        {
+          "word": "apple",
+          "category": "fruits"
+        },
+        {
+          "word": "milk",
+          "category": "dairy_products"
+        },
+        {
+          "word": "hammer",
+          "category": "hand_tools"
+        },
+        {
+          "word": "cap",
+          "category": "hats"
+        },
+        {
+          "word": "cherry",
+          "category": "fruits"
+        },
+        {
+          "word": "chin",
+          "category": "face_parts"
+        }
+      ]
+    },
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T17:43:20.241Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2d57e45863a25fcf681cdfa3e7743ff18319c2c5e00a62f10fd68be1269130f0",
+    "level_spec_hash": "f41a6cf6517b63baf8278d9dff9046bebfc6a2f10b540143803b357293544a04",
+    "pack_hash": "e6c3ebfaac2c714baf48e9a8011689e353c3ca039cc827b4d42a86bf5a8c3818",
+    "seed": "register-a"
+  },
+  "plan": {
+    "levelId": 2,
+    "position": 2,
+    "role": "growth",
+    "categoryCount": 9,
+    "metaCount": 1,
+    "metaDepthTarget": 1,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 4,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 3.1814999999999998,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.22,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.4,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 3.2988999999999997,
+        "declared": -0.38,
+        "semantic": 0.4,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "35 пузырей на старте при 9 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "1 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 37 при минимуме 27 (K = 1.35)"
+    ],
+    "interest": 6.5,
+    "interest_breakdown": {
+      "clarity": 2.36,
+      "variety": 1.98,
+      "aha": 0.2,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.36: узнаваемых слов 100%, средняя очевидность связи 0.88",
+      "Variety 1.98: 4 типов связи, 8 тематических сфер, но 67% категорий однотипны",
+      "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 9 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (37 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "9 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 1"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 35, по формуле 4 × 9 − 1 = 35"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 35, в очереди 11"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 37, минимум мерджей 27, K = 1.35 → ожидалось 37"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 7: testing_words, fruits, furniture, hand_tools, dairy_products, face_parts, family_members"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.39 (цель декады 4.35), p25 4.16 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 66.7% уровня (24 из 36), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 37,
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 9,
+      "deduction_only": true,
+      "forced_steps": 36,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "9 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "9 категорий, 1 мета-связей, 1 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

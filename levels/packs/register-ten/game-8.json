@@ -1,0 +1,402 @@
+{
+  "level_id": 8,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 10,
+    "words_per_category": 4,
+    "start_bubbles": 40,
+    "board_capacity": 24,
+    "move_limit": 41
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "bang",
+        "category": "onomatopoeia"
+      },
+      {
+        "word": "cardinal",
+        "category": "birds"
+      },
+      {
+        "word": "collar",
+        "category": "pet_supplies"
+      },
+      {
+        "word": "mouse",
+        "category": "pets"
+      },
+      {
+        "word": "toy",
+        "category": "pet_supplies"
+      },
+      {
+        "word": "cricket",
+        "category": "team_sports"
+      },
+      {
+        "word": "coat",
+        "category": "clothing_items"
+      },
+      {
+        "word": "cage",
+        "category": "pet_supplies"
+      },
+      {
+        "word": "camera",
+        "category": "inventions"
+      },
+      {
+        "word": "swan",
+        "category": "birds"
+      },
+      {
+        "word": "eraser",
+        "category": "office_supplies"
+      },
+      {
+        "word": "basketball",
+        "category": "team_sports"
+      },
+      {
+        "word": "robin",
+        "category": "birds"
+      },
+      {
+        "word": "snap",
+        "category": "onomatopoeia"
+      },
+      {
+        "word": "shirt",
+        "category": "clothing_items"
+      },
+      {
+        "word": "tent",
+        "category": "camping_gear"
+      },
+      {
+        "word": "engine",
+        "category": "inventions"
+      },
+      {
+        "word": "snack",
+        "category": "eating_actions"
+      },
+      {
+        "word": "ruler",
+        "category": "office_supplies"
+      },
+      {
+        "word": "treat",
+        "category": "pet_supplies"
+      },
+      {
+        "word": "map",
+        "category": "camping_gear"
+      },
+      {
+        "word": "taste",
+        "category": "eating_actions"
+      },
+      {
+        "word": "bird",
+        "category": "pets"
+      },
+      {
+        "word": "snake",
+        "category": "pets"
+      }
+    ],
+    "queue": [
+      {
+        "word": "telephone",
+        "category": "inventions"
+      },
+      {
+        "word": "airplane",
+        "category": "inventions"
+      },
+      {
+        "word": "baseball",
+        "category": "team_sports"
+      },
+      {
+        "word": "jacket",
+        "category": "clothing_items"
+      },
+      {
+        "word": "crash",
+        "category": "onomatopoeia"
+      },
+      {
+        "word": "clip",
+        "category": "office_supplies"
+      },
+      {
+        "word": "label",
+        "category": "office_supplies"
+      },
+      {
+        "word": "bite",
+        "category": "eating_actions"
+      },
+      {
+        "word": "drink",
+        "category": "eating_actions"
+      },
+      {
+        "word": "rope",
+        "category": "camping_gear"
+      },
+      {
+        "word": "matches",
+        "category": "camping_gear"
+      },
+      {
+        "word": "shorts",
+        "category": "clothing_items"
+      },
+      {
+        "word": "rabbit",
+        "category": "pets"
+      },
+      {
+        "word": "eagle",
+        "category": "birds"
+      },
+      {
+        "word": "rugby",
+        "category": "team_sports"
+      },
+      {
+        "word": "click",
+        "category": "onomatopoeia"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "pet_supplies",
+      "label": "PET SUPPLIES",
+      "words": [
+        {
+          "text": "cage",
+          "kind": "word"
+        },
+        {
+          "text": "toy",
+          "kind": "word"
+        },
+        {
+          "text": "collar",
+          "kind": "word"
+        },
+        {
+          "text": "treat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
+      "words": [
+        {
+          "text": "clip",
+          "kind": "word"
+        },
+        {
+          "text": "label",
+          "kind": "word"
+        },
+        {
+          "text": "eraser",
+          "kind": "word"
+        },
+        {
+          "text": "ruler",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "eating_actions",
+      "label": "EATING ACTIONS",
+      "words": [
+        {
+          "text": "bite",
+          "kind": "word"
+        },
+        {
+          "text": "drink",
+          "kind": "word"
+        },
+        {
+          "text": "taste",
+          "kind": "word"
+        },
+        {
+          "text": "snack",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "onomatopoeia",
+      "label": "SOUND WORDS",
+      "words": [
+        {
+          "text": "bang",
+          "kind": "word"
+        },
+        {
+          "text": "crash",
+          "kind": "word"
+        },
+        {
+          "text": "snap",
+          "kind": "word"
+        },
+        {
+          "text": "click",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "camping_gear",
+      "label": "CAMPING GEAR",
+      "words": [
+        {
+          "text": "map",
+          "kind": "word"
+        },
+        {
+          "text": "matches",
+          "kind": "word"
+        },
+        {
+          "text": "tent",
+          "kind": "word"
+        },
+        {
+          "text": "rope",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "birds",
+      "label": "BIRDS",
+      "words": [
+        {
+          "text": "robin",
+          "kind": "word"
+        },
+        {
+          "text": "eagle",
+          "kind": "word"
+        },
+        {
+          "text": "cardinal",
+          "kind": "word"
+        },
+        {
+          "text": "swan",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "inventions",
+      "label": "INVENTIONS",
+      "words": [
+        {
+          "text": "telephone",
+          "kind": "word"
+        },
+        {
+          "text": "airplane",
+          "kind": "word"
+        },
+        {
+          "text": "camera",
+          "kind": "word"
+        },
+        {
+          "text": "engine",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "team_sports",
+      "label": "TEAM SPORTS",
+      "words": [
+        {
+          "text": "cricket",
+          "kind": "word"
+        },
+        {
+          "text": "rugby",
+          "kind": "word"
+        },
+        {
+          "text": "baseball",
+          "kind": "word"
+        },
+        {
+          "text": "basketball",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "clothing_items",
+      "label": "CLOTHING ITEMS",
+      "words": [
+        {
+          "text": "shirt",
+          "kind": "word"
+        },
+        {
+          "text": "shorts",
+          "kind": "word"
+        },
+        {
+          "text": "jacket",
+          "kind": "word"
+        },
+        {
+          "text": "coat",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "pets",
+      "label": "PETS",
+      "words": [
+        {
+          "text": "rabbit",
+          "kind": "word"
+        },
+        {
+          "text": "mouse",
+          "kind": "word"
+        },
+        {
+          "text": "snake",
+          "kind": "word"
+        },
+        {
+          "text": "bird",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

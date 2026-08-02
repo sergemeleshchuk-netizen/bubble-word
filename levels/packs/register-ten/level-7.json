@@ -1,0 +1,819 @@
+{
+  "level_spec": {
+    "levelId": 7,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 8,
+      "wordsPerCategory": 4,
+      "startBubbles": 31,
+      "boardCapacity": 24,
+      "moveFloor": 24,
+      "moveLimit": 33,
+      "moveLimitK": 1.35,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "punishments",
+        "label": "PENALTIES",
+        "rule": "Penalties handed down for breaking rules",
+        "theme": "law",
+        "words": [
+          {
+            "text": "suspension",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "warning",
+            "kind": "word",
+            "zipf": 4.59,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "jail",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          },
+          {
+            "text": "ban",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.7
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "courtroom",
+        "isQuickwin": true
+      },
+      {
+        "key": "courtroom",
+        "label": "COURTROOM",
+        "rule": "What is heard, handed down or worn in a courtroom",
+        "theme": "law",
+        "words": [
+          {
+            "text": "penalties",
+            "kind": "meta",
+            "metaChild": "punishments",
+            "zipf": 4.08,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "crimes",
+            "kind": "word",
+            "zipf": 4.43,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.72
+          },
+          {
+            "text": "jury",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.95,
+            "obviousness": 0.85
+          },
+          {
+            "text": "gavel",
+            "kind": "word",
+            "zipf": 2.66,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.96,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "african_countries",
+        "label": "AFRICAN COUNTRIES",
+        "rule": "Countries located in Africa",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "Egypt",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Nigeria",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Kenya",
+            "kind": "word",
+            "zipf": 4.13,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          },
+          {
+            "text": "Morocco",
+            "kind": "word",
+            "zipf": 3.8,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.75
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "vegetables",
+        "label": "VEGETABLES",
+        "rule": "Common edible vegetables sold in an ordinary American grocery store",
+        "theme": "food",
+        "words": [
+          {
+            "text": "corn",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "bean",
+            "kind": "word",
+            "zipf": 3.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "potato",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "tomato",
+            "kind": "word",
+            "zipf": 3.85,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "injuries",
+        "label": "INJURIES",
+        "rule": "Kinds of physical injury",
+        "theme": "medicine",
+        "words": [
+          {
+            "text": "burn",
+            "kind": "word",
+            "zipf": 4.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "cut",
+            "kind": "word",
+            "zipf": 5.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "break",
+            "kind": "word",
+            "zipf": 5.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "fracture",
+            "kind": "word",
+            "zipf": 3.7,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "office_machines",
+        "label": "OFFICE MACHINES",
+        "rule": "Machines used in an office",
+        "theme": "technology",
+        "words": [
+          {
+            "text": "printer",
+            "kind": "word",
+            "zipf": 3.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "fax",
+            "kind": "word",
+            "zipf": 3.63,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "phone",
+            "kind": "word",
+            "zipf": 5.3,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.74
+          },
+          {
+            "text": "computer",
+            "kind": "word",
+            "zipf": 4.97,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.79
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "baking_ingredients",
+        "label": "BAKING INGREDIENTS",
+        "rule": "Ingredients commonly used to bake cakes, bread or cookies",
+        "theme": "food",
+        "words": [
+          {
+            "text": "sugar",
+            "kind": "word",
+            "zipf": 4.68,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.91
+          },
+          {
+            "text": "chocolate",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.74
+          },
+          {
+            "text": "flour",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.98
+          },
+          {
+            "text": "salt",
+            "kind": "word",
+            "zipf": 4.6,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.66
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "camping_and_outdoors",
+        "label": "OUTDOOR ACTIVITIES",
+        "rule": "Recreational activities done outdoors",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "hunting",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "camping",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.91
+          },
+          {
+            "text": "fishing",
+            "kind": "word",
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.87
+          },
+          {
+            "text": "sailing",
+            "kind": "word",
+            "zipf": 3.99,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.84
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "cut",
+          "category": "injuries"
+        },
+        {
+          "word": "tomato",
+          "category": "vegetables"
+        },
+        {
+          "word": "ban",
+          "category": "punishments"
+        },
+        {
+          "word": "suspension",
+          "category": "punishments"
+        },
+        {
+          "word": "jail",
+          "category": "punishments"
+        },
+        {
+          "word": "hunting",
+          "category": "camping_and_outdoors"
+        },
+        {
+          "word": "bean",
+          "category": "vegetables"
+        },
+        {
+          "word": "phone",
+          "category": "office_machines"
+        },
+        {
+          "word": "gavel",
+          "category": "courtroom"
+        },
+        {
+          "word": "computer",
+          "category": "office_machines"
+        },
+        {
+          "word": "warning",
+          "category": "punishments"
+        },
+        {
+          "word": "camping",
+          "category": "camping_and_outdoors"
+        },
+        {
+          "word": "chocolate",
+          "category": "baking_ingredients"
+        },
+        {
+          "word": "break",
+          "category": "injuries"
+        },
+        {
+          "word": "crimes",
+          "category": "courtroom"
+        },
+        {
+          "word": "fax",
+          "category": "office_machines"
+        },
+        {
+          "word": "Morocco",
+          "category": "african_countries"
+        },
+        {
+          "word": "Egypt",
+          "category": "african_countries"
+        },
+        {
+          "word": "Nigeria",
+          "category": "african_countries"
+        },
+        {
+          "word": "jury",
+          "category": "courtroom"
+        },
+        {
+          "word": "fishing",
+          "category": "camping_and_outdoors"
+        },
+        {
+          "word": "fracture",
+          "category": "injuries"
+        },
+        {
+          "word": "flour",
+          "category": "baking_ingredients"
+        },
+        {
+          "word": "sugar",
+          "category": "baking_ingredients"
+        }
+      ],
+      "queue": [
+        {
+          "word": "Kenya",
+          "category": "african_countries"
+        },
+        {
+          "word": "sailing",
+          "category": "camping_and_outdoors"
+        },
+        {
+          "word": "salt",
+          "category": "baking_ingredients"
+        },
+        {
+          "word": "printer",
+          "category": "office_machines"
+        },
+        {
+          "word": "burn",
+          "category": "injuries"
+        },
+        {
+          "word": "corn",
+          "category": "vegetables"
+        },
+        {
+          "word": "potato",
+          "category": "vegetables"
+        }
+      ]
+    },
+    "traps": [],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T17:43:20.242Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2d57e45863a25fcf681cdfa3e7743ff18319c2c5e00a62f10fd68be1269130f0",
+    "level_spec_hash": "872888d0fbc9ce580e11d7a4d00393005e3e0e7fab21c3be6828d5f2c75221f7",
+    "pack_hash": "e6c3ebfaac2c714baf48e9a8011689e353c3ca039cc827b4d42a86bf5a8c3818",
+    "seed": "register-a"
+  },
+  "plan": {
+    "levelId": 7,
+    "position": 7,
+    "role": "growth",
+    "categoryCount": 8,
+    "metaCount": 1,
+    "metaDepthTarget": 1,
+    "rareTarget": 1,
+    "trapTarget": 1,
+    "chainCount": 0,
+    "targetDifficulty": [
+      6,
+      7.5
+    ],
+    "targetInterest": [
+      6,
+      8
+    ],
+    "moveLimitK": 1.35
+  },
+  "scoring": {
+    "difficulty": 4,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 2.8179,
+        "редкие слова (zipf < 3)": 0.0947,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0.22,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.6428571428571427
+      },
+      "totals": {
+        "base": 2.9353,
+        "declared": -0.38,
+        "semantic": 0.8,
+        "mechanical": 0.6428571428571427
+      }
+    },
+    "difficulty_explanation": [
+      "31 пузырей на старте при 8 категориях",
+      "1 редких слов, из них 0 очень редких",
+      "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "7 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 33 при минимуме 24 (K = 1.35)"
+    ],
+    "interest": 6,
+    "interest_breakdown": {
+      "clarity": 2.3,
+      "variety": 1.6,
+      "aha": 0.2,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.30: узнаваемых слов 100%, средняя очевидность связи 0.83",
+      "Variety 1.60: 3 типов связи, 6 тематических сфер, но 75% категорий однотипны",
+      "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 8 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (33 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "8 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 1"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 1, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 31, по формуле 4 × 8 − 1 = 31"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 31, в очереди 7"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 33, минимум мерджей 24, K = 1.35 → ожидалось 33"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 7: punishments, african_countries, vegetables, injuries, office_machines, baking_ingredients, camping_and_outdoors"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.42 (цель декады 4.35), p25 4.00 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 1, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 75.0% уровня (24 из 32), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 33,
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 8,
+      "deduction_only": true,
+      "forced_steps": 32,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "8 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "8 категорий, 1 мета-связей, 1 редких слов, 0 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}

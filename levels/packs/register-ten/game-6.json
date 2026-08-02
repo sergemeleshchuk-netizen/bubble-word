@@ -1,0 +1,285 @@
+{
+  "level_id": 6,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 7,
+    "words_per_category": 4,
+    "start_bubbles": 27,
+    "board_capacity": 24,
+    "move_limit": 34
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "colt",
+        "category": "horse_words"
+      },
+      {
+        "word": "opera",
+        "category": "music_genres"
+      },
+      {
+        "word": "Matthew",
+        "category": "boys_names"
+      },
+      {
+        "word": "saddle",
+        "category": "horse_words"
+      },
+      {
+        "word": "tractor",
+        "category": "farm_morning"
+      },
+      {
+        "word": "livestock",
+        "category": "farm_morning"
+      },
+      {
+        "word": "chicken",
+        "category": "farm_bird_words"
+      },
+      {
+        "word": "blues",
+        "category": "music_genres"
+      },
+      {
+        "word": "youth",
+        "category": "life_stages"
+      },
+      {
+        "word": "barn",
+        "category": "farm_morning"
+      },
+      {
+        "word": "teen",
+        "category": "life_stages"
+      },
+      {
+        "word": "Nathan",
+        "category": "boys_names"
+      },
+      {
+        "word": "duck",
+        "category": "farm_bird_words"
+      },
+      {
+        "word": "Joseph",
+        "category": "boys_names"
+      },
+      {
+        "word": "stable",
+        "category": "horse_words"
+      },
+      {
+        "word": "gym",
+        "category": "school_places"
+      },
+      {
+        "word": "chick",
+        "category": "farm_bird_words"
+      },
+      {
+        "word": "classroom",
+        "category": "school_places"
+      },
+      {
+        "word": "elder",
+        "category": "life_stages"
+      },
+      {
+        "word": "teenager",
+        "category": "life_stages"
+      },
+      {
+        "word": "classical",
+        "category": "music_genres"
+      },
+      {
+        "word": "Jacob",
+        "category": "boys_names"
+      },
+      {
+        "word": "lab",
+        "category": "school_places"
+      },
+      {
+        "word": "turkey",
+        "category": "farm_bird_words"
+      }
+    ],
+    "queue": [
+      {
+        "word": "bathroom",
+        "category": "school_places"
+      },
+      {
+        "word": "folk",
+        "category": "music_genres"
+      },
+      {
+        "word": "pony",
+        "category": "horse_words"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "farm_bird_words",
+      "label": "POULTRY",
+      "words": [
+        {
+          "text": "duck",
+          "kind": "word"
+        },
+        {
+          "text": "turkey",
+          "kind": "word"
+        },
+        {
+          "text": "chicken",
+          "kind": "word"
+        },
+        {
+          "text": "chick",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_morning",
+      "label": "FARM",
+      "words": [
+        {
+          "text": "poultry",
+          "kind": "meta",
+          "meta_child": "farm_bird_words"
+        },
+        {
+          "text": "barn",
+          "kind": "word"
+        },
+        {
+          "text": "livestock",
+          "kind": "word"
+        },
+        {
+          "text": "tractor",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "horse_words",
+      "label": "HORSE WORDS",
+      "words": [
+        {
+          "text": "stable",
+          "kind": "word"
+        },
+        {
+          "text": "pony",
+          "kind": "word"
+        },
+        {
+          "text": "saddle",
+          "kind": "word"
+        },
+        {
+          "text": "colt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "boys_names",
+      "label": "BOYS NAMES",
+      "words": [
+        {
+          "text": "Joseph",
+          "kind": "word"
+        },
+        {
+          "text": "Jacob",
+          "kind": "word"
+        },
+        {
+          "text": "Nathan",
+          "kind": "word"
+        },
+        {
+          "text": "Matthew",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_places",
+      "label": "SCHOOL PLACES",
+      "words": [
+        {
+          "text": "gym",
+          "kind": "word"
+        },
+        {
+          "text": "classroom",
+          "kind": "word"
+        },
+        {
+          "text": "lab",
+          "kind": "word"
+        },
+        {
+          "text": "bathroom",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "music_genres",
+      "label": "MUSIC GENRES",
+      "words": [
+        {
+          "text": "classical",
+          "kind": "word"
+        },
+        {
+          "text": "blues",
+          "kind": "word"
+        },
+        {
+          "text": "folk",
+          "kind": "word"
+        },
+        {
+          "text": "opera",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "life_stages",
+      "label": "STAGES OF LIFE",
+      "words": [
+        {
+          "text": "teenager",
+          "kind": "word"
+        },
+        {
+          "text": "elder",
+          "kind": "word"
+        },
+        {
+          "text": "youth",
+          "kind": "word"
+        },
+        {
+          "text": "teen",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

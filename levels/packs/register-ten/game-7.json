@@ -1,0 +1,323 @@
+{
+  "level_id": 7,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 8,
+    "words_per_category": 4,
+    "start_bubbles": 31,
+    "board_capacity": 24,
+    "move_limit": 33
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "cut",
+        "category": "injuries"
+      },
+      {
+        "word": "tomato",
+        "category": "vegetables"
+      },
+      {
+        "word": "ban",
+        "category": "punishments"
+      },
+      {
+        "word": "suspension",
+        "category": "punishments"
+      },
+      {
+        "word": "jail",
+        "category": "punishments"
+      },
+      {
+        "word": "hunting",
+        "category": "camping_and_outdoors"
+      },
+      {
+        "word": "bean",
+        "category": "vegetables"
+      },
+      {
+        "word": "phone",
+        "category": "office_machines"
+      },
+      {
+        "word": "gavel",
+        "category": "courtroom"
+      },
+      {
+        "word": "computer",
+        "category": "office_machines"
+      },
+      {
+        "word": "warning",
+        "category": "punishments"
+      },
+      {
+        "word": "camping",
+        "category": "camping_and_outdoors"
+      },
+      {
+        "word": "chocolate",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "break",
+        "category": "injuries"
+      },
+      {
+        "word": "crimes",
+        "category": "courtroom"
+      },
+      {
+        "word": "fax",
+        "category": "office_machines"
+      },
+      {
+        "word": "Morocco",
+        "category": "african_countries"
+      },
+      {
+        "word": "Egypt",
+        "category": "african_countries"
+      },
+      {
+        "word": "Nigeria",
+        "category": "african_countries"
+      },
+      {
+        "word": "jury",
+        "category": "courtroom"
+      },
+      {
+        "word": "fishing",
+        "category": "camping_and_outdoors"
+      },
+      {
+        "word": "fracture",
+        "category": "injuries"
+      },
+      {
+        "word": "flour",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "sugar",
+        "category": "baking_ingredients"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Kenya",
+        "category": "african_countries"
+      },
+      {
+        "word": "sailing",
+        "category": "camping_and_outdoors"
+      },
+      {
+        "word": "salt",
+        "category": "baking_ingredients"
+      },
+      {
+        "word": "printer",
+        "category": "office_machines"
+      },
+      {
+        "word": "burn",
+        "category": "injuries"
+      },
+      {
+        "word": "corn",
+        "category": "vegetables"
+      },
+      {
+        "word": "potato",
+        "category": "vegetables"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "punishments",
+      "label": "PENALTIES",
+      "words": [
+        {
+          "text": "suspension",
+          "kind": "word"
+        },
+        {
+          "text": "warning",
+          "kind": "word"
+        },
+        {
+          "text": "jail",
+          "kind": "word"
+        },
+        {
+          "text": "ban",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "courtroom",
+      "label": "COURTROOM",
+      "words": [
+        {
+          "text": "penalties",
+          "kind": "meta",
+          "meta_child": "punishments"
+        },
+        {
+          "text": "crimes",
+          "kind": "word"
+        },
+        {
+          "text": "jury",
+          "kind": "word"
+        },
+        {
+          "text": "gavel",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "african_countries",
+      "label": "AFRICAN COUNTRIES",
+      "words": [
+        {
+          "text": "Egypt",
+          "kind": "word"
+        },
+        {
+          "text": "Nigeria",
+          "kind": "word"
+        },
+        {
+          "text": "Kenya",
+          "kind": "word"
+        },
+        {
+          "text": "Morocco",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "vegetables",
+      "label": "VEGETABLES",
+      "words": [
+        {
+          "text": "corn",
+          "kind": "word"
+        },
+        {
+          "text": "bean",
+          "kind": "word"
+        },
+        {
+          "text": "potato",
+          "kind": "word"
+        },
+        {
+          "text": "tomato",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "injuries",
+      "label": "INJURIES",
+      "words": [
+        {
+          "text": "burn",
+          "kind": "word"
+        },
+        {
+          "text": "cut",
+          "kind": "word"
+        },
+        {
+          "text": "break",
+          "kind": "word"
+        },
+        {
+          "text": "fracture",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "office_machines",
+      "label": "OFFICE MACHINES",
+      "words": [
+        {
+          "text": "printer",
+          "kind": "word"
+        },
+        {
+          "text": "fax",
+          "kind": "word"
+        },
+        {
+          "text": "phone",
+          "kind": "word"
+        },
+        {
+          "text": "computer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "baking_ingredients",
+      "label": "BAKING INGREDIENTS",
+      "words": [
+        {
+          "text": "sugar",
+          "kind": "word"
+        },
+        {
+          "text": "chocolate",
+          "kind": "word"
+        },
+        {
+          "text": "flour",
+          "kind": "word"
+        },
+        {
+          "text": "salt",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "camping_and_outdoors",
+      "label": "OUTDOOR ACTIVITIES",
+      "words": [
+        {
+          "text": "hunting",
+          "kind": "word"
+        },
+        {
+          "text": "camping",
+          "kind": "word"
+        },
+        {
+          "text": "fishing",
+          "kind": "word"
+        },
+        {
+          "text": "sailing",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

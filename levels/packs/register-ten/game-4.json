@@ -1,0 +1,440 @@
+{
+  "level_id": 4,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 11,
+    "words_per_category": 4,
+    "start_bubbles": 44,
+    "board_capacity": 24,
+    "move_limit": 45
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "drum",
+        "category": "musical_instruments"
+      },
+      {
+        "word": "circle",
+        "category": "shapes"
+      },
+      {
+        "word": "pen",
+        "category": "school_supplies"
+      },
+      {
+        "word": "guitar",
+        "category": "musical_instruments"
+      },
+      {
+        "word": "November",
+        "category": "months"
+      },
+      {
+        "word": "spring",
+        "category": "calendar_words"
+      },
+      {
+        "word": "whether",
+        "category": "question_words"
+      },
+      {
+        "word": "drain",
+        "category": "cooking_actions"
+      },
+      {
+        "word": "bull",
+        "category": "farm_animals"
+      },
+      {
+        "word": "cylinder",
+        "category": "shapes"
+      },
+      {
+        "word": "steam",
+        "category": "cooking_actions"
+      },
+      {
+        "word": "slice",
+        "category": "cooking_actions"
+      },
+      {
+        "word": "palm",
+        "category": "hand_parts"
+      },
+      {
+        "word": "Wednesday",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "noon",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "whose",
+        "category": "question_words"
+      },
+      {
+        "word": "pencil",
+        "category": "school_supplies"
+      },
+      {
+        "word": "October",
+        "category": "months"
+      },
+      {
+        "word": "taxi",
+        "category": "vehicles"
+      },
+      {
+        "word": "bike",
+        "category": "vehicles"
+      },
+      {
+        "word": "toss",
+        "category": "cooking_actions"
+      },
+      {
+        "word": "holiday",
+        "category": "calendar_words"
+      },
+      {
+        "word": "horse",
+        "category": "farm_animals"
+      },
+      {
+        "word": "joint",
+        "category": "hand_parts"
+      }
+    ],
+    "queue": [
+      {
+        "word": "finger",
+        "category": "hand_parts"
+      },
+      {
+        "word": "why",
+        "category": "question_words"
+      },
+      {
+        "word": "midnight",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "whom",
+        "category": "question_words"
+      },
+      {
+        "word": "organ",
+        "category": "musical_instruments"
+      },
+      {
+        "word": "piano",
+        "category": "musical_instruments"
+      },
+      {
+        "word": "pig",
+        "category": "farm_animals"
+      },
+      {
+        "word": "cone",
+        "category": "shapes"
+      },
+      {
+        "word": "tape",
+        "category": "school_supplies"
+      },
+      {
+        "word": "truck",
+        "category": "vehicles"
+      },
+      {
+        "word": "helicopter",
+        "category": "vehicles"
+      },
+      {
+        "word": "nail",
+        "category": "hand_parts"
+      },
+      {
+        "word": "January",
+        "category": "months"
+      },
+      {
+        "word": "sheep",
+        "category": "farm_animals"
+      },
+      {
+        "word": "anniversary",
+        "category": "calendar_words"
+      },
+      {
+        "word": "December",
+        "category": "months"
+      },
+      {
+        "word": "birthday",
+        "category": "calendar_words"
+      },
+      {
+        "word": "dawn",
+        "category": "days_and_parts_of_day"
+      },
+      {
+        "word": "hexagon",
+        "category": "shapes"
+      },
+      {
+        "word": "marker",
+        "category": "school_supplies"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "cooking_actions",
+      "label": "COOKING ACTIONS",
+      "words": [
+        {
+          "text": "slice",
+          "kind": "word"
+        },
+        {
+          "text": "drain",
+          "kind": "word"
+        },
+        {
+          "text": "steam",
+          "kind": "word"
+        },
+        {
+          "text": "toss",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "shapes",
+      "label": "SHAPES",
+      "words": [
+        {
+          "text": "circle",
+          "kind": "word"
+        },
+        {
+          "text": "cylinder",
+          "kind": "word"
+        },
+        {
+          "text": "hexagon",
+          "kind": "word"
+        },
+        {
+          "text": "cone",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "school_supplies",
+      "label": "SCHOOL SUPPLIES",
+      "words": [
+        {
+          "text": "pen",
+          "kind": "word"
+        },
+        {
+          "text": "tape",
+          "kind": "word"
+        },
+        {
+          "text": "marker",
+          "kind": "word"
+        },
+        {
+          "text": "pencil",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "months",
+      "label": "MONTHS",
+      "words": [
+        {
+          "text": "November",
+          "kind": "word"
+        },
+        {
+          "text": "October",
+          "kind": "word"
+        },
+        {
+          "text": "December",
+          "kind": "word"
+        },
+        {
+          "text": "January",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "farm_animals",
+      "label": "FARM ANIMALS",
+      "words": [
+        {
+          "text": "sheep",
+          "kind": "word"
+        },
+        {
+          "text": "bull",
+          "kind": "word"
+        },
+        {
+          "text": "horse",
+          "kind": "word"
+        },
+        {
+          "text": "pig",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "vehicles",
+      "label": "VEHICLES",
+      "words": [
+        {
+          "text": "taxi",
+          "kind": "word"
+        },
+        {
+          "text": "helicopter",
+          "kind": "word"
+        },
+        {
+          "text": "truck",
+          "kind": "word"
+        },
+        {
+          "text": "bike",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "question_words",
+      "label": "QUESTION WORDS",
+      "words": [
+        {
+          "text": "whom",
+          "kind": "word"
+        },
+        {
+          "text": "whose",
+          "kind": "word"
+        },
+        {
+          "text": "whether",
+          "kind": "word"
+        },
+        {
+          "text": "why",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "musical_instruments",
+      "label": "MUSICAL INSTRUMENTS",
+      "words": [
+        {
+          "text": "piano",
+          "kind": "word"
+        },
+        {
+          "text": "guitar",
+          "kind": "word"
+        },
+        {
+          "text": "drum",
+          "kind": "word"
+        },
+        {
+          "text": "organ",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "hand_parts",
+      "label": "HAND PARTS",
+      "words": [
+        {
+          "text": "palm",
+          "kind": "word"
+        },
+        {
+          "text": "nail",
+          "kind": "word"
+        },
+        {
+          "text": "finger",
+          "kind": "word"
+        },
+        {
+          "text": "joint",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "calendar_words",
+      "label": "CALENDAR WORDS",
+      "words": [
+        {
+          "text": "anniversary",
+          "kind": "word"
+        },
+        {
+          "text": "spring",
+          "kind": "word"
+        },
+        {
+          "text": "birthday",
+          "kind": "word"
+        },
+        {
+          "text": "holiday",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "days_and_parts_of_day",
+      "label": "DAYS & TIMES",
+      "words": [
+        {
+          "text": "dawn",
+          "kind": "word"
+        },
+        {
+          "text": "Wednesday",
+          "kind": "word"
+        },
+        {
+          "text": "midnight",
+          "kind": "word"
+        },
+        {
+          "text": "noon",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

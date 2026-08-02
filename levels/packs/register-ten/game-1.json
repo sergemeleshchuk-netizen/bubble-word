@@ -1,0 +1,211 @@
+{
+  "level_id": 1,
+  "schema_version": "2.1",
+  "board": {
+    "categories_count": 5,
+    "words_per_category": 4,
+    "start_bubbles": 20,
+    "board_capacity": 24,
+    "move_limit": null
+  },
+  "deal": {
+    "start": [
+      {
+        "word": "hour",
+        "category": "time_units"
+      },
+      {
+        "word": "shoulder",
+        "category": "body_parts"
+      },
+      {
+        "word": "curious",
+        "category": "feelings"
+      },
+      {
+        "word": "knee",
+        "category": "body_parts"
+      },
+      {
+        "word": "shed",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "stomach",
+        "category": "body_parts"
+      },
+      {
+        "word": "castle",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "west",
+        "category": "directions"
+      },
+      {
+        "word": "worried",
+        "category": "feelings"
+      },
+      {
+        "word": "century",
+        "category": "time_units"
+      },
+      {
+        "word": "beside",
+        "category": "directions"
+      },
+      {
+        "word": "hip",
+        "category": "body_parts"
+      },
+      {
+        "word": "confused",
+        "category": "feelings"
+      },
+      {
+        "word": "instant",
+        "category": "time_units"
+      },
+      {
+        "word": "forward",
+        "category": "directions"
+      },
+      {
+        "word": "decade",
+        "category": "time_units"
+      },
+      {
+        "word": "apartment",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "theater",
+        "category": "kinds_of_buildings"
+      },
+      {
+        "word": "behind",
+        "category": "directions"
+      },
+      {
+        "word": "lonely",
+        "category": "feelings"
+      }
+    ],
+    "queue": []
+  },
+  "categories": [
+    {
+      "key": "feelings",
+      "label": "FEELINGS",
+      "words": [
+        {
+          "text": "curious",
+          "kind": "word"
+        },
+        {
+          "text": "lonely",
+          "kind": "word"
+        },
+        {
+          "text": "worried",
+          "kind": "word"
+        },
+        {
+          "text": "confused",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "directions",
+      "label": "DIRECTIONS",
+      "words": [
+        {
+          "text": "beside",
+          "kind": "word"
+        },
+        {
+          "text": "west",
+          "kind": "word"
+        },
+        {
+          "text": "forward",
+          "kind": "word"
+        },
+        {
+          "text": "behind",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "body_parts",
+      "label": "BODY PARTS",
+      "words": [
+        {
+          "text": "hip",
+          "kind": "word"
+        },
+        {
+          "text": "stomach",
+          "kind": "word"
+        },
+        {
+          "text": "knee",
+          "kind": "word"
+        },
+        {
+          "text": "shoulder",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "time_units",
+      "label": "UNITS OF TIME",
+      "words": [
+        {
+          "text": "decade",
+          "kind": "word"
+        },
+        {
+          "text": "instant",
+          "kind": "word"
+        },
+        {
+          "text": "century",
+          "kind": "word"
+        },
+        {
+          "text": "hour",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "kinds_of_buildings",
+      "label": "KINDS OF BUILDINGS",
+      "words": [
+        {
+          "text": "theater",
+          "kind": "word"
+        },
+        {
+          "text": "shed",
+          "kind": "word"
+        },
+        {
+          "text": "castle",
+          "kind": "word"
+        },
+        {
+          "text": "apartment",
+          "kind": "word"
+        }
+      ]
+    }
+  ],
+  "modifiers": {
+    "chains": []
+  }
+}

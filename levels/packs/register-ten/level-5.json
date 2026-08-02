@@ -1,0 +1,1086 @@
+{
+  "level_spec": {
+    "levelId": 5,
+    "schemaVersion": "2.1",
+    "board": {
+      "categoriesCount": 12,
+      "wordsPerCategory": 4,
+      "startBubbles": 48,
+      "boardCapacity": 24,
+      "moveFloor": 36,
+      "moveLimit": 45,
+      "moveLimitK": 1.25,
+      "moveLimitPolicy": "conservative"
+    },
+    "categories": [
+      {
+        "key": "animal_sounds",
+        "label": "ANIMAL SOUNDS",
+        "rule": "English words for the sound an animal makes",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "bark",
+            "kind": "word",
+            "zipf": 3.85,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 1,
+            "obviousness": 0.95
+          },
+          {
+            "text": "yelp",
+            "kind": "word",
+            "zipf": 3.25,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "growl",
+            "kind": "word",
+            "zipf": 3.14,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "howl",
+            "kind": "word",
+            "zipf": 3.18,
+            "frequencyUnknown": false,
+            "relation": "does_action",
+            "fit": 0.97,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "kitchen_tools",
+        "label": "KITCHEN TOOLS",
+        "rule": "Handheld tools and utensils used to prepare food in a kitchen",
+        "theme": "home",
+        "words": [
+          {
+            "text": "pot",
+            "kind": "word",
+            "zipf": 4.4,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "pan",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "fork",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "spoon",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "christmas_things",
+        "label": "CHRISTMAS THINGS",
+        "rule": "Things associated with an American Christmas",
+        "theme": "time",
+        "words": [
+          {
+            "text": "lights",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "carol",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "gift",
+            "kind": "word",
+            "zipf": 4.78,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "elf",
+            "kind": "word",
+            "zipf": 3.65,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "classroom_things",
+        "label": "CLASSROOM THINGS",
+        "rule": "Things found in a school classroom",
+        "theme": "education",
+        "words": [
+          {
+            "text": "globe",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.83
+          },
+          {
+            "text": "calendar",
+            "kind": "word",
+            "zipf": 4.3,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.73
+          },
+          {
+            "text": "chalkboard",
+            "kind": "word",
+            "zipf": 2.77,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "poster",
+            "kind": "word",
+            "zipf": 4.19,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.77
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "toys",
+        "label": "TOYS",
+        "rule": "Things children play with",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "robot",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "bubble",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "doll",
+            "kind": "word",
+            "zipf": 4.06,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "tricycle",
+            "kind": "word",
+            "zipf": 2.79,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "car_parts",
+        "label": "CAR PARTS",
+        "rule": "Physical parts of an ordinary passenger car",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "battery",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.8
+          },
+          {
+            "text": "mirror",
+            "kind": "word",
+            "zipf": 4.47,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.74
+          },
+          {
+            "text": "wheel",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.81
+          },
+          {
+            "text": "tire",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "part_of",
+            "fit": 0.97,
+            "obviousness": 0.86
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "colors",
+        "label": "COLORS",
+        "rule": "Basic color names used in everyday English",
+        "theme": "properties",
+        "words": [
+          {
+            "text": "gray",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "pink",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "purple",
+            "kind": "word",
+            "zipf": 4.32,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "yellow",
+            "kind": "word",
+            "zipf": 4.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "school_subjects",
+        "label": "SCHOOL SUBJECTS",
+        "rule": "Subjects taught in an American school",
+        "theme": "education",
+        "words": [
+          {
+            "text": "physics",
+            "kind": "word",
+            "zipf": 4.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "economics",
+            "kind": "word",
+            "zipf": 4.42,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "literature",
+            "kind": "word",
+            "zipf": 4.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "math",
+            "kind": "word",
+            "zipf": 4.45,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "dishes_and_glassware",
+        "label": "DISHES",
+        "rule": "Things you eat and drink from at a table",
+        "theme": "home",
+        "words": [
+          {
+            "text": "plate",
+            "kind": "word",
+            "zipf": 4.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bowl",
+            "kind": "word",
+            "zipf": 4.63,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bottle",
+            "kind": "word",
+            "zipf": 4.57,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "dish",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "weather_words",
+        "label": "WEATHER WORDS",
+        "rule": "Words describing weather conditions or events in the sky",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "thunder",
+            "kind": "word",
+            "zipf": 4.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "cloud",
+            "kind": "word",
+            "zipf": 4.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "snow",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "wind",
+            "kind": "word",
+            "zipf": 4.84,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "superstition_numbers",
+        "label": "NUMBER WORDS",
+        "rule": "Words for numbers and counting",
+        "theme": "culture",
+        "words": [
+          {
+            "text": "hundred",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "thousand",
+            "kind": "word",
+            "zipf": 4.64,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "dozen",
+            "kind": "word",
+            "zipf": 4.35,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "eleven",
+            "kind": "word",
+            "zipf": 4.12,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "us_states",
+        "label": "US STATES",
+        "rule": "States of the United States of America",
+        "theme": "geography",
+        "words": [
+          {
+            "text": "Utah",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Arizona",
+            "kind": "word",
+            "zipf": 4.38,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Iowa",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "Indiana",
+            "kind": "word",
+            "zipf": 4.31,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      }
+    ],
+    "deal": {
+      "start": [
+        {
+          "word": "cloud",
+          "category": "weather_words"
+        },
+        {
+          "word": "Utah",
+          "category": "us_states"
+        },
+        {
+          "word": "growl",
+          "category": "animal_sounds"
+        },
+        {
+          "word": "Indiana",
+          "category": "us_states"
+        },
+        {
+          "word": "gift",
+          "category": "christmas_things"
+        },
+        {
+          "word": "pink",
+          "category": "colors"
+        },
+        {
+          "word": "carol",
+          "category": "christmas_things"
+        },
+        {
+          "word": "globe",
+          "category": "classroom_things"
+        },
+        {
+          "word": "yelp",
+          "category": "animal_sounds"
+        },
+        {
+          "word": "wheel",
+          "category": "car_parts"
+        },
+        {
+          "word": "howl",
+          "category": "animal_sounds"
+        },
+        {
+          "word": "bottle",
+          "category": "dishes_and_glassware"
+        },
+        {
+          "word": "bark",
+          "category": "animal_sounds"
+        },
+        {
+          "word": "literature",
+          "category": "school_subjects"
+        },
+        {
+          "word": "poster",
+          "category": "classroom_things"
+        },
+        {
+          "word": "pot",
+          "category": "kitchen_tools"
+        },
+        {
+          "word": "battery",
+          "category": "car_parts"
+        },
+        {
+          "word": "gray",
+          "category": "colors"
+        },
+        {
+          "word": "thousand",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "thunder",
+          "category": "weather_words"
+        },
+        {
+          "word": "dozen",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "spoon",
+          "category": "kitchen_tools"
+        },
+        {
+          "word": "plate",
+          "category": "dishes_and_glassware"
+        },
+        {
+          "word": "doll",
+          "category": "toys"
+        }
+      ],
+      "queue": [
+        {
+          "word": "wind",
+          "category": "weather_words"
+        },
+        {
+          "word": "math",
+          "category": "school_subjects"
+        },
+        {
+          "word": "bowl",
+          "category": "dishes_and_glassware"
+        },
+        {
+          "word": "elf",
+          "category": "christmas_things"
+        },
+        {
+          "word": "calendar",
+          "category": "classroom_things"
+        },
+        {
+          "word": "robot",
+          "category": "toys"
+        },
+        {
+          "word": "hundred",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "bubble",
+          "category": "toys"
+        },
+        {
+          "word": "Arizona",
+          "category": "us_states"
+        },
+        {
+          "word": "snow",
+          "category": "weather_words"
+        },
+        {
+          "word": "physics",
+          "category": "school_subjects"
+        },
+        {
+          "word": "economics",
+          "category": "school_subjects"
+        },
+        {
+          "word": "fork",
+          "category": "kitchen_tools"
+        },
+        {
+          "word": "dish",
+          "category": "dishes_and_glassware"
+        },
+        {
+          "word": "yellow",
+          "category": "colors"
+        },
+        {
+          "word": "eleven",
+          "category": "superstition_numbers"
+        },
+        {
+          "word": "chalkboard",
+          "category": "classroom_things"
+        },
+        {
+          "word": "mirror",
+          "category": "car_parts"
+        },
+        {
+          "word": "pan",
+          "category": "kitchen_tools"
+        },
+        {
+          "word": "Iowa",
+          "category": "us_states"
+        },
+        {
+          "word": "lights",
+          "category": "christmas_things"
+        },
+        {
+          "word": "tire",
+          "category": "car_parts"
+        },
+        {
+          "word": "purple",
+          "category": "colors"
+        },
+        {
+          "word": "tricycle",
+          "category": "toys"
+        }
+      ]
+    },
+    "traps": [
+      {
+        "word": "plate",
+        "home": "dishes_and_glassware",
+        "decoy": "kitchen_tools",
+        "homeObviousness": 0.85,
+        "decoyFit": 0.9,
+        "decoyObviousness": 0.9
+      }
+    ],
+    "halves": [],
+    "modifiers": {
+      "chains": [],
+      "frozenBubbles": [],
+      "hiddenBubbles": []
+    }
+  },
+  "build_metadata": {
+    "generated_at": "2026-08-02T17:43:20.242Z",
+    "generator_version": "gen-1.1",
+    "scoring_version": "d-1.0-calibrated",
+    "content_snapshot_hash": "2d57e45863a25fcf681cdfa3e7743ff18319c2c5e00a62f10fd68be1269130f0",
+    "level_spec_hash": "1a3505ba4bca0aa80a6ddd7894ed109b9586b90d6f09da3bab910c82b25be503",
+    "pack_hash": "e6c3ebfaac2c714baf48e9a8011689e353c3ca039cc827b4d42a86bf5a8c3818",
+    "seed": "register-a"
+  },
+  "plan": {
+    "levelId": 5,
+    "position": 5,
+    "role": "peak",
+    "categoryCount": 12,
+    "metaCount": 0,
+    "metaDepthTarget": 0,
+    "rareTarget": 2,
+    "trapTarget": 2,
+    "chainCount": 0,
+    "targetDifficulty": [
+      8,
+      9
+    ],
+    "targetInterest": [
+      6.5,
+      8
+    ],
+    "moveLimitK": 1.25
+  },
+  "scoring": {
+    "difficulty": 5.5,
+    "difficulty_breakdown": {
+      "base_calibrated": {
+        "объём (пузырей на старте)": 4.3632,
+        "редкие слова (zipf < 3)": 0.1894,
+        "очень редкие (zipf < 2)": 0
+      },
+      "declared_not_calibrated": {
+        "мета-связи (объявлено)": 0,
+        "глубина мета сверх 1 (объявлено)": 0,
+        "быстрые победы (объявлено)": -0.6
+      },
+      "semantic": {
+        "подтверждённые ловушки": 0,
+        "смежность категорий": 0.8,
+        "незапланированная спорность": 0
+      },
+      "mechanical": {
+        "цепи": 0,
+        "половинки": 0,
+        "теснота лимита ходов": 0.9
+      },
+      "totals": {
+        "base": 4.5753,
+        "declared": -0.6,
+        "semantic": 0.8,
+        "mechanical": 0.9
+      }
+    },
+    "difficulty_explanation": [
+      "48 пузырей на старте при 12 категориях",
+      "2 редких слов, из них 0 очень редких",
+      "10 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "2 пар категорий из одной тематической сферы",
+      "незапланированная спорность не измерена: нужен прогон слепого решателя",
+      "лимит ходов 45 при минимуме 36 (K = 1.25)"
+    ],
+    "interest": 7,
+    "interest_breakdown": {
+      "clarity": 2.36,
+      "variety": 2.37,
+      "aha": 0,
+      "freshness": 2.05
+    },
+    "interest_explanation": [
+      "Clarity 2.36: узнаваемых слов 100%, средняя очевидность связи 0.87",
+      "Variety 2.37: 5 типов связи, 10 тематических сфер, но 58% категорий однотипны",
+      "Aha 0.00: ни ловушек, ни мета-связей — уровень пресный",
+      "Freshness 2.05: новых для пакета слов 100%"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "SCHEMA_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "структура соответствует схеме"
+      },
+      {
+        "code": "CATEGORY_SIZE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "во всех 12 категориях ровно 4 слова"
+      },
+      {
+        "code": "WORD_OCCURRENCE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "повторов слова нет"
+      },
+      {
+        "code": "ASSIGNED_HOME",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждого слова есть утверждённая связь со своей категорией"
+      },
+      {
+        "code": "APPROVED_CONTENT_ONLY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "весь контент уровня утверждён"
+      },
+      {
+        "code": "GLOBAL_SOLUTION_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "ровно одна полная раскладка, перебор исчерпан (49 узлов)"
+      },
+      {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "11 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
+        "code": "META_PARENT_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "у каждой мета-категории не больше одного родителя"
+      },
+      {
+        "code": "META_FOREST_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "мета-лес ацикличен, связей 0"
+      },
+      {
+        "code": "META_DEPTH_WITHIN_CONFIG",
+        "passed": true,
+        "severity": "soft",
+        "detail": "максимальная глубина мета 0, разрешено 2"
+      },
+      {
+        "code": "CHAIN_ACYCLIC",
+        "passed": true,
+        "severity": "hard",
+        "detail": "цепей 0, граф зависимостей ацикличен"
+      },
+      {
+        "code": "START_BUBBLE_COUNT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "заявлено 48, по формуле 4 × 12 − 0 = 48"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 48, в очереди 24"
+      },
+      {
+        "code": "MOVE_LIMIT_SANE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "лимит 45, минимум мерджей 36, K = 1.25 → ожидалось 45"
+      },
+      {
+        "code": "QUICK_WIN_PRESENT",
+        "passed": true,
+        "severity": "hard",
+        "detail": "категорий быстрой победы 10: animal_sounds, kitchen_tools, christmas_things, car_parts, colors, school_subjects, dishes_and_glassware, weather_words, superstition_numbers, us_states"
+      },
+      {
+        "code": "RECOGNIZABILITY",
+        "passed": true,
+        "severity": "hard",
+        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+      },
+      {
+        "code": "NEAR_DUPLICATE_WORDS",
+        "passed": true,
+        "severity": "hard",
+        "detail": "слов-двойников внутри категорий нет"
+      },
+      {
+        "code": "HALF_COLLISION",
+        "passed": true,
+        "severity": "hard",
+        "detail": "половинок нет"
+      },
+      {
+        "code": "FRESHNESS",
+        "passed": true,
+        "severity": "soft",
+        "detail": "свежесть соблюдена (окна: слова 5, категории 40)"
+      },
+      {
+        "code": "REFERENCE_NOVELTY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "проверка на копирование референса выключена (referenceNovelty=off)"
+      },
+      {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
+        "code": "UNSEPARABLE_PAIR",
+        "passed": true,
+        "severity": "soft",
+        "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "форма слов в норме декады (до 1 токенов, 12 букв, имена собственные от zipf 3.2)"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "медиана zipf 4.35 (цель декады 4.35), p25 4.12 (цель 3.8), допуск на уровень ±0.65"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "редких слов (zipf<3) 2, коридор декады 0-2"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле видно 50.0% уровня (24 из 48), минимум декады 50.0%"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "слов из прошлых уровней в другой категории: 0, коридор декады 0-4"
+      }
+    ],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
+    "solution_count": 1,
+    "solution_search_exhausted": true,
+    "solution_nodes_visited": 49,
+    "structure": {
+      "multi_home_words": 1,
+      "max_contested_slots": 1,
+      "opening_categories": 11,
+      "deduction_only": true,
+      "forced_steps": 48,
+      "explanation": [
+        "1 слов с двумя и более правдоподобными домами",
+        "11 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда",
+        "самая оспариваемая категория: 1 кандидатов сверх своей четвёрки"
+      ]
+    }
+  },
+  "generation": {
+    "attempts": [
+      {
+        "index": 0,
+        "outcome": "accepted",
+        "stage": "готово",
+        "reason": "12 категорий, 0 мета-связей, 2 редких слов, 1 ловушек",
+        "relaxations": []
+      }
+    ]
+  }
+}
