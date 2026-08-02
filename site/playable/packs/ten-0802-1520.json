@@ -1,0 +1,1219 @@
+{
+  "pack_id": "ten-0802-1520",
+  "prefix": "TEN",
+  "label": "TEN · 10 уровней",
+  "created_at": "2026-08-02T15:20:26Z",
+  "levels": [
+    {
+      "level_id": 1,
+      "difficulty_target": 4.0,
+      "categories": [
+        {
+          "id": "clothing_sizes",
+          "name": "CLOTHING SIZES",
+          "words": [
+            "large",
+            "plus",
+            "regular",
+            "small"
+          ]
+        },
+        {
+          "id": "comic_words",
+          "name": "COMIC BOOKS",
+          "words": [
+            "cover",
+            "issue",
+            "series",
+            "artist"
+          ]
+        },
+        {
+          "id": "social_media_words",
+          "name": "SOCIAL MEDIA",
+          "words": [
+            "follow",
+            "like",
+            "post",
+            "share"
+          ]
+        },
+        {
+          "id": "rice_types",
+          "name": "RICE TYPES",
+          "words": [
+            "black",
+            "red",
+            "white",
+            "wild"
+          ]
+        },
+        {
+          "id": "the_mind",
+          "name": "THE MIND",
+          "words": [
+            "memory",
+            "reason",
+            "thought",
+            "focus"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 20,
+        "move_limit": null,
+        "move_limit_k": null
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN001",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": null
+      }
+    },
+    {
+      "level_id": 2,
+      "difficulty_target": 4.0,
+      "categories": [
+        {
+          "id": "senses_and_perception",
+          "name": "THE SENSES",
+          "words": [
+            "pain",
+            "pressure",
+            "touch",
+            "hearing"
+          ]
+        },
+        {
+          "id": "alphabet_and_numbers",
+          "name": "FIRST LESSONS",
+          "words": [
+            "day",
+            "name",
+            "number",
+            "season"
+          ]
+        },
+        {
+          "id": "reading_material",
+          "name": "READING MATTER",
+          "words": [
+            "book",
+            "map",
+            "blog",
+            "magazine"
+          ]
+        },
+        {
+          "id": "art_forms",
+          "name": "ART FORMS",
+          "words": [
+            "dance",
+            "film",
+            "music",
+            "drawing"
+          ]
+        },
+        {
+          "id": "legal_documents",
+          "name": "LEGAL DOCUMENTS",
+          "words": [
+            "contract",
+            "will",
+            "license",
+            "certificate"
+          ]
+        },
+        {
+          "id": "magazines",
+          "name": "MAGAZINE TYPES",
+          "words": [
+            "business",
+            "sports",
+            "travel",
+            "fashion"
+          ]
+        },
+        {
+          "id": "family_members",
+          "name": "FAMILY MEMBERS",
+          "words": [
+            "brother",
+            "sister",
+            "son",
+            "wife"
+          ]
+        },
+        {
+          "id": "days_and_parts_of_day",
+          "name": "DAYS & TIMES",
+          "words": [
+            "Friday",
+            "morning",
+            "night",
+            "Sunday"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 21,
+        "move_limit": 39,
+        "move_limit_k": 1.62
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN002",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 39
+      }
+    },
+    {
+      "level_id": 3,
+      "difficulty_target": 5.0,
+      "categories": [
+        {
+          "id": "theater_arts",
+          "name": "PERFORMING ARTS",
+          "words": [
+            "play",
+            "opera",
+            "circus",
+            "ballet"
+          ]
+        },
+        {
+          "id": "pet_supplies",
+          "name": "PET SUPPLIES",
+          "words": [
+            "bed",
+            "food",
+            "treat",
+            "bowl"
+          ]
+        },
+        {
+          "id": "media_jobs",
+          "name": "MEDIA JOBS",
+          "words": [
+            "editor",
+            "producer",
+            "journalist",
+            "reporter"
+          ]
+        },
+        {
+          "id": "greetings_and_farewells",
+          "name": "GREETINGS",
+          "words": [
+            "later",
+            "hello",
+            "cheers",
+            "farewell"
+          ]
+        },
+        {
+          "id": "punishments",
+          "name": "PENALTIES",
+          "words": [
+            "fine",
+            "warning",
+            "ban",
+            "penalty"
+          ]
+        },
+        {
+          "id": "bodies_of_water",
+          "name": "BODIES OF WATER",
+          "words": [
+            "lake",
+            "stream",
+            "gulf",
+            "pond"
+          ]
+        },
+        {
+          "id": "colors",
+          "name": "COLORS",
+          "words": [
+            "blue",
+            "gold",
+            "yellow",
+            "pink"
+          ]
+        },
+        {
+          "id": "courtroom",
+          "name": "COURTROOM",
+          "words": [
+            "objection",
+            "testimony",
+            "penalties",
+            "rights"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 22,
+        "move_limit": 39,
+        "move_limit_k": 1.62
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN003",
+        "pack": "TEN",
+        "meta_links": [
+          {
+            "token": "penalties",
+            "source_group": "PENALTIES",
+            "target_group": "COURTROOM",
+            "depth": 1
+          }
+        ],
+        "recorded_move_limit": 39
+      }
+    },
+    {
+      "level_id": 4,
+      "difficulty_target": 6.0,
+      "categories": [
+        {
+          "id": "body_parts",
+          "name": "BODY PARTS",
+          "words": [
+            "back",
+            "shoulder",
+            "hip",
+            "stomach"
+          ]
+        },
+        {
+          "id": "illnesses",
+          "name": "ILLNESSES",
+          "words": [
+            "cold",
+            "flu",
+            "asthma",
+            "diseases"
+          ]
+        },
+        {
+          "id": "job_hunting",
+          "name": "JOB HUNTING",
+          "words": [
+            "offer",
+            "application",
+            "interview",
+            "reference"
+          ]
+        },
+        {
+          "id": "school_subjects",
+          "name": "SCHOOL SUBJECTS",
+          "words": [
+            "English",
+            "history",
+            "literature",
+            "math"
+          ]
+        },
+        {
+          "id": "roman_things",
+          "name": "ANCIENT ROME",
+          "words": [
+            "senate",
+            "forum",
+            "arena",
+            "emperor"
+          ]
+        },
+        {
+          "id": "parts_of_a_house",
+          "name": "HOUSE PARTS",
+          "words": [
+            "door",
+            "ceiling",
+            "threshold",
+            "porch"
+          ]
+        },
+        {
+          "id": "elements_more",
+          "name": "MORE ELEMENTS",
+          "words": [
+            "silver",
+            "aluminum",
+            "platinum",
+            "silicon"
+          ]
+        },
+        {
+          "id": "groups_of_people",
+          "name": "GROUPS OF PEOPLE",
+          "words": [
+            "band",
+            "staff",
+            "audience",
+            "gang"
+          ]
+        },
+        {
+          "id": "feelings",
+          "name": "FEELINGS",
+          "words": [
+            "content",
+            "happy",
+            "sad",
+            "proud"
+          ]
+        },
+        {
+          "id": "greeting_card",
+          "name": "GREETING CARD",
+          "words": [
+            "envelope",
+            "stamp",
+            "holidays",
+            "feelings"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 21,
+        "move_limit": 45,
+        "move_limit_k": 1.5
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN004",
+        "pack": "TEN",
+        "meta_links": [
+          {
+            "token": "feelings",
+            "source_group": "FEELINGS",
+            "target_group": "GREETING CARD",
+            "depth": 1
+          }
+        ],
+        "recorded_move_limit": 45
+      }
+    },
+    {
+      "level_id": 5,
+      "difficulty_target": 5.5,
+      "categories": [
+        {
+          "id": "ways_of_speaking",
+          "name": "WAYS OF SPEAKING",
+          "words": [
+            "sing",
+            "announce",
+            "scream",
+            "shout"
+          ]
+        },
+        {
+          "id": "world_currencies_more",
+          "name": "MORE CURRENCIES",
+          "words": [
+            "real",
+            "rand",
+            "yen",
+            "yuan"
+          ]
+        },
+        {
+          "id": "degrees_and_titles",
+          "name": "ACADEMIC DEGREES",
+          "words": [
+            "master",
+            "license",
+            "associate",
+            "certificate"
+          ]
+        },
+        {
+          "id": "movie_words",
+          "name": "FILM MAKING",
+          "words": [
+            "extra",
+            "actor",
+            "stunt",
+            "screenplay"
+          ]
+        },
+        {
+          "id": "landforms",
+          "name": "LANDFORMS",
+          "words": [
+            "hill",
+            "summit",
+            "cliff",
+            "peninsula"
+          ]
+        },
+        {
+          "id": "crafting_materials",
+          "name": "CRAFT MATERIALS",
+          "words": [
+            "paper",
+            "wire",
+            "fabric",
+            "glue"
+          ]
+        },
+        {
+          "id": "sports_jobs",
+          "name": "SPORTS JOBS",
+          "words": [
+            "coach",
+            "trainer",
+            "scout",
+            "referee"
+          ]
+        },
+        {
+          "id": "places_of_worship",
+          "name": "PLACES OF WORSHIP",
+          "words": [
+            "church",
+            "temple",
+            "chapel",
+            "cathedral"
+          ]
+        },
+        {
+          "id": "in_the_classroom",
+          "name": "IN THE CLASSROOM",
+          "words": [
+            "student",
+            "exam",
+            "homework",
+            "lesson"
+          ]
+        },
+        {
+          "id": "meals_of_the_day",
+          "name": "MEALS OF THE DAY",
+          "words": [
+            "breakfast",
+            "dinner",
+            "lunch",
+            "snack"
+          ]
+        },
+        {
+          "id": "personality_traits",
+          "name": "PERSONALITY TRAITS",
+          "words": [
+            "honest",
+            "kind",
+            "brave",
+            "curious"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 24,
+        "move_limit": 43,
+        "move_limit_k": 1.3
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN005",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 43
+      }
+    },
+    {
+      "level_id": 6,
+      "difficulty_target": 6.5,
+      "categories": [
+        {
+          "id": "ways_of_looking",
+          "name": "WAYS OF LOOKING",
+          "words": [
+            "watch",
+            "observe",
+            "scan",
+            "glance"
+          ]
+        },
+        {
+          "id": "face_parts",
+          "name": "FACE PARTS",
+          "words": [
+            "mouth",
+            "ear",
+            "jaw",
+            "cheek"
+          ]
+        },
+        {
+          "id": "furniture",
+          "name": "FURNITURE",
+          "words": [
+            "table",
+            "desk",
+            "sofa",
+            "wardrobe"
+          ]
+        },
+        {
+          "id": "office_jobs",
+          "name": "OFFICE JOBS",
+          "words": [
+            "manager",
+            "secretary",
+            "assistant",
+            "consultant"
+          ]
+        },
+        {
+          "id": "military_branches",
+          "name": "MILITARY BRANCHES",
+          "words": [
+            "army",
+            "reserves",
+            "artillery",
+            "militia"
+          ]
+        },
+        {
+          "id": "fabric_types",
+          "name": "FABRIC TYPES",
+          "words": [
+            "felt",
+            "cotton",
+            "terry",
+            "silk"
+          ]
+        },
+        {
+          "id": "magazines",
+          "name": "MAGAZINE TYPES",
+          "words": [
+            "news",
+            "sports",
+            "hobby",
+            "gossip"
+          ]
+        },
+        {
+          "id": "seeds_and_bulbs",
+          "name": "SEEDS AND BULBS",
+          "words": [
+            "cutting",
+            "seed",
+            "pit",
+            "bulb"
+          ]
+        },
+        {
+          "id": "shapes",
+          "name": "SHAPES",
+          "words": [
+            "Square",
+            "diamond",
+            "sphere",
+            "triangle"
+          ]
+        },
+        {
+          "id": "math_operations",
+          "name": "MATH OPERATIONS",
+          "words": [
+            "add",
+            "factor",
+            "estimate",
+            "multiply"
+          ]
+        },
+        {
+          "id": "science_fields",
+          "name": "BRANCHES OF SCIENCE",
+          "words": [
+            "medicine",
+            "physics",
+            "chemistry",
+            "psychology"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 24,
+        "move_limit": 43,
+        "move_limit_k": 1.3
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN006",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 43
+      }
+    },
+    {
+      "level_id": 7,
+      "difficulty_target": 7.0,
+      "categories": [
+        {
+          "id": "ways_of_moving",
+          "name": "WAYS OF MOVING",
+          "words": [
+            "race",
+            "hop",
+            "skip",
+            "leap"
+          ]
+        },
+        {
+          "id": "weather_adjectives",
+          "name": "WEATHER ADJECTIVES",
+          "words": [
+            "clear",
+            "mild",
+            "sunny",
+            "freezing"
+          ]
+        },
+        {
+          "id": "shape_adjectives",
+          "name": "SHAPE ADJECTIVES",
+          "words": [
+            "straight",
+            "narrow",
+            "twisted",
+            "curved"
+          ]
+        },
+        {
+          "id": "art_forms",
+          "name": "ART FORMS",
+          "words": [
+            "film",
+            "painting",
+            "theater",
+            "sculpture"
+          ]
+        },
+        {
+          "id": "creative_jobs",
+          "name": "CREATIVE JOBS",
+          "words": [
+            "director",
+            "editor",
+            "singer",
+            "producer"
+          ]
+        },
+        {
+          "id": "greetings_and_farewells",
+          "name": "GREETINGS",
+          "words": [
+            "morning",
+            "welcome",
+            "farewell",
+            "greetings"
+          ]
+        },
+        {
+          "id": "rights_and_freedoms",
+          "name": "RIGHTS",
+          "words": [
+            "speech",
+            "appeal",
+            "protest",
+            "petition"
+          ]
+        },
+        {
+          "id": "book_genres",
+          "name": "BOOK GENRES",
+          "words": [
+            "history",
+            "humor",
+            "thriller",
+            "biography"
+          ]
+        },
+        {
+          "id": "inventions",
+          "name": "INVENTIONS",
+          "words": [
+            "computer",
+            "internet",
+            "radio",
+            "camera"
+          ]
+        },
+        {
+          "id": "team_sports",
+          "name": "TEAM SPORTS",
+          "words": [
+            "football",
+            "basketball",
+            "baseball",
+            "soccer"
+          ]
+        },
+        {
+          "id": "courtroom",
+          "name": "COURTROOM",
+          "words": [
+            "verdict",
+            "jury",
+            "crimes",
+            "rights"
+          ]
+        },
+        {
+          "id": "wellness",
+          "name": "WELLNESS",
+          "words": [
+            "balance",
+            "diet",
+            "meditation",
+            "yoga"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 24,
+        "move_limit": 46,
+        "move_limit_k": 1.28
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN007",
+        "pack": "TEN",
+        "meta_links": [
+          {
+            "token": "rights",
+            "source_group": "RIGHTS",
+            "target_group": "COURTROOM",
+            "depth": 1
+          }
+        ],
+        "recorded_move_limit": 46
+      }
+    },
+    {
+      "level_id": 8,
+      "difficulty_target": 6.5,
+      "categories": [
+        {
+          "id": "animal_homes",
+          "name": "ANIMAL HOMES",
+          "words": [
+            "hole",
+            "warren",
+            "den",
+            "barn"
+          ]
+        },
+        {
+          "id": "coins_and_bills",
+          "name": "US MONEY",
+          "words": [
+            "bill",
+            "dollar",
+            "fifty",
+            "nickel"
+          ]
+        },
+        {
+          "id": "parts_of_a_house",
+          "name": "HOUSE PARTS",
+          "words": [
+            "foundation",
+            "roof",
+            "ceiling",
+            "stairs"
+          ]
+        },
+        {
+          "id": "government_jobs",
+          "name": "GOVERNMENT JOBS",
+          "words": [
+            "official",
+            "mayor",
+            "ambassador",
+            "inspector"
+          ]
+        },
+        {
+          "id": "punishments",
+          "name": "PENALTIES",
+          "words": [
+            "jail",
+            "penalty",
+            "suspension",
+            "probation"
+          ]
+        },
+        {
+          "id": "bodies_of_water",
+          "name": "BODIES OF WATER",
+          "words": [
+            "river",
+            "sea",
+            "lake",
+            "bay"
+          ]
+        },
+        {
+          "id": "titles_of_address",
+          "name": "TITLES",
+          "words": [
+            "coach",
+            "lady",
+            "miss",
+            "officer"
+          ]
+        },
+        {
+          "id": "loud_noises",
+          "name": "LOUD NOISES",
+          "words": [
+            "crash",
+            "boom",
+            "bang",
+            "blast"
+          ]
+        },
+        {
+          "id": "days_and_parts_of_day",
+          "name": "DAYS & TIMES",
+          "words": [
+            "evening",
+            "Wednesday",
+            "noon",
+            "twilight"
+          ]
+        },
+        {
+          "id": "parts_of_a_bike",
+          "name": "BICYCLE PARTS",
+          "words": [
+            "frame",
+            "gear",
+            "tire",
+            "rim"
+          ]
+        },
+        {
+          "id": "toy_chest",
+          "name": "TOY CHEST",
+          "words": [
+            "toys",
+            "blocks",
+            "doll",
+            "balls"
+          ]
+        },
+        {
+          "id": "morning_routine",
+          "name": "MORNING ROUTINE",
+          "words": [
+            "breakfast",
+            "coffee",
+            "shower",
+            "wake"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 24,
+        "move_limit": 44,
+        "move_limit_k": 1.22
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN008",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 44
+      }
+    },
+    {
+      "level_id": 9,
+      "difficulty_target": 5.5,
+      "categories": [
+        {
+          "id": "animal_coverings",
+          "name": "ANIMAL COVERINGS",
+          "words": [
+            "hair",
+            "skin",
+            "hide",
+            "shell"
+          ]
+        },
+        {
+          "id": "laundry_care",
+          "name": "LAUNDRY CARE",
+          "words": [
+            "dry",
+            "hang",
+            "wash",
+            "soak"
+          ]
+        },
+        {
+          "id": "school_subjects",
+          "name": "SCHOOL SUBJECTS",
+          "words": [
+            "science",
+            "gym",
+            "chemistry",
+            "geography"
+          ]
+        },
+        {
+          "id": "alphabet_and_numbers",
+          "name": "FIRST LESSONS",
+          "words": [
+            "name",
+            "word",
+            "count",
+            "shape"
+          ]
+        },
+        {
+          "id": "magic_words",
+          "name": "MAGIC SHOW",
+          "words": [
+            "box",
+            "trick",
+            "rope",
+            "illusion"
+          ]
+        },
+        {
+          "id": "fashion_show",
+          "name": "FASHION SHOW",
+          "words": [
+            "model",
+            "designer",
+            "fitting",
+            "pose"
+          ]
+        },
+        {
+          "id": "pantry_staples",
+          "name": "PANTRY STAPLES",
+          "words": [
+            "tea",
+            "rice",
+            "beans",
+            "pasta"
+          ]
+        },
+        {
+          "id": "directions",
+          "name": "DIRECTIONS",
+          "words": [
+            "far",
+            "left",
+            "south",
+            "up"
+          ]
+        },
+        {
+          "id": "groups_of_people",
+          "name": "GROUPS OF PEOPLE",
+          "words": [
+            "class",
+            "cast",
+            "squad",
+            "gang"
+          ]
+        },
+        {
+          "id": "seasons",
+          "name": "SEASONS",
+          "words": [
+            "fall",
+            "spring",
+            "summer",
+            "winter"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 24,
+        "move_limit": 45,
+        "move_limit_k": 1.5
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN009",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 45
+      }
+    },
+    {
+      "level_id": 10,
+      "difficulty_target": 4.0,
+      "categories": [
+        {
+          "id": "illnesses",
+          "name": "ILLNESSES",
+          "words": [
+            "cold",
+            "infection",
+            "fever",
+            "diabetes"
+          ]
+        },
+        {
+          "id": "job_hunting",
+          "name": "JOB HUNTING",
+          "words": [
+            "contract",
+            "interview",
+            "hire",
+            "screening"
+          ]
+        },
+        {
+          "id": "movie_genres",
+          "name": "MOVIE GENRES",
+          "words": [
+            "drama",
+            "comedy",
+            "documentary",
+            "animation"
+          ]
+        },
+        {
+          "id": "reading_material",
+          "name": "READING MATTER",
+          "words": [
+            "book",
+            "manual",
+            "menu",
+            "poem"
+          ]
+        },
+        {
+          "id": "landforms",
+          "name": "LANDFORMS",
+          "words": [
+            "island",
+            "ridge",
+            "basin",
+            "peninsula"
+          ]
+        },
+        {
+          "id": "military_ranks",
+          "name": "MILITARY RANKS",
+          "words": [
+            "captain",
+            "general",
+            "commander",
+            "lieutenant"
+          ]
+        },
+        {
+          "id": "family_members",
+          "name": "FAMILY MEMBERS",
+          "words": [
+            "mother",
+            "cousin",
+            "aunt",
+            "grandmother"
+          ]
+        },
+        {
+          "id": "places_of_worship",
+          "name": "PLACES OF WORSHIP",
+          "words": [
+            "church",
+            "sanctuary",
+            "mosque",
+            "abbey"
+          ]
+        }
+      ],
+      "traps": [],
+      "repeats": [],
+      "board": {
+        "start_bubbles": 20,
+        "move_limit": 44,
+        "move_limit_k": 1.52
+      },
+      "extensions": {
+        "chunks": [],
+        "chains": null,
+        "picture_words": []
+      },
+      "source": {
+        "level_key": "TEN010",
+        "pack": "TEN",
+        "meta_links": [],
+        "recorded_move_limit": 44
+      }
+    }
+  ]
+}

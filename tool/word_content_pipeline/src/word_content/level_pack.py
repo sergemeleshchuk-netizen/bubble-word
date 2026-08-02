@@ -13,11 +13,16 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from datetime import UTC, datetime
 from pathlib import Path
 
 from . import composition as composition_mod
 
 PACK_FORMAT = "bubble-level-pack/1.0"
+
+# Манифест выкладок пайплайна. Имя не `index.json`: рядом лежит выкладка
+# веб-инструмента со своим списком и другим форматом.
+MANIFEST_NAME = "pipeline.json"
 
 
 def build(conn: sqlite3.Connection, prefix: str) -> dict:
@@ -263,6 +268,94 @@ def write_playable(directory: Path, pack: dict, *, prefix: str = "rmk") -> list[
         )
         written.append(path)
     return written
+
+
+def _unique_id(directory: Path, prefix: str, moment: datetime) -> str:
+    """Идентификатор выкладки: `<префикс>-ММДД-ЧЧММ`, при совпадении с суффиксом.
+
+    Минутной точности хватает для читаемого имени, но две выкладки одного
+    пакета внутри минуты — обычное дело при отладке, и без суффикса вторая
+    молча съела бы первую. Ровно то, от чего этот механизм и уводит.
+    """
+    base = f"{prefix}-{moment.strftime('%m%d-%H%M')}"
+    if not (directory / f"{base}.json").exists():
+        return base
+    for attempt in range(2, 100):
+        candidate = f"{base}-{attempt}"
+        if not (directory / f"{candidate}.json").exists():
+            return candidate
+    raise RuntimeError(f"не удалось подобрать имя выкладки для {base}")
+
+
+def write_playable_pack(
+    directory: Path,
+    pack: dict,
+    *,
+    prefix: str = "rmk",
+    pack_id: str | None = None,
+    now: datetime | None = None,
+) -> tuple[Path, Path]:
+    """Пишет пакет ОДНИМ файлом с уникальным именем плюс манифест каталога.
+
+    Зачем это вместо `write_playable`. Тот кладёт по файлу на уровень с именем
+    `<префикс><номер>.json` в общий каталог, и два пакета там неизбежно
+    сталкиваются: `ten1.json` рядом с `top1.json` — это уже два разных первого
+    уровня в одной папке, а повторный экспорт того же префикса молча затирает
+    прошлую выкладку. Восстановить, чем играли неделю назад, нечем.
+
+    Здесь у каждой выкладки свой идентификатор с датой и временем
+    (`ten-0802-1731`), поэтому новая ничего не перезаписывает, а старая
+    остаётся играбельной. Манифест перечисляет выложенное, и прототип берёт
+    список оттуда, а не из зашитой в код строки.
+
+    Манифест называется `pipeline.json`, а не `index.json`, намеренно: рядом
+    в том же каталоге живёт выкладка веб-инструмента со своим списком и своим
+    форматом. Один файл на две несовместимые схемы — это гонка, в которой
+    выигрывает тот, кто записал последним.
+    """
+    moment = now or datetime.now(UTC)
+    directory.mkdir(parents=True, exist_ok=True)
+    identifier = pack_id or _unique_id(directory, prefix.lower(), moment)
+    levels = to_playable(pack)
+    payload = {
+        "pack_id": identifier,
+        "prefix": pack["prefix"],
+        "label": f"{pack['prefix']} · {len(levels)} уровней",
+        "created_at": moment.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "levels": levels,
+    }
+    path = directory / f"{identifier}.json"
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    manifest_path = directory / MANIFEST_NAME
+    entries: list[dict] = []
+    if manifest_path.exists():
+        try:
+            entries = json.loads(manifest_path.read_text(encoding="utf-8")).get("packs", [])
+        except json.JSONDecodeError:
+            entries = []
+    # Чужие/старые записи неизвестной формы просто пропускаем: манифест — не
+    # то место, где стоит падать.
+    entries = [
+        entry for entry in entries
+        if isinstance(entry, dict) and entry.get("pack_id") != identifier
+    ]
+    entries.append(
+        {
+            "pack_id": identifier,
+            "prefix": payload["prefix"],
+            "label": payload["label"],
+            "created_at": payload["created_at"],
+            "levels": len(levels),
+            "file": path.name,
+        }
+    )
+    # Новое сверху: играть обычно хотят в то, что только что собрали.
+    entries.sort(key=lambda entry: str(entry.get("created_at", "")), reverse=True)
+    manifest_path.write_text(
+        json.dumps({"packs": entries}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return path, manifest_path
 
 
 def write(path: Path, pack: dict) -> Path:

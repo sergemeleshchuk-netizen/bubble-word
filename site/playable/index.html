@@ -867,7 +867,30 @@ function loop(ts){
      между «собрал» и «сыграл» не нужен ни сервер, ни деплой.
      Ключ и формат — tool/level-tool/web/src/core/playableHandoff.ts */
   const gen=params.get('gen');
-  if(gen!==null){
+  /* ?pack=<id>&n=<номер> — выложенный пакет пайплайна. Лежит файлом в
+     playable/packs/, каталог перечислен в packs/pipeline.json. Отличие от ?gen=
+     в том, что там пакет живёт в localStorage одного браузера: у любого, кто
+     открыл ссылку впервые, играть было нечего. Здесь пакет приезжает с
+     сервером, поэтому ссылкой можно поделиться.
+     `?pack=latest` берёт самую свежую выкладку из манифеста. */
+  const packId=params.get('pack');
+  if(packId){
+    try{
+      const index=await (await fetch('packs/pipeline.json')).json();
+      const list=index.packs||[];
+      if(!list.length) throw new Error('манифест packs/index.json пуст');
+      /* Манифест отсортирован свежими вперёд, поэтому latest — первый. */
+      const entry=(packId==='latest')?list[0]:list.find(p=>p.pack_id===packId);
+      if(!entry) throw new Error('в манифесте нет пакета '+packId);
+      const pack=await (await fetch('packs/'+entry.file)).json();
+      const n=Number(params.get('n')||0);
+      const lvl=(pack.levels||[])[n];
+      if(!lvl) throw new Error('в пакете '+entry.pack_id+' нет уровня '+n);
+      applyLevel(lvl);
+      console.log('level loaded from pack:',entry.pack_id,'#'+n,'из',pack.levels.length);
+    }catch(e){ console.warn('pack load failed, играем встроенный контент:',e); }
+  }
+  else if(gen!==null){
     try{
       const pack=JSON.parse(localStorage.getItem('bubble-level-tool.generated-pack.v1')||'null');
       const lvl=pack&&pack.levels&&pack.levels[Number(gen)];

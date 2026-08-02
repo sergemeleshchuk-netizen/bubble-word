@@ -2568,6 +2568,18 @@ def cmd_export_level_pack(
     prefix: Annotated[
         str, typer.Option("--prefix", help="Префикс ключей уровней пакета")
     ] = "L",
+    playable_pack: Annotated[
+        Path | None,
+        typer.Option("--playable-pack",
+                     help="Каталог выкладки прототипа (site/playable/packs): пакет "
+                          "уедет одним файлом с уникальным именем плюс манифест"),
+    ] = None,
+    pack_id: Annotated[
+        str | None,
+        typer.Option("--pack-id",
+                     help="Имя выкладки. По умолчанию <префикс>-ММДД-ЧЧММ — "
+                          "новая выкладка не затирает прошлую"),
+    ] = None,
     playable_dir: Annotated[
         Path | None,
         typer.Option("--playable-dir",
@@ -2596,6 +2608,12 @@ def cmd_export_level_pack(
     if playable_dir is not None:
         files = level_pack.write_playable(playable_dir, pack, prefix=prefix.lower())
         typer.echo(f"Для прототипа: {len(files)} файлов в {playable_dir}")
+    if playable_pack is not None:
+        path, manifest = level_pack.write_playable_pack(
+            playable_pack, pack, prefix=prefix.lower(), pack_id=pack_id
+        )
+        typer.echo(f"Выкладка в прототип: {path.name} (манифест {manifest.name})")
+        typer.echo(f"  играть: playable/index.html?pack={path.stem}&n=0")
 
 
 @app.command("meta-pairs")

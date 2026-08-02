@@ -1,0 +1,20 @@
+{
+  "packs": [
+    {
+      "pack_id": "ten-0802-1520",
+      "prefix": "TEN",
+      "label": "TEN · 10 уровней",
+      "created_at": "2026-08-02T15:20:26Z",
+      "levels": 10,
+      "file": "ten-0802-1520.json"
+    },
+    {
+      "pack_id": "top-0802-1520",
+      "prefix": "TOP",
+      "label": "TOP · 20 уровней",
+      "created_at": "2026-08-02T15:20:26Z",
+      "levels": 20,
+      "file": "top-0802-1520.json"
+    }
+  ]
+}
