@@ -102,6 +102,34 @@ def test_single_alternative_does_not_hide_a_flat_core(graded_db):
     assert "fruits" in keys, "выброс из alternative не должен прятать плоский approved-блок"
 
 
+def test_wide_spread_with_a_tied_top_still_enters_queue(graded_db):
+    """Размах говорит «есть градиент», но выбор всё равно может быть монеткой.
+
+    Реальный случай: у MONEY WORDS размах 0.30 — придраться не к чему, — но из
+    тридцати четырёх слов двадцать девять стоят на одном верхнем значении. На
+    доску идут четыре, и какие именно — решает не оценка, а порядок в списке.
+    """
+    category_id = graded_db.execute(
+        "SELECT id FROM categories WHERE category_key = 'fruits'"
+    ).fetchone()["id"]
+    # Один аутсайдер внизу создаёт солидный размах...
+    graded_db.execute(
+        "UPDATE memberships SET obviousness_score = 0.5 WHERE category_id = ? "
+        "AND word_id = (SELECT id FROM words WHERE normalized = 'mango')",
+        (category_id,),
+    )
+    graded_db.commit()
+    pool = graded_db.execute(
+        "SELECT COUNT(*) c FROM memberships WHERE category_id = ? "
+        "AND obviousness_score = 0.8",
+        (category_id,),
+    ).fetchone()["c"]
+    assert pool > obviousness.BOARD_SLOTS, "остальные должны делить вершину"
+
+    keys = [t.category_key for t in obviousness.targets(graded_db, readiness=())]
+    assert "fruits" in keys, "размах есть, но вершину делят пятеро — ранжирования нет"
+
+
 def test_graded_category_leaves_queue(graded_db):
     obviousness.grade(graded_db, MockLLMProvider([response(*SPREAD)]),
                       readiness=(), apply=True)

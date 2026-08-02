@@ -65,10 +65,17 @@ GRADED_STATUSES = ("approved", "alternative", "hard_only")
 # однородность настоящая. 0.10 проходит между этими двумя случаями.
 MIN_SPREAD = 0.10
 
-# Категория меньше этого размера расслоению не подлежит: на трёх словах
-# «верх и низ» — это шум, а четвёрка из такой категории всё равно берётся
-# целиком, и порядок внутри неё ни на что не влияет.
-MIN_POOL = 5
+# Категория меньше этого размера расслоению не подлежит.
+#
+# Сначала здесь стояло 5 с обоснованием «четвёрка берётся целиком, порядок
+# внутри неё ни на что не влияет». Про ОТБОР слова это правда, но отбором дело
+# не ограничивается: `scoringInterest.ts` усредняет очевидность по всем словам
+# уровня, и категория, застрявшая на залитых оптом 0.5, тянет оценку интереса
+# вниз независимо от того, был ли внутри неё выбор. Там же `homeObviousness` и
+# `decoyObviousness` решают, насколько честна ловушка. Значит отсекать надо не
+# по «есть ли выбор», а по «есть ли что ранжировать»: на двух словах верх и низ
+# — это монетка, на трёх уже осмысленный порядок.
+MIN_POOL = 3
 
 # Размах, ниже которого категория считается плоской ПО СУЩЕСТВУ, даже если
 # формально значения в ней разные.
@@ -82,6 +89,20 @@ MIN_POOL = 5
 # Замер по базе: 163 категории в автосборке имели размах 0.02-0.19 и в
 # прежнюю очередь (строгое равенство min и max) не попадали.
 NOMINAL_SPREAD = 0.17
+
+# Сколько слов категории попадает на доску (`wordsPerCategory` в `blockPlan.ts`).
+#
+# Размах отвечает на вопрос «есть ли градиент», но не на вопрос «решает ли он
+# спор за место на доске». У MONEY WORDS размах 0.30 — придраться не к чему, —
+# но двадцать девять слов из тридцати четырёх стоят на одном верхнем значении:
+# какие четыре поедут в уровень, решает не оценка, а порядок в списке.
+#
+# Проверять только вершину мало. У BASEBALL WORDS на вершине одно слово, зато
+# следующие четырнадцать стоят вплотную — три места из четырёх всё равно
+# разыгрываются монеткой. Поэтому условие точное: значение четвёртого слова
+# должно быть СТРОГО больше значения пятого. Тогда верхняя четвёрка определена
+# однозначно, а что происходит ниже — уже неважно, туда доска не заглядывает.
+BOARD_SLOTS = 4
 
 
 @dataclass
@@ -147,28 +168,40 @@ def targets(
     # что в уровни едет именно approved.
     rows = conn.execute(
         f"""
-        SELECT m.category_id, c.category_key, c.label, c.rule, c.readiness,
+        WITH pool AS (
+            SELECT m.category_id AS cid,
+                   m.obviousness_score AS score,
+                   m.review_status AS status,
+                   ROW_NUMBER() OVER (
+                       PARTITION BY m.category_id
+                           ORDER BY m.obviousness_score DESC
+                   ) AS rank_in_category
+              FROM memberships m
+              JOIN categories c ON c.id = m.category_id
+             WHERE m.review_status IN ({','.join('?' * len(GRADED_STATUSES))})
+               AND c.status = 'active'
+               AND m.obviousness_score IS NOT NULL
+               AND m.graded_obviousness IS NULL
+        )
+        SELECT p.cid AS category_id, c.category_key, c.label, c.rule, c.readiness,
                COUNT(*) AS pool,
-               MIN(m.obviousness_score) AS lo,
-               MAX(m.obviousness_score) AS hi,
+               MIN(p.score) AS lo,
+               MAX(p.score) AS hi,
                COALESCE(
-                   MAX(CASE WHEN m.review_status = 'approved'
-                            THEN m.obviousness_score END)
-                 - MIN(CASE WHEN m.review_status = 'approved'
-                            THEN m.obviousness_score END),
-                   MAX(m.obviousness_score) - MIN(m.obviousness_score)
-               ) AS core_spread
-          FROM memberships m
-          JOIN categories c ON c.id = m.category_id
-         WHERE m.review_status IN ({','.join('?' * len(GRADED_STATUSES))})
-           AND c.status = 'active'
-           AND m.obviousness_score IS NOT NULL
-           AND m.graded_obviousness IS NULL
-         GROUP BY m.category_id
+                   MAX(CASE WHEN p.status = 'approved' THEN p.score END)
+                 - MIN(CASE WHEN p.status = 'approved' THEN p.score END),
+                   MAX(p.score) - MIN(p.score)
+               ) AS core_spread,
+               MAX(CASE WHEN p.rank_in_category = ? THEN p.score END) AS last_slot,
+               MAX(CASE WHEN p.rank_in_category = ? THEN p.score END) AS first_spare
+          FROM pool p
+          JOIN categories c ON c.id = p.cid
+         GROUP BY p.cid
         HAVING COUNT(*) >= ?
-           AND core_spread < ?
+           AND (core_spread < ?
+                OR (first_spare IS NOT NULL AND last_slot = first_spare))
         """,
-        (*GRADED_STATUSES, MIN_POOL, NOMINAL_SPREAD),
+        (*GRADED_STATUSES, BOARD_SLOTS, BOARD_SLOTS + 1, MIN_POOL, NOMINAL_SPREAD),
     ).fetchall()
 
     # «Сильнейший ЧУЖОЙ дом слова» считаем один раз на всю базу: на 18 815
