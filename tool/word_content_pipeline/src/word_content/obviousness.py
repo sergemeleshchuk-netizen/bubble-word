@@ -137,12 +137,27 @@ def targets(
     # видит. 0.05 — шаг сетки, которой пользовался сид (0.9 / 0.88 / 0.85),
     # то есть меньшая разница в этих данных ничего не значит.
     RIVAL_EPS = 0.05
+    # Размах меряем по `approved`, а не по всем оцениваемым статусам.
+    #
+    # `alternative` и `hard_only` — это одиночные пометки на полях: у
+    # BODIES OF WATER двадцать три approved-слова стоят ровно на 0.88, то есть
+    # категория плоская целиком, но одна alternative-связь на 0.55 растягивает
+    # общий размах до 0.33 и прячет её от очереди. Один выброс из другого
+    # статуса не имеет права закрывать вопрос за весь основной блок — тем более
+    # что в уровни едет именно approved.
     rows = conn.execute(
         f"""
         SELECT m.category_id, c.category_key, c.label, c.rule, c.readiness,
                COUNT(*) AS pool,
                MIN(m.obviousness_score) AS lo,
-               MAX(m.obviousness_score) AS hi
+               MAX(m.obviousness_score) AS hi,
+               COALESCE(
+                   MAX(CASE WHEN m.review_status = 'approved'
+                            THEN m.obviousness_score END)
+                 - MIN(CASE WHEN m.review_status = 'approved'
+                            THEN m.obviousness_score END),
+                   MAX(m.obviousness_score) - MIN(m.obviousness_score)
+               ) AS core_spread
           FROM memberships m
           JOIN categories c ON c.id = m.category_id
          WHERE m.review_status IN ({','.join('?' * len(GRADED_STATUSES))})
@@ -151,7 +166,7 @@ def targets(
            AND m.graded_obviousness IS NULL
          GROUP BY m.category_id
         HAVING COUNT(*) >= ?
-           AND MAX(m.obviousness_score) - MIN(m.obviousness_score) < ?
+           AND core_spread < ?
         """,
         (*GRADED_STATUSES, MIN_POOL, NOMINAL_SPREAD),
     ).fetchall()

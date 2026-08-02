@@ -72,6 +72,36 @@ def test_flat_category_lands_in_queue(graded_db):
     assert target.pool >= obviousness.MIN_POOL
 
 
+def test_single_alternative_does_not_hide_a_flat_core(graded_db):
+    """Одна связь чужого статуса не имеет права закрыть вопрос за весь блок.
+
+    Реальный случай: у BODIES OF WATER двадцать три approved-слова стояли ровно
+    на 0.88 — плоско настолько, насколько бывает, — но одна `alternative`-связь
+    на 0.55 растягивала общий размах до 0.33, и категория не попадала в очередь.
+    В уровни при этом едет именно approved-блок, то есть заливка так и осталась
+    бы работать, а сводка показывала бы «очередь пуста».
+    """
+    category_id = graded_db.execute(
+        "SELECT id FROM categories WHERE category_key = 'fruits'"
+    ).fetchone()["id"]
+    cur = graded_db.execute(
+        "INSERT INTO words (text, normalized, part_of_speech, is_proper_noun, "
+        "created_at, updated_at) VALUES ('quince', 'quince', 'noun', 0, "
+        "'2026-08-02', '2026-08-02')"
+    )
+    graded_db.execute(
+        "INSERT INTO memberships (word_id, category_id, relation_type, reason, "
+        "fit_score, obviousness_score, source, review_status, semantic_status, "
+        "created_at, updated_at) VALUES (?, ?, 'is_a', 'редкий фрукт', 0.9, 0.4, "
+        "'seed_manual', 'alternative', 'correct', '2026-08-02', '2026-08-02')",
+        (cur.lastrowid, category_id),
+    )
+    graded_db.commit()
+
+    keys = [t.category_key for t in obviousness.targets(graded_db, readiness=())]
+    assert "fruits" in keys, "выброс из alternative не должен прятать плоский approved-блок"
+
+
 def test_graded_category_leaves_queue(graded_db):
     obviousness.grade(graded_db, MockLLMProvider([response(*SPREAD)]),
                       readiness=(), apply=True)
