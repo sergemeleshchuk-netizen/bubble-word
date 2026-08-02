@@ -62,6 +62,15 @@ def main() -> int:
     conn.row_factory = sqlite3.Row
 
     taken = {row[0] for row in conn.execute("SELECT category_key FROM categories")}
+    # Надписи занятых категорий. Ключ и надпись — разные вещи, и проверять надо
+    # обе: моя `frozen_treats` прошла по свободному ключу, но её надпись
+    # «FROZEN TREATS» уже носила `frozen_treat_brands`. Одинаковая надпись у двух
+    # категорий — дефект вдвойне: игрок видит одну подпись у разных групп, а
+    # мета-механика ищет родителя как раз по надписи и становится неоднозначной.
+    labels = {
+        row[0].strip().upper()
+        for row in conn.execute("SELECT label FROM categories WHERE status='active'")
+    }
     register = {
         row["normalized"]: row["everyday_class"]
         for row in conn.execute("SELECT normalized, everyday_class FROM words WHERE status='active'")
@@ -89,6 +98,9 @@ def main() -> int:
 
         if key in taken:
             problems.append("ключ уже занят")
+            verdicts["занят ключ"] += 1
+        if item.get("label", "").strip().upper() in labels:
+            problems.append(f"надпись уже занята: {item.get('label')}")
             verdicts["занят ключ"] += 1
 
         missing = sorted(w for w in words if w not in register)
