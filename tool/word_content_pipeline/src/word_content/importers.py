@@ -12,7 +12,7 @@ from typing import Any
 
 from pydantic import ValidationError
 
-from .db import transaction
+from .db import transaction, utc_now
 from .models import CategoryInput, MembershipCandidateInput, ReviewDecisionInput
 from .repositories import (
     find_membership,
@@ -129,6 +129,83 @@ def import_categories(conn: sqlite3.Connection, path: Path) -> ImportReport:
                 report.inserted += 1
             else:
                 report.updated += 1
+
+        record_import_run(
+            conn,
+            import_type=report.import_type,
+            source_file=report.source_file,
+            total=report.total,
+            inserted=report.inserted,
+            updated=report.updated,
+            rejected=report.rejected,
+            errors=report.errors,
+        )
+    return report
+
+
+# ------------------------------------------------------------------------ swow
+
+
+def import_swow_metrics(conn: sqlite3.Connection, path: Path) -> ImportReport:
+    """Кладёт готовый снимок связности четвёрок по SWOW.
+
+    Ключ — `quartet_key`, он детерминирован от состава четвёрки, поэтому снимок
+    переживает пересборку базы. Четвёрка, которой в снимке нет, остаётся без
+    данных — и это НЕ то же самое, что четвёрка без связей: первую отклонять
+    нельзя, вторую можно.
+    """
+    report = ImportReport(import_type="swow_metrics", source_file=str(path))
+    now = utc_now()
+    with transaction(conn):
+        with path.open(newline="", encoding="utf-8") as handle:
+            for line_no, row in enumerate(csv.DictReader(handle), start=2):
+                report.total += 1
+                key = (row.get("quartet_key") or "").strip()
+                if not key:
+                    report.add_error(line_no, "пустой quartet_key", str(row))
+                    continue
+                try:
+                    values = (
+                        row["metric_version"],
+                        row["source_version"],
+                        row["source_hash"],
+                        int(row["observed_nodes"]),
+                        int(row["observed_pairs"]),
+                        int(row["positive_pairs"]),
+                        float(row["strongest_edge"]),
+                        float(row["median_edge"]),
+                        int(row["disconnected"]),
+                    )
+                except (KeyError, TypeError, ValueError) as exc:
+                    report.add_error(line_no, f"плохая строка: {exc}", str(row))
+                    continue
+                existing = conn.execute(
+                    "SELECT id FROM quartet_association_metrics WHERE quartet_key = ?", (key,)
+                ).fetchone()
+                if existing is None:
+                    conn.execute(
+                        """
+                        INSERT INTO quartet_association_metrics
+                            (quartet_key, metric_version, source_version, source_hash,
+                             observed_nodes, observed_pairs, positive_pairs,
+                             strongest_edge, median_edge, disconnected, created_at)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """,
+                        (key, *values, now),
+                    )
+                    report.inserted += 1
+                else:
+                    conn.execute(
+                        """
+                        UPDATE quartet_association_metrics
+                           SET metric_version = ?, source_version = ?, source_hash = ?,
+                               observed_nodes = ?, observed_pairs = ?, positive_pairs = ?,
+                               strongest_edge = ?, median_edge = ?, disconnected = ?
+                         WHERE quartet_key = ?
+                        """,
+                        (*values, key),
+                    )
+                    report.updated += 1
 
         record_import_run(
             conn,

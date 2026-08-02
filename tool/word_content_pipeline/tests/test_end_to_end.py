@@ -93,6 +93,9 @@ def test_full_pipeline_from_sources_to_accepted_level(workspace: Path):
     run("migrate-content-schema", "--db", str(db))
     run("import-categories", "--db", str(db), "--input", str(workspace / "categories.jsonl"))
     run("import-memberships", "--db", str(db), "--input", str(workspace / "memberships.jsonl"))
+    # Порядок шагов повторяет `scripts/rebuild_all.sh`: слой значений идёт до
+    # сборки четвёрок, иначе слоты уровня уезжают без значений.
+    run("apply-sense-layer", "--db", str(db))
     run("derive-readiness", "--db", str(db))
     run("derive-conflicts", "--db", str(db), "--output", str(workspace / "conflicts.csv"))
     run("build-quartet-candidates", "--db", str(db), "--output", str(workspace / "quartets.csv"))
@@ -177,6 +180,7 @@ def test_clean_rebuild_gives_the_same_content_hash(workspace: Path):
         run("init-db", "--db", str(db))
         run("import-categories", "--db", str(db), "--input", str(workspace / "categories.jsonl"))
         run("import-memberships", "--db", str(db), "--input", str(workspace / "memberships.jsonl"))
+        run("apply-sense-layer", "--db", str(db))
         run("derive-readiness", "--db", str(db))
         run("derive-conflicts", "--db", str(db), "--output", str(workspace / f"{name}.csv"))
         run("build-quartet-candidates", "--db", str(db))

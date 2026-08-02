@@ -25,6 +25,7 @@ from word_content.importers import import_categories, import_memberships
 from word_content.models import QuartetInput
 from word_content.readiness import derive
 from word_content.repositories import upsert_quartet
+from word_content import sense_layer
 from word_content.sense_map import SenseMap
 
 # Шесть непересекающихся категорий по восемь слов: материал на несколько уровней.
@@ -93,6 +94,13 @@ def flow_db(tmp_path: Path):
     )
     import_categories(conn, tmp_path / "categories.jsonl")
     import_memberships(conn, tmp_path / "memberships.jsonl", sense_map=SenseMap())
+    # Слой значений — обязательный шаг настоящей сборки (`rebuild_all.sh`, 8.5),
+    # и без него четвёрки уезжают в уровень с пустыми значениями. Проверка
+    # приёмки `level_slots_resolved` это ловит, поэтому фикстура повторяет
+    # порядок пайплайна, а не обходит его.
+    _no_homonyms = tmp_path / "_not_homonyms.txt"
+    _no_homonyms.write_text("", encoding="utf-8")
+    sense_layer.apply(conn, sense_map=SenseMap(), not_homonyms_path=_no_homonyms)
     derive(conn, {})
     conn.commit()
 
@@ -265,6 +273,9 @@ def meta_db(tmp_path: Path):
     )
     import_categories(conn, tmp_path / "categories.jsonl")
     import_memberships(conn, tmp_path / "memberships.jsonl", sense_map=SenseMap())
+    _no_homonyms2 = tmp_path / "_not_homonyms.txt"
+    _no_homonyms2.write_text("", encoding="utf-8")
+    sense_layer.apply(conn, sense_map=SenseMap(), not_homonyms_path=_no_homonyms2)
     derive(conn, {})
     ensure_primary_labels(conn)
     conn.commit()

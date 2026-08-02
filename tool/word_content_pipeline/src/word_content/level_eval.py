@@ -105,6 +105,17 @@ class Associations:
                 shared.setdefault(word, set()).update(pool)
         self._pools = {word: frozenset(peers - {word}) for word, peers in shared.items()}
 
+    def observed(self, first: str, second: str) -> bool:
+        """Была ли у пары возможность показать связь.
+
+        Пара измерима, если хотя бы одно слово побывало стимулом опроса. Ноль у
+        неизмеримой пары — это пробел в датасете, а не отсутствие смысла, и
+        считать его отсутствием связи нельзя.
+        """
+        if self.source != "swow":
+            return first in self._pools or second in self._pools
+        return first in self._fwd or second in self._fwd
+
     def sym(self, first: str, second: str) -> float:
         if self.source == "swow":
             return (
