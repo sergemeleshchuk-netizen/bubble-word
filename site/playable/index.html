@@ -69,6 +69,11 @@
   @keyframes hintP{from{box-shadow:0 0 0 3px #ffd94a,0 0 18px 6px rgba(255,217,74,.75);}
                    to{box-shadow:0 0 0 5px #ffd94a,0 0 30px 12px rgba(255,217,74,.95);}}
   .bub.popping{transition:transform .3s,opacity .3s;transform:scale(1.45)!important;opacity:0;}
+  /* секунда на чтение имени собранной категории: шар подсвечивается и слегка
+     подпрыгивает, чтобы взгляд успел на него перейти */
+  .bub.named{box-shadow:0 0 0 4px rgba(255,226,150,.95),0 0 30px 12px rgba(255,180,60,.6);
+             animation:namePop .32s ease-out;}
+  @keyframes namePop{0%{transform:scale(1);}45%{transform:scale(1.14);}100%{transform:scale(1);}}
   .bub.merged{animation:mpulse .28s ease-out;}
   @keyframes mpulse{0%{filter:brightness(1.35);}50%{filter:brightness(1.15);}100%{filter:none;}}
   .part{position:absolute;width:10px;height:10px;border-radius:50%;pointer-events:none;z-index:70;
@@ -287,6 +292,8 @@ function applyLevel(L){
   document.getElementById('lvl').textContent='LVL '+(L.level_id||1);
 }
 const W=390,H=600;
+/* сколько собранная категория стоит на поле с открытым именем перед уничтожением */
+const NAME_HOLD=1000;
 const PRAISE=['Cool!','Great!','Splendid!','Awesome!','Nice!'];
 
 const board=document.getElementById('board');
@@ -696,9 +703,14 @@ function merge(a,b,costMove){
     else if(x.hid>0){ x.hid--; paint(x); place(x); }
   });
   if(a.exs.length>=FULL[a.val]){
+    /* Имя категории до этого момента было скрыто, и появляется оно ровно на один
+       кадр перед уничтожением. Поэтому собранный шар секунду держится на поле
+       с подсветкой: игрок должен успеть прочитать, что за категорию он собрал,
+       иначе главный ответ уровня проходит мимо него. */
     pendingPops++;
     a.popping=true;
-    setTimeout(()=>popGroup(a),380);
+    a.el.classList.add('named');
+    setTimeout(()=>popGroup(a),NAME_HOLD);
   }else{
     rescueIfStuck();
   }
@@ -706,6 +718,7 @@ function merge(a,b,costMove){
 }
 function popGroup(a){
   const cd=TARGETS.find(t=>t.v===a.val);
+  a.el.classList.remove('named');
   if(cd&&cd.meta){ metaTransform(a,cd.meta); return; }
   a.el.classList.add('popping');
   particles(a.x,a.y,a.r);
