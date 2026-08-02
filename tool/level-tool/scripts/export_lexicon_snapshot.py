@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Третий источник контента: сводная база — наша разметка плюс словарь оригинала.
+"""Сборка рабочего словаря игры: наша разметка плюс словарь оригинала.
 
     content.snapshot.json  ┐
-    reference.snapshot.json├─(этот скрипт)─> hybrid.snapshot.json
+    reference.snapshot.json├─(этот скрипт)─> lexicon.snapshot.json
     reference/…/levels.jsonl ┘                        |
                                               статика в браузере
 
-Зачем третий источник
+Зачем он собирается из двух
 --------------------------------------------------------------------------
 Первые два отвечают на разные вопросы и оба — половинчато.
 
@@ -17,9 +17,10 @@
                      Широта есть, разметки нет вовсе: все связи приезжают
                      approved, регистр слова потерян, значений нет.
 
-Сводная база — это широта оригинала, пропущенная через нашу разметку. Категорий
+Словарь игры — это широта оригинала, пропущенная через нашу разметку. Категорий
 столько же, сколько у оригинала, плюс наши; но слово попадает в уровень не
 потому, что оригинал когда-то его засчитал, а потому, что у него есть ВЕС.
+Это рабочий источник генератора: сдаваемые пакеты собираются из него.
 
 Что такое вес и почему он здесь главный
 --------------------------------------------------------------------------
@@ -85,12 +86,12 @@
 `limits` источника (web/src/core/sources.ts) и проверяется тестом.
 
 Решение владельца от 31.07 «чужой словарь в нашей базе не храним» исполнено
-так же, как для второго источника: сводная база — ОТДЕЛЬНЫЙ файл. Ни
+так же, как для второго источника: словарь игры — ОТДЕЛЬНЫЙ файл. Ни
 content.snapshot.json, ни его хеш этот скрипт не трогает.
 
-Запуск:  python3 scripts/export_hybrid_snapshot.py [--max-level N]
-Вывод:   web/src/data/hybrid.snapshot.json
-         data/hybrid-derived/hybrid.snapshot.sha256
+Запуск:  python3 scripts/export_lexicon_snapshot.py [--max-level N]
+Вывод:   web/src/data/lexicon.snapshot.json
+         data/lexicon-derived/lexicon.snapshot.sha256
 """
 from __future__ import annotations
 
@@ -107,8 +108,8 @@ ROOT = Path(__file__).resolve().parent.parent
 PROD_SNAPSHOT = ROOT / "web" / "src" / "data" / "content.snapshot.json"
 REF_SNAPSHOT = ROOT / "web" / "src" / "data" / "reference.snapshot.json"
 DUMP = ROOT.parent.parent / "reference" / "bwj-org" / "levels.jsonl"
-OUT_WEB = ROOT / "web" / "src" / "data" / "hybrid.snapshot.json"
-OUT_HASH = ROOT / "data" / "hybrid-derived" / "hybrid.snapshot.sha256"
+OUT_WEB = ROOT / "web" / "src" / "data" / "lexicon.snapshot.json"
+OUT_HASH = ROOT / "data" / "lexicon-derived" / "lexicon.snapshot.sha256"
 
 SNAPSHOT_SCHEMA_VERSION = "snapshot-2.1"
 
@@ -429,7 +430,7 @@ def build(prod: dict, ref: dict, levels: list[dict]) -> dict:
     # ------------------------------------------------------------------ #
     # 5. мета-потенциал
     # ------------------------------------------------------------------ #
-    # Считается заново по сводной базе, а не склеивается из двух списков:
+    # Считается заново по словарю игры, а не склеивается из двух списков:
     # категория, чьё имя есть в словаре, могла получить хозяина из ДРУГОГО
     # источника — именно ради таких пар источники и сводятся.
     memberships_by_word: dict[int, set[int]] = defaultdict(set)

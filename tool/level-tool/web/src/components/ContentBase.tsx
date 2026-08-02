@@ -43,8 +43,8 @@ export function ContentBase({ snapshot, index, runs, source }: {
    * показываем один экран из трёх. Показывать все три, подставив чужие цифры
    * в наши таблицы, было бы прямым враньём о происхождении контента.
    */
-  if (source.id === 'hybrid') {
-    return <HybridSource snapshot={snapshot} index={index} source={source} />;
+  if (source.id === 'lexicon') {
+    return <LexiconSource snapshot={snapshot} index={index} source={source} />;
   }
   if (!source.hasAiWorkflow) {
     return <ForeignSource snapshot={snapshot} index={index} source={source} />;
@@ -275,16 +275,16 @@ export function ContentBase({ snapshot, index, runs, source }: {
 }
 
 /**
- * Экран сводной базы.
+ * Экран рабочего словаря игры.
  *
  * Отдельно от `ForeignSource` по той же причине, по которой тот отделён от
  * нашей базы: у этого источника другой главный вопрос. У чужого словаря
- * спрашивают «чего у него нет», у сводного — «что решает, попадёт слово в
+ * спрашивают «чего у него нет», у рабочего — «что решает, попадёт слово в
  * уровень или нет», и ответ здесь один: вес. Поэтому первым же экраном стоит
  * не размер базы, а то, как порог веса режет словарь, и на чём этот порог
  * проверен.
  */
-function HybridSource({ snapshot, index, source }: {
+function LexiconSource({ snapshot, index, source }: {
   snapshot: Snapshot; index: ContentIndex; source: ContentSource;
 }) {
   const s = snapshot.stats ?? {};
@@ -403,14 +403,14 @@ function HybridSource({ snapshot, index, source }: {
       <div className="panel">
         <h2>Чего у источника нет</h2>
         <p className="hint">
-          Список обязателен: сводная база наследует пробелы обеих половин, и
+          Список обязателен: словарь игры наследует пробелы обеих половин, и
           разницу в уровнях нужно относить на данные, а не на генератор.
         </p>
         <ul className="small muted" style={{ paddingLeft: 18, margin: 0 }}>
           {source.limits.map((limit) => <li key={limit} style={{ marginBottom: 5 }}>{limit}</li>)}
         </ul>
         <p className="small" style={{ marginTop: 12, color: 'var(--accent)' }}>
-          Наша база при этом не меняется ни на одну связь: сводная лежит
+          Авторская разметка при этом не меняется ни на одну связь: словарь игры лежит
           отдельным снимком и только читается. Решение владельца от 31.07 —
           чужой словарь в нашу базу не вливать — остаётся в силе.
         </p>
@@ -535,7 +535,7 @@ function ForeignSource({ snapshot, index, source }: {
           {source.limits.map((limit) => <li key={limit} style={{ marginBottom: 5 }}>{limit}</li>)}
         </ul>
         <p className="small" style={{ marginTop: 12, color: 'var(--accent)' }}>
-          Наша база при этом не меняется ни на одну связь: словарь оригинала лежит
+          Авторская разметка при этом не меняется ни на одну связь: словарь оригинала лежит
           отдельным снимком и только читается. Решение владельца от 31.07 —
           чужой словарь в нашу базу не вливать — остаётся в силе.
         </p>

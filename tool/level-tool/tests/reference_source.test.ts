@@ -43,8 +43,8 @@ const scoring = JSON.parse(
 // реестр источников
 // --------------------------------------------------------------------------- //
 
-test('умолчание осталось нашей базой, и её снимок на месте', () => {
-  assert.equal(DEFAULT_SOURCE_ID, 'production');
+test('умолчание — словарь игры, и снимок каждого источника на месте', () => {
+  assert.equal(DEFAULT_SOURCE_ID, 'lexicon');
   for (const source of CONTENT_SOURCES) {
     assert.ok(existsSync(join(ROOT, source.snapshotFile)),
       `нет снимка источника ${source.id}: ${source.snapshotFile}`);

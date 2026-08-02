@@ -100,7 +100,7 @@ if (config.decadeGates) {
     + `${g.maxTokens} токен(а), до ${g.maxWordLen} букв, имена от zipf ${g.minProperNounZipf}`);
   console.log(`словарь       регистр до ${g.maxWordRegister} `
     + `(0 бытовой, 1 пассивный), вес слова от ${g.minWordWeight.toFixed(2)} `
-    + '(веса есть только у сводной базы)');
+    + '(веса есть только у словаря игры)');
   console.log(`план категорий ${(config.categoryPlan ?? []).join(', ')}`);
 }
 console.log(`ритм блока    ${rhythm.passed ? 'PASS' : 'ЗАМЕЧАНИЯ'}`);

@@ -269,7 +269,7 @@ function handoffLevel(spec: LevelSpec, title: string): HandoffLevel {
 
 const ours = generateFrom('production', 'наша база');
 const theirs = generateFrom('reference', 'словарь оригинала');
-const merged = generateFrom('hybrid', 'сводная база');
+const merged = generateFrom('lexicon', 'словарь игры');
 
 // K берётся из плана декады — того же, по которому собраны первые два уровня.
 // Свой лимит оригинал в выгрузке не оставил, а выдумывать второе число значило бы
@@ -299,7 +299,7 @@ const levels: HandoffLevel[] = [
     title('словарь оригинала', theirs.level.spec,
       theirs.level.difficulty.value, theirs.level.interest.value)),
   handoffLevel(merged.level.spec,
-    title('сводная база', merged.level.spec,
+    title('словарь игры', merged.level.spec,
       merged.level.difficulty.value, merged.level.interest.value)),
   handoffLevel(originalSpec,
     title('как в оригинале', originalSpec,
@@ -342,7 +342,7 @@ const rows = [
     snapshot: theirs.block.contentSnapshotHash,
   },
   {
-    source: 'сводная база',
+    source: 'словарь игры',
     spec: merged.level.spec,
     d: merged.level.difficulty.value,
     i: merged.level.interest.value,

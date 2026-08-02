@@ -1,9 +1,9 @@
 /**
- * Третий источник контента: сводная база (web/src/core/sources.ts).
+ * Рабочий источник контента: словарь игры (web/src/core/sources.ts).
  *
  * Что здесь защищается, кроме «оно собирается».
  *
- * Первое — что сведение не потеряло наши слои. Сводная база собирается ИЗ
+ * Первое — что сведение не потеряло наши слои. Словарь игры собирается ИЗ
  * нашего снимка, и соблазн «ну, значения слов и запреты пар потом» стоит ровно
  * одного забытого шага в скрипте: снимок соберётся, генератор заработает, а
  * решатель единственности молча перестанет разводить омонимы. Поэтому senses,
@@ -39,9 +39,9 @@ import { wordFitsGates } from '../web/src/core/generator.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const hybrid = sourceById('hybrid');
+const lexicon = sourceById('lexicon');
 const snapshot = JSON.parse(
-  readFileSync(join(ROOT, hybrid.snapshotFile), 'utf8')) as Snapshot;
+  readFileSync(join(ROOT, lexicon.snapshotFile), 'utf8')) as Snapshot;
 const production = JSON.parse(
   readFileSync(join(ROOT, sourceById('production').snapshotFile), 'utf8')) as Snapshot;
 const reference = JSON.parse(
@@ -50,17 +50,20 @@ const scoring = JSON.parse(
   readFileSync(join(ROOT, 'web/src/data/scoring.config.json'), 'utf8')) as ScoringConfig;
 const index = new ContentIndex(snapshot);
 
-/** Якоря веса по регистру — те же, что в scripts/export_hybrid_snapshot.py. */
+/** Якоря веса по регистру — те же, что в scripts/export_lexicon_snapshot.py. */
 const WEIGHT_BY_REGISTER: Record<number, number> = { 0: 1.0, 1: 0.55, 2: 0.2 };
 
 // --------------------------------------------------------------------------- //
 // реестр
 // --------------------------------------------------------------------------- //
 
-test('источников три, умолчание по-прежнему наша база', () => {
+test('источников три, умолчание — рабочий словарь игры', () => {
   assert.equal(CONTENT_SOURCES.length, 3);
-  assert.equal(DEFAULT_SOURCE_ID, 'production');
-  assert.ok(existsSync(join(ROOT, hybrid.snapshotFile)));
+  assert.equal(DEFAULT_SOURCE_ID, 'lexicon',
+    'генератор собирает пакеты из словаря игры: он и открывается первым');
+  assert.equal(CONTENT_SOURCES[0].id, 'lexicon',
+    'первый в списке — первый в переключателе, и это должен быть рабочий словарь');
+  assert.ok(existsSync(join(ROOT, lexicon.snapshotFile)));
 });
 
 test('три снимка — три разных хеша', () => {
@@ -72,14 +75,15 @@ test('три снимка — три разных хеша', () => {
   assert.equal(hashes.size, 3);
 });
 
-test('сводный источник объявляет, чего у него нет', () => {
-  assert.equal(hybrid.hasAiWorkflow, false,
-    'журнал AI-прогонов — история нашей базы; сводная наследует только её половину');
-  assert.ok(hybrid.limits.length >= 4,
+test('рабочий словарь объявляет, чего у него нет', () => {
+  assert.equal(lexicon.hasAiWorkflow, false,
+    'журнал AI-прогонов — история авторской разметки; словарь игры наследует '
+    + 'только её половину');
+  assert.ok(lexicon.limits.length >= 4,
     'список ограничений не должен пустеть: он и есть честность источника');
 });
 
-test('наша база от появления сводной не сдвинулась ни на связь', () => {
+test('авторская разметка от сборки словаря игры не сдвинулась ни на связь', () => {
   // формат файла — как у `shasum`: «хеш  имя файла»
   const stored = readFileSync(
     join(ROOT, 'data/production/content.snapshot.sha256'), 'utf8').trim().split(/\s+/)[0];
@@ -150,7 +154,7 @@ test('вес размеченного слова выведен из регис�
 
 test('оценённый вес помечен флагом, и только у слов без разметки', () => {
   const estimated = snapshot.words.filter((w) => w.we === 1);
-  assert.ok(estimated.length > 0, 'сводная база обязана содержать чужие слова');
+  assert.ok(estimated.length > 0, 'словарь игры обязан содержать неразмеченные слова');
   for (const w of estimated) {
     assert.ok(w.e === undefined || w.e === null,
       `слово «${w.t}» и размечено, и оценено одновременно`);
@@ -214,8 +218,8 @@ test('снимок без весов гейт не замечает', () => {
 // декада собирается и остаётся своей декадой
 // --------------------------------------------------------------------------- //
 
-test('декада 1-10 собирается из сводной базы целиком и проходит приёмку', () => {
-  const config = configForRange([1, 10], 'hybrid-decade');
+test('декада 1-10 собирается из словаря игры целиком и проходит приёмку', () => {
+  const config = configForRange([1, 10], 'lexicon-decade');
   const result = generateBlock({ snapshot, config, scoring });
   assert.equal(result.levels.length, 10,
     `собрано ${result.levels.length} из 10; отказы: `
@@ -240,7 +244,7 @@ test('декада 1-10 собирается из сводной базы цел
 });
 
 test('форма слова декады соблюдена на каждом пузыре, включая чужие слова', () => {
-  const config = configForRange([1, 10], 'hybrid-decade');
+  const config = configForRange([1, 10], 'lexicon-decade');
   const gates = config.decadeGates!;
   const result = generateBlock({ snapshot, config, scoring });
   let foreign = 0;

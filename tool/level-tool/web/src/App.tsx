@@ -21,21 +21,30 @@ const scoring = scoringJson as unknown as ScoringConfig;
 const PRODUCTION_SNAPSHOT = snapshotJson as unknown as Snapshot;
 
 /**
- * Наша база вшита в бандл — с неё инструмент открывается. Словарь оригинала
- * (4 МБ) и сводная база (7,5 МБ) подтягиваются отдельными чанками при первом
- * выборе: платить за них должен тот, кто их попросил, а не каждый читатель
- * отчёта. Пути к файлам здесь литеральные сознательно: бандлер выделяет чанк
- * только по литералу, вычисленный путь он разрешить не сможет.
+ * Что вшито в бандл, а что приезжает чанком.
+ *
+ * Рабочий источник — словарь игры, но весит он 7,5 МБ, и вшивать его в бандл
+ * нельзя: инструмент встроен в отчёт, и такой вес платил бы каждый читатель.
+ * Поэтому в бандле лежит авторская разметка (3 МБ) — на ней инструмент
+ * открывается за один кадр, — а словарь игры и словарь оригинала подтягиваются
+ * отдельными чанками. Словарь игры запрашивается сразу при старте, остальные —
+ * по выбору в переключателе.
+ *
+ * Пути к файлам здесь литеральные сознательно: бандлер выделяет чанк только по
+ * литералу, вычисленный путь он разрешить не сможет.
  */
 async function loadSnapshot(id: SourceId): Promise<Snapshot> {
   if (id === 'production') return PRODUCTION_SNAPSHOT;
-  if (id === 'hybrid') {
-    const module = await import('./data/hybrid.snapshot.json');
+  if (id === 'lexicon') {
+    const module = await import('./data/lexicon.snapshot.json');
     return module.default as unknown as Snapshot;
   }
   const module = await import('./data/reference.snapshot.json');
   return module.default as unknown as Snapshot;
 }
+
+/** Снимок, с которым инструмент рисует первый кадр, пока едет рабочий словарь. */
+const BOOT_SOURCE_ID: SourceId = 'production';
 
 const TABS = [
   { id: 'base', label: 'База контента' },
@@ -56,14 +65,18 @@ export function App() {
 
   /**
    * Источник контента. Запрошенный и действующий — разные состояния, и это
-   * не педантизм: словарь оригинала весит 4 МБ и приезжает отдельным чанком.
+   * не педантизм: рабочий словарь весит 7,5 МБ и приезжает отдельным чанком.
    * Пока он в пути, на экранах обязан оставаться прежний снимок вместе со
    * своим описанием — иначе полсекунды инструмент показывает статистику одной
    * базы под именем другой.
+   *
+   * Поэтому на первом кадре действующий источник — вшитая авторская разметка,
+   * а запрошенный — уже рабочий словарь: тот же эффект ниже, который возит
+   * снимки по переключателю, доставляет его при старте.
    */
   const [requested, setRequested] = useState<SourceId>(DEFAULT_SOURCE_ID);
   const [active, setActive] = useState<{ id: SourceId; snapshot: Snapshot }>(
-    { id: DEFAULT_SOURCE_ID, snapshot: PRODUCTION_SNAPSHOT });
+    { id: BOOT_SOURCE_ID, snapshot: PRODUCTION_SNAPSHOT });
   const [loadError, setLoadError] = useState<string | null>(null);
   const snapshot = active.snapshot;
   const source = sourceById(active.id);

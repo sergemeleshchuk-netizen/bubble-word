@@ -1,7 +1,7 @@
 {
   "name": "bubble-level-tool",
   "private": true,
-  "version": "1.12.0",
+  "version": "1.13.0",
   "type": "module",
   "description": "Инструмент генерации уровней для word-association паззла",
   "scripts": {
@@ -9,7 +9,7 @@
     "audit": "python3 scripts/audit_reference.py",
     "snapshot": "python3 scripts/export_snapshot.py",
     "snapshot:reference": "python3 scripts/export_reference_snapshot.py",
-    "snapshot:hybrid": "python3 scripts/export_hybrid_snapshot.py",
+    "snapshot:lexicon": "python3 scripts/export_lexicon_snapshot.py",
     "calibrate": "python3 scripts/calibrate_difficulty.py --write",
     "block": "node scripts/generate_block.ts",
     "dev": "vite",
