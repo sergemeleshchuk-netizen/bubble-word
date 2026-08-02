@@ -174,12 +174,13 @@ bash scripts/rebuild_all.sh
 
 .venv/bin/word-content export-level-pack --db database/content.sqlite --prefix TOP \
     --output ../../levels/packs/first-lineup-20/pack.json \
-    --playable-dir ../../site/playable/levels
+    --playable-pack ../../site/playable/packs
 ```
 
 Проверки происхождения: 0 четвёрок совпадает с записью оригинала, 0 групп
 стоит на правиле с `origin = 'reference_backfill'`, ни один уровень не
 повторяет состав записи того же номера.
 
-Играется на сайте: `serge-mel.surge.sh` → блок «06 Build Playable» → группа
-«Первая линейка», записи T1…T20.
+Играется прямо из выкладки: `playable/index.html?pack=top-0802-1520&n=0` …
+`&n=19`. Имя выкладки содержит дату и время, поэтому новая ничего не затирает;
+что выложено — в `site/playable/packs/pipeline.json`.
