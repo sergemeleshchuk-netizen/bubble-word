@@ -293,6 +293,8 @@ let METAW=new Set(); /* мета-слова уровня: не спавнятс�
    прислал (демо-контент, старый пакет), тогда состав считается на месте
    по START_COUNTS, а порядок тасуется. См. комментарий в applyDeal. */
 let DEAL=null;
+/* Распилы от пакета: {категория::СЛОВО -> [КУСОК,КУСОК]} или null. */
+let CHUNKS=null;
 function applyContent(){ FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length); CATS_TOTAL=TARGETS.length; }
 applyContent();
 
@@ -323,9 +325,11 @@ function applyLevel(L){
     :(board.move_limit!=null?board.move_limit:computeMoveLimit(M,0));
   const capacity=board.board_capacity||BOARD_CAPACITY;
   FIELD_TARGET=Math.min(board.start_bubbles||capacity,capacity,total);
+  CHUNKS=applyChunks(L);
   DEAL=applyDeal(L);
   if(DEAL){
-    FIELD_TARGET=DEAL.start.length;
+    /* поле меряется в ПУЗЫРЯХ: распиленное слово занимает два места */
+    FIELD_TARGET=expandChunks(DEAL.start,CHUNKS).list.length;
   }else{
     /* старт: первой полную четвёрку получает категория без мета-слов,
        остальным раздаём почти поровну (не выше числа спавнящихся слов) */
@@ -383,6 +387,38 @@ function applyDeal(L){
     return null;
   }
   return {start:start,queue:queue};
+}
+/* Распилы, заданные пакетом: {категория::СЛОВО -> [КУСОК, КУСОК]}.
+   Если они есть, прототип их ИСПОЛНЯЕТ и своей эвристикой (splitHalves)
+   не пользуется: пакет с распилами воспроизводит записанный уровень, а
+   эвристика выбрала бы другие слова и другие точки распила. Формат —
+   tool/level-tool/web/src/core/playableHandoff.ts */
+function applyChunks(L){
+  if(!Array.isArray(L.chunks)||!L.chunks.length) return null;
+  const byId={}; (L.categories||[]).forEach(c=>byId[c.id]=c.name.toUpperCase());
+  const map={};
+  for(const ch of L.chunks){
+    const v=byId[ch.category], e=String(ch.word||'').toUpperCase();
+    const p=ch.pieces||[];
+    if(v===undefined||p.length!==2){
+      console.warn('[playable] распил не понят, пропускаю:',ch); continue;
+    }
+    map[v+'::'+e]=[String(p[0]).toUpperCase(),String(p[1]).toUpperCase()];
+  }
+  return Object.keys(map).length?map:null;
+}
+/* Разворачивает список выкладки: распиленное слово становится двумя пузырями. */
+function expandChunks(list,map){
+  if(!map) return {list:list,pairs:0};
+  const out=[]; let pid=0;
+  for(const it of list){
+    const parts=map[it.v+'::'+it.e];
+    if(!parts){ out.push(it); continue; }
+    pid++;
+    out.push({v:it.v,e:parts[0],half:{pair:pid,whole:it.e,side:0}},
+             {v:it.v,e:parts[1],half:{pair:pid,whole:it.e,side:1}});
+  }
+  return {list:out,pairs:pid};
 }
 const W=390,H=600;
 /* сколько собранная категория стоит на поле с открытым именем перед уничтожением */
@@ -585,7 +621,13 @@ function init(){
     for(let i=start.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[start[i],start[j]]=[start[j],start[i]];}
     for(let i=queue.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]];}
   }
-  if(MOD==='halves') halfPairs=splitHalves(start);
+  /* Распилы пакета сильнее модификатора: пакет воспроизводит записанный уровень,
+     а `?mod=halves` — эвристика прототипа. Держать оба значило бы пилить дважды. */
+  if(CHUNKS){
+    const ex=expandChunks(start,CHUNKS); start=ex.list;
+    const eq=expandChunks(queue,CHUNKS); queue=eq.list;
+    console.log('[playable] распилы от пакета:',ex.pairs,'на старте,',eq.pairs,'в очереди');
+  }else if(MOD==='halves') halfPairs=splitHalves(start);
   /* КООРДИНАТЫ пока свои: в выкладку они ещё не входят (следующий шаг), поэтому
      раскладка по полю остаётся случайной, а вот СОСТАВ поля и порядок досыпки —
      ровно те, что посчитал генератор. */
@@ -595,7 +637,11 @@ function init(){
   for(let k=0;k<400;k++) physStep(1/60,true);
   /* запас ходов: склейка половинок тратит ход (слагаемое chunks в формуле лимита),
      блокирующий модификатор получает один ход форы */
-  let bonus=halfPairs;
+  /* Склейка половинки тратит ход. У распилов ОТ ПАКЕТА это уже учтено в его
+     move_limit (формула 3*M + chunks), поэтому добавлять нечего; у эвристики
+     прототипа лимита на склейки никто не закладывал — там форы столько же,
+     сколько распилов. */
+  let bonus=CHUNKS?0:halfPairs;
   if(MOD==='ice'&&setBlockers('ice')) bonus+=1;
   if(MOD==='hidden'&&setBlockers('hid')) bonus+=1;
   if(MOD==='chain'){ setChain(); bonus+=1; for(let k=0;k<400;k++) physStep(1/60,true); }
@@ -690,6 +736,21 @@ let pendingSpawn=0,lastSpawn=0;
 /* больше, чем осталось в очереди, ждать нечего: иначе счётчик копился бы навсегда
    и глушил страховку от тупика, которая ждёт, пока пачка долетит */
 function spawnBatch(n){ pendingSpawn=Math.min(pendingSpawn+n,queue.length); }
+/* Досыпка ПО МЕРЕ ОСВОБОЖДЕНИЯ МЕСТА — правило записи оригинала
+   (reference-analysis.md: «новые пузыри падают волнами по мере освобождения
+   места»). Раньше прототип досыпал только когда игрок собирал целую категорию,
+   и это делало уровни непроходимыми: каждый мердж двух пузырей освобождает
+   место, но ничего не приходило. На старте 24 пузыря при 12 категориях — по два
+   слова на категорию, собрать нельзя ни одну; игрок склеивал всё в пары, поле
+   схлопывалось в двенадцать жирных комков, и ходы кончались раньше слов.
+   Считаем живые пузыри (мета-шар и половинки тоже занимают место) и добираем
+   поле до FIELD_TARGET. */
+function liveOnField(){ return bubbles.filter(b=>!b.popping).length; }
+function topUpField(){
+  if(!queue.length) return;
+  const need=FIELD_TARGET-liveOnField()-pendingSpawn;
+  if(need>0) spawnBatch(need);
+}
 function trySpawn(ts){
   if(!queue.length) pendingSpawn=0;
   if(over||held||pendingSpawn<=0) return;
@@ -795,7 +856,8 @@ function flyBack(b,to){
 
 /* ===== склейка ===== */
 function merge(a,b,costMove){
-  if(a.half&&b.half){
+  const gluedHalves=!!(a.half&&b.half);
+  if(gluedHalves){
     /* две части одного слова дают обычный пузырь-слово (GDD §7): счётчик слов
        категории от склейки половинок не растёт, зато тратится ход */
     a.half=null; a.exs=[b.half.whole];
@@ -821,6 +883,12 @@ function merge(a,b,costMove){
     a.el.classList.add('named');
     setTimeout(()=>popGroup(a),NAME_HOLD);
   }else{
+    /* Место освободилось — оно тут же и заполняется (GDD §2 п.6, §3 «Досыпка»).
+       Склейка половинок сюда попадает наравне с обычным мерджем и это отдельно
+       важно: на уровне с восемью распилами восемь склеек освобождают восемь
+       мест, и без досыпки поле садится на треть. */
+    topUpField();
+    if(gluedHalves) console.log('[playable] склейка половинок → досыпка');
     rescueIfStuck();
   }
   checkEnd();
@@ -837,7 +905,7 @@ function popGroup(a){
   setTimeout(()=>{
     bubbles=bubbles.filter(x=>x!==a); a.el.remove();
     done++; pendingPops--;
-    spawnBatch(4);            /* четвёрка ушла с поля — четвёрка и приходит */
+    topUpField();             /* четвёрка ушла с поля — поле добирается до нормы */
     updHud(); afterCategory();
     checkEnd();
   },300);
@@ -851,7 +919,7 @@ function metaTransform(a,meta){
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   a.popping=false;
   done++; pendingPops--;
-  spawnBatch(3);              /* один шар поле уже получило: имя категории */
+  topUpField();               /* один шар поле уже получило: имя категории */
   updHud(); afterCategory();
   checkEnd();
 }

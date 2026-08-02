@@ -135,3 +135,96 @@ test('ключ хранилища совпадает у инструмента �
       `${file} не знает ключа ${HANDOFF_KEY}: пакет туда не доедет`);
   }
 });
+
+/**
+ * Выложенные пакеты — такой же контракт, как и свежесобранный.
+ *
+ * Файлы в `site/playable/packs/` попадают в прототип без единой строки кода:
+ * сайт склеивает их и кладёт в хранилище, прототип исполняет выкладку как есть.
+ * Значит, сломать их может кто угодно и когда угодно, а увидит это только
+ * человек, открывший уровень руками. Проверяем то, что прототип молча не
+ * переживёт: манифест ссылается на существующие файлы, у каждого уровня есть
+ * лимит ходов, и выкладка раздаёт ровно те слова, что заявлены в категориях.
+ */
+test('выложенные пакеты исправны: манифест, лимит ходов, полнота выкладки', () => {
+  const dir = join(ROOT, '../../site/playable/packs');
+  const index = JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8')) as
+    { packs: string[] };
+  assert.ok(index.packs.length > 0, 'манифест пуст: в списке уровней сайта ничего не будет');
+
+  for (const file of index.packs) {
+    const pack = JSON.parse(readFileSync(join(dir, file), 'utf8')) as {
+      label: string;
+      levels: {
+        level_id: number;
+        categories: { id: string; name: string; words: string[] }[];
+        board: { board_capacity: number; start_bubbles: number; move_limit: number | null };
+        deal: { start: { word: string; category: string }[];
+          queue: { word: string; category: string }[] };
+      }[];
+    };
+    assert.ok(pack.levels.length > 0, `${file}: пакет без уровней`);
+
+    for (const level of pack.levels) {
+      const where = `${file} уровень ${level.level_id}`;
+      const names = new Set(level.categories.map((c) => c.name.toUpperCase()));
+      const ids = new Set(level.categories.map((c) => c.id));
+
+      // мета-пузырь не спавнится: он появляется превращением собранной четвёрки
+      const spawnable: string[] = [];
+      for (const category of level.categories) {
+        assert.equal(category.words.length, 4, `${where}: у ${category.name} не четыре слова`);
+        for (const word of category.words) {
+          const isMeta = names.has(word.toUpperCase())
+            && word.toUpperCase() !== category.name.toUpperCase();
+          if (!isMeta) spawnable.push(`${category.id}::${word}`);
+        }
+      }
+
+      const dealt = [...level.deal.start, ...level.deal.queue]
+        .map((b) => `${b.category}::${b.word}`);
+      assert.deepEqual(dealt.slice().sort(), spawnable.slice().sort(),
+        `${where}: выкладка не совпадает с составом категорий`);
+      for (const bubble of [...level.deal.start, ...level.deal.queue]) {
+        assert.ok(ids.has(bubble.category),
+          `${where}: пузырь ${bubble.word} ссылается на несуществующую категорию`);
+      }
+      assert.ok(level.deal.start.length <= level.board.board_capacity,
+        `${where}: на поле ${level.deal.start.length} пузырей при вместимости `
+        + `${level.board.board_capacity}`);
+      assert.equal(level.board.start_bubbles, spawnable.length,
+        `${where}: заявлено ${level.board.start_bubbles} пузырей, раздаётся ${spawnable.length}`);
+      // молчаливая пропажа лимита однажды сделала всю линейку безлимитной
+      assert.ok(level.board.move_limit === null || level.board.move_limit > 0,
+        `${where}: лимит ходов ${level.board.move_limit}`);
+    }
+  }
+});
+
+/**
+ * Проходится ли выложенный уровень вообще.
+ *
+ * Проверка появилась после уровня 12: он собирался, валидировался и имел
+ * единственное решение — и вставал в прототипе на 1/12 с 34 ходами в руках.
+ * Ни валидатор, ни решатель этого не видят: оба смотрят на список категорий и
+ * ни один не смотрит на ПОЛЕ — сколько пузырей помещается, что приходит на
+ * смену собранным, хватает ли ходов. Симулятор смотрит именно туда.
+ */
+test('каждый выложенный уровень проходится ботом в пределах лимита', async () => {
+  const { simulate } = await import('../scripts/simulate_play.ts');
+  const dir = join(ROOT, '../../site/playable/packs');
+  const index = JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8')) as
+    { packs: string[] };
+
+  for (const file of index.packs) {
+    const pack = JSON.parse(readFileSync(join(dir, file), 'utf8')) as
+      { levels: Parameters<typeof simulate>[0][] };
+    for (const level of pack.levels) {
+      const r = simulate(level);
+      assert.ok(r.won,
+        `${file} уровень ${level.level_id}: ${r.categoriesDone}/${r.categoriesTotal} — `
+        + `${r.reason} на ходу ${r.movesUsed} из ${r.moveLimit}, `
+        + `в очереди осталось ${r.queueLeft}`);
+    }
+  }
+});
