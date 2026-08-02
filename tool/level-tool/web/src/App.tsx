@@ -22,13 +22,17 @@ const PRODUCTION_SNAPSHOT = snapshotJson as unknown as Snapshot;
 
 /**
  * Наша база вшита в бандл — с неё инструмент открывается. Словарь оригинала
- * подтягивается отдельным чанком при первом выборе: он весит 4 МБ (565 КБ в
- * gzip), и платить за него должен тот, кто его попросил, а не каждый читатель
- * отчёта. Путь к файлу здесь литеральный сознательно: бандлер выделяет чанк
+ * (4 МБ) и сводная база (7,5 МБ) подтягиваются отдельными чанками при первом
+ * выборе: платить за них должен тот, кто их попросил, а не каждый читатель
+ * отчёта. Пути к файлам здесь литеральные сознательно: бандлер выделяет чанк
  * только по литералу, вычисленный путь он разрешить не сможет.
  */
 async function loadSnapshot(id: SourceId): Promise<Snapshot> {
   if (id === 'production') return PRODUCTION_SNAPSHOT;
+  if (id === 'hybrid') {
+    const module = await import('./data/hybrid.snapshot.json');
+    return module.default as unknown as Snapshot;
+  }
   const module = await import('./data/reference.snapshot.json');
   return module.default as unknown as Snapshot;
 }

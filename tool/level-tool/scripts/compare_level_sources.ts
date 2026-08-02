@@ -1,5 +1,5 @@
 /**
- * Один и тот же номер уровня из трёх источников — в один пакет для прототипа.
+ * Один и тот же номер уровня из всех источников — в один пакет для прототипа.
  *
  *   node scripts/compare_level_sources.ts --level 12 [--seed SEED] [--out FILE]
  *
@@ -7,25 +7,27 @@
  *   1. наша база        — уровень, собранный генератором из `content.snapshot.json`;
  *   2. словарь оригинала — тот же генератор, тот же профиль декады, но контент
  *                          из `reference.snapshot.json`;
- *   3. как в оригинале   — уровень ровно такой, каким он вышел в целевой игре:
+ *   3. сводная база      — то же, но контент из `hybrid.snapshot.json`: широта
+ *                          оригинала, пропущенная через нашу разметку и веса;
+ *   4. как в оригинале   — уровень ровно такой, каким он вышел в целевой игре:
  *                          категории и четвёрки взяты из выгрузки без изменений.
  *
- * Зачем третий. Первые два отвечают на вопрос «что генератор делает из разного
- * контента». Третий — на другой, и он важнее: «а как выглядит настоящий уровень
- * с этим номером». Без него сравнивать не с чем, и любое «наш уровень 12
- * похож на оригинальный» остаётся словами.
+ * Зачем последний. Первые три отвечают на вопрос «что генератор делает из
+ * разного контента». Последний — на другой, и он важнее: «а как выглядит
+ * настоящий уровень с этим номером». Без него сравнивать не с чем, и любое
+ * «наш уровень 12 похож на оригинальный» остаётся словами.
  *
- * Честная граница третьего уровня. Из выгрузки известны только категории и их
+ * Честная граница последнего уровня. Из выгрузки известны только категории и их
  * четвёрки. Выкладки и лимита ходов оригинал не оставил, поэтому и то и другое
  * посчитано НАШИМИ правилами (`core/deal.ts`, `core/levelMath.ts`) — теми же,
- * что у первых двух. Это сознательно: если бы выкладку третьего уровня считали
- * иначе, разница в наигровке была бы разницей выкладок, а не уровней. Всё, что
- * взято у оригинала без изменений, — состав категорий и слова.
+ * что у собранных генератором. Это сознательно: если бы выкладку последнего
+ * уровня считали иначе, разница в наигровке была бы разницей выкладок, а не
+ * уровней. Всё, что взято у оригинала без изменений, — состав категорий и слова.
  *
- * Оценки D и I третьему уровню выставляет наша модель на индексе словаря
+ * Оценки D и I последнему уровню выставляет наша модель на индексе словаря
  * оригинала — включая ловушки, найденные тем же `findTraps`. Это не оценка
  * оригинала «по правде», а ответ на вопрос «что бы наша модель сказала про
- * этот уровень»; расхождение с первыми двумя ровно так и надо читать.
+ * этот уровень»; расхождение с остальными ровно так и надо читать.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -267,6 +269,7 @@ function handoffLevel(spec: LevelSpec, title: string): HandoffLevel {
 
 const ours = generateFrom('production', 'наша база');
 const theirs = generateFrom('reference', 'словарь оригинала');
+const merged = generateFrom('hybrid', 'сводная база');
 
 // K берётся из плана декады — того же, по которому собраны первые два уровня.
 // Свой лимит оригинал в выгрузке не оставил, а выдумывать второе число значило бы
@@ -295,13 +298,16 @@ const levels: HandoffLevel[] = [
   handoffLevel(theirs.level.spec,
     title('словарь оригинала', theirs.level.spec,
       theirs.level.difficulty.value, theirs.level.interest.value)),
+  handoffLevel(merged.level.spec,
+    title('сводная база', merged.level.spec,
+      merged.level.difficulty.value, merged.level.interest.value)),
   handoffLevel(originalSpec,
     title('как в оригинале', originalSpec,
       originalDifficulty.value, originalInterest.value)),
 ];
 
 const pack: HandoffPack = {
-  label: `уровень ${levelId} из трёх источников`,
+  label: `уровень ${levelId} из четырёх источников`,
   tool_version: TOOL_VERSION,
   pack_hash: '',
   content_snapshot_hash: '',
@@ -334,6 +340,15 @@ const rows = [
     solutions: theirs.level.solutions.count,
     hard: theirs.level.validation.issues.filter((x) => x.severity === 'hard').length,
     snapshot: theirs.block.contentSnapshotHash,
+  },
+  {
+    source: 'сводная база',
+    spec: merged.level.spec,
+    d: merged.level.difficulty.value,
+    i: merged.level.interest.value,
+    solutions: merged.level.solutions.count,
+    hard: merged.level.validation.issues.filter((x) => x.severity === 'hard').length,
+    snapshot: merged.block.contentSnapshotHash,
   },
   {
     source: 'как в оригинале',

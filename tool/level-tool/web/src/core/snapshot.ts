@@ -23,6 +23,10 @@ export interface Membership {
   gameplayDifficulty: number | null;
   /** маска risk-флагов; 0 в снимках 1.0 */
   riskMask: number;
+  /** вес связи 0..1; null у снимков без весов (см. types.ts) */
+  weight: number | null;
+  /** происхождение связи; null у одноисточниковых снимков */
+  origin: number | null;
 }
 
 /** Запрет пары категорий, как он приехал из базы. */
@@ -73,6 +77,7 @@ export class ContentIndex {
         word: row[0], category: row[1], status: row[2],
         fit: row[3], obviousness: row[4], relation: row[5], sense: row[6],
         gameplayDifficulty: row[7] ?? null, riskMask: row[8] ?? 0,
+        weight: row[9] ?? null, origin: row[10] ?? null,
       };
       this.byCategory[m.category].push(m);
       this.byWord[m.word].push(m);
@@ -139,6 +144,30 @@ export class ContentIndex {
 
   zipf(word: number): number | null {
     return this.words[word].z;
+  }
+
+  /**
+   * Вес слова 0..1 или null, если снимок весов не несёт.
+   *
+   * Null и ноль здесь — разные ответы, и путать их нельзя: ноль значит «слово
+   * в уровень не годится», null — «эта база про вес ничего не знает», и тогда
+   * решать должен регистр слова, как решал до появления сводной базы.
+   */
+  wordWeight(word: number): number | null {
+    return this.words[word].w ?? null;
+  }
+
+  /** 1 — вес оценён по уликам, а не прочитан с разметки регистра. */
+  isWeightEstimated(word: number): boolean {
+    return this.words[word].we === 1;
+  }
+
+  /**
+   * Вес связи 0..1 или null. Порядок отбора слов внутри категории; фильтровать
+   * им нельзя — см. SnapshotMembership.weight.
+   */
+  linkWeight(membership: Membership): number | null {
+    return membership.weight;
   }
 
   isFrequencyUnknown(word: number): boolean {

@@ -98,6 +98,9 @@ if (config.decadeGates) {
   const g = config.decadeGates;
   console.log(`гейты декады  медиана zipf ${g.zipfMedianTarget}, p25 ${g.zipfP25Target}, `
     + `${g.maxTokens} токен(а), до ${g.maxWordLen} букв, имена от zipf ${g.minProperNounZipf}`);
+  console.log(`словарь       регистр до ${g.maxWordRegister} `
+    + `(0 бытовой, 1 пассивный), вес слова от ${g.minWordWeight.toFixed(2)} `
+    + '(веса есть только у сводной базы)');
   console.log(`план категорий ${(config.categoryPlan ?? []).join(', ')}`);
 }
 console.log(`ритм блока    ${rhythm.passed ? 'PASS' : 'ЗАМЕЧАНИЯ'}`);

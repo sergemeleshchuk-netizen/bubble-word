@@ -43,6 +43,9 @@ export function ContentBase({ snapshot, index, runs, source }: {
    * показываем один экран из трёх. Показывать все три, подставив чужие цифры
    * в наши таблицы, было бы прямым враньём о происхождении контента.
    */
+  if (source.id === 'hybrid') {
+    return <HybridSource snapshot={snapshot} index={index} source={source} />;
+  }
   if (!source.hasAiWorkflow) {
     return <ForeignSource snapshot={snapshot} index={index} source={source} />;
   }
@@ -266,6 +269,151 @@ export function ContentBase({ snapshot, index, runs, source }: {
             </p>
           </>
         )}
+      </div>
+    </>
+  );
+}
+
+/**
+ * Экран сводной базы.
+ *
+ * Отдельно от `ForeignSource` по той же причине, по которой тот отделён от
+ * нашей базы: у этого источника другой главный вопрос. У чужого словаря
+ * спрашивают «чего у него нет», у сводного — «что решает, попадёт слово в
+ * уровень или нет», и ответ здесь один: вес. Поэтому первым же экраном стоит
+ * не размер базы, а то, как порог веса режет словарь, и на чём этот порог
+ * проверен.
+ */
+function HybridSource({ snapshot, index, source }: {
+  snapshot: Snapshot; index: ContentIndex; source: ContentSource;
+}) {
+  const s = snapshot.stats ?? {};
+  const num = (key: string): number | undefined =>
+    (typeof s[key] === 'number' ? s[key] : undefined);
+
+  // слова, чей вес оценён, а не прочитан с разметки: самые весомые из них и есть
+  // та часть чужого словаря, которая проходит в ранние декады
+  const estimated = snapshot.words
+    .map((w, i) => ({ w, i }))
+    .filter((x) => x.w.we === 1 && x.w.w !== undefined)
+    .sort((a, b) => (b.w.w ?? 0) - (a.w.w ?? 0));
+  const topEstimated = estimated.slice(0, 12);
+
+  return (
+    <>
+      <div className="panel">
+        <h2>{source.label}</h2>
+        <p className="hint">{source.summary}</p>
+
+        <div className="grid c4">
+          <Stat v={num('categories')} k="категорий"
+            note={`наших ${num('categories_ours')}, оригинала `
+              + `${num('categories_reference')}, общих ${num('categories_both')}`} />
+          <Stat v={num('words')} k="слов"
+            note={`наших ${num('words_ours')}, оригинала ${num('words_reference')}, `
+              + `общих ${num('words_both')}`} />
+          <Stat v={num('memberships')} k="связей слово ↔ категория"
+            note={`подтверждённых обоими источниками ${num('memberships_both')}`} />
+          <Stat v={num('words_weight_estimated')} k="слов с оценённым весом"
+            note="нашей разметки регистра у них нет" />
+          <Stat v={num('words_weight_above_070')} k="слов проходят порог 0.70"
+            note="словарь ранних декад" />
+          <Stat v={num('words_weight_above_050')} k="слов проходят порог 0.50"
+            note="словарь декад 51+" />
+          <Stat v={num('categories_quartet_weight_070')} k="категорий дают четвёрку под 0.70"
+            note={`без порога ${num('categories_with_4plus_approved')}`} />
+          <Stat v={num('meta_capable_categories')} k="мета-пригодных категорий"
+            note="имя категории живёт в словаре как слово" />
+        </div>
+      </div>
+
+      <div className="panel">
+        <h2>Вес слова: чем он измерен</h2>
+        <p className="hint">
+          У размеченного слова вес читается с регистра: бытовое 1.00, пассивное
+          0.55, специальное 0.20. У слова, которое знает только оригинал, веса
+          нет — он оценивается по тому, сколько уровней слово отработало, и по
+          частотности. Оценку можно проверить: 6369 слов известны обоим
+          источникам, то есть у них есть и оценка, и настоящая разметка.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>порог веса</th><th className="num">слов выше</th>
+              <th className="num">из них бытовых</th><th>что это значит</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>без порога</td><td className="num">6369</td><td className="num">58%</td>
+              <td className="small muted">так выглядит словарь оригинала как есть</td>
+            </tr>
+            <tr>
+              <td className="mono">0.50</td><td className="num">4111</td><td className="num">72%</td>
+              <td className="small muted">порог декад 51+ (там открыт пассивный слой)</td>
+            </tr>
+            <tr>
+              <td className="mono">0.70</td><td className="num">1988</td><td className="num">83%</td>
+              <td className="small muted">порог декад 1-50</td>
+            </tr>
+            <tr>
+              <td className="mono">0.80</td><td className="num">1127</td><td className="num">88%</td>
+              <td className="small muted">
+                выше не поднимаем: словаря перестаёт хватать на уровень
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p className="small muted" style={{ marginTop: 10 }}>
+          Оценка слабее разметки — RMSE 0.35 на шкале 0..1, — поэтому планка для
+          неё выше: размеченное бытовое слово весит 1.00 и проходит любой порог,
+          а неразмеченному, чтобы попасть в декаду 1-10, нужно набрать 0.70.
+          Из 8786 чужих слов это удаётся 480.
+        </p>
+      </div>
+
+      {topEstimated.length > 0 && (
+        <div className="panel">
+          <h2>Что чужой словарь приносит в ранние декады</h2>
+          <p className="hint">
+            Слова без нашей разметки, набравшие вес по уликам оригинала. Это
+            и есть та часть выгрузки, которую порог 0.70 пропускает.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>слово</th><th className="num">вес</th>
+                <th className="num">zipf</th><th className="num">категорий</th>
+              </tr>
+            </thead>
+            <tbody>
+              {topEstimated.map(({ w, i }) => (
+                <tr key={w.n}>
+                  <td className="mono small">{w.t}</td>
+                  <td className="num">{(w.w ?? 0).toFixed(2)}</td>
+                  <td className="num muted">{w.z ?? '—'}</td>
+                  <td className="num muted">{index.wordMemberships(i).length}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <div className="panel">
+        <h2>Чего у источника нет</h2>
+        <p className="hint">
+          Список обязателен: сводная база наследует пробелы обеих половин, и
+          разницу в уровнях нужно относить на данные, а не на генератор.
+        </p>
+        <ul className="small muted" style={{ paddingLeft: 18, margin: 0 }}>
+          {source.limits.map((limit) => <li key={limit} style={{ marginBottom: 5 }}>{limit}</li>)}
+        </ul>
+        <p className="small" style={{ marginTop: 12, color: 'var(--accent)' }}>
+          Наша база при этом не меняется ни на одну связь: сводная лежит
+          отдельным снимком и только читается. Решение владельца от 31.07 —
+          чужой словарь в нашу базу не вливать — остаётся в силе.
+        </p>
       </div>
     </>
   );

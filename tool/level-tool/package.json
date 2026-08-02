@@ -9,6 +9,7 @@
     "audit": "python3 scripts/audit_reference.py",
     "snapshot": "python3 scripts/export_snapshot.py",
     "snapshot:reference": "python3 scripts/export_reference_snapshot.py",
+    "snapshot:hybrid": "python3 scripts/export_hybrid_snapshot.py",
     "calibrate": "python3 scripts/calibrate_difficulty.py --write",
     "block": "node scripts/generate_block.ts",
     "dev": "vite",

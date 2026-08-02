@@ -130,6 +130,35 @@ function maxWordRegister(profile: DecadeProfile): 0 | 1 | 2 {
   return profile.from >= 51 ? 1 : MAX_WORD_REGISTER;
 }
 
+/**
+ * Пол веса слова — тот же порог регистра, переведённый на шкалу веса.
+ *
+ * Веса слов есть только у сводной базы (третий источник, снимок 2.1); на двух
+ * остальных гейт молчит, потому что поля `w` у слов нет. Переводить порог
+ * приходится потому, что у слова из чужого словаря регистра не существует, а
+ * решать что-то надо: см. `minWordWeight` в types.ts.
+ *
+ * Числа не выбраны, а вытекают из якорей веса (export_hybrid_snapshot.py):
+ * бытовое слово весит 1.00, пассивное 0.55, специальное 0.20. Порог 0.70
+ * пропускает ровно бытовые — это `maxWordRegister = 0`; порог 0.50 пропускает
+ * бытовые и пассивные — это `maxWordRegister = 1`. Специальный слой не
+ * проходит ни при одном пороге, как и было решено.
+ *
+ * Что порог делает с неразмеченной частью словаря (8786 слов выгрузки):
+ * 0.70 пропускает 480 из них, 0.50 — 2773. То есть на ранних декадах чужой
+ * словарь входит только самой расхожей своей частью, а на поздних открывается
+ * шире — ровно так же, как открывается регистр.
+ */
+const WEIGHT_FLOOR_BY_REGISTER: Record<0 | 1 | 2, number> = {
+  0: 0.70,
+  1: 0.50,
+  2: 0.0,
+};
+
+export function minWordWeight(profile: DecadeProfile): number {
+  return WEIGHT_FLOOR_BY_REGISTER[maxWordRegister(profile)];
+}
+
 export function categoryDifficultyCeiling(profile: DecadeProfile): number {
   const decadeIndex = Math.floor((profile.from - 1) / 10);       // 0 … 19
   const span = DIFFICULTY_CEILING_LAST - DIFFICULTY_CEILING_FIRST;
@@ -387,6 +416,7 @@ export function configForRange(
       // как страховка для базы без разметки (см. типы DecadeGates).
       minWordZipf: 0,
       maxWordRegister: maxWordRegister(profile),
+      minWordWeight: minWordWeight(profile),
       zipfMedianTarget: profile.zipfMedianTarget,
       zipfP25Target: profile.zipfP25Target,
       visibleShareMin: visibleShareMin(profile, 4),

@@ -337,6 +337,19 @@ export function wordFitsGates(index: ContentIndex, word: number, gates: DecadeGa
    * обязан остаться генерируемым.
    */
   if (w.e !== undefined && w.e !== null && w.e > gates.maxWordRegister) return false;
+  /**
+   * Вес слова — тот же фильтр для базы, где разметки регистра нет вовсе
+   * (сводная база, см. `minWordWeight` в DecadeGates). Снимок без весов гейт
+   * не замечает: `w` там undefined, и поведение остаётся прежним до знака.
+   *
+   * Два фильтра рядом не спорят, а страхуют друг друга: у размеченного слова
+   * вес ВЫВЕДЕН из регистра, поэтому оба говорят одно и то же; у слова из
+   * чужого словаря регистра нет, и решает только вес.
+   */
+  const weight = w.w;
+  if (weight !== undefined && gates.minWordWeight > 0 && weight < gates.minWordWeight) {
+    return false;
+  }
   return true;
 }
 
@@ -846,6 +859,17 @@ function assignWords(
    * Считается лениво и один раз на категорию: `orderCandidates` вызывается на
    * каждом узле перебора, а связей у категории до 28 — линейный поиск в цикле
    * решателя обошёлся бы дороже самой сортировки.
+   *
+   * Где у снимка есть ВЕС СВЯЗИ (сводная база), берётся он, а не очевидность.
+   * Это не замена оси, а её полная версия: вес связи — та же очевидность,
+   * сведённая со статусом, точностью попадания и уликой оригинала в одно число
+   * на той же шкале 0..1 (scripts/export_hybrid_snapshot.py). Смысл ровно тот
+   * же — «какое из годных слов категории брать первым», — и вес отвечает на
+   * него там, где очевидности не существует: у 33 384 связей, пришедших только
+   * из выгрузки, размечать её было некому.
+   *
+   * У снимков без весов ничего не меняется: `weight` там null, и в кэш ложится
+   * прежняя очевидность до знака.
    */
   const obviousnessCache = new Map<number, Map<number, number>>();
   const obviousnessIn = (cat: number): Map<number, number> => {
@@ -853,7 +877,7 @@ function assignWords(
     if (!map) {
       map = new Map<number, number>();
       for (const m of index.categoryMemberships(cat, STATUS.approved)) {
-        map.set(m.word, m.obviousness);
+        map.set(m.word, m.weight ?? m.obviousness);
       }
       obviousnessCache.set(cat, map);
     }
