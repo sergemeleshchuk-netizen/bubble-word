@@ -287,6 +287,33 @@ function computeMoveLimit(categories,chunks){
   return Math.ceil(floor*FALLBACK_MOVE_LIMIT_K);
 }
 
+/* ===== досыпка: поводы ======================================================
+   Досыпка приходит на четыре повода и только на них (GDD §2 п.6, §3):
+     1) собрана категория;
+     2) склеены две половинки;
+     3) тупик — на поле не осталось ни одной возможной пары;
+     4) MISS_RESCUE неверных попыток ПОДРЯД.
+   Обычный мердж досыпку не вызывает: пустеющее поле — это давление, ради
+   которого механика и существует.
+
+   MISS_RESCUE — настраиваемое число, а не константа «на глаз», поэтому оно
+   стоит здесь, в конфиге, и переопределяется в адресной строке (`?miss=N`)
+   для ручной проверки без пересборки.
+
+   Почему 5. Начинали с 3: одна ошибка это опечатка драга, две бывают на
+   честной ловушке. Но три подряд ещё не значит «перебираю наугад» — на
+   уровне 12 оригинала ловушек в четвёрках сразу несколько (`black`/`green`
+   в TEA, а не в цветах; `may`/`march` как обычные слова, а не месяцы), и
+   три промаха там набирает игрок, который как раз ДУМАЕТ. Планка поднята
+   до 5: помощь не должна приходить раньше, чем человек действительно упёрся.
+   Число временное и подбирается наигровкой — на то оно и в конфиге. */
+const MISS_RESCUE_DEFAULT=5;
+const MISS_RESCUE=(()=>{
+  const raw=new URLSearchParams(location.search).get('miss');
+  const n=raw===null?NaN:Number(raw);
+  return Number.isInteger(n)&&n>0&&n<=20?n:MISS_RESCUE_DEFAULT;
+})();
+
 let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=BOARD_CAPACITY, NO_LIMIT=false;
 let METAW=new Set(); /* мета-слова уровня: не спавнятся, приходят превращением четвёрки */
 /* Выкладка от генератора: [{v:имя категории, e:слово}]. null — генератор её не
@@ -295,6 +322,12 @@ let METAW=new Set(); /* мета-слова уровня: не спавнятс�
 let DEAL=null;
 /* Распилы от пакета: {категория::СЛОВО -> [КУСОК,КУСОК]} или null. */
 let CHUNKS=null;
+/* Модификатор от пакета: {type:'ice'|'hidden'|'chain', frozen/hidden:[{word,
+   category,layers}], chain_need} или null. Правило то же, что у выкладки и
+   распилов: если модификатор задан пакетом, прототип его ИСПОЛНЯЕТ (морозит
+   ровно указанные слова, ставит цепь с указанным счётчиком), а эвристику
+   `?mod=` не применяет. Лимит пакета бонус за блокиратор уже содержит. */
+let PACK_MOD=null;
 function applyContent(){ FULL={}; TARGETS.forEach(t=>FULL[t.v]=t.ex.length); CATS_TOTAL=TARGETS.length; }
 applyContent();
 
@@ -327,6 +360,7 @@ function applyLevel(L){
   FIELD_TARGET=Math.min(board.start_bubbles||capacity,capacity,total);
   CHUNKS=applyChunks(L);
   DEAL=applyDeal(L);
+  PACK_MOD=applyPackModifier(L);
   if(DEAL){
     /* поле меряется в ПУЗЫРЯХ: распиленное слово занимает два места */
     FIELD_TARGET=expandChunks(DEAL.start,CHUNKS).list.length;
@@ -406,6 +440,36 @@ function applyChunks(L){
     map[v+'::'+e]=[String(p[0]).toUpperCase(),String(p[1]).toUpperCase()];
   }
   return Object.keys(map).length?map:null;
+}
+/* Модификатор от пакета. Слова приводятся к верхнему регистру, категория — id
+   из списка уровня. Непонятые записи пропускаются с warn: сыграть уровень без
+   блокиратора честнее, чем не сыграть вовсе. */
+function applyPackModifier(L){
+  const m=L.modifier;
+  if(!m||!m.type) return null;
+  if(m.type==='chain') return {type:'chain',need:Math.max(1,(m.chain_need|0)||2)};
+  const byId={}; (L.categories||[]).forEach(c=>byId[c.id]=c.name.toUpperCase());
+  const src=m.type==='ice'?m.frozen:m.hidden;
+  if(!Array.isArray(src)||!src.length){
+    console.warn('[playable] модификатор без списка слов, пропускаю:',m); return null;
+  }
+  const list=[];
+  for(const b of src){
+    const v=byId[b.category];
+    if(v===undefined){ console.warn('[playable] модификатор: нет категории',b); continue; }
+    list.push({v:v,e:String(b.word||'').toUpperCase(),layers:Math.max(1,(b.layers|0)||2)});
+  }
+  return list.length?{type:m.type,list:list}:null;
+}
+/* Заморозить/закрыть ровно те пузыри старта, что указал пакет. */
+function applyPackBlockers(pm){
+  for(const it of pm.list){
+    const b=bubbles.find(x=>!x.half&&x.val===it.v&&x.exs.length===1
+      &&x.exs[0]===it.e&&x.ice<=0&&x.hid<=0);
+    if(!b){ console.warn('[playable] модификатор: слова нет на старте',it); continue; }
+    if(pm.type==='ice') b.ice=it.layers; else b.hid=it.layers;
+    paint(b); place(b);
+  }
 }
 /* Разворачивает список выкладки: распиленное слово становится двумя пузырями. */
 function expandChunks(list,map){
@@ -543,12 +607,12 @@ function setBlockers(kind){
    отделяет именно нижнюю часть шаров. Мердж через неё запрещён, и она же
    физическая преграда: свою зону пузыри не покидают, пока цепь висит.
    Снимается сбором категорий, счётчик показан на самой цепи. */
-function setChain(){
+function setChain(need){
   const ys=bubbles.map(b=>b.y).sort((a,b)=>a-b);
   if(ys.length<4) return;
   const cut=Math.max(1,Math.floor(ys.length*0.66));
   chainY=Math.round((ys[cut-1]+ys[cut])/2);
-  chainNeed=2; chainDown=false;
+  chainNeed=need||2; chainDown=false;
   bubbles.forEach(b=>{ b.zone=b.y>chainY?1:0; });
   chainEl.hidden=false; chainEl.style.opacity='1'; chainEl.style.top=chainY+'px';
 }
@@ -602,7 +666,7 @@ function init(){
   bubbles.forEach(b=>b.el.remove()); bubbles=[];
   board.querySelectorAll('.part,.conf').forEach(e=>e.remove());
   done=0; over=false; pendingPops=0; pendingSpawn=0; held=false; drag=null; clearMarks();
-  chainY=null; chainNeed=0; chainDown=true; halfPairs=0;
+  chainY=null; chainNeed=0; chainDown=true; halfPairs=0; missStreak=0;
   chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
   let start=[]; queue=[];
@@ -642,9 +706,16 @@ function init(){
      прототипа лимита на склейки никто не закладывал — там форы столько же,
      сколько распилов. */
   let bonus=CHUNKS?0:halfPairs;
-  if(MOD==='ice'&&setBlockers('ice')) bonus+=1;
-  if(MOD==='hidden'&&setBlockers('hid')) bonus+=1;
-  if(MOD==='chain'){ setChain(); bonus+=1; for(let k=0;k<400;k++) physStep(1/60,true); }
+  if(PACK_MOD){
+    /* Модификатор задан пакетом: исполняем его, эвристику ?mod= не трогаем.
+       Бонус за блокиратор в move_limit пакета уже сидит — не добавляем. */
+    if(PACK_MOD.type==='chain'){ setChain(PACK_MOD.need); for(let k=0;k<400;k++) physStep(1/60,true); }
+    else applyPackBlockers(PACK_MOD);
+  }else{
+    if(MOD==='ice'&&setBlockers('ice')) bonus+=1;
+    if(MOD==='hidden'&&setBlockers('hid')) bonus+=1;
+    if(MOD==='chain'){ setChain(); bonus+=1; for(let k=0;k<400;k++) physStep(1/60,true); }
+  }
   MOVES_MAX=MOVES_START+bonus; moves=MOVES_MAX;
   bubbles.forEach(place);
   updHud(); updBoosts(); updChain();
@@ -746,6 +817,8 @@ function spawnBatch(n){ pendingSpawn=Math.min(pendingSpawn+n,queue.length); }
    Считаем живые пузыри (мета-шар и половинки тоже занимают место) и добираем
    поле до FIELD_TARGET. */
 function liveOnField(){ return bubbles.filter(b=>!b.popping).length; }
+/* Счётчик подряд идущих промахов. Планка — MISS_RESCUE в конфиге выше. */
+let missStreak=0;
 function topUpField(){
   if(!queue.length) return;
   const need=FIELD_TARGET-liveOnField()-pendingSpawn;
@@ -841,11 +914,23 @@ window.addEventListener('pointerup',()=>{
   if(over||!t) return;              /* отпустили в пустоту — шар просто падает в кучу */
   const v=canMerge(b,t);
   if(v.ok){ merge(t,b,true); return; }
-  /* неверное действие: цель подсвечивается красным, шар возвращается на своё
-     место, ход не тратится, структура поля вообще не менялась */
+  /* Неверное действие: цель подсвечивается красным, шар возвращается на своё
+     место. Логический промах — отпустил на ЧУЖОМ пузыре — тратит ход (GDD §2
+     п.3): цена ошибки и есть давление лимита, на ней держится риск ловушек.
+     Преграда (лёд, «?», цепь) хода не ест: это не неверная догадка о слове,
+     а стена, о которую догадку даже не проверили. Пустота — тоже нет (п.4). */
   if(v.why==='chain') flash(chainEl,'hit');
   flash(t.el, v.why==='ice'||v.why==='hid' ? 'blk' : 'err');
+  if(v.why==='wrong'&&!NO_LIMIT){ moves--; updHud(); checkEnd(); }
   flyBack(b,start);
+  /* MISS_RESCUE неверных попыток подряд — это уже не ловушка, а перебор
+     наугад. Досыпка приходит помощью: новые слова дают новую зацепку.
+     Счётчик копит только ПОДРЯД идущие промахи, удачный мердж его обнуляет. */
+  missStreak++;
+  if(missStreak>=MISS_RESCUE){
+    missStreak=0;
+    if(queue.length){ topUpField(); toastText('ПОДСКАЗКА: ДОСЫПКА',true); }
+  }
 });
 function flyBack(b,to){
   b.popping=true;
@@ -868,6 +953,7 @@ function merge(a,b,costMove){
   paint(a); place(a);
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   if(costMove){ moves--; updHud(); }
+  missStreak=0;                 /* ход получился — счётчик безыдейного перебора обнуляется */
   /* успешный мердж снимает слой льда и приближает раскрытие «?» на всём поле */
   bubbles.forEach(x=>{
     if(x.ice>0){ x.ice--; paint(x); place(x); }
@@ -882,13 +968,16 @@ function merge(a,b,costMove){
     a.named=true;
     a.el.classList.add('named');
     setTimeout(()=>popGroup(a),NAME_HOLD);
-  }else{
-    /* Место освободилось — оно тут же и заполняется (GDD §2 п.6, §3 «Досыпка»).
-       Склейка половинок сюда попадает наравне с обычным мерджем и это отдельно
-       важно: на уровне с восемью распилами восемь склеек освобождают восемь
-       мест, и без досыпки поле садится на треть. */
+  }else if(gluedHalves){
+    /* Склейка половинок — один из трёх поводов для досыпки (GDD §2 п.6).
+       Два пузыря стали одним, место освободилось; на уровне с восемью
+       распилами это восемь мест, и без досыпки поле садится на треть. */
     topUpField();
-    if(gluedHalves) console.log('[playable] склейка половинок → досыпка');
+    rescueIfStuck();
+  }else{
+    /* Обычный мердж досыпку НЕ вызывает: иначе поле само себя чинит после
+       каждого движения и уровень перестаёт быть задачей на планирование.
+       Пустеющее поле — это давление, оно задумано. Страховка от тупика ниже. */
     rescueIfStuck();
   }
   checkEnd();

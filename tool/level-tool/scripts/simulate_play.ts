@@ -18,9 +18,13 @@
  *   * четвёртое слово схлопывает категорию: обычная уходит с поля, а
  *     мета-ребёнок ПРЕВРАЩАЕТСЯ в пузырь-слово родителя и место занимать
  *     продолжает;
- *   * досыпка идёт ПО МЕРЕ ОСВОБОЖДЕНИЯ МЕСТА, а не по собранным категориям
- *     (наблюдение записи: «новые пузыри падают волнами по мере освобождения
- *     места»). Именно это правило прототип и нарушал.
+ *   * досыпка приходит на ТРИ повода и только на них (GDD §2 п.6):
+ *     схлопывание собранной категории, склейка двух половинок и страховка —
+ *     на поле не осталось ни одной пары. Обычный мердж досыпку НЕ вызывает:
+ *     пустеющее поле это давление, оно задумано. Четвёртый повод —
+ *     `MISS_RESCUE` неверных попыток подряд (настройка прототипа, сейчас 5) —
+ *     в симуляции не наступает, потому что бот не ошибается; значит вердикт
+ *     «прошёл» получен БЕЗ этой поблажки, при любом её значении.
  *
  * Чего НЕ моделируется: физика, промахи драга, бустеры и бонус-пузыри «+5
  * ходов». Поэтому вердикт читается так: «не прошёл» — уровень сломан наверняка;
@@ -59,6 +63,8 @@ export interface PlayResult {
   fieldMin: number;
   /** сколько слов осталось в очереди на момент остановки */
   queueLeft: number;
+  /** сколько раз сработала страховка «пар нет, досыпка вне ритма» */
+  rescues: number;
 }
 
 /** Один пузырь на поле: категория и сколько слов в нём уже слиплось. */
@@ -98,21 +104,33 @@ export function simulate(level: HandoffLevelJson): PlayResult {
     while (field.length < capacity && queue.length) field.push(queue.shift()!);
   };
   topUp();
+  /** Есть ли на поле хоть одна пара, которую можно слить. */
+  const hasLegalMove = (): boolean => {
+    for (let i = 0; i < field.length; i += 1) {
+      for (let j = i + 1; j < field.length; j += 1) {
+        if (field[i].cat !== field[j].cat) continue;
+        const cap = field[i].cat.startsWith('half:') ? 2 : (need.get(field[i].cat) ?? 4);
+        if (field[i].size + field[j].size <= cap) return true;
+      }
+    }
+    return false;
+  };
 
   let moves = 0;
   let done = 0;
   let fieldMin = field.length;
+  let rescues = 0;
   const halfNeed = 2;
 
   for (let guard = 0; guard < 5000; guard += 1) {
     fieldMin = Math.min(fieldMin, field.length);
     if (done >= total) {
       return { won: true, categoriesDone: done, categoriesTotal: total, movesUsed: moves,
-        moveLimit: limit, reason: 'win', fieldMin, queueLeft: queue.length };
+        moveLimit: limit, reason: 'win', fieldMin, queueLeft: queue.length, rescues };
     }
     if (limit !== null && moves >= limit) {
       return { won: false, categoriesDone: done, categoriesTotal: total, movesUsed: moves,
-        moveLimit: limit, reason: 'кончились ходы', fieldMin, queueLeft: queue.length };
+        moveLimit: limit, reason: 'кончились ходы', fieldMin, queueLeft: queue.length, rescues };
     }
 
     // все легальные пары
@@ -132,8 +150,10 @@ export function simulate(level: HandoffLevelJson): PlayResult {
       }
     }
     if (!best) {
+      // страховка: пар нет, а очередь есть — досыпка приходит вне ритма
+      if (queue.length) { topUp(); rescues += 1; continue; }
       return { won: false, categoriesDone: done, categoriesTotal: total, movesUsed: moves,
-        moveLimit: limit, reason: 'нет легального мерджа', fieldMin, queueLeft: queue.length };
+        moveLimit: limit, reason: 'нет легального мерджа', fieldMin, queueLeft: queue.length, rescues };
     }
 
     const [i, j] = best;
@@ -148,18 +168,21 @@ export function simulate(level: HandoffLevelJson): PlayResult {
       // склеили половинки — получился обычный пузырь-слово своей категории
       const categoryKey = a.cat.slice('half:'.length).split('::')[0];
       field.push({ cat: categoryKey, size: 1 });
+      topUp();                                  // повод 2: склейка половинок
     } else if (merged.size >= cap) {
       done += 1;
       const parent = parentOf.get(a.cat);
       // мета-ребёнок не уходит с поля: он становится словом родителя
       if (parent) field.push({ cat: parent.parent, size: 1 });
+      topUp();                                  // повод 1: категория собрана
     } else {
       field.push(merged);
+      // обычный мердж досыпку не вызывает — поле пустеет, и это задумано
+      if (!hasLegalMove() && queue.length) { topUp(); rescues += 1; }  // повод 3
     }
-    topUp();
   }
   return { won: false, categoriesDone: done, categoriesTotal: total, movesUsed: moves,
-    moveLimit: limit, reason: 'симуляция зациклилась', fieldMin, queueLeft: queue.length };
+    moveLimit: limit, reason: 'симуляция зациклилась', fieldMin, queueLeft: queue.length, rescues };
 }
 
 // --------------------------------------------------------------------------- //
@@ -190,7 +213,7 @@ function main(): void {
         + `${(level.title ?? '').slice(0, 44).padEnd(44)} `
         + `${r.categoriesDone}/${r.categoriesTotal} кат · `
         + `ходов ${r.movesUsed}/${r.moveLimit ?? '∞'} (запас ${spare}) · `
-        + `поле проседало до ${r.fieldMin} · ${r.reason}`);
+        + `поле проседало до ${r.fieldMin} · страховка ${r.rescues} раз · ${r.reason}`);
     }
   }
   console.log(broken ? `\nнепроходимых уровней: ${broken}` : '\nвсе уровни проходятся');
