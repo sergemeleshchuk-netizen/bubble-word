@@ -372,6 +372,15 @@ export function planMetaCounts(
  * Всё, что пользователь потом поменяет руками в интерфейсе, сильнее этого:
  * профиль — разумный старт, а не запрет (принцип инструмента из DECISION_LOG).
  */
+/** Какие игровые модификаторы доступны блоку, начинающемуся с уровня `from`. */
+function modifiersForDecade(from: number): Modifier[] {
+  const out: Modifier[] = [];
+  if (from >= 11) out.push('halves');
+  if (from >= 31) out.push('ice', 'hidden');
+  if (from >= 51) out.push('chain_line');
+  return out;
+}
+
 export function configForRange(
   levelRange: [number, number], seed: string, overrides: Partial<BlockConfig> = {},
 ): BlockConfig {
@@ -388,10 +397,15 @@ export function configForRange(
     recoveryPositions: [RECOVERY_POSITION],
     rarityRange: profile.rareRange,
     maxMetaDepth: 2,          // глубже 2 в референсе не встречается ни разу
-    // Замер декады по-прежнему знает, где в оригинале появляются цепи
-    // (`profile.allowedModifiers`), но генератор их не ставит: он словесный.
-    // См. DEFAULT_BLOCK_CONFIG.allowedModifiers.
-    allowedModifiers: [],
+    // Игровые модификаторы включаются лесенкой по декадам (решение 02.08:
+    // механики входят в генерацию, оценку и игровой JSON разом, а не по одной):
+    //   с L11 половинки — в референсе распилы видны уже на уровне 12;
+    //   с L31 лёд и «?» — блокираторы из GDD §7, референсом не калиброваны;
+    //   с L51 цепь-линия — самый тяжёлый, только на пик блока.
+    // Первая декада остаётся чистой: игрока учат базовой механике.
+    // Цепи-замки (`chains` из profile.allowedModifiers) генератор по-прежнему
+    // не ставит: прототип их не исполняет, а нечестный модификатор хуже никакого.
+    allowedModifiers: modifiersForDecade(levelRange[0]),
     includeThemes: [],
     excludeThemes: [],
     trapThemes: [],

@@ -1,5 +1,5 @@
 {
-  "scoring_version": "d-1.0-calibrated",
+  "scoring_version": "d-1.1-calibrated",
   "calibrated": true,
   "note": "Веса base откалиброваны scripts/calibrate_difficulty.py на 199 референсных уровнях. Секция declared — объявленные продуктовые веса: референс их НЕ идентифицирует (см. not_identified_by_reference и docs/SCORING.md §7). Секции semantic и mechanical по референсу калибровать нечем: этих признаков в выгрузке ответов нет вообще (SPEC_AUDIT §3).",
   "difficulty": {
@@ -26,7 +26,10 @@
       "chain": 0.5,
       "half_pair": 0.4,
       "modifier_max": 1.5,
-      "move_tightness": 0.9
+      "move_tightness": 0.9,
+      "ice": 0.45,
+      "hidden": 0.5,
+      "chain_line": 0.5
     },
     "headroom": {
       "note": "Референс занимает 1-8, чтобы новым механикам осталось место 8.5-10",

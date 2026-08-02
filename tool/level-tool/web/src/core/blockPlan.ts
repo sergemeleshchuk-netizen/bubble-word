@@ -8,7 +8,7 @@
  *
  * Профиль задаётся настройками. Дефолтный пресет воспроизводит найденный ритм.
  */
-import type { BlockConfig, LevelPlan, LevelRole } from './types.ts';
+import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
 
 /**
@@ -153,6 +153,35 @@ function targetInterest(role: LevelRole): [number, number] {
   }
 }
 
+/**
+ * Игровой модификатор уровня — один на партию (GDD §7), и это акцент, а не фон.
+ *
+ * Раскладка по ролям, из тех же соображений, что и цепи выше: механика должна
+ * подчёркивать ритм блока, а не размазываться по нему. Половинки — механика
+ * «роста» (в референсе распилы видны уже на L12 и не делают уровень пиковым),
+ * лёд и «?» — блокираторы для спайков, цепь-линия — самый тяжёлый, на пик.
+ * Передышка, вход, выход и туториал остаются чистыми словесными уровнями:
+ * игрок отдыхает от механик, а оценка D сохраняет разрешающую способность.
+ * Лёд и «?» чередуются по номеру ДЕКАДЫ: спайк стоит на фиксированной позиции
+ * блока, и чётность позиции дала бы один и тот же блокиратор всем декадам.
+ */
+function modifierFor(
+  role: LevelRole, levelId: number, position: number,
+  allowed: BlockConfig['allowedModifiers'],
+): LevelModifier {
+  if (role === 'peak' && allowed.includes('chain_line')) return 'chain_line';
+  if (role === 'spike' || role === 'peak') {
+    const blockers = (['ice', 'hidden'] as const).filter((m) => allowed.includes(m));
+    if (blockers.length > 0) {
+      return blockers[Math.floor((levelId - 1) / 10) % blockers.length];
+    }
+  }
+  if (role === 'growth' && allowed.includes('halves') && position % 2 === 0) {
+    return 'halves';
+  }
+  return 'none';
+}
+
 /** K лимита ходов: чем тяжелее роль, тем теснее проход. */
 function moveLimitK(role: LevelRole): number | null {
   switch (role) {
@@ -200,6 +229,9 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       ? (role === 'peak' ? 2 : role === 'spike' ? 1 : 0)
       : 0;
 
+    const modifier = isTutorial ? 'none'
+      : modifierFor(role, from + position - 1, position, config.allowedModifiers);
+
     plans.push({
       levelId: from + position - 1,
       position,
@@ -210,6 +242,7 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       rareTarget: isTutorial ? 0 : rareTarget,
       trapTarget,
       chainCount,
+      modifier,
       targetDifficulty: isTutorial ? [1.0, 2.0] : targetDifficulty(role),
       targetInterest: isTutorial ? [6.5, 8.5] : targetInterest(role),
       // лимита ходов на туториале нет: в референсе L1 без лимита, поле держит

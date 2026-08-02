@@ -19,23 +19,27 @@
  *  10. упорядоченное ослабление, если не сошлось
  */
 import type {
-  BlockConfig,
-  DecadeGates, Chain, GenerationAttempt, GenerationFailure, LevelCategory,
+  BlockConfig, BlockedBubble,
+  DecadeGates, Chain, GenerationAttempt, GenerationFailure, HalfSplit, LevelCategory,
   LevelPlan, LevelSpec, LevelWord, Trap,
 } from './types.ts';
 import { STATUS } from './types.ts';
 import { ContentIndex } from './snapshot.ts';
 import { createRng, type Rng } from './rng.ts';
-import { buildDeal } from './deal.ts';
+import { buildDeal, chunkKey } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
+import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
 
 /**
  * gen-1.0 — исходный алгоритм сборки.
  * gen-1.1 — в уровень вошла первая выкладка (`spec.deal`): состав поля на старте
  *           и очередь досыпки считает генератор, а не клиент. Хеши уровней
  *           меняются, и обязаны: уровень с другой выкладкой — другой уровень.
+ * gen-1.2 — очередь досыпки строится по ритму (каждая пачка открывает следующий
+ *           сбор, см. deal.ts) и в уровень вошёл игровой модификатор: половинки,
+ *           лёд, «?» или цепь-линия — с параметрами в спеке и в игровом JSON.
  */
-export const GENERATOR_VERSION = 'gen-1.1';
+export const GENERATOR_VERSION = 'gen-1.2';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -1180,13 +1184,69 @@ function buildLevelSpec(
   const traps = findTraps(index, assignment, edges);
   const chains = buildChains(categories, plan.chainCount, rng);
 
+  // ---------------- игровой модификатор: половинки считаются ДО выкладки ----
+  // (распиленное слово занимает на поле два пузыря, и это меняет её бюджет),
+  // лёд и «?» — ПОСЛЕ (блокируется то, что реально видно на старте)
+  const halves: HalfSplit[] = [];
+  if (plan.modifier === 'halves') {
+    // фрагмент не имеет права быть валидным словом (SPEC §4): сверяем и со
+    // словами уровня, и со всем лексиконом контентной базы
+    const taken = new Set<string>(index.words.map((w) => w.n));
+    for (const c of categories) {
+      for (const w of c.words) taken.add(w.text.toLowerCase());
+    }
+    for (const c of rng.shuffle(categories)) {
+      if (halves.length >= halfBudget(categories.length)) break;
+      if (c.isQuickwin) continue;   // точку входа не пилим
+      for (const w of rng.shuffle(c.words.filter((x) => x.kind === 'word'))) {
+        const parts = splitWord(w.text, taken);
+        if (!parts) continue;
+        taken.add(parts[0].toLowerCase());
+        taken.add(parts[1].toLowerCase());
+        halves.push({ word: w.text, home: c.key, fragments: parts, fragmentsAreWords: false });
+        break;                      // не больше одного распила в категории
+      }
+    }
+  }
+  const chunked = new Set(halves.map((h) => chunkKey(h.home, h.word)));
+
   const metaCount = edges.length;
   const bubbles = startBubbles(categories.length, metaCount, wordsPerCategory);
-  const floor = moveFloor(categories.length, 0, wordsPerCategory);
+  // склейка половинки тратит ход: распилы входят в минимум мерджей и в лимит
+  const floor = moveFloor(categories.length, halves.length, wordsPerCategory);
+
+  // выкладка считается здесь, а не в прототипе: см. core/deal.ts
+  const deal = buildDeal(plan.levelId, categories, {
+    boardCapacity: BOARD_CAPACITY, wordsPerCategory,
+  }, chunked);
+
+  const frozenBubbles: BlockedBubble[] = [];
+  const hiddenBubbles: BlockedBubble[] = [];
+  if (plan.modifier === 'ice' || plan.modifier === 'hidden') {
+    const list = plan.modifier === 'ice' ? frozenBubbles : hiddenBubbles;
+    const usedCats = new Set<string>();
+    const count = Math.min(2, Math.max(1, Math.floor(categories.length / 3)));
+    for (const b of rng.shuffle(deal.start)) {
+      if (list.length >= count) break;
+      if (usedCats.has(b.category)) continue;
+      // точка входа не блокируется: первый сбор обязан оставаться доступным
+      if (quickwinKeys.has(b.category)) continue;
+      if (chunked.has(chunkKey(b.category, b.word))) continue;
+      usedCats.add(b.category);
+      list.push({ word: b.word, category: b.category, layers: 2 + (list.length % 2) });
+    }
+  }
+  const chainLine = plan.modifier === 'chain_line' && categories.length >= 2
+    ? { need: Math.min(2, categories.length - 1) }
+    : null;
+
+  // блокирующий модификатор мерджей не добавляет, но стесняет выбор: +1 ход,
+  // как в прототипе (BLOCKER_MOVE_BONUS)
+  const blocker = frozenBubbles.length > 0 || hiddenBubbles.length > 0 || chainLine !== null;
 
   const spec: LevelSpec = {
     levelId: plan.levelId,
-    schemaVersion: '2.1',
+    schemaVersion: '2.2',
     board: {
       categoriesCount: categories.length,
       wordsPerCategory,
@@ -1194,18 +1254,16 @@ function buildLevelSpec(
       boardCapacity: BOARD_CAPACITY,
       moveFloor: floor,
       // K = null -> лимита нет: на L1 референса поле держит весь уровень
-      moveLimit: plan.moveLimitK === null ? null : moveLimit(floor, plan.moveLimitK),
+      moveLimit: plan.moveLimitK === null ? null
+        : moveLimit(floor, plan.moveLimitK) + (blocker ? BLOCKER_MOVE_BONUS : 0),
       moveLimitK: plan.moveLimitK,
       moveLimitPolicy: 'conservative',
     },
     categories,
-    // выкладка считается здесь, а не в прототипе: см. core/deal.ts
-    deal: buildDeal(plan.levelId, categories, {
-      boardCapacity: BOARD_CAPACITY, wordsPerCategory,
-    }),
+    deal,
     traps: traps.slice(0, Math.max(plan.trapTarget, traps.length > 0 ? 1 : 0)),
-    halves: [],
-    modifiers: { chains, frozenBubbles: [], hiddenBubbles: [] },
+    halves,
+    modifiers: { chains, frozenBubbles, hiddenBubbles, chainLine },
   };
   return { spec, traps };
 }

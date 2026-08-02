@@ -59,7 +59,7 @@ function plan(categoryCount: number): LevelPlan {
   return {
     levelId: 1, position: 1, role: 'entry', categoryCount,
     metaCount: 0, metaDepthTarget: 1, rareTarget: 0, trapTarget: 0,
-    chainCount: 0, targetDifficulty: [1, 10], targetInterest: [1, 10], moveLimitK: 1.5,
+    chainCount: 0, modifier: 'none', targetDifficulty: [1, 10], targetInterest: [1, 10], moveLimitK: 1.5,
   };
 }
 

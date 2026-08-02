@@ -265,7 +265,7 @@ for (const level of winner.block.levels) {
   writeFileSync(join(OUT, `level-${level.spec.levelId}.json`),
     JSON.stringify(toPipelineJson(level, winner.block), null, 2), 'utf8');
   writeFileSync(join(OUT, `game-${level.spec.levelId}.json`),
-    JSON.stringify(toGameJson(level.spec), null, 2), 'utf8');
+    JSON.stringify(toGameJson(level.spec, level.difficulty.value), null, 2), 'utf8');
 }
 writeFileSync(join(OUT, 'pack.json'), JSON.stringify({
   pack_hash: winner.block.packHash,

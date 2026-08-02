@@ -13,9 +13,15 @@
   склеиваются только со своей парой; каждый мердж стоит 1 ход;
 - четвёрка собирается бесплатно; обычная категория улетает и приходит
   досыпка 4, мета-категория превращается в слово родителя и приходит 3;
-- страховка прототипа: если легального мерджа нет, а очередь не пуста,
-  приходит досыпка 4 «вне ритма»;
+- модификатор пакета (`modifier`): лёд/«?» не мерджатся, пока не растают
+  (каждый мердж снимает слой со всех), цепь делит поле на зоны до сбора
+  chain_need категорий (зоны чередуются: координат у симуляции нет);
+- страховки прототипа, в его порядке: цепь падает, лёд тает, потом
+  досыпка 4 «вне ритма»;
 - жёсткий тупик: легального мерджа нет и очередь пуста - уровень непроходим.
+
+TS-двойник в ядре инструмента: web/src/core/simulatePlayability.ts (гейт
+приёмки при сборке блока). Этот скрипт - внешняя приёмка готовых паков.
 
 Бот играет жадно: сперва мердж, завершающий четвёрку, иначе мердж в категории,
 у которой на поле больше всего слов. Число ходов до победы от порядка мерджей
@@ -75,17 +81,34 @@ def build_level(lv):
             out.extend(conv(b))
         return out
 
+    mod = lv.get('modifier') or None
+    blocked = {}
+    chain_need = 0
+    if mod:
+        if mod.get('type') == 'chain':
+            chain_need = max(1, int(mod.get('chain_need') or 2))
+        else:
+            src = mod.get('frozen') if mod.get('type') == 'ice' else mod.get('hidden')
+            for b in (src or []):
+                blocked[(by_id.get(b['category']), b['word'].upper())] = \
+                    max(1, int(b.get('layers') or 2))
+
     return {'cats': cats, 'metaw': metaw, 'full': full,
             'start': expand(deal['start']), 'queue': expand(deal['queue']),
+            'blocked': blocked, 'chain_need': chain_need,
             'moves': (lv.get('board') or {}).get('move_limit')}
 
 
-def legal_merges(field, full):
-    """Все легальные пары: (i, j). Кластер = {'v','exs','half'}."""
+def legal_merges(field, full, chain_up):
+    """Все легальные пары: (i, j). Кластер = {'v','exs','half','blk','zone'}."""
     res = []
     for i in range(len(field)):
         for j in range(i + 1, len(field)):
             a, b = field[i], field[j]
+            if a['blk'] > 0 or b['blk'] > 0:
+                continue
+            if chain_up and a['zone'] != b['zone']:
+                continue
             if a['half'] or b['half']:
                 if a['half'] and b['half'] and a['half'][0] == b['half'][0] \
                    and a['half'][1] != b['half'][1]:
@@ -99,23 +122,40 @@ def legal_merges(field, full):
 def simulate(L):
     cats_by_name = {c['v']: c for c in L['cats']}
     full = L['full']
-    field = [{'v': it['v'], 'exs': [it['e']], 'half': it['half']} for it in L['start']]
+    blocked, chain_need = L.get('blocked', {}), L.get('chain_need', 0)
+    chain_up = chain_need > 0
+    zone_flip = [0]
+
+    def to_bubble(it):
+        zone_flip[0] += 1
+        return {'v': it['v'], 'exs': [it['e']], 'half': it['half'],
+                'blk': 0 if it['half'] else blocked.get((it['v'], it['e']), 0),
+                'zone': zone_flip[0] % 2 if chain_up else 0}
+
+    field = [to_bubble(it) for it in L['start']]
     queue = list(L['queue'])
     total_cats = len(L['cats'])
     done, moves_spent, rescues = 0, 0, 0
-    droughts, cur_drought, perceived_dead = 0, 0, 0
+    cur_drought, perceived_dead = 0, 0
     max_drought = 0
 
     def spawn(n):
         for _ in range(min(n, len(queue))):
-            it = queue.pop(0)
-            field.append({'v': it['v'], 'exs': [it['e']], 'half': it['half']})
+            field.append(to_bubble(queue.pop(0)))
 
     guard = 10000
     while done < total_cats and guard > 0:
         guard -= 1
-        lm = legal_merges(field, full)
+        lm = legal_merges(field, full, chain_up)
         if not lm:
+            # страховки прототипа, в его порядке: цепь -> лёд -> досыпка
+            if chain_up:
+                chain_up = False
+                continue
+            if any(b['blk'] > 0 for b in field):
+                for b in field:
+                    b['blk'] = 0
+                continue
             if queue:
                 rescues += 1
                 spawn(4)
@@ -144,28 +184,37 @@ def simulate(L):
         if a['half'] and b['half']:
             # склейка половинок: получается обычный пузырь-слово, счётчик слов
             # категории от неё не растёт, но ход тратится (как в прототипе)
-            merged = {'v': a['v'], 'exs': ['WHOLE#%d' % a['half'][0]], 'half': None}
+            merged = {'v': a['v'], 'exs': ['WHOLE#%d' % a['half'][0]], 'half': None,
+                      'blk': 0, 'zone': a['zone']}
         else:
-            merged = {'v': a['v'], 'exs': a['exs'] + b['exs'], 'half': None}
+            merged = {'v': a['v'], 'exs': a['exs'] + b['exs'], 'half': None,
+                      'blk': 0, 'zone': a['zone']}
         field = [c for k, c in enumerate(field) if k not in (i, j)]
         field.append(merged)
         moves_spent += 1
         cur_drought += 1
+        # успешный мердж снимает слой льда/«?» со всего поля
+        for c in field:
+            if c['blk'] > 0:
+                c['blk'] -= 1
         # сборка четвёрки
         if not merged['half'] and len(merged['exs']) >= full[merged['v']]:
             field.remove(merged)
             done += 1
             max_drought = max(max_drought, cur_drought)
             cur_drought = 0
+            if chain_up and done >= chain_need:
+                chain_up = False   # цепь снята сбором категорий
             cd = cats_by_name[merged['v']]
             if cd['meta']:
-                field.append({'v': cd['meta']['parent'], 'exs': [cd['meta']['word']], 'half': None})
+                field.append({'v': cd['meta']['parent'], 'exs': [cd['meta']['word']],
+                              'half': None, 'blk': 0, 'zone': 0})
                 spawn(3)
             else:
                 spawn(4)
         else:
             # страховка прототипа: после мерджа поле могло остаться без пар
-            if not legal_merges(field, full) and queue and done < total_cats:
+            if not legal_merges(field, full, chain_up) and queue and done < total_cats:
                 rescues += 1
                 spawn(4)
     return {'ok': True, 'done': done, 'moves': moves_spent, 'rescues': rescues,

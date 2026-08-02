@@ -198,7 +198,7 @@ export function buildSpec(
     deal: buildDeal(levelId, categories, board),
     traps: [],
     halves: opts.halves ?? [],
-    modifiers: { chains: opts.chains ?? [], frozenBubbles: [], hiddenBubbles: [] },
+    modifiers: { chains: opts.chains ?? [], frozenBubbles: [], hiddenBubbles: [], chainLine: null },
   };
 }
 

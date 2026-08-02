@@ -23,6 +23,7 @@
  * сдан. Считает лимит генератор, прототип его только исполняет.
  */
 import type { BlockResult, GeneratedLevel } from './types.ts';
+import { difficultyTier } from './scoringDifficulty.ts';
 import { TOOL_VERSION } from './version.ts';
 
 /**
@@ -102,6 +103,19 @@ export interface HandoffLevel {
    * учитывает склейки (`3*M + chunks`), добавлять ничего не нужно.
    */
   chunks?: { word: string; category: string; pieces: [string, string] }[];
+  /**
+   * Игровой модификатор уровня, если генератор его назначил. Половинки сюда
+   * не входят — они едут полем `chunks` выше. Прототип модификатор ИСПОЛНЯЕТ:
+   * замораживает/закрывает ровно указанные слова и ставит цепь с указанным
+   * счётчиком, а свою эвристику `?mod=` при этом не применяет. Лимит ходов
+   * пакета бонус за блокиратор уже содержит — прототип ничего не добавляет.
+   */
+  modifier?: {
+    type: 'ice' | 'hidden' | 'chain';
+    frozen?: { word: string; category: string; layers: number }[];
+    hidden?: { word: string; category: string; layers: number }[];
+    chain_need?: number;
+  };
 }
 
 export interface HandoffPack {
@@ -114,10 +128,25 @@ export interface HandoffPack {
   levels: HandoffLevel[];
 }
 
+const MODIFIER_TAG: Record<string, string> = {
+  halves: 'половинки', ice: 'лёд', hidden: '«?»', chain_line: 'цепь',
+};
+
+function specModifier(level: GeneratedLevel): string | null {
+  if (level.spec.halves.length > 0) return 'halves';
+  if (level.spec.modifiers.frozenBubbles.length > 0) return 'ice';
+  if (level.spec.modifiers.hiddenBubbles.length > 0) return 'hidden';
+  if (level.spec.modifiers.chainLine) return 'chain_line';
+  return null;
+}
+
 function levelTitle(level: GeneratedLevel): string {
   const categories = level.spec.categories.length;
+  const mod = specModifier(level);
   return `Уровень ${level.spec.levelId} · ${categories} кат · `
-    + `D ${level.difficulty.value} · I ${level.interest.value}`;
+    + `D ${level.difficulty.value} ${difficultyTier(level.difficulty.value)} · `
+    + `I ${level.interest.value}`
+    + (mod ? ` · ${MODIFIER_TAG[mod]}` : '');
 }
 
 /** Собирает пакет в том виде, в котором его понимает прототип. */
@@ -148,8 +177,26 @@ export function buildHandoffPack(block: BlockResult): HandoffPack {
         start: level.spec.deal.start.map((b) => ({ word: b.word, category: b.category })),
         queue: level.spec.deal.queue.map((b) => ({ word: b.word, category: b.category })),
       },
+      chunks: level.spec.halves.length === 0 ? undefined
+        : level.spec.halves.map((h) => ({
+          word: h.word, category: h.home, pieces: h.fragments,
+        })),
+      modifier: handoffModifier(level),
     })),
   };
+}
+
+/** Модификатор уровня в формате прототипа; половинки едут полем chunks. */
+function handoffModifier(level: GeneratedLevel): HandoffLevel['modifier'] {
+  const m = level.spec.modifiers;
+  if (m.frozenBubbles.length > 0) {
+    return { type: 'ice', frozen: m.frozenBubbles.map((b) => ({ ...b })) };
+  }
+  if (m.hiddenBubbles.length > 0) {
+    return { type: 'hidden', hidden: m.hiddenBubbles.map((b) => ({ ...b })) };
+  }
+  if (m.chainLine) return { type: 'chain', chain_need: m.chainLine.need };
+  return undefined;
 }
 
 /**

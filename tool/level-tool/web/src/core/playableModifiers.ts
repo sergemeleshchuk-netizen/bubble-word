@@ -92,7 +92,7 @@ export interface PlayableSetup {
 const DELTA = { chain: 0.5, halfPair: 0.4, ice: 0.45, hidden: 0.5, max: 1.5 };
 
 /** Запас ходов за модификатор, который сам мерджей не добавляет. */
-const BLOCKER_MOVE_BONUS = 1;
+export const BLOCKER_MOVE_BONUS = 1;
 
 const COLS = 4;
 
@@ -156,7 +156,7 @@ function drafts(spec: LevelSpec): Draft[] {
  * английского у инструмента нет, поэтому «shr|imp» такая проверка не поймает:
  * ограничение известное, в интерфейсе оно подписано.
  */
-function splitWord(word: string, taken: Set<string>): [string, string] | null {
+export function splitWord(word: string, taken: Set<string>): [string, string] | null {
   if (!/^[\p{L}]{6,}$/u.test(word)) return null;
   const mid = Math.floor(word.length / 2);
   for (const at of [mid, mid - 1, mid + 1]) {
@@ -173,7 +173,7 @@ function splitWord(word: string, taken: Set<string>): [string, string] | null {
  * Сколько слов пилить. Половинки — акцент, а не фон: «немного слов, только для
  * части категорий, не больше одного распила в категории».
  */
-function halfBudget(categoryCount: number): number {
+export function halfBudget(categoryCount: number): number {
   return Math.max(1, Math.min(3, Math.round(categoryCount / 3)));
 }
 

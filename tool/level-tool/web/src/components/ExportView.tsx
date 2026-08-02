@@ -11,7 +11,7 @@ import { HANDOFF_MAX_PACKS, publishToPlayable, type HandoffPack } from '../core/
 
 export function ExportView({ block, toGameJson, toPipelineJson }: {
   block: BlockResult;
-  toGameJson: (spec: LevelSpec) => unknown;
+  toGameJson: (spec: LevelSpec, difficultyValue?: number) => unknown;
   toPipelineJson: (level: GeneratedLevel, block: BlockResult) => unknown;
 }) {
   const [mode, setMode] = useState<'game' | 'pipeline'>('game');
@@ -21,7 +21,7 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
   const [handed, setHanded] = useState<HandoffPack | 'failed' | null>(null);
 
   const single = mode === 'game'
-    ? toGameJson(level.spec)
+    ? toGameJson(level.spec, level.difficulty.value)
     : toPipelineJson(level, block);
 
   const wholePack = {
@@ -30,7 +30,7 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
     generator_version: block.generatorVersion,
     config: block.config,
     levels: mode === 'game'
-      ? block.levels.map((l) => toGameJson(l.spec))
+      ? block.levels.map((l) => toGameJson(l.spec, l.difficulty.value))
       : block.levels.map((l) => toPipelineJson(l, block)),
   };
 

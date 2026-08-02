@@ -186,7 +186,7 @@ if (out) {
     writeFileSync(join(dir, `level-${level.spec.levelId}.json`),
       JSON.stringify(toPipelineJson(level, result), null, 2), 'utf8');
     writeFileSync(join(dir, `game-${level.spec.levelId}.json`),
-      JSON.stringify(toGameJson(level.spec), null, 2), 'utf8');
+      JSON.stringify(toGameJson(level.spec, level.difficulty.value), null, 2), 'utf8');
   }
   writeFileSync(join(dir, 'block.json'), JSON.stringify({
     pack_hash: result.packHash,

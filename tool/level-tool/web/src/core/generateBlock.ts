@@ -17,7 +17,10 @@ import {
 import { validateLevel } from './validator.ts';
 import { countSolutions } from './solutionCounter.ts';
 import { computeStructuralMetrics } from './structuralMetrics.ts';
-import { computeDifficulty, type ScoringConfig, type SemanticEvidence } from './scoringDifficulty.ts';
+import { simulatePlayability } from './simulatePlayability.ts';
+import {
+  computeDifficulty, difficultyTier, type ScoringConfig, type SemanticEvidence,
+} from './scoringDifficulty.ts';
 import { computeInterest, type InterestEvidence } from './scoringInterest.ts';
 import { canonicalJson, levelSpecHash, sha256Hex } from './hashing.ts';
 
@@ -161,6 +164,27 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
           return { ok: false, stage: 'валидация',
             reason: hard.map((i) => `${i.code}: ${i.message}`).join('; ') };
         }
+        /*
+         * Динамическая проходимость — такой же hard-гейт, как единственность
+         * решения. Инцидент 02.08 (уровень 12 «как в оригинале»): семантически
+         * безупречный уровень со случайной очередью досыпки оставил игрока
+         * перед полем из одних недоборов. Уровень обязан не только решаться
+         * на бумаге, но и доигрываться в ритме: без жёстких тупиков, в лимит
+         * ходов, без досыпок «вне ритма» и состояний «выглядит тупиком».
+         * Цепь-линия — исключение по построению: прототип снимает её сам,
+         * когда мерджей не осталось, и это штатная механика, а не сбой.
+         */
+        const play = simulatePlayability(spec);
+        if (!play.winnable) {
+          return { ok: false, stage: 'проходимость',
+            reason: play.failReason ?? 'симуляция партии не дошла до победы' };
+        }
+        const chained = spec.modifiers.chainLine !== null;
+        if (!chained && (play.rescues > 0 || play.perceivedDead > 0)) {
+          return { ok: false, stage: 'проходимость',
+            reason: `ритм сломан: досыпок вне ритма ${play.rescues}, `
+              + `состояний-«тупиков» ${play.perceivedDead}` };
+        }
         return { ok: true, stage: 'проверки', reason: 'все hard-инварианты пройдены' };
       },
     });
@@ -175,6 +199,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     // использует результат), и только потом выставляем оценки
     const solutions = countSolutions(index, spec);
     const structural = computeStructuralMetrics(index, spec);
+    const playability = simulatePlayability(spec);
     const validation = validateLevel(spec, {
       ...validationContext(), solutions, structural, repeatCount: repeatCount(spec, history),
     });
@@ -192,6 +217,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       validation,
       solutions,
       structural,
+      playability,
       difficulty,
       interest,
       attempts: outcome.attempts,
@@ -226,11 +252,20 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
   };
 }
 
-/** Минимальный игровой JSON: контракт с клиентом игры, без следов пайплайна. */
-export function toGameJson(spec: LevelSpec): unknown {
+/**
+ * Минимальный игровой JSON: контракт с клиентом игры, без следов пайплайна.
+ *
+ * Ярус сложности (`difficulty_tier`) — продуктовая пометка easy/medium/hard,
+ * а не след пайплайна: игра показывает её игроку и строит по ней меню.
+ * Считается из D (см. difficultyTier) и передаётся вторым аргументом, потому
+ * что в самом спеке оценок нет — спек хешируется без них.
+ */
+export function toGameJson(spec: LevelSpec, difficultyValue?: number): unknown {
   return {
     level_id: spec.levelId,
     schema_version: spec.schemaVersion,
+    difficulty_tier: difficultyValue === undefined ? undefined
+      : difficultyTier(difficultyValue),
     board: {
       categories_count: spec.board.categoriesCount,
       words_per_category: spec.board.wordsPerCategory,
@@ -257,10 +292,31 @@ export function toGameJson(spec: LevelSpec): unknown {
         ? { text: w.text, kind: 'meta', meta_child: w.metaChild }
         : { text: w.text, kind: 'word' })),
     })),
+    /*
+     * Модификаторы уровня: игра их ИСПОЛНЯЕТ, как и выкладку. Половинки едут
+     * с точками распила (склейка тратит ход, лимит это уже учитывает), лёд и
+     * «?» — с конкретными словами и счётчиками, цепь-линия — со счётчиком
+     * категорий. Пустые поля не пишутся: уровень без механик читается как
+     * прежде.
+     */
     modifiers: {
       chains: spec.modifiers.chains.map((c) => ({
         locks: c.locksCategory, unlocked_by: c.unlockedByCompleting,
       })),
+      halves: spec.halves.length === 0 ? undefined
+        : spec.halves.map((h) => ({
+          word: h.word, category: h.home, pieces: h.fragments,
+        })),
+      frozen: spec.modifiers.frozenBubbles.length === 0 ? undefined
+        : spec.modifiers.frozenBubbles.map((b) => ({
+          word: b.word, category: b.category, layers: b.layers,
+        })),
+      hidden: spec.modifiers.hiddenBubbles.length === 0 ? undefined
+        : spec.modifiers.hiddenBubbles.map((b) => ({
+          word: b.word, category: b.category, layers: b.layers,
+        })),
+      chain_line: spec.modifiers.chainLine
+        ? { need: spec.modifiers.chainLine.need } : undefined,
     },
   };
 }
@@ -281,6 +337,7 @@ export function toPipelineJson(level: GeneratedLevel, block: BlockResult): unkno
     plan: level.plan,
     scoring: {
       difficulty: level.difficulty.value,
+      difficulty_tier: difficultyTier(level.difficulty.value),
       difficulty_breakdown: {
         // порядок корзин важен: сначала то, что откалибровано по данным,
         // потом то, что объявлено продуктовым решением
@@ -312,6 +369,15 @@ export function toPipelineJson(level: GeneratedLevel, block: BlockResult): unkno
       solution_count: level.solutions.count,
       solution_search_exhausted: level.solutions.exhausted,
       solution_nodes_visited: level.solutions.nodesVisited,
+      playability: level.playability ? {
+        winnable: level.playability.winnable,
+        moves_needed: level.playability.movesNeeded,
+        move_limit: level.playability.moveLimit,
+        spare_moves: level.playability.spareMoves,
+        offbeat_refills: level.playability.rescues,
+        perceived_dead_states: level.playability.perceivedDead,
+        max_moves_without_collect: level.playability.maxDrought,
+      } : undefined,
       structure: level.structural ? {
         multi_home_words: level.structural.multiHomeWords,
         max_contested_slots: level.structural.maxContestedSlots,

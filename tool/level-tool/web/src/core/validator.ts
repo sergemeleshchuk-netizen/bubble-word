@@ -424,12 +424,18 @@ const CHECKS: Check[] = [
           suggestion: 'режим «без лимита» задаётся одновременно в K и в лимите',
         };
       }
-      const expected = moveLimit(floor, spec.board.moveLimitK);
+      // блокирующий модификатор (лёд, «?», цепь-линия) мерджей не добавляет,
+      // но стесняет выбор: генератор даёт за него ход форы, формула это знает
+      const blocker = spec.modifiers.frozenBubbles.length > 0
+        || spec.modifiers.hiddenBubbles.length > 0
+        || spec.modifiers.chainLine !== null;
+      const expected = moveLimit(floor, spec.board.moveLimitK) + (blocker ? 1 : 0);
       const ok = spec.board.moveLimit === expected && spec.board.moveLimit >= floor;
       return {
         passed: ok,
         detail: `лимит ${spec.board.moveLimit}, минимум мерджей ${floor}, `
-          + `K = ${spec.board.moveLimitK} → ожидалось ${expected}`,
+          + `K = ${spec.board.moveLimitK} → ожидалось ${expected}`
+          + (blocker ? ' (включая +1 за блокирующий модификатор)' : ''),
         suggestion: 'лимит ниже минимума делает уровень непроходимым',
       };
     },

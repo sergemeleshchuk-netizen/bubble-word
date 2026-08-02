@@ -217,7 +217,7 @@ function buildOriginalSpec(index: ContentIndex, moveLimitK: number): {
     deal: buildDeal(levelId, categories, board),
     traps: [],
     halves: [],
-    modifiers: { chains: [], frozenBubbles: [], hiddenBubbles: [] },
+    modifiers: { chains: [], frozenBubbles: [], hiddenBubbles: [], chainLine: null },
   };
 
   // ловушки ищем тем же правилом, что генератор: иначе оценка D третьего уровня

@@ -80,6 +80,23 @@ export function difficultyBase(features: BaseFeatures, config: ScoringConfig): n
     + (w.very_rare_words ?? 0) * features.veryRareWords;
 }
 
+/**
+ * Ярус сложности для продукта: чистая функция от D, а не третья шкала.
+ *
+ * Границы согласованы с ролями кривой блока (targetDifficulty в blockPlan.ts):
+ * передышки и туториалы попадают в easy, вход/рост/выход в medium, спайки и
+ * пики (7.5+) в hard. Порог между medium и hard проходит по 7.0 — ровно там,
+ * где кривая референса ставит спайки. Единственный источник правды о ярусе:
+ * менять границы здесь, а не в местах употребления.
+ */
+export type DifficultyTier = 'easy' | 'medium' | 'hard';
+
+export function difficultyTier(value: number): DifficultyTier {
+  if (value < 4) return 'easy';
+  if (value < 7) return 'medium';
+  return 'hard';
+}
+
 export interface SemanticEvidence {
   /** сомнения решателя ВНЕ заявленных ловушек: только из прогона режима B */
   unplannedHesitations?: number;
@@ -174,12 +191,20 @@ export function computeDifficulty(
   // ---------------- mechanical ----------------
   const chains = spec.modifiers.chains.length;
   const halves = spec.halves.length;
+  const iced = spec.modifiers.frozenBubbles.length;
+  const hidden = spec.modifiers.hiddenBubbles.length;
+  const chainLine = spec.modifiers.chainLine !== null && spec.modifiers.chainLine !== undefined;
   // без лимита ходов тесноты нет вовсе, а не «теснота по K = 0»
   const tightness = spec.board.moveLimitK === null ? 0
     : (MAX_MOVE_LIMIT_K - spec.board.moveLimitK) / (MAX_MOVE_LIMIT_K - MIN_MOVE_LIMIT_K);
   const mechanical: Record<string, number> = {
     'цепи': Math.min(w.mechanical.modifier_max, w.mechanical.chain * chains),
     'половинки': Math.min(w.mechanical.modifier_max, w.mechanical.half_pair * halves),
+    // лёд, «?» и цепь-линия — объявленные веса: в референсе этих механик нет,
+    // калибровать нечем, и это подписано в конфиге и в интерфейсе
+    'лёд (объявлено)': Math.min(w.mechanical.modifier_max, (w.mechanical.ice ?? 0.45) * iced),
+    '«?» (объявлено)': Math.min(w.mechanical.modifier_max, (w.mechanical.hidden ?? 0.5) * hidden),
+    'цепь-линия (объявлено)': chainLine ? (w.mechanical.chain_line ?? 0.5) : 0,
     'теснота лимита ходов': w.mechanical.move_tightness * Math.max(0, Math.min(1, tightness)),
   };
   const mechanicalTotal = Math.min(
@@ -187,6 +212,14 @@ export function computeDifficulty(
     Object.values(mechanical).reduce((a, b) => a + b, 0));
 
   if (chains > 0) explanation.push(`${chains} цепи: аналитически проверяемый модификатор`);
+  if (halves > 0) explanation.push(`${halves} распилов: склейка половинки тратит ход, `
+    + 'лимит это учитывает');
+  if (iced > 0) explanation.push(`${iced} замороженных пузыря: тают от мерджей `
+    + '(вес объявлен, референсом не калиброван)');
+  if (hidden > 0) explanation.push(`${hidden} скрытых «?» (вес объявлен, `
+    + 'референсом не калиброван)');
+  if (chainLine) explanation.push('цепь-линия делит поле '
+    + `(снимается сбором ${spec.modifiers.chainLine?.need} категорий; вес объявлен)`);
   explanation.push(spec.board.moveLimit === null
     ? `лимита ходов нет (туториал), минимум мерджей ${spec.board.moveFloor}`
     : `лимит ходов ${spec.board.moveLimit} при минимуме ${spec.board.moveFloor} `
