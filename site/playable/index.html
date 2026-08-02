@@ -253,6 +253,40 @@ let START_COUNTS=[4,2,2,2,2,2,2,2,2,2,1,1];
    Раньше здесь было 19, взятое из встроенного демо-контента, и уровень в проверке
    выглядел разреженнее, чем он есть. */
 const BOARD_CAPACITY=24;
+
+/* ===== лимит ходов ==========================================================
+   Давление ходов — половина механики (GDD §2 п.9), поэтому уровень без лимита
+   это ИСКЛЮЧЕНИЕ, которое объявляется здесь явно, а не получается само собой из
+   недостающего поля в пакете. Раньше было наоборот: пакет приезжал без
+   move_limit, прототип молча включал ∞, и вся сданная линейка игралась
+   безлимитной — проверить баланс на ней было нельзя.
+
+   Формула лимита одна на проект: move_limit = ceil((3*M + chunks) * K),
+   M = категорий, chunks = склейки половинок, K от 1.6 (просторно) до 1.25
+   (спайк). Дублируется в core/levelMath.ts и scripts/pack_to_handoff.py. */
+const MIN_MOVE_LIMIT_K=1.25, MAX_MOVE_LIMIT_K=1.6;
+/* K для уровня, приехавшего вообще без лимита: середина коридора. Такой уровень
+   всё равно играется с лимитом — «данных нет» не повод снимать механику. */
+const FALLBACK_MOVE_LIMIT_K=1.4;
+const UNLIMITED={
+  /* Туториал: в референсе L1 без лимита, там учат одному драгу. */
+  levels:[1],
+  /* Режимы, где ресурс игрока не ходы: ?mode=timed | daily */
+  modes:['timed','daily'],
+};
+const MODE=new URLSearchParams(location.search).get('mode')||'';
+/* Уровень безлимитен, только если так сказал этот конфиг: номер в списке,
+   режим из списка или явный ?unlimited=1 для ручной проверки. */
+function isUnlimited(levelId){
+  if(new URLSearchParams(location.search).get('unlimited')==='1') return true;
+  if(UNLIMITED.modes.includes(MODE)) return true;
+  return UNLIMITED.levels.includes(levelId);
+}
+function computeMoveLimit(categories,chunks){
+  const floor=categories*3+(chunks||0);
+  return Math.ceil(floor*FALLBACK_MOVE_LIMIT_K);
+}
+
 let FULL={}, MOVES_START=48, CATS_TOTAL=0, FIELD_TARGET=BOARD_CAPACITY, NO_LIMIT=false;
 let METAW=new Set(); /* мета-слова уровня: не спавнятся, приходят превращением четвёрки */
 /* Выкладка от генератора: [{v:имя категории, e:слово}]. null — генератор её не
@@ -278,13 +312,15 @@ function applyLevel(L){
     if(ci!==undefined&&TARGETS[ci]!==p) TARGETS[ci].meta={parent:p.v,word:w};
   }));
   METAW=new Set(TARGETS.filter(t=>t.meta).map(t=>t.meta.word));
-  /* board может не приехать вовсе: пакет из инструмента (?gen=N) несёт только
-     имена категорий и слова — лимит и досыпку прототип считает сам. Раньше
-     обращение к L.board.move_limit на таком пакете падало, ошибка гасилась
-     общим catch, и вместо своего уровня показывался встроенный демо-контент. */
+  /* board может не приехать вовсе: у старых пакетов его нет. Обращение к
+     L.board.move_limit на таком пакете когда-то падало, ошибка гасилась общим
+     catch, и вместо своего уровня показывался встроенный демо-контент. */
   const board=L.board||{};
-  NO_LIMIT=(board.move_limit==null);
-  MOVES_START=NO_LIMIT?total*3:board.move_limit;
+  /* Безлимит — только по конфигу выше. Если лимита в пакете нет, он считается
+     по формуле: молчаливое ∞ снимало бы с уровня половину механики. */
+  NO_LIMIT=isUnlimited(L.level_id);
+  MOVES_START=NO_LIMIT?total*3
+    :(board.move_limit!=null?board.move_limit:computeMoveLimit(M,0));
   const capacity=board.board_capacity||BOARD_CAPACITY;
   FIELD_TARGET=Math.min(board.start_bubbles||capacity,capacity,total);
   DEAL=applyDeal(L);
@@ -854,7 +890,9 @@ function checkEnd(){
     setTimeout(()=>{confetti();showCard('Уровень пройден! 🎉','Все '+CATS_TOTAL+' наборов собраны. Осталось ходов: '+moves);},1000);
     return;
   }
-  if(moves<=0&&pendingPops===0&&done<CATS_TOTAL){
+  /* на безлимитном уровне ходы кончиться не могут по определению: счётчик там
+     показывает ∞, и проигрыш по ходам противоречил бы тому, что видит игрок */
+  if(!NO_LIMIT&&moves<=0&&pendingPops===0&&done<CATS_TOTAL){
     const canWin=done+pendingPops>=CATS_TOTAL;
     if(!canWin){ over=true; showCard('Ходы кончились 😢','Собрано '+done+' из '+CATS_TOTAL+' наборов.'); }
   }

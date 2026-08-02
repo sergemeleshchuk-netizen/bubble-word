@@ -14,8 +14,15 @@
 
 Прототипу нужны имя категории и четыре слова строками (мета-пузыри он находит
 сам, сравнивая слово с именами других категорий уровня — `applyLevel`), плюс
-ПЕРВАЯ ВЫКЛАДКА: что лежит на поле на старте и в каком порядке приходит досыпка.
-Оценки и провенанс сюда по-прежнему не переносятся.
+ПЕРВАЯ ВЫКЛАДКА: что лежит на поле на старте и в каком порядке приходит досыпка,
+плюс ЛИМИТ ХОДОВ. Оценки и провенанс сюда по-прежнему не переносятся.
+
+Про лимит отдельно. У блоков TS-генератора он посчитан и берётся как есть.
+У пакетов Python-пайплайна блока `board` нет вовсе — они собраны до того, как
+доска стала частью пакета. Раньше такой уровень уезжал в прототип без лимита,
+и прототип играл его с ∞: давление ходов исчезало, а это половина механики
+(GDD §2 п.9). Поэтому недостающий лимит здесь ДОСЧИТЫВАЕТСЯ по той же формуле,
+а не оставляется пустым — см. `derive_move_limit`.
 
 Выкладка здесь считается заново, потому что у пакетов пайплайна её нет: они
 собраны до того, как выкладка стала частью уровня. Правило — то же, что в
@@ -36,6 +43,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import random
 import sys
 from pathlib import Path
@@ -49,6 +57,11 @@ HANDOFF_KEY = "bubble-level-tool.generated-pack.v1"
 BOARD_CAPACITY = 24
 WORDS_PER_CATEGORY = 4
 
+# Границы K из core/levelMath.ts: 1.6 — просторный ранний уровень, 1.25 — hard,
+# где у игрока реально кончаются ходы. Ниже 1.25 не опускаемся.
+MIN_MOVE_LIMIT_K = 1.25
+MAX_MOVE_LIMIT_K = 1.6
+
 
 def level_title(level: dict) -> str:
     """Подпись в выпадающем списке. У пакетов пайплайна нет оценки I, только D."""
@@ -60,6 +73,40 @@ def level_title(level: dict) -> str:
     if level.get("interest") is not None:
         parts.append(f"I {level['interest']}")
     return " · ".join(parts)
+
+
+def derive_move_limit(level: dict, category_count: int) -> tuple[int | None, float | None]:
+    """Лимит ходов уровня для прототипа: взять готовый или досчитать по формуле.
+
+    Формула одна на проект (GDD §2 п.9, `moveLimit` в core/levelMath.ts):
+    `move_limit = ceil((3*M + chunks) * K)`. Половинок у наших пакетов нет,
+    поэтому chunks = 0 и пол равен `3*M` — трём мерджам на категорию.
+
+    Если у уровня есть блок `board`, он источник правды целиком, включая
+    `move_limit: null` у туториала: там лимита нет по замыслу референса, и
+    подменять этот осознанный null придуманным числом нельзя.
+
+    Если блока `board` нет (пакеты Python-пайплайна), K выводим из оценки
+    сложности: правило говорит «1.6 на ранних, 1.25 на Hard», а сложность —
+    единственное, что у такого уровня про тесноту прохода известно. D 1 -> 1.6,
+    D 10 -> 1.25, между ними линейно. Это оценка, а не замер, но пустой лимит
+    здесь означал бы ∞ в прототипе, что заведомо неверно.
+    """
+    board = level.get("board")
+    if isinstance(board, dict):
+        limit = board.get("move_limit", board.get("moveLimit"))
+        k = board.get("move_limit_k", board.get("moveLimitK"))
+        return limit, k
+
+    floor = category_count * (WORDS_PER_CATEGORY - 1)
+    score = (level.get("difficulty") or {}).get("score")
+    if score is None:
+        k = (MIN_MOVE_LIMIT_K + MAX_MOVE_LIMIT_K) / 2
+    else:
+        span = (MAX_MOVE_LIMIT_K - MIN_MOVE_LIMIT_K) / 9
+        k = MAX_MOVE_LIMIT_K - (max(1.0, min(10.0, float(score))) - 1) * span
+    k = round(min(MAX_MOVE_LIMIT_K, max(MIN_MOVE_LIMIT_K, k)), 2)
+    return math.ceil(floor * k), k
 
 
 def from_block_dir(path: Path) -> dict:
@@ -97,6 +144,8 @@ def from_block_dir(path: Path) -> dict:
                 # выкладка TS-генератора берётся как есть: пересчитывать её здесь
                 # значило бы выдать игроку не тот уровень, который проверен и оценён
                 "deal": spec.get("deal"),
+                # доска посчитана генератором — вместе с лимитом ходов и его K
+                "board": spec.get("board"),
             }
         )
     meta = json.loads((path / "block.json").read_text(encoding="utf-8")) \
@@ -179,11 +228,17 @@ def build_level(level: dict) -> dict:
     # проверяли и оценивали именно с ней
     deal = level.get("deal") or build_deal(level.get("level") or 0, categories)
     spawnable = len(deal["start"]) + len(deal["queue"])
+    move_limit, move_limit_k = derive_move_limit(level, len(categories))
     return {
         "level_id": level.get("level"),
         "title": level_title(level),
         "categories": categories,
-        "board": {"board_capacity": BOARD_CAPACITY, "start_bubbles": spawnable},
+        "board": {
+            "board_capacity": BOARD_CAPACITY,
+            "start_bubbles": spawnable,
+            "move_limit": move_limit,
+            "move_limit_k": move_limit_k,
+        },
         "deal": deal,
     }
 
@@ -229,9 +284,18 @@ def main() -> int:
         Path(args.out).write_text(body + "\n", encoding="utf-8")
         counts = [len(lv["categories"]) for lv in handoff["levels"]]
         field = [len(lv["deal"]["start"]) for lv in handoff["levels"]]
+        limits = [lv["board"]["move_limit"] for lv in handoff["levels"]]
+        set_limits = [x for x in limits if x is not None]
+        # лимиты печатаем всегда: именно их молчаливая пропажа однажды
+        # превратила все сданные уровни в безлимитные
+        limit_note = (f"лимит ходов {min(set_limits)}-{max(set_limits)}"
+                      if set_limits else "лимита ходов НЕТ НИ У ОДНОГО уровня")
+        if set_limits and len(set_limits) < len(limits):
+            limit_note += f" (без лимита: {len(limits) - len(set_limits)})"
         print(f"{args.out}: {len(handoff['levels'])} уровней, "
               f"категорий {min(counts)}-{max(counts)}, "
               f"на поле {min(field)}-{max(field)} пузырей, "
+              f"{limit_note}, "
               f"метка «{handoff['label']}»",
               file=sys.stderr)
     else:

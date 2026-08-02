@@ -88,6 +88,45 @@ test('мета-пузырь совпадает с именем своей кат
   assert.ok(checked > 0, 'в пресете нет мета-пузырей — проверка ничего не проверила');
 });
 
+test('лимит ходов доезжает до прототипа и не подменяется молча', () => {
+  /*
+   * Проверка родилась из живой поломки. Формат передачи нёс только вместимость
+   * поля и число стартовых пузырей; прототип видел уровень без `move_limit` и
+   * включал ∞. Вся сданная линейка игралась без давления ходов — то есть без
+   * половины механики (GDD §2 п.9), — и заметили это только руками.
+   *
+   * Поэтому здесь закреплены три вещи: поле физически есть, оно равно тому, что
+   * посчитал генератор, и инвариант схемы `move_limit >= 3*M` соблюдён. `null`
+   * разрешён только там, где его поставил сам генератор (туториал): решение
+   * «играть без лимита» принимает конфиг прототипа, а не отсутствие данных.
+   */
+  for (const generated of block.levels) {
+    const handoff = pack.levels.find((l) => l.level_id === generated.spec.levelId)!;
+    const board = handoff.board;
+    assert.ok('move_limit' in board,
+      `уровень ${handoff.level_id}: в доске нет move_limit — прототип включит ∞`);
+    assert.equal(board.move_limit, generated.spec.board.moveLimit,
+      `уровень ${handoff.level_id}: лимит разошёлся с посчитанным генератором`);
+    assert.equal(board.move_limit_k, generated.spec.board.moveLimitK);
+    if (board.move_limit === null) continue;
+    const floor = handoff.categories.length * 3;
+    assert.ok(board.move_limit >= floor,
+      `уровень ${handoff.level_id}: лимит ${board.move_limit} ниже пола ${floor} — уровень непроходим`);
+  }
+});
+
+test('без лимита уходит только туториал', () => {
+  // Если безлимитных уровней вдруг стало много, значит лимит снова где-то
+  // потерялся по дороге, а не был снят осознанно.
+  const unlimited = pack.levels.filter((l) => l.board.move_limit === null);
+  assert.ok(unlimited.length <= 1,
+    `без лимита ${unlimited.length} уровней: ${unlimited.map((l) => l.level_id).join(', ')}`);
+  for (const level of unlimited) {
+    assert.equal(level.level_id, block.levels[0]!.spec.levelId,
+      'без лимита может быть только первый уровень блока (туториал)');
+  }
+});
+
 test('ключ хранилища совпадает у инструмента и у сайта', () => {
   // Единственная связь между бандлом и обычным HTML сайта — строка ключа.
   for (const file of ['../../site/index.html', '../../site/playable/index.html']) {
