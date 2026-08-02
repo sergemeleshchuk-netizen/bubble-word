@@ -320,7 +320,7 @@ function makeBubble(val,ex,x,y,opt){
   const o=opt||{};
   const b={id:uid++,val,exs:[ex],x,y,px:x,py:y-1.2,r:rFor(1),
            half:o.half||null,ice:0,hid:0,zone:0,
-           dragging:false,popping:false,el:document.createElement('div')};
+           dragging:false,popping:false,named:false,el:document.createElement('div')};
   b.el.className='bub t1';
   b.el.addEventListener('pointerdown',e=>grab(e,b));
   board.appendChild(b.el);
@@ -441,7 +441,7 @@ function breakChain(msg){
    не будет, препятствие снимается само — молча показывать неразрешимое поле
    хуже, чем признать ограничение вслух. */
 function legalMove(){
-  const act=bubbles.filter(b=>!b.popping&&b.ice<=0&&b.hid<=0);
+  const act=bubbles.filter(b=>!inert(b)&&b.ice<=0&&b.hid<=0);
   for(let i=0;i<act.length;i++)for(let j=i+1;j<act.length;j++){
     const a=act[i],c=act[j];
     if(!chainDown&&a.zone!==c.zone) continue;
@@ -570,6 +570,12 @@ function physStep(dt,settle){
   if(!settle) bubbles.forEach(place);
 }
 function still(b){ b.px=b.x; b.py=b.y; } /* обнулить скорость после ручного перемещения */
+/* Два разных «не трогай меня». popping — шар вне физики: летит по своей анимации
+   (возврат, магнит, схлопывание), поэтому куча его не видит. named — собранная
+   категория, которая ещё секунду висит с именем: во взаимодействиях её нет,
+   но телом она остаётся, иначе соседи проваливаются сквозь неё на глазах игрока.
+   Всё, что не физика (мердж, драг, бустеры), спрашивает про оба состояния. */
+function inert(b){ return b.popping||b.named; }
 
 /* ===== досыпка как в референсе: рывком после сбора категории ================
    Категория улетела — приходят 4 шара. Если она осталась на поле мета-словом
@@ -606,7 +612,7 @@ function clearMarks(){
 function pickTarget(b){
   let best=null,bd=1e9;
   for(const c of bubbles){
-    if(c===b||c.popping) continue;
+    if(c===b||inert(c)) continue;
     const d=Math.hypot(c.x-b.x,c.y-b.y);
     if(d<(c.r+b.r)&&d<bd){bd=d;best=c;}
   }
@@ -629,7 +635,7 @@ function canMerge(b,t){
 }
 function flash(el,cls){ el.classList.add(cls); setTimeout(()=>el.classList.remove(cls),360); }
 function grab(e,b){
-  if(over||b.popping||drag) return;
+  if(over||inert(b)||drag) return;
   if(b.ice>0||b.hid>0){ flash(b.el,'blk'); return; }   /* заморожен или закрыт: не тащится */
   e.preventDefault();
   const [x,y]=boardXY(e);
@@ -652,7 +658,7 @@ window.addEventListener('pointermove',e=>{
   place(b);
   /* след: всё, над чем пронесли шар, остаётся подсвеченным до конца жеста */
   for(const c of bubbles){
-    if(c===b||c.popping||passed.has(c)) continue;
+    if(c===b||inert(c)||passed.has(c)) continue;
     if(Math.hypot(c.x-b.x,c.y-b.y)<(c.r+b.r)){ passed.add(c); c.el.classList.add('pass'); }
   }
   const t=pickTarget(b);
@@ -708,7 +714,7 @@ function merge(a,b,costMove){
        с подсветкой: игрок должен успеть прочитать, что за категорию он собрал,
        иначе главный ответ уровня проходит мимо него. */
     pendingPops++;
-    a.popping=true;
+    a.named=true;
     a.el.classList.add('named');
     setTimeout(()=>popGroup(a),NAME_HOLD);
   }else{
@@ -718,8 +724,10 @@ function merge(a,b,costMove){
 }
 function popGroup(a){
   const cd=TARGETS.find(t=>t.v===a.val);
+  a.named=false;                /* показ имени кончился */
   a.el.classList.remove('named');
   if(cd&&cd.meta){ metaTransform(a,cd.meta); return; }
+  a.popping=true;               /* только теперь шар исчезает и выходит из физики */
   a.el.classList.add('popping');
   particles(a.x,a.y,a.r);
   toast();
@@ -814,7 +822,7 @@ document.getElementById('bPlus').addEventListener('click',()=>{
 document.getElementById('bHint').addEventListener('click',()=>{
   if(over||boosts.hint<=0) return;
   const cnt={};
-  bubbles.forEach(b=>{if(!b.popping&&!b.half&&b.ice<=0&&b.hid<=0)cnt[b.val]=(cnt[b.val]||0)+1;});
+  bubbles.forEach(b=>{if(!inert(b)&&!b.half&&b.ice<=0&&b.hid<=0)cnt[b.val]=(cnt[b.val]||0)+1;});
   let best=null;
   for(const v in cnt) if(cnt[v]>=2&&(!best||cnt[v]>cnt[best])) best=v;
   if(!best) return;
@@ -827,7 +835,7 @@ document.getElementById('bMag').addEventListener('click',()=>{
   if(over||boosts.mag<=0) return;
   /* магнит подчиняется тем же правилам, что игрок: лёд, «?», цепь и половинки
      он не обходит, иначе бустер «решал» бы модификатор за игрока */
-  const cand=bubbles.filter(b=>!b.popping&&!b.dragging&&b.ice<=0&&b.hid<=0);
+  const cand=bubbles.filter(b=>!inert(b)&&!b.dragging&&b.ice<=0&&b.hid<=0);
   let pick=null;
   for(const a of cand) for(const m of cand){
     if(a===m||!canMerge(m,a).ok) continue;
@@ -841,7 +849,7 @@ document.getElementById('bMag').addEventListener('click',()=>{
   mover.x=anchor.x; mover.y=anchor.y; place(mover);
   setTimeout(()=>{
     mover.el.style.transition=''; mover.popping=false; still(mover);
-    if(bubbles.includes(anchor)&&bubbles.includes(mover)&&!anchor.popping) merge(anchor,mover,false);
+    if(bubbles.includes(anchor)&&bubbles.includes(mover)&&!inert(anchor)) merge(anchor,mover,false);
   },400);
 });
 document.getElementById('gear').addEventListener('click',init);
