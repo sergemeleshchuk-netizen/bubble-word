@@ -2159,6 +2159,28 @@ README должен содержать:
     document.getElementById('playFrame').src='playable/index.html'+(q.length?'?'+q.join('&'):'');
   }
   function pickLevel(){ reloadPlay(); }
+
+  /* Раскрытый пункт подводим под верх экрана: иначе человек жмёт заголовок
+     где-нибудь в середине страницы и сразу должен скроллить сам, чтобы увидеть
+     содержимое. Зазор сверху — чтобы заголовок не лип к кромке окна. */
+  var ROW_TOP_GAP = 14;
+  function rowTopOffset(row){
+    return row.getBoundingClientRect().top - ROW_TOP_GAP;
+  }
+  function scrollRowToTop(row){
+    var target = window.pageYOffset + rowTopOffset(row);
+    /* дальше конца документа не уедем — браузер всё равно обрежет */
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if(target > max) target = max;
+    if(target < 0) target = 0;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try{
+      window.scrollTo({top:target, behavior: reduce ? 'auto' : 'smooth'});
+    }catch(e){
+      window.scrollTo(0, target);
+    }
+  }
+
   function toggle(head){
     var row = head.parentElement;
     var body = row.querySelector('.row-body');
@@ -2177,9 +2199,16 @@ README должен содержать:
          появления группы человек не должен. */
       if(body.querySelector('#lvlSel')) mountHandoff();
       body.style.maxHeight = body.scrollHeight + 'px';
+      scrollRowToTop(row);
       /* после анимации отпускаем ограничение: контент с vh-размерами
          (рамка телефона) не должен обрезаться при изменении окна */
-      setTimeout(function(){ if(row.classList.contains('open')) body.style.maxHeight = 'none'; }, 500);
+      setTimeout(function(){
+        if(!row.classList.contains('open')) return;
+        body.style.maxHeight = 'none';
+        /* Пока пункт раскрывался, страница подрастала — у последних пунктов
+           прокрутке было просто некуда доехать. Дотягиваем, если не доехали. */
+        if(Math.abs(rowTopOffset(row)) > 4) scrollRowToTop(row);
+      }, 500);
     }else{
       body.style.maxHeight = body.scrollHeight + 'px';
       void body.offsetHeight;
