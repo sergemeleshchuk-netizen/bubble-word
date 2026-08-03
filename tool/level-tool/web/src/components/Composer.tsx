@@ -627,6 +627,63 @@ export function Composer({ config, onGenerate }: {
 // экран 3: генерация
 // --------------------------------------------------------------------------- //
 
+/**
+ * Этап, на котором генератор споткнулся → настройка, которую надо трогать.
+ *
+ * Здесь и была ценность прежнего лога попыток: он показывал этап и причину.
+ * Но показывал их ВСЕГДА и построчно — двести строк технических записей о
+ * блоке, который в итоге собрался целиком и прошёл все проверки. Читать это
+ * незачем: попытка, после которой уровень всё равно принят, — рабочий ход
+ * генератора, а не проблема.
+ */
+const STAGE_SETTING: Record<string, string> = {
+  'пул категорий': 'темы (включённые и исключённые), коридор по категориям, окно свежести категорий',
+  'выбор категорий': 'число категорий на уровне и план по мета-связям',
+  'мета-связи': 'план по мета-связям и максимальная глубина мета',
+  'назначение слов': 'окно свежести слов и наполнение базы: категориям не хватает утверждённых слов',
+  редкость: 'редких слов на уровень',
+};
+
+interface SettingConflict {
+  setting: string;
+  attempts: number;
+  reason: string;
+  levels: number[];
+}
+
+/**
+ * Что мешало собрать ПРОБЛЕМНЫЕ уровни.
+ *
+ * Проблемный — это либо уровень, который не собрался вовсе, либо собранный, но
+ * не прошедший hard-инварианты, либо с числом решений не равным одному. Если
+ * таких нет, функция возвращает пустой список и на экране не появляется ничего:
+ * блок собрался, объяснять нечего.
+ */
+function settingConflicts(block: BlockResult): SettingConflict[] {
+  const broken = block.levels.filter((l) => !l.validation.passed || l.solutions.count !== 1);
+  const sources = [
+    ...block.failures.map((f) => ({ levelId: f.levelId, attempts: f.attempts })),
+    ...broken.map((l) => ({ levelId: l.spec.levelId, attempts: l.attempts })),
+  ];
+  if (!sources.length) return [];
+
+  const byStage = new Map<string, SettingConflict>();
+  for (const source of sources) {
+    for (const attempt of source.attempts) {
+      if (attempt.outcome !== 'rejected') continue;
+      const setting = STAGE_SETTING[attempt.stage] ?? attempt.stage;
+      const entry = byStage.get(setting)
+        ?? { setting, attempts: 0, reason: attempt.reason, levels: [] };
+      entry.attempts += 1;
+      // держим последнюю причину: она ближе всего к тому, на чём всё встало
+      entry.reason = attempt.reason;
+      if (!entry.levels.includes(source.levelId)) entry.levels.push(source.levelId);
+      byStage.set(setting, entry);
+    }
+  }
+  return Array.from(byStage.values()).sort((a, b) => b.attempts - a.attempts);
+}
+
 export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
   block: BlockResult | null;
   plans: LevelPlan[];
@@ -645,9 +702,7 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
     );
   }
 
-  const rejected = block.levels.flatMap((l) =>
-    l.attempts.filter((a) => a.outcome === 'rejected')
-      .map((a) => ({ level: l.spec.levelId, ...a })));
+  const conflicts = settingConflicts(block);
 
   return (
     <>
@@ -739,26 +794,26 @@ export function RunView({ block, plans, elapsed, onGenerate, onSelect }: {
         </table>
       </div>
 
-      {rejected.length > 0 && (
+      {conflicts.length > 0 && (
         <div className="panel">
-          <h2>Отклонённые попытки — {rejected.length}</h2>
+          <h2>Настройки, в которые упёрлась сборка</h2>
           <p className="hint">
-            Самое убедительное место инструмента: видно, что именно генератор
-            забраковал и почему, а не просто «крутится спиннер».
+            Показывается только когда есть проблемные уровни. Слева — настройка,
+            об которую генератор споткнулся, справа — что именно не сошлось.
+            Список собран из забракованных попыток этих уровней, а не всего блока.
           </p>
           <table>
             <thead>
-              <tr><th>ур.</th><th className="num">попытка</th><th>этап</th>
-                <th>причина</th><th>ослабления</th></tr>
+              <tr><th>настройка</th><th className="num">попыток</th>
+                <th>что не сошлось</th><th>уровни</th></tr>
             </thead>
             <tbody>
-              {rejected.map((r, i) => (
-                <tr key={i}>
-                  <td className="mono">{r.level}</td>
-                  <td className="num">{r.index + 1}</td>
-                  <td className="small">{r.stage}</td>
-                  <td className="small">{r.reason}</td>
-                  <td className="small muted">{r.relaxations.join('; ') || '—'}</td>
+              {conflicts.map((c) => (
+                <tr key={c.setting}>
+                  <td>{c.setting}</td>
+                  <td className="num muted">{c.attempts}</td>
+                  <td className="small">{c.reason}</td>
+                  <td className="mono small muted">{c.levels.join(', ')}</td>
                 </tr>
               ))}
             </tbody>
