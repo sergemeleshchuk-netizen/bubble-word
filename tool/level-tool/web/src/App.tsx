@@ -12,6 +12,10 @@ import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
 import { ContentBase } from './components/ContentBase.tsx';
 import { ExportView } from './components/ExportView.tsx';
+import { ReferencePicker } from './components/ReferencePicker.tsx';
+import {
+  REFERENCE_ORIGIN, buildReferenceBlock, type BwjLevels, type ReferenceBlock,
+} from './core/referenceLevels.ts';
 import { DecadeTable } from './components/DealTuning.tsx';
 import {
   applyDecadeTuning, decadeTuningDefaults, type DecadeTuningRow,
@@ -50,6 +54,12 @@ async function loadSnapshot(id: SourceId): Promise<Snapshot> {
 /** Снимок, с которым инструмент рисует первый кадр, пока едет рабочий словарь. */
 const BOOT_SOURCE_ID: SourceId = 'production';
 
+/** Выгрузка уровней оригинала: 1 МБ, нужна только источнику «База-реф-BWJ». */
+async function loadReferenceLevels(): Promise<BwjLevels> {
+  const module = await import('./data/bwj-levels.json');
+  return module.default as unknown as BwjLevels;
+}
+
 /**
  * Ручная настройка раздачи старта переживает перезагрузку страницы: это
  * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
@@ -82,6 +92,21 @@ const TABS = [
   { id: 'base', label: 'База контента' },
   { id: 'compose', label: 'Настройка блока' },
   { id: 'run', label: 'Генерация' },
+  { id: 'level', label: 'Уровень' },
+  { id: 'export', label: 'Экспорт' },
+] as const;
+
+/**
+ * Закладки источника «База-реф-BWJ».
+ *
+ * «Настройки блока» и «Генерации» здесь нет, и это не упрощение интерфейса, а
+ * следствие: на этом источнике собирать нечего — состав уровня задан выгрузкой.
+ * Оставить те экраны значило бы предложить крутить ручки, которые ни на что не
+ * влияют, и показать кнопку «Собрать блок» там, где блок не собирается.
+ */
+const REFERENCE_TABS = [
+  { id: 'base', label: 'База контента' },
+  { id: 'compose', label: 'Выбор уровней' },
   { id: 'level', label: 'Уровень' },
   { id: 'export', label: 'Экспорт' },
 ] as const;
@@ -138,6 +163,29 @@ export function App() {
     return () => { cancelled = true; };
   }, [requested, active.id]);
 
+  /**
+   * Режим реф-базы. Выгрузка уровней грузится один раз при первом заходе на
+   * источник и остаётся в памяти: переключение туда-обратно не должно каждый
+   * раз тянуть мегабайт.
+   */
+  const isReference = source.id === 'reference';
+  const [bwj, setBwj] = useState<BwjLevels | null>(null);
+  const [refProvenance, setRefProvenance] =
+    useState<ReferenceBlock['provenance']>({});
+
+  useEffect(() => {
+    if (!isReference || bwj !== null) return undefined;
+    let cancelled = false;
+    loadReferenceLevels()
+      .then((loaded) => { if (!cancelled) setBwj(loaded); })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setLoadError(error instanceof Error ? error.message : String(error));
+        }
+      });
+    return () => { cancelled = true; };
+  }, [isReference, bwj]);
+
   const index = useMemo(() => new ContentIndex(snapshot), [snapshot]);
   // план применённого конфига нужен экрану генерации; экран настройки считает
   // свой собственный по черновику формы
@@ -179,6 +227,31 @@ export function App() {
     setTab('run');
   };
 
+  /**
+   * Собрать выбранные уровни оригинала. Результат кладётся в то же состояние
+   * `block`, что и наш собранный блок: дальше уровень идёт теми же экранами —
+   * «Уровень», «Экспорт», «Добавить в Playable», — и дублировать их не нужно.
+   */
+  const buildReference = (ids: number[]) => {
+    if (!bwj) return;
+    const started = performance.now();
+    const built = buildReferenceBlock(index, bwj, ids, scoring);
+    setElapsed(Math.round(performance.now() - started));
+    setRefProvenance(built.provenance);
+    setBlock({
+      // конфиг здесь — не настройка сборки, а расписка о происхождении: уровни
+      // не собирались ни этим конфигом, ни вообще генератором
+      config: { ...DEFAULT_BLOCK_CONFIG, levelRange: [ids[0], ids[ids.length - 1]],
+        seed: REFERENCE_ORIGIN },
+      contentSnapshotHash: snapshot.content_snapshot_hash,
+      generatorVersion: REFERENCE_ORIGIN,
+      levels: built.levels,
+      failures: [],
+      packHash: built.packHash,
+    });
+    setSelectedLevel(built.levels[0]?.spec.levelId ?? null);
+  };
+
   const level = block?.levels.find((l) => l.spec.levelId === selectedLevel) ?? null;
   const busy = loadingSource !== null;
 
@@ -186,7 +259,12 @@ export function App() {
    * Следующий шаг для кнопки под содержимым. На последнем экране её нет:
    * кнопка «Дальше», ведущая в никуда, врёт про то, что работа не закончена.
    */
-  const nextTab = TABS[TABS.findIndex((t) => t.id === tab) + 1] ?? null;
+  const tabs: readonly { id: TabId; label: string }[] = isReference
+    ? REFERENCE_TABS : TABS;
+  // закладка «Генерация» на реф-базе исчезает: если человек стоял на ней,
+  // возвращаем на выбор уровней, иначе экран остался бы пустым
+  const activeTab: TabId = tabs.some((t) => t.id === tab) ? tab : 'compose';
+  const nextTab = tabs[tabs.findIndex((t) => t.id === activeTab) + 1] ?? null;
 
   return (
     <div className="app">
@@ -233,10 +311,10 @@ export function App() {
       )}
 
       <nav className="tabs">
-        {TABS.map((t, i) => (
+        {tabs.map((t, i) => (
           <button
             key={t.id}
-            className={tab === t.id ? 'active' : ''}
+            className={activeTab === t.id ? 'active' : ''}
             onClick={() => setTab(t.id)}
           >
             <span className="num">{i + 1}</span>{t.label}
@@ -244,7 +322,7 @@ export function App() {
         ))}
       </nav>
 
-      {tab === 'base' && (
+      {activeTab === 'base' && (
         <>
           <ContentBase
             snapshot={snapshot}
@@ -256,15 +334,26 @@ export function App() {
         </>
       )}
 
-      {tab === 'compose' && (
-        <Composer
-          config={config}
-          onGenerate={generate}
-          tuneConfig={(c) => applyDecadeTuning(c, decadeTuning)}
-        />
-      )}
+      {activeTab === 'compose' && (isReference
+        ? (
+          <ReferencePicker
+            data={bwj}
+            block={block}
+            busy={busy}
+            provenance={refProvenance}
+            onBuild={buildReference}
+            onSelect={(id) => { setSelectedLevel(id); setTab('level'); }}
+          />
+        )
+        : (
+          <Composer
+            config={config}
+            onGenerate={generate}
+            tuneConfig={(c) => applyDecadeTuning(c, decadeTuning)}
+          />
+        ))}
 
-      {tab === 'run' && (
+      {activeTab === 'run' && (
         <RunView
           block={block}
           plans={plans}
@@ -274,7 +363,7 @@ export function App() {
         />
       )}
 
-      {tab === 'level' && (
+      {activeTab === 'level' && (
         level
           ? (
             <LevelInspector
@@ -286,13 +375,13 @@ export function App() {
               levels={block!.levels}
             />
           )
-          : <Empty onGenerate={generate} />
+          : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />
       )}
 
-      {tab === 'export' && (
+      {activeTab === 'export' && (
         block
           ? <ExportView block={block} toGameJson={toGameJson} toPipelineJson={toPipelineJson} />
-          : <Empty onGenerate={generate} />
+          : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />
       )}
 
       {nextTab && (
@@ -306,7 +395,23 @@ export function App() {
   );
 }
 
-function Empty({ onGenerate }: { onGenerate: () => void }) {
+function Empty({ onGenerate, isReference, onGoPick }: {
+  onGenerate: () => void; isReference: boolean; onGoPick: () => void;
+}) {
+  // на реф-базе предлагать «собрать блок» нельзя: блок там не собирается,
+  // а выбираются готовые уровни оригинала
+  if (isReference) {
+    return (
+      <div className="panel">
+        <h2>Уровни ещё не выбраны</h2>
+        <p className="hint">
+          На источнике «База-реф-BWJ» уровни не собираются, а берутся из
+          выгрузки оригинала. Выберите номера — и уровень откроется здесь.
+        </p>
+        <button className="primary" onClick={onGoPick}>К выбору уровней</button>
+      </div>
+    );
+  }
   return (
     <div className="panel">
       <h2>Блок ещё не собран</h2>
