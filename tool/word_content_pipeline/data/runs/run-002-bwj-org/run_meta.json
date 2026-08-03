@@ -1,0 +1,4131 @@
+{
+ "source": "bwj_reference_v1",
+ "origin": "bubblewordjam.org (фанатская расшифровка ответов оригинала)",
+ "levels": [
+  1,
+  1025
+ ],
+ "levels_count": 1025,
+ "note": "Взяты словарь и структура категорий. Готовые четвёрки НЕ переносятся: раскладку собирает наш генератор, проверка REFERENCE_NOVELTY не даёт выдать чужую четвёрку.",
+ "hierarchy": {
+  "academic_departments": [
+   "geology"
+  ],
+  "academic_disciplines": [
+   "philosophy"
+  ],
+  "academic_fields": [
+   "astronomy",
+   "botany",
+   "mythology",
+   "semiotics"
+  ],
+  "academic_subjects": [
+   "geology",
+   "geometry",
+   "physics",
+   "rhetoric",
+   "theater"
+  ],
+  "accessories": [
+   "purse",
+   "watch"
+  ],
+  "adornment": [
+   "jewelry"
+  ],
+  "africa_capitals": [
+   "cairo"
+  ],
+  "aircraft_parts": [
+   "engines"
+  ],
+  "airshow": [
+   "jet"
+  ],
+  "alaska": [
+   "bears"
+  ],
+  "alchemy": [
+   "mercury"
+  ],
+  "alcoholic_beverages": [
+   "beer"
+  ],
+  "alloys": [
+   "brass",
+   "bronze"
+  ],
+  "alphabet": [
+   "words"
+  ],
+  "anatomy": [
+   "face"
+  ],
+  "anatomy_classes": [
+   "bones"
+  ],
+  "anchor": [
+   "news"
+  ],
+  "ancient_cities": [
+   "athens",
+   "babylon"
+  ],
+  "ancient_civilizations": [
+   "ancient_rome",
+   "inca",
+   "prehistoric",
+   "samurai",
+   "viking"
+  ],
+  "ancient_greece": [
+   "goddess",
+   "gods"
+  ],
+  "ancient_rome": [
+   "caesar"
+  ],
+  "ancient_warrior": [
+   "viking"
+  ],
+  "ancient_warriors": [
+   "knight"
+  ],
+  "animal_classification": [
+   "order"
+  ],
+  "animal_kingdom": [
+   "birds",
+   "fish",
+   "mammals",
+   "reptiles"
+  ],
+  "animals": [
+   "amphibians",
+   "birds",
+   "reptiles"
+  ],
+  "animated_movies": [
+   "ice_age"
+  ],
+  "annual_events": [
+   "halloween",
+   "music_festivals"
+  ],
+  "antarctic_features": [
+   "glacier"
+  ],
+  "antarctica": [
+   "penguin"
+  ],
+  "apparel": [
+   "seam"
+  ],
+  "aquarium": [
+   "fish"
+  ],
+  "aquatic_animals": [
+   "dolphin"
+  ],
+  "arachnids": [
+   "spider"
+  ],
+  "architecture_styles": [
+   "lighthouse"
+  ],
+  "arctic": [
+   "north_pole"
+  ],
+  "arctic_explorers": [
+   "morse"
+  ],
+  "areas_of_expertise": [
+   "domain"
+  ],
+  "areas_of_living": [
+   "town"
+  ],
+  "arizona_cities": [
+   "phoenix"
+  ],
+  "art": [
+   "music",
+   "sculpture"
+  ],
+  "art_classes": [
+   "photography",
+   "pottery",
+   "textures"
+  ],
+  "art_forms": [
+   "fabric_patterns",
+   "pottery",
+   "sculpture"
+  ],
+  "art_materials": [
+   "canvas"
+  ],
+  "art_mediums": [
+   "pottery"
+  ],
+  "art_movements": [
+   "cubism"
+  ],
+  "art_periods": [
+   "baroque"
+  ],
+  "art_studios": [
+   "pottery"
+  ],
+  "art_supplies": [
+   "sketch"
+  ],
+  "artisan_crafts": [
+   "pottery"
+  ],
+  "asia": [
+   "japan"
+  ],
+  "asian_countries": [
+   "japan",
+   "korea"
+  ],
+  "asian_cuisine": [
+   "noodles"
+  ],
+  "assemble": [
+   "religious_building",
+   "stadium"
+  ],
+  "astrology": [
+   "planet",
+   "planets",
+   "zodiac"
+  ],
+  "astronomical_objects": [
+   "planets"
+  ],
+  "astronomy": [
+   "constellations",
+   "planet",
+   "planets"
+  ],
+  "at_night": [
+   "book",
+   "game"
+  ],
+  "at_the_beach": [
+   "sandcastle"
+  ],
+  "at_the_mall": [
+   "elevator"
+  ],
+  "at_the_resort": [
+   "hammock"
+  ],
+  "atlantis": [
+   "ocean"
+  ],
+  "atmospheric_phenomena": [
+   "rainbow"
+  ],
+  "attachment_style": [
+   "secure"
+  ],
+  "attractions": [
+   "water_park",
+   "zoo"
+  ],
+  "auto_racing": [
+   "formula"
+  ],
+  "aviary": [
+   "birds"
+  ],
+  "aviation_terms": [
+   "wings"
+  ],
+  "backyard_activities": [
+   "fencing"
+  ],
+  "backyard_sounds": [
+   "cricket"
+  ],
+  "backyard_structures": [
+   "treehouse"
+  ],
+  "bakedgoods": [
+   "bread",
+   "pastries"
+  ],
+  "bakery": [
+   "bread",
+   "flour"
+  ],
+  "bakery_items": [
+   "bread"
+  ],
+  "baking": [
+   "pastry",
+   "salt"
+  ],
+  "baking_tools": [
+   "whisk"
+  ],
+  "ballroom_dances": [
+   "tango",
+   "waltz"
+  ],
+  "bank": [
+   "money",
+   "vault"
+  ],
+  "bar": [
+   "piano"
+  ],
+  "baseball": [
+   "diamond"
+  ],
+  "baseball_field": [
+   "diamond"
+  ],
+  "baseball_teams": [
+   "cardinals"
+  ],
+  "basic_shapes": [
+   "egg",
+   "heart"
+  ],
+  "basketball_players": [
+   "curry"
+  ],
+  "basketball_teams": [
+   "thunder"
+  ],
+  "beach": [
+   "sun"
+  ],
+  "beach_activities": [
+   "volleyball"
+  ],
+  "beach_gear": [
+   "umbrella"
+  ],
+  "beach_sports": [
+   "volleyball"
+  ],
+  "beacon": [
+   "signal"
+  ],
+  "beauty_care": [
+   "makeup"
+  ],
+  "beauty_salon": [
+   "hairstyle"
+  ],
+  "beauty_services": [
+   "hairstyle",
+   "makeup"
+  ],
+  "bedding": [
+   "quilt"
+  ],
+  "bedroom": [
+   "bed",
+   "clock",
+   "wardrobe"
+  ],
+  "beverages": [
+   "coffee",
+   "tea"
+  ],
+  "big_band_sections": [
+   "brass"
+  ],
+  "big_cats": [
+   "tiger"
+  ],
+  "big_picture": [
+   "economy",
+   "universe"
+  ],
+  "bingo_calls": [
+   "theater"
+  ],
+  "biochemical_compounds": [
+   "hormone"
+  ],
+  "biochemistry": [
+   "enzyme"
+  ],
+  "biological_kingdoms": [
+   "fungi",
+   "herbs",
+   "vegetables"
+  ],
+  "biology_branches": [
+   "taxonomy"
+  ],
+  "biology_classifications": [
+   "fungi"
+  ],
+  "biology_domains": [
+   "fungi"
+  ],
+  "biology_fields": [
+   "cytology",
+   "fungi"
+  ],
+  "biome": [
+   "jungle"
+  ],
+  "biomes": [
+   "desert",
+   "jungle"
+  ],
+  "biometrics": [
+   "face"
+  ],
+  "birds_of_myth": [
+   "raven"
+  ],
+  "birds_of_prey": [
+   "falcon",
+   "hawk",
+   "owl",
+   "raven"
+  ],
+  "birthday": [
+   "party"
+  ],
+  "birthday_party": [
+   "cake"
+  ],
+  "birthstones": [
+   "ruby"
+  ],
+  "black_and_white_animals": [
+   "penguin"
+  ],
+  "black_white": [
+   "chess",
+   "panda",
+   "piano"
+  ],
+  "blacksmith": [
+   "forge"
+  ],
+  "blacksmith_skills": [
+   "forge"
+  ],
+  "bloom": [
+   "flower"
+  ],
+  "blue_things": [
+   "ocean"
+  ],
+  "board_games": [
+   "backgammon",
+   "card_suits",
+   "chess"
+  ],
+  "board_games_with_pieces": [
+   "checkers"
+  ],
+  "board_sports": [
+   "surfboards"
+  ],
+  "boat_parts": [
+   "sails"
+  ],
+  "bodies_of_water": [
+   "lake",
+   "ocean",
+   "river",
+   "waterfall"
+  ],
+  "body_parts": [
+   "eye",
+   "finger",
+   "hand",
+   "head"
+  ],
+  "body_systems": [
+   "brain",
+   "heart",
+   "lung",
+   "nervous",
+   "organs"
+  ],
+  "book": [
+   "fantasy"
+  ],
+  "book_genres": [
+   "comedy",
+   "science_fiction"
+  ],
+  "botany": [
+   "seed"
+  ],
+  "bounce": [
+   "rubber"
+  ],
+  "bowl": [
+   "cup"
+  ],
+  "brass_instruments": [
+   "trumpet",
+   "tuba"
+  ],
+  "brazilian_cities": [
+   "carnival"
+  ],
+  "bread_types": [
+   "sourdough"
+  ],
+  "breakfast": [
+   "bacon",
+   "cereal",
+   "egg"
+  ],
+  "breakfast_foods": [
+   "honey"
+  ],
+  "breakfast_options": [
+   "cereal"
+  ],
+  "browsers": [
+   "opera"
+  ],
+  "bubbles": [
+   "economic"
+  ],
+  "building_materials": [
+   "marble"
+  ],
+  "building_stone": [
+   "marble"
+  ],
+  "bulb_vegetables": [
+   "garlic"
+  ],
+  "bullfight": [
+   "bulls"
+  ],
+  "cafe": [
+   "coffee_bean"
+  ],
+  "cafe_experience": [
+   "pastries",
+   "tea"
+  ],
+  "caged_creatures": [
+   "scorpion"
+  ],
+  "calendar": [
+   "lunar"
+  ],
+  "calendar_highlights": [
+   "summer_events"
+  ],
+  "calendar_topics": [
+   "annual_events"
+  ],
+  "california": [
+   "hollywood"
+  ],
+  "california_cities": [
+   "hollywood"
+  ],
+  "camera": [
+   "security"
+  ],
+  "camping_gear": [
+   "compass",
+   "tent"
+  ],
+  "can_be_broken": [
+   "candy_bar"
+  ],
+  "can_be_squeezed": [
+   "citrus_fruits"
+  ],
+  "canada": [
+   "beaver"
+  ],
+  "canadian_symbols": [
+   "maple"
+  ],
+  "candy": [
+   "mint"
+  ],
+  "candy_flavors": [
+   "mint"
+  ],
+  "canned_food": [
+   "beans",
+   "soup"
+  ],
+  "car": [
+   "door",
+   "engine"
+  ],
+  "car_brands": [
+   "tesla"
+  ],
+  "car_manufacturers": [
+   "saturn"
+  ],
+  "car_safety": [
+   "airbag"
+  ],
+  "carbonate_minerals": [
+   "calcite"
+  ],
+  "card_games": [
+   "poker"
+  ],
+  "card_suits": [
+   "diamond",
+   "heart"
+  ],
+  "career_fields": [
+   "medicine"
+  ],
+  "caribbean_music": [
+   "calypso"
+  ],
+  "carpenter": [
+   "hammer"
+  ],
+  "carpentry_tools": [
+   "timber"
+  ],
+  "cartoon_strips": [
+   "garfield"
+  ],
+  "casino": [
+   "poker"
+  ],
+  "casino_games": [
+   "poker"
+  ],
+  "cat_family": [
+   "cat"
+  ],
+  "categories": [
+   "inventions"
+  ],
+  "catholic_church": [
+   "cardinal"
+  ],
+  "cauldron": [
+   "witch"
+  ],
+  "cave": [
+   "darkness"
+  ],
+  "celebrations": [
+   "anniversary",
+   "birthday"
+  ],
+  "celestial_objects": [
+   "comet"
+  ],
+  "celestial_phenomena": [
+   "supernova"
+  ],
+  "cement": [
+   "lime"
+  ],
+  "centipede": [
+   "legs"
+  ],
+  "ceramic_materials": [
+   "clay"
+  ],
+  "cereal": [
+   "bowl"
+  ],
+  "chandelier_parts": [
+   "crystal"
+  ],
+  "character_roles": [
+   "antagonist"
+  ],
+  "chemical_elements": [
+   "copper"
+  ],
+  "chemistry": [
+   "alloys",
+   "atom"
+  ],
+  "chemistry_lab": [
+   "acids"
+  ],
+  "chemistry_topics": [
+   "metals"
+  ],
+  "chess": [
+   "bishop",
+   "king"
+  ],
+  "chess_moves": [
+   "castle"
+  ],
+  "chess_pieces": [
+   "queen"
+  ],
+  "chicken": [
+   "egg"
+  ],
+  "childhood_entertainment": [
+   "carnival_rides"
+  ],
+  "chinese_zodiac_animals": [
+   "dog",
+   "dragon",
+   "monkey"
+  ],
+  "christmas": [
+   "deer",
+   "reindeer",
+   "santa_claus"
+  ],
+  "cinema": [
+   "animation",
+   "fantasy"
+  ],
+  "circus": [
+   "magician"
+  ],
+  "circus_performers": [
+   "magic"
+  ],
+  "cities": [
+   "phoenix"
+  ],
+  "city_buildings": [
+   "bank",
+   "museum",
+   "skyscapers"
+  ],
+  "city_planning": [
+   "venues"
+  ],
+  "civil_engineering": [
+   "bridge"
+  ],
+  "classical_elements": [
+   "fire"
+  ],
+  "classical_forms": [
+   "sonata"
+  ],
+  "classical_instruments": [
+   "violin"
+  ],
+  "classical_music": [
+   "opera",
+   "violin"
+  ],
+  "classical_music_forms": [
+   "waltz"
+  ],
+  "classical_studies": [
+   "rhetoric"
+  ],
+  "climate": [
+   "weather"
+  ],
+  "climbing_plants": [
+   "ivy"
+  ],
+  "clock": [
+   "tower"
+  ],
+  "clothes": [
+   "bottoms",
+   "footwear",
+   "hats",
+   "shoes",
+   "tops"
+  ],
+  "clothing_materials": [
+   "fabric"
+  ],
+  "coastal_features": [
+   "lighthouse"
+  ],
+  "cocktail": [
+   "spirits"
+  ],
+  "cocktail_ingredients": [
+   "glass",
+   "vodka"
+  ],
+  "cocktail_names": [
+   "volcanic"
+  ],
+  "cocktail_spirits": [
+   "gin"
+  ],
+  "cocktails": [
+   "martini"
+  ],
+  "coffee_orders": [
+   "cappuccino"
+  ],
+  "coin_conditions": [
+   "mint"
+  ],
+  "coin_production": [
+   "mint"
+  ],
+  "cold_blooded_animals": [
+   "crocodile",
+   "lizard",
+   "snake"
+  ],
+  "college_courses": [
+   "microscopy"
+  ],
+  "college_features": [
+   "academic_departments"
+  ],
+  "college_life": [
+   "rush"
+  ],
+  "college_majors": [
+   "geology"
+  ],
+  "college_reqs": [
+   "art_classes"
+  ],
+  "college_subjects": [
+   "architecture",
+   "astronomy"
+  ],
+  "color_theory": [
+   "hues"
+  ],
+  "colors": [
+   "navy"
+  ],
+  "combat_sports": [
+   "boxing",
+   "martial_arts"
+  ],
+  "comic_book_publishers": [
+   "image"
+  ],
+  "communication": [
+   "letter"
+  ],
+  "communication_systems": [
+   "morse",
+   "morse_code"
+  ],
+  "communication_tools": [
+   "beacon",
+   "internet",
+   "radio",
+   "smartphone"
+  ],
+  "competitive_sports": [
+   "swimming"
+  ],
+  "computer": [
+   "hardware",
+   "keyboard",
+   "programming_language"
+  ],
+  "computer_parts": [
+   "keyboard"
+  ],
+  "computer_programming_languages": [
+   "swift"
+  ],
+  "computer_storage": [
+   "memory"
+  ],
+  "computer_terms": [
+   "shell"
+  ],
+  "computing_paradigms": [
+   "binary"
+  ],
+  "concert": [
+   "band",
+   "music",
+   "ticket"
+  ],
+  "concert_venues": [
+   "orchestra_sections"
+  ],
+  "conductors_directions": [
+   "tempo"
+  ],
+  "confinement": [
+   "prison"
+  ],
+  "construction": [
+   "builders",
+   "building_materials",
+   "machines",
+   "materials"
+  ],
+  "construction_equipment": [
+   "crane"
+  ],
+  "construction_materials": [
+   "marble",
+   "steel"
+  ],
+  "construction_site": [
+   "crane"
+  ],
+  "construction_tools": [
+   "hammer"
+  ],
+  "contact_sports": [
+   "rugby"
+  ],
+  "contains_caffeine": [
+   "chocolate"
+  ],
+  "continents": [
+   "africa",
+   "asia",
+   "australia"
+  ],
+  "cookie_add_ins": [
+   "nuts"
+  ],
+  "cooking_herbs": [
+   "sage"
+  ],
+  "cooking_ingredients": [
+   "spice"
+  ],
+  "cooking_shows": [
+   "culinary_terms"
+  ],
+  "correctional_facility": [
+   "prison"
+  ],
+  "cosmic_objects": [
+   "pulsar"
+  ],
+  "cosmic_phenomena": [
+   "big_bang"
+  ],
+  "countries": [
+   "china"
+  ],
+  "countries_in_europe": [
+   "italy",
+   "spain"
+  ],
+  "courtyard": [
+   "fountain"
+  ],
+  "cozy_room": [
+   "fireplace"
+  ],
+  "craft_hobbies": [
+   "pottery"
+  ],
+  "crafting_hobbies": [
+   "sewing"
+  ],
+  "crafting_supplies": [
+   "yarn"
+  ],
+  "crafts": [
+   "carpentry",
+   "knitting",
+   "pottery",
+   "sewing",
+   "woodworking"
+  ],
+  "creative_activities": [
+   "sewing"
+  ],
+  "creative_fields": [
+   "literature",
+   "music",
+   "visual_arts"
+  ],
+  "creative_professions": [
+   "sculptor"
+  ],
+  "creatures": [
+   "mammal",
+   "reptile"
+  ],
+  "creatures_with_stings": [
+   "bee"
+  ],
+  "credit_card_types": [
+   "reward_tier"
+  ],
+  "crime_investigation": [
+   "forensic",
+   "forensics"
+  ],
+  "crimes": [
+   "fraud",
+   "robbery"
+  ],
+  "crystalline_structures": [
+   "quartz"
+  ],
+  "crystals": [
+   "diamond"
+  ],
+  "cuisine": [
+   "mexican"
+  ],
+  "culinary_arts": [
+   "baking",
+   "cooking",
+   "restaurant"
+  ],
+  "cultural_places": [
+   "museum",
+   "theater"
+  ],
+  "currency": [
+   "coin"
+  ],
+  "daily_meals": [
+   "breakfast"
+  ],
+  "dairy": [
+   "cheese",
+   "milk"
+  ],
+  "dairy_products": [
+   "cheese",
+   "ice_cream",
+   "yogurt"
+  ],
+  "dance_styles": [
+   "ballet",
+   "tango"
+  ],
+  "dances": [
+   "ballet"
+  ],
+  "data_storage": [
+   "cloud"
+  ],
+  "database_terms": [
+   "sage"
+  ],
+  "date_night_look": [
+   "hairstyle",
+   "perfume"
+  ],
+  "death_deities": [
+   "reaper"
+  ],
+  "deep_space_objects": [
+   "nebula"
+  ],
+  "deli": [
+   "ham",
+   "sandwich"
+  ],
+  "deli_foods": [
+   "sandwich"
+  ],
+  "dental_work": [
+   "crown"
+  ],
+  "dentist": [
+   "crown"
+  ],
+  "dentistry": [
+   "crown"
+  ],
+  "desert": [
+   "cactus",
+   "mirage",
+   "vegas"
+  ],
+  "designer_label": [
+   "polo"
+  ],
+  "dessert_types": [
+   "cake"
+  ],
+  "desserts": [
+   "cake",
+   "donut"
+  ],
+  "detective": [
+   "magnifying_glass"
+  ],
+  "detective_stories": [
+   "telescope"
+  ],
+  "detectives_kit": [
+   "criminal"
+  ],
+  "development_methodology": [
+   "waterfall"
+  ],
+  "difficulty": [
+   "complex"
+  ],
+  "digestive_system": [
+   "stomach"
+  ],
+  "dinner": [
+   "pasta",
+   "salad"
+  ],
+  "dinner_table": [
+   "candle"
+  ],
+  "dips_spreads": [
+   "guacamole"
+  ],
+  "disasters": [
+   "hurricane",
+   "tornado"
+  ],
+  "disguise": [
+   "glasses"
+  ],
+  "dish": [
+   "burger",
+   "pizza",
+   "salad",
+   "sushi"
+  ],
+  "disney_properties": [
+   "pixar"
+  ],
+  "displays": [
+   "plasma"
+  ],
+  "distilled_spirits": [
+   "whiskey"
+  ],
+  "divination": [
+   "zodiac"
+  ],
+  "divination_methods": [
+   "tarot"
+  ],
+  "doctor": [
+   "patient"
+  ],
+  "dosage": [
+   "drops"
+  ],
+  "downtown": [
+   "bakery"
+  ],
+  "downtown_businesses": [
+   "pharmacy"
+  ],
+  "draft_animals": [
+   "horse"
+  ],
+  "dragon": [
+   "fire"
+  ],
+  "drama": [
+   "acting"
+  ],
+  "dress_code": [
+   "casual",
+   "formal"
+  ],
+  "dressings": [
+   "caesar"
+  ],
+  "drinks": [
+   "coffee",
+   "tea"
+  ],
+  "driving_basics": [
+   "engine"
+  ],
+  "early_writing_materials": [
+   "tablet"
+  ],
+  "earth": [
+   "ocean"
+  ],
+  "earth_sciences": [
+   "seismology"
+  ],
+  "east_asian_dresses": [
+   "kimono"
+  ],
+  "easter": [
+   "spring"
+  ],
+  "ecology": [
+   "biome",
+   "environment",
+   "food_web"
+  ],
+  "economy": [
+   "jobs",
+   "money"
+  ],
+  "ecosystems": [
+   "forests"
+  ],
+  "edible_bars": [
+   "kind"
+  ],
+  "education": [
+   "math",
+   "reading",
+   "school",
+   "writing"
+  ],
+  "educational_building": [
+   "school"
+  ],
+  "educational_institutions": [
+   "university_departments"
+  ],
+  "egypt": [
+   "desert",
+   "pyramids"
+  ],
+  "electric_powered": [
+   "television"
+  ],
+  "electrical_units": [
+   "volt"
+  ],
+  "element": [
+   "earth"
+  ],
+  "elements_of_nature": [
+   "fire"
+  ],
+  "elevator": [
+   "door"
+  ],
+  "emerging_fields": [
+   "biotechnology"
+  ],
+  "empires": [
+   "ottoman"
+  ],
+  "energy_drinks": [
+   "monster"
+  ],
+  "energy_sources": [
+   "fossil",
+   "green_energy",
+   "hydro",
+   "nuclear"
+  ],
+  "engine_transportation": [
+   "airplane",
+   "ship",
+   "train"
+  ],
+  "english_speaking_world": [
+   "australia",
+   "canada",
+   "usa"
+  ],
+  "entertainment": [
+   "theater"
+  ],
+  "entertainment_complexes": [
+   "concert_venues"
+  ],
+  "entertainment_forms": [
+   "opera"
+  ],
+  "entertainment_venues": [
+   "cinema",
+   "circus_acts",
+   "theatre"
+  ],
+  "entomology": [
+   "lepidoptera"
+  ],
+  "environment": [
+   "air"
+  ],
+  "equestrian": [
+   "polo"
+  ],
+  "essential_oil_scents": [
+   "citrus"
+  ],
+  "essential_oils": [
+   "citrus"
+  ],
+  "eu_countries": [
+   "france",
+   "germany",
+   "greece",
+   "italy",
+   "spain"
+  ],
+  "evergreen_trees": [
+   "cedar"
+  ],
+  "evil": [
+   "villainous"
+  ],
+  "ex_empires": [
+   "india"
+  ],
+  "exam": [
+   "bar"
+  ],
+  "expenses": [
+   "utilities"
+  ],
+  "extinct": [
+   "dinosaurs"
+  ],
+  "extinct_creatures": [
+   "dinosaurs"
+  ],
+  "extreme_sports": [
+   "rock_climbing",
+   "skydiving"
+  ],
+  "eye_parts": [
+   "iris"
+  ],
+  "eyewear": [
+   "glasses"
+  ],
+  "fabric_types": [
+   "denim",
+   "silk",
+   "velvet"
+  ],
+  "fabrics": [
+   "denim"
+  ],
+  "face": [
+   "eye"
+  ],
+  "fairy_tale": [
+   "3_little_pigs",
+   "cinderella",
+   "goldilocks"
+  ],
+  "fairy_tale_characters": [
+   "cinderella",
+   "pinocchio"
+  ],
+  "falconry": [
+   "hawk"
+  ],
+  "fame": [
+   "glory"
+  ],
+  "family": [
+   "tree"
+  ],
+  "famous_leaders": [
+   "cleopatra"
+  ],
+  "famous_wars": [
+   "gettysburg",
+   "troy",
+   "waterloo"
+  ],
+  "fantasy": [
+   "wizard"
+  ],
+  "fantasy_creatures": [
+   "dragon",
+   "unicorn"
+  ],
+  "farm": [
+   "crop",
+   "house",
+   "pig",
+   "tractor"
+  ],
+  "farm_animals": [
+   "cow"
+  ],
+  "farm_goods": [
+   "eggs"
+  ],
+  "fashion": [
+   "accessories",
+   "hairstyles"
+  ],
+  "fashion_accessories": [
+   "hats",
+   "jewelry"
+  ],
+  "fashion_capitals": [
+   "london"
+  ],
+  "fast_food": [
+   "pizza"
+  ],
+  "fast_food_items": [
+   "french_fries"
+  ],
+  "feelings_emotions": [
+   "angry",
+   "joyful"
+  ],
+  "ferocious_things": [
+   "tiger"
+  ],
+  "fictional_families": [
+   "simpsons"
+  ],
+  "filmmaking": [
+   "camera"
+  ],
+  "fine_arts": [
+   "calligraphy",
+   "ceramics"
+  ],
+  "fire": [
+   "candle"
+  ],
+  "first_date": [
+   "flowers",
+   "restaurant"
+  ],
+  "floating_things": [
+   "balloon",
+   "ship"
+  ],
+  "flooring": [
+   "marble"
+  ],
+  "flowers": [
+   "iris"
+  ],
+  "flying_insects": [
+   "ladybug",
+   "moth"
+  ],
+  "flying_objects": [
+   "balloon",
+   "kite",
+   "ufo"
+  ],
+  "folk_songs": [
+   "crow"
+  ],
+  "food": [
+   "berries",
+   "bread",
+   "vegetables"
+  ],
+  "food_groups": [
+   "grains"
+  ],
+  "food_market": [
+   "fish"
+  ],
+  "food_types": [
+   "dessert",
+   "fast_food",
+   "vegetables"
+  ],
+  "food_web": [
+   "apex"
+  ],
+  "footwear": [
+   "sneakers"
+  ],
+  "forecast": [
+   "weather"
+  ],
+  "forensic_science": [
+   "investigation"
+  ],
+  "forest": [
+   "bird",
+   "tree",
+   "trees"
+  ],
+  "forest_animals": [
+   "deer",
+   "owl",
+   "rabbit",
+   "wolf"
+  ],
+  "forest_floor": [
+   "moss"
+  ],
+  "forests": [
+   "trees"
+  ],
+  "forge": [
+   "hammer"
+  ],
+  "fossilized_materials": [
+   "amber"
+  ],
+  "frat_party": [
+   "beer"
+  ],
+  "french_regions": [
+   "champagne"
+  ],
+  "frequently_stolen": [
+   "data"
+  ],
+  "fresh_conditions": [
+   "mint"
+  ],
+  "fresh_fruit": [
+   "pear"
+  ],
+  "frozen_treats": [
+   "ice_cream"
+  ],
+  "fruit": [
+   "melon"
+  ],
+  "galaxy": [
+   "planets"
+  ],
+  "gallery": [
+   "museum"
+  ],
+  "game_basics": [
+   "console"
+  ],
+  "game_night_essentials": [
+   "board_games_with_pieces"
+  ],
+  "games": [
+   "chess"
+  ],
+  "games_with_a_ball": [
+   "basketball"
+  ],
+  "games_with_boards": [
+   "chess"
+  ],
+  "garage": [
+   "bicycle",
+   "tool"
+  ],
+  "garden": [
+   "flower"
+  ],
+  "garden_features": [
+   "fountain",
+   "hedge"
+  ],
+  "garden_flowers": [
+   "sunflower"
+  ],
+  "garden_herbs": [
+   "mint",
+   "sage"
+  ],
+  "garden_insects": [
+   "cricket"
+  ],
+  "garden_space": [
+   "plants"
+  ],
+  "gardening": [
+   "flowers",
+   "seeds",
+   "shovel",
+   "soil"
+  ],
+  "gemstones": [
+   "emerald",
+   "ruby"
+  ],
+  "genres": [
+   "fantasy",
+   "jazz",
+   "science_fiction",
+   "spy"
+  ],
+  "genus": [
+   "species"
+  ],
+  "geographical_objects": [
+   "islands",
+   "mountains"
+  ],
+  "geography": [
+   "ocean"
+  ],
+  "geology": [
+   "mineral",
+   "precious_stones"
+  ],
+  "geology_branches": [
+   "minerals"
+  ],
+  "geometric_shapes": [
+   "prism"
+  ],
+  "geometric_tools": [
+   "compass"
+  ],
+  "geometry": [
+   "angles",
+   "lines"
+  ],
+  "german_cities": [
+   "cologne"
+  ],
+  "global_geography": [
+   "cities",
+   "countries"
+  ],
+  "goes_underwater": [
+   "submarine"
+  ],
+  "gold": [
+   "mint"
+  ],
+  "golf": [
+   "eagle"
+  ],
+  "golf_equipment": [
+   "iron"
+  ],
+  "gothic_architecture": [
+   "gargoyle"
+  ],
+  "government": [
+   "judiciary"
+  ],
+  "grains": [
+   "bread"
+  ],
+  "great_inventions": [
+   "telephone"
+  ],
+  "greece": [
+   "olympics"
+  ],
+  "greek_mythology": [
+   "titan"
+  ],
+  "green_energy": [
+   "hydro",
+   "wind"
+  ],
+  "green_things": [
+   "jade"
+  ],
+  "grocery_sections": [
+   "vegetables"
+  ],
+  "grocery_store_sections": [
+   "dairy_products"
+  ],
+  "grooming_tools": [
+   "brush"
+  ],
+  "guitar": [
+   "axe"
+  ],
+  "halloween": [
+   "candy",
+   "pumpkin"
+  ],
+  "halloween_costumes": [
+   "witch"
+  ],
+  "ham": [
+   "radio"
+  ],
+  "handbag_materials": [
+   "leather"
+  ],
+  "happy_birthday": [
+   "balloons",
+   "party_hat"
+  ],
+  "hard_shelled": [
+   "nuts"
+  ],
+  "hardwood_trees": [
+   "maple"
+  ],
+  "harvest": [
+   "farmer"
+  ],
+  "has_scales": [
+   "fish"
+  ],
+  "hazards": [
+   "electricity",
+   "fire",
+   "radiation"
+  ],
+  "head": [
+   "hair"
+  ],
+  "health": [
+   "doctor",
+   "medicine"
+  ],
+  "health_care": [
+   "medicine"
+  ],
+  "health_metrics": [
+   "temperature"
+  ],
+  "healthcare": [
+   "disease",
+   "hospital",
+   "medicine",
+   "pharmacy",
+   "treatment"
+  ],
+  "healthy_eating": [
+   "fruit",
+   "fruits",
+   "nuts",
+   "supplements",
+   "vegetables",
+   "water"
+  ],
+  "healthy_life": [
+   "meditation"
+  ],
+  "healthy_lifestyle": [
+   "gym"
+  ],
+  "herb_garden": [
+   "mint"
+  ],
+  "herbal_remedies": [
+   "mint"
+  ],
+  "herbs": [
+   "basil",
+   "mint",
+   "spices"
+  ],
+  "herpetology": [
+   "terrarium"
+  ],
+  "hexagon_shapes": [
+   "honeycomb"
+  ],
+  "hike": [
+   "trail_mix"
+  ],
+  "hiking": [
+   "compass"
+  ],
+  "hippie": [
+   "happiness"
+  ],
+  "historical_eras": [
+   "industrial",
+   "medieval"
+  ],
+  "historical_events": [
+   "renaissance"
+  ],
+  "historical_leaders": [
+   "caesar",
+   "napoleon"
+  ],
+  "hobbies": [
+   "collecting",
+   "cooking",
+   "dancing",
+   "fishing",
+   "gaming",
+   "knitting",
+   "pottery",
+   "reading",
+   "sewing",
+   "tabletop_rpg",
+   "woodworking"
+  ],
+  "hobby": [
+   "fishing",
+   "hunting",
+   "knitting"
+  ],
+  "holidays": [
+   "easter",
+   "halloween"
+  ],
+  "home": [
+   "bathroom",
+   "bedroom",
+   "kitchen"
+  ],
+  "home_buying": [
+   "mortgage"
+  ],
+  "home_features": [
+   "garden"
+  ],
+  "home_security": [
+   "alarm",
+   "camera"
+  ],
+  "horror_franchises": [
+   "scream"
+  ],
+  "horse": [
+   "morse"
+  ],
+  "hospital": [
+   "physician"
+  ],
+  "hospital_services": [
+   "medical_imaging"
+  ],
+  "hot_drinks": [
+   "tea"
+  ],
+  "hot_sauces": [
+   "pepper"
+  ],
+  "hotel": [
+   "lobby"
+  ],
+  "house": [
+   "bed"
+  ],
+  "house_rooms": [
+   "bedroom",
+   "kitchen",
+   "living_room"
+  ],
+  "household_tasks": [
+   "cooking",
+   "laundry"
+  ],
+  "houseplants": [
+   "fern"
+  ],
+  "huge_things": [
+   "whale"
+  ],
+  "human_anatomy": [
+   "joints",
+   "muscles"
+  ],
+  "human_body": [
+   "brain",
+   "face",
+   "heart",
+   "wrist"
+  ],
+  "human_experience": [
+   "emotions",
+   "memories"
+  ],
+  "human_head": [
+   "brain",
+   "face"
+  ],
+  "human_perception": [
+   "emotions",
+   "senses"
+  ],
+  "hunt": [
+   "treasure"
+  ],
+  "hunting": [
+   "forest"
+  ],
+  "ice_cream_flavors": [
+   "mint"
+  ],
+  "igneous_rocks": [
+   "granite"
+  ],
+  "in_a_field": [
+   "scarecrow"
+  ],
+  "in_court": [
+   "criminals",
+   "judge"
+  ],
+  "in_the_sky": [
+   "rainbow"
+  ],
+  "individual_sports": [
+   "darts",
+   "golf"
+  ],
+  "indoor_sports": [
+   "volleyball"
+  ],
+  "industrial_revolution": [
+   "railway"
+  ],
+  "industry_output": [
+   "textiles"
+  ],
+  "insects": [
+   "bee",
+   "butterfly",
+   "cricket",
+   "spider"
+  ],
+  "instruments": [
+   "guitar",
+   "piano"
+  ],
+  "intellectual_property": [
+   "trademark"
+  ],
+  "interior_design": [
+   "painting"
+  ],
+  "inventions": [
+   "compass"
+  ],
+  "investigation": [
+   "evidence"
+  ],
+  "investment_types": [
+   "cryptocurrency"
+  ],
+  "investments": [
+   "crypto"
+  ],
+  "island_countries": [
+   "japan",
+   "new_zealand"
+  ],
+  "islands": [
+   "hawaii"
+  ],
+  "it_flows": [
+   "air",
+   "river"
+  ],
+  "italian": [
+   "pasta"
+  ],
+  "italian_cities": [
+   "venice"
+  ],
+  "italian_cuisine": [
+   "pasta",
+   "pizza_toppings"
+  ],
+  "italian_dishes": [
+   "pasta"
+  ],
+  "italian_food": [
+   "pasta",
+   "pizza"
+  ],
+  "italian_restaurant_menu": [
+   "pasta_shapes"
+  ],
+  "italy": [
+   "mafia",
+   "opera"
+  ],
+  "japanese_arts": [
+   "bonsai",
+   "origami"
+  ],
+  "japanese_cuisine": [
+   "sushi"
+  ],
+  "japanese_foods": [
+   "sushi"
+  ],
+  "jazz": [
+   "trumpet"
+  ],
+  "jewelry": [
+   "gemstone"
+  ],
+  "jewelry_components": [
+   "pearl"
+  ],
+  "jewelry_making": [
+   "beads"
+  ],
+  "jewelry_types": [
+   "pearl"
+  ],
+  "jobs": [
+   "cook",
+   "doctor"
+  ],
+  "jungle": [
+   "amazon"
+  ],
+  "jungle_plants": [
+   "vine"
+  ],
+  "justice_league": [
+   "batman",
+   "flash",
+   "superman"
+  ],
+  "keep_warm": [
+   "fireplace"
+  ],
+  "kentucky_derby_winners": [
+   "bourbon"
+  ],
+  "keyboard_devices": [
+   "piano"
+  ],
+  "keyboard_instruments": [
+   "organ"
+  ],
+  "kingdom": [
+   "castle"
+  ],
+  "kitchen": [
+   "appliances",
+   "butter"
+  ],
+  "kitchen_appliances": [
+   "coffee_machine"
+  ],
+  "kitchen_tools": [
+   "knife"
+  ],
+  "knife": [
+   "spoon"
+  ],
+  "knight": [
+   "armor"
+  ],
+  "knitting": [
+   "yarn"
+  ],
+  "laboratory_techniques": [
+   "microscopy"
+  ],
+  "lake_birds": [
+   "swan"
+  ],
+  "landforms": [
+   "desert",
+   "island",
+   "mountain",
+   "mountains",
+   "rivers",
+   "volcano"
+  ],
+  "landmarks": [
+   "bridge",
+   "colosseum",
+   "pyramids",
+   "towers"
+  ],
+  "landmass": [
+   "americas"
+  ],
+  "landscapes": [
+   "desert",
+   "mountain"
+  ],
+  "latin_dances": [
+   "tango"
+  ],
+  "latin_nations": [
+   "brazil"
+  ],
+  "leaders": [
+   "politicians"
+  ],
+  "leaves": [
+   "mint"
+  ],
+  "leg_actions": [
+   "jump"
+  ],
+  "lepidoptera": [
+   "chrysalis"
+  ],
+  "library": [
+   "book"
+  ],
+  "life_balance": [
+   "recreation"
+  ],
+  "life_stages": [
+   "baby",
+   "elder",
+   "infant"
+  ],
+  "light_source": [
+   "lantern"
+  ],
+  "light_sources": [
+   "sun"
+  ],
+  "lighthouse": [
+   "beacon"
+  ],
+  "like": [
+   "heart"
+  ],
+  "linguistic_branches": [
+   "phonetics"
+  ],
+  "linguistic_fields": [
+   "phonology"
+  ],
+  "linguistics": [
+   "phonetics"
+  ],
+  "liquid": [
+   "juice"
+  ],
+  "liquids": [
+   "water"
+  ],
+  "literary_criticism": [
+   "feminist"
+  ],
+  "literary_forms": [
+   "sonnet"
+  ],
+  "literature": [
+   "genre",
+   "library",
+   "novel"
+  ],
+  "live_performances": [
+   "theater"
+  ],
+  "live_shows": [
+   "circus"
+  ],
+  "living_room": [
+   "tv"
+  ],
+  "lost_cities": [
+   "atlantis"
+  ],
+  "lunch_foods": [
+   "sandwich"
+  ],
+  "luxury_fabrics": [
+   "velvet"
+  ],
+  "luxury_materials": [
+   "silk"
+  ],
+  "luxury_textures": [
+   "velvet"
+  ],
+  "made_with_apple": [
+   "sauce"
+  ],
+  "mafia": [
+   "money"
+  ],
+  "magic_creatures": [
+   "dragon",
+   "unicorn"
+  ],
+  "magic_terms": [
+   "sleight"
+  ],
+  "magicians_kit": [
+   "cards"
+  ],
+  "magnet": [
+   "iron"
+  ],
+  "major_cities": [
+   "phoenix"
+  ],
+  "makeup_products": [
+   "rouge"
+  ],
+  "mammals": [
+   "bat"
+  ],
+  "man_powered_transport": [
+   "bicycle"
+  ],
+  "management": [
+   "budget",
+   "team"
+  ],
+  "manhattan": [
+   "wall_street"
+  ],
+  "marine_biology": [
+   "ocean_layers"
+  ],
+  "marine_ecosystems": [
+   "coral"
+  ],
+  "marine_life": [
+   "coral"
+  ],
+  "marine_life_forms": [
+   "crustacean",
+   "reef"
+  ],
+  "marine_predators": [
+   "shark"
+  ],
+  "marketplace": [
+   "auction"
+  ],
+  "martial_arts": [
+   "aikido",
+   "boxing"
+  ],
+  "martini": [
+   "gin"
+  ],
+  "martini_glass": [
+   "ice"
+  ],
+  "marvel_heroes": [
+   "falcon"
+  ],
+  "marvel_villains": [
+   "venom"
+  ],
+  "math_branches": [
+   "algebra",
+   "topology"
+  ],
+  "math_subjects": [
+   "algebra",
+   "calculus"
+  ],
+  "mathematical_fields": [
+   "topology"
+  ],
+  "mathematicians": [
+   "fermat"
+  ],
+  "mathematics": [
+   "matrix"
+  ],
+  "mathematics_branches": [
+   "calculus",
+   "topology"
+  ],
+  "mathematics_fields": [
+   "numbers"
+  ],
+  "matter": [
+   "gas"
+  ],
+  "meal": [
+   "drinks",
+   "main_dish",
+   "salad"
+  ],
+  "meal_parts": [
+   "appetizers",
+   "beverages",
+   "dessert",
+   "main_course"
+  ],
+  "meal_types": [
+   "dessert",
+   "salad"
+  ],
+  "meals": [
+   "appetizer",
+   "breakfast",
+   "dessert"
+  ],
+  "measurement": [
+   "length",
+   "time"
+  ],
+  "measurements": [
+   "length",
+   "temperature",
+   "time",
+   "weight"
+  ],
+  "media": [
+   "newspaper",
+   "radio"
+  ],
+  "media_technology": [
+   "audio",
+   "broadcast",
+   "storage_devices",
+   "visual"
+  ],
+  "medical_equipment": [
+   "stethoscope"
+  ],
+  "medical_procedures": [
+   "exam",
+   "laser"
+  ],
+  "medical_sciences": [
+   "pharmacology"
+  ],
+  "medical_supplies": [
+   "needle"
+  ],
+  "medicine": [
+   "tablet"
+  ],
+  "medicines": [
+   "vaccines"
+  ],
+  "medieval": [
+   "knight"
+  ],
+  "medieval_architecture": [
+   "gargoyle"
+  ],
+  "medieval_knight": [
+   "armor",
+   "weapon"
+  ],
+  "medieval_military": [
+   "archer",
+   "knight"
+  ],
+  "medieval_professions": [
+   "blacksmith"
+  ],
+  "medieval_structures": [
+   "tower"
+  ],
+  "medieval_village": [
+   "blacksmith"
+  ],
+  "medieval_weapons": [
+   "sword"
+  ],
+  "medieval_writing": [
+   "quill"
+  ],
+  "meditation": [
+   "relaxation"
+  ],
+  "meeting_parts": [
+   "board"
+  ],
+  "menu": [
+   "dessert"
+  ],
+  "metallurgy_topics": [
+   "alloys"
+  ],
+  "metals": [
+   "bronze",
+   "steel"
+  ],
+  "metalworking": [
+   "alloys",
+   "forge"
+  ],
+  "metamorphosis": [
+   "egg"
+  ],
+  "meteorology": [
+   "storms"
+  ],
+  "methods_of_moving": [
+   "fly"
+  ],
+  "metrical_feet": [
+   "iambic"
+  ],
+  "michael_jackson_songs": [
+   "thriller"
+  ],
+  "mickeys_friends": [
+   "pluto"
+  ],
+  "microscopy_techniques": [
+   "phase"
+  ],
+  "military_branches": [
+   "navy"
+  ],
+  "military_sections": [
+   "navy"
+  ],
+  "military_weapon": [
+   "tank"
+  ],
+  "mind_concepts": [
+   "knowledge"
+  ],
+  "mojito_ingredients": [
+   "mint"
+  ],
+  "monsters": [
+   "dracula",
+   "vampire",
+   "zombie"
+  ],
+  "morning_routine": [
+   "coffee"
+  ],
+  "morse_code": [
+   "sos"
+  ],
+  "mountain_animals": [
+   "eagle"
+  ],
+  "mountain_life": [
+   "mountain_animals"
+  ],
+  "movie": [
+   "horror"
+  ],
+  "movie_categories": [
+   "fantasy",
+   "romance"
+  ],
+  "movie_genres": [
+   "horror",
+   "vampire"
+  ],
+  "movie_snacks": [
+   "candy"
+  ],
+  "movie_theater": [
+   "cinema",
+   "ticket"
+  ],
+  "moving": [
+   "furniture",
+   "truck"
+  ],
+  "museum": [
+   "skeleton"
+  ],
+  "museum_collections": [
+   "ceremonial_objects"
+  ],
+  "music_composition": [
+   "composer",
+   "notes"
+  ],
+  "music_devices": [
+   "radio"
+  ],
+  "music_genres": [
+   "jazz",
+   "rock"
+  ],
+  "music_periods": [
+   "baroque"
+  ],
+  "music_styles": [
+   "jazz"
+  ],
+  "music_types": [
+   "scat"
+  ],
+  "musical_alloys": [
+   "brass"
+  ],
+  "musical_compositions": [
+   "symphony"
+  ],
+  "musical_forms": [
+   "sonata"
+  ],
+  "musical_genres": [
+   "opera"
+  ],
+  "musical_instruments": [
+   "guitar",
+   "piano"
+  ],
+  "musical_styles": [
+   "jazz"
+  ],
+  "musician_tools": [
+   "metronome"
+  ],
+  "mystic_flyers": [
+   "dragon"
+  ],
+  "mythical_beasts": [
+   "dragon",
+   "vampire"
+  ],
+  "mythological_creatures": [
+   "phoenix"
+  ],
+  "mythology": [
+   "medusa"
+  ],
+  "narnia": [
+   "wardrobe",
+   "witch"
+  ],
+  "nasa": [
+   "rocket"
+  ],
+  "national_symbols": [
+   "eagle"
+  ],
+  "nato_phonetic_alphabet": [
+   "tango"
+  ],
+  "natural_disasters": [
+   "tornado",
+   "volcano"
+  ],
+  "natural_fibers": [
+   "wool"
+  ],
+  "natural_phenomena": [
+   "earthquake",
+   "tsunami",
+   "volcano"
+  ],
+  "natural_sciences": [
+   "botany"
+  ],
+  "natural_sounds": [
+   "thunder"
+  ],
+  "natural_sweeteners": [
+   "honey"
+  ],
+  "nature": [
+   "canyon",
+   "desert",
+   "forest",
+   "ocean"
+  ],
+  "nautical_colors": [
+   "coral"
+  ],
+  "nautical_equipment": [
+   "anchor"
+  ],
+  "nautical_tools": [
+   "compass"
+  ],
+  "naval_fleet": [
+   "ship"
+  ],
+  "navigation": [
+   "lighthouse"
+  ],
+  "navigation_tools": [
+   "compass"
+  ],
+  "nba_teams": [
+   "phoenix"
+  ],
+  "need_vaccine_for": [
+   "covid"
+  ],
+  "new_orleans": [
+   "jazz"
+  ],
+  "new_orleans_culture": [
+   "jazz"
+  ],
+  "nhl_teams": [
+   "penguins"
+  ],
+  "night_sky": [
+   "constellations"
+  ],
+  "night_sounds": [
+   "cricket"
+  ],
+  "nobel_prize": [
+   "literature",
+   "physics"
+  ],
+  "nocturnal_animals": [
+   "bat"
+  ],
+  "non_flying_birds": [
+   "penguin"
+  ],
+  "north_african_countries": [
+   "egypt"
+  ],
+  "north_american_countries": [
+   "mexico",
+   "usa"
+  ],
+  "nursery": [
+   "garden"
+  ],
+  "observatory_equipment": [
+   "telescope"
+  ],
+  "ocean": [
+   "fish",
+   "reef",
+   "waves"
+  ],
+  "ocean_life": [
+   "crabs",
+   "fish",
+   "mollusca",
+   "reef",
+   "shark",
+   "whales"
+  ],
+  "ocean_mammals": [
+   "whales"
+  ],
+  "ocean_phenomena": [
+   "tide"
+  ],
+  "oceans": [
+   "arctic"
+  ],
+  "office": [
+   "computer",
+   "printer"
+  ],
+  "office_equipment": [
+   "typewriter"
+  ],
+  "office_life": [
+   "coffee"
+  ],
+  "office_supplies": [
+   "paper"
+  ],
+  "olympic_events": [
+   "diving",
+   "fencing"
+  ],
+  "olympic_sports": [
+   "fencing",
+   "polo",
+   "swimming",
+   "tennis",
+   "wrestling"
+  ],
+  "olympics": [
+   "equestrian"
+  ],
+  "omelet_ingredients": [
+   "cheese",
+   "egg",
+   "mushroom"
+  ],
+  "omnivores": [
+   "human"
+  ],
+  "on_a_tree": [
+   "bark"
+  ],
+  "online_forums": [
+   "thread"
+  ],
+  "optical_devices": [
+   "prism",
+   "telescope"
+  ],
+  "optical_equipment": [
+   "prism"
+  ],
+  "oracle": [
+   "serpent"
+  ],
+  "orchestra": [
+   "violin"
+  ],
+  "orchestra_instruments": [
+   "violin"
+  ],
+  "orchestra_sections": [
+   "brass",
+   "strings",
+   "violin"
+  ],
+  "orchestral_instruments": [
+   "violin"
+  ],
+  "organizational_systems": [
+   "categories"
+  ],
+  "organs": [
+   "heart"
+  ],
+  "origami": [
+   "crane"
+  ],
+  "outdoor_activities": [
+   "campfire"
+  ],
+  "outdoor_games": [
+   "cricket"
+  ],
+  "oval_shaped": [
+   "egg"
+  ],
+  "pack": [
+   "hunt"
+  ],
+  "paint_colors": [
+   "coral"
+  ],
+  "paired_things": [
+   "eyes"
+  ],
+  "palaeography": [
+   "script"
+  ],
+  "panda": [
+   "china"
+  ],
+  "pantry_items": [
+   "spices"
+  ],
+  "paper_crafts": [
+   "crane",
+   "origami"
+  ],
+  "paper_folding_arts": [
+   "origami"
+  ],
+  "parents_worries": [
+   "college_reqs"
+  ],
+  "parking_areas": [
+   "garage"
+  ],
+  "particle_physics": [
+   "neutrino"
+  ],
+  "partner_dances": [
+   "tango"
+  ],
+  "parts_of_the_arm": [
+   "wrist"
+  ],
+  "party_elements": [
+   "dances",
+   "martini_glass"
+  ],
+  "party_planning": [
+   "game_night_essentials"
+  ],
+  "payment": [
+   "crypto",
+   "money"
+  ],
+  "penguin": [
+   "egg"
+  ],
+  "percussion": [
+   "drums"
+  ],
+  "percussion_instruments": [
+   "drum",
+   "drums"
+  ],
+  "performance_arts": [
+   "ballet",
+   "opera"
+  ],
+  "performers": [
+   "singer"
+  ],
+  "performing_arts": [
+   "ballet",
+   "cinema",
+   "circus",
+   "music"
+  ],
+  "periscope": [
+   "mirror"
+  ],
+  "personal_organization": [
+   "organize"
+  ],
+  "personality": [
+   "magnet"
+  ],
+  "pets": [
+   "bird",
+   "cat",
+   "dog"
+  ],
+  "philosophy_branches": [
+   "logic"
+  ],
+  "philosophy_fields": [
+   "ethics",
+   "logic"
+  ],
+  "photography": [
+   "focus"
+  ],
+  "photography_equipment": [
+   "film"
+  ],
+  "photoshoot": [
+   "model"
+  ],
+  "phyla": [
+   "mollusca"
+  ],
+  "physical_hazards": [
+   "flammable",
+   "toxic"
+  ],
+  "physical_states": [
+   "gas",
+   "liquid"
+  ],
+  "physics": [
+   "gravity",
+   "magnet",
+   "quantum"
+  ],
+  "physics_branches": [
+   "optics",
+   "quantum"
+  ],
+  "physics_units": [
+   "tesla"
+  ],
+  "piano_parts": [
+   "scales"
+  ],
+  "picnic": [
+   "barbecue"
+  ],
+  "picnic_food": [
+   "sandwich"
+  ],
+  "pink_shades": [
+   "coral"
+  ],
+  "pinocchio": [
+   "nose"
+  ],
+  "pirate": [
+   "treasure"
+  ],
+  "pirate_features": [
+   "beard"
+  ],
+  "pirate_life": [
+   "storm"
+  ],
+  "pizza": [
+   "cheese"
+  ],
+  "pizza_toppings": [
+   "bacon",
+   "cheese",
+   "mushrooms",
+   "onions"
+  ],
+  "places": [
+   "city"
+  ],
+  "places_to_visit": [
+   "aquarium",
+   "library",
+   "zoo"
+  ],
+  "planet": [
+   "stars"
+  ],
+  "planets": [
+   "earth",
+   "mercury"
+  ],
+  "plasma": [
+   "gas"
+  ],
+  "plate": [
+   "knife"
+  ],
+  "play_genres": [
+   "musical"
+  ],
+  "plucked_instruments": [
+   "mandolin"
+  ],
+  "poetic_forms": [
+   "sonnet"
+  ],
+  "poetic_meters": [
+   "trochee"
+  ],
+  "politeness": [
+   "manners"
+  ],
+  "political_tactics": [
+   "filibuster"
+  ],
+  "pollinators": [
+   "bee"
+  ],
+  "pond": [
+   "water"
+  ],
+  "power_tools": [
+   "drill"
+  ],
+  "precious_stones": [
+   "emerald",
+   "jade",
+   "ruby"
+  ],
+  "predatory_animals": [
+   "shark"
+  ],
+  "prison": [
+   "tower",
+   "warden"
+  ],
+  "product_lifecycle": [
+   "proto"
+  ],
+  "professions": [
+   "artist",
+   "blacksmith",
+   "captain",
+   "conductor",
+   "engineer",
+   "lawyer",
+   "realtor"
+  ],
+  "profile_info": [
+   "status"
+  ],
+  "program": [
+   "television"
+  ],
+  "programming_languages": [
+   "python",
+   "rust"
+  ],
+  "projectiles": [
+   "rocket"
+  ],
+  "proposal": [
+   "flower"
+  ],
+  "psychological_states": [
+   "feelings"
+  ],
+  "pub_games": [
+   "8_ball",
+   "darts"
+  ],
+  "public_venues": [
+   "aquarium",
+   "circus",
+   "zoo"
+  ],
+  "publisher": [
+   "penguin"
+  ],
+  "publishing_roles": [
+   "publisher",
+   "writer"
+  ],
+  "pumpkin_varieties": [
+   "spice"
+  ],
+  "puppet": [
+   "theater"
+  ],
+  "puppy": [
+   "cute"
+  ],
+  "purple_things": [
+   "grape"
+  ],
+  "purse": [
+   "wallet"
+  ],
+  "puzzle": [
+   "detective"
+  ],
+  "puzzles": [
+   "crossword"
+  ],
+  "quilt_components": [
+   "fabric"
+  ],
+  "quilting_supplies": [
+   "fabric"
+  ],
+  "racing": [
+   "nascar"
+  ],
+  "racket_games": [
+   "tennis"
+  ],
+  "racket_sports": [
+   "badminton",
+   "tennis"
+  ],
+  "racquet_sports": [
+   "tennis"
+  ],
+  "radio": [
+   "jazz",
+   "station"
+  ],
+  "railway": [
+   "train"
+  ],
+  "rainy": [
+   "weather"
+  ],
+  "ralph_lauren": [
+   "polo"
+  ],
+  "ralph_lauren_collections": [
+   "polo"
+  ],
+  "raw_dish": [
+   "oyster"
+  ],
+  "realtor": [
+   "house"
+  ],
+  "recess": [
+   "playground"
+  ],
+  "record": [
+   "needle"
+  ],
+  "recreation": [
+   "games"
+  ],
+  "recreation_games": [
+   "8_ball",
+   "bowling"
+  ],
+  "recyclable": [
+   "metal"
+  ],
+  "recyclable_materials": [
+   "battery"
+  ],
+  "red_gemstones": [
+   "ruby"
+  ],
+  "red_liquids": [
+   "blood"
+  ],
+  "redeemables": [
+   "ticket"
+  ],
+  "reef_life": [
+   "coral"
+  ],
+  "refreshing_drinks": [
+   "juice"
+  ],
+  "reindeer": [
+   "comet"
+  ],
+  "religious_places": [
+   "church"
+  ],
+  "renaissance": [
+   "art",
+   "humanism",
+   "invention"
+  ],
+  "renaissance_masters": [
+   "leonardo"
+  ],
+  "renewable_energy": [
+   "wind"
+  ],
+  "reptile": [
+   "lizard"
+  ],
+  "reptiles": [
+   "crocodile",
+   "lizard",
+   "lizards",
+   "snake"
+  ],
+  "restaurant": [
+   "cook",
+   "kitchen",
+   "menu",
+   "utensils"
+  ],
+  "restaurant_menu": [
+   "desserts"
+  ],
+  "riding_animals": [
+   "camel"
+  ],
+  "river": [
+   "amazon",
+   "fish"
+  ],
+  "river_animals": [
+   "beaver",
+   "crocodile"
+  ],
+  "road_signs": [
+   "stop"
+  ],
+  "road_surfaces": [
+   "pitted"
+  ],
+  "rock_collection_items": [
+   "fossils"
+  ],
+  "rock_types": [
+   "minerals"
+  ],
+  "roman_deities": [
+   "mercury",
+   "neptune"
+  ],
+  "roman_empire_roles": [
+   "senator"
+  ],
+  "roman_gods": [
+   "jupiter",
+   "mars",
+   "mercury"
+  ],
+  "romance": [
+   "dinner",
+   "jewelry"
+  ],
+  "romantic": [
+   "roses"
+  ],
+  "roofing_materials": [
+   "copper"
+  ],
+  "room": [
+   "door"
+  ],
+  "rooms": [
+   "bathroom",
+   "bedroom",
+   "kitchen",
+   "living_room"
+  ],
+  "rooms_in_a_house": [
+   "bathroom",
+   "bedroom"
+  ],
+  "round_fruits": [
+   "grape"
+  ],
+  "round_things": [
+   "donut",
+   "earth",
+   "wheel"
+  ],
+  "royal_regalia": [
+   "crown"
+  ],
+  "ruler": [
+   "crown"
+  ],
+  "rumors": [
+   "secret"
+  ],
+  "safari_animals": [
+   "elephant"
+  ],
+  "safety": [
+   "bodyguard",
+   "seatbelt",
+   "security_camera"
+  ],
+  "sailing_terms": [
+   "knots"
+  ],
+  "salad": [
+   "rocket"
+  ],
+  "salads": [
+   "beans",
+   "caesar",
+   "fruit"
+  ],
+  "samsung_phones": [
+   "galaxy"
+  ],
+  "sandwich": [
+   "hero",
+   "subway"
+  ],
+  "sauce_making": [
+   "reduce"
+  ],
+  "savanna": [
+   "giraffe",
+   "zebra"
+  ],
+  "saxophone": [
+   "reed"
+  ],
+  "school": [
+   "school_subjects"
+  ],
+  "school_classes": [
+   "geometry"
+  ],
+  "school_subjects": [
+   "art",
+   "art_classes",
+   "astronomy",
+   "chemistry",
+   "photography",
+   "science"
+  ],
+  "school_supplies": [
+   "book"
+  ],
+  "science": [
+   "cell",
+   "scientists"
+  ],
+  "science_branches": [
+   "psychology"
+  ],
+  "science_disciplines": [
+   "physics"
+  ],
+  "science_fiction": [
+   "robot",
+   "spaceship"
+  ],
+  "science_world": [
+   "microbe"
+  ],
+  "scientific_instruments": [
+   "telescope"
+  ],
+  "scientific_techniques": [
+   "microscopy"
+  ],
+  "sculpting_materials": [
+   "clay"
+  ],
+  "sculpture_materials": [
+   "clay",
+   "marble"
+  ],
+  "sculpture_mediums": [
+   "bronze"
+  ],
+  "sea_creatures": [
+   "whale"
+  ],
+  "sea_predators": [
+   "shark"
+  ],
+  "seafarers": [
+   "pirates"
+  ],
+  "seafood": [
+   "crab"
+  ],
+  "seahorse": [
+   "horse"
+  ],
+  "season": [
+   "spring",
+   "summer",
+   "winter"
+  ],
+  "seasoning": [
+   "salt",
+   "sweet"
+  ],
+  "seasoning_types": [
+   "herbs"
+  ],
+  "seasonings": [
+   "sage"
+  ],
+  "seasons": [
+   "autumn",
+   "spring",
+   "summer",
+   "winter"
+  ],
+  "secret_communication": [
+   "morse_code"
+  ],
+  "seed": [
+   "germination"
+  ],
+  "senses": [
+   "hearing",
+   "sight"
+  ],
+  "settlements": [
+   "capital",
+   "city"
+  ],
+  "sewing": [
+   "fabric"
+  ],
+  "sewing_materials": [
+   "fabric"
+  ],
+  "sewing_supplies": [
+   "fabric"
+  ],
+  "shades_of_blue": [
+   "navy"
+  ],
+  "shades_of_green": [
+   "jade"
+  ],
+  "shapes": [
+   "pyramid"
+  ],
+  "shark": [
+   "teeth"
+  ],
+  "shell_bearing_things": [
+   "mollusca",
+   "nuts"
+  ],
+  "ship_parts": [
+   "anchor"
+  ],
+  "ships": [
+   "submarine"
+  ],
+  "shoot": [
+   "gallery"
+  ],
+  "shopping_centers": [
+   "rodeo"
+  ],
+  "shopping_experiences": [
+   "food_market"
+  ],
+  "shops": [
+   "deli"
+  ],
+  "shortcake": [
+   "strawberries"
+  ],
+  "show_types": [
+   "animation",
+   "theater"
+  ],
+  "si_units": [
+   "newton"
+  ],
+  "simple_machines": [
+   "pulley"
+  ],
+  "skill_level": [
+   "average",
+   "master"
+  ],
+  "skills": [
+   "bookbinding",
+   "talent"
+  ],
+  "skin_marks": [
+   "tattoo"
+  ],
+  "sleep": [
+   "dreams"
+  ],
+  "smartphone": [
+   "camera"
+  ],
+  "smooth_textures": [
+   "velvet"
+  ],
+  "snack_foods": [
+   "pretzels"
+  ],
+  "snacks": [
+   "chips"
+  ],
+  "social_actions": [
+   "heart",
+   "like"
+  ],
+  "social_media": [
+   "dislike",
+   "like"
+  ],
+  "social_media_reactions": [
+   "heart",
+   "like"
+  ],
+  "social_sciences": [
+   "anthropology"
+  ],
+  "soda": [
+   "sweet"
+  ],
+  "soft_furry": [
+   "alpaca"
+  ],
+  "software_issues": [
+   "bugs"
+  ],
+  "soil_types": [
+   "clay"
+  ],
+  "solar_system": [
+   "mercury",
+   "orbit",
+   "planets",
+   "saturn"
+  ],
+  "songbirds": [
+   "robin"
+  ],
+  "sound_output": [
+   "sound"
+  ],
+  "sour_flavors": [
+   "citrus"
+  ],
+  "south_america": [
+   "brazil"
+  ],
+  "space": [
+   "planets"
+  ],
+  "space_exploration": [
+   "nasa",
+   "rocket"
+  ],
+  "space_missions": [
+   "gemini"
+  ],
+  "space_phenomena": [
+   "orbit"
+  ],
+  "space_physics": [
+   "orbit"
+  ],
+  "spanish_speaking": [
+   "spain"
+  ],
+  "species": [
+   "bird",
+   "insects",
+   "reptile"
+  ],
+  "spelling": [
+   "bee"
+  ],
+  "spice_rack_items": [
+   "herbs"
+  ],
+  "spirits": [
+   "whiskey"
+  ],
+  "spiritual_practices": [
+   "meditation"
+  ],
+  "spoon": [
+   "fork"
+  ],
+  "sport_events": [
+   "wimbledon"
+  ],
+  "sports": [
+   "archery",
+   "baseball",
+   "basketball",
+   "bowling",
+   "climbing",
+   "surfing",
+   "swimming",
+   "tennis"
+  ],
+  "sports_leagues": [
+   "mlb",
+   "nfl",
+   "nhl"
+  ],
+  "spring": [
+   "garden"
+  ],
+  "stage_magic_categories": [
+   "sleight"
+  ],
+  "stages_of_life": [
+   "baby"
+  ],
+  "starts_over": [
+   "season"
+  ],
+  "states_of_matter": [
+   "liquid",
+   "solid"
+  ],
+  "station": [
+   "airport"
+  ],
+  "stinging_insects": [
+   "wasps"
+  ],
+  "store_sections": [
+   "clothing",
+   "electronics",
+   "grocery",
+   "toys"
+  ],
+  "storm": [
+   "tornado"
+  ],
+  "storm_types": [
+   "tornado"
+  ],
+  "story": [
+   "the_little_mermaid"
+  ],
+  "strategy_games": [
+   "chess"
+  ],
+  "strawberries": [
+   "wimbledon"
+  ],
+  "string_instruments": [
+   "cello",
+   "violin"
+  ],
+  "stringed_instruments": [
+   "violin"
+  ],
+  "structural_weaknesses": [
+   "knot"
+  ],
+  "structure": [
+   "bridge",
+   "dam"
+  ],
+  "structures": [
+   "bridge"
+  ],
+  "studies_nature": [
+   "botanist",
+   "entomologist",
+   "geologist"
+  ],
+  "studio_arts": [
+   "pottery"
+  ],
+  "subjects": [
+   "art",
+   "math",
+   "music",
+   "science",
+   "statistics"
+  ],
+  "summer_activities": [
+   "picnic"
+  ],
+  "summer_drinks": [
+   "lemonade"
+  ],
+  "summer_events": [
+   "olympic_sports"
+  ],
+  "summer_olympic_games": [
+   "fighting",
+   "team_sports"
+  ],
+  "summer_sounds": [
+   "cricket"
+  ],
+  "sunday_newspaper_sections": [
+   "crossword"
+  ],
+  "supernatural": [
+   "ghost"
+  ],
+  "swift_animals": [
+   "cheetah"
+  ],
+  "symbols": [
+   "hashtag"
+  ],
+  "symphony_orchestra": [
+   "violin"
+  ],
+  "systems": [
+   "numbers"
+  ],
+  "taiwanese_exports": [
+   "boba"
+  ],
+  "taxonomy": [
+   "genus"
+  ],
+  "tea_flavors": [
+   "honey"
+  ],
+  "tech_companies": [
+   "apple"
+  ],
+  "technical_skills": [
+   "coding"
+  ],
+  "technology": [
+   "computer",
+   "robot",
+   "satellite",
+   "smartphone"
+  ],
+  "telescope": [
+   "stars"
+  ],
+  "television": [
+   "audio",
+   "remote"
+  ],
+  "television_genres": [
+   "comedy"
+  ],
+  "temples": [
+   "shrine"
+  ],
+  "tennis_courts": [
+   "college_features"
+  ],
+  "terrain": [
+   "canyon"
+  ],
+  "terrarium_creatures": [
+   "snake",
+   "spider"
+  ],
+  "textile_materials": [
+   "fabric",
+   "wool"
+  ],
+  "textile_science": [
+   "fabric_types"
+  ],
+  "textures": [
+   "crispy",
+   "fluffy",
+   "velvet"
+  ],
+  "thai_food": [
+   "curry"
+  ],
+  "theater": [
+   "drama",
+   "opera",
+   "stage"
+  ],
+  "theater_districts": [
+   "broadway"
+  ],
+  "theater_elements": [
+   "stage"
+  ],
+  "theater_venues": [
+   "circus"
+  ],
+  "theme_parks": [
+   "aquarium",
+   "disney"
+  ],
+  "thermos": [
+   "tea"
+  ],
+  "they_save_lives": [
+   "doctor"
+  ],
+  "things_dogs_bury": [
+   "bones"
+  ],
+  "things_in_an_office": [
+   "paper"
+  ],
+  "things_in_the_sky": [
+   "moon"
+  ],
+  "things_that_are_dealt": [
+   "cards"
+  ],
+  "things_that_bloom": [
+   "flower"
+  ],
+  "things_that_can_be_strung": [
+   "pearls"
+  ],
+  "things_that_fly": [
+   "bird",
+   "plane",
+   "rocket"
+  ],
+  "things_that_pop": [
+   "popcorn"
+  ],
+  "things_that_rise": [
+   "breads"
+  ],
+  "things_that_rotate": [
+   "amusement_park"
+  ],
+  "things_with_core": [
+   "atom"
+  ],
+  "things_with_wings": [
+   "moths"
+  ],
+  "things_you_buy": [
+   "groceries"
+  ],
+  "things_you_can_follow": [
+   "social_media"
+  ],
+  "time_management": [
+   "calendar",
+   "deadline"
+  ],
+  "time_periods": [
+   "months"
+  ],
+  "timekeeping": [
+   "calendar",
+   "clock",
+   "time"
+  ],
+  "timekeeping_devices": [
+   "calendar",
+   "watch"
+  ],
+  "times_of_day": [
+   "night"
+  ],
+  "tool_types": [
+   "hammer"
+  ],
+  "tourism": [
+   "landmark"
+  ],
+  "trades": [
+   "carpentry"
+  ],
+  "traditional_crafts": [
+   "weaving"
+  ],
+  "traffic": [
+   "road_signs"
+  ],
+  "traffic_elements": [
+   "vehicles"
+  ],
+  "traffic_light_colors": [
+   "amber"
+  ],
+  "trail_mix": [
+   "nuts"
+  ],
+  "train": [
+   "engine"
+  ],
+  "transit_hubs": [
+   "airport"
+  ],
+  "transport": [
+   "driving",
+   "ship",
+   "vehicles"
+  ],
+  "transportation": [
+   "taxi",
+   "water"
+  ],
+  "travel_activities": [
+   "camping"
+  ],
+  "travel_hubs": [
+   "airport",
+   "harbor"
+  ],
+  "traveler_s_set": [
+   "baggage",
+   "money",
+   "passport"
+  ],
+  "treasure": [
+   "jewelry",
+   "rainbow"
+  ],
+  "tree": [
+   "fruit",
+   "nest"
+  ],
+  "tree_species": [
+   "maple"
+  ],
+  "tree_types": [
+   "maple",
+   "willow"
+  ],
+  "trees": [
+   "maple",
+   "pine"
+  ],
+  "trick_or_treat": [
+   "candy"
+  ],
+  "troy": [
+   "horse"
+  ],
+  "tv_shows": [
+   "cooking"
+  ],
+  "two_wheeled_transport": [
+   "bicycle"
+  ],
+  "type_of_environment": [
+   "urban"
+  ],
+  "types_of_rulers": [
+   "king"
+  ],
+  "types_of_studies": [
+   "climate"
+  ],
+  "ufo": [
+   "space"
+  ],
+  "under_the_sea": [
+   "fish"
+  ],
+  "underground": [
+   "cave"
+  ],
+  "underground_locations": [
+   "cave"
+  ],
+  "underground_treasures": [
+   "oil",
+   "rare_elements"
+  ],
+  "united_kingdom": [
+   "england"
+  ],
+  "university": [
+   "bookstore"
+  ],
+  "university_courses": [
+   "mythology"
+  ],
+  "university_departments": [
+   "fine_arts"
+  ],
+  "urban": [
+   "buildings",
+   "roads",
+   "traffic",
+   "transit"
+  ],
+  "us_holidays": [
+   "halloween"
+  ],
+  "us_states": [
+   "alaska"
+  ],
+  "usa": [
+   "texas"
+  ],
+  "uses_filter": [
+   "instagram"
+  ],
+  "vaccine_types": [
+   "covid"
+  ],
+  "valentine_s_day": [
+   "roses"
+  ],
+  "valentines_day": [
+   "chocolate"
+  ],
+  "valuable_items": [
+   "gemstone",
+   "money"
+  ],
+  "valuables": [
+   "gold"
+  ],
+  "vampire": [
+   "nighttime"
+  ],
+  "vault": [
+   "security"
+  ],
+  "vegetables": [
+   "pepper",
+   "peppers"
+  ],
+  "veggies": [
+   "onion"
+  ],
+  "vehicles": [
+   "car",
+   "motorbike"
+  ],
+  "venomous_animals": [
+   "cobra",
+   "hornet"
+  ],
+  "venomous_snakes": [
+   "cobra"
+  ],
+  "venues": [
+   "circus",
+   "opera"
+  ],
+  "vertebrates": [
+   "amphibians",
+   "birds",
+   "mammals"
+  ],
+  "video_game_locations": [
+   "forge"
+  ],
+  "vintage_items": [
+   "typewriter"
+  ],
+  "visual_arts": [
+   "artists",
+   "painting",
+   "photography",
+   "sculpture"
+  ],
+  "volcanic_eruption": [
+   "magma"
+  ],
+  "volcanology": [
+   "tephra"
+  ],
+  "wallet": [
+   "leather"
+  ],
+  "wardrobe": [
+   "shoes"
+  ],
+  "warner_bros_icons": [
+   "harry_potter"
+  ],
+  "warning_colors": [
+   "amber"
+  ],
+  "warrior_classes": [
+   "samurai"
+  ],
+  "wars": [
+   "naval"
+  ],
+  "water": [
+   "submarine"
+  ],
+  "water_activities": [
+   "scuba"
+  ],
+  "water_bodies": [
+   "lake"
+  ],
+  "water_source": [
+   "river"
+  ],
+  "water_sports": [
+   "sailing",
+   "scuba"
+  ],
+  "watercraft": [
+   "canoe",
+   "submarine"
+  ],
+  "watercrafts": [
+   "ships"
+  ],
+  "waterways": [
+   "gulf"
+  ],
+  "wave": [
+   "sound"
+  ],
+  "ways_of_moving": [
+   "flying",
+   "hopping"
+  ],
+  "ways_of_transportation": [
+   "air",
+   "railway",
+   "road",
+   "water"
+  ],
+  "ways_to_look": [
+   "watch"
+  ],
+  "ways_to_travel": [
+   "car"
+  ],
+  "weapon": [
+   "archer",
+   "gun"
+  ],
+  "weapons": [
+   "archery",
+   "explosive",
+   "firearms",
+   "melee"
+  ],
+  "weather": [
+   "storms",
+   "tornado",
+   "wind"
+  ],
+  "weather_conditions": [
+   "frost"
+  ],
+  "weather_events": [
+   "storm",
+   "thunder"
+  ],
+  "weather_phenomena": [
+   "blizzard",
+   "hurricane",
+   "thunder",
+   "tornado"
+  ],
+  "weather_types": [
+   "rainy",
+   "tropical"
+  ],
+  "web_browsers": [
+   "opera"
+  ],
+  "wedding": [
+   "cake"
+  ],
+  "wedding_activities": [
+   "dance"
+  ],
+  "wellness_activities": [
+   "gym"
+  ],
+  "western_europe": [
+   "france"
+  ],
+  "whale": [
+   "ocean"
+  ],
+  "wheeled_things": [
+   "bicycle"
+  ],
+  "wild_edibles": [
+   "berries",
+   "mushrooms"
+  ],
+  "wild_west": [
+   "horses"
+  ],
+  "wimbledon": [
+   "tennis"
+  ],
+  "winter": [
+   "christmas"
+  ],
+  "winter_activities": [
+   "ice_hockey"
+  ],
+  "winter_olympics": [
+   "figure_skating"
+  ],
+  "wireless": [
+   "radio"
+  ],
+  "wizard": [
+   "magic_spell"
+  ],
+  "wood_finishes": [
+   "varnish"
+  ],
+  "wood_stain_colors": [
+   "cherry"
+  ],
+  "wood_types": [
+   "pine"
+  ],
+  "woodwind_instruments": [
+   "flute"
+  ],
+  "woodworking_tools": [
+   "chisel"
+  ],
+  "words_containing_fall": [
+   "waterfall"
+  ],
+  "workbench": [
+   "saw"
+  ],
+  "world_cuisines": [
+   "italian_cuisine"
+  ],
+  "writing": [
+   "letter",
+   "sonnet"
+  ],
+  "writing_systems": [
+   "calligraphy"
+  ],
+  "x_men": [
+   "storm"
+  ],
+  "yoga": [
+   "meditation"
+  ],
+  "zoo": [
+   "koala",
+   "lion"
+  ],
+  "zoo_animals": [
+   "elephant",
+   "tiger"
+  ]
+ }
+}
