@@ -1095,23 +1095,52 @@ document.getElementById('bHint').addEventListener('click',()=>{
 });
 document.getElementById('bMag').addEventListener('click',()=>{
   if(over||boosts.mag<=0) return;
-  /* магнит подчиняется тем же правилам, что игрок: лёд, «?», цепь и половинки
-     он не обходит, иначе бустер «решал» бы модификатор за игрока */
+  /* ТЗ (GDD §5): магнит стягивает и склеивает ВСЕ подходящие пузыри одной
+     категории — самой массовой на поле — и не тратит ход.
+     Магнит подчиняется тем же правилам, что игрок: лёд, «?», цепь и половинки
+     он не обходит, иначе бустер «решал» бы модификатор за игрока. */
   const cand=bubbles.filter(b=>!inert(b)&&!b.dragging&&b.ice<=0&&b.hid<=0);
   let pick=null;
-  for(const a of cand) for(const m of cand){
-    if(a===m||!canMerge(m,a).ok) continue;
-    if(!pick||a.exs.length>pick[0].exs.length) pick=[a,m];
+  const seen=new Set();
+  for(const a of cand){
+    if(a.half||seen.has(a.val)) continue;
+    seen.add(a.val);
+    const group=cand.filter(b=>!b.half&&b.val===a.val);
+    /* якорь — самый заполненный шар категории: к нему стягивается остальное */
+    const anchor=group.reduce((x,y)=>y.exs.length>x.exs.length?y:x);
+    let acc=anchor.exs.length;
+    const movers=[];
+    for(const m of group){
+      if(m===anchor||!canMerge(m,anchor).ok) continue;    /* цепь и лёд отсекаются здесь */
+      if(acc+m.exs.length>(FULL[m.val]||4)) continue;     /* сверх размера категории не тянем */
+      acc+=m.exs.length; movers.push(m);
+    }
+    if(!movers.length) continue;
+    /* «самая массовая» = та, у которой магнит стянет больше всего пузырей */
+    if(!pick||movers.length>pick.movers.length) pick={anchor,movers};
+  }
+  /* половинки категорией не считаются: сметать их пачкой нечего, поэтому они
+     остаются запасным вариантом — одна пара, если категорий магниту не досталось */
+  if(!pick){
+    for(const a of cand) for(const m of cand){
+      if(a===m||!canMerge(m,a).ok) continue;
+      if(!pick||a.exs.length>pick.anchor.exs.length) pick={anchor:a,movers:[m]};
+    }
   }
   if(!pick) return;
   boosts.mag--; updBoosts();
-  const [anchor,mover]=pick;
-  mover.popping=true;
-  mover.el.style.transition='left .38s ease-in,top .38s ease-in';
-  mover.x=anchor.x; mover.y=anchor.y; place(mover);
+  const {anchor,movers}=pick;
+  movers.forEach(m=>{
+    m.popping=true;                                       /* в полёте физика его не трогает */
+    m.el.style.transition='left .38s ease-in,top .38s ease-in';
+    m.x=anchor.x; m.y=anchor.y; place(m);
+  });
   setTimeout(()=>{
-    mover.el.style.transition=''; mover.popping=false; still(mover);
-    if(bubbles.includes(anchor)&&bubbles.includes(mover)&&!inert(anchor)) merge(anchor,mover,false);
+    for(const m of movers){
+      m.el.style.transition=''; m.popping=false; still(m);
+      if(bubbles.includes(anchor)&&bubbles.includes(m)&&!inert(anchor)&&canMerge(m,anchor).ok)
+        merge(anchor,m,false);                            /* false — бустер хода не стоит */
+    }
   },400);
 });
 document.getElementById('gear').addEventListener('click',init);
