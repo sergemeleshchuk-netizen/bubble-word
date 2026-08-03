@@ -296,7 +296,10 @@ function computeMoveLimit(categories,chunks){
      1) собрана категория            4 (мета-категория 3: одно место уже занято
                                         шаром-именем родителя);
      2) склеены две половинки        1;
-     3) тупик — на поле не осталось ни одной возможной пары   4;
+     3) тупик — на поле не осталось ни одной возможной пары   1 шар за раз,
+        с перепроверкой поля после каждого: серия тянется до первого легального
+        мерджа. В ТЗ страховки нет вовсе, это наша добавка, и помощь здесь
+        минимальная — при тупике не освободилось ни одного места;
      4) MISS_RESCUE неверных попыток ПОДРЯД                   4.
    Обычный мердж досыпку не вызывает: пустеющее поле — это давление, ради
    которого механика и существует.
@@ -672,9 +675,13 @@ function legalMove(){
   }
   return false;
 }
+/* Идёт ли серия страховочных досыпок. Нужен для двух вещей: тост показать один
+   раз на серию, а не на каждый шар, и посчитать серию одним событием. Снимается
+   любым удачным мерджем — тупик кончился. */
+let rescueRun=false;
 function rescueIfStuck(){
   if(over||pendingPops>0||pendingSpawn>0) return;        /* пачка ещё в пути */
-  if(legalMove()) return;
+  if(legalMove()){ rescueRun=false; return; }
   if(!chainDown){ breakChain('ЦЕПЬ СНЯТА: ХОДА НЕ БЫЛО'); return; }
   const blocked=bubbles.filter(b=>b.ice>0||b.hid>0);
   if(blocked.length){
@@ -682,9 +689,23 @@ function rescueIfStuck(){
     toastText('ЛЁД РАСТАЯЛ САМ',true);
     return;
   }
-  /* пар на поле не осталось, а очередь есть: досыпка приходит вне ритма, иначе
-     игрок стоял бы с ходами в руках и без единого легального мерджа */
-  if(queue.length){ spawnBatch(4); toastText('ДОСЫПКА ВНЕ РИТМА',true); }
+  /* Пар на поле не осталось, а очередь есть: досыпка приходит вне ритма, иначе
+     игрок стоял бы с ходами в руках и без единого легального мерджа.
+
+     Шар ОДИН, и это решение владельца продукта 03.08. В ТЗ страховки нет вовсе —
+     это наша добавка, — поэтому «сколько мест освободилось, столько и приходит»
+     к ней не применяется: при тупике не освободилось ни одного места. Раз
+     арифметику сохранять не из чего, помощь даём минимальную: один шар.
+
+     Один шар безопасен только с ПЕРЕПРОВЕРКОЙ. Он может ни к чему не подойти, а
+     повторно страховку никто не позовёт: rescueIfStuck висит на мердже и на
+     сборе категории, а их-то и нет. Поэтому trySpawn перепроверяет поле, как
+     только пачка догорела, и серия дотягивается до первого легального мерджа
+     (или до пустой очереди). */
+  if(queue.length){
+    spawnBatch(1);
+    if(!rescueRun){ toastText('ДОСЫПКА ВНЕ РИТМА',true); rescueRun=true; }
+  }
 }
 
 /* ===== инициализация уровня ===== */
@@ -692,7 +713,7 @@ function init(){
   bubbles.forEach(b=>b.el.remove()); bubbles=[];
   board.querySelectorAll('.part,.conf').forEach(e=>e.remove());
   done=0; over=false; pendingPops=0; pendingSpawn=0; held=false; drag=null; clearMarks();
-  chainY=null; chainNeed=0; chainDown=true; halfPairs=0; missStreak=0;
+  chainY=null; chainNeed=0; chainDown=true; halfPairs=0; missStreak=0; rescueRun=false;
   chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
   let start=[]; queue=[];
@@ -868,6 +889,11 @@ function trySpawn(ts){
   pendingSpawn--;
   const it=queue.shift();
   makeBubble(it.v,it.e, 56+Math.random()*(W-112), -44);
+  /* Пачка догорела — перепроверяем поле. Единственное место, где это можно
+     сделать: rescueIfStuck висит на мердже и на сборе категории, а в тупике ни
+     того, ни другого не происходит. Без этой строки страховка «один шар»
+     оставляла бы игрока перед мёртвым полем, если шар ни к чему не подошёл. */
+  if(pendingSpawn<=0) rescueIfStuck();
 }
 
 /* ===== драг: путь подсветкой, точка остановки, возврат при ошибке ===== */
@@ -990,6 +1016,7 @@ function merge(a,b,costMove){
   a.el.classList.remove('merged'); void a.el.offsetWidth; a.el.classList.add('merged');
   if(costMove){ moves--; updHud(); }
   missStreak=0;                 /* ход получился — счётчик безыдейного перебора обнуляется */
+  rescueRun=false;              /* и серия страховочных досыпок тоже: тупик кончился */
   /* успешный мердж снимает слой льда и приближает раскрытие «?» на всём поле */
   bubbles.forEach(x=>{
     if(x.ice>0){ x.ice--; paint(x); place(x); }

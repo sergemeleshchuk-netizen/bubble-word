@@ -31,7 +31,8 @@
  *   - цепь делит поле на две зоны, мердж поперёк запрещён; снимается сбором
  *     `need` категорий;
  *   - страховки, в порядке прототипа: нет легального мерджа → сначала падает
- *     цепь, потом тает лёд, потом досыпка «вне ритма» в 4 пузыря.
+ *     цепь, потом тает лёд, потом досыпка «вне ритма» — ОДИН пузырь за раз,
+ *     серией до первого легального мерджа.
  *
  * Известное упрощение, общее для обоих ботов: ёмкость поля не моделируется —
  * всё, что досыпано, считается видимым. У зрячего бота это ни на что не влияет
@@ -212,6 +213,8 @@ export function createPlaySim(spec: LevelSpec): PlaySim {
   let done = 0;
   let moves = 0;
   let drought = 0;
+  /** Идёт ли серия страховочных досыпок: снимается первым удачным мерджем. */
+  let inRescueRun = false;
   const stats: SimStats = {
     rescues: 0, refillWaves: 0, refillCompletions: 0, maxDrought: 0,
     chainRescued: false, blockersRescued: false,
@@ -355,6 +358,7 @@ export function createPlaySim(spec: LevelSpec): PlaySim {
       }
       moves += 1;
       drought += 1;
+      inRescueRun = false;      // ход нашёлся — тупик кончился
       for (const bubble of field) if (bubble.blocked > 0) bubble.blocked -= 1;
 
       /*
@@ -381,7 +385,23 @@ export function createPlaySim(spec: LevelSpec): PlaySim {
         stats.blockersRescued = true;
         return 'blockers';
       }
-      if (queue.length > 0) { stats.rescues += 1; spawn(BATCH); return 'refill'; }
+      /*
+       * Страховка от тупика досыпает ОДИН шар за раз (решение владельца продукта
+       * 03.08). В ТЗ страховки нет вовсе, поэтому правило «сколько мест
+       * освободилось, столько и приходит» к ней не применяется: при тупике не
+       * освободилось ни одного места, и помощь даётся минимальная. Бот зовёт
+       * rescue() в цикле, пока легальной пары нет, — то есть серия сама тянется
+       * до первого хода, ровно как перепроверка в прототипе.
+       *
+       * В счётчик серия попадает ОДНИМ событием: «поле встало один раз, и его
+       * разжали четырьмя шарами» и «поле вставало четыре раза» — разные факты,
+       * а гейт приёмки читает именно этот счётчик.
+       */
+      if (queue.length > 0) {
+        if (!inRescueRun) { stats.rescues += 1; inRescueRun = true; }
+        spawn(1, false);
+        return 'refill';
+      }
       return null;
     },
 
