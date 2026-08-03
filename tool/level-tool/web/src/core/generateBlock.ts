@@ -61,6 +61,9 @@ function normalizeConfig(config: BlockConfig): unknown {
     // хеш остаётся прежним, а у калиброванного по декаде блока гейты в хеш входят:
     // они влияют на контент, значит обязаны влиять на хеш
     decadeGates: config.decadeGates,
+    // облегчённая раздача меняет стартовое поле — входит в хеш; «1» = историческая
+    dealMinStartWords: config.dealMinStartWords !== undefined
+      && config.dealMinStartWords >= 2 ? config.dealMinStartWords : undefined,
   };
 }
 

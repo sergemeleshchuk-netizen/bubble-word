@@ -257,6 +257,15 @@ export interface BlockConfig {
    * на контент.
    */
   decadeGates?: DecadeGates;
+  /**
+   * Минимум слов категории на стартовом поле (облегчённая раздача, см.
+   * core/deal.ts). 2 = у категории на старте минимум пара, кому не хватило
+   * места — целиком в очереди; одиночек-«мёртвых» пузырей нет. Не задано или
+   * 1 = историческая ровная раздача «всем понемногу» — так пресет 201-210
+   * сохраняет хеш сдаваемого пакета. Настраивается по промежуткам уровней
+   * на первой вкладке инструмента (DEFAULT_DEAL_RANGES в decadeProfiles.ts).
+   */
+  dealMinStartWords?: number;
 }
 
 export interface DecadeGates {
@@ -503,6 +512,12 @@ export interface LevelSpec {
     moveLimit: number | null;
     moveLimitK: number | null;
     moveLimitPolicy: 'conservative';
+    /**
+     * Режим раздачи, которым посчитана выкладка (см. core/deal.ts). Хранится
+     * в спеке, потому что выкладка обязана пересчитываться из одного спека
+     * (`dealForSpec`); отсутствие поля = историческая раздача старых пакетов.
+     */
+    dealMinStartWords?: number;
   };
   categories: LevelCategory[];
   /**

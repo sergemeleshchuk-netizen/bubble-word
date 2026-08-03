@@ -12,6 +12,10 @@ import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
 import { ContentBase } from './components/ContentBase.tsx';
 import { ExportView } from './components/ExportView.tsx';
+import { DealTuning } from './components/DealTuning.tsx';
+import {
+  DEFAULT_DEAL_RANGES, dealMinStartWordsFor, type DealRangeSetting,
+} from './core/decadeProfiles.ts';
 
 import snapshotJson from './data/content.snapshot.json';
 import scoringJson from './data/scoring.config.json';
@@ -46,6 +50,28 @@ async function loadSnapshot(id: SourceId): Promise<Snapshot> {
 /** Снимок, с которым инструмент рисует первый кадр, пока едет рабочий словарь. */
 const BOOT_SOURCE_ID: SourceId = 'production';
 
+/**
+ * Ручная настройка раздачи старта переживает перезагрузку страницы: это
+ * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
+ * не должна ронять чтение старого значения.
+ */
+const DEAL_RANGES_KEY = 'level-tool.deal-ranges.v1';
+
+function loadDealRanges(): DealRangeSetting[] {
+  try {
+    const raw = localStorage.getItem(DEAL_RANGES_KEY);
+    if (!raw) return DEFAULT_DEAL_RANGES;
+    const parsed = JSON.parse(raw) as DealRangeSetting[];
+    if (!Array.isArray(parsed) || parsed.length === 0) return DEFAULT_DEAL_RANGES;
+    if (!parsed.every((r) => Number.isInteger(r.from) && r.from >= 1
+      && Number.isInteger(r.minStartWords)
+      && r.minStartWords >= 1 && r.minStartWords <= 4)) return DEFAULT_DEAL_RANGES;
+    return parsed;
+  } catch {
+    return DEFAULT_DEAL_RANGES;
+  }
+}
+
 const TABS = [
   { id: 'base', label: 'База контента' },
   { id: 'compose', label: 'Настройка блока' },
@@ -62,6 +88,14 @@ export function App() {
   const [block, setBlock] = useState<BlockResult | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [elapsed, setElapsed] = useState<number>(0);
+  const [dealRanges, setDealRanges] = useState<DealRangeSetting[]>(loadDealRanges);
+
+  const changeDealRanges = (next: DealRangeSetting[]) => {
+    setDealRanges(next);
+    try {
+      localStorage.setItem(DEAL_RANGES_KEY, JSON.stringify(next));
+    } catch { /* приватный режим: настройка живёт до перезагрузки */ }
+  };
 
   /**
    * Источник контента. Запрошенный и действующий — разные состояния, и это
@@ -124,7 +158,12 @@ export function App() {
    * экране настройки отдаёт черновик формы: `setConfig` асинхронный, и генерация
    * по состоянию собрала бы блок по предыдущему конфигу — на один клик позади.
    */
-  const generate = (next: BlockConfig = config) => {
+  const generate = (raw: BlockConfig = config) => {
+    // Раздача старта берётся из таблицы промежутков В МОМЕНТ сборки: черновик
+    // конфига мог быть собран до правки таблицы. Пресет 201-210 поле не задаёт
+    // (undefined) — его не трогаем, хеш сдаваемого пакета закреплён.
+    const next = raw.dealMinStartWords === undefined ? raw
+      : { ...raw, dealMinStartWords: dealMinStartWordsFor(raw.levelRange[0], dealRanges) };
     setConfig(next);
     const started = performance.now();
     const result = generateBlock({ snapshot, config: next, scoring });
@@ -200,12 +239,15 @@ export function App() {
       </nav>
 
       {tab === 'base' && (
-        <ContentBase
-          snapshot={snapshot}
-          index={index}
-          runs={aiRunsJson as never}
-          source={source}
-        />
+        <>
+          <ContentBase
+            snapshot={snapshot}
+            index={index}
+            runs={aiRunsJson as never}
+            source={source}
+          />
+          <DealTuning ranges={dealRanges} onChange={changeDealRanges} />
+        </>
       )}
 
       {tab === 'compose' && (

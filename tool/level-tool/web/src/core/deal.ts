@@ -58,6 +58,7 @@ function spawnableWords(category: LevelCategory): string[] {
 export function buildDeal(
   levelId: number, categories: readonly LevelCategory[], board: DealBoard,
   chunked: ChunkedWords = new Set<string>(),
+  minStartWords = 1,
 ): Deal {
   const rng = createRng(`deal::${levelId}::${categories.map((c) => c.key).join(',')}`);
   /** Сколько мест на поле занимает слово: распиленное — два. */
@@ -104,9 +105,63 @@ export function buildDeal(
     left -= bubblesFor(opener, board.wordsPerCategory);
   }
 
+  /*
+   * Облегчённая раздача (minStartWords >= 2): у категории на старте либо
+   * минимум `minStartWords` слов, либо её на поле нет вовсе — она целиком
+   * ждёт в очереди досыпки.
+   *
+   * Зачем. Поле держит 24 пузыря при любом числе категорий, и ровная раздача
+   * «всем понемногу» на больших уровнях раскладывает категории по одному
+   * слову. Такой пузырь-одиночка не сливается ни с чем — его пара ещё в
+   * очереди, ход с ним невозможен по построению, а внимание он забирает
+   * наравне с остальными. Замер по 400 уровням: на 13 категориях одиночек
+   * 4-7, на 16 — до 62% поля. Облегчённая раздача меняет мёртвые одиночки
+   * на пары и тройки: категорий на старте видно меньше, но каждая видимая —
+   * материал для хода, а не отвлечение.
+   *
+   * Раздача в два прохода: сперва каждой представленной категории её минимум
+   * (кому не хватило бюджета — целиком в очередь), затем остаток по кругу
+   * между уже представленными. Порядок категорий — тот же rng.shuffle, что и
+   * у ровной раздачи: выкладка по-прежнему пересчитывается из одного спека.
+   *
+   * При minStartWords = 1 работает исторический путь «всем понемногу» ниже —
+   * байт в байт, это закреплено тестом воспроизводимости старых пакетов.
+   */
+  const rest = rng.shuffle(pools.filter((p) => p !== opener));
+  if (minStartWords >= 2) {
+    const represented: typeof rest = [];
+    for (const pool of rest) {
+      if (left <= 0) break;
+      const cap = Math.min(board.wordsPerCategory, pool.words.length);
+      const want = Math.min(minStartWords, cap);
+      const price = bubblesFor(pool, want);
+      if (price > left) continue;   // не влезает минимум — категория ждёт в очереди
+      counts.set(pool.key, want);
+      left -= price;
+      represented.push(pool);
+    }
+    for (let i = 0; left > 0 && represented.length > 0; i += 1) {
+      const pool = represented[i % represented.length];
+      const cap = Math.min(board.wordsPerCategory, pool.words.length);
+      const have = counts.get(pool.key) ?? 0;
+      const next = have < cap ? cost(pool.key, pool.words[have]) : 0;
+      if (have < cap && next <= left) {
+        counts.set(pool.key, have + 1);
+        left -= next;
+      } else if (represented.every((p) => {
+        const done = (counts.get(p.key) ?? 0) >= Math.min(
+          board.wordsPerCategory, p.words.length);
+        const tooBig = !done && cost(p.key, p.words[counts.get(p.key) ?? 0]) > left;
+        return done || tooBig;
+      })) {
+        break;
+      }
+    }
+    return assembleDeal(categories, pools, counts, cost, rng);
+  }
+
   // остаток раздаётся по кругу почти поровну: так на поле видно понемногу от
   // многих категорий, и игрок ищет связь, а не собирает готовое
-  const rest = rng.shuffle(pools.filter((p) => p !== opener));
   for (let i = 0; left > 0 && rest.length > 0; i += 1) {
     const pool = rest[i % rest.length];
     const cap = Math.min(board.wordsPerCategory, pool.words.length);
@@ -129,6 +184,21 @@ export function buildDeal(
     }
   }
 
+  return assembleDeal(categories, pools, counts, cost, rng);
+}
+
+/**
+ * Общий хвост обеих раздач: состав поля из счётчиков, очередь по ритму,
+ * перемешивание поля. Порядок обращений к rng здесь фиксирован — он входит
+ * в воспроизводимость выкладки из спека.
+ */
+function assembleDeal(
+  categories: readonly LevelCategory[],
+  pools: { key: string; words: string[] }[],
+  counts: Map<string, number>,
+  cost: (categoryKey: string, word: string) => number,
+  rng: ReturnType<typeof createRng>,
+): Deal {
   const start: DealBubble[] = [];
   for (const pool of pools) {
     const onField = counts.get(pool.key) ?? 0;
@@ -269,7 +339,13 @@ function paceQueue(
 
 /** Пересчёт выкладки из готового спека — для проверок и для старых пакетов. */
 export function dealForSpec(spec: LevelSpec): Deal {
-  return buildDeal(spec.levelId, spec.categories, spec.board);
+  // Всё, что влияет на выкладку, обязано лежать в самом спеке. Распилы — в
+  // spec.halves (без них слово считается одним пузырём и поле собирается
+  // иначе), режим раздачи — в board.dealMinStartWords (без него старые пакеты
+  // пересчитываются историческим путём «всем понемногу»).
+  const chunked = new Set(spec.halves.map((h) => chunkKey(h.home, h.word)));
+  return buildDeal(spec.levelId, spec.categories, spec.board, chunked,
+    spec.board.dealMinStartWords ?? 1);
 }
 
 /**

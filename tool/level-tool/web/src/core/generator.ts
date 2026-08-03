@@ -1258,6 +1258,7 @@ function buildLevelSpec(
   assignment: Map<number, number[]>,
   wordsPerCategory: number,
   rng: Rng,
+  dealMinStartWords?: number,
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
   for (const edge of edges) parentOf.set(edge.child, edge.parent);
@@ -1350,7 +1351,7 @@ function buildLevelSpec(
   // выкладка считается здесь, а не в прототипе: см. core/deal.ts
   const deal = buildDeal(plan.levelId, categories, {
     boardCapacity: BOARD_CAPACITY, wordsPerCategory,
-  }, chunked);
+  }, chunked, dealMinStartWords ?? 1);
 
   const frozenBubbles: BlockedBubble[] = [];
   const hiddenBubbles: BlockedBubble[] = [];
@@ -1390,6 +1391,11 @@ function buildLevelSpec(
         : moveLimit(floor, plan.moveLimitK) + (blocker ? BLOCKER_MOVE_BONUS : 0),
       moveLimitK: plan.moveLimitK,
       moveLimitPolicy: 'conservative',
+      // undefined канонический сериализатор выбрасывает: спеки исторической
+      // раздачи (и их хеши) не меняются, облегчённая раздача в хеш входит.
+      // Явная «1» приравнена к отсутствию поля: это та же историческая раздача
+      dealMinStartWords: dealMinStartWords !== undefined && dealMinStartWords >= 2
+        ? dealMinStartWords : undefined,
     },
     categories,
     deal,
@@ -1583,7 +1589,7 @@ export function generateLevel(
     }
 
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
-      assigned.words, wordsPerCategory, rng);
+      assigned.words, wordsPerCategory, rng, config.dealMinStartWords);
 
     if (options.accept) {
       const verdict = options.accept(spec);
