@@ -116,7 +116,8 @@ test('по предзаполненному промпту блок собира
     ...configForRange(parsed.patch.levelRange!, DEFAULT_BLOCK_CONFIG.seed),
     ...parsed.patch,
   };
-  assert.ok(checkBlockRhythm(buildBlockPlan(config)).passed, 'ритм блока должен быть пилой');
+  assert.ok(checkBlockRhythm(buildBlockPlan(config), config.categoryCorridor).passed,
+    'ритм блока должен быть пилой');
 
   const block = generateBlock({ snapshot, config, scoring });
   assert.equal(block.levels.length, 10);

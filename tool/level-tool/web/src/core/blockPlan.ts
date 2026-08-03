@@ -10,6 +10,7 @@
  */
 import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
+import { spreadBoundsFor } from './decadeProfiles.ts';
 
 /**
  * Дефолтный пресет для 201-210.
@@ -291,7 +292,9 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
  * Инварианты блока: пила, а не линия.
  * Проверяются на плане, до генерации: если план плохой, генерировать бессмысленно.
  */
-export function checkBlockRhythm(plans: LevelPlan[]): { passed: boolean; issues: string[] } {
+export function checkBlockRhythm(
+  plans: LevelPlan[], corridor?: readonly [number, number],
+): { passed: boolean; issues: string[] } {
   const issues: string[] = [];
   const counts = plans.map((p) => p.categoryCount);
 
@@ -307,10 +310,18 @@ export function checkBlockRhythm(plans: LevelPlan[]): { passed: boolean; issues:
    * `>= 4`, и блок с разбросом 3 (как даёт усреднённый шаблон) проходил, хотя
    * на референс не похож; блок с разбросом 12 тоже проходил, хотя это уже
    * не ритм, а качели.
+   *
+   * Границы считаются от коридора блока, если он известен: коридор — решение
+   * дизайнера, и в узком (8-12, решение 03.08 для поздней кривой) разброс 5
+   * недостижим физически. См. `spreadBoundsFor` в decadeProfiles.ts.
    */
   const spread = Math.max(...counts) - Math.min(...counts);
-  if (spread < 5 || spread > 7) {
-    issues.push(`разброс внутри блока ${spread} категорий, в референсе стабильно 5-7`);
+  const [minSpread, maxSpread] = corridor
+    ? spreadBoundsFor(corridor) : [5, 7];
+  if (spread < minSpread || spread > maxSpread) {
+    issues.push(`разброс внутри блока ${spread} категорий, нужно `
+      + `${minSpread}-${maxSpread}`
+      + (corridor ? ` для коридора ${corridor.join('-')}` : ' (в референсе стабильно 5-7)'));
   }
 
   const peaks = plans.filter((p) => p.role === 'peak' || p.role === 'spike');

@@ -20,6 +20,7 @@ import { DecadeTable } from './components/DealTuning.tsx';
 import {
   applyDecadeTuning, decadeTuningDefaults, type DecadeTuningRow,
 } from './core/decadeProfiles.ts';
+import { BOARD_CAPACITY } from './core/levelMath.ts';
 
 import snapshotJson from './data/content.snapshot.json';
 import scoringJson from './data/scoring.config.json';
@@ -61,7 +62,7 @@ async function loadReferenceLevels(): Promise<BwjLevels> {
  * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
  * не должна ронять чтение старого значения.
  */
-const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v2';
+const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v3';
 
 function loadDecadeTuning(): DecadeTuningRow[] {
   const defaults = decadeTuningDefaults();
@@ -77,6 +78,10 @@ function loadDecadeTuning(): DecadeTuningRow[] {
       && Array.isArray(r.corridor) && r.corridor.length === 2
       && Number.isInteger(r.corridor[0]) && Number.isInteger(r.corridor[1])
       && r.corridor[0] >= 3 && r.corridor[1] <= 18 && r.corridor[0] <= r.corridor[1]
+      && Array.isArray(r.startBubbles) && r.startBubbles.length === 2
+      && Number.isInteger(r.startBubbles[0]) && Number.isInteger(r.startBubbles[1])
+      && r.startBubbles[0] >= 4 && r.startBubbles[1] <= BOARD_CAPACITY
+      && r.startBubbles[0] <= r.startBubbles[1]
       && saneScheme(r.schemeMin) && saneScheme(r.schemeMax));
     return sane ? parsed : defaults;
   } catch {

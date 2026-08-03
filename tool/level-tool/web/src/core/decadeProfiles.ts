@@ -355,11 +355,33 @@ export const RHYTHM_INVARIANTS: RhythmInvariants = {
   minSpread: 5, maxSpread: 7, minDescents: 3,
 };
 
+/**
+ * Требуемый разброс для КОНКРЕТНОГО коридора.
+ *
+ * Числа 5-7 сняты с референса, у которого коридоры широкие (11-17, 6-15). Но
+ * коридор — решение дизайнера, и он вправе его сузить: решение владельца 03.08
+ * опустило поздние промежутки до 8-12, чтобы на кривой везде были уровни
+ * передышки. В коридоре шириной 4 разброс 5 недостижим физически, и жёсткая
+ * планка ставила FAIL там, где план сделал всё, что коридор позволяет.
+ *
+ * Поэтому требование = «столько пилы, сколько коридор вообще допускает»:
+ * min(5, ширина) снизу, min(7, ширина) сверху. У широких коридоров правило
+ * прежнее, зубы не потеряны — блок-прямая по-прежнему не проходит.
+ */
+export function spreadBoundsFor(corridor: readonly [number, number]): [number, number] {
+  const width = Math.max(0, corridor[1] - corridor[0]);
+  return [
+    Math.min(RHYTHM_INVARIANTS.minSpread, width),
+    Math.min(RHYTHM_INVARIANTS.maxSpread, width),
+  ];
+}
+
 function rhythmOk(
   counts: number[], corridor: [number, number], categoryMean: number,
 ): boolean {
   const spread = Math.max(...counts) - Math.min(...counts);
-  if (spread < RHYTHM_INVARIANTS.minSpread || spread > RHYTHM_INVARIANTS.maxSpread) return false;
+  const [minSpread, maxSpread] = spreadBoundsFor(corridor);
+  if (spread < minSpread || spread > maxSpread) return false;
   const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
   if (descents < RHYTHM_INVARIANTS.minDescents) return false;
   if (counts.some((c) => c < corridor[0] || c > corridor[1])) return false;
@@ -385,9 +407,17 @@ function rhythmOk(
  *
  * `total` обычно 10. Для первой декады позиция 1 — туториал: в референсе L1 это
  * 5 категорий, весь уровень на поле и без лимита ходов.
+ *
+ * `rhythmKey` — то, чем дребезг отличает одну декаду от другой. По умолчанию
+ * номер профиля, и до 200-го уровня это то же самое, что номер декады. А дальше
+ * профиль один на всю кривую (последний замеренный, 191), и блок 201-210
+ * получал ровно тот же план, что блок 4991-5000: одинаковые не «похожие», а
+ * побайтно те же десять чисел. Поэтому вызывающий передаёт сюда номер первого
+ * уровня блока — разнообразие на поздней кривой начинается здесь.
  */
 export function planCategoryCounts(
   profile: DecadeProfile, seed: string, total = 10, isFirstDecade = false,
+  rhythmKey: number = profile.from,
 ): number[] {
   const corridor = profile.categoryCorridor;
   const clamp = (v: number): number => Math.min(corridor[1], Math.max(corridor[0], v));
@@ -404,16 +434,17 @@ export function planCategoryCounts(
    */
   let spike = base[SPIKE_POSITION - 1];
   let recovery = base[RECOVERY_POSITION - 1];
-  while (spike - recovery < RHYTHM_INVARIANTS.minSpread
+  const wantSpread = spreadBoundsFor(corridor)[0];
+  while (spike - recovery < wantSpread
     && (spike < corridor[1] || recovery > corridor[0])) {
     if (spike < corridor[1]) spike += 1;
-    if (spike - recovery >= RHYTHM_INVARIANTS.minSpread) break;
+    if (spike - recovery >= wantSpread) break;
     if (recovery > corridor[0]) recovery -= 1;
   }
   base[SPIKE_POSITION - 1] = spike;
   base[RECOVERY_POSITION - 1] = recovery;
 
-  const rng = createRng(`${seed}::rhythm::${profile.from}`);
+  const rng = createRng(`${seed}::rhythm::${rhythmKey}`);
   for (let attempt = 0; attempt < 500; attempt += 1) {
     const counts = base.map((value, i) => {
       // спайк и передышку дребезг не трогает: это несущая фигура ритма
@@ -440,9 +471,10 @@ export const TUTORIAL_CATEGORY_COUNT = 5;
 /** Мета-план: середина коридора декады, ноль на туториале. */
 export function planMetaCounts(
   profile: DecadeProfile, categoryCounts: number[], seed: string, isFirstDecade = false,
+  rhythmKey: number = profile.from,
 ): number[] {
   const [lo, hi] = profile.metaRange;
-  const rng = createRng(`${seed}::meta::${profile.from}`);
+  const rng = createRng(`${seed}::meta::${rhythmKey}`);
   return categoryCounts.map((categories, i) => {
     if (isFirstDecade && i === 0) return 0;   // мета-пары в оригинале с L3
     const span = hi - lo;
@@ -472,8 +504,10 @@ export function configForRange(
   const profile = profileForRange(levelRange);
   const total = levelRange[1] - levelRange[0] + 1;
   const isFirstDecade = levelRange[0] === 1;
-  const categoryPlan = planCategoryCounts(profile, seed, total, isFirstDecade);
-  const metaPlan = planMetaCounts(profile, categoryPlan, seed, isFirstDecade);
+  const categoryPlan = planCategoryCounts(profile, seed, total, isFirstDecade,
+    levelRange[0]);
+  const metaPlan = planMetaCounts(profile, categoryPlan, seed, isFirstDecade,
+    levelRange[0]);
 
   return {
     levelRange,
@@ -527,6 +561,10 @@ export function configForRange(
     // облегчённая раздача — умолчание для калиброванных декад (решение 03.08);
     // пресет 201-210 поле не задаёт и сохраняет хеш сдаваемого пакета
     dealMinStartWords: dealMinStartWordsFor(levelRange[0]),
+    // бюджет старта по замеру записанных уровней: первая декада встречает
+    // игрока неполным полем, дальше 24. Здесь, а не только в интерфейсе, чтобы
+    // офлайн-сборка блока давала то же, что кнопка в инструменте
+    dealStartBubbles: dealStartBubblesFor(levelRange[0]),
     ...overrides,
   };
 }
@@ -592,6 +630,12 @@ export interface DecadeTuningRow {
   from: number;
   /** последний уровень промежутка — определяет и подпись, и шаг сетки */
   to: number;
+  /**
+   * Шаров-слов на старте: [пол, потолок]. Потолок подрезает стартовое поле,
+   * пол — требование приёмки выкладки. Смысл и замер — `dealStartBubbles`
+   * в types.ts.
+   */
+  startBubbles: [number, number];
   /** коридор по числу категорий; уезжает в config.categoryCorridor */
   corridor: [number, number];
   /**
@@ -605,6 +649,59 @@ export interface DecadeTuningRow {
 }
 
 /**
+ * Шаров-слов на старте по промежуткам — замер записанных уровней с
+ * экстраполяцией (решение владельца 03.08).
+ *
+ * Что показывает запись 19 наигранных уровней (`obs.startBubbles` в
+ * bwj-levels.json): L1-10 стартуют с 16-24 пузырей, L11-20 — с 18-24. Дальше
+ * выгрузка старта не содержит вовсе, а поле к этому моменту уже доходит до
+ * полной вместимости — значит экстраполяция одна: 24 и дальше 24 на всех
+ * промежутках. Первая декада получает неполное поле не «на всякий случай», а
+ * потому что так встречает игрока оригинал.
+ *
+ * Пол первой декады поднят с наблюдённых 16 до 16 как есть, потолок опущен до
+ * 20: 24 пузыря в оригинале появляются на L7-L9, то есть в верхней половине
+ * декады, и держать потолок 24 на весь промежуток значило бы отдать полное
+ * поле уже второму уровню.
+ */
+const START_BUBBLES_BY_RANGE: { from: number; startBubbles: [number, number] }[] = [
+  { from: 1, startBubbles: [16, 20] },
+  { from: 11, startBubbles: [20, 24] },
+  { from: 21, startBubbles: [24, 24] },
+];
+
+/**
+ * Коридор категорий на поздней кривой — решение владельца 03.08, а не замер.
+ *
+ * Замер поздних уровней выгрузки даёт медиану ровно 12 категорий на всём
+ * отрезке 201-1000 (мин 9, макс 16, десятками декад без отклонений). Профили
+ * декад при этом сняты с L121-199, где медиана 14 и коридор 11-17, и раньше
+ * этот коридор продолжался на ВСЮ остальную кривую: с L161 и до L5000 таблица
+ * показывала одно и то же «11-17» и для минимума, и для максимума. Это неверно
+ * дважды — потолок завышен против самого оригинала, а пол 11 не оставляет места
+ * уровню передышки, хотя передышка обязана быть на любом участке кривой.
+ *
+ * Отсюда числа: до 500 пол опущен до 8 (передышек больше), до 1000 пол 9 при
+ * том же потолке 12 оригинала, а после 1000 потолок открывается ВЫШЕ референса
+ * (13, 14, 15) — это запас на уровни сложнее всего, что в оригинале есть.
+ * Строки 1-160 не тронуты: там коридоры сняты с реальных уровней.
+ */
+const LATE_CORRIDORS: { from: number; corridor: [number, number] }[] = [
+  { from: 161, corridor: [8, 12] },
+  { from: 501, corridor: [9, 12] },
+  { from: 1001, corridor: [9, 13] },
+  { from: 2001, corridor: [8, 14] },
+  { from: 3001, corridor: [9, 15] },
+];
+
+/** Строка таблицы по номеру уровня: последняя, чей `from <= level`. */
+function rowAt<T extends { from: number }>(table: readonly T[], level: number): T {
+  let found = table[0];
+  for (const row of table) if (row.from <= level) found = row;
+  return found;
+}
+
+/**
  * Сетка промежутков таблицы (решение владельца 03.08): первые сто уровней —
  * подекадно, дальше всё крупнее. Ручной дизайн у оригинала виден в начале
  * кривой, а с ~L300 статистика замерзает — править там каждую декаду не из
@@ -612,8 +709,8 @@ export interface DecadeTuningRow {
  *
  *   1-100    по 10   (10 строк, коридоры из замера соответствующих декад)
  *   101-200  по 20   (5 строк, коридор — объединение двух декад замера)
- *   201-1000 по 100  (8 строк, коридор позднего плато)
- *   1001-5000 по 1000 (4 строки, тот же коридор)
+ *   201-1000 по 100  (8 строк, коридор поздней кривой)
+ *   1001-5000 по 1000 (4 строки, потолок открывается выше референса)
  */
 export function decadeTuningDefaults(): DecadeTuningRow[] {
   const rows: DecadeTuningRow[] = [];
@@ -623,16 +720,23 @@ export function decadeTuningDefaults(): DecadeTuningRow[] {
     return [profile.categoryCorridor[0], profile.categoryCorridor[1]];
   };
   const push = (from: number, to: number) => {
-    // коридор промежутка — объединение коридоров всех декад замера внутри него
-    let lo = Infinity;
-    let hi = -Infinity;
-    for (let level = from; level <= Math.min(to, 200); level += 10) {
-      const c = corridorAt(level);
-      lo = Math.min(lo, c[0]);
-      hi = Math.max(hi, c[1]);
+    // с 161 коридор задан решением дизайнера, до 160 — объединением коридоров
+    // всех декад замера внутри промежутка
+    let corridor: [number, number];
+    if (from >= LATE_CORRIDORS[0].from) {
+      corridor = [...rowAt(LATE_CORRIDORS, from).corridor] as [number, number];
+    } else {
+      let lo = Infinity;
+      let hi = -Infinity;
+      for (let level = from; level <= Math.min(to, 200); level += 10) {
+        const c = corridorAt(level);
+        lo = Math.min(lo, c[0]);
+        hi = Math.max(hi, c[1]);
+      }
+      corridor = Number.isFinite(lo) ? [lo, hi] : corridorAt(from);
     }
-    if (!Number.isFinite(lo)) [lo, hi] = corridorAt(from);
-    rows.push({ from, to, corridor: [lo, hi], schemeMin: null, schemeMax: null });
+    const startBubbles = [...rowAt(START_BUBBLES_BY_RANGE, from).startBubbles] as [number, number];
+    rows.push({ from, to, startBubbles, corridor, schemeMin: null, schemeMax: null });
   };
   for (let from = 1; from <= 91; from += 10) push(from, from + 9);
   for (let from = 101; from <= 181; from += 20) push(from, from + 19);
@@ -641,6 +745,17 @@ export function decadeTuningDefaults(): DecadeTuningRow[] {
   return rows;
 }
 
+
+/**
+ * Бюджет старта для уровня — из таблицы декад (по умолчанию из её умолчаний).
+ * Тот же способ поиска строки, что у `dealMinStartWordsFor`.
+ */
+export function dealStartBubblesFor(
+  level: number, rows: readonly DecadeTuningRow[] = decadeTuningDefaults(),
+): [number, number] {
+  const row = decadeTuningRowFor(level, rows);
+  return row ? [row.startBubbles[0], row.startBubbles[1]] : [1, BOARD_CAPACITY];
+}
 
 /** Строка таблицы для уровня: последняя, чей from <= level (как профиль декады). */
 export function decadeTuningRowFor(
@@ -690,29 +805,60 @@ export function formatScheme(scheme: readonly number[]): string {
 }
 
 /**
+ * Целевое среднее категорий для коридора из таблицы.
+ *
+ * Пока коридор совпадал с замером декады, среднее брали оттуда же. Как только
+ * дизайнер коридор поменял (а с решением 03.08 он поменян на всей кривой после
+ * 160), замеренное среднее становится враньём: цель 13.1 внутри коридора 8-12
+ * недостижима, и клэмп превращал весь план в ряд из одних потолков — десять
+ * структурно одинаковых уровней. Середина коридора — это и есть то, что
+ * дизайнер имеет в виду, написав «8-12»: уровни около десяти, передышка на
+ * восьми, спайк на двенадцати.
+ */
+function meanForCorridor(corridor: readonly [number, number]): number {
+  return (corridor[0] + corridor[1]) / 2;
+}
+
+/**
  * Применение строки таблицы к конфигу диапазона.
  *
- * Коридор: заменяет categoryCorridor и ПОДРЕЗАЕТ уже посчитанный categoryPlan —
- * план строится из профиля декады и сам по себе о ручной правке не знает.
+ * Коридор: заменяет categoryCorridor и ПЕРЕСОБИРАЕТ план категорий и мета по
+ * этому коридору. Раньше план только подрезался — и это работало, пока правка
+ * была мелкой; коридор, целиком лежащий ниже замеренного среднего декады,
+ * подрезкой превращался в прямую линию (все десять уровней по потолку).
+ *
+ * Сравнение идёт с коридором САМОГО конфига, а не со умолчанием таблицы: с
+ * решением 03.08 умолчание таблицы для поздней кривой само отличается от
+ * профиля декады, и сравнение с умолчанием молча выключало бы новые коридоры.
+ *
  * Схема: уезжает в dealScheme как есть (null = авто, поле не ставится).
+ * Бюджет старта: уезжает в dealStartBubbles всегда — потолок подрезает старт,
+ * пол проверяется приёмкой выкладки.
  */
 export function applyDecadeTuning(
   config: BlockConfig, rows: readonly DecadeTuningRow[],
 ): BlockConfig {
   const row = decadeTuningRowFor(config.levelRange[0], rows);
   if (!row) return config;
-  const defaults = decadeTuningDefaults();
-  const base = defaults.find((d) => d.from === row.from);
-  const corridorEdited = !base
-    || base.corridor[0] !== row.corridor[0] || base.corridor[1] !== row.corridor[1];
+  const corridorDiffers = row.corridor[0] !== config.categoryCorridor[0]
+    || row.corridor[1] !== config.categoryCorridor[1];
   const next: BlockConfig = { ...config };
-  if (corridorEdited) {
+  if (corridorDiffers) {
     next.categoryCorridor = [row.corridor[0], row.corridor[1]];
-    if (next.categoryPlan) {
-      next.categoryPlan = next.categoryPlan.map((n) =>
-        Math.max(row.corridor[0], Math.min(row.corridor[1], n)));
-    }
+    const profile = profileForRange(config.levelRange);
+    const effective: DecadeProfile = {
+      ...profile,
+      categoryCorridor: [row.corridor[0], row.corridor[1]],
+      categoryMean: meanForCorridor(row.corridor),
+    };
+    const total = config.levelRange[1] - config.levelRange[0] + 1;
+    const isFirstDecade = config.levelRange[0] === 1;
+    next.categoryPlan = planCategoryCounts(effective, config.seed, total, isFirstDecade,
+      config.levelRange[0]);
+    next.metaPlan = planMetaCounts(effective, next.categoryPlan, config.seed, isFirstDecade,
+      config.levelRange[0]);
   }
+  next.dealStartBubbles = [row.startBubbles[0], row.startBubbles[1]];
   // Вилка схем: заполнена одна — действует на весь промежуток. Обе null =
   // авто; возможный след прежней вилки стирается, иначе однажды применённая
   // схема пережила бы свою отмену в таблице.
@@ -817,8 +963,13 @@ export function checkDecadeFit(
     `среднее категорий ${mean.toFixed(1)}, цель декады ${profile.categoryMean} (допуск ±1.0)`);
 
   const spread = Math.max(...counts) - Math.min(...counts);
-  if (complete) add('CATEGORY_SPREAD', spread >= 5 && spread <= 7,
-    `разброс ${spread} категорий (${Math.min(...counts)}-${Math.max(...counts)}), в референсе 5-7`);
+  // требование по разбросу — «столько пилы, сколько допускает коридор»: в
+  // коридоре шириной 4 разброс 5 недостижим физически (см. spreadBoundsFor)
+  const [minSpread, maxSpread] = spreadBoundsFor(profile.categoryCorridor);
+  if (complete) add('CATEGORY_SPREAD', spread >= minSpread && spread <= maxSpread,
+    `разброс ${spread} категорий (${Math.min(...counts)}-${Math.max(...counts)}), `
+    + `для коридора ${profile.categoryCorridor.join('-')} нужно ${minSpread}-${maxSpread} `
+    + '(в референсе 5-7)');
 
   if (complete) add('CATEGORY_CORRIDOR',
     counts.every((c) => c >= profile.categoryCorridor[0] && c <= profile.categoryCorridor[1]),

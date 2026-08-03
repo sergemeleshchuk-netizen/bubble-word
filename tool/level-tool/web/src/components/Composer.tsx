@@ -372,7 +372,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
 
   // предпросмотр считается по черновику, а не по применённому конфигу
   const plans = buildBlockPlan(draft);
-  const rhythm = checkBlockRhythm(plans);
+  const rhythm = checkBlockRhythm(plans, draft.categoryCorridor);
   const dirty = canonicalJson(draft) !== canonicalJson(config);
 
   /**

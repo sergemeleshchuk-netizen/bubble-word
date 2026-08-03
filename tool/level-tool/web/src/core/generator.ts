@@ -1374,6 +1374,7 @@ function buildLevelSpec(
   rng: Rng,
   dealMinStartWords?: number,
   dealScheme?: number[],
+  dealStartBubbles?: [number, number],
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
   for (const edge of edges) parentOf.set(edge.child, edge.parent);
@@ -1481,10 +1482,15 @@ function buildLevelSpec(
   const floor = moveFloor(categories.length, halves.length, wordsPerCategory);
 
   // выкладка считается здесь, а не в прототипе: см. core/deal.ts
+  // бюджет старта из таблицы декад подрезает ТОЛЬКО старт: вместимость поля
+  // физическая и остаётся 24 (в оригинале 24 пузыря видны уже на L7)
+  const startBudget = dealStartBubbles && dealStartBubbles[1] < BOARD_CAPACITY
+    ? dealStartBubbles : undefined;
   const deal = buildDeal(plan.levelId, categories, {
     boardCapacity: BOARD_CAPACITY, wordsPerCategory,
   }, chunked, dealMinStartWords ?? 1,
-  dealScheme && dealScheme.length > 0 ? dealScheme : null);
+  dealScheme && dealScheme.length > 0 ? dealScheme : null,
+  startBudget ?? null);
 
   const frozenBubbles: BlockedBubble[] = [];
   const hiddenBubbles: BlockedBubble[] = [];
@@ -1530,6 +1536,9 @@ function buildLevelSpec(
       dealMinStartWords: dealMinStartWords !== undefined && dealMinStartWords >= 2
         ? dealMinStartWords : undefined,
       dealScheme: dealScheme && dealScheme.length > 0 ? dealScheme : undefined,
+      // в спек уезжает только бюджет, который реально подрезает старт: у
+      // промежутков «24-24» выкладка и её хеш остаются прежними
+      dealStartBubbles: startBudget,
     },
     categories,
     deal,
@@ -1731,7 +1740,7 @@ export function generateLevel(
       : config.dealScheme;
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
       assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
-      levelScheme);
+      levelScheme, config.dealStartBubbles);
 
     if (options.accept) {
       const verdict = options.accept(spec);

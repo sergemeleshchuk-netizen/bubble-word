@@ -158,7 +158,8 @@ test('план категорий укладывается в коридор с�
 });
 
 test('ритм пресета 201-210 по-прежнему проходит проверку', () => {
-  assert.ok(checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG)).passed);
+  assert.ok(checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG),
+    DEFAULT_BLOCK_CONFIG.categoryCorridor).passed);
 });
 
 test('плоский план ритм не проходит', () => {

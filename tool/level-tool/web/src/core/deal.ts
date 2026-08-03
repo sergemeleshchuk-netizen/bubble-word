@@ -120,11 +120,27 @@ export function autoScheme(
   return out.sort((a, b) => b - a);
 }
 
+/**
+ * Потолок стартового поля: вместимость, подрезанная бюджетом таблицы декад.
+ *
+ * Вместимость поля физическая и всегда 24 — в оригинале столько пузырей видно
+ * уже на L7. А вот СТАРТ в оригинале доходит до 24 постепенно: на записанных
+ * уровнях первой декады он занимает 16-24 пузыря. Бюджет таблицы выражает
+ * именно это, поэтому подрезает только старт, а не поле.
+ */
+export function startCapacity(
+  boardCapacity: number, startBubbles?: readonly [number, number] | null,
+): number {
+  if (!startBubbles) return boardCapacity;
+  return Math.max(1, Math.min(boardCapacity, startBubbles[1]));
+}
+
 export function buildDeal(
   levelId: number, categories: readonly LevelCategory[], board: DealBoard,
   chunked: ChunkedWords = new Set<string>(),
   minStartWords = 1,
   scheme: readonly number[] | null = null,
+  startBudget: readonly [number, number] | null = null,
 ): Deal {
   const rng = createRng(`deal::${levelId}::${categories.map((c) => c.key).join(',')}`);
   /** Сколько мест на поле занимает слово: распиленное — два. */
@@ -143,7 +159,8 @@ export function buildDeal(
   // бюджет поля считается в ПУЗЫРЯХ, а не в словах: распиленное слово стоит два
   const totalBubbles = pools.reduce(
     (n, p) => n + p.words.reduce((k, w) => k + cost(p.key, w), 0), 0);
-  const fieldSize = Math.min(board.boardCapacity, totalBubbles);
+  const fieldSize = Math.min(
+    startCapacity(board.boardCapacity, startBudget), totalBubbles);
 
   /*
    * Одна категория выкладывается целиком.
@@ -465,10 +482,12 @@ export function dealForSpec(spec: LevelSpec): Deal {
   // Всё, что влияет на выкладку, обязано лежать в самом спеке. Распилы — в
   // spec.halves (без них слово считается одним пузырём и поле собирается
   // иначе), режим раздачи — в board.dealMinStartWords (без него старые пакеты
-  // пересчитываются историческим путём «всем понемногу»).
+  // пересчитываются историческим путём «всем понемногу»), бюджет старта — в
+  // board.dealStartBubbles (без него старт упирается в вместимость поля).
   const chunked = new Set(spec.halves.map((h) => chunkKey(h.home, h.word)));
   return buildDeal(spec.levelId, spec.categories, spec.board, chunked,
-    spec.board.dealMinStartWords ?? 1, spec.board.dealScheme ?? null);
+    spec.board.dealMinStartWords ?? 1, spec.board.dealScheme ?? null,
+    spec.board.dealStartBubbles ?? null);
 }
 
 /**
@@ -515,12 +534,26 @@ export function checkDeal(spec: LevelSpec, deal: Deal | undefined | null): strin
     bubbles.reduce((n, b) => n + (chunked.has(chunkKey(b.category, b.word)) ? 2 : 1), 0);
 
   const startCost = bubbleCost(deal.start);
-  if (startCost > spec.board.boardCapacity) {
-    problems.push(`на поле ${startCost} пузырей при вместимости `
-      + `${spec.board.boardCapacity}`);
+  const budget = spec.board.dealStartBubbles ?? null;
+  const capacity = startCapacity(spec.board.boardCapacity, budget);
+  if (startCost > capacity) {
+    problems.push(`на поле ${startCost} пузырей при потолке старта ${capacity}`
+      + (budget && budget[1] < spec.board.boardCapacity
+        ? ` (вместимость ${spec.board.boardCapacity}, бюджет декады ${budget[1]})` : ''));
   }
   const totalBubbles = bubbleCost([...deal.start, ...deal.queue]);
-  const fieldSize = Math.min(spec.board.boardCapacity, totalBubbles);
+  const fieldSize = Math.min(capacity, totalBubbles);
+  /*
+   * Пол бюджета: столько пузырей старт обязан набрать, если материала хватает.
+   * Проверяется только у автоматической раздачи — ручная схема сознательно
+   * вправе не добирать поле (в референсе старт тоже плавает, 19-24), и требовать
+   * от неё пола значило бы запрещать то, что дизайнер написал руками.
+   */
+  const manualScheme = !!(spec.board.dealScheme && spec.board.dealScheme.length > 0);
+  if (budget && !manualScheme && totalBubbles >= budget[0] && startCost < budget[0]) {
+    problems.push(`на старте ${startCost} пузырей, таблица декад требует минимум `
+      + `${budget[0]} (пузырей в уровне ${totalBubbles})`);
+  }
   // поле имеет право не добрать один пузырь: когда остаток бюджета — одно
   // место, а класть осталось только распиленные слова по два места каждое.
   // При явной схеме выкладки точное заполнение не требуется вовсе: схема —

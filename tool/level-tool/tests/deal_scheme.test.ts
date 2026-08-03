@@ -10,9 +10,15 @@
  *     одного спека;
  *  4) checkDeal при схеме не требует точного заполнения поля (в референсе
  *     старт тоже плавает, 19-24), но полноту слов проверяет по-прежнему;
- *  5) applyDecadeTuning: правка коридора подрезает план категорий, отмена
+ *  5) applyDecadeTuning: правка коридора ПЕРЕСОБИРАЕТ план категорий, отмена
  *     схемы (null) стирает её из конфига;
- *  6) разбор строки схемы: формат «4-3-3-3-2-2-2-2-1».
+ *  6) разбор строки схемы: формат «4-3-3-3-2-2-2-2-1»;
+ *  7) шары-слова на старте: умолчания сняты с записанных уровней (L1-10 —
+ *     16-20, L11-20 — 20-24, дальше 24), потолок реально подрезает старт, пол
+ *     проверяется приёмкой выкладки;
+ *  8) поздние коридоры (решение 03.08): потолок 12 до 1000, дальше 13-14-15,
+ *     пол опущен до 8-9 ради уровней передышки, и ни одна декада за 200-м
+ *     не повторяет план соседней.
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -25,9 +31,11 @@ import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
 import { checkDeal, dealForSpec, resolveScheme } from '../web/src/core/deal.ts';
 import {
-  applyDecadeTuning, configForRange, decadeTuningDefaults, decadeTuningRowFor,
-  formatScheme, liteSchemePreview, parseScheme,
+  applyDecadeTuning, configForRange, dealStartBubblesFor, decadeTuningDefaults,
+  decadeTuningRowFor, formatScheme, liteSchemePreview, parseScheme, spreadBoundsFor,
 } from '../web/src/core/decadeProfiles.ts';
+import { buildBlockPlan, checkBlockRhythm } from '../web/src/core/blockPlan.ts';
+import { BOARD_CAPACITY } from '../web/src/core/levelMath.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const snapshot = JSON.parse(
@@ -131,14 +139,31 @@ test('схема меняет хеш пакета относительно ав�
 // таблица декад
 // --------------------------------------------------------------------------- //
 
-test('правка коридора подрезает план категорий', () => {
+test('правка коридора пересобирает план категорий, а не подрезает его в линию', () => {
   const base = configForRange([121, 130], 'deal-scheme-test');
   const rows = decadeTuningDefaults().map((r) =>
     (r.from === 121 ? { ...r, corridor: [10, 12] as [number, number] } : r));
   const tuned = applyDecadeTuning(base, rows);
   assert.deepEqual(tuned.categoryCorridor, [10, 12]);
-  assert.ok(tuned.categoryPlan!.every((n) => n >= 10 && n <= 12),
-    `план вышел за коридор: ${tuned.categoryPlan}`);
+  const plan = tuned.categoryPlan!;
+  assert.ok(plan.every((n) => n >= 10 && n <= 12), `план вышел за коридор: ${plan}`);
+  /*
+   * Главное в этой проверке — не коридор, а то, что план остался планом.
+   * Замеренное среднее декады 121-130 равно 13.2, то есть выше нового потолка;
+   * прежняя подрезка давала десять двенадцаток — прямую линию из структурно
+   * одинаковых уровней. Пересборка обязана дать и пилу, и передышку.
+   */
+  assert.equal(new Set(plan).size > 1, true, `план стал прямой линией: ${plan}`);
+  assert.ok(plan.slice(1).every((n, i) => n !== plan[i]),
+    `в плане есть структурно одинаковые соседи: ${plan}`);
+  assert.ok(checkBlockRhythm(buildBlockPlan(tuned), tuned.categoryCorridor).passed,
+    'пересобранный план не прошёл проверку ритма');
+});
+
+test('разброс требуется по ширине коридора: в узком пила физически меньше', () => {
+  assert.deepEqual(spreadBoundsFor([11, 18]), [5, 7]);   // широкий — правило референса
+  assert.deepEqual(spreadBoundsFor([8, 12]), [4, 4]);    // ширина 4: разброс 5 недостижим
+  assert.deepEqual(spreadBoundsFor([9, 12]), [3, 3]);
 });
 
 test('отмена схемы в таблице стирает её из конфига', () => {
@@ -155,6 +180,133 @@ test('нетронутая таблица не меняет конфиг дек�
   assert.deepEqual(tuned.categoryPlan, base.categoryPlan);
   assert.equal(tuned.dealScheme, undefined);
   assert.equal(tuned.dealSchemeRange, undefined);
+});
+
+// --------------------------------------------------------------------------- //
+// шары-слова на старте
+// --------------------------------------------------------------------------- //
+
+/*
+ * Числа — замер `obs.startBubbles` записанных уровней: L1-10 стартуют с 16-24
+ * пузырей, L11-20 с 18-24, дальше выгрузка старта не содержит и поле уже полное.
+ * Потолок первой декады опущен до 20: полные 24 в оригинале появляются на L7-L9,
+ * то есть в верхней половине декады.
+ */
+test('умолчание шаров на старте: 16-20, потом 20-24, дальше всегда 24', () => {
+  assert.deepEqual(dealStartBubblesFor(1), [16, 20]);
+  assert.deepEqual(dealStartBubblesFor(7), [16, 20]);
+  assert.deepEqual(dealStartBubblesFor(11), [20, 24]);
+  assert.deepEqual(dealStartBubblesFor(21), [24, 24]);
+  assert.deepEqual(dealStartBubblesFor(500), [24, 24]);
+  assert.deepEqual(dealStartBubblesFor(4321), [24, 24]);
+  for (const row of decadeTuningDefaults()) {
+    assert.ok(row.startBubbles[0] <= row.startBubbles[1]
+      && row.startBubbles[1] <= BOARD_CAPACITY,
+      `строка ${row.from}: бюджет ${row.startBubbles} вне шкалы`);
+  }
+});
+
+test('бюджет старта подрезает поле первой декады и держится пола', () => {
+  const cfg = configForRange([1, 10], 'start-budget-test');
+  assert.deepEqual(cfg.dealStartBubbles, [16, 20]);
+  const early = generateBlock({ snapshot, scoring, config: cfg });
+  assert.ok(early.levels.length >= 8, `декада собралась на ${early.levels.length}/10`);
+  for (const level of early.levels) {
+    const start = level.spec.deal.start.length;
+    assert.ok(start >= 16 && start <= 20,
+      `уровень ${level.spec.levelId}: на старте ${start} пузырей, бюджет 16-20`);
+    // вместимость поля физическая и не двигается: подрезан старт, а не поле
+    assert.equal(level.spec.board.boardCapacity, BOARD_CAPACITY);
+    assert.deepEqual(level.spec.board.dealStartBubbles, [16, 20]);
+    assert.deepEqual(checkDeal(level.spec, level.spec.deal), [],
+      `уровень ${level.spec.levelId}: выкладка не сходится`);
+    assert.deepEqual(dealForSpec(level.spec), level.spec.deal,
+      `уровень ${level.spec.levelId}: выкладка не воспроизводится из спека`);
+  }
+});
+
+test('первый уровень остаётся туториалом: весь уровень видно на старте', () => {
+  const early = generateBlock({ snapshot, scoring,
+    config: configForRange([1, 10], 'start-budget-test') });
+  const first = early.levels.find((l) => l.spec.levelId === 1);
+  assert.ok(first, 'уровня 1 в блоке нет');
+  assert.equal(first!.spec.deal.queue.length, 0,
+    'на туториале очередь досыпки обязана быть пустой');
+  assert.equal(first!.spec.deal.start.length,
+    first!.spec.categories.length * first!.spec.board.wordsPerCategory);
+});
+
+test('бюджет «до 24» ничего не подрезает и в спек не пишется', () => {
+  const cfg = configForRange([21, 30], 'start-budget-test');
+  assert.deepEqual(cfg.dealStartBubbles, [24, 24]);
+  const block = generateBlock({ snapshot, scoring, config: cfg });
+  for (const level of block.levels) {
+    assert.equal(level.spec.board.dealStartBubbles, undefined,
+      `уровень ${level.spec.levelId}: в спек уехал бюджет, который ничего не меняет`);
+  }
+});
+
+// --------------------------------------------------------------------------- //
+// коридоры поздней кривой
+// --------------------------------------------------------------------------- //
+
+/*
+ * Решение владельца 03.08. До него таблица показывала на всём отрезке от 161 до
+ * 5000 одно и то же «11-17» — потолок выше самого оригинала (медиана выгрузки на
+ * 201-1000 равна ровно 12) и пол 11, не оставляющий места уровню передышки.
+ */
+test('поздние коридоры: потолок оригинала до 1000, выше него — только после', () => {
+  const rows = decadeTuningDefaults();
+  const at = (level: number) => decadeTuningRowFor(level, rows)!.corridor;
+  assert.deepEqual(at(161), [8, 12]);
+  assert.deepEqual(at(450), [8, 12]);
+  assert.deepEqual(at(501), [9, 12]);
+  assert.deepEqual(at(1000), [9, 12]);
+  assert.deepEqual(at(1001), [9, 13]);
+  assert.deepEqual(at(2001), [8, 14]);
+  assert.deepEqual(at(3001), [9, 15]);
+  assert.deepEqual(at(4321), [9, 15]);
+  // до 1000 потолок не выше замеренного оригинала, пол оставляет передышку
+  for (const row of rows) {
+    if (row.from < 161) continue;
+    if (row.to <= 1000) assert.ok(row.corridor[1] <= 12, `строка ${row.from}: потолок выше 12`);
+    assert.ok(row.corridor[0] <= 9, `строка ${row.from}: пол ${row.corridor[0]} без передышки`);
+  }
+  // строки 1-160 остались замером: их трогать было нечем, они сняты с уровней
+  assert.deepEqual(at(1), [5, 12]);
+  assert.deepEqual(at(11), [7, 12]);
+  assert.deepEqual(at(121), [10, 17]);
+});
+
+test('каждая строка таблицы даёт живой ритм с передышкой', () => {
+  const rows = decadeTuningDefaults();
+  for (const row of rows) {
+    const cfg = applyDecadeTuning(
+      configForRange([row.from, row.from + 9], 'rows-rhythm'), rows);
+    const plans = buildBlockPlan(cfg);
+    const rhythm = checkBlockRhythm(plans, cfg.categoryCorridor);
+    assert.ok(rhythm.passed,
+      `строка ${row.from}-${row.to} (коридор ${cfg.categoryCorridor.join('-')}): `
+      + rhythm.issues.join('; '));
+    const counts = plans.map((p) => p.categoryCount);
+    assert.ok(counts[5] < counts[4],
+      `строка ${row.from}: нет передышки после спайка (${counts.join(',')})`);
+  }
+});
+
+/*
+ * Ритм сеялся номером ПРОФИЛЯ декады, а профиль за 191-м один на всю кривую —
+ * поэтому блоки 201-210 и 4991-5000 получали побайтно один и тот же план.
+ * Разнообразие поздней кривой начинается здесь, а не в коридоре.
+ */
+test('декады за 200-м не повторяют план друг друга', () => {
+  const rows = decadeTuningDefaults();
+  const plans = [201, 211, 301, 501, 1001, 2001, 4991].map((from) => {
+    const cfg = applyDecadeTuning(configForRange([from, from + 9], 'late-variety'), rows);
+    return cfg.categoryPlan!.join(',');
+  });
+  assert.equal(new Set(plans).size, plans.length,
+    `совпали планы разных декад: ${plans.join(' | ')}`);
 });
 
 test('сетка умолчаний: до 100 по 10, до 200 по 20, до 1000 по 100, до 5000 по 1000', () => {

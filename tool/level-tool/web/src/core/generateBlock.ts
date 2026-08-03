@@ -24,6 +24,7 @@ import {
 } from './scoringDifficulty.ts';
 import { computeInterest, type InterestEvidence } from './scoringInterest.ts';
 import { canonicalJson, levelSpecHash, sha256Hex } from './hashing.ts';
+import { BOARD_CAPACITY } from './levelMath.ts';
 
 export interface BlockGenerationOptions {
   snapshot: Snapshot;
@@ -72,6 +73,11 @@ function normalizeConfig(config: BlockConfig): unknown {
     dealSchemeRange: config.dealSchemeRange
       && config.dealSchemeRange.min.length > 0
       ? config.dealSchemeRange : undefined,
+    // бюджет старта входит в хеш только когда реально подрезает поле: у
+    // промежутков «до 24» выкладка та же, что была до таблицы, и хеш прежний
+    dealStartBubbles: config.dealStartBubbles
+      && config.dealStartBubbles[1] < BOARD_CAPACITY
+      ? config.dealStartBubbles : undefined,
   };
 }
 

@@ -132,7 +132,8 @@ test('на 12 seed каждый принятый уровень держит har
 });
 
 test('ритм дефолтного блока проходит проверку пилы', () => {
-  const rhythm = checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG));
+  const rhythm = checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG),
+    DEFAULT_BLOCK_CONFIG.categoryCorridor);
   assert.deepEqual(rhythm.issues, []);
   assert.equal(rhythm.passed, true);
 });

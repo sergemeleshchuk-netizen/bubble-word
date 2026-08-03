@@ -82,7 +82,7 @@ if (rangeArg) {
   config = { ...DEFAULT_BLOCK_CONFIG, seed };
 }
 
-const rhythm = checkBlockRhythm(buildBlockPlan(config));
+const rhythm = checkBlockRhythm(buildBlockPlan(config), config.categoryCorridor);
 const started = Date.now();
 const result = generateBlock({
   snapshot, config, scoring, referenceQuadrupleHashes, referenceNovelty: noveltyArg,

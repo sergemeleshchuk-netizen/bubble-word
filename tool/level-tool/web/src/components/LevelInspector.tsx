@@ -42,9 +42,12 @@ export function LevelInspector({ level, block, index, scoring, onSelect, levels 
           <div>
             <h2>Уровень {s.levelId} · {level.plan.role}</h2>
             <p className="hint">
-              {s.categories.length} категорий · {s.board.startBubbles} пузырей на старте ·
+              {s.categories.length} категорий · {s.board.startBubbles} пузырей всего,
+              на старте видно {s.deal.start.length}
+              {s.board.dealStartBubbles
+                ? ` (бюджет декады ${s.board.dealStartBubbles.join('-')})` : ''} ·
               лимит {s.board.moveLimit} ходов при минимуме {s.board.moveFloor} ·
-              на поле одновременно {s.board.boardCapacity}, остальное досыпается
+              вместимость поля {s.board.boardCapacity}, остальное досыпается
             </p>
           </div>
           <div className="row">
