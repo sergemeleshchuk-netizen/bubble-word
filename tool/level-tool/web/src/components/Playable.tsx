@@ -103,6 +103,18 @@ export function Playable({ level, levels, lexicon, onSelect }: {
     return map;
   }, [spec]);
 
+  /**
+   * слово → картинка, если мета-пузырь несёт значок вместо текста
+   * (core/metaIcons.ts). Только отрисовка: мерджи и категории считаются по слову.
+   */
+  const iconOf = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const c of spec.categories) {
+      for (const w of c.words) if (w.icon) map.set(w.text, w.icon);
+    }
+    return map;
+  }, [spec]);
+
   const chain = setup.chain;
   const chainDown = !chain || done.length >= chain.need || rescue !== null;
   const zoneOf = useCallback(
@@ -244,9 +256,13 @@ export function Playable({ level, levels, lexicon, onSelect }: {
         // собранная категория остаётся на поле мета-пузырём, если она чей-то ребёнок
         const parent = spec.categories.find((c) =>
           c.words.some((w) => w.kind === 'meta' && w.metaChild === categoryKey));
-        if (parent) {
+        const metaWord = parent?.words.find((w) => w.metaChild === categoryKey);
+        if (parent && metaWord) {
+          // текст мета-пузыря — СЛОВО родителя (`planets`), не имя категории
+          // (`PLANETS`): по слову ищется дом в homeOf, и на имени категории
+          // поиск не находил ничего — мета-пузырь не мерджился вовсе
           next.push({
-            id: 10000 + next.length, kind: 'meta', words: [category.label],
+            id: 10000 + next.length, kind: 'meta', words: [metaWord.text],
             completedCategory: categoryKey, ice: 0, hidden: 0, slot: a.slot,
           });
         }
@@ -454,11 +470,23 @@ export function Playable({ level, levels, lexicon, onSelect }: {
                     </>
                   ) : (
                     <>
-                      {b.words.map((w) => (
-                        <div key={w} style={{ fontWeight: b.completedCategory ? 700 : 400 }}>
-                          {b.kind === 'half' ? (b.pair!.side === 0 ? `${w}·` : `·${w}`) : w}
-                        </div>
-                      ))}
+                      {b.words.map((w) => {
+                        // мета-пузырь с картинкой: значок вместо слова и крупнее
+                        // текста — он должен читаться первым
+                        const icon = b.kind === 'half' ? undefined : iconOf.get(w);
+                        if (icon) {
+                          return (
+                            <div key={w} style={{ fontSize: b.words.length > 1 ? 14 : 22, lineHeight: 1 }}>
+                              {icon}
+                            </div>
+                          );
+                        }
+                        return (
+                          <div key={w} style={{ fontWeight: b.completedCategory ? 700 : 400 }}>
+                            {b.kind === 'half' ? (b.pair!.side === 0 ? `${w}·` : `·${w}`) : w}
+                          </div>
+                        );
+                      })}
                       {b.ice > 0 && <div className="counter">❄ {b.ice}</div>}
                     </>
                   )}

@@ -65,7 +65,9 @@ export function LevelInspector({ level, block, index, scoring, onSelect, levels 
           <h2>Категории и слова</h2>
           <p className="hint">
             <span className="tag meta">мета</span> — имя собранной категории, на старте
-            не спавнится. <span className="tag trap">редкое</span> — zipf ниже 3.
+            не спавнится; «мета·картинка» — пузырь рисуется значком вместо слова
+            (простое имя, примерно четверть мета-пузырей).{' '}
+            <span className="tag trap">редкое</span> — zipf ниже 3.
           </p>
           {s.categories.map((c) => (
             <div key={c.key} style={{ borderTop: '1px solid var(--line)', padding: '8px 0' }}>
@@ -84,9 +86,11 @@ export function LevelInspector({ level, block, index, scoring, onSelect, levels 
                   return (
                     <span key={w.text}
                       className={`tag ${w.kind === 'meta' ? 'meta' : rare ? 'trap' : ''}`}>
+                      {w.icon && <span style={{ marginRight: 3 }}>{w.icon}</span>}
                       {w.text}
                       <span className="muted mono" style={{ fontSize: 10, marginLeft: 4 }}>
-                        {w.kind === 'meta' ? 'мета' : w.zipf?.toFixed(1) ?? '?'}
+                        {w.kind === 'meta' ? (w.icon ? 'мета·картинка' : 'мета')
+                          : w.zipf?.toFixed(1) ?? '?'}
                       </span>
                     </span>
                   );

@@ -335,8 +335,18 @@ export function toGameJson(spec: LevelSpec, difficultyValue?: number): unknown {
     categories: spec.categories.map((c) => ({
       key: c.key,
       label: c.label,
+      /*
+       * Мета-пузырь с картинкой помечен, а не подменён: `text` остаётся словом
+       * (по нему клиент связывает пузырь с дочерней категорией), `display`
+       * говорит «рисуй значок», `icon` — сам значок. Эмодзи здесь — реализация
+       * прототипа; клиент вправе подставить свой спрайт по тому же `text`.
+       */
       words: c.words.map((w) => (w.kind === 'meta'
-        ? { text: w.text, kind: 'meta', meta_child: w.metaChild }
+        ? {
+          text: w.text, kind: 'meta', meta_child: w.metaChild,
+          display: w.icon ? 'icon' : undefined,
+          icon: w.icon,
+        }
         : { text: w.text, kind: 'word' })),
     })),
     /*

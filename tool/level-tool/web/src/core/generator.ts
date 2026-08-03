@@ -29,6 +29,7 @@ import { createRng, type Rng } from './rng.ts';
 import { buildDeal, chunkKey, resolveScheme } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
+import { pickMetaIcons } from './metaIcons.ts';
 
 /**
  * gen-1.0 — исходный алгоритм сборки.
@@ -44,8 +45,13 @@ import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.t
  *           планируются В НОВУЮ категорию по коридору декады, а категория,
  *           вернувшаяся после окна свежести, пересдаётся новой четвёркой
  *           (не больше одного слова из прошлой).
+ * gen-1.4 — мета-пузырь с простым именем несёт картинку вместо слова
+ *           (`LevelWord.icon`, словарь и правило четверти — core/metaIcons.ts).
+ *           Хеши уровней с такими пузырями меняются, и обязаны: содержимое
+ *           уровня стало другим. Уровень без картинок хешируется как прежде —
+ *           необязательное поле канонический сериализатор выбрасывает.
  */
-export const GENERATOR_VERSION = 'gen-1.3';
+export const GENERATOR_VERSION = 'gen-1.4';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -1414,6 +1420,23 @@ function buildLevelSpec(
       isQuickwin,
     };
   });
+
+  // ---------------- картинки на мета-пузырях -------------------------------
+  // Четверть мета-пузырей уровня с простым именем несёт эмодзи вместо слова
+  // (core/metaIcons.ts). Правится на месте: `icon` — слой отображения, слово
+  // пузыря и его личность не меняются, поэтому всё ниже — выкладка, распилы,
+  // блокираторы, лимит — считается как считалось.
+  const metaTexts = categories.flatMap((c) =>
+    c.words.filter((w) => w.kind === 'meta').map((w) => w.text));
+  const icons = pickMetaIcons(metaTexts, (key) => rng.stableWeight(`meta-icon::${key}`));
+  if (icons.size > 0) {
+    for (const c of categories) {
+      for (const w of c.words) {
+        const icon = w.kind === 'meta' ? icons.get(w.text) : undefined;
+        if (icon) w.icon = icon;
+      }
+    }
+  }
 
   const traps = findTraps(index, assignment, edges);
   const chains = buildChains(categories, plan.chainCount, rng);

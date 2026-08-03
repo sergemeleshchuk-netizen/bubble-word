@@ -122,6 +122,17 @@ export interface HandoffLevel {
    */
   chunks?: { word: string; category: string; pieces: [string, string] }[];
   /**
+   * Мета-пузыри, которые рисуются картинкой вместо слова (см. core/metaIcons.ts).
+   *
+   * Отдельным списком, а не полем внутри `categories`, ровно по одной причине:
+   * слова уезжают в прототип строками (`words: string[]`), и прототип зовёт
+   * `w.toUpperCase()`. Превратить слово в объект значило бы сломать формат
+   * целиком ради четверти мета-пузырей. Здесь же прототип читает список и
+   * подставляет значок при отрисовке; слово остаётся словом — по нему он и
+   * находит мета-связь, сравнивая с именами категорий уровня.
+   */
+  icons?: { word: string; icon: string }[];
+  /**
    * Игровой модификатор уровня, если генератор его назначил. Половинки сюда
    * не входят — они едут полем `chunks` выше. Прототип модификатор ИСПОЛНЯЕТ:
    * замораживает/закрывает ровно указанные слова и ставит цепь с указанным
@@ -199,9 +210,18 @@ export function buildHandoffPack(block: BlockResult): HandoffPack {
         : level.spec.halves.map((h) => ({
           word: h.word, category: h.home, pieces: h.fragments,
         })),
+      icons: handoffIcons(level),
       modifier: handoffModifier(level),
     })),
   };
+}
+
+/** Картинки мета-пузырей уровня; пустого списка не пишем — уровень без них прежний. */
+function handoffIcons(level: GeneratedLevel): HandoffLevel['icons'] {
+  const icons = level.spec.categories.flatMap((c) => c.words
+    .filter((w) => w.kind === 'meta' && w.icon)
+    .map((w) => ({ word: w.text, icon: w.icon! })));
+  return icons.length === 0 ? undefined : icons;
 }
 
 /** Модификатор уровня в формате прототипа; половинки едут полем chunks. */

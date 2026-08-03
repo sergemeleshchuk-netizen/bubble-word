@@ -12,6 +12,7 @@ import { STATUS, ZIPF_LEVEL_TOLERANCE } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
 import type { StructuralMetrics } from './structuralMetrics.ts';
 import { checkDeal } from './deal.ts';
+import { metaIconFor } from './metaIcons.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
 export interface ValidationContext {
@@ -319,6 +320,48 @@ const CHECKS: Check[] = [
         detail: cycles.length ? `циклов в мета-лесу: ${cycles.length}`
           : `мета-лес ацикличен, связей ${parentOf.size}`,
         entities: cycles,
+      };
+    },
+  },
+  {
+    /*
+     * Картинка на пузыре (core/metaIcons.ts) — hard-инвариант формы, а не вкуса.
+     * Проверяется три вещи, и каждая ломает уровень по-своему:
+     *   картинка у обычного слова — игрок не сможет её прочитать: у обычного
+     *     слова нет категории, чьё имя значок называет;
+     *   значок не из словаря — «простое имя» решает словарь, иначе на поле
+     *     появится ребус;
+     *   два одинаковых значка — два разных пузыря выглядят одним.
+     * Количество (четверть мета-пузырей) здесь НЕ проверяется: словарь покрывает
+     * не все имена, и уровень, где простых имён не нашлось, законен.
+     */
+    code: 'META_ICONS_VALID',
+    severity: 'hard',
+    run: (spec) => {
+      const wrongKind: string[] = [];
+      const unknown: string[] = [];
+      const seen = new Map<string, string>();
+      const duplicate: string[] = [];
+      for (const c of spec.categories) {
+        for (const w of c.words) {
+          if (!w.icon) continue;
+          if (w.kind !== 'meta') { wrongKind.push(`${c.key}: ${w.text}`); continue; }
+          if (metaIconFor(w.text) !== w.icon) { unknown.push(`${w.text} ${w.icon}`); continue; }
+          const owner = seen.get(w.icon);
+          if (owner !== undefined) duplicate.push(`${w.icon}: ${owner} и ${w.text}`);
+          else seen.set(w.icon, w.text);
+        }
+      }
+      const bad = [...wrongKind, ...unknown, ...duplicate];
+      return {
+        passed: bad.length === 0,
+        detail: bad.length === 0
+          ? `картинок на мета-пузырях: ${seen.size}`
+          : `картинки не по правилу: ${bad.length}`,
+        entities: bad,
+        suggestion: bad.length === 0 ? undefined
+          : 'картинку несёт только мета-пузырь с именем из словаря metaIcons.ts, '
+            + 'и одна картинка на уровень',
       };
     },
   },
