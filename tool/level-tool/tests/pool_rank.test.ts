@@ -151,7 +151,9 @@ test('спек уровня остаётся четвёрками по четы�
   const index = loadContentIndex(snapshotOf(true));
   const outcome = generateLevel(index, planWith(0.3), configWith('rank-shape'), emptyPackHistory());
   const spec = outcome.spec;
-  assert.ok(spec, `уровень не собрался: ${outcome.reason ?? ''}`);
+  // причина отказа живёт в outcome.failure.reason, а не в outcome.reason:
+  // на несобравшемся уровне сообщение молча выходило пустым
+  assert.ok(spec, `уровень не собрался: ${outcome.failure?.reason ?? ''}`);
   assert.equal(spec.categories.length, 4);
   for (const c of spec.categories) {
     assert.equal(c.words.length, 4);

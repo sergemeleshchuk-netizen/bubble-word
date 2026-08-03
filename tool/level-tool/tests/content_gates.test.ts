@@ -270,7 +270,10 @@ test('снимок несёт тиры четвёрок и место в пул�
     assert.ok(position !== null && position !== undefined,
       'у отранжированной четвёрки обязано быть место в пуле');
     assert.ok(position >= 0 && position <= 1);
-    const expected = position <= easyMax ? 'easy' : (position <= mediumMax ? 'medium' : 'hard');
+    // тип объявлен явно: границы приезжают из снимка необязательными полями, и
+    // без аннотации вывод типа замыкался сам на себя (TS7022)
+    const expected: 'easy' | 'medium' | 'hard' = position <= easyMax! ? 'easy'
+      : (position <= mediumMax! ? 'medium' : 'hard');
     assert.equal(tiers[tier], expected,
       `тир ${tiers[tier]} не сходится с местом ${position}`);
   }
