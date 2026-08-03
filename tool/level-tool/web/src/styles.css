@@ -107,6 +107,40 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--a
 input.pending, input.pending:focus { border-color: var(--warn); }
 label.field .lbl + input + .small { display: block; margin-top: 3px; min-height: 13px; }
 
+/*
+ * Значок «что это за настройка» и его подсказка.
+ *
+ * Своя подсказка вместо системного `title`: та всплывает через секунду с лишним
+ * и жмёт текст в одну строку, а объяснение настройки в строку не влезает.
+ *
+ * Ширина подсказки — это ширина ПОЛЯ (`left: 0; right: 0` от `label.field`), а не
+ * фиксированные 270 пикселей. Поля стоят в несколько колонок, и любая фиксированная
+ * ширина у крайней колонки вылезает за край панели: инструмент открыт в рамке
+ * отчёта, и там такой хвост просто обрезается. Отсчёт от поля, а не от значка,
+ * поэтому у значка `position: static`, а «якорь» — сам label.
+ */
+label.field { position: relative; }
+.info {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 13px; height: 13px; margin-left: 5px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--muted);
+  font-size: 9px; font-weight: 700; line-height: 1; cursor: help;
+  vertical-align: middle;
+}
+.info:hover, .info:focus { color: var(--accent); border-color: var(--accent); outline: none; }
+.info::after {
+  content: attr(data-tip);
+  position: absolute; left: 0; right: 0; bottom: calc(100% + 7px);
+  padding: 8px 10px; border-radius: 6px;
+  background: #080b10; border: 1px solid var(--line); color: var(--text);
+  font-size: 11.5px; font-weight: 400; line-height: 1.45; text-align: left;
+  text-transform: none; letter-spacing: 0;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+  opacity: 0; visibility: hidden; transition: opacity 0.12s;
+  pointer-events: none; z-index: 40;
+}
+.info:hover::after, .info:focus::after { opacity: 1; visibility: visible; }
+
 button.primary {
   background: var(--accent); color: #05121a; border: none; border-radius: 6px;
   padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer;

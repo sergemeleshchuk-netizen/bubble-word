@@ -66,7 +66,7 @@ export interface ContentSource {
 export const CONTENT_SOURCES: ContentSource[] = [
   {
     id: 'production',
-    label: 'BADB',
+    label: 'BubbleAssociations-DB',
     snapshotFile: 'web/src/data/content.snapshot.json',
     origin: 'Bubble Associations DB · костяк целевой игры + наша разметка',
     summary:

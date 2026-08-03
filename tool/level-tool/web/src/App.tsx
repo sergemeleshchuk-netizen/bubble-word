@@ -345,6 +345,7 @@ export function App() {
         : (
           <Composer
             config={config}
+            generated={block !== null}
             onGenerate={generate}
             tuneConfig={(c) => applyDecadeTuning(c, decadeTuning)}
           />
