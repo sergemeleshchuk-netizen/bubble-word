@@ -1,7 +1,7 @@
 {
   "name": "bubble-level-tool",
   "private": true,
-  "version": "1.31.1",
+  "version": "1.31.2",
   "type": "module",
   "description": "Инструмент генерации уровней для word-association паззла",
   "scripts": {
