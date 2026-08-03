@@ -442,17 +442,29 @@ function applyDeal(L){
    не пользуется: пакет с распилами воспроизводит записанный уровень, а
    эвристика выбрала бы другие слова и другие точки распила. Формат —
    tool/level-tool/web/src/core/playableHandoff.ts */
+/* Карта распилов: `КАТЕГОРИЯ::СЛОВО` → части и НОМЕР ПАРЫ.
+
+   Номер пары обязан быть уникальным на весь уровень, и берётся он здесь —
+   из позиции распила в списке пакета. Раньше номера выдавал expandChunks,
+   считая от единицы в КАЖДОМ своём вызове, а вызывают его дважды: на стартовое
+   поле и на очередь. Половинки старта получали 1,2,3 и половинки очереди тоже
+   1,2,3 — то есть у `dol|phin` со старта и у `choco|late` из очереди совпадал
+   номер пары. Склейка проверяла только номер и сторону, поэтому `dol`
+   склеивался с `late`: получался пузырь категории OCEAN ANIMALS со словом
+   CHOCOLATE, слово `dolphin` из уровня исчезало, а `phin` и `choco` оставались
+   на поле сиротами, которым не с чем слиться никогда. Отсюда и «уровень не
+   доигрывается, остался один шар». */
 function applyChunks(L){
   if(!Array.isArray(L.chunks)||!L.chunks.length) return null;
   const byId={}; (L.categories||[]).forEach(c=>byId[c.id]=c.name.toUpperCase());
-  const map={};
+  const map={}; let id=0;
   for(const ch of L.chunks){
     const v=byId[ch.category], e=String(ch.word||'').toUpperCase();
     const p=ch.pieces||[];
     if(v===undefined||p.length!==2){
       console.warn('[playable] распил не понят, пропускаю:',ch); continue;
     }
-    map[v+'::'+e]=[String(p[0]).toUpperCase(),String(p[1]).toUpperCase()];
+    map[v+'::'+e]={pair:++id,parts:[String(p[0]).toUpperCase(),String(p[1]).toUpperCase()]};
   }
   return Object.keys(map).length?map:null;
 }
@@ -486,18 +498,38 @@ function applyPackBlockers(pm){
     paint(b); place(b);
   }
 }
-/* Разворачивает список выкладки: распиленное слово становится двумя пузырями. */
+/* Своя ли это пара половинок. Правило ОДНО на прототип: им проверяет и склейка
+   (canMerge), и поиск легального хода (legalMove). Две копии правила здесь уже
+   стоили нам непроходимого уровня — расходясь, они дают либо склейку, которую
+   поиск хода не видит, либо ход, который склейка отвергает; во втором случае
+   страховка от тупика не срабатывает, потому что ход формально есть.
+
+   Признаков четыре, а не один номер пары: номер, разные стороны, одно и то же
+   целое слово, одна и та же категория. Одного номера хватало ровно до того дня,
+   когда номера двух разных слов совпали (см. applyChunks) — склейка молча собрала
+   `dol`+`late`, пузырь получил категорию первого и слово второго, и уровень стал
+   непроходимым без единого сообщения. */
+function samePair(a,b){
+  return !!(a.half&&b.half
+    &&a.half.pair===b.half.pair
+    &&a.half.side!==b.half.side
+    &&a.half.whole===b.half.whole
+    &&a.val===b.val);
+}
+/* Разворачивает список выкладки: распиленное слово становится двумя пузырями.
+   Номер пары НЕ выдаётся здесь: он лежит в карте распилов и один на весь
+   уровень — см. applyChunks про то, чем кончалась нумерация по месту. */
 function expandChunks(list,map){
   if(!map) return {list:list,pairs:0};
-  const out=[]; let pid=0;
+  const out=[]; const seen=new Set();
   for(const it of list){
-    const parts=map[it.v+'::'+it.e];
-    if(!parts){ out.push(it); continue; }
-    pid++;
-    out.push({v:it.v,e:parts[0],half:{pair:pid,whole:it.e,side:0}},
-             {v:it.v,e:parts[1],half:{pair:pid,whole:it.e,side:1}});
+    const ch=map[it.v+'::'+it.e];
+    if(!ch){ out.push(it); continue; }
+    seen.add(ch.pair);
+    out.push({v:it.v,e:ch.parts[0],half:{pair:ch.pair,whole:it.e,side:0}},
+             {v:it.v,e:ch.parts[1],half:{pair:ch.pair,whole:it.e,side:1}});
   }
-  return {list:out,pairs:pid};
+  return {list:out,pairs:seen.size};
 }
 const W=390,H=600;
 /* сколько собранная категория стоит на поле с открытым именем перед уничтожением */
@@ -668,7 +700,7 @@ function legalMove(){
     const a=act[i],c=act[j];
     if(!chainDown&&a.zone!==c.zone) continue;
     if(a.half||c.half){
-      if(a.half&&c.half&&a.half.pair===c.half.pair&&a.half.side!==c.half.side) return true;
+      if(samePair(a,c)) return true;
       continue;
     }
     if(a.val===c.val&&a.exs.length+c.exs.length<=(FULL[a.val]||4)) return true;
@@ -888,7 +920,14 @@ function trySpawn(ts){
   lastSpawn=ts;
   pendingSpawn--;
   const it=queue.shift();
-  makeBubble(it.v,it.e, 56+Math.random()*(W-112), -44);
+  /* `it.half` передаётся ОБЯЗАТЕЛЬНО — ровно как на старте (см. init).
+     Без него половинка из очереди приезжала обычным пузырём: кусочек `SAR`
+     становился полноправным «словом» категории HUMOR, счётчик слов категории
+     считал его наравне с целыми, склеить его было не с чем (пары у него больше
+     нет), и уровень доигрывался до состояния «остались шары, которые не с чем
+     слить». На уровне 12 оригинала так терялись пять распилов из восьми — все,
+     что приходят досыпкой, а не лежат на старте. */
+  makeBubble(it.v,it.e, 56+Math.random()*(W-112), -44, it.half?{half:it.half}:null);
   /* Пачка догорела — перепроверяем поле. Единственное место, где это можно
      сделать: rescueIfStuck висит на мердже и на сборе категории, а в тупике ни
      того, ни другого не происходит. Без этой строки страховка «один шар»
@@ -924,10 +963,7 @@ function canMerge(b,t){
   if(t.ice>0) return {ok:false,why:'ice'};
   if(t.hid>0) return {ok:false,why:'hid'};
   if(!chainDown&&b.zone!==t.zone) return {ok:false,why:'chain'};
-  if(b.half||t.half){
-    const pair=b.half&&t.half&&b.half.pair===t.half.pair&&b.half.side!==t.half.side;
-    return pair?{ok:true}:{ok:false,why:'wrong'};
-  }
+  if(b.half||t.half) return samePair(b,t)?{ok:true}:{ok:false,why:'wrong'};
   if(b.val!==t.val) return {ok:false,why:'wrong'};
   if(b.exs.length+t.exs.length>(FULL[b.val]||4)) return {ok:false,why:'wrong'};
   return {ok:true};
