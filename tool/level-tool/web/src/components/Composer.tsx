@@ -6,15 +6,15 @@
  * передышка, второй пик, приятный выход. Таблица из чисел этого не показывает,
  * поэтому здесь график.
  */
-import { useState } from 'react';
-import type { BlockConfig, BlockResult, GeneratedLevel, LevelPlan } from '../core/types.ts';
+import { useRef, useState } from 'react';
+import type {
+  BlockConfig, BlockResult, GeneratedLevel, LevelModifier, LevelPlan,
+} from '../core/types.ts';
 import {
   DEFAULT_INTENT_PROMPT, parseIntent, type ParsedIntent,
 } from '../core/intentParser.ts';
 import { startBubbles } from '../core/levelMath.ts';
-import {
-  configForRange, decadeLabel, profileForRange, visibleShareMin,
-} from '../core/decadeProfiles.ts';
+import { configForRange } from '../core/decadeProfiles.ts';
 import {
   parseCount, parseNumberList, parseOptionalList, parseRange,
 } from '../core/fieldParse.ts';
@@ -80,8 +80,112 @@ const ROLE_LABEL: Record<string, string> = {
 // график ритма
 // --------------------------------------------------------------------------- //
 
-export function RhythmChart({ plans, levels }: {
-  plans: LevelPlan[]; levels?: GeneratedLevel[];
+/**
+ * Что можно включить на уровне поштучно.
+ *
+ * Мета стоит в одном ряду с модификаторами, хотя модификатором не является:
+ * для человека, который смотрит на график, это такой же переключатель «есть или
+ * нет», и прятать его в другое место значит прятать половину ответа на вопрос
+ * «почему тут так тяжело». Остальные четыре взаимоисключающие — на уровне живёт
+ * один модификатор (GDD §7), поэтому включение одного гасит другой.
+ */
+const LEVEL_TOGGLES: { key: 'meta' | LevelModifier; mark: string; title: string }[] = [
+  { key: 'meta', mark: 'M', title: 'мета-связи' },
+  { key: 'halves', mark: '½', title: 'половинки: слово из двух пузырей' },
+  { key: 'ice', mark: '❄', title: 'лёд: снимается счётчиком мерджей' },
+  { key: 'hidden', mark: '?', title: 'скрытые: слово открывается мерджами' },
+  { key: 'chain_line', mark: '⛓', title: 'цепь: делит поле до сбора категорий' },
+];
+
+export interface RhythmEditing {
+  /** перетащили колонку: композиция позиции едет за ней */
+  onReorder: (from: number, to: number) => void;
+  onToggleMeta: (index: number) => void;
+  onToggleModifier: (index: number, modifier: LevelModifier) => void;
+}
+
+/**
+ * Полоса колонок под графиком: по колонке на уровень.
+ *
+ * Сделана обычным HTML, а не частью SVG, сознательно. Внутри графика это были бы
+ * рукописные хит-зоны и рукописный чекбокс, а здесь работают настоящий
+ * `draggable` и настоящий `input[type=checkbox]` — с клавиатурой, фокусом и
+ * поведением, которого от них ждут.
+ */
+function RhythmColumns({ plans, editing, offsets }: {
+  plans: LevelPlan[];
+  editing: RhythmEditing;
+  offsets: { left: string; right: string };
+}) {
+  /**
+   * Откуда тащат, живёт в ref, а не только в состоянии.
+   *
+   * Состояние нужно для подсветки, но читать его в обработчике `drop` нельзя:
+   * между `dragstart` и `drop` React может не успеть перерисоваться, и замыкание
+   * обработчика увидит прежнее значение — перетаскивание молча не сработает.
+   * Ref одинаково верен в обоих случаях.
+   */
+  const source = useRef<number | null>(null);
+  const [dragged, setDragged] = useState<number | null>(null);
+  const [over, setOver] = useState<number | null>(null);
+
+  return (
+    <div
+      className="rhythm-cols"
+      style={{
+        gridTemplateColumns: `repeat(${plans.length}, minmax(0, 1fr))`,
+        marginLeft: offsets.left,
+        marginRight: offsets.right,
+      }}
+    >
+      {plans.map((plan, i) => (
+        <div
+          key={plan.levelId}
+          className={`rhythm-col${over === i && dragged !== i ? ' over' : ''}`
+            + `${dragged === i ? ' dragged' : ''}`}
+          draggable
+          onDragStart={() => { source.current = i; setDragged(i); }}
+          onDragEnd={() => { source.current = null; setDragged(null); setOver(null); }}
+          onDragOver={(e) => { e.preventDefault(); setOver(i); }}
+          onDrop={(e) => {
+            e.preventDefault();
+            const from = source.current;
+            if (from !== null && from !== i) editing.onReorder(from, i);
+            source.current = null;
+            setDragged(null);
+            setOver(null);
+          }}
+          title="перетащите, чтобы поменять порядок уровней в блоке"
+        >
+          <div className="rc-head mono">{plan.levelId}</div>
+          {LEVEL_TOGGLES.map((toggle) => {
+            const on = toggle.key === 'meta'
+              ? plan.metaCount > 0
+              : plan.modifier === toggle.key;
+            return (
+              <label key={toggle.key} className="rc-toggle" title={toggle.title}>
+                <input
+                  type="checkbox"
+                  checked={on}
+                  onChange={() => (toggle.key === 'meta'
+                    ? editing.onToggleMeta(i)
+                    : editing.onToggleModifier(i, toggle.key as LevelModifier))}
+                />
+                <span>{toggle.mark}</span>
+              </label>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function RhythmChart({ plans, levels, editing }: {
+  plans: LevelPlan[];
+  levels?: GeneratedLevel[];
+  /** передан — колонки можно перетаскивать и переключать; иначе график только показывает */
+  editing?: RhythmEditing;
 }) {
   const W = 900;
   const H = 260;
@@ -177,11 +281,41 @@ export function RhythmChart({ plans, levels }: {
         {dPoints && <polyline points={dPoints} fill="none" stroke="#f85149" strokeWidth={2} />}
         {iPoints && <polyline points={iPoints} fill="none" stroke="#3fb950" strokeWidth={2} />}
       </svg>
+      {editing && (
+        <RhythmColumns
+          plans={plans}
+          editing={editing}
+          offsets={{
+            left: `${(padL / W) * 100}%`,
+            right: `${(padR / W) * 100}%`,
+          }}
+        />
+      )}
       <div className="row small muted" style={{ marginTop: 4 }}>
         <span><span style={{ color: '#f85149' }}>●</span> сложность D</span>
         <span><span style={{ color: '#3fb950' }}>●</span> интересность I</span>
         <span><span style={{ color: '#8b98a6' }}>▮</span> пузырей на старте</span>
         <span><span style={{ color: '#4cc2ff' }}>▮</span> целевой коридор D</span>
+      </div>
+    </div>
+  );
+}
+
+/** Расшифровка чекбоксов под графиком: без неё колонка значков — ребус. */
+export function RhythmLegend() {
+  return (
+    <div className="small muted" style={{ marginTop: 8, lineHeight: 1.6 }}>
+      <div>
+        {LEVEL_TOGGLES.map((t) => (
+          <span key={t.key} style={{ marginRight: 14, whiteSpace: 'nowrap' }}>
+            <strong style={{ color: 'var(--text)' }}>{t.mark}</strong> {t.title}
+          </span>
+        ))}
+      </div>
+      <div style={{ marginTop: 4 }}>
+        Отмечено то, что уже применено на уровне. Модификаторы взаимоисключающие:
+        включение одного гасит другой. Колонку можно перетащить — состав, роль
+        и модификатор переедут на другой номер уровня вместе с ней.
       </div>
     </div>
   );
@@ -227,13 +361,54 @@ export function Composer({ config, onGenerate }: {
    */
   const [draft, setDraft] = useState<BlockConfig>(config);
 
-  const decade = profileForRange(draft.levelRange);
   const patch = (p: Partial<BlockConfig>) => setDraft((d) => ({ ...d, ...p }));
 
   // предпросмотр считается по черновику, а не по применённому конфигу
   const plans = buildBlockPlan(draft);
   const rhythm = checkBlockRhythm(plans);
   const dirty = canonicalJson(draft) !== canonicalJson(config);
+
+  /**
+   * Правки прямо на графике.
+   *
+   * Все три пишут в черновик ЯВНЫЕ планы по позициям. Иначе правка жила бы до
+   * первого пересчёта: коридор и лесенка модификаторов вывели бы своё значение
+   * заново и молча стёрли выбор человека.
+   */
+  const editing: RhythmEditing = {
+    onReorder: (from, to) => setDraft((d) => {
+      const order = plans.map((_, i) => i);
+      order.splice(to, 0, order.splice(from, 1)[0]);
+      const spikes = new Set(d.spikePositions);
+      const rests = new Set(d.recoveryPositions);
+      const movedPositions = (was: Set<number>) => order
+        .map((src, dst) => (was.has(src + 1) ? dst + 1 : 0))
+        .filter((p) => p > 0)
+        .sort((a, b) => a - b);
+      return {
+        ...d,
+        categoryPlan: order.map((i) => plans[i].categoryCount),
+        metaPlan: order.map((i) => plans[i].metaCount),
+        modifierPlan: order.map((i) => plans[i].modifier),
+        // роли живут в позициях, а не в уровнях: чтобы пик уехал вместе
+        // с колонкой, позиции пиков и передышек надо переставить тоже
+        spikePositions: movedPositions(spikes),
+        recoveryPositions: movedPositions(rests),
+      };
+    }),
+    onToggleMeta: (index) => setDraft((d) => {
+      const metaPlan = plans.map((p) => p.metaCount);
+      // включаем обратно не в единицу, а в то, что план посчитал бы сам
+      const derived = buildBlockPlan({ ...d, metaPlan: undefined })[index]?.metaCount ?? 1;
+      metaPlan[index] = metaPlan[index] > 0 ? 0 : Math.max(1, derived);
+      return { ...d, metaPlan };
+    }),
+    onToggleModifier: (index, modifier) => setDraft((d) => {
+      const modifierPlan: (typeof plans[number]['modifier'])[] = plans.map((p) => p.modifier);
+      modifierPlan[index] = modifierPlan[index] === modifier ? 'none' : modifier;
+      return { ...d, modifierPlan };
+    }),
+  };
 
   const interpret = () => setParsed(parseIntent(text, draft.levelRange));
   const applyParsed = () => {
@@ -308,74 +483,17 @@ export function Composer({ config, onGenerate }: {
           в референсе ритм: пик на позициях 5 и 9, провал сразу после пика,
           4 перехода вниз из 9.
         </p>
-        <RhythmChart plans={plans} />
-        {rhythm.passed
-          ? <p className="small" style={{ color: 'var(--ok)' }}>
-              Проверка ритма пройдена: это пила, а не прямая линия.
-            </p>
-          : (
-            <div style={{ marginTop: 8 }}>
-              {rhythm.issues.map((issue) => (
-                <p key={issue} className="small" style={{ color: 'var(--warn)', margin: '3px 0' }}>
-                  {issue}
-                </p>
-              ))}
-            </div>
-          )}
-      </div>
-
-      <div className="panel">
-        <h2>Профиль декады</h2>
-        <p className="hint">
-          Профиль подставляется по номеру уровней из замера всех 199 уровней
-          оригинала (docs/DECADE_CALIBRATION.md). Любое поле ниже можно
-          переопределить руками — профиль это старт, а не запрет.
-        </p>
-        <div className="grid c3">
-          <div className="field">
-            <span className="lbl">декада</span>
-            <strong>{decadeLabel(decade)}</strong>
+        <RhythmChart plans={plans} editing={editing} />
+        {!rhythm.passed && (
+          <div style={{ marginTop: 8 }}>
+            {rhythm.issues.map((issue) => (
+              <p key={issue} className="small" style={{ color: 'var(--warn)', margin: '3px 0' }}>
+                {issue}
+              </p>
+            ))}
           </div>
-          <div className="field">
-            <span className="lbl">категорий в среднем</span>
-            <strong>{decade.categoryMean}</strong>
-            <span className="small muted">коридор {decade.categoryCorridor.join('–')}</span>
-          </div>
-          <div className="field">
-            <span className="lbl">целевая узнаваемость</span>
-            <strong>медиана zipf {decade.zipfMedianTarget}</strong>
-            <span className="small muted">p25 {decade.zipfP25Target}</span>
-          </div>
-          <div className="field">
-            <span className="lbl">форма слова</span>
-            <strong>{decade.maxTokens === 1 ? 'только однословные' : `до ${decade.maxTokens} слов`}</strong>
-            <span className="small muted">
-              до {decade.maxWordLen} букв, имена собственные от zipf {decade.minProperNounZipf}
-            </span>
-          </div>
-          <div className="field">
-            <span className="lbl">мета-пар на уровень</span>
-            <strong>{decade.metaRange.join('–')}</strong>
-            <span className="small muted">повторов слов {decade.repeatRange.join('–')}</span>
-          </div>
-          <div className="field">
-            <span className="lbl">видно на поле</span>
-            <strong>от {(visibleShareMin(decade) * 100).toFixed(0)}% уровня</strong>
-            <span className="small muted">остальное досыпается по ходу</span>
-          </div>
-        </div>
-        {draft.levelRange[0] === 1 && (
-          <p className="small" style={{ color: 'var(--ok)', marginTop: 8 }}>
-            Уровень 1 — туториал: 5 категорий, весь уровень на поле, лимита ходов нет,
-            мета-пар ноль (как L1 оригинала).
-          </p>
         )}
-        {!draft.decadeGates && (
-          <p className="small" style={{ color: 'var(--warn)', marginTop: 8 }}>
-            Гейты декады выключены: это пресет блока 201–210, он воспроизводит
-            сдаваемый пакет байт-в-байт. Поменяйте диапазон, чтобы включить калибровку.
-          </p>
-        )}
+        <RhythmLegend />
       </div>
 
       <div className="panel">
