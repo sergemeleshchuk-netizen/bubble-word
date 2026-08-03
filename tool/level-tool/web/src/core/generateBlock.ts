@@ -18,6 +18,7 @@ import { validateLevel } from './validator.ts';
 import { countSolutions } from './solutionCounter.ts';
 import { computeStructuralMetrics } from './structuralMetrics.ts';
 import { simulatePlayability } from './simulatePlayability.ts';
+import { simulateBlindPlay } from './simulateBlindPlay.ts';
 import {
   computeDifficulty, difficultyTier, type ScoringConfig, type SemanticEvidence,
 } from './scoringDifficulty.ts';
@@ -258,6 +259,20 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       modifierSeen.set(plan.modifier, (modifierSeen.get(plan.modifier) ?? 0) + 1);
     }
 
+    /*
+     * Слепой прогон — ДИАГНОСТИКА, а не гейт.
+     *
+     * Он считается только для принятого уровня и ни на что в приёмке не влияет:
+     * модель знания игрока не откалибрована (см. шапку `playerKnowledge.ts`),
+     * и браковать уровни по неоткалиброванному числу значило бы выдать догадку
+     * за измерение. Здесь он затем, чтобы цена незнания слов была ВИДНА в
+     * карточке уровня и накапливалась по пакетам — до того, как ей доверят
+     * решать судьбу уровня. Seed привязан к блоку и уровню: тот же блок даёт те
+     * же числа, разные уровни — разных игроков.
+     */
+    const blindPlay = simulateBlindPlay(spec, playability.movesNeeded,
+      { seed: `${config.seed}#blind-${plan.levelId}`, index });
+
     levels.push({
       plan,
       spec,
@@ -265,6 +280,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       solutions,
       structural,
       playability,
+      blindPlay,
       difficulty,
       interest,
       attempts: outcome.attempts,

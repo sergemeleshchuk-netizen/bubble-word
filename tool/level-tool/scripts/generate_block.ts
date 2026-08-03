@@ -133,6 +133,46 @@ for (const level of result.levels) {
   console.log(row.map((c, i) => c.padEnd(i === 1 ? 9 : 5)).join(''));
 }
 
+/*
+ * Слепой прогон по блоку — во что уровни обходятся игроку, который читает слова,
+ * а не ответы. Отдельной таблицей, а не колонками в основной: там оценки и
+ * вердикты приёмки, а здесь диагностика, которая ни на что в приёмке не влияет.
+ * Смешать их значило бы намекнуть, что этим числам уже верят.
+ */
+const blindRows = result.levels.filter((l) => l.blindPlay && !l.blindPlay.unavailable);
+if (blindRows.length > 0) {
+  console.log('\nСлепой прогон (диагностика, в приёмку не входит): '
+    + `${blindRows[0].blindPlay!.modelVersion}, `
+    + `${blindRows[0].blindPlay!.knowledgeVersion}, `
+    + `${blindRows[0].blindPlay!.seeds} прогонов на уровень`);
+  console.log('  ур.  мин  лим  ясн  ход(мед/p90)  пром(мед/p90)  бюджет  доходят  '
+    + 'вслепую  догадки(верных)  безОпоры');
+  for (const level of blindRows) {
+    const b = level.blindPlay!;
+    console.log('  '
+      + String(level.spec.levelId).padEnd(5)
+      + String(b.movesFloor).padEnd(5)
+      + String(b.moveLimit ?? '—').padEnd(5)
+      + b.clarity.toFixed(2).padEnd(5)
+      + `${b.movesMedian}/${b.movesP90}`.padEnd(14)
+      + `${b.missesMedian}/${b.missesP90}`.padEnd(15)
+      + (b.errorBudgetUsed === null ? '—' : `${Math.round(b.errorBudgetUsed * 100)}%`).padEnd(8)
+      + `${Math.round(b.winRate * 100)}%`.padEnd(9)
+      + String(b.guessTurnsMedian).padEnd(9)
+      + `${b.probesMedian} (${Math.round(b.probeHitRate * 100)}%)`.padEnd(17)
+      + String(b.anchorlessCategories));
+  }
+  const tight = blindRows.filter((l) => (l.blindPlay!.errorBudgetUsed ?? 0) > 1);
+  console.log(tight.length === 0
+    ? '  ни один уровень не выедает бюджет ошибок целиком'
+    : `  ВНИМАНИЕ: ${tight.length} уровней выедают бюджет ошибок целиком `
+      + `(${tight.map((l) => l.spec.levelId).join(', ')}) — слепому игроку лимита не хватит`);
+  const stalled = blindRows.filter((l) => l.blindPlay!.hardStalls > 0);
+  if (stalled.length > 0) {
+    console.log(`  СБОЙ МОДЕЛИ: партия встала на уровнях ${stalled.map((l) => l.spec.levelId).join(', ')}`);
+  }
+}
+
 if (result.failures.length) {
   console.log('\nОтказы генератора:');
   for (const failure of result.failures) {

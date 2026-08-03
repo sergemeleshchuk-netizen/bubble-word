@@ -181,6 +181,10 @@ export function LevelInspector({ level, block, index, scoring, onSelect, levels 
         </div>
       )}
 
+      {level.blindPlay && level.playability && (
+        <BlindPlayPanel blind={level.blindPlay} minMoves={level.playability.movesNeeded} />
+      )}
+
       <div className="panel">
         <h2>Проверки</h2>
         <table>
@@ -236,6 +240,128 @@ export function LevelInspector({ level, block, index, scoring, onSelect, levels 
         </p>
       </div>
     </>
+  );
+}
+
+/**
+ * Слепой прогон: во что уровень обходится игроку, который читает слова, а не
+ * ответы. Панель намеренно не показывает ни одной оценки — только ходы, промахи
+ * и бюджет ошибок. Это диагностика: числа модели не откалиброваны, и подавать
+ * их рядом с D как ещё одну оценку значило бы намекнуть, что им уже верят.
+ */
+function BlindPlayPanel({ blind, minMoves }: {
+  blind: import('../core/simulateBlindPlay.ts').BlindPlayResult;
+  minMoves: number;
+}) {
+  if (blind.unavailable) {
+    return (
+      <div className="panel">
+        <h2>Слепой прогон</h2>
+        <p className="small muted">{blind.unavailable}</p>
+      </div>
+    );
+  }
+  const used = blind.errorBudgetUsed;
+  const budgetTag = used === null ? 'нет лимита'
+    : used > 1 ? 'fail' : used > 0.7 ? 'warn' : 'ok';
+
+  return (
+    <div className="panel">
+      <div className="spread">
+        <div>
+          <h2>Слепой прогон — цена незнания слов</h2>
+          <p className="hint">
+            Зрячий бот знает ответы и не промахивается: его запас ходов и есть
+            бюджет ошибок живого игрока. Здесь этот бюджет ТРАТИТСЯ. Игрок читает
+            слова — очевидность связи, приторможенная редкостью, — нечитаемое
+            пробует наугад, неверная догадка стоит ход, как в прототипе.
+            {' '}{blind.seeds} прогонов, у каждого своя выборка знакомых слов.
+          </p>
+        </div>
+        <div className="row">
+          <span className={`tag ${used === null ? '' : budgetTag}`}>
+            бюджет ошибок {used === null ? '—' : `${Math.round(used * 100)}%`}
+          </span>
+          <span className={`tag ${blind.winRate >= 1 ? 'ok' : blind.winRate >= 0.75 ? 'warn' : 'fail'}`}>
+            доходят {Math.round(blind.winRate * 100)}%
+          </span>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>что</th><th className="num">медиана</th><th className="num">p90</th>
+            <th>чем это является</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="small">ходов на партию</td>
+            <td className="num mono">{blind.movesMedian}</td>
+            <td className="num mono">{blind.movesP90}</td>
+            <td className="small muted">
+              минимум {minMoves}
+              {blind.moveLimit === null ? ', лимита нет' : `, лимит ${blind.moveLimit}`}
+            </td>
+          </tr>
+          <tr>
+            <td className="small">промахов</td>
+            <td className="num mono">{blind.missesMedian}</td>
+            <td className="num mono">{blind.missesP90}</td>
+            <td className="small muted">ходов, отданных за неверную догадку</td>
+          </tr>
+          <tr>
+            <td className="small">ходов вслепую</td>
+            <td className="num mono">{blind.guessTurnsMedian}</td>
+            <td className="num mono">—</td>
+            <td className="small muted">
+              поле не показало ни одного мерджа, который игрок понимает
+            </td>
+          </tr>
+          <tr>
+            <td className="small">догадок</td>
+            <td className="num mono">{blind.probesMedian}</td>
+            <td className="num mono">—</td>
+            <td className="small muted">
+              из них верных {Math.round(blind.probeHitRate * 100)}%: догадка
+              опирается на размер уже собранной группы, поэтому попадает чаще
+              случайной
+            </td>
+          </tr>
+          <tr>
+            <td className="small">досыпок-подсказок</td>
+            <td className="num mono">{blind.hintRefillsMedian}</td>
+            <td className="num mono">—</td>
+            <td className="small muted">
+              помощь прототипа после 5 промахов подряд
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div className="row" style={{ marginTop: 10 }}>
+        <span className="tag">ясность слов {blind.clarity.toFixed(2)}</span>
+        <span className="tag">
+          старт читается на {Math.round(blind.startReadableShare * 100)}%
+        </span>
+        <span className={`tag ${blind.anchorlessCategories > 0 ? 'warn' : 'ok'}`}>
+          категорий без опоры {blind.anchorlessCategories}
+        </span>
+        {blind.hardStalls > 0 && (
+          <span className="tag fail">партия встала: {blind.hardStalls} из {blind.seeds}</span>
+        )}
+      </div>
+
+      <ul className="small muted" style={{ paddingLeft: 18, marginTop: 10 }}>
+        {blind.notes.map((n, i) => <li key={i}>{n}</li>)}
+      </ul>
+      <p className="small muted">
+        В оценку D и в гейт приёмки эти числа НЕ входят: модель знания игрока
+        ({blind.knowledgeVersion}) не откалибрована — живых наигровок с замером
+        промахов у нас нет, а в референсе нет раскладки поля. Читать их надо как
+        нижнюю границу: у бота идеальная память и он видит все досыпанные слова
+        сразу, значит живому игроку уровень дешевле не обойдётся.
+      </p>
+    </div>
   );
 }
 

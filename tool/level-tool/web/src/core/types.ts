@@ -690,6 +690,12 @@ export interface GeneratedLevel {
   structural?: import('./structuralMetrics.ts').StructuralMetrics;
   /** динамическая проходимость: симуляция партии по правилам прототипа */
   playability?: import('./simulatePlayability.ts').PlayabilityResult;
+  /**
+   * Цена незнания слов: партия глазами игрока, который читает слова, а не
+   * ответы. Диагностика — в D и в гейт приёмки не входит, пока модель знания
+   * не откалибрована наигровками.
+   */
+  blindPlay?: import('./simulateBlindPlay.ts').BlindPlayResult;
   difficulty: DifficultyBreakdown;
   interest: InterestBreakdown;
   /** сколько попыток понадобилось и что отклонялось */
