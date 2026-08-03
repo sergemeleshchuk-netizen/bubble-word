@@ -5,10 +5,12 @@ AI-powered level generation tool for **Bubble Associations: Word Game**
 
 Test assignment deliverables:
 
-- **Live tool:** (link will appear here)
+- **Live tool:** https://serge-mel.surge.sh/tool/ — also embedded in section 05
+  of the report site, no build step required
 - **Report site:** https://serge-mel.surge.sh
 - **10 generated levels with difficulty grades:** `levels/`
-- **AI workflow write-up:** on the report site
+- **AI workflow write-up:** on the report site, section 03; full log in
+  `tool/level-tool/docs/AI_WORKFLOW.md`
 
 ## What the tool does
 

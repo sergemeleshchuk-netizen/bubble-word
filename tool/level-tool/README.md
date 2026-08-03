@@ -1,6 +1,10 @@
 # Генератор уровней для word-association паззла
 
-## → **https://bubble-level-tool.surge.sh**
+## → **https://serge-mel.surge.sh/tool/**
+
+Тот же инструмент встроен в блок 05 отчёта. Отдельный домен
+`bubble-level-tool.surge.sh` целевым быть перестал 31.07 и живой сборки не
+получает — идти нужно по ссылке выше.
 
 Инструмент для игры **Bubble Associations: Word Game** (`com.vgames.bubbleword`):
 AI обогащает контентную базу, детерминированный алгоритм собирает из неё уровни,
