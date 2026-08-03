@@ -175,6 +175,7 @@ word-content import-review      --db database/content.sqlite --input data/review
 word-content derive-readiness   --db database/content.sqlite
 word-content derive-conflicts   --db database/content.sqlite --output data/category_conflicts.csv
 word-content build-quartets     --db database/content.sqlite --output data/quartets.csv
+word-content rank-pools         --db database/content.sqlite --out data/pool_ranking.csv
 word-content stamp-version      --db database/content.sqlite --content-version 2026.07.31
 word-content check-integrity    --db database/content.sqlite   # ненулевой код = базу не отдавать
 ```
@@ -195,6 +196,7 @@ word-content check-integrity    --db database/content.sqlite   # ненулев�
 | `derive-readiness` | Считает готовность категорий по пулам, отключает непригодные, пишет парные группы. |
 | `derive-conflicts` | Считает пары категорий, которые нельзя ставить в один уровень. |
 | `build-quartets` | Собирает четвёрки и проверяет каждую solver'ом единственности. |
+| `rank-pools` | Раскладывает пул категории по популярности и раздаёт четвёркам тир easy/medium/hard. |
 | `solve-level` | Проверяет конкретный уровень: единственно ли разбиение. |
 | `sense-gaps` | Очередь слов, которым нужны дополнительные значения. Базу не меняет. |
 | `check-integrity` | Критерии приёмки в виде кода. Ненулевой код возврата, если база не готова. |
@@ -692,6 +694,69 @@ word-content solve-level --db database/content.sqlite \
     --words "guitar,piano,organ,drum,fall,spring,summer,winter"
 # ОК: разбиение единственное
 ```
+
+### Ранжирование пула и тиры четвёрок (`rank-pools`)
+
+```bash
+word-content rank-pools --db database/content.sqlite --out data/pool_ranking.csv
+word-content rank-pools --db database/content.sqlite --show time_units
+```
+
+**Зачем.** Наша база устроена не как данные оригинала. У оригинала категория
+И ЕСТЬ четвёрка: медиана пула 4.0, ровно четыре слова у 74% категорий —
+выбирать не из чего. У нас медиана пула 13.0, шире четырёх — 86% категорий,
+и на каждый уровень кто-то должен выбрать 4 слова из 13.
+
+Раньше выбирала формула отбора в генераторе — по близости частотности слова к
+целевой медиане декады. Из-за симметричного штрафа самое расхожее слово
+категории проигрывало ЗА ТО, что слишком частотное: в UNITS OF TIME на первый
+уровень уезжал `instant` (zipf 4.34, в 0.01 от цели 4.35), а `year` 5.96 и
+`day` 5.95 стояли в конце очереди. Та же формула на словаре оригинала даёт
+`calendar → solar / hebrew / weeks / date`, то есть дело было не в базе.
+
+**Что делает.** Раскладывает пул каждой категории от самого популярного слова к
+самому редкому (`words.familiarity_score`, корреляция с zipf 0.998 на 10 475
+словах) и раздаёт готовым четвёркам тир по их месту в этом порядке:
+
+```
+easy    [easy        ] поз 0.00  second, day, year, week
+easy    [easy,medium ] поз 0.29  second, minute, month, era
+medium  [medium      ] поз 0.43  month, week, century, instant
+hard    [hard        ] поз 1.00  semester, year, millennium, instant
+```
+
+**Ранг относительный, внутри категории.** Абсолютные пороги дают перекос:
+усреднение четырёх рангов стягивает всё к середине, и на замере 11 938 четвёрок
+абсолютные полосы разложились как 70% medium против 20% easy и 10% hard.
+Категория при этом остаётся без выбора: у «тихой» категории нет ни одной
+четвёрки в easy. Относительный ранг гарантирует, что у каждого широкого пула
+есть и лёгкая четвёрка, и трудная. Насколько трудна сама категория — отдельная
+ось, `categories.base_difficulty`; абсолютное число тоже сохраняется в
+`quartets.pool_rank_avg`.
+
+**easy и medium перекрываются** на 0.25–0.40 (решение 03.08): граница между
+лёгкой и средней четвёркой не резкая, и жёсткий срез заставлял бы генератор
+перепрыгивать через пропасть, когда нужная четвёрка занята запретом на повтор.
+В полосу перекрытия попадает 11% четвёрок. `hard` не перекрывается ни с чем.
+
+**Категории ровно из четырёх слов не ранжируются** — там одна возможная
+четвёрка. Их тир `unranked`, место пустое.
+
+Что получилось на текущей базе:
+
+```
+категорий отранжировано   975
+категорий пропущено       151 (пул до 4 слов)
+слов получили место       13454
+четвёрок с тиром          11938   easy 4878 | medium 4029 | hard 3031
+четвёрок без тира          2331
+в перекрытии easy+medium   1400
+```
+
+Колонки: `memberships.pool_rank` / `pool_size` / `pool_rank_pct`,
+`quartets.difficulty_tier` / `pool_tiers` / `pool_position` / `pool_rank_avg`.
+Снимок несёт тир и место (`quartet_tiers`, четвёртый элемент записи четвёрки),
+границы полос лежат в `constants` — инструмент их не пересчитывает.
 
 ### Проверки готовности (`check-integrity`)
 

@@ -167,8 +167,16 @@ export type SnapshotConflict = [
 export type SnapshotQuartet = [
   category: number,
   words: number[],
-  /** индекс в Snapshot.quartet_tiers: normal | hard */
+  /** индекс в Snapshot.quartet_tiers: easy | medium | hard | unranked */
   tier: number,
+  /**
+   * Место четвёрки среди четвёрок своей категории по популярности слов:
+   * 0 — самая расхожая, 1 — самая редкая. null у категорий ровно из четырёх
+   * слов, где выбирать не из чего. Тир — метка для глаза, место — число для
+   * отбора: полосы `easy_max`/`medium_min`/`medium_max` лежат в constants, и
+   * easy с medium намеренно перекрываются.
+   */
+  poolPosition?: number | null,
 ];
 
 export interface Snapshot {
@@ -180,7 +188,11 @@ export interface Snapshot {
   quartet_tiers?: string[];
   /** порядок происхождений: индекс лежит в полях `o`/`origin` (снимок 2.1) */
   origins?: string[];
-  constants: { zipf_max: number; top50k_zipf: number; quickwin_zipf: number };
+  constants: {
+    zipf_max: number; top50k_zipf: number; quickwin_zipf: number;
+    /** границы тиров четвёрок по месту в пуле (снимок 2.2) */
+    easy_max?: number; medium_min?: number; medium_max?: number;
+  };
   categories: SnapshotCategory[];
   words: SnapshotWord[];
   senses: { word: number | null; key: string; def: string }[];

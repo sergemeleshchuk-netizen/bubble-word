@@ -53,7 +53,15 @@ RISK_FLAGS = [
     "outdated_term", "trademark", "no_familiarity", "needs_sense",
 ]
 CONFLICT_TYPES = ["do_not_pair", "needs_disjoint_words"]
-QUARTET_TIERS = ["normal", "hard"]
+# Тир четвёрки — её место в пуле СВОЕЙ категории по популярности слов
+# (`rank-pools` в word_content_pipeline, миграция 011). `unranked` — категория
+# ровно из четырёх слов: выбирать там не из чего, тир ничего не значит.
+QUARTET_TIERS = ["easy", "medium", "hard", "unranked"]
+# Границы тиров по месту четвёрки: те же числа, что в pool_rank.py. easy и
+# medium перекрываются на 0.25-0.40 — граница между лёгкой и средней четвёркой
+# не резкая, и жёсткий срез заставлял бы генератор перепрыгивать через пропасть,
+# когда нужная четвёрка занята запретом на повтор.
+QUARTET_TIER_BANDS = {"easy_max": 0.40, "medium_min": 0.25, "medium_max": 0.75}
 # 2.0: снимок несёт слои внешнего аудита базы — readiness категорий, запреты
 # на сочетание категорий, risk-флаги и игровую сложность связей
 SNAPSHOT_SCHEMA_VERSION = "snapshot-2.0"
@@ -271,18 +279,28 @@ def build(conn: sqlite3.Connection) -> dict:
     # проверенные четвёрки: каждая прошла solver единственности на стороне базы
     quartet_rows = {}
     for r in conn.execute(
-        "select q.id, q.category_id, q.tier, qw.word_id, qw.slot from quartets q "
+        "select q.id, q.category_id, q.difficulty_tier, q.pool_position, qw.word_id, qw.slot "
+        "from quartets q "
         "join quartet_words qw on qw.quartet_id = q.id "
         "where q.validation_state NOT IN ('invalid', 'disabled') "
         "and q.local_check = 'local_unique' "
         "order by q.id, qw.slot"
     ):
         entry = quartet_rows.setdefault(r["id"], {"cat": cat_index.get(r["category_id"]),
-                                                 "tier": r["tier"], "words": []})
+                                                  "tier": r["difficulty_tier"],
+                                                  "pos": r["pool_position"], "words": []})
         wi = word_index.get(r["word_id"])
         entry["words"].append(wi)
+    # Место четвёрки в пуле выгружается рядом с тиром: тир читается глазами,
+    # а место позволяет потребителю нарезать полосы по-своему — в том числе
+    # взять перекрытие easy/medium, которое одной меткой не выражается.
+    unranked_index = QUARTET_TIERS.index("unranked")
     out_quartets = [
-        [q["cat"], q["words"], QUARTET_TIERS.index(q["tier"]) if q["tier"] in QUARTET_TIERS else 0]
+        [
+            q["cat"], q["words"],
+            QUARTET_TIERS.index(q["tier"]) if q["tier"] in QUARTET_TIERS else unranked_index,
+            round(q["pos"], 4) if q["pos"] is not None else None,
+        ]
         for q in quartet_rows.values()
         if q["cat"] is not None and len(q["words"]) == 4 and all(w is not None for w in q["words"])
     ]
@@ -297,6 +315,7 @@ def build(conn: sqlite3.Connection) -> dict:
             "zipf_max": ZIPF_MAX,
             "top50k_zipf": TOP50K_ZIPF,
             "quickwin_zipf": QUICKWIN_ZIPF,
+            **QUARTET_TIER_BANDS,
         },
         "categories": [{
             "k": c["category_key"],

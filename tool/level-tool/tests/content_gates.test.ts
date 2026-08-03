@@ -12,6 +12,9 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { loadContentIndex } from '../web/src/core/snapshot.ts';
 import { emptyPackHistory, generateLevel } from '../web/src/core/generator.ts';
@@ -19,7 +22,9 @@ import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
 import { buildSpec, levelCategory, makeSnapshot, word } from './fixtures/synthetic.ts';
 import { validateLevel } from '../web/src/core/validator.ts';
 import { hashQuadruple } from '../web/src/core/generateBlock.ts';
-import type { LevelPlan } from '../web/src/core/types.ts';
+import type { LevelPlan, Snapshot } from '../web/src/core/types.ts';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 // По шесть слов в пуле: генератор требует запас сверх четырёх (см. buildPool —
 // точное покрытие ломается, если у категории ровно четыре играбельных слова).
@@ -226,4 +231,50 @@ test('тот же уровень без запрета в базе провер�
   ]);
   const result = validateLevel(spec, { index, hashQuadruple });
   assert.equal(result.issues.some((i) => i.code === 'CONFLICT_PAIR'), false);
+});
+
+// --------------------------------------------------------------------------- //
+// тиры четвёрок: ранжирование пула живёт в базе, снимок его несёт
+// --------------------------------------------------------------------------- //
+
+/**
+ * Наша база устроена не как данные оригинала: у него категория И ЕСТЬ четвёрка
+ * (медиана пула 4.0), у нас медиана 13.0 и шире четырёх — 86% категорий. Значит
+ * выбор четырёх слов из тринадцати кто-то делает, и решено, что делает его
+ * база: `rank-pools` раскладывает пул по популярности и раздаёт готовым
+ * четвёркам тир. Тест держит контракт этих данных — инструмент их не считает.
+ */
+test('снимок несёт тиры четвёрок и место в пуле', () => {
+  const snapshot = JSON.parse(
+    readFileSync(join(ROOT, 'web/src/data/content.snapshot.json'), 'utf8')) as Snapshot;
+  const tiers = snapshot.quartet_tiers ?? [];
+  assert.deepEqual(tiers, ['easy', 'medium', 'hard', 'unranked']);
+
+  const { easy_max: easyMax, medium_min: mediumMin, medium_max: mediumMax } = snapshot.constants;
+  assert.ok(easyMax !== undefined && mediumMin !== undefined && mediumMax !== undefined,
+    'границы тиров обязаны приехать из базы, а не быть зашиты в инструменте');
+  assert.ok(mediumMin < easyMax, 'easy и medium перекрываются намеренно');
+  assert.ok(easyMax < mediumMax);
+
+  const quartets = snapshot.quartets ?? [];
+  assert.ok(quartets.length > 0, 'четвёрки в снимке есть');
+  const unrankedIndex = tiers.indexOf('unranked');
+  const seen = new Set<number>();
+  for (const [, words, tier, position] of quartets) {
+    seen.add(tier);
+    assert.equal(words.length, 4);
+    if (tier === unrankedIndex) {
+      assert.equal(position ?? null, null, 'узкий пул места не получает: выбирать не из чего');
+      continue;
+    }
+    assert.ok(position !== null && position !== undefined,
+      'у отранжированной четвёрки обязано быть место в пуле');
+    assert.ok(position >= 0 && position <= 1);
+    const expected = position <= easyMax ? 'easy' : (position <= mediumMax ? 'medium' : 'hard');
+    assert.equal(tiers[tier], expected,
+      `тир ${tiers[tier]} не сходится с местом ${position}`);
+  }
+  for (const name of ['easy', 'medium', 'hard']) {
+    assert.ok(seen.has(tiers.indexOf(name)), `в базе нет ни одной четвёрки тира ${name}`);
+  }
 });

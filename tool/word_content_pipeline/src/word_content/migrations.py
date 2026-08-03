@@ -1315,6 +1315,62 @@ def _migrate_010_word_register(conn: sqlite3.Connection) -> list[str]:
     return changes
 
 
+# --------------------------------------------------------------------------- 011
+
+
+def _migrate_011_pool_rank(conn: sqlite3.Connection) -> list[str]:
+    """Место слова в пуле своей категории и тир готовой четвёрки.
+
+    Зачем понадобилось. Наша база устроена не как данные оригинала: у него
+    категория И ЕСТЬ четвёрка (медиана пула 4.0, ровно четыре слова у 74%
+    категорий), у нас медиана 13.0 и шире четырёх — 86% категорий. Значит на
+    каждый уровень кто-то должен выбрать 4 слова из 13, и до сих пор этот выбор
+    делала формула отбора в генераторе — по близости частотности слова к
+    целевой медиане декады.
+
+    Чем это кончалось на поле. Самое расхожее слово категории проигрывало ЗА ТО,
+    что слишком частотное: в UNITS OF TIME на первый уровень уезжал `instant`
+    (zipf 4.34, в 0.01 от цели 4.35), а `year` 5.96 и `day` 5.95 стояли в конце
+    очереди; в COMPASS собиралось `rose / heading / housing / dial`. Та же
+    формула на словаре оригинала даёт `calendar → solar / hebrew / weeks / date`,
+    то есть дело не в базе, а в том, что широкий пул остался без правила отбора.
+
+    Почему колонками в базе, а не ещё одним слагаемым в формуле. Порядок слов
+    внутри пула — свойство контента, он не меняется от того, на какую декаду
+    собирают уровень. Посчитанный один раз, он читается глазами в выгрузке и
+    проверяется отдельно от генератора; формула же пересчитывала его заново на
+    каждый уровень и никому не показывала.
+
+    Что добавляется:
+      memberships.pool_rank      — место слова в пуле, 1 — самое популярное
+      memberships.pool_size      — размер пула, чтобы место читалось без джойна
+      memberships.pool_rank_pct  — то же место, нормированное: 0.0 … 1.0
+      quartets.pool_position     — место четвёрки среди четвёрок своей категории
+      quartets.pool_rank_avg     — средний нормированный ранг её слов
+      quartets.pool_tiers        — набор тиров: easy и medium перекрываются
+    `quartets.difficulty_tier` уже был на месте и залит одним `normal` на все
+    14 269 четвёрок; теперь туда пишется первичный тир.
+
+    Исходные поля не трогаются, пересчёт идемпотентен и обратим.
+    """
+    changes: list[str] = []
+    for table, column, definition in (
+        ("memberships", "pool_rank", "INTEGER NULL"),
+        ("memberships", "pool_size", "INTEGER NULL"),
+        ("memberships", "pool_rank_pct", "REAL NULL"),
+        ("quartets", "pool_position", "REAL NULL"),
+        ("quartets", "pool_rank_avg", "REAL NULL"),
+        ("quartets", "pool_tiers", "TEXT NULL"),
+    ):
+        added = _add_column(conn, table, column, definition)
+        if added:
+            changes.append(added)
+    if not changes:
+        changes.append("колонки уже на месте")
+    changes.append("значения проставляются командой rank-pools")
+    return changes
+
+
 MIGRATIONS: tuple[Migration, ...] = (
     Migration(
         version=3,
@@ -1366,6 +1422,12 @@ MIGRATIONS: tuple[Migration, ...] = (
         name="word_register",
         description="регистр слова: бытовое / пассивное / специальное, отдельно от частотности",
         apply=_migrate_010_word_register,
+    ),
+    Migration(
+        version=11,
+        name="pool_rank",
+        description="место слова в пуле категории и тир четвёрки: easy / medium / hard",
+        apply=_migrate_011_pool_rank,
     ),
 )
 

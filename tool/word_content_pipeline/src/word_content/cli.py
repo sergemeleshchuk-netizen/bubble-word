@@ -37,6 +37,7 @@ from . import (
     normalization,
     obviousness,
     pack_semantics,
+    pool_rank,
     profiles,
     quartet_builder,
     readiness,
@@ -838,6 +839,70 @@ def cmd_derive_readiness(db: DbOption, meta: MetaOption = None) -> None:
             typer.echo(f"  {row['label']} ({row['category_key']}): {row['readiness_reason']}")
         if len(hard) > 30:
             typer.echo(f"  ... ещё {len(hard) - 30}")
+
+
+@app.command("rank-pools")
+def cmd_rank_pools(
+    db: DbOption,
+    out: Annotated[Path | None, typer.Option(help="куда выгрузить ранжирование для глаз (CSV)")] = None,
+    show: Annotated[str | None, typer.Option(help="ключ категории: показать её четвёрки по тирам")] = None,
+) -> None:
+    """Раскладывает пул каждой категории по популярности и раздаёт четвёркам тир.
+
+    Категории с пулом ровно в 4 слова не ранжируются: выбирать там не из чего.
+    """
+    conn = _open(db)
+    try:
+        with conn:
+            summary = pool_rank.rank(conn)
+        rows = list(conn.execute(
+            "SELECT c.category_key, c.label, q.id, q.difficulty_tier, q.pool_tiers, "
+            "q.pool_position, q.pool_rank_avg, "
+            "(SELECT group_concat(w.text, ' | ') FROM quartet_words qw "
+            " JOIN words w ON w.id = qw.word_id WHERE qw.quartet_id = q.id ORDER BY qw.slot) AS words "
+            "FROM quartets q JOIN categories c ON c.id = q.category_id "
+            "WHERE q.pool_position IS NOT NULL "
+            "ORDER BY c.category_key, q.pool_position"
+        ))
+        sample = list(conn.execute(
+            "SELECT q.difficulty_tier, q.pool_tiers, q.pool_position, q.pool_rank_avg, "
+            "(SELECT group_concat(w.text, ', ') FROM quartet_words qw "
+            " JOIN words w ON w.id = qw.word_id WHERE qw.quartet_id = q.id ORDER BY qw.slot) AS words "
+            "FROM quartets q JOIN categories c ON c.id = q.category_id "
+            "WHERE c.category_key = ? AND q.pool_position IS NOT NULL "
+            "ORDER BY q.pool_position", (show,))) if show else []
+    finally:
+        conn.close()
+
+    typer.echo("Ранжирование пулов:")
+    typer.echo(f"  категорий отранжировано   {summary.categories_ranked}")
+    typer.echo(f"  категорий пропущено       {summary.categories_skipped} (пул до 4 слов)")
+    typer.echo(f"  слов получили место       {summary.words_ranked}")
+    typer.echo(f"  четвёрок с тиром          {summary.quartets_ranked}")
+    typer.echo(f"  четвёрок без тира         {summary.quartets_unranked}")
+    for tier in pool_rank.TIERS:
+        typer.echo(f"    {tier:8} {summary.by_tier.get(tier, 0)}")
+    typer.echo(f"  в перекрытии easy+medium  {summary.overlap}")
+
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        with out.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(["category_key", "label", "quartet_id", "tier",
+                             "tiers", "position", "rank_avg", "words"])
+            for row in rows:
+                writer.writerow([row["category_key"], row["label"], row["id"],
+                                 row["difficulty_tier"], row["pool_tiers"],
+                                 f"{row['pool_position']:.3f}", f"{row['pool_rank_avg']:.3f}",
+                                 row["words"]])
+        typer.echo(f"\nВыгрузка для глаз: {out} ({len(rows)} четвёрок)")
+
+    if show:
+        typer.echo(f"\n{show}:")
+        for row in sample:
+            typer.echo(f"  {row['difficulty_tier']:7} [{row['pool_tiers']:12}] "
+                       f"поз {row['pool_position']:.2f}  ранг {row['pool_rank_avg']:.2f}  "
+                       f"{row['words']}")
 
 
 @app.command("import-word-register")
