@@ -43,10 +43,6 @@ const PRODUCTION_SNAPSHOT = snapshotJson as unknown as Snapshot;
  */
 async function loadSnapshot(id: SourceId): Promise<Snapshot> {
   if (id === 'production') return PRODUCTION_SNAPSHOT;
-  if (id === 'lexicon') {
-    const module = await import('./data/lexicon.snapshot.json');
-    return module.default as unknown as Snapshot;
-  }
   const module = await import('./data/reference.snapshot.json');
   return module.default as unknown as Snapshot;
 }

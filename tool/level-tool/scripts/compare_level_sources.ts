@@ -267,9 +267,8 @@ function handoffLevel(spec: LevelSpec, title: string): HandoffLevel {
   };
 }
 
-const ours = generateFrom('production', 'наша база');
-const theirs = generateFrom('reference', 'словарь оригинала');
-const merged = generateFrom('lexicon', 'словарь игры');
+const ours = generateFrom('production', 'BADB');
+const theirs = generateFrom('reference', 'RefBWJ');
 
 // K берётся из плана декады — того же, по которому собраны первые два уровня.
 // Свой лимит оригинал в выгрузке не оставил, а выдумывать второе число значило бы
@@ -293,14 +292,11 @@ function title(source: string, spec: LevelSpec, d: number, i: number): string {
 
 const levels: HandoffLevel[] = [
   handoffLevel(ours.level.spec,
-    title('наша база', ours.level.spec,
+    title('BADB', ours.level.spec,
       ours.level.difficulty.value, ours.level.interest.value)),
   handoffLevel(theirs.level.spec,
-    title('словарь оригинала', theirs.level.spec,
+    title('RefBWJ', theirs.level.spec,
       theirs.level.difficulty.value, theirs.level.interest.value)),
-  handoffLevel(merged.level.spec,
-    title('словарь игры', merged.level.spec,
-      merged.level.difficulty.value, merged.level.interest.value)),
   handoffLevel(originalSpec,
     title('как в оригинале', originalSpec,
       originalDifficulty.value, originalInterest.value)),
@@ -324,7 +320,7 @@ writeFileSync(outPath, `${JSON.stringify(pack)}\n`, 'utf8');
 
 const rows = [
   {
-    source: 'наша база',
+    source: 'BADB',
     spec: ours.level.spec,
     d: ours.level.difficulty.value,
     i: ours.level.interest.value,
@@ -333,22 +329,13 @@ const rows = [
     snapshot: ours.block.contentSnapshotHash,
   },
   {
-    source: 'словарь оригинала',
+    source: 'RefBWJ',
     spec: theirs.level.spec,
     d: theirs.level.difficulty.value,
     i: theirs.level.interest.value,
     solutions: theirs.level.solutions.count,
     hard: theirs.level.validation.issues.filter((x) => x.severity === 'hard').length,
     snapshot: theirs.block.contentSnapshotHash,
-  },
-  {
-    source: 'словарь игры',
-    spec: merged.level.spec,
-    d: merged.level.difficulty.value,
-    i: merged.level.interest.value,
-    solutions: merged.level.solutions.count,
-    hard: merged.level.validation.issues.filter((x) => x.severity === 'hard').length,
-    snapshot: merged.block.contentSnapshotHash,
   },
   {
     source: 'как в оригинале',
