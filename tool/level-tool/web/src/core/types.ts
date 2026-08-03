@@ -286,6 +286,13 @@ export interface BlockConfig {
    * dealMinStartWords. Не задана — раздача считается автоматически.
    */
   dealScheme?: number[];
+  /**
+   * Вилка схем из таблицы декад: уровень с минимумом категорий коридора
+   * получает min, с максимумом — max, между ними схема интерполируется
+   * (resolveScheme в decadeProfiles.ts). Разрешённая для уровня схема
+   * записывается в спек как board.dealScheme. Сильнее dealScheme.
+   */
+  dealSchemeRange?: { min: number[]; max: number[] };
 }
 
 export interface DecadeGates {

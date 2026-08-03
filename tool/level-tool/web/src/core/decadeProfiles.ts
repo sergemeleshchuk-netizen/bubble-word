@@ -545,25 +545,59 @@ export function dealMinStartWordsFor(
  * встречает игрока, и правит конкретную декаду, а не глобальный флаг.
  */
 export interface DecadeTuningRow {
-  /** первый уровень декады: 1, 11, 21, … */
+  /** первый уровень промежутка */
   from: number;
+  /** последний уровень промежутка — определяет и подпись, и шаг сетки */
+  to: number;
   /** коридор по числу категорий; уезжает в config.categoryCorridor */
   corridor: [number, number];
   /**
-   * Явная схема выкладки ([4,3,3,3,2,2,2,2,1]) — уезжает в config.dealScheme.
-   * null = автоматическая облегчённая раздача (минимум пара, без одиночек).
+   * Вилка схем выкладки. Уровень с минимумом категорий коридора получает
+   * schemeMin, с максимумом — schemeMax, между ними схема интерполируется
+   * (resolveScheme). Заполнена одна из двух — она действует на весь промежуток.
+   * Обе null = автоматическая облегчённая раздача (минимум пара, без одиночек).
    */
-  scheme: number[] | null;
+  schemeMin: number[] | null;
+  schemeMax: number[] | null;
 }
 
-/** Таблица по умолчанию: коридоры из замера, схема — авто (облегчённая). */
+/**
+ * Сетка промежутков таблицы (решение владельца 03.08): первые сто уровней —
+ * подекадно, дальше всё крупнее. Ручной дизайн у оригинала виден в начале
+ * кривой, а с ~L300 статистика замерзает — править там каждую декаду не из
+ * чего, и строк было бы не 27, а 500.
+ *
+ *   1-100    по 10   (10 строк, коридоры из замера соответствующих декад)
+ *   101-200  по 20   (5 строк, коридор — объединение двух декад замера)
+ *   201-1000 по 100  (8 строк, коридор позднего плато)
+ *   1001-5000 по 1000 (4 строки, тот же коридор)
+ */
 export function decadeTuningDefaults(): DecadeTuningRow[] {
-  return DECADE_PROFILES.map((p) => ({
-    from: p.from,
-    corridor: [p.categoryCorridor[0], p.categoryCorridor[1]],
-    scheme: null,
-  }));
+  const rows: DecadeTuningRow[] = [];
+  const corridorAt = (level: number): [number, number] => {
+    let profile = DECADE_PROFILES[0];
+    for (const p of DECADE_PROFILES) if (p.from <= level) profile = p;
+    return [profile.categoryCorridor[0], profile.categoryCorridor[1]];
+  };
+  const push = (from: number, to: number) => {
+    // коридор промежутка — объединение коридоров всех декад замера внутри него
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (let level = from; level <= Math.min(to, 200); level += 10) {
+      const c = corridorAt(level);
+      lo = Math.min(lo, c[0]);
+      hi = Math.max(hi, c[1]);
+    }
+    if (!Number.isFinite(lo)) [lo, hi] = corridorAt(from);
+    rows.push({ from, to, corridor: [lo, hi], schemeMin: null, schemeMax: null });
+  };
+  for (let from = 1; from <= 91; from += 10) push(from, from + 9);
+  for (let from = 101; from <= 181; from += 20) push(from, from + 19);
+  for (let from = 201; from <= 901; from += 100) push(from, from + 99);
+  for (let from = 1001; from <= 4001; from += 1000) push(from, from + 999);
+  return rows;
 }
+
 
 /** Строка таблицы для уровня: последняя, чей from <= level (как профиль декады). */
 export function decadeTuningRowFor(
@@ -644,9 +678,15 @@ export function applyDecadeTuning(
         Math.max(row.corridor[0], Math.min(row.corridor[1], n)));
     }
   }
-  // null в строке = авто: возможный след прежней явной схемы стирается,
-  // иначе однажды применённая схема пережила бы свою отмену в таблице
-  next.dealScheme = row.scheme && row.scheme.length > 0 ? [...row.scheme] : undefined;
+  // Вилка схем: заполнена одна — действует на весь промежуток. Обе null =
+  // авто; возможный след прежней вилки стирается, иначе однажды применённая
+  // схема пережила бы свою отмену в таблице.
+  const minSide = row.schemeMin ?? row.schemeMax;
+  const maxSide = row.schemeMax ?? row.schemeMin;
+  next.dealSchemeRange = minSide && minSide.length > 0 && maxSide
+    ? { min: [...minSide], max: [...maxSide] }
+    : undefined;
+  next.dealScheme = undefined;
   return next;
 }
 

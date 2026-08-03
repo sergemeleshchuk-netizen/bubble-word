@@ -55,21 +55,23 @@ const BOOT_SOURCE_ID: SourceId = 'production';
  * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
  * не должна ронять чтение старого значения.
  */
-const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v1';
+const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v2';
 
 function loadDecadeTuning(): DecadeTuningRow[] {
   const defaults = decadeTuningDefaults();
+  const saneScheme = (s: unknown): boolean => s === null || (Array.isArray(s)
+    && s.every((n) => Number.isInteger(n) && n >= 1 && n <= 4));
   try {
     const raw = localStorage.getItem(DECADE_TUNING_KEY);
     if (!raw) return defaults;
     const parsed = JSON.parse(raw) as DecadeTuningRow[];
     if (!Array.isArray(parsed) || parsed.length === 0) return defaults;
     const sane = parsed.every((r) => Number.isInteger(r.from) && r.from >= 1
+      && Number.isInteger(r.to) && r.to >= r.from
       && Array.isArray(r.corridor) && r.corridor.length === 2
       && Number.isInteger(r.corridor[0]) && Number.isInteger(r.corridor[1])
       && r.corridor[0] >= 3 && r.corridor[1] <= 18 && r.corridor[0] <= r.corridor[1]
-      && (r.scheme === null || (Array.isArray(r.scheme)
-        && r.scheme.every((n) => Number.isInteger(n) && n >= 1 && n <= 4))));
+      && saneScheme(r.schemeMin) && saneScheme(r.schemeMax));
     return sane ? parsed : defaults;
   } catch {
     return defaults;

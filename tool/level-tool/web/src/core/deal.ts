@@ -372,6 +372,43 @@ function paceQueue(
   return out;
 }
 
+/**
+ * Схема для конкретного уровня из вилки min/max таблицы декад.
+ *
+ * Позиция уровня в вилке определяется его числом категорий внутри коридора:
+ * минимум коридора → schemeMin, максимум → schemeMax, между ними целевое
+ * число стартовых слов интерполируется линейно, и схема достраивается от
+ * min к max слева направо. Функция чистая и детерминированная: собранная
+ * схема записывается в спек, и выкладка воспроизводится из одного спека.
+ */
+export function resolveScheme(
+  schemeMin: readonly number[], schemeMax: readonly number[],
+  categories: number, corridor: [number, number],
+): number[] {
+  const lo = [...schemeMin].sort((a, b) => b - a);
+  const hi = [...schemeMax].sort((a, b) => b - a);
+  // вилка обязана быть согласованной: hi поэлементно не меньше lo
+  const width = Math.max(lo.length, hi.length);
+  const floor = Array.from({ length: width }, (_, i) => lo[i] ?? 0);
+  const ceil = Array.from({ length: width }, (_, i) =>
+    Math.max(floor[i], hi[i] ?? 0));
+
+  const sumLo = floor.reduce((a, b) => a + b, 0);
+  const sumHi = ceil.reduce((a, b) => a + b, 0);
+  const t = corridor[1] <= corridor[0] ? 1
+    : Math.max(0, Math.min(1, (categories - corridor[0]) / (corridor[1] - corridor[0])));
+  let budget = Math.round(sumLo + (sumHi - sumLo) * t) - sumLo;
+
+  const counts = [...floor];
+  for (let i = 0; budget > 0 && i < width; i += 1) {
+    const add = Math.min(budget, ceil[i] - counts[i]);
+    counts[i] += add;
+    budget -= add;
+  }
+  // категорий на старте не может быть больше, чем категорий на уровне
+  return counts.filter((n) => n > 0).sort((a, b) => b - a).slice(0, categories);
+}
+
 /** Пересчёт выкладки из готового спека — для проверок и для старых пакетов. */
 export function dealForSpec(spec: LevelSpec): Deal {
   // Всё, что влияет на выкладку, обязано лежать в самом спеке. Распилы — в

@@ -67,6 +67,10 @@ function normalizeConfig(config: BlockConfig): unknown {
     // явная схема выкладки тоже контент: входит в хеш, пустая = не задана
     dealScheme: config.dealScheme && config.dealScheme.length > 0
       ? config.dealScheme : undefined,
+    // вилка схем из таблицы декад — контент по той же причине
+    dealSchemeRange: config.dealSchemeRange
+      && config.dealSchemeRange.min.length > 0
+      ? config.dealSchemeRange : undefined,
   };
 }
 

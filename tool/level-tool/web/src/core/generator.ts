@@ -26,7 +26,7 @@ import type {
 import { STATUS } from './types.ts';
 import { ContentIndex } from './snapshot.ts';
 import { createRng, type Rng } from './rng.ts';
-import { buildDeal, chunkKey } from './deal.ts';
+import { buildDeal, chunkKey, resolveScheme } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
 
@@ -1591,9 +1591,15 @@ export function generateLevel(
       continue;
     }
 
+    // вилка схем разрешается ЗДЕСЬ, по числу категорий собранного уровня:
+    // в спек уезжает уже конкретная схема, и выкладка воспроизводима из спека
+    const levelScheme = config.dealSchemeRange
+      ? resolveScheme(config.dealSchemeRange.min, config.dealSchemeRange.max,
+        picked.selected.length, config.categoryCorridor)
+      : config.dealScheme;
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
       assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
-      config.dealScheme);
+      levelScheme);
 
     if (options.accept) {
       const verdict = options.accept(spec);

@@ -1,10 +1,20 @@
 /**
- * Таблица декад: коридор категорий и схема выкладки старта.
+ * Таблица стартовой раскладки по декадам.
  *
- * Формат — тот же, что у замера оригинала (DECADE_CALIBRATION.md §2, разбор
- * 02.08): «декада | категорий min-max | схема выкладки». Таблица наглядна и
- * редактируется руками: дизайнер правит конкретную декаду, а не глобальный
- * флаг, и видит, каким уровень встречает игрока.
+ * Формат — решение владельца 03.08: на каждый промежуток уровней — стартовые
+ * слова (min/max), коридор категорий (min/max) и ВИЛКА схем выкладки:
+ *
+ *   декада | стартовых слов | категорий | схема min | схема max
+ *   1-10   | 16-20          | 5-12      | 4-3-3-3-2-1 | 4-4-3-3-3-2-1
+ *
+ * Уровень с минимумом категорий коридора получает схему min, с максимумом —
+ * схему max, между ними схема интерполируется (resolveScheme в core/deal.ts).
+ * «Стартовых слов» — производная колонка: суммы схем вилки; при пустых схемах
+ * показываются суммы автоматической облегчённой раздачи.
+ *
+ * Сетка строк: до 100 подекадно, 101-200 по 20, 201-1000 по 100, дальше по
+ * 1000 до 5000 — ручной дизайн у оригинала виден в начале кривой, с ~L300
+ * статистика замерзает, и строк на каждую декаду там не из чего заполнять.
  *
  * Живёт на первой вкладке: это настройка ИНСТРУМЕНТА на всю кривую, а не
  * одного блока. Правки переживают перезагрузку (localStorage в App) и
@@ -13,18 +23,21 @@
  */
 import { useState } from 'react';
 import {
-  DECADE_PROFILES, decadeTuningDefaults, formatScheme, liteSchemePreview, parseScheme,
+  decadeTuningDefaults, formatScheme, liteSchemePreview, parseScheme,
 } from '../core/decadeProfiles.ts';
 import type { DecadeTuningRow } from '../core/decadeProfiles.ts';
 
-function decadeLabelFor(from: number, rows: readonly DecadeTuningRow[]): string {
-  const next = rows.find((r) => r.from === from + 10);
-  return next ? `${from}-${from + 9}` : `${from}+`;
+function sum(scheme: readonly number[]): number {
+  return scheme.reduce((a, b) => a + b, 0);
 }
 
-function meanFor(from: number): number {
-  const profile = [...DECADE_PROFILES].reverse().find((p) => p.from <= from);
-  return Math.round(profile?.categoryMean ?? 9);
+/** Вилка стартовых слов строки: суммы схем; пустая схема = авто для края коридора. */
+function startWordsRange(row: DecadeTuningRow): [number, number] {
+  const minScheme = row.schemeMin ?? row.schemeMax ?? liteSchemePreview(row.corridor[0]);
+  const maxScheme = row.schemeMax ?? row.schemeMin ?? liteSchemePreview(row.corridor[1]);
+  const a = sum(minScheme);
+  const b = sum(maxScheme);
+  return a <= b ? [a, b] : [b, a];
 }
 
 export function DecadeTable({ rows, onChange }: {
@@ -41,39 +54,41 @@ export function DecadeTable({ rows, onChange }: {
 
   return (
     <div className="panel">
-      <h2>Декады: категории и схема выкладки</h2>
+      <h2>Стартовая раскладка по декадам</h2>
       <p className="hint">
-        Формат замера оригинала: на каждую декаду — коридор по числу категорий
-        и схема стартового поля. Схема читается как доли категорий на старте по
-        убыванию: <span className="mono">4-3-3-3-2-2-2-2-1</span> — одна
-        категория целиком (вход), три по тройке, четыре пары и одна одиночка.
-        Пустая схема — автоматическая облегчённая раздача: вход целиком,
-        остальным минимум пара, без одиночек; кому не хватило места — целиком
-        в очереди досыпки. Явная схема применяется как написано — вместе с
-        одиночками, если они в ней есть.
+        Схема — доли категорий на старте по убыванию:{' '}
+        <span className="mono">4-3-3-3-2-1</span> — одна категория целиком
+        (вход), три по тройке, пара и одиночка. Уровень с минимумом категорий
+        коридора получает схему min, с максимумом — схему max, между ними
+        раскладка интерполируется. Пустые схемы — автоматическая облегчённая
+        раздача: вход целиком, остальным минимум пара, без одиночек.
+        «Стартовых слов» — суммы схем вилки, считается само.
       </p>
       <div style={{ overflowX: 'auto' }}>
         <table>
           <thead>
             <tr>
               <th>декада</th>
+              <th>стартовых слов</th>
               <th>категорий min</th>
               <th>max</th>
-              <th style={{ minWidth: 260 }}>схема выкладки (пусто = авто)</th>
-              <th>сейчас действует</th>
+              <th style={{ minWidth: 200 }}>схема min</th>
+              <th style={{ minWidth: 200 }}>схема max</th>
             </tr>
           </thead>
           <tbody>
             {sorted.map((row) => {
-              const mean = meanFor(row.from);
-              const auto = liteSchemePreview(mean);
               const base = defaults.find((d) => d.from === row.from);
               const edited = !base || JSON.stringify(base) !== JSON.stringify(row);
-              const effective = row.scheme ?? auto;
-              const queued = Math.max(0, mean - effective.length);
+              const words = startWordsRange(row);
+              const auto = row.schemeMin === null && row.schemeMax === null;
               return (
                 <tr key={row.from} className={edited ? 'selected' : undefined}>
-                  <td className="mono">{decadeLabelFor(row.from, sorted)}</td>
+                  <td className="mono">{row.from}-{row.to}</td>
+                  <td className="small mono">
+                    {words[0] === words[1] ? words[0] : `${words[0]}-${words[1]}`}
+                    {auto ? ' (авто)' : ''}
+                  </td>
                   <td>
                     <input
                       type="text" inputMode="numeric" style={{ width: 52 }}
@@ -100,15 +115,17 @@ export function DecadeTable({ rows, onChange }: {
                   </td>
                   <td>
                     <SchemeField
-                      value={row.scheme}
-                      placeholder={`авто: ${formatScheme(auto)}`}
-                      onCommit={(scheme) => update(row.from, { scheme })}
+                      value={row.schemeMin}
+                      placeholder={`авто: ${formatScheme(liteSchemePreview(row.corridor[0]))}`}
+                      onCommit={(schemeMin) => update(row.from, { schemeMin })}
                     />
                   </td>
-                  <td className="small muted mono">
-                    {formatScheme(effective)}
-                    {queued > 0 ? ` · ~${queued} в очереди` : ''}
-                    {row.scheme === null ? ' (авто)' : ''}
+                  <td>
+                    <SchemeField
+                      value={row.schemeMax}
+                      placeholder={`авто: ${formatScheme(liteSchemePreview(row.corridor[1]))}`}
+                      onCommit={(schemeMax) => update(row.from, { schemeMax })}
+                    />
                   </td>
                 </tr>
               );
@@ -124,11 +141,10 @@ export function DecadeTable({ rows, onChange }: {
         )}
       </div>
       <p className="small muted" style={{ marginTop: 8 }}>
-        «Сейчас действует» показано для среднего числа категорий декады —
-        у конкретного уровня категорий может быть больше или меньше, схема
-        подрезается по факту. Правка коридора подрезает и план категорий блока.
-        Схема записывается в спек уровня и входит в хеш пакета. Пресет 201-210
-        таблица не трогает.
+        Заполнена одна схема из двух — она действует на весь промежуток.
+        Правка коридора подрезает и план категорий блока. Разрешённая для
+        уровня схема записывается в его спек и входит в хеш пакета.
+        Пресет 201-210 таблица не трогает.
       </p>
     </div>
   );

@@ -23,10 +23,10 @@ import { fileURLToPath } from 'node:url';
 import type { LevelSpec, Snapshot } from '../web/src/core/types.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
-import { checkDeal, dealForSpec } from '../web/src/core/deal.ts';
+import { checkDeal, dealForSpec, resolveScheme } from '../web/src/core/deal.ts';
 import {
-  applyDecadeTuning, configForRange, decadeTuningDefaults, formatScheme,
-  liteSchemePreview, parseScheme,
+  applyDecadeTuning, configForRange, decadeTuningDefaults, decadeTuningRowFor,
+  formatScheme, liteSchemePreview, parseScheme,
 } from '../web/src/core/decadeProfiles.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -130,6 +130,7 @@ test('отмена схемы в таблице стирает её из кон�
   const base = { ...configForRange([121, 130], 'x'), dealScheme: SCHEME };
   const tuned = applyDecadeTuning(base, decadeTuningDefaults());
   assert.equal(tuned.dealScheme, undefined);
+  assert.equal(tuned.dealSchemeRange, undefined);
 });
 
 test('нетронутая таблица не меняет конфиг декады', () => {
@@ -138,6 +139,64 @@ test('нетронутая таблица не меняет конфиг дек�
   assert.deepEqual(tuned.categoryCorridor, base.categoryCorridor);
   assert.deepEqual(tuned.categoryPlan, base.categoryPlan);
   assert.equal(tuned.dealScheme, undefined);
+  assert.equal(tuned.dealSchemeRange, undefined);
+});
+
+test('сетка умолчаний: до 100 по 10, до 200 по 20, до 1000 по 100, до 5000 по 1000', () => {
+  const rows = decadeTuningDefaults();
+  assert.equal(rows.length, 27);
+  assert.deepEqual(rows.slice(0, 2).map((r) => [r.from, r.to]), [[1, 10], [11, 20]]);
+  assert.deepEqual(rows[10] && [rows[10].from, rows[10].to], [101, 120]);
+  assert.deepEqual(rows[15] && [rows[15].from, rows[15].to], [201, 300]);
+  assert.deepEqual(rows[26] && [rows[26].from, rows[26].to], [4001, 5000]);
+  // строка находится и для уровня глубоко за пределами замера
+  assert.equal(decadeTuningRowFor(4321, rows)?.from, 4001);
+});
+
+test('вилка схем из таблицы уезжает в конфиг и заполняется с одной стороны', () => {
+  const rows = decadeTuningDefaults().map((r) =>
+    (r.from === 121 ? { ...r, schemeMin: [4, 3, 3, 2], schemeMax: null } : r));
+  const tuned = applyDecadeTuning(configForRange([121, 130], 'x'), rows);
+  assert.deepEqual(tuned.dealSchemeRange, { min: [4, 3, 3, 2], max: [4, 3, 3, 2] });
+});
+
+// --------------------------------------------------------------------------- //
+// вилка схем: resolveScheme
+// --------------------------------------------------------------------------- //
+
+const FORK_MIN = [4, 3, 3, 3, 2, 1];      // 16 слов
+const FORK_MAX = [4, 4, 3, 3, 3, 2, 1];   // 20 слов
+
+test('края вилки: минимум категорий — схема min, максимум — схема max', () => {
+  assert.deepEqual(resolveScheme(FORK_MIN, FORK_MAX, 5, [5, 10]), FORK_MIN.slice(0, 5));
+  assert.deepEqual(resolveScheme(FORK_MIN, FORK_MAX, 10, [5, 10]), FORK_MAX);
+});
+
+test('середина вилки: число стартовых слов интерполируется', () => {
+  const mid = resolveScheme(FORK_MIN, FORK_MAX, 7, [5, 10]);
+  const words = mid.reduce((a, b) => a + b, 0);
+  assert.ok(words > 16 && words < 20, `стартовых слов ${words}, ждали между 16 и 20`);
+  // каждая доля в пределах вилки
+  mid.forEach((n, i) => {
+    assert.ok(n <= FORK_MAX[i], `доля ${i} = ${n} выше максимума ${FORK_MAX[i]}`);
+  });
+});
+
+test('вилка в генерации: разрешённая схема записана в спек и следует M уровня', () => {
+  const config = {
+    ...configForRange([121, 130], 'deal-fork-test'),
+    dealSchemeRange: { min: FORK_MIN, max: FORK_MAX },
+  };
+  const forkBlock = generateBlock({ snapshot, scoring, config });
+  assert.ok(forkBlock.levels.length >= 8, `собрано ${forkBlock.levels.length}/10`);
+  for (const level of forkBlock.levels) {
+    const m = level.spec.categories.length;
+    const expected = resolveScheme(FORK_MIN, FORK_MAX, m, config.categoryCorridor);
+    assert.deepEqual(level.spec.board.dealScheme, expected,
+      `уровень ${level.spec.levelId} (M=${m}): схема в спеке не совпала с вилкой`);
+    assert.deepEqual(dealForSpec(level.spec), level.spec.deal,
+      `уровень ${level.spec.levelId}: выкладка не воспроизводится из спека`);
+  }
 });
 
 // --------------------------------------------------------------------------- //
