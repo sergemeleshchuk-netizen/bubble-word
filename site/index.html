@@ -5491,9 +5491,30 @@ a few fair color traps.
         if(Math.abs(rowTopOffset(row)) > 4) scrollRowToTop(row);
       }, 500);
     }else{
+      /* Свернуть — значит просто спрятать содержимое, страница при этом стоит
+         на месте. Сама по себе она не стоит: документ становится короче, и
+         браузер подтягивает прокрутку вверх — с последних пунктов это уносило
+         читателя в начало отчёта. Всю анимацию держим заголовок там, где он был
+         в момент клика. */
+      var keepTop = head.getBoundingClientRect().top;
+      var pin = function(){
+        var d = head.getBoundingClientRect().top - keepTop;
+        if(!d) return;
+        var de = document.documentElement, prev = de.style.scrollBehavior;
+        de.style.scrollBehavior = 'auto';   /* иначе доводка сама поедет плавно */
+        window.scrollBy(0, d);
+        de.style.scrollBehavior = prev;
+      };
       body.style.maxHeight = body.scrollHeight + 'px';
       void body.offsetHeight;
       body.style.maxHeight = '0px';
+      var t0 = null;
+      var hold = function(ts){
+        if(t0 === null) t0 = ts;
+        pin();
+        if(ts - t0 < 520 && !row.classList.contains('open')) requestAnimationFrame(hold);
+      };
+      requestAnimationFrame(hold);
     }
   }
 </script>
