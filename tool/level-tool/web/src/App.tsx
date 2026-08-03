@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { BlockConfig, BlockResult, Snapshot } from './core/types.ts';
 import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
-import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
+import {
+  generateBlock, redealLevel, toGameJson, toPipelineJson, withLevel,
+} from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
 import { DEFAULT_SOURCE_ID, sourceById, type SourceId } from './core/sources.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
@@ -257,6 +259,22 @@ export function App() {
   const busy = loadingSource !== null;
 
   /**
+   * Переложить старт выбранного уровня по схеме с экрана «Уровень».
+   *
+   * Уровень пересчитывается целиком (`redealLevel`), а блок получает новый хеш
+   * пакета (`withLevel`): выкладка входит в хеш спека, и оставить прежний
+   * packHash значило бы подписать старым именем другой пакет.
+   *
+   * На реф-базе это не предлагается вовсе: там выкладка взята из записи
+   * оригинала, и «поправить» её значило бы наиграть не тот уровень, что записан.
+   */
+  const redeal = (scheme: number[] | null) => {
+    if (!block || !level || isReference) return;
+    const next = redealLevel({ snapshot, scoring, block, level, scheme, index });
+    setBlock(withLevel(block, next, scoring));
+  };
+
+  /**
    * Следующий шаг для кнопки в строке закладок. На последнем экране её нет:
    * кнопка «Дальше», ведущая в никуда, врёт про то, что работа не закончена.
    */
@@ -371,6 +389,7 @@ export function App() {
               scoring={scoring}
               onSelect={setSelectedLevel}
               levels={block!.levels}
+              onRedeal={isReference ? undefined : redeal}
             />
           )
           : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />

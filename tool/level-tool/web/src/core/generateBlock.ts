@@ -14,7 +14,8 @@ import {
   GENERATOR_VERSION, emptyPackHistory, generateLevel, normalizeWordKey, planDeepChain,
   recordLevelInHistory, type PackHistory,
 } from './generator.ts';
-import { validateLevel } from './validator.ts';
+import { validateLevel, type ValidationContext } from './validator.ts';
+import { dealForSpec } from './deal.ts';
 import { countSolutions } from './solutionCounter.ts';
 import { computeStructuralMetrics } from './structuralMetrics.ts';
 import { simulatePlayability } from './simulatePlayability.ts';
@@ -242,74 +243,31 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     }
     const spec = outcome.spec;
 
-    // порядок важен: сначала считаем решения, потом валидируем (валидатор
-    // использует результат), и только потом выставляем оценки
-    const solutions = countSolutions(index, spec);
-    const structural = computeStructuralMetrics(index, spec);
-    const playability = simulatePlayability(spec);
-    const validation = validateLevel(spec, {
-      ...validationContext(), solutions, structural, repeatCount: repeatCount(spec, history),
-    });
-
-    const evidence = options.solverEvidence?.get(plan.levelId) ?? {};
-    const difficulty = computeDifficulty(spec, index, scoring, solutions, evidence);
-    const interest = computeInterest(spec, index, scoring, solutions, {
-      ...evidence,
-      newWordShare: newWordShare(spec, history),
-      echoCategories: echoCategories(spec, history),
-      returningCategories: returningCategories(spec, history),
+    const level = evaluateSpec({
+      spec,
+      plan,
+      index,
+      config,
+      scoring,
+      history,
+      snapshotHash: snapshot.content_snapshot_hash,
+      attempts: outcome.attempts,
+      evidence: options.solverEvidence?.get(plan.levelId) ?? {},
       modifierSeenBefore: plan.modifier === 'none' ? 0
         : (modifierSeen.get(plan.modifier) ?? 0),
+      validationExtras: validationContext(),
     });
     if (plan.modifier !== 'none') {
       modifierSeen.set(plan.modifier, (modifierSeen.get(plan.modifier) ?? 0) + 1);
     }
-
-    /*
-     * Слепой прогон — ДИАГНОСТИКА, а не гейт.
-     *
-     * Он считается только для принятого уровня и ни на что в приёмке не влияет:
-     * модель знания игрока не откалибрована (см. шапку `playerKnowledge.ts`),
-     * и браковать уровни по неоткалиброванному числу значило бы выдать догадку
-     * за измерение. Здесь он затем, чтобы цена незнания слов была ВИДНА в
-     * карточке уровня и накапливалась по пакетам — до того, как ей доверят
-     * решать судьбу уровня. Seed привязан к блоку и уровню: тот же блок даёт те
-     * же числа, разные уровни — разных игроков.
-     */
-    const blindPlay = simulateBlindPlay(spec, playability.movesNeeded,
-      { seed: `${config.seed}#blind-${plan.levelId}`, index });
-
-    levels.push({
-      plan,
-      spec,
-      validation,
-      solutions,
-      structural,
-      playability,
-      blindPlay,
-      difficulty,
-      interest,
-      attempts: outcome.attempts,
-      levelSpecHash: levelSpecHash({
-        levelSpec: spec,
-        seed: config.seed,
-        normalizedConfig: normalizeConfig(config),
-        generatorVersion: GENERATOR_VERSION,
-        contentSnapshotHash: snapshot.content_snapshot_hash,
-      }),
-    });
+    levels.push(level);
 
     // историю пополняем только принятыми уровнями: иначе отклонённая попытка
     // «съедала» бы слова и следующий уровень не сходился
-    if (validation.passed) recordLevelInHistory(history, spec);
+    if (level.validation.passed) recordLevelInHistory(history, spec);
   }
 
-  const packHash = sha256Hex(canonicalJson({
-    levels: levels.map((l) => l.levelSpecHash),
-    snapshot: snapshot.content_snapshot_hash,
-    generator: GENERATOR_VERSION,
-    scoring: scoring.scoring_version,
-  }));
+  const packHash = packHashOf(levels, snapshot.content_snapshot_hash, scoring);
 
   return {
     config,
@@ -319,6 +277,210 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
     failures,
     packHash,
   };
+}
+
+/** Хеш пакета: список хешей уровней плюс версии, от которых он зависит. */
+function packHashOf(
+  levels: readonly GeneratedLevel[], snapshotHash: string, scoring: ScoringConfig,
+): string {
+  return sha256Hex(canonicalJson({
+    levels: levels.map((l) => l.levelSpecHash),
+    snapshot: snapshotHash,
+    generator: GENERATOR_VERSION,
+    scoring: scoring.scoring_version,
+  }));
+}
+
+/**
+ * Оценка готового спека: решения → структура → проходимость → проверки → D и I
+ * → слепой прогон → хеш.
+ *
+ * Вынесено из цикла сборки не ради красоты. Тем же путём обязан пройти уровень,
+ * которому ВРУЧНУЮ поменяли схему выкладки (`redealLevel` ниже): выкладка входит
+ * и в оценку сложности (фактор «раскладка старта»), и в проходимость, и в хеш
+ * спека. Считать её отдельно значило бы оставить в карточке оценки, посчитанные
+ * для другой выкладки, — то есть врать о том уровне, который сдаётся.
+ */
+function evaluateSpec(args: {
+  spec: LevelSpec;
+  plan: import('./types.ts').LevelPlan;
+  index: ContentIndex;
+  config: BlockConfig;
+  scoring: ScoringConfig;
+  /** история пакета НА МОМЕНТ этого уровня: свежесть слов и категорий */
+  history: PackHistory;
+  snapshotHash: string;
+  attempts: GeneratedLevel['attempts'];
+  evidence: SemanticEvidence & InterestEvidence;
+  modifierSeenBefore: number;
+  /** контекст валидатора: индекс, окна свежести, гейты декады, novelty */
+  validationExtras: ValidationContext;
+}): GeneratedLevel {
+  const { spec, plan, index, config, scoring, history } = args;
+
+  // порядок важен: сначала считаем решения, потом валидируем (валидатор
+  // использует результат), и только потом выставляем оценки
+  const solutions = countSolutions(index, spec);
+  const structural = computeStructuralMetrics(index, spec);
+  const playability = simulatePlayability(spec);
+  const validation = validateLevel(spec, {
+    ...args.validationExtras, solutions, structural,
+    repeatCount: repeatCount(spec, history),
+  });
+
+  const difficulty = computeDifficulty(spec, index, scoring, solutions, args.evidence);
+  const interest = computeInterest(spec, index, scoring, solutions, {
+    ...args.evidence,
+    newWordShare: newWordShare(spec, history),
+    echoCategories: echoCategories(spec, history),
+    returningCategories: returningCategories(spec, history),
+    modifierSeenBefore: args.modifierSeenBefore,
+  });
+
+  /*
+   * Слепой прогон — ДИАГНОСТИКА, а не гейт.
+   *
+   * Он считается только для принятого уровня и ни на что в приёмке не влияет:
+   * модель знания игрока не откалибрована (см. шапку `playerKnowledge.ts`),
+   * и браковать уровни по неоткалиброванному числу значило бы выдать догадку
+   * за измерение. Здесь он затем, чтобы цена незнания слов была ВИДНА в
+   * карточке уровня и накапливалась по пакетам — до того, как ей доверят
+   * решать судьбу уровня. Seed привязан к блоку и уровню: тот же блок даёт те
+   * же числа, разные уровни — разных игроков.
+   */
+  const blindPlay = simulateBlindPlay(spec, playability.movesNeeded,
+    { seed: `${config.seed}#blind-${plan.levelId}`, index });
+
+  return {
+    plan,
+    spec,
+    validation,
+    solutions,
+    structural,
+    playability,
+    blindPlay,
+    difficulty,
+    interest,
+    attempts: args.attempts,
+    levelSpecHash: levelSpecHash({
+      levelSpec: spec,
+      seed: config.seed,
+      normalizedConfig: normalizeConfig(config),
+      generatorVersion: GENERATOR_VERSION,
+      contentSnapshotHash: args.snapshotHash,
+    }),
+  };
+}
+
+export interface RedealOptions {
+  snapshot: Snapshot;
+  scoring: ScoringConfig;
+  /** блок, в котором живёт уровень: из него берутся конфиг и история пакета */
+  block: BlockResult;
+  level: GeneratedLevel;
+  /**
+   * Новая схема старта, доли по убыванию: `[4,3,3,3,2]`. Пустой массив или null
+   * возвращают уровень на автоматическую раздачу (`autoScheme`).
+   */
+  scheme: readonly number[] | null;
+  /** готовый индекс снимка, чтобы не строить его заново на каждое нажатие */
+  index?: ContentIndex;
+}
+
+/**
+ * Переложить старт уровня по заданной схеме и пересчитать его целиком.
+ *
+ * Зачем это в инструменте. Схема выкладки — самый быстрый рычаг проходимости:
+ * при ровной раздаче уровень на 12 категорий встречает игрока полем из пар, где
+ * не собирается ни одна, и «продвинуться со старта» нечем. Дизайнеру нужно
+ * увидеть применённую схему и поправить её на месте, а не пересобирать блок и
+ * гадать, что изменилось.
+ *
+ * Честность: пересчитывается ВСЁ, что зависит от выкладки — единственность
+ * решения, hard-инварианты, проходимость, слепой прогон, D и I, хеш спека и хеш
+ * пакета. Ручная схема не отменяет приёмку, она проходит её заново.
+ *
+ * Чего функция НЕ делает: не меняет состав уровня. Категории и слова остаются
+ * те же — иначе это была бы пересборка блока, а не правка выкладки.
+ */
+export function redealLevel(options: RedealOptions): GeneratedLevel {
+  const { block, level, scoring } = options;
+  const index = options.index ?? new ContentIndex(options.snapshot);
+  const config = block.config;
+  const scheme = options.scheme && options.scheme.length > 0
+    ? [...options.scheme].sort((a, b) => b - a) : undefined;
+
+  const spec: LevelSpec = {
+    ...level.spec,
+    board: { ...level.spec.board, dealScheme: scheme },
+  };
+  spec.deal = dealForSpec(spec);
+
+  /*
+   * История пакета восстанавливается из уровней, стоящих в блоке ДО этого.
+   * Свежесть слов и категорий, повторы и доля новых слов считаются от неё, и
+   * взять её «как есть» из блока нельзя: она живёт только внутри сборки.
+   */
+  const history = emptyPackHistory();
+  let modifierSeenBefore = 0;
+  for (const earlier of block.levels) {
+    if (earlier.spec.levelId === spec.levelId) break;
+    if (earlier.plan.modifier !== 'none' && earlier.plan.modifier === level.plan.modifier) {
+      modifierSeenBefore += 1;
+    }
+    if (earlier.validation.passed) recordLevelInHistory(history, earlier.spec);
+  }
+
+  return evaluateSpec({
+    spec,
+    plan: level.plan,
+    index,
+    config,
+    scoring,
+    history,
+    snapshotHash: block.contentSnapshotHash,
+    // след ручной правки остаётся в самом уровне: по попыткам видно, что
+    // выкладку задал человек, а не генератор
+    attempts: [...level.attempts, {
+      index: level.attempts.length + 1,
+      outcome: 'accepted' as const,
+      stage: 'выкладка',
+      reason: scheme
+        ? `схема старта задана вручную: ${scheme.join('-')}`
+        : 'схема старта возвращена к автоматической',
+      relaxations: [],
+    }],
+    evidence: {},
+    modifierSeenBefore,
+    validationExtras: {
+      index,
+      history: {
+        wordLastLevel: history.wordLastLevel,
+        categoryLastLevel: history.categoryLastLevel,
+        wordWindow: config.wordFreshnessWindow,
+        categoryWindow: config.categoryFreshnessWindow,
+      },
+      hashQuadruple,
+      maxMetaDepth: config.maxMetaDepth,
+      decadeGates: config.decadeGates,
+      rareRange: config.decadeGates ? config.rarityRange : undefined,
+    },
+  });
+}
+
+/**
+ * Заменить уровень в блоке и пересчитать хеш пакета.
+ *
+ * Хеш пакета собран из хешей уровней, а правка выкладки меняет хеш спека.
+ * Оставить прежний packHash значило бы подписать старым хешем другой пакет — и
+ * прототип с экспортом показывали бы имя группы, которой уже нет.
+ */
+export function withLevel(
+  block: BlockResult, level: GeneratedLevel, scoring: ScoringConfig,
+): BlockResult {
+  const levels = block.levels.map((l) =>
+    (l.spec.levelId === level.spec.levelId ? level : l));
+  return { ...block, levels, packHash: packHashOf(levels, block.contentSnapshotHash, scoring) };
 }
 
 /**
