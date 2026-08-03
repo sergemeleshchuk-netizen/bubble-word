@@ -171,6 +171,125 @@ test('прототип досыпает фиксированными пачка�
   }
 });
 
+/*
+ * Половинки: у каждой ровно один законный партнёр.
+ *
+ * Живая поломка 03.08, уровень 12 из реф-источника: игрок доигрывал до конца и
+ * оставался с шарами, которые не с чем слить. Причина — нумерация пар. Номера
+ * выдавал `expandChunks`, считая от единицы в КАЖДОМ своём вызове, а вызывают его
+ * дважды: на стартовое поле и на очередь. `dol|phin` со старта и `choco|late` из
+ * очереди получали один номер пары, склейка проверяла только номер и сторону, и
+ * `dol` склеивался с `late`: пузырь получал категорию первого и слово второго,
+ * `dolphin` из уровня исчезал, `phin` и `choco` оставались сиротами. На 8 распилах
+ * уровня 12 неоднозначный партнёр был у 12 половинок из 16.
+ *
+ * Ни один бот этого не видел и увидеть не мог: `core/playSim.ts` нумерует пары
+ * индексом в `spec.halves`, то есть глобально, и у него коллизии не бывает
+ * по построению. Поломка жила ровно в прототипе — значит и проверять её надо
+ * на прототипе, читая его собственный код.
+ */
+test('половинки прототипа: у каждой ровно один законный партнёр', () => {
+  const html = readFileSync(join(ROOT, '../../site/playable/index.html'), 'utf8');
+  /** Вырезает объявление функции по имени — вместе с телом, по балансу скобок. */
+  const grab = (name: string): string => {
+    const start = html.indexOf(`function ${name}(`);
+    assert.ok(start >= 0, `в прототипе нет функции ${name}`);
+    let depth = 0;
+    let end = html.indexOf('{', start);
+    for (let k = end; k < html.length; k += 1) {
+      if (html[k] === '{') depth += 1;
+      else if (html[k] === '}') { depth -= 1; if (depth === 0) { end = k; break; } }
+    }
+    return html.slice(start, end + 1);
+  };
+  // функции чистые (DOM не трогают), поэтому их можно выполнить здесь
+  const made = new Function(`${grab('applyChunks')}\n${grab('expandChunks')}\n`
+    + `${grab('samePair')}\nreturn { applyChunks, expandChunks, samePair };`)() as {
+    applyChunks: (l: unknown) => unknown;
+    expandChunks: (l: unknown, m: unknown) => { list: { v: string; e: string;
+      half: { pair: number; side: number; whole: string } | null }[] };
+    samePair: (a: unknown, b: unknown) => boolean;
+  };
+
+  const dir = join(ROOT, '../../site/playable/packs');
+  const index = JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8')) as
+    { packs: string[] };
+  let checkedLevels = 0;
+  for (const file of index.packs) {
+    const packJson = JSON.parse(readFileSync(join(dir, file), 'utf8')) as
+      { levels: { level_id: number; categories: { id: string; name: string }[];
+        chunks?: unknown[];
+        deal: { start: { word: string; category: string }[];
+          queue: { word: string; category: string }[] } }[] };
+    for (const level of packJson.levels) {
+      if (!level.chunks || level.chunks.length === 0) continue;
+      checkedLevels += 1;
+      const chunkMap = made.applyChunks(level);
+      const nameOf = new Map(level.categories.map((c) => [c.id, c.name.toUpperCase()]));
+      const up = (list: { word: string; category: string }[]) => list.map((b) => ({
+        v: nameOf.get(b.category) ?? '', e: b.word.toUpperCase(),
+      }));
+      const halves = [
+        ...made.expandChunks(up(level.deal.start), chunkMap).list,
+        ...made.expandChunks(up(level.deal.queue), chunkMap).list,
+      ].filter((b) => b.half).map((b) => ({ val: b.v, exs: [b.e], half: b.half }));
+
+      for (const a of halves) {
+        const mates = halves.filter((b) => b !== a && made.samePair(a, b));
+        assert.equal(mates.length, 1,
+          `${file} ур.${level.level_id}: у половинки ${a.exs[0]} <${a.half!.whole}> `
+          + `[${a.val}] партнёров ${mates.length}, а должен быть ровно один`
+          + (mates.length > 1 ? `: ${mates.map((m) => m.exs[0]).join(', ')}` : ''));
+      }
+
+      /*
+       * Отдельно — сама нумерация. Она проверяется не потому, что без неё
+       * склейка сломается (четыре признака `samePair` держат и при совпавших
+       * номерах), а потому что это ВТОРОЙ рубеж: номер пары уникален на уровень,
+       * и каждый встречается ровно дважды. Без этой проверки регресс нумерации
+       * прошёл бы молча и ждал бы дня, когда кто-нибудь упростит `samePair`
+       * обратно до одного номера.
+       */
+      const perId = new Map<number, string[]>();
+      for (const a of halves) {
+        const list = perId.get(a.half!.pair) ?? [];
+        list.push(`${a.exs[0]} <${a.half!.whole}> [${a.val}]`);
+        perId.set(a.half!.pair, list);
+      }
+      for (const [pair, list] of perId) {
+        assert.equal(list.length, 2,
+          `${file} ур.${level.level_id}: номер пары ${pair} носят ${list.length} `
+          + `половинки вместо двух: ${list.join(' | ')}`);
+      }
+    }
+  }
+  assert.ok(checkedLevels > 0,
+    'ни одного уровня с распилами в пакетах — проверка ничего не проверила');
+
+  /*
+   * Вторая половина той же поломки, и она была главной. Досыпка звала
+   * `makeBubble(it.v,it.e,x,y)` — без пятого аргумента, то есть без метки
+   * половинки. Стартовое поле метку передавало, а очередь нет: кусочек `SAR`
+   * приезжал ОБЫЧНЫМ пузырём и становился полноправным «словом» категории
+   * HUMOR. Счётчик слов считал его наравне с целыми, склеить его было не с чем,
+   * и уровень доигрывался до «остались шары, которые не с чем слить». На
+   * уровне 12 так терялись все пять распилов, приходящих досыпкой.
+   *
+   * Проверка грубая — чтение исходника, — но другой здесь нет: оба бота
+   * разворачивают распилы сами и этой ветки прототипа не исполняют вовсе.
+   * Именно поэтому симулятор говорил PASS, пока живой уровень вставал.
+   */
+  // комментарии вырезаем: они тоже упоминают `it.half`, и проверка ловила бы
+  // собственное объяснение вместо кода
+  const spawnFn = grab('trySpawn')
+    .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
+  const call = spawnFn.match(/makeBubble\(.*\);/);
+  assert.ok(call, 'досыпка вообще не зовёт makeBubble — пузыри не появятся');
+  assert.ok(call[0].includes('half'),
+    'досыпка зовёт makeBubble без метки половинки: кусочек приедет обычным '
+    + `пузырём и станет «словом» категории, а его пара останется сиротой — ${call[0]}`);
+});
+
 /**
  * Накопление пакетов.
  *
