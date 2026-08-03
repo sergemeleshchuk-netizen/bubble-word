@@ -231,8 +231,11 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       ? (role === 'peak' ? 2 : role === 'spike' ? 1 : 0)
       : 0;
 
+    // Явный выбор человека сильнее лесенки по декадам: `null` в плане означает
+    // «решай сам», значение — «поставь ровно это». Туториал исключений не знает.
     const modifier = isTutorial ? 'none'
-      : modifierFor(role, from + position - 1, position, config.allowedModifiers);
+      : (config.modifierPlan?.[position - 1]
+        ?? modifierFor(role, from + position - 1, position, config.allowedModifiers));
 
     plans.push({
       levelId: from + position - 1,

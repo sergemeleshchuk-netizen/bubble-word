@@ -156,6 +156,28 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
 .bar-mid { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
   background: var(--line); }
 
+/*
+ * Колонки под графиком ритма: по колонке на уровень блока.
+ * Ширина колонок повторяет шаг графика, поэтому чекбоксы стоят ровно под
+ * своим столбиком — иначе пришлось бы считать, к какому уровню что относится.
+ */
+.rhythm-cols { display: grid; gap: 2px; margin-top: 2px; min-width: 620px; }
+.rhythm-col {
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  padding: 4px 0 5px; border: 1px solid transparent; border-radius: 6px;
+  cursor: grab; user-select: none;
+}
+.rhythm-col:hover { background: var(--panel-2); }
+.rhythm-col.dragged { opacity: 0.4; cursor: grabbing; }
+.rhythm-col.over { border-color: var(--accent); background: #10202b; }
+.rhythm-col .rc-head { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+.rc-toggle {
+  display: flex; align-items: center; gap: 3px; font-size: 11px;
+  color: var(--muted); cursor: pointer; line-height: 1;
+}
+.rc-toggle input { margin: 0; width: 11px; height: 11px; accent-color: var(--accent); }
+.rc-toggle:has(input:checked) { color: var(--text); }
+
 /* играбельный прототип */
 .phone { width: 330px; height: 620px; margin: 0 auto; border: 10px solid #222b36;
   border-radius: 32px; background: linear-gradient(180deg, #0b2233, #071722);
