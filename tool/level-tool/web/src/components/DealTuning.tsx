@@ -1,111 +1,165 @@
 /**
- * Ручная настройка сложности промежутков уровней: раздача стартового поля.
+ * Таблица декад: коридор категорий и схема выкладки старта.
  *
- * Живёт на первой вкладке рядом с базой: это настройка ИНСТРУМЕНТА, а не
- * одного блока — действует на любую декаду, которую соберёт генератор, и
- * переживает перезагрузку страницы (localStorage). Настройка блока (вкладка 2)
- * отвечает за один диапазон; здесь — правило для всей кривой.
+ * Формат — тот же, что у замера оригинала (DECADE_CALIBRATION.md §2, разбор
+ * 02.08): «декада | категорий min-max | схема выкладки». Таблица наглядна и
+ * редактируется руками: дизайнер правит конкретную декаду, а не глобальный
+ * флаг, и видит, каким уровень встречает игрока.
  *
- * Что настраивается: минимум слов категории на стартовом поле (core/deal.ts).
- * Умолчание — облегчённая раздача (минимум пара) на всей кривой: пузырь-одиночка
- * не сливается ни с чем и работает отвлечением, а не материалом для хода.
- * Пресет 201-210 (сдаваемый пакет) таблицей не трогается — его хеш закреплён.
+ * Живёт на первой вкладке: это настройка ИНСТРУМЕНТА на всю кривую, а не
+ * одного блока. Правки переживают перезагрузку (localStorage в App) и
+ * применяются к сборке блока по номеру его первого уровня. Пресет 201-210
+ * (сдаваемый пакет) таблица не трогает — его выкладка и хеш закреплены.
  */
-import type { DealRangeSetting } from '../core/decadeProfiles.ts';
-import { DEFAULT_DEAL_RANGES } from '../core/decadeProfiles.ts';
+import { useState } from 'react';
+import {
+  DECADE_PROFILES, decadeTuningDefaults, formatScheme, liteSchemePreview, parseScheme,
+} from '../core/decadeProfiles.ts';
+import type { DecadeTuningRow } from '../core/decadeProfiles.ts';
 
-const MODES: { value: number; label: string; hint: string }[] = [
-  { value: 1,
-    label: '1 — ровная (историческая)',
-    hint: 'всем категориям понемногу; на 13+ категориях появляются одиночки' },
-  { value: 2,
-    label: '2 — облегчённая: без одиночек',
-    hint: 'у категории на старте минимум пара; кому не хватило места — целиком в очереди' },
-  { value: 3,
-    label: '3 — плотная: минимум тройка',
-    hint: 'категорий на старте меньше, каждая почти собрана — поле читается сразу' },
-];
+function decadeLabelFor(from: number, rows: readonly DecadeTuningRow[]): string {
+  const next = rows.find((r) => r.from === from + 10);
+  return next ? `${from}-${from + 9}` : `${from}+`;
+}
 
-export function DealTuning({ ranges, onChange }: {
-  ranges: DealRangeSetting[];
-  onChange: (next: DealRangeSetting[]) => void;
+function meanFor(from: number): number {
+  const profile = [...DECADE_PROFILES].reverse().find((p) => p.from <= from);
+  return Math.round(profile?.categoryMean ?? 9);
+}
+
+export function DecadeTable({ rows, onChange }: {
+  rows: DecadeTuningRow[];
+  onChange: (next: DecadeTuningRow[]) => void;
 }) {
-  const sorted = [...ranges].sort((a, b) => a.from - b.from);
-  const isDefault = JSON.stringify(sorted) === JSON.stringify(DEFAULT_DEAL_RANGES);
+  const sorted = [...rows].sort((a, b) => a.from - b.from);
+  const defaults = decadeTuningDefaults();
+  const isDefault = JSON.stringify(sorted) === JSON.stringify(defaults);
 
-  const update = (i: number, patch: Partial<DealRangeSetting>) => {
-    const next = sorted.map((row, k) => (k === i ? { ...row, ...patch } : row));
-    onChange(next);
-  };
-  const addRow = () => {
-    const last = sorted[sorted.length - 1];
-    onChange([...sorted, {
-      from: (last?.from ?? 0) + 120,
-      minStartWords: last?.minStartWords === 1 ? 2 : 1,
-    }]);
-  };
-  const removeRow = (i: number) => {
-    onChange(sorted.filter((_, k) => k !== i));
+  const update = (from: number, patch: Partial<DecadeTuningRow>) => {
+    onChange(sorted.map((r) => (r.from === from ? { ...r, ...patch } : r)));
   };
 
   return (
     <div className="panel">
-      <h2>Раздача старта по промежуткам уровней</h2>
+      <h2>Декады: категории и схема выкладки</h2>
       <p className="hint">
-        Поле держит 24 пузыря при любом числе категорий, поэтому раздача решает,
-        каким уровень встречает игрока. Ровная раздача «всем понемногу» на 13+
-        категориях кладёт часть категорий одним словом: такой пузырь не сливается
-        ни с чем (пара ещё в очереди) — по замеру 400 уровней до 62% поля работало
-        отвлечением. Облегчённая раздача даёт каждой видимой категории минимум
-        пару, а кому не хватило места — оставляет целиком в очереди досыпки.
+        Формат замера оригинала: на каждую декаду — коридор по числу категорий
+        и схема стартового поля. Схема читается как доли категорий на старте по
+        убыванию: <span className="mono">4-3-3-3-2-2-2-2-1</span> — одна
+        категория целиком (вход), три по тройке, четыре пары и одна одиночка.
+        Пустая схема — автоматическая облегчённая раздача: вход целиком,
+        остальным минимум пара, без одиночек; кому не хватило места — целиком
+        в очереди досыпки. Явная схема применяется как написано — вместе с
+        одиночками, если они в ней есть.
       </p>
-      {sorted.map((row, i) => (
-        <div className="row" style={{ alignItems: 'center', marginTop: 6 }} key={i}>
-          <label className="field" style={{ maxWidth: 140 }}>
-            <span className="lbl">с уровня</span>
-            <input
-              type="text"
-              inputMode="numeric"
-              value={String(row.from)}
-              disabled={i === 0}
-              onChange={(e) => {
-                const n = Number(e.target.value);
-                if (Number.isInteger(n) && n >= 2) update(i, { from: n });
-              }}
-            />
-          </label>
-          <label className="field" style={{ flex: 1 }}>
-            <span className="lbl">минимум слов категории на старте</span>
-            <select
-              value={row.minStartWords}
-              onChange={(e) => update(i, { minStartWords: Number(e.target.value) })}
-            >
-              {MODES.map((m) => (
-                <option key={m.value} value={m.value}>{m.label}</option>
-              ))}
-            </select>
-            <span className="small muted">
-              {MODES.find((m) => m.value === row.minStartWords)?.hint ?? ''}
-            </span>
-          </label>
-          {i > 0 && (
-            <button className="ghost" onClick={() => removeRow(i)}>убрать</button>
-          )}
-        </div>
-      ))}
+      <div style={{ overflowX: 'auto' }}>
+        <table>
+          <thead>
+            <tr>
+              <th>декада</th>
+              <th>категорий min</th>
+              <th>max</th>
+              <th style={{ minWidth: 260 }}>схема выкладки (пусто = авто)</th>
+              <th>сейчас действует</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((row) => {
+              const mean = meanFor(row.from);
+              const auto = liteSchemePreview(mean);
+              const base = defaults.find((d) => d.from === row.from);
+              const edited = !base || JSON.stringify(base) !== JSON.stringify(row);
+              const effective = row.scheme ?? auto;
+              const queued = Math.max(0, mean - effective.length);
+              return (
+                <tr key={row.from} className={edited ? 'selected' : undefined}>
+                  <td className="mono">{decadeLabelFor(row.from, sorted)}</td>
+                  <td>
+                    <input
+                      type="text" inputMode="numeric" style={{ width: 52 }}
+                      value={String(row.corridor[0])}
+                      onChange={(e) => {
+                        const n = Number(e.target.value);
+                        if (Number.isInteger(n) && n >= 3 && n <= row.corridor[1]) {
+                          update(row.from, { corridor: [n, row.corridor[1]] });
+                        }
+                      }}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text" inputMode="numeric" style={{ width: 52 }}
+                      value={String(row.corridor[1])}
+                      onChange={(e) => {
+                        const n = Number(e.target.value);
+                        if (Number.isInteger(n) && n >= row.corridor[0] && n <= 18) {
+                          update(row.from, { corridor: [row.corridor[0], n] });
+                        }
+                      }}
+                    />
+                  </td>
+                  <td>
+                    <SchemeField
+                      value={row.scheme}
+                      placeholder={`авто: ${formatScheme(auto)}`}
+                      onCommit={(scheme) => update(row.from, { scheme })}
+                    />
+                  </td>
+                  <td className="small muted mono">
+                    {formatScheme(effective)}
+                    {queued > 0 ? ` · ~${queued} в очереди` : ''}
+                    {row.scheme === null ? ' (авто)' : ''}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
       <div className="row" style={{ marginTop: 10 }}>
-        <button className="ghost" onClick={addRow}>+ промежуток</button>
         {!isDefault && (
-          <button className="ghost" onClick={() => onChange(DEFAULT_DEAL_RANGES)}>
-            вернуть умолчание
+          <button className="ghost" onClick={() => onChange(decadeTuningDefaults())}>
+            вернуть умолчания
           </button>
         )}
       </div>
       <p className="small muted" style={{ marginTop: 8 }}>
-        Применяется при сборке блока по номеру его первого уровня. Пресет 201-210
-        (сдаваемый пакет) настройка не трогает: его выкладка и хеш закреплены.
-        Режим раздачи записывается в спек уровня и входит в хеш пакета.
+        «Сейчас действует» показано для среднего числа категорий декады —
+        у конкретного уровня категорий может быть больше или меньше, схема
+        подрезается по факту. Правка коридора подрезает и план категорий блока.
+        Схема записывается в спек уровня и входит в хеш пакета. Пресет 201-210
+        таблица не трогает.
       </p>
     </div>
+  );
+}
+
+/**
+ * Поле схемы с черновиком: пока строка не разобралась в валидную схему,
+ * в таблицу ничего не уезжает — то же поведение, что у полей Composer.
+ */
+function SchemeField({ value, placeholder, onCommit }: {
+  value: number[] | null;
+  placeholder: string;
+  onCommit: (scheme: number[] | null) => void;
+}) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const canonical = value ? formatScheme(value) : '';
+  const pending = draft !== null && parseScheme(draft) === undefined;
+
+  return (
+    <input
+      type="text"
+      style={{ width: '100%' }}
+      className={pending ? 'pending' : undefined}
+      value={draft ?? canonical}
+      placeholder={placeholder}
+      onChange={(e) => {
+        setDraft(e.target.value);
+        const parsed = parseScheme(e.target.value);
+        if (parsed !== undefined) onCommit(parsed);
+      }}
+      onBlur={() => setDraft(null)}
+    />
   );
 }

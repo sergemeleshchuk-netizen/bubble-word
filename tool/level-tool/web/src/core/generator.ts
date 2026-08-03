@@ -1259,6 +1259,7 @@ function buildLevelSpec(
   wordsPerCategory: number,
   rng: Rng,
   dealMinStartWords?: number,
+  dealScheme?: number[],
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
   for (const edge of edges) parentOf.set(edge.child, edge.parent);
@@ -1351,7 +1352,8 @@ function buildLevelSpec(
   // выкладка считается здесь, а не в прототипе: см. core/deal.ts
   const deal = buildDeal(plan.levelId, categories, {
     boardCapacity: BOARD_CAPACITY, wordsPerCategory,
-  }, chunked, dealMinStartWords ?? 1);
+  }, chunked, dealMinStartWords ?? 1,
+  dealScheme && dealScheme.length > 0 ? dealScheme : null);
 
   const frozenBubbles: BlockedBubble[] = [];
   const hiddenBubbles: BlockedBubble[] = [];
@@ -1396,6 +1398,7 @@ function buildLevelSpec(
       // Явная «1» приравнена к отсутствию поля: это та же историческая раздача
       dealMinStartWords: dealMinStartWords !== undefined && dealMinStartWords >= 2
         ? dealMinStartWords : undefined,
+      dealScheme: dealScheme && dealScheme.length > 0 ? dealScheme : undefined,
     },
     categories,
     deal,
@@ -1589,7 +1592,8 @@ export function generateLevel(
     }
 
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
-      assigned.words, wordsPerCategory, rng, config.dealMinStartWords);
+      assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
+      config.dealScheme);
 
     if (options.accept) {
       const verdict = options.accept(spec);

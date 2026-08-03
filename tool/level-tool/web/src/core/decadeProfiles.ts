@@ -535,6 +535,122 @@ export function dealMinStartWordsFor(
 }
 
 // --------------------------------------------------------------------------- //
+// таблица декад: коридор категорий и схема выкладки, редактируется на вкладке 1
+// --------------------------------------------------------------------------- //
+
+/**
+ * Строка таблицы декад — формат замера оригинала (DECADE_CALIBRATION.md §2 и
+ * таблица «декада | категорий min-max | схема выкладки» из разбора 02.08).
+ * Таблица наглядна и редактируется руками: дизайнер видит, каким уровень
+ * встречает игрока, и правит конкретную декаду, а не глобальный флаг.
+ */
+export interface DecadeTuningRow {
+  /** первый уровень декады: 1, 11, 21, … */
+  from: number;
+  /** коридор по числу категорий; уезжает в config.categoryCorridor */
+  corridor: [number, number];
+  /**
+   * Явная схема выкладки ([4,3,3,3,2,2,2,2,1]) — уезжает в config.dealScheme.
+   * null = автоматическая облегчённая раздача (минимум пара, без одиночек).
+   */
+  scheme: number[] | null;
+}
+
+/** Таблица по умолчанию: коридоры из замера, схема — авто (облегчённая). */
+export function decadeTuningDefaults(): DecadeTuningRow[] {
+  return DECADE_PROFILES.map((p) => ({
+    from: p.from,
+    corridor: [p.categoryCorridor[0], p.categoryCorridor[1]],
+    scheme: null,
+  }));
+}
+
+/** Строка таблицы для уровня: последняя, чей from <= level (как профиль декады). */
+export function decadeTuningRowFor(
+  level: number, rows: readonly DecadeTuningRow[],
+): DecadeTuningRow | undefined {
+  let found: DecadeTuningRow | undefined;
+  for (const row of rows) {
+    if (row.from <= level && (found === undefined || row.from > found.from)) found = row;
+  }
+  return found;
+}
+
+/**
+ * Превью автоматической облегчённой раздачи для M категорий — те же правила,
+ * что в core/deal.ts (вход целиком + минимум пара + добор по кругу), но без
+ * распилов: номинальная схема для колонки таблицы. Для M = 9 даёт
+ * 4-3-3-3-3-2-2-2-2 — ровно медианную схему замера оригинала.
+ */
+export function liteSchemePreview(
+  categories: number, wordsPerCategory = 4, capacity = BOARD_CAPACITY,
+): number[] {
+  if (categories <= 0) return [];
+  const counts: number[] = new Array(categories).fill(0);
+  let left = Math.min(capacity, categories * wordsPerCategory);
+  if (left >= wordsPerCategory) { counts[0] = wordsPerCategory; left -= wordsPerCategory; }
+  const represented: number[] = [0];
+  for (let i = 1; i < categories && left >= 2; i += 1) {
+    counts[i] = 2; left -= 2; represented.push(i);
+  }
+  for (let k = 1; left > 0; k += 1) {
+    const i = represented[k % represented.length];
+    if (i === undefined) break;
+    if (counts[i] < wordsPerCategory) { counts[i] += 1; left -= 1; }
+    if (represented.every((j) => counts[j] >= wordsPerCategory)) break;
+  }
+  return counts.filter((n) => n > 0).sort((a, b) => b - a);
+}
+
+/** «4-3-3-3-2-2-2-2-1» → [4,3,3,3,2,2,2,2,1]; пусто → null (авто); мусор → undefined. */
+export function parseScheme(raw: string): number[] | null | undefined {
+  const trimmed = raw.trim();
+  if (trimmed === '') return null;
+  const parts = trimmed.split(/[-–—,\s]+/).filter(Boolean);
+  if (parts.length === 0 || parts.length > 18) return undefined;
+  const values: number[] = [];
+  for (const p of parts) {
+    if (!/^[1-4]$/.test(p)) return undefined;
+    values.push(Number(p));
+  }
+  return values.sort((a, b) => b - a);
+}
+
+export function formatScheme(scheme: readonly number[]): string {
+  return scheme.join('-');
+}
+
+/**
+ * Применение строки таблицы к конфигу диапазона.
+ *
+ * Коридор: заменяет categoryCorridor и ПОДРЕЗАЕТ уже посчитанный categoryPlan —
+ * план строится из профиля декады и сам по себе о ручной правке не знает.
+ * Схема: уезжает в dealScheme как есть (null = авто, поле не ставится).
+ */
+export function applyDecadeTuning(
+  config: BlockConfig, rows: readonly DecadeTuningRow[],
+): BlockConfig {
+  const row = decadeTuningRowFor(config.levelRange[0], rows);
+  if (!row) return config;
+  const defaults = decadeTuningDefaults();
+  const base = defaults.find((d) => d.from === row.from);
+  const corridorEdited = !base
+    || base.corridor[0] !== row.corridor[0] || base.corridor[1] !== row.corridor[1];
+  const next: BlockConfig = { ...config };
+  if (corridorEdited) {
+    next.categoryCorridor = [row.corridor[0], row.corridor[1]];
+    if (next.categoryPlan) {
+      next.categoryPlan = next.categoryPlan.map((n) =>
+        Math.max(row.corridor[0], Math.min(row.corridor[1], n)));
+    }
+  }
+  // null в строке = авто: возможный след прежней явной схемы стирается,
+  // иначе однажды применённая схема пережила бы свою отмену в таблице
+  next.dealScheme = row.scheme && row.scheme.length > 0 ? [...row.scheme] : undefined;
+  return next;
+}
+
+// --------------------------------------------------------------------------- //
 // приёмка блока по декаде
 // --------------------------------------------------------------------------- //
 

@@ -59,6 +59,7 @@ export function buildDeal(
   levelId: number, categories: readonly LevelCategory[], board: DealBoard,
   chunked: ChunkedWords = new Set<string>(),
   minStartWords = 1,
+  scheme: readonly number[] | null = null,
 ): Deal {
   const rng = createRng(`deal::${levelId}::${categories.map((c) => c.key).join(',')}`);
   /** Сколько мест на поле занимает слово: распиленное — два. */
@@ -99,10 +100,26 @@ export function buildDeal(
   const bubblesFor = (pool: { key: string; words: string[] }, n: number): number =>
     pool.words.slice(0, n).reduce((k, w) => k + cost(pool.key, w), 0);
 
+  /*
+   * Явная схема выкладки (scheme): точные доли старта по убыванию, например
+   * [4, 3, 3, 3, 2, 2, 2, 2, 1] — как в таблице замера оригинала по декадам.
+   * Самая крупная доля достаётся точке входа (quickwin), остальные — категориям
+   * в перемешанном порядке; категории за пределами схемы целиком в очереди.
+   * Схема — ручной инструмент дизайнера: поле имеет право НЕ добираться до
+   * вместимости (в референсе старт тоже плавает, 19-24 пузыря — см.
+   * reference-deal-order.md §5), поэтому checkDeal для спека со схемой
+   * проверяет только вместимость и полноту слов, а не точное заполнение.
+   */
+  const tpl = scheme && scheme.length > 0
+    ? [...scheme].sort((a, b) => b - a).map((n) =>
+      Math.max(0, Math.min(board.wordsPerCategory, Math.floor(n))))
+    : null;
+
   let left = fieldSize;
-  if (opener && left >= bubblesFor(opener, board.wordsPerCategory)) {
-    counts.set(opener.key, board.wordsPerCategory);
-    left -= bubblesFor(opener, board.wordsPerCategory);
+  const openerWant = tpl ? tpl[0] : board.wordsPerCategory;
+  if (opener && openerWant > 0 && left >= bubblesFor(opener, openerWant)) {
+    counts.set(opener.key, openerWant);
+    left -= bubblesFor(opener, openerWant);
   }
 
   /*
@@ -128,6 +145,24 @@ export function buildDeal(
    * байт в байт, это закреплено тестом воспроизводимости старых пакетов.
    */
   const rest = rng.shuffle(pools.filter((p) => p !== opener));
+
+  if (tpl) {
+    // доли раздаются по порядку перемешанных категорий; «не влезло в бюджет
+    // поля целиком» = категория уходит в очередь, частичных долей нет —
+    // иначе схема без одиночек могла бы породить одиночку
+    for (let i = 0; i < rest.length; i += 1) {
+      if (left <= 0) break;
+      const pool = rest[i];
+      const want = Math.min(tpl[i + 1] ?? 0, pool.words.length);
+      if (want <= 0) continue;
+      const price = bubblesFor(pool, want);
+      if (price > left) continue;
+      counts.set(pool.key, want);
+      left -= price;
+    }
+    return assembleDeal(categories, pools, counts, cost, rng);
+  }
+
   if (minStartWords >= 2) {
     const represented: typeof rest = [];
     for (const pool of rest) {
@@ -345,7 +380,7 @@ export function dealForSpec(spec: LevelSpec): Deal {
   // пересчитываются историческим путём «всем понемногу»).
   const chunked = new Set(spec.halves.map((h) => chunkKey(h.home, h.word)));
   return buildDeal(spec.levelId, spec.categories, spec.board, chunked,
-    spec.board.dealMinStartWords ?? 1);
+    spec.board.dealMinStartWords ?? 1, spec.board.dealScheme ?? null);
 }
 
 /**
@@ -399,8 +434,11 @@ export function checkDeal(spec: LevelSpec, deal: Deal | undefined | null): strin
   const totalBubbles = bubbleCost([...deal.start, ...deal.queue]);
   const fieldSize = Math.min(spec.board.boardCapacity, totalBubbles);
   // поле имеет право не добрать один пузырь: когда остаток бюджета — одно
-  // место, а класть осталось только распиленные слова по два места каждое
-  if (startCost !== fieldSize && startCost !== fieldSize - 1) {
+  // место, а класть осталось только распиленные слова по два места каждое.
+  // При явной схеме выкладки точное заполнение не требуется вовсе: схема —
+  // ручной инструмент, и поле в референсе тоже плавает (19-24 пузыря)
+  const exactFill = !(spec.board.dealScheme && spec.board.dealScheme.length > 0);
+  if (exactFill && startCost !== fieldSize && startCost !== fieldSize - 1) {
     problems.push(`на поле ${startCost} пузырей, ожидалось ${fieldSize}`);
   }
 

@@ -12,9 +12,9 @@ import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
 import { ContentBase } from './components/ContentBase.tsx';
 import { ExportView } from './components/ExportView.tsx';
-import { DealTuning } from './components/DealTuning.tsx';
+import { DecadeTable } from './components/DealTuning.tsx';
 import {
-  DEFAULT_DEAL_RANGES, dealMinStartWordsFor, type DealRangeSetting,
+  applyDecadeTuning, decadeTuningDefaults, type DecadeTuningRow,
 } from './core/decadeProfiles.ts';
 
 import snapshotJson from './data/content.snapshot.json';
@@ -55,20 +55,24 @@ const BOOT_SOURCE_ID: SourceId = 'production';
  * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
  * не должна ронять чтение старого значения.
  */
-const DEAL_RANGES_KEY = 'level-tool.deal-ranges.v1';
+const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v1';
 
-function loadDealRanges(): DealRangeSetting[] {
+function loadDecadeTuning(): DecadeTuningRow[] {
+  const defaults = decadeTuningDefaults();
   try {
-    const raw = localStorage.getItem(DEAL_RANGES_KEY);
-    if (!raw) return DEFAULT_DEAL_RANGES;
-    const parsed = JSON.parse(raw) as DealRangeSetting[];
-    if (!Array.isArray(parsed) || parsed.length === 0) return DEFAULT_DEAL_RANGES;
-    if (!parsed.every((r) => Number.isInteger(r.from) && r.from >= 1
-      && Number.isInteger(r.minStartWords)
-      && r.minStartWords >= 1 && r.minStartWords <= 4)) return DEFAULT_DEAL_RANGES;
-    return parsed;
+    const raw = localStorage.getItem(DECADE_TUNING_KEY);
+    if (!raw) return defaults;
+    const parsed = JSON.parse(raw) as DecadeTuningRow[];
+    if (!Array.isArray(parsed) || parsed.length === 0) return defaults;
+    const sane = parsed.every((r) => Number.isInteger(r.from) && r.from >= 1
+      && Array.isArray(r.corridor) && r.corridor.length === 2
+      && Number.isInteger(r.corridor[0]) && Number.isInteger(r.corridor[1])
+      && r.corridor[0] >= 3 && r.corridor[1] <= 18 && r.corridor[0] <= r.corridor[1]
+      && (r.scheme === null || (Array.isArray(r.scheme)
+        && r.scheme.every((n) => Number.isInteger(n) && n >= 1 && n <= 4))));
+    return sane ? parsed : defaults;
   } catch {
-    return DEFAULT_DEAL_RANGES;
+    return defaults;
   }
 }
 
@@ -88,12 +92,12 @@ export function App() {
   const [block, setBlock] = useState<BlockResult | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [elapsed, setElapsed] = useState<number>(0);
-  const [dealRanges, setDealRanges] = useState<DealRangeSetting[]>(loadDealRanges);
+  const [decadeTuning, setDecadeTuning] = useState<DecadeTuningRow[]>(loadDecadeTuning);
 
-  const changeDealRanges = (next: DealRangeSetting[]) => {
-    setDealRanges(next);
+  const changeDecadeTuning = (next: DecadeTuningRow[]) => {
+    setDecadeTuning(next);
     try {
-      localStorage.setItem(DEAL_RANGES_KEY, JSON.stringify(next));
+      localStorage.setItem(DECADE_TUNING_KEY, JSON.stringify(next));
     } catch { /* приватный режим: настройка живёт до перезагрузки */ }
   };
 
@@ -159,11 +163,11 @@ export function App() {
    * по состоянию собрала бы блок по предыдущему конфигу — на один клик позади.
    */
   const generate = (raw: BlockConfig = config) => {
-    // Раздача старта берётся из таблицы промежутков В МОМЕНТ сборки: черновик
-    // конфига мог быть собран до правки таблицы. Пресет 201-210 поле не задаёт
-    // (undefined) — его не трогаем, хеш сдаваемого пакета закреплён.
+    // Таблица декад применяется В МОМЕНТ сборки: черновик конфига мог быть
+    // собран до правки таблицы. Пресет 201-210 раздачу не задаёт (undefined) —
+    // его не трогаем, хеш сдаваемого пакета закреплён.
     const next = raw.dealMinStartWords === undefined ? raw
-      : { ...raw, dealMinStartWords: dealMinStartWordsFor(raw.levelRange[0], dealRanges) };
+      : applyDecadeTuning(raw, decadeTuning);
     setConfig(next);
     const started = performance.now();
     const result = generateBlock({ snapshot, config: next, scoring });
@@ -246,12 +250,16 @@ export function App() {
             runs={aiRunsJson as never}
             source={source}
           />
-          <DealTuning ranges={dealRanges} onChange={changeDealRanges} />
+          <DecadeTable rows={decadeTuning} onChange={changeDecadeTuning} />
         </>
       )}
 
       {tab === 'compose' && (
-        <Composer config={config} onGenerate={generate} />
+        <Composer
+          config={config}
+          onGenerate={generate}
+          tuneConfig={(c) => applyDecadeTuning(c, decadeTuning)}
+        />
       )}
 
       {tab === 'run' && (

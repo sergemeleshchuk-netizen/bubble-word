@@ -279,6 +279,13 @@ export interface BlockConfig {
    * на первой вкладке инструмента (DEFAULT_DEAL_RANGES в decadeProfiles.ts).
    */
   dealMinStartWords?: number;
+  /**
+   * Явная схема выкладки старта: точные доли по убыванию, например
+   * [4, 3, 3, 3, 2, 2, 2, 2, 1] — формат таблицы декад (см. docs/
+   * DECADE_CALIBRATION.md и таблицу на первой вкладке). Сильнее
+   * dealMinStartWords. Не задана — раздача считается автоматически.
+   */
+  dealScheme?: number[];
 }
 
 export interface DecadeGates {
@@ -531,6 +538,8 @@ export interface LevelSpec {
      * (`dealForSpec`); отсутствие поля = историческая раздача старых пакетов.
      */
     dealMinStartWords?: number;
+    /** явная схема выкладки, если уровень собран по ней (сильнее минимума) */
+    dealScheme?: number[];
   };
   categories: LevelCategory[];
   /**

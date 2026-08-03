@@ -342,10 +342,17 @@ export function RhythmLegend() {
  * ни на что. График под формой считается по черновику — это предпросмотр того,
  * что будет собрано, а не состояние генератора.
  */
-export function Composer({ config, onGenerate }: {
+export function Composer({ config, onGenerate, tuneConfig }: {
   config: BlockConfig;
   onGenerate: (config: BlockConfig) => void;
+  /**
+   * Таблица декад с первой вкладки (коридор категорий, схема выкладки):
+   * применяется к конфигу, собранному из диапазона, чтобы форма показывала
+   * то, что реально будет собрано. Пресета 201-210 не касается.
+   */
+  tuneConfig?: (config: BlockConfig) => BlockConfig;
 }) {
+  const tuned = tuneConfig ?? ((c: BlockConfig) => c);
   /**
    * Предзаполненный промпт — образец формы, а не украшение: по нему видно, из
    * чего вообще состоит запрос (сколько уровней, где, о чём, с каким ритмом).
@@ -422,7 +429,7 @@ export function Composer({ config, onGenerate }: {
          * пресета 201-210: блок с чужим содержимым под правильными номерами.
          */
         const range = parsed.patch.levelRange;
-        const base = range ? configForRange(range, d.seed) : d;
+        const base = range ? tuned(configForRange(range, d.seed)) : d;
         return { ...base, ...parsed.patch };
       });
     }
@@ -512,7 +519,7 @@ export function Composer({ config, onGenerate }: {
                * с контентом уровней ~150: диапазон поменяли, а коридор
                * категорий, редкость и модификаторы остались от пресета 201-210.
                */
-              setDraft(configForRange(range, draft.seed));
+              setDraft(tuned(configForRange(range, draft.seed)));
               return true;
             }} />
           <DraftField
