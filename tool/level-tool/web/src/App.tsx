@@ -124,11 +124,26 @@ export function App() {
   const [elapsed, setElapsed] = useState<number>(0);
   const [decadeTuning, setDecadeTuning] = useState<DecadeTuningRow[]>(loadDecadeTuning);
 
-  const changeDecadeTuning = (next: DecadeTuningRow[]) => {
+  /**
+   * Применение конфига декад: сохранить и НЕМЕДЛЕННО переписать конфиг блока.
+   *
+   * Раньше здесь было только сохранение, а таблица доезжала до конфига лишь в
+   * момент следующей сборки. Практическое следствие: на шаге «Настройка блока»
+   * стоял коридор, которого в конфиге декад уже нет, и понять, какое из двух
+   * чисел действует, было нельзя.
+   *
+   * `presetLocked` здесь снимается сознательно. Закрепление сдаваемого пакета
+   * защищает автоматический путь (`generate`), чтобы таблица не переписала хеш
+   * пакета молча. Но человек, нажавший «Сохранить и применить», просит ровно
+   * этого — и отказать ему значило бы показать кнопку, которая на пресете
+   * ничего не делает.
+   */
+  const applyDecadeTuningConfig = (next: DecadeTuningRow[]) => {
     setDecadeTuning(next);
     try {
       localStorage.setItem(DECADE_TUNING_KEY, JSON.stringify(next));
     } catch { /* приватный режим: настройка живёт до перезагрузки */ }
+    setConfig((prev) => applyDecadeTuning({ ...prev, presetLocked: undefined }, next));
   };
 
   /**
@@ -344,7 +359,11 @@ export function App() {
             busy={busy}
             onSwitch={switchSource}
           />
-          <DecadeTable rows={decadeTuning} onChange={changeDecadeTuning} />
+          <DecadeTable
+            rows={decadeTuning}
+            onApply={applyDecadeTuningConfig}
+            appliedTo={config.levelRange}
+          />
         </>
       )}
 
