@@ -1,13 +1,16 @@
 /**
- * Экран 6 — экспорт.
+ * Шаг 6 — экспорт.
  *
  * Два разных JSON, и это не педантизм. Полный — артефакт пайплайна: provenance,
  * оценки, следы проверок. Игровой — контракт с клиентом игры. Смешивать их значит
  * тащить в билд килобайты отладочных данных на каждый уровень.
+ *
+ * Передача пакета в прототип жила здесь и уехала на шаг «Прототип»: сыграть в
+ * собранное — проверка, а не выгрузка, и делается она до того, как файлы ушли
+ * в билд, а не рядом с ними.
  */
 import { useState } from 'react';
 import type { BlockResult, GeneratedLevel, LevelSpec } from '../core/types.ts';
-import { HANDOFF_MAX_PACKS, publishToPlayable, type HandoffPack } from '../core/playableHandoff.ts';
 
 export function ExportView({ block, toGameJson, toPipelineJson }: {
   block: BlockResult;
@@ -17,8 +20,6 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
   const [mode, setMode] = useState<'game' | 'pipeline'>('game');
   const [levelId, setLevelId] = useState(block.levels[0]?.spec.levelId ?? 0);
   const level = block.levels.find((l) => l.spec.levelId === levelId) ?? block.levels[0];
-  /** null — ещё не отдавали; 'failed' — хранилище недоступно */
-  const [handed, setHanded] = useState<HandoffPack | 'failed' | null>(null);
 
   const single = mode === 'game'
     ? toGameJson(level.spec, level.difficulty.value)
@@ -67,46 +68,6 @@ export function ExportView({ block, toGameJson, toPipelineJson }: {
           </span>
           <span className="tag mono">пакет {block.packHash.slice(0, 12)}…</span>
         </div>
-      </div>
-
-      {/*
-        Отдать пакет в прототип. Кнопка стоит до экспорта JSON намеренно:
-        сыграть в собранное — самая быстрая проверка, что уровень живой,
-        и делать её удобнее до того, как файлы уехали в билд.
-      */}
-      <div className="panel">
-        <h2>Сыграть в собранное</h2>
-        <p className="hint">
-          Пакет уезжает в играбельный прототип — он отдельным пунктом рядом
-          («Build Playable»). Уровни появятся там в списке отдельной группой,
-          названной версией инструмента и хешем пакета. Прошлые сборки
-          остаются на месте (последние {HANDOFF_MAX_PACKS}): иначе «до» и
-          «после» правки не сравнить. Тот же конфиг даёт тот же хеш и не
-          плодит дублей — пакет просто поднимается наверх списка.
-        </p>
-        <div className="row">
-          <button className="primary"
-            onClick={() => setHanded(publishToPlayable(block) ?? 'failed')}>
-            Добавить в Playable
-          </button>
-          {handed && handed !== 'failed' && (
-            <span className="tag mono">{handed.label}</span>
-          )}
-        </div>
-
-        {handed === 'failed' && (
-          <p className="small" style={{ color: 'var(--warn)', marginTop: 10 }}>
-            Браузер не дал сохранить пакет (приватный режим или запрет хранилища).
-            Прототип его не увидит — воспользуйтесь скачиванием JSON ниже.
-          </p>
-        )}
-        {handed && handed !== 'failed' && (
-          <p className="small" style={{ color: 'var(--ok)', marginTop: 10 }}>
-            Готово: {handed.levels.length} уровней добавлено как группа
-            «{handed.label}». Можете сыграть в эти уровни в Playable —
-            откройте пункт «Build Playable» и выберите эту группу в списке уровней.
-          </p>
-        )}
       </div>
 
       <div className="panel">

@@ -3,15 +3,14 @@ import type { BlockConfig, BlockResult, Snapshot } from './core/types.ts';
 import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
 import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
-import {
-  CONTENT_SOURCES, DEFAULT_SOURCE_ID, sourceById, type SourceId,
-} from './core/sources.ts';
+import { DEFAULT_SOURCE_ID, sourceById, type SourceId } from './core/sources.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
 import { TOOL_VERSION } from './core/version.ts';
 import { Composer, RunView } from './components/Composer.tsx';
 import { LevelInspector } from './components/LevelInspector.tsx';
 import { ContentBase } from './components/ContentBase.tsx';
 import { ExportView } from './components/ExportView.tsx';
+import { PlayableStep } from './components/PlayableStep.tsx';
 import { ReferencePicker } from './components/ReferencePicker.tsx';
 import {
   REFERENCE_ORIGIN, buildReferenceBlock, type BwjLevels, type ReferenceBlock,
@@ -24,7 +23,6 @@ import { BOARD_CAPACITY } from './core/levelMath.ts';
 
 import snapshotJson from './data/content.snapshot.json';
 import scoringJson from './data/scoring.config.json';
-import aiRunsJson from './data/ai_runs.json';
 
 const scoring = scoringJson as unknown as ScoringConfig;
 const PRODUCTION_SNAPSHOT = snapshotJson as unknown as Snapshot;
@@ -94,6 +92,7 @@ const TABS = [
   { id: 'compose', label: 'Настройка блока' },
   { id: 'run', label: 'Генерация' },
   { id: 'level', label: 'Уровень' },
+  { id: 'play', label: 'Прототип' },
   { id: 'export', label: 'Экспорт' },
 ] as const;
 
@@ -109,6 +108,7 @@ const REFERENCE_TABS = [
   { id: 'base', label: 'База контента' },
   { id: 'compose', label: 'Выбор уровней' },
   { id: 'level', label: 'Уровень' },
+  { id: 'play', label: 'Прототип' },
   { id: 'export', label: 'Экспорт' },
 ] as const;
 
@@ -203,7 +203,7 @@ export function App() {
     setRequested(next);
     setBlock(null);
     setSelectedLevel(null);
-    if (tab === 'level' || tab === 'export' || tab === 'run') setTab('base');
+    if (tab !== 'base' && tab !== 'compose') setTab('base');
   };
 
   /**
@@ -257,7 +257,7 @@ export function App() {
   const busy = loadingSource !== null;
 
   /**
-   * Следующий шаг для кнопки под содержимым. На последнем экране её нет:
+   * Следующий шаг для кнопки в строке закладок. На последнем экране её нет:
    * кнопка «Дальше», ведущая в никуда, врёт про то, что работа не закончена.
    */
   const tabs: readonly { id: TabId; label: string }[] = isReference
@@ -285,22 +285,6 @@ export function App() {
         </div>
       </header>
 
-      <div className="sources">
-        <span className="lbl">источник контента</span>
-        {CONTENT_SOURCES.map((s) => (
-          <button
-            key={s.id}
-            className={`ghost ${requested === s.id ? 'on' : ''}`}
-            disabled={busy}
-            onClick={() => switchSource(s.id)}
-          >
-            {s.label}
-            {loadingSource === s.id && ' · грузится…'}
-          </button>
-        ))}
-        <span className="muted small">{source.origin}</span>
-      </div>
-
       {loadError && (
         <div className="panel">
           <h2>Источник не загрузился</h2>
@@ -311,6 +295,11 @@ export function App() {
         </div>
       )}
 
+      {/*
+        Закладки и переход к следующему шагу — одна строка. Кнопка стояла под
+        содержимым экрана, и до неё приходилось прокручивать таблицу уровней
+        целиком: «где я» и «куда дальше» логично держать в одном месте.
+      */}
       <nav className="tabs">
         {tabs.map((t, i) => (
           <button
@@ -321,15 +310,22 @@ export function App() {
             <span className="num">{i + 1}</span>{t.label}
           </button>
         ))}
+        {nextTab && (
+          <button className="next" onClick={() => setTab(nextTab.id)}>
+            Дальше · {nextTab.label} →
+          </button>
+        )}
       </nav>
 
       {activeTab === 'base' && (
         <>
           <ContentBase
             snapshot={snapshot}
-            index={index}
-            runs={aiRunsJson as never}
             source={source}
+            requested={requested}
+            loading={loadingSource}
+            busy={busy}
+            onSwitch={switchSource}
           />
           <DecadeTable rows={decadeTuning} onChange={changeDecadeTuning} />
         </>
@@ -349,6 +345,7 @@ export function App() {
         : (
           <Composer
             config={config}
+            generated={block !== null}
             onGenerate={generate}
             tuneConfig={(c) => applyDecadeTuning(c, decadeTuning)}
           />
@@ -379,18 +376,17 @@ export function App() {
           : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />
       )}
 
+      {activeTab === 'play' && (
+        block
+          // key по хешу пакета: новая сборка — новая партия, а не старый iframe
+          ? <PlayableStep key={block.packHash} block={block} />
+          : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />
+      )}
+
       {activeTab === 'export' && (
         block
           ? <ExportView block={block} toGameJson={toGameJson} toPipelineJson={toPipelineJson} />
           : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />
-      )}
-
-      {nextTab && (
-        <div className="step-next">
-          <button className="next" onClick={() => setTab(nextTab.id)}>
-            Дальше · {nextTab.label} →
-          </button>
-        </div>
       )}
     </div>
   );

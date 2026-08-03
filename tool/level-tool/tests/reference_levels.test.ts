@@ -212,6 +212,7 @@ test('разбор выбора уровней', () => {
   assert.ok(parseLevelSelection('', 1025).error);
 });
 
-test('источник реф-базы называется RefBWJ', () => {
-  assert.equal(sourceById('reference').label, 'RefBWJ');
+test('источник реф-базы называется RefBWJ и помечен тестовым', () => {
+  assert.equal(sourceById('reference').label, 'RefBWJ [тест]');
+  assert.equal(sourceById('reference').tone, 'test');
 });

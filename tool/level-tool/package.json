@@ -1,7 +1,7 @@
 {
   "name": "bubble-level-tool",
   "private": true,
-  "version": "1.27.0",
+  "version": "1.29.1",
   "type": "module",
   "description": "Инструмент генерации уровней для word-association паззла",
   "scripts": {
@@ -18,7 +18,8 @@
     "preview": "vite preview",
     "deploy": "npm run build && npx --yes surge web/dist bubble-level-tool.surge.sh",
     "build:site": "npm run build && rm -rf ../../site/tool && cp -R web/dist ../../site/tool",
-    "deploy:site": "npm run build:site && cd ../.. && npx --yes surge ./site serge-mel.surge.sh"
+    "deploy:site": "npm run build:site && cd ../.. && npx --yes surge ./site serge-mel.surge.sh",
+    "deploy:commit": "bash scripts/deploy_commit.sh"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

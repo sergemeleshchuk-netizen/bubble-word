@@ -33,18 +33,19 @@ header.top h1 { font-size: 19px; margin: 0; font-weight: 600; }
 header.top .sub { color: var(--muted); font-size: 12px; }
 
 /*
- * Переключатель источника контента. Стоит НАД закладками и отделён линией:
- * это не шестая закладка, а состояние, в котором работают все пять.
+ * Переключатель источника контента. Живёт на первом шаге, внутри его панели:
+ * источник выбирают один раз в начале работы, и сквозная строка над закладками
+ * занимала место на всех шести экранах ради настройки, к которой не возвращаются.
  */
 .sources { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-  margin-top: 14px; padding: 9px 11px; background: var(--panel);
+  padding: 9px 11px; background: var(--panel-2);
   border: 1px solid var(--line); border-radius: 8px; }
 .sources .lbl { color: var(--muted); font-size: 11px; text-transform: uppercase;
   letter-spacing: 0.04em; margin-right: 2px; }
 .sources button:disabled { opacity: 0.5; cursor: progress; }
 
-nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; margin: 16px 0 20px;
-  border-bottom: 1px solid var(--line); padding-bottom: 0; }
+nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
+  margin: 16px 0 20px; border-bottom: 1px solid var(--line); padding-bottom: 0; }
 nav.tabs button {
   background: none; border: none; border-bottom: 2px solid transparent;
   color: var(--muted); padding: 8px 12px; cursor: pointer; font-size: 13px;
@@ -106,10 +107,44 @@ input:focus, textarea:focus, select:focus { outline: none; border-color: var(--a
 input.pending, input.pending:focus { border-color: var(--warn); }
 label.field .lbl + input + .small { display: block; margin-top: 3px; min-height: 13px; }
 
+/*
+ * Значок «что это за настройка» и его подсказка.
+ *
+ * Своя подсказка вместо системного `title`: та всплывает через секунду с лишним
+ * и жмёт текст в одну строку, а объяснение настройки в строку не влезает.
+ *
+ * Ширина подсказки — это ширина ПОЛЯ (`left: 0; right: 0` от `label.field`), а не
+ * фиксированные 270 пикселей. Поля стоят в несколько колонок, и любая фиксированная
+ * ширина у крайней колонки вылезает за край панели: инструмент открыт в рамке
+ * отчёта, и там такой хвост просто обрезается. Отсчёт от поля, а не от значка,
+ * поэтому у значка `position: static`, а «якорь» — сам label.
+ */
+label.field { position: relative; }
+.info {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 13px; height: 13px; margin-left: 5px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--muted);
+  font-size: 9px; font-weight: 700; line-height: 1; cursor: help;
+  vertical-align: middle;
+}
+.info:hover, .info:focus { color: var(--accent); border-color: var(--accent); outline: none; }
+.info::after {
+  content: attr(data-tip);
+  position: absolute; left: 0; right: 0; bottom: calc(100% + 7px);
+  padding: 8px 10px; border-radius: 6px;
+  background: #080b10; border: 1px solid var(--line); color: var(--text);
+  font-size: 11.5px; font-weight: 400; line-height: 1.45; text-align: left;
+  text-transform: none; letter-spacing: 0;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+  opacity: 0; visibility: hidden; transition: opacity 0.12s;
+  pointer-events: none; z-index: 40;
+}
+.info:hover::after, .info:focus::after { opacity: 1; visibility: visible; }
+
 button.primary {
   background: var(--accent); color: #05121a; border: none; border-radius: 6px;
   padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
-  font-family: inherit;
+  font-family: inherit; white-space: nowrap;
 }
 button.primary:hover { filter: brightness(1.08); }
 button.ghost {
@@ -121,18 +156,35 @@ button.ghost:hover { border-color: var(--accent); }
 button.ghost.on { border-color: var(--accent); color: var(--accent); }
 
 /*
- * Переход к следующему шагу. Зелёная и стоит одна под содержимым экрана:
- * закладки сверху говорят, где ты находишься, а эта кнопка — куда идти дальше.
- * Цвет намеренно НЕ синий: синим здесь помечено главное действие самого экрана
+ * Выбранный источник контента залит цветом своей роли.
+ *
+ * Зелёный — рабочий словарь, на нём собираются сдаваемые пакеты. Жёлтый —
+ * тестовая база: чужие уровни только для чтения. Заливка приглушённая, а текст
+ * и рамка яркие: кнопка должна читаться как выбранная с одного взгляда, но не
+ * спорить по контрасту с главной синей кнопкой экрана.
+ */
+button.ghost.on.tone-live {
+  background: rgba(63, 185, 80, 0.16); border-color: var(--ok); color: #74d585;
+}
+button.ghost.on.tone-live:hover { border-color: var(--ok); }
+button.ghost.on.tone-test {
+  background: rgba(210, 153, 34, 0.2); border-color: #e0a92a; color: #ecc35c;
+}
+button.ghost.on.tone-test:hover { border-color: #e0a92a; }
+
+/*
+ * Переход к следующему шагу. Стоит в строке закладок с правого края: там же,
+ * где видно, на каком шаге ты сейчас, — и до неё не нужно прокручивать экран.
+ * Цвет намеренно НЕ синий: синим помечено главное действие самого экрана
  * (собрать блок, скачать JSON), и переход не должен с ним конкурировать.
  */
-.step-next { display: flex; justify-content: flex-end; margin: 2px 0 8px; }
-button.next {
+nav.tabs button.next {
+  margin-left: auto; margin-bottom: 5px;
   background: var(--ok); color: #04140a; border: none; border-radius: 6px;
-  padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+  padding: 8px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
   font-family: inherit;
 }
-button.next:hover { filter: brightness(1.08); }
+nav.tabs button.next:hover { filter: brightness(1.08); color: #04140a; }
 
 pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
   padding: 11px; overflow: auto; font-family: var(--mono); font-size: 11.5px;
@@ -178,71 +230,23 @@ pre.code { background: var(--bg); border: 1px solid var(--line); border-radius: 
 .rc-toggle input { margin: 0; width: 11px; height: 11px; accent-color: var(--accent); }
 .rc-toggle:has(input:checked) { color: var(--text); }
 
-/* играбельный прототип */
-.phone { width: 330px; height: 620px; margin: 0 auto; border: 10px solid #222b36;
-  border-radius: 32px; background: linear-gradient(180deg, #0b2233, #071722);
-  position: relative; overflow: hidden; }
-.board { position: absolute; inset: 44px 0 0 0; }
-.bubble { position: absolute; border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; text-align: center; cursor: grab; user-select: none;
-  border: 2px solid rgba(255,255,255,0.22); transition: transform 0.12s;
-  padding: 3px; line-height: 1.1; touch-action: none; }
-.bubble:hover { transform: scale(1.06); }
-.bubble.picked { border-color: #fff; box-shadow: 0 0 0 2px rgba(255,255,255,0.4); }
-.bubble.bad { animation: shake 0.3s; border-color: var(--fail);
-  box-shadow: 0 0 0 3px rgba(248,81,73,0.55), 0 0 18px rgba(248,81,73,0.5); }
-.bubble.blocked { animation: shake 0.3s; border-color: #9fd8ee;
-  box-shadow: 0 0 0 3px rgba(159,216,238,0.5); }
-@keyframes shake {
-  0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); }
-  75% { transform: translateX(4px); }
+/*
+ * Окно в играбельный прототип (шаг «Прототип»). Сам прототип — отдельная
+ * страница сайта в iframe, поэтому от инструмента нужна только рамка телефона.
+ * Задаём ВЫСОТУ, а ширину выводит aspect-ratio: инструмент открыт в iframe
+ * отчёта, вертикали здесь мало, и упереться экран должен именно в неё.
+ */
+.play-phone {
+  height: min(74vh, 700px); aspect-ratio: 390/844; margin: 0 auto;
+  background: #1c1633; border-radius: 34px; padding: 10px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
 }
-
-/* драг: подсветка пройденных пузырей и точка остановки — этим и читается путь */
-/* белое кольцо оставлено только цели: иначе пузырь в руке и точка остановки
-   светятся одинаково и перекрывают друг друга */
-.bubble.dragging { cursor: grabbing; transition: none; opacity: 0.9;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.55); }
-.bubble.dragging:hover { transform: none; }
-.bubble.snapping { transition: transform 0.24s cubic-bezier(0.3, 1.4, 0.5, 1); }
-.bubble.snapping:hover { transform: none; }
-.bubble.trail { border-color: rgba(76,194,255,0.55);
-  box-shadow: 0 0 12px rgba(76,194,255,0.35); }
-.bubble.over { border-color: #fff; transform: scale(1.12);
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.55), 0 0 22px rgba(76,194,255,0.6); }
-.slot-ghost { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px;
-  border-radius: 50%; border: 2px dashed rgba(255,255,255,0.25); pointer-events: none; }
-
-/* модификаторы */
-.bubble.half { border-style: dashed; border-color: rgba(255,255,255,0.5);
-  font-family: var(--mono); }
-.bubble.iced { cursor: not-allowed; border-color: rgba(255,255,255,0.75);
-  box-shadow: inset 0 0 14px rgba(255,255,255,0.5); }
-.bubble.veiled { cursor: not-allowed; border-style: dotted; }
-.bubble .counter { font-family: var(--mono); font-size: 9px; opacity: 0.9; }
-.chain { position: absolute; left: 0; right: 0; height: 8px; margin-top: -4px;
-  background: repeating-linear-gradient(90deg,
-    #7d8794 0 9px, #454f5c 9px 14px);
-  box-shadow: 0 0 12px rgba(0,0,0,0.5); z-index: 30; transition: opacity 0.3s; }
-.chain.off { opacity: 0.18; }
-.chain.hit { animation: shake 0.3s;
-  background: repeating-linear-gradient(90deg, #f85149 0 9px, #7d2620 9px 14px);
-  box-shadow: 0 0 16px rgba(248,81,73,0.7); }
-.chain-badge { position: absolute; right: 8px; top: -8px; font-family: var(--mono);
-  font-size: 10px; padding: 1px 6px; border-radius: 9px; background: #1b2530;
-  border: 1px solid #7d8794; color: #cfe6f5; }
-
-.verdict { position: absolute; inset: 0; display: flex; align-items: center;
-  justify-content: center; flex-direction: column; gap: 6px; z-index: 60; }
-.verdict.ok { background: rgba(4,20,30,0.86); }
-.verdict.fail { background: rgba(30,6,6,0.86); }
-.hud { display: flex; justify-content: space-between; padding: 8px 12px;
-  font-family: var(--mono); font-size: 12px; color: #cfe6f5;
-  background: rgba(0,0,0,0.25); }
+.play-phone iframe { width: 100%; height: 100%; border: none; border-radius: 26px;
+  display: block; background: #062c52; }
 
 @media (max-width: 640px) {
   .app { padding: 12px 10px 48px; }
-  .phone { width: 100%; max-width: 330px; }
+  .play-phone { height: min(70vh, 620px); }
   table { font-size: 11.5px; }
   th, td { padding: 5px 6px; }
 }

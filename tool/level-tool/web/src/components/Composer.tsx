@@ -37,9 +37,11 @@ import { canonicalJson } from '../core/hashing.ts';
  * и снова показывается каноническое значение конфига: поле не может остаться
  * с текстом, которого в конфиге нет.
  */
-function DraftField({ label, hint, value, commit, numeric }: {
+function DraftField({ label, hint, tip, value, commit, numeric }: {
   label: string;
   hint?: string;
+  /** что поле определяет: всплывает по наведению на значок рядом с названием */
+  tip?: string;
   /** каноническое значение конфига — то, что видно, когда поле не редактируют */
   value: string;
   /** true — принято в конфиг; false — пока не разобралось */
@@ -51,7 +53,10 @@ function DraftField({ label, hint, value, commit, numeric }: {
 
   return (
     <label className="field">
-      <span className="lbl">{label}</span>
+      <span className="lbl">
+        {label}
+        {tip && <InfoTip text={tip} />}
+      </span>
       <input
         type="text"
         inputMode={numeric ? 'numeric' : undefined}
@@ -68,6 +73,20 @@ function DraftField({ label, hint, value, commit, numeric }: {
         {pending ? 'значение ещё не принято' : hint ?? ''}
       </span>
     </label>
+  );
+}
+
+/**
+ * Значок «что это за настройка» с подсказкой по наведению.
+ *
+ * Подсказка сделана на CSS, а не атрибутом `title`: системная всплывает через
+ * секунду с лишним и обрезает текст в одну строку, а объяснение настройки в одну
+ * строку не влезает. `tabIndex` и `aria-label` — чтобы подсказка открывалась и с
+ * клавиатуры, а не только мышью.
+ */
+function InfoTip({ text }: { text: string }) {
+  return (
+    <span className="info" data-tip={text} tabIndex={0} role="note" aria-label={text}>i</span>
   );
 }
 
@@ -313,9 +332,8 @@ export function RhythmLegend() {
         ))}
       </div>
       <div style={{ marginTop: 4 }}>
-        Отмечено то, что уже применено на уровне. Модификаторы взаимоисключающие:
-        включение одного гасит другой. Колонку можно перетащить — состав, роль
-        и модификатор переедут на другой номер уровня вместе с ней.
+        Отмечено то, что уже применено на уровне. Колонку можно перетащить —
+        состав, роль и модификатор переедут на другой номер уровня вместе с ней.
       </div>
     </div>
   );
@@ -342,9 +360,34 @@ export function RhythmLegend() {
  * ни на что. График под формой считается по черновику — это предпросмотр того,
  * что будет собрано, а не состояние генератора.
  */
-export function Composer({ config, onGenerate, tuneConfig }: {
+/**
+ * Конфиг из промпта: то, что понято из текста, поверх профиля декады.
+ *
+ * Порядок именно такой. Сначала диапазон уровней из промпта поднимает ПРОФИЛЬ
+ * этих номеров (таблица декад: коридор категорий, редкость, раскладка старта),
+ * и только потом сверху ложится разобранное. Иначе «10 уровней в линейке 150-160»
+ * дало бы правильные номера с содержимым чужой декады.
+ *
+ * Используется в двух местах: кнопкой «Применить интерпретацию» и для начального
+ * заполнения формы — форма обязана показывать то же, что написано в промпте выше.
+ */
+function configFromIntent(
+  base: BlockConfig, patch: Partial<BlockConfig>, tuned: (c: BlockConfig) => BlockConfig,
+): BlockConfig {
+  const range = patch.levelRange;
+  const profile = range ? tuned(configForRange(range, base.seed)) : base;
+  return { ...profile, ...patch };
+}
+
+export function Composer({ config, onGenerate, tuneConfig, generated }: {
   config: BlockConfig;
   onGenerate: (config: BlockConfig) => void;
+  /**
+   * Собран ли блок. Нужен ровно для одного: решить, чем заполнить форму при
+   * открытии закладки — промптом (ещё ничего не собирали) или применённым
+   * конфигом (собрали, и человек вернулся его править).
+   */
+  generated?: boolean;
   /**
    * Таблица декад с первой вкладки (коридор категорий, схема выкладки):
    * применяется к конфигу, собранному из диапазона, чтобы форма показывала
@@ -362,11 +405,22 @@ export function Composer({ config, onGenerate, tuneConfig }: {
   const [text, setText] = useState(DEFAULT_INTENT_PROMPT);
   const [parsed, setParsed] = useState<ParsedIntent | null>(null);
   /**
-   * Черновик. Инициализируется применённым конфигом при каждом открытии
-   * закладки: компонент размонтируется при уходе с неё, поэтому вернувшись,
-   * человек видит то, что реально применено, а не забытый черновик.
+   * Черновик формы.
+   *
+   * Пока ничего не собрано, форма заполняется ИЗ ПРОМПТА, который стоит в поле
+   * выше: раньше она показывала пресет 201-210 рядом с промптом про линейку
+   * 150-160 — два разных задания на одном экране, и человек не мог понять, что
+   * из этого соберётся. Теперь дефолты честные: диапазон, спайки, передышки,
+   * редкость и темы — из текста промпта, остальное — из профиля этих номеров
+   * (таблица декад).
+   *
+   * Как только блок собран, форма при возврате на закладку показывает
+   * ПРИМЕНЁННОЕ, а не промпт: компонент размонтируется при уходе, и подставлять
+   * снова текст промпта значило бы терять то, с чем человек только что работал.
    */
-  const [draft, setDraft] = useState<BlockConfig>(config);
+  const [draft, setDraft] = useState<BlockConfig>(() => (
+    generated ? config : configFromIntent(config, parseIntent(text, config.levelRange).patch, tuned)
+  ));
 
   const patch = (p: Partial<BlockConfig>) => setDraft((d) => ({ ...d, ...p }));
 
@@ -419,20 +473,9 @@ export function Composer({ config, onGenerate, tuneConfig }: {
 
   const interpret = () => setParsed(parseIntent(text, draft.levelRange));
   const applyParsed = () => {
-    if (parsed) {
-      setDraft((d) => {
-        /**
-         * Смена диапазона обязана пересобрать профиль декады целиком — ровно то
-         * же правило, что у поля «диапазон уровней» ниже. Без этого промпт
-         * «10 уровней в линейке 150-160» дал бы номера из полутора сотен, а
-         * коридор категорий, редкость и план по позициям остались бы от
-         * пресета 201-210: блок с чужим содержимым под правильными номерами.
-         */
-        const range = parsed.patch.levelRange;
-        const base = range ? tuned(configForRange(range, d.seed)) : d;
-        return { ...base, ...parsed.patch };
-      });
-    }
+    // правило «смена диапазона пересобирает профиль декады целиком» живёт в
+    // configFromIntent — то же, что при первом заполнении формы
+    if (parsed) setDraft((d) => configFromIntent(d, parsed.patch, tuned));
     setParsed(null);
   };
 
@@ -508,6 +551,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
         <div className="grid c3">
           <DraftField
             label="диапазон уровней"
+            tip="Номера уровней блока, например 201–210. Меняет весь профиль сразу: коридор категорий, редкость и стартовую раскладку инструмент берёт из таблицы декад для этих номеров — уровень 5 и уровень 500 строятся по-разному."
             hint="меняет весь профиль декады"
             value={draft.levelRange.join('–')}
             commit={(raw) => {
@@ -524,6 +568,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="коридор по категориям"
+            tip="Сколько категорий может стоять на уровне: минимум достаётся передышкам, максимум — пику. Категория это 4 слова, поэтому коридор задаёт объём уровня и главную часть сложности."
             value={draft.categoryCorridor.join('–')}
             commit={(raw) => {
               const range = parseRange(raw, 1);
@@ -533,6 +578,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="редких слов на уровень"
+            tip="Сколько слов уровня разрешено брать из редких (zipf ниже 3.0 — уровень слова AGLET). Больше редких — выше сложность, но и выше риск, что игрок слово просто не знает."
             value={draft.rarityRange.join('–')}
             commit={(raw) => {
               const range = parseRange(raw, 0);
@@ -542,16 +588,19 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="позиции спайков"
+            tip="Позиции в блоке (1–10), где сложность идёт вверх. Самая нагруженная из них становится «пиком», остальные — «спайками»: категорий берётся максимум коридора или на одну меньше."
             hint="через запятую"
             value={draft.spikePositions.join(', ')}
             commit={(raw) => { patch({ spikePositions: parseNumberList(raw) }); return true; }} />
           <DraftField
             label="позиции передышек"
+            tip="Позиции, где сложность падает: лёгкий уровень как награда после пика. Категорий берётся минимум коридора. В референсе 37% переходов идут вниз — без передышек блок читается как ровная стена."
             hint="через запятую"
             value={draft.recoveryPositions.join(', ')}
             commit={(raw) => { patch({ recoveryPositions: parseNumberList(raw) }); return true; }} />
           <DraftField
             label="максимальная глубина мета"
+            tip="Насколько глубоко категории вкладываются друг в друга: 1 — собранная категория становится словом-пузырём в другой, 2 — та в третьей. В оригинале глубина 3 встречается только с уровня 438, поэтому для ранних блоков потолок 2."
             hint="0–4"
             numeric
             value={String(draft.maxMetaDepth)}
@@ -563,16 +612,19 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="план по категориям (10 чисел)"
+            tip="Явное число категорий на каждую позицию блока, через запятую. Пусто — число выводится из коридора и роли уровня. Заполняется само, когда вы тащите колонку на графике ритма."
             hint="пусто — берётся коридор"
             value={(draft.categoryPlan ?? []).join(', ')}
             commit={(raw) => { patch({ categoryPlan: parseOptionalList(raw) }); return true; }} />
           <DraftField
             label="план по мета-связям"
+            tip="Явное число мета-связей на каждую позицию. Пусто — берётся из профиля декады (примерно 28% категорий уровня). Ноль в позиции означает уровень вообще без мета."
             hint="пусто — берётся профиль декады"
             value={(draft.metaPlan ?? []).join(', ')}
             commit={(raw) => { patch({ metaPlan: parseOptionalList(raw) }); return true; }} />
           <DraftField
             label="seed генерации"
+            tip="Строка, из которой растёт вся случайность сборки. Тот же seed плюс тот же конфиг и тот же снимок базы дают ровно тот же блок и тот же хеш пакета — на этом держится воспроизводимость."
             value={draft.seed}
             commit={(raw) => {
               // пустой seed сделал бы генерацию невоспроизводимой
@@ -582,6 +634,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="окно свежести слов"
+            tip="Сколько предыдущих уровней помнить, чтобы не выдать то же слово снова. Повтор слова в НОВОЙ категории — ловушка на памяти игрока, поэтому окно управляет не только разнообразием, но и сложностью."
             hint="уровней"
             numeric
             value={String(draft.wordFreshnessWindow)}
@@ -593,6 +646,7 @@ export function Composer({ config, onGenerate, tuneConfig }: {
             }} />
           <DraftField
             label="окно свежести категорий"
+            tip="Сколько предыдущих уровней помнить, чтобы не брать ту же категорию. Шире окно — разнообразнее блок, но у генератора меньше выбора: на узкой базе он начнёт отказываться собирать уровень."
             hint="уровней"
             numeric
             value={String(draft.categoryFreshnessWindow)}
