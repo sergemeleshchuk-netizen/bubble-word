@@ -56,6 +56,29 @@ function spawnableWords(category: LevelCategory): string[] {
 }
 
 /**
+ * Целые слова вперёд, распиленные — в хвост.
+ *
+ * Схема старта считается в СЛОВАХ: «4» означает четыре слова категории на поле.
+ * Распиленное слово стоит два пузыря, поэтому, попав на старт, оно съедало место
+ * соседней доли — и схема, написанная дизайнером, исполнялась не полностью.
+ * Порядок внутри каждой группы остаётся тем, что дал `rng.shuffle`, поэтому
+ * выкладка по-прежнему воспроизводится из спека, а у уровня без распилов не
+ * меняется вовсе: там все слова стоят по одному пузырю, и партиция ничего
+ * не перемешивает.
+ *
+ * Следствие продуктовое, и оно совпадает с записью оригинала: половинки
+ * приходят ДОСЫПКОЙ, а не лежат на старте, пока стартовое поле не отдано
+ * целым словам.
+ */
+function wholeWordsFirst(
+  words: readonly string[], categoryKey: string, chunked: ChunkedWords,
+): string[] {
+  const whole = words.filter((w) => !chunked.has(chunkKey(categoryKey, w)));
+  const split = words.filter((w) => chunked.has(chunkKey(categoryKey, w)));
+  return [...whole, ...split];
+}
+
+/**
  * Целевая глубина категории на старте: сколько слов она получает, пока бюджет
  * поля не кончился. Тройка — потому что до сбора ей не хватает ОДНОГО слова:
  * такая категория и гипотезу подсказывает, и закрывается первой же пачкой
@@ -153,7 +176,7 @@ export function buildDeal(
     // порядок внутри категории тасуется: иначе на поле всегда оказывались бы
     // первые слова спека, а в очередь уходили последние — а спек упорядочен
     // по очевидности слова, и игрок получал бы самые явные слова бесплатно
-    words: rng.shuffle(spawnableWords(category)),
+    words: wholeWordsFirst(rng.shuffle(spawnableWords(category)), category.key, chunked),
   }));
 
   // бюджет поля считается в ПУЗЫРЯХ, а не в словах: распиленное слово стоит два
@@ -239,15 +262,47 @@ export function buildDeal(
   const rest = rng.shuffle(pools.filter((p) => p !== opener));
 
   if (tpl) {
-    for (let i = 0; i < rest.length; i += 1) {
+    /*
+     * Доли раздаются НЕ по порядку категорий, а по способности их закрыть.
+     *
+     * «4» в схеме означает четыре слова на поле. Раньше доля отдавалась
+     * очередной категории и молча урезалась до её размера
+     * (`min(доля, слов в пуле)`), поэтому мета-родитель — у него спавнится три
+     * слова, имя-мета на старте не лежит — превращал четвёрку схемы в тройку.
+     * Схема из инструмента дизайнера становилась пожеланием: человек писал
+     * «4-4-3-3», а на поле ложилось «4-3-3-3» и объяснить это можно было только
+     * задним числом.
+     *
+     * Теперь для каждой доли ищется категория, которая её реально держит, и из
+     * подходящих берётся самая тесная (best-fit): категорию с четырьмя словами
+     * не тратим на тройку, пока в схеме есть неотданная четвёрка. Порядок
+     * перебора — тот же перемешанный, поэтому выкладка остаётся
+     * детерминированной и воспроизводится из спека.
+     *
+     * Доля, которую отдать некому (нет категории такого размера) или которая не
+     * влезает в остаток поля, пропускается — и это единственные два случая, в
+     * которых схема исполняется не полностью. Оба видны в карточке уровня.
+     */
+    const shares = opener && counts.get(opener.key) ? tpl.slice(1) : tpl;
+    const queue = [...rest];
+    for (const share of shares) {
       if (left <= 0) break;
-      const pool = rest[i];
-      const want = Math.min(tpl[i + 1] ?? 0, pool.words.length);
-      if (want < shareFloor) continue;
-      const price = bubblesFor(pool, want);
-      if (price > left) continue;
-      counts.set(pool.key, want);
-      left -= price;
+      if (share < shareFloor) continue;
+      let bestIndex = -1;
+      let bestSpare = Infinity;
+      for (let i = 0; i < queue.length; i += 1) {
+        const pool = queue[i];
+        if (pool.words.length < share) continue;
+        const price = bubblesFor(pool, share);
+        if (price > left) continue;
+        const spare = pool.words.length - share;
+        if (spare < bestSpare) { bestSpare = spare; bestIndex = i; }
+      }
+      if (bestIndex < 0) continue;
+      const pool = queue[bestIndex];
+      counts.set(pool.key, share);
+      left -= bubblesFor(pool, share);
+      queue.splice(bestIndex, 1);
     }
     return assembleDeal(categories, pools, counts, cost, rng);
   }

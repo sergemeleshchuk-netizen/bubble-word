@@ -217,10 +217,9 @@ export function App() {
    */
   const generate = (raw: BlockConfig = config) => {
     // Таблица декад применяется В МОМЕНТ сборки: черновик конфига мог быть
-    // собран до правки таблицы. Пресет 201-210 раздачу не задаёт (undefined) —
-    // его не трогаем, хеш сдаваемого пакета закреплён.
-    const next = raw.dealMinStartWords === undefined ? raw
-      : applyDecadeTuning(raw, decadeTuning);
+    // собран до правки таблицы. Пресет инструмента она не переписывает — у
+    // сдаваемого пакета своя форма кривой (`presetLocked` в core/types.ts).
+    const next = raw.presetLocked ? raw : applyDecadeTuning(raw, decadeTuning);
     setConfig(next);
     const started = performance.now();
     const result = generateBlock({ snapshot, config: next, scoring });
