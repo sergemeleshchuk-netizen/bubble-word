@@ -194,14 +194,19 @@ def build(conn: sqlite3.Connection) -> dict:
     # `graded_obviousness` появилась шагом 009; на базе, где команда
     # grade-obviousness ещё не прогонялась, колонки нет — тот же приём, что и
     # с `derived_difficulty` выше.
-    have_graded = "graded_obviousness" in {
-        row[1] for row in conn.execute("PRAGMA table_info(memberships)")}
+    membership_columns = {row[1] for row in conn.execute("PRAGMA table_info(memberships)")}
+    have_graded = "graded_obviousness" in membership_columns
     graded_select = ("graded_obviousness" if have_graded
                      else "NULL as graded_obviousness")
+    # `pool_rank_pct` появилась шагом 011 (`rank-pools`): место слова в пуле своей
+    # категории по популярности, 0.0 — самое расхожее. Тот же приём с отсутствующей
+    # колонкой, что и у graded_obviousness.
+    have_pool_rank = "pool_rank_pct" in membership_columns
+    pool_rank_select = "pool_rank_pct" if have_pool_rank else "NULL as pool_rank_pct"
     for r in conn.execute(
         "select word_id, sense_id, category_id, relation_type, review_status, "
-        f"fit_score, obviousness_score, {graded_select}, reason, semantic_status, "
-        "gameplay_difficulty, risk_flags from memberships"
+        f"fit_score, obviousness_score, {graded_select}, {pool_rank_select}, "
+        "reason, semantic_status, gameplay_difficulty, risk_flags from memberships"
     ):
         wi, ci = word_index.get(r["word_id"]), cat_index.get(r["category_id"])
         if wi is None or ci is None or r["review_status"] == "rejected":
@@ -230,6 +235,7 @@ def build(conn: sqlite3.Connection) -> dict:
         obv = r["graded_obviousness"]
         if obv is None:
             obv = r["obviousness_score"]
+        pool_rank = r["pool_rank_pct"]
         out_memberships.append([
             wi, ci,
             STATUSES.index(r["review_status"]),
@@ -239,6 +245,10 @@ def build(conn: sqlite3.Connection) -> dict:
             sense_index.get(r["sense_id"]) if r["sense_id"] is not None else None,
             round(gd, 2) if gd is not None else None,
             mask,
+            # места 9 и 10 держит словарь игры (вес связи и происхождение);
+            # у нашей базы их нет, но порядок полей общий на все снимки
+            None, None,
+            round(pool_rank, 4) if pool_rank is not None else None,
         ])
 
     # мета-потенциал: категория, чьё имя само является словом-пузырём

@@ -126,6 +126,13 @@ interface Constraints {
   rareTarget: number;
   rareTolerance: number;
   trapTarget: number;
+  /**
+   * Куда в пуле категории целится этот уровень: 0 — верх (самые расхожие
+   * слова), 1 — низ. null отключает ось и возвращает прежний отбор по
+   * близости к медиане декады — так ведут себя пресеты без гейтов и снимки,
+   * через ранжирование не проходившие.
+   */
+  poolRankTarget: number | null;
   themesAllowed: Set<string> | null;
   themesExcluded: Set<string>;
   enforceFreshness: boolean;
@@ -349,6 +356,44 @@ const LENGTH_SPAN = 5;
 
 const RECOGNITION_SPAN_BELOW = 1.5;
 const RECOGNITION_SPAN_ABOVE = 2.1;
+
+/**
+ * Ось ранга: какое место в пуле СВОЕЙ категории занимает слово.
+ *
+ * Заменяет ось узнаваемости там, где база принесла ранг (`rank-pools`,
+ * снимок 2.2). Разница принципиальная, а не в весах. Узнаваемость мерила
+ * слово ЦЕЛЫМ ПАКЕТОМ — расстоянием его частотности до медианы декады, —
+ * и потому наказывала самое расхожее слово категории за то, что оно слишком
+ * частотное: в UNITS OF TIME на первый уровень уезжал `instant` (4.34, в 0.01
+ * от цели 4.35), а `year` 5.96 и `day` 5.95 стояли в конце очереди. Ранг мерит
+ * слово ВНУТРИ ЕГО КАТЕГОРИИ: 0 — самое расхожее слово этой категории, 1 —
+ * самое редкое. `year` в единицах времени и `sea` в водоёмах получают 0
+ * независимо от того, на какую декаду собирается уровень.
+ *
+ * Распределение частотности по блоку из-за этого никуда не девается — оно
+ * переезжает с отдельного слова на ЦЕЛЬ УРОВНЯ (`poolRankTarget` в профиле
+ * декады). Ранняя декада просит верх пула, поздняя — низ; внутри уровня цель
+ * ещё разводится по категориям, потому что референс держит медиану разбросом,
+ * а не тем, что каждое слово лежит на медиане.
+ *
+ * Вес тот же, что был у узнаваемости: 0.9. Это не совпадение, а замена оси
+ * один в один — иначе сместился бы баланс с очевидностью и длиной.
+ */
+const POOL_RANK_WEIGHT = 0.9;
+
+/**
+ * Насколько цель по рангу разводится между категориями одного уровня.
+ *
+ * Замер оригинала: медиана частотности уровня держится РАЗБРОСОМ — часть слов
+ * 5.4, часть 3.3. Если всем категориям уровня дать одну цель, разброс исчезает
+ * и уровень читается однородно: либо всё очевидное, либо всё тихое. Полоса
+ * ±0.18 вокруг цели уровня возвращает разброс, не разваливая медиану.
+ */
+const POOL_RANK_SPREAD = 0.36;
+
+function poolRankScore(rank: number, target: number): number {
+  return Math.max(0, 1 - Math.abs(rank - target));
+}
 
 function recognitionScore(z: number, gates: DecadeGates): number {
   const target = gates.zipfMedianTarget;
@@ -983,6 +1028,50 @@ function assignWords(
     return map;
   };
 
+  /**
+   * Место слова в пуле своей категории. Считает база (`rank-pools`), инструмент
+   * только читает — тот же договор, что у готовности категорий и запретов пар.
+   * Кэш по той же причине, что у очевидности: `orderCandidates` зовётся на
+   * каждом узле перебора.
+   */
+  const poolRankCache = new Map<number, Map<number, number>>();
+  const poolRankIn = (cat: number): Map<number, number> => {
+    let map = poolRankCache.get(cat);
+    if (!map) {
+      map = new Map<number, number>();
+      for (const m of index.categoryMemberships(cat, STATUS.approved)) {
+        if (m.poolRank !== null) map.set(m.word, m.poolRank);
+      }
+      poolRankCache.set(cat, map);
+    }
+    return map;
+  };
+
+  /**
+   * Цель по рангу для каждой категории уровня.
+   *
+   * Цель уровня приходит из профиля декады, а по категориям разводится полосой
+   * POOL_RANK_SPREAD — референс держит медиану разбросом, а не тем, что каждое
+   * слово лежит на медиане. Смещение берётся от стабильного веса категории, а
+   * не от её места в списке: иначе первая категория уровня всегда получала бы
+   * самые расхожие слова.
+   *
+   * Quick-win исключён: точка входа обязана остаться четвёркой из самых
+   * расхожих слов своей категории, иначе обещание «этот уровень можно начать»
+   * держать нечем.
+   */
+  const poolTargetFor = new Map<number, number>();
+  if (c.poolRankTarget !== null) {
+    for (const p of selected) {
+      if (p.category === quickwinCat) {
+        poolTargetFor.set(p.category, 0);
+        continue;
+      }
+      const offset = (rng.stableWeight(`poolTarget:${p.category}`) - 0.5) * POOL_RANK_SPREAD;
+      poolTargetFor.set(p.category, Math.min(1, Math.max(0, c.poolRankTarget + offset)));
+    }
+  }
+
   const candidatesFor = (cat: number): number[] => {
     const chosen = assignment.get(cat) ?? [];
     const chosenNorms = chosen.map((w) => index.words[w].n);
@@ -1030,6 +1119,8 @@ function assignWords(
     const repeatsNeeded = c.repeatTarget - repeatsUsed;
     const isQuickwin = cat === quickwinCat;
     const obviousness = obviousnessIn(cat);
+    const poolRanks = poolRankIn(cat);
+    const poolTarget = poolTargetFor.get(cat);
     // номер заполняемого слота четвёрки: обязательные мета-слова уже стоят
     const slot = (assignment.get(cat) ?? []).length;
     return candidates
@@ -1068,7 +1159,16 @@ function assignWords(
          * понятнее» (вес 0.02): целевого распределения нет, шкалу не от чего
          * отсчитывать. С гейтами узнаваемость меряется от пола частотности.
          */
-        if (z !== null) {
+        /**
+         * Ось ранга вместо оси узнаваемости — см. POOL_RANK_WEIGHT. Читается
+         * только там, где база принесла ранг; на узком пуле (до пяти слов) и на
+         * снимке без ранжирования остаётся прежняя ось, иначе отбор потерял бы
+         * единственный сигнал, который у него там есть.
+         */
+        const poolRank = poolRanks.get(w);
+        if (poolRank !== undefined && poolTarget !== undefined) {
+          score += POOL_RANK_WEIGHT * poolRankScore(poolRank, poolTarget);
+        } else if (z !== null) {
           if (c.gates) {
             score += 0.9 * recognitionScore(z, c.gates);
           } else {
@@ -1471,6 +1571,7 @@ export function generateLevel(
     rareTarget: plan.rareTarget,
     rareTolerance: 0,
     trapTarget: plan.trapTarget,
+    poolRankTarget: plan.poolRankTarget ?? null,
     themesAllowed: config.includeThemes.length ? new Set(config.includeThemes) : null,
     themesExcluded: new Set(config.excludeThemes),
     enforceFreshness: true,

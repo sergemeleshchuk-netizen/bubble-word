@@ -29,6 +29,13 @@ export function makeSnapshot(specs: CatSpec[], extra: {
   conflicts?: [string, string, string?][];
   /** готовность категорий: ключ → readiness (по умолчанию ready) */
   readiness?: Record<string, Readiness>;
+  /**
+   * Проставить связям место в пуле категории, как это делает `rank-pools` в
+   * базе: 0 — самое расхожее слово категории, 1 — самое редкое. По умолчанию
+   * выключено, чтобы фикстура оставалась снимком без ранжирования — на таком
+   * генератор обязан работать по-прежнему.
+   */
+  poolRanks?: boolean;
 } = {}): Snapshot {
   const wordList: { t: string; z: number }[] = [];
   const wordIndex = new Map<string, number>();
@@ -48,6 +55,33 @@ export function makeSnapshot(specs: CatSpec[], extra: {
         'associated_with', null]);
     }
   });
+
+  if (extra.poolRanks) {
+    // тот же порядок, что считает база: по убыванию популярности, развязка
+    // равных — более короткое слово, затем алфавит
+    const byCategory = new Map<number, SnapshotMembership[]>();
+    for (const m of memberships) {
+      if (m[2] !== STATUS.approved) continue;
+      const list = byCategory.get(m[1] as number) ?? [];
+      list.push(m);
+      byCategory.set(m[1] as number, list);
+    }
+    for (const list of byCategory.values()) {
+      list.sort((a, b) => {
+        const wa = wordList[a[0] as number];
+        const wb = wordList[b[0] as number];
+        return wb.z - wa.z || wa.t.length - wb.t.length || wa.t.localeCompare(wb.t);
+      });
+      const last = list.length - 1;
+      list.forEach((m, i) => {
+        m[7] = m[7] ?? null;      // gameplayDifficulty
+        m[8] = m[8] ?? 0;         // riskMask
+        m[9] = undefined;         // weight
+        m[10] = undefined;        // origin
+        m[11] = last ? i / last : 0;
+      });
+    }
+  }
 
   const catIndex = new Map(specs.map((s, i) => [s.key, i]));
 

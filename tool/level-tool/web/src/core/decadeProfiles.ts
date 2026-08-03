@@ -44,6 +44,13 @@ export interface DecadeProfile {
   /** целевая медиана и 25-й процентиль частотности слов уровня */
   zipfMedianTarget: number;
   zipfP25Target: number;
+  /**
+   * Куда в пуле категории целится декада: 0 — верх (самые расхожие слова
+   * каждой категории), 1 — низ. Выводится из `zipfMedianTarget`, см.
+   * `poolRankTargetFor`; поле оставлено для ручного переопределения там, где
+   * вывод не попадёт.
+   */
+  poolRankTarget?: number;
   /** предел числа токенов в ответе: 1 = только однословные */
   maxTokens: number;
   /** предел длины слова в буквах */
@@ -80,6 +87,40 @@ export interface DecadeProfile {
  */
 export function visibleShareMin(profile: DecadeProfile, wordsPerCategory = 4): number {
   return BOARD_CAPACITY / (profile.categoryCorridor[1] * wordsPerCategory);
+}
+
+/**
+ * Куда в пуле категории целится декада.
+ *
+ * Ранняя декада берёт из верха пула каждой категории (`year`, `day` в единицах
+ * времени; `sea`, `river` в водоёмах), поздняя опускается ниже. Раньше эту
+ * работу делала `zipfMedianTarget`, но делала её НЕ ТЕМ КОНЦОМ: цель стояла на
+ * ОТДЕЛЬНОМ СЛОВЕ, и самое расхожее слово категории проигрывало за то, что
+ * слишком частотное. Теперь цель стоит на УРОВНЕ, а слово выбирается своим
+ * местом в собственной категории; `zipfMedianTarget` осталась мерой приёмки.
+ *
+ * Числа в таблице подобраны, а не выведены: связь между глубиной по рангу и
+ * медианой блока монотонна, но не линейна — она зависит от того, какие
+ * категории попали в декаду и насколько широки их пулы. Линейная прикидка
+ * промахнулась на шести декадах из двадцати. Подбор делает
+ * `scripts/calibrate_pool_rank.ts` делением отрезка пополам; после него все
+ * 20 декад сходятся с целью в пределах ±0.05, приёмка проходит везде.
+ *
+ * Формула ниже — запасной путь для профиля без калибровки: линейно между
+ * 0.10 при медиане 4.35 и 0.62 при 3.70. Ей соответствует ровно одна ситуация
+ * — новая декада, которую ещё не прогоняли.
+ */
+const POOL_RANK_AT_LOUD = 0.10;      // декада с целевой медианой ZIPF_LOUD
+const POOL_RANK_AT_QUIET = 0.62;     // декада с целевой медианой ZIPF_QUIET
+const ZIPF_LOUD = 4.35;
+const ZIPF_QUIET = 3.70;
+
+export function poolRankTargetFor(profile: DecadeProfile): number {
+  if (profile.poolRankTarget !== undefined) return profile.poolRankTarget;
+  const span = ZIPF_LOUD - ZIPF_QUIET;
+  const position = (ZIPF_LOUD - profile.zipfMedianTarget) / span;
+  const target = POOL_RANK_AT_LOUD + (POOL_RANK_AT_QUIET - POOL_RANK_AT_LOUD) * position;
+  return Math.min(1, Math.max(0, Number(target.toFixed(3))));
 }
 
 /**
@@ -184,65 +225,65 @@ export function categoryDifficultyCeiling(profile: DecadeProfile): number {
  */
 export const DECADE_PROFILES: DecadeProfile[] = [
   { from: 1, categoryMean: 9.5, categoryCorridor: [5, 12], rareRange: [0, 2], metaRange: [0, 2],
-    repeatRange: [0, 4], zipfMedianTarget: 4.35, zipfP25Target: 3.80, maxTokens: 1,
+    repeatRange: [0, 4], poolRankTarget: 0.233, zipfMedianTarget: 4.35, zipfP25Target: 3.80, maxTokens: 1,
     maxWordLen: 12, wordLenMean: 5.2, minProperNounZipf: 3.2, allowedModifiers: [] },
   { from: 11, categoryMean: 9.7, categoryCorridor: [7, 12], rareRange: [2, 5], metaRange: [2, 5],
-    repeatRange: [3, 8], zipfMedianTarget: 4.01, zipfP25Target: 3.50, maxTokens: 2,
+    repeatRange: [3, 8], poolRankTarget: 0.398, zipfMedianTarget: 4.01, zipfP25Target: 3.50, maxTokens: 2,
     maxWordLen: 13, wordLenMean: 6.2, minProperNounZipf: 3.0, allowedModifiers: ['chains'] },
   { from: 21, categoryMean: 9.3, categoryCorridor: [7, 12], rareRange: [2, 5], metaRange: [1, 4],
-    repeatRange: [5, 11], zipfMedianTarget: 4.00, zipfP25Target: 3.51, maxTokens: 2,
+    repeatRange: [5, 11], poolRankTarget: 0.383, zipfMedianTarget: 4.00, zipfP25Target: 3.51, maxTokens: 2,
     maxWordLen: 13, wordLenMean: 6.1, minProperNounZipf: 3.0, allowedModifiers: ['chains'] },
   { from: 31, categoryMean: 9.6, categoryCorridor: [6, 12], rareRange: [3, 7], metaRange: [3, 6],
-    repeatRange: [6, 13], zipfMedianTarget: 3.85, zipfP25Target: 3.40, maxTokens: 2,
+    repeatRange: [6, 13], poolRankTarget: 0.602, zipfMedianTarget: 3.85, zipfP25Target: 3.40, maxTokens: 2,
     maxWordLen: 14, wordLenMean: 6.3, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
   { from: 41, categoryMean: 9.4, categoryCorridor: [6, 12], rareRange: [3, 7], metaRange: [2, 5],
-    repeatRange: [6, 13], zipfMedianTarget: 3.92, zipfP25Target: 3.41, maxTokens: 2,
+    repeatRange: [6, 13], poolRankTarget: 0.383, zipfMedianTarget: 3.92, zipfP25Target: 3.41, maxTokens: 2,
     maxWordLen: 14, wordLenMean: 6.2, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
   { from: 51, categoryMean: 10.8, categoryCorridor: [7, 14], rareRange: [3, 6], metaRange: [3, 6],
-    repeatRange: [10, 18], zipfMedianTarget: 4.06, zipfP25Target: 3.55, maxTokens: 2,
+    repeatRange: [10, 18], poolRankTarget: 0.172, zipfMedianTarget: 4.06, zipfP25Target: 3.55, maxTokens: 2,
     maxWordLen: 14, wordLenMean: 6.0, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
   { from: 61, categoryMean: 9.8, categoryCorridor: [8, 13], rareRange: [3, 6], metaRange: [3, 6],
-    repeatRange: [11, 19], zipfMedianTarget: 4.03, zipfP25Target: 3.51, maxTokens: 2,
+    repeatRange: [11, 19], poolRankTarget: 0.210, zipfMedianTarget: 4.03, zipfP25Target: 3.51, maxTokens: 2,
     maxWordLen: 14, wordLenMean: 6.3, minProperNounZipf: 2.9, allowedModifiers: ['chains'] },
   { from: 71, categoryMean: 10.2, categoryCorridor: [6, 15], rareRange: [2, 5], metaRange: [2, 6],
-    repeatRange: [14, 23], zipfMedianTarget: 4.04, zipfP25Target: 3.49, maxTokens: 2,
+    repeatRange: [14, 23], poolRankTarget: 0.188, zipfMedianTarget: 4.04, zipfP25Target: 3.49, maxTokens: 2,
     maxWordLen: 15, wordLenMean: 6.3, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
   { from: 81, categoryMean: 9.5, categoryCorridor: [7, 12], rareRange: [2, 6], metaRange: [2, 5],
-    repeatRange: [14, 24], zipfMedianTarget: 4.00, zipfP25Target: 3.47, maxTokens: 2,
+    repeatRange: [14, 24], poolRankTarget: 0.258, zipfMedianTarget: 4.00, zipfP25Target: 3.47, maxTokens: 2,
     maxWordLen: 15, wordLenMean: 6.0, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
   { from: 91, categoryMean: 9.5, categoryCorridor: [7, 14], rareRange: [3, 7], metaRange: [3, 7],
-    repeatRange: [13, 22], zipfMedianTarget: 3.96, zipfP25Target: 3.35, maxTokens: 2,
+    repeatRange: [13, 22], poolRankTarget: 0.332, zipfMedianTarget: 3.96, zipfP25Target: 3.35, maxTokens: 2,
     maxWordLen: 15, wordLenMean: 6.5, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
   { from: 101, categoryMean: 9.2, categoryCorridor: [6, 13], rareRange: [3, 6], metaRange: [2, 5],
-    repeatRange: [14, 23], zipfMedianTarget: 4.09, zipfP25Target: 3.45, maxTokens: 2,
+    repeatRange: [14, 23], poolRankTarget: 0.125, zipfMedianTarget: 4.09, zipfP25Target: 3.45, maxTokens: 2,
     maxWordLen: 15, wordLenMean: 6.3, minProperNounZipf: 2.8, allowedModifiers: ['chains'] },
   { from: 111, categoryMean: 9.3, categoryCorridor: [5, 13], rareRange: [4, 8], metaRange: [2, 5],
-    repeatRange: [14, 23], zipfMedianTarget: 3.99, zipfP25Target: 3.44, maxTokens: 2,
+    repeatRange: [14, 23], poolRankTarget: 0.313, zipfMedianTarget: 3.99, zipfP25Target: 3.44, maxTokens: 2,
     maxWordLen: 16, wordLenMean: 6.5, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
   // ступенька: с L121 размер уровня прыгает с ~9.3 до ~13.2 и больше не падает
   { from: 121, categoryMean: 13.2, categoryCorridor: [10, 16], rareRange: [7, 12], metaRange: [2, 5],
-    repeatRange: [22, 32], zipfMedianTarget: 3.70, zipfP25Target: 3.15, maxTokens: 2,
+    repeatRange: [22, 32], poolRankTarget: 0.416, zipfMedianTarget: 3.70, zipfP25Target: 3.15, maxTokens: 2,
     maxWordLen: 16, wordLenMean: 6.2, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
   { from: 131, categoryMean: 14.3, categoryCorridor: [10, 17], rareRange: [5, 10], metaRange: [2, 5],
-    repeatRange: [23, 33], zipfMedianTarget: 3.92, zipfP25Target: 3.37, maxTokens: 2,
+    repeatRange: [23, 33], poolRankTarget: 0.281, zipfMedianTarget: 3.92, zipfP25Target: 3.37, maxTokens: 2,
     maxWordLen: 16, wordLenMean: 6.0, minProperNounZipf: 2.7, allowedModifiers: ['chains'] },
   { from: 141, categoryMean: 13.4, categoryCorridor: [10, 17], rareRange: [6, 11], metaRange: [1, 4],
-    repeatRange: [22, 32], zipfMedianTarget: 3.83, zipfP25Target: 3.33, maxTokens: 2,
+    repeatRange: [22, 32], poolRankTarget: 0.289, zipfMedianTarget: 3.83, zipfP25Target: 3.33, maxTokens: 2,
     maxWordLen: 16, wordLenMean: 6.1, minProperNounZipf: 2.6, allowedModifiers: ['chains'] },
   { from: 151, categoryMean: 14.3, categoryCorridor: [11, 17], rareRange: [7, 13], metaRange: [1, 5],
-    repeatRange: [21, 31], zipfMedianTarget: 3.82, zipfP25Target: 3.23, maxTokens: 2,
+    repeatRange: [21, 31], poolRankTarget: 0.279, zipfMedianTarget: 3.82, zipfP25Target: 3.23, maxTokens: 2,
     maxWordLen: 17, wordLenMean: 6.2, minProperNounZipf: 2.6, allowedModifiers: ['chains'] },
   { from: 161, categoryMean: 14.0, categoryCorridor: [11, 17], rareRange: [8, 14], metaRange: [1, 4],
-    repeatRange: [20, 30], zipfMedianTarget: 3.73, zipfP25Target: 3.13, maxTokens: 2,
+    repeatRange: [20, 30], poolRankTarget: 0.359, zipfMedianTarget: 3.73, zipfP25Target: 3.13, maxTokens: 2,
     maxWordLen: 17, wordLenMean: 6.3, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
   { from: 171, categoryMean: 14.5, categoryCorridor: [11, 18], rareRange: [7, 13], metaRange: [1, 4],
-    repeatRange: [23, 33], zipfMedianTarget: 3.83, zipfP25Target: 3.21, maxTokens: 2,
+    repeatRange: [23, 33], poolRankTarget: 0.301, zipfMedianTarget: 3.83, zipfP25Target: 3.21, maxTokens: 2,
     maxWordLen: 17, wordLenMean: 6.3, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
   { from: 181, categoryMean: 13.1, categoryCorridor: [11, 16], rareRange: [7, 13], metaRange: [1, 4],
-    repeatRange: [21, 31], zipfMedianTarget: 3.80, zipfP25Target: 3.23, maxTokens: 2,
+    repeatRange: [21, 31], poolRankTarget: 0.326, zipfMedianTarget: 3.80, zipfP25Target: 3.23, maxTokens: 2,
     maxWordLen: 17, wordLenMean: 6.4, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
   { from: 191, categoryMean: 13.1, categoryCorridor: [11, 17], rareRange: [7, 12], metaRange: [1, 4],
-    repeatRange: [20, 30], zipfMedianTarget: 3.87, zipfP25Target: 3.21, maxTokens: 2,
+    repeatRange: [20, 30], poolRankTarget: 0.273, zipfMedianTarget: 3.87, zipfP25Target: 3.21, maxTokens: 2,
     maxWordLen: 17, wordLenMean: 6.6, minProperNounZipf: 2.5, allowedModifiers: ['chains'] },
 ];
 
@@ -475,6 +516,7 @@ export function configForRange(
       minWordZipf: 0,
       maxWordRegister: maxWordRegister(profile),
       minWordWeight: minWordWeight(profile),
+      poolRankTarget: poolRankTargetFor(profile),
       zipfMedianTarget: profile.zipfMedianTarget,
       zipfP25Target: profile.zipfP25Target,
       visibleShareMin: visibleShareMin(profile, 4),

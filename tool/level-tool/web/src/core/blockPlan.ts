@@ -197,6 +197,30 @@ function moveLimitK(role: LevelRole): number | null {
   }
 }
 
+/**
+ * Насколько роль уровня двигает цель по рангу внутри декады.
+ *
+ * Ранг работает той же ручкой, что и редкость: у декады есть цель, а роль
+ * уровня двигает её вокруг. Передышка берёт из верха пула (слова расхожие,
+ * уровень читается с ходу), пик — из низа. Ход тот же и по той же причине,
+ * что у `rareTarget` выше: сложность растёт с ролью, а не с номером уровня.
+ *
+ * Величина 0.12 подобрана так, чтобы размах между передышкой и пиком (0.24)
+ * был меньше полосы разброса по категориям (POOL_RANK_SPREAD 0.36): роль
+ * смещает акцент, но не переворачивает уровень целиком.
+ */
+function poolRankShift(role: LevelRole): number {
+  switch (role) {
+    case 'tutorial': return -0.12;
+    case 'recovery': return -0.12;
+    case 'entry': return -0.06;
+    case 'exit': return -0.03;
+    case 'growth': return 0.03;
+    case 'spike': return 0.09;
+    case 'peak': return 0.12;
+  }
+}
+
 export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
   const [from, to] = config.levelRange;
   const total = to - from + 1;
@@ -253,6 +277,11 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       // лимита ходов на туториале нет: в референсе L1 без лимита, поле держит
       // весь уровень целиком, игрока учат только драгу
       moveLimitK: isTutorial ? null : moveLimitK(role),
+      poolRankTarget: config.decadeGates?.poolRankTarget === undefined
+        || config.decadeGates.poolRankTarget === null
+        ? null
+        : Math.min(1, Math.max(0, config.decadeGates.poolRankTarget
+          + poolRankShift(isTutorial ? 'tutorial' : role))),
     });
   }
   return plans;

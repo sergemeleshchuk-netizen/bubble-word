@@ -27,6 +27,11 @@ export interface Membership {
   weight: number | null;
   /** происхождение связи; null у одноисточниковых снимков */
   origin: number | null;
+  /**
+   * Место слова в пуле категории по популярности: 0 — самое расхожее,
+   * 1 — самое редкое. null у снимков без ранжирования и у узких пулов.
+   */
+  poolRank: number | null;
 }
 
 /** Запрет пары категорий, как он приехал из базы. */
@@ -78,6 +83,7 @@ export class ContentIndex {
         fit: row[3], obviousness: row[4], relation: row[5], sense: row[6],
         gameplayDifficulty: row[7] ?? null, riskMask: row[8] ?? 0,
         weight: row[9] ?? null, origin: row[10] ?? null,
+        poolRank: row[11] ?? null,
       };
       this.byCategory[m.category].push(m);
       this.byWord[m.word].push(m);
