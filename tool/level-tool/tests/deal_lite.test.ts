@@ -21,6 +21,7 @@ import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
 import { buildDeal, checkDeal, dealForSpec } from '../web/src/core/deal.ts';
+import { simulatePlayability } from '../web/src/core/simulatePlayability.ts';
 import {
   DEFAULT_DEAL_RANGES, configForRange, dealMinStartWordsFor,
 } from '../web/src/core/decadeProfiles.ts';
@@ -67,6 +68,42 @@ test('облегчённая раздача: на старте нет катег
         `уровень ${level.spec.levelId}: категория ${key} лежит на старте `
         + `${n} словом — одиночек в облегчённой раздаче быть не должно`);
     }
+  }
+});
+
+/*
+ * Требование владельца продукта 03.08, после наигровки уровня на 12 категорий:
+ * «одиночек быть не должно, двоек меньше, троек и четвёрок сразу больше».
+ * Двойка на старте — материал для хода, но пачка досыпки её не закрывает: ей
+ * нужно ещё два слова. Тройке нужно одно, и пачка в 4 пузыря закрывает сразу
+ * две таких категории. Поэтому бюджет поля тратится в глубину.
+ */
+test('старт уходит в глубину: троек и четвёрок больше, чем пар', () => {
+  for (const level of block.levels) {
+    const shares = [...startCounts(level.spec).values()];
+    const deep = shares.filter((n) => n >= 3).length;
+    const shallow = shares.filter((n) => n === 2).length;
+    assert.ok(deep > shallow,
+      `уровень ${level.spec.levelId}: троек и четвёрок ${deep}, пар ${shallow} `
+      + `(${[...shares].sort((a, b) => b - a).join('-')})`);
+  }
+});
+
+/*
+ * Ритм досыпки: пачка обязана открывать сбор. Считаем это на зрячем боте — он
+ * играет по правилам прототипа, включая фиксированные пачки 4/3/1. Доля
+ * продуктивных волн ниже половины означала бы, что игрок чаще получает
+ * обрывки, чем развязку, — то самое состояние «уровень сломан», из-за которого
+ * досыпку когда-то раздули до добора поля до нормы.
+ */
+test('пачка досыпки открывает сбор чаще, чем не открывает', () => {
+  for (const level of block.levels) {
+    const play = simulatePlayability(level.spec);
+    if (play.refillWaves === 0) continue;   // весь уровень уместился на поле
+    const share = play.refillCompletions / play.refillWaves;
+    assert.ok(share >= 0.5,
+      `уровень ${level.spec.levelId}: продуктивных волн `
+      + `${play.refillCompletions}/${play.refillWaves}`);
   }
 });
 

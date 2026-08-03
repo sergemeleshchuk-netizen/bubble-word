@@ -18,9 +18,10 @@
  *   * четвёртое слово схлопывает категорию: обычная уходит с поля, а
  *     мета-ребёнок ПРЕВРАЩАЕТСЯ в пузырь-слово родителя и место занимать
  *     продолжает;
- *   * досыпка приходит на ТРИ повода и только на них (GDD §2 п.6):
- *     схлопывание собранной категории, склейка двух половинок и страховка —
- *     на поле не осталось ни одной пары. Обычный мердж досыпку НЕ вызывает:
+ *   * досыпка приходит на ТРИ повода и только на них, фиксированной пачкой
+ *     (GDD §2 п.6): схлопывание собранной категории — 4 пузыря (3, если
+ *     категория стала мета-словом), склейка двух половинок — 1, и страховка —
+ *     на поле не осталось ни одной пары — 4. Обычный мердж досыпку НЕ вызывает:
  *     пустеющее поле это давление, оно задумано. Четвёртый повод —
  *     `MISS_RESCUE` неверных попыток подряд (настройка прототипа, сейчас 5) —
  *     в симуляции не наступает, потому что бот не ошибается; значит вердикт
@@ -100,10 +101,23 @@ export function simulate(level: HandoffLevelJson): PlayResult {
   const queue: Cluster[] = level.deal.queue.flatMap(expand);
   let field: Cluster[] = level.deal.start.flatMap(expand);
 
-  const topUp = () => {
-    while (field.length < capacity && queue.length) field.push(queue.shift()!);
+  /*
+   * Досыпка фиксированными пачками — ровно как в прототипе: сколько мест
+   * освободилось, столько шаров и приходит (4 за собранную категорию, 3 за
+   * мета-превращение, 1 за склейку половинок, 4 на страховку). Вместимость поля
+   * при этом остаётся потолком: штатные поводы в неё попадают сами, а страховке
+   * падать некуда, если поле полное.
+   *
+   * До 03.08 здесь стоял добор поля до вместимости, и он расходился с
+   * прототипом ещё и на старте: стартовое поле досыпалось до 24 пузырей, хотя
+   * прототип кладёт РОВНО то, что выложил генератор. Уровень 12 «как в записи»
+   * лежит на 21 пузыре — симулятор играл не тот уровень, который видит игрок.
+   */
+  const spawn = (n: number) => {
+    for (let k = 0; k < n && queue.length && field.length < capacity; k += 1) {
+      field.push(queue.shift()!);
+    }
   };
-  topUp();
   /** Есть ли на поле хоть одна пара, которую можно слить. */
   const hasLegalMove = (): boolean => {
     for (let i = 0; i < field.length; i += 1) {
@@ -151,7 +165,7 @@ export function simulate(level: HandoffLevelJson): PlayResult {
     }
     if (!best) {
       // страховка: пар нет, а очередь есть — досыпка приходит вне ритма
-      if (queue.length) { topUp(); rescues += 1; continue; }
+      if (queue.length) { spawn(4); rescues += 1; continue; }
       return { won: false, categoriesDone: done, categoriesTotal: total, movesUsed: moves,
         moveLimit: limit, reason: 'нет легального мерджа', fieldMin, queueLeft: queue.length, rescues };
     }
@@ -168,17 +182,17 @@ export function simulate(level: HandoffLevelJson): PlayResult {
       // склеили половинки — получился обычный пузырь-слово своей категории
       const categoryKey = a.cat.slice('half:'.length).split('::')[0];
       field.push({ cat: categoryKey, size: 1 });
-      topUp();                                  // повод 2: склейка половинок
+      spawn(1);                                 // повод 2: освободилось одно место
     } else if (merged.size >= cap) {
       done += 1;
       const parent = parentOf.get(a.cat);
       // мета-ребёнок не уходит с поля: он становится словом родителя
       if (parent) field.push({ cat: parent.parent, size: 1 });
-      topUp();                                  // повод 1: категория собрана
+      spawn(parent ? 3 : 4);                    // повод 1: категория собрана
     } else {
       field.push(merged);
       // обычный мердж досыпку не вызывает — поле пустеет, и это задумано
-      if (!hasLegalMove() && queue.length) { topUp(); rescues += 1; }  // повод 3
+      if (!hasLegalMove() && queue.length) { spawn(4); rescues += 1; }  // повод 3
     }
   }
   return { won: false, categoriesDone: done, categoriesTotal: total, movesUsed: moves,

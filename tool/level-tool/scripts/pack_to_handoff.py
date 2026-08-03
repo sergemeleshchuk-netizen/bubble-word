@@ -21,7 +21,7 @@
 У пакетов Python-пайплайна блока `board` нет вовсе — они собраны до того, как
 доска стала частью пакета. Раньше такой уровень уезжал в прототип без лимита,
 и прототип играл его с ∞: давление ходов исчезало, а это половина механики
-(GDD §2 п.9). Поэтому недостающий лимит здесь ДОСЧИТЫВАЕТСЯ по той же формуле,
+(GDD §2 п.10). Поэтому недостающий лимит здесь ДОСЧИТЫВАЕТСЯ по той же формуле,
 а не оставляется пустым — см. `derive_move_limit`.
 
 Выкладка здесь считается заново, потому что у пакетов пайплайна её нет: они
@@ -57,6 +57,12 @@ HANDOFF_KEY = "bubble-level-tool.generated-pack.v1"
 BOARD_CAPACITY = 24
 WORDS_PER_CATEGORY = 4
 
+# Форма стартового поля — те же числа, что в core/deal.ts: категория получает
+# либо MIN_START_WORDS слов, либо ноль (одиночек не бывает), а целевая глубина
+# START_DEPTH — тройка: ей до сбора не хватает одного слова.
+MIN_START_WORDS = 2
+START_DEPTH = 3
+
 # Границы K из core/levelMath.ts: 1.6 — просторный ранний уровень, 1.25 — hard,
 # где у игрока реально кончаются ходы. Ниже 1.25 не опускаемся.
 MIN_MOVE_LIMIT_K = 1.25
@@ -78,7 +84,7 @@ def level_title(level: dict) -> str:
 def derive_move_limit(level: dict, category_count: int) -> tuple[int | None, float | None]:
     """Лимит ходов уровня для прототипа: взять готовый или досчитать по формуле.
 
-    Формула одна на проект (GDD §2 п.9, `moveLimit` в core/levelMath.ts):
+    Формула одна на проект (GDD §2 п.10, `moveLimit` в core/levelMath.ts):
     `move_limit = ceil((3*M + chunks) * K)`. Половинок у наших пакетов нет,
     поэтому chunks = 0 и пол равен `3*M` — трём мерджам на категорию.
 
@@ -159,13 +165,121 @@ def from_block_dir(path: Path) -> dict:
     }
 
 
+def auto_scheme(field_bubbles: int, categories: int) -> list[int]:
+    """Схема старта: вход четвёркой, дальше тройки, остаток — одна пара.
+
+    Правило и его обоснование — `autoScheme` в `core/deal.ts`. Коротко: бюджет
+    поля тратится В ГЛУБИНУ. Одиночка не сливается ни с чем, а пара не
+    закрывается пачкой досыпки (ей нужно два слова) — закрывается тройка.
+    """
+    out: list[int] = []
+    left = field_bubbles
+    if categories > 0 and left >= MIN_START_WORDS:
+        opener = min(WORDS_PER_CATEGORY, left)
+        out.append(opener)
+        left -= opener
+    while len(out) < categories and left >= START_DEPTH:
+        out.append(START_DEPTH)
+        left -= START_DEPTH
+    if len(out) < categories and left >= MIN_START_WORDS:
+        n = min(left, START_DEPTH)
+        out.append(n)
+        left -= n
+    i = 0
+    while left > 0 and out and i < len(out) * WORDS_PER_CATEGORY:
+        k = i % len(out)
+        if out[k] < WORDS_PER_CATEGORY:
+            out[k] += 1
+            left -= 1
+        i += 1
+    return sorted(out, reverse=True)
+
+
+def pace_queue(pools: list[dict], counts: dict, need: dict, parent_of: dict,
+               rng: random.Random) -> list[dict]:
+    """Очередь по ритму: каждая пачка открывает следующий сбор.
+
+    Правило — `paceQueue` в `core/deal.ts`. Пачка приходит после сбора категории
+    (4 пузыря, 3 если категория стала мета-словом) и первыми в неё идут слова,
+    закрывающие ближайшие к сбору категории — до двух за пачку. Остаток пачки
+    добивается словами других НАЧАТЫХ категорий: нетронутые ждут в хвосте, они
+    открывают новую линию, когда у начатых слова кончились.
+
+    Раньше очередь здесь просто тасовалась, и пачка регулярно приносила обрывки:
+    игрок собирал категорию, получал четыре чужих слова и оставался без хода.
+    """
+    field = {p["id"]: counts[p["id"]] for p in pools}
+    pending = {p["id"]: p["words"][counts[p["id"]]:] for p in pools}
+    ids = [p["id"] for p in pools]
+    out: list[dict] = []
+
+    def push(key: str, word: str) -> None:
+        out.append({"word": word, "category": key})
+        field[key] = field.get(key, 0) + 1
+
+    guard = len(pools) * 8
+    while guard > 0:
+        guard -= 1
+        collected = next((k for k in ids if field.get(k, 0) >= need.get(k, 4)), None)
+        if collected is None:
+            break
+        field[collected] = 0
+        parent = parent_of.get(collected)
+        if parent is not None:
+            field[parent] = field.get(parent, 0) + 1
+        if not any(pending[k] for k in ids):
+            break   # хвост уровня добирается мерджами без досыпки
+        cap = 3 if parent is not None else 4
+
+        for _ in range(2):
+            target = None
+            for k in ids:
+                missing = need.get(k, 4) - field.get(k, 0)
+                if missing <= 0 or len(pending[k]) < missing or missing > cap:
+                    continue
+                if target is None or missing < target[1]:
+                    target = (k, missing)
+            if target is None:
+                break
+            key, missing = target
+            for word in pending[key][:missing]:
+                push(key, word)
+            pending[key] = pending[key][missing:]
+            cap -= missing
+
+        order = rng.sample(ids, len(ids))
+        fillers = ([k for k in order if field.get(k, 0) > 0]
+                   + [k for k in order if field.get(k, 0) == 0])
+        progress = True
+        while cap > 0 and progress:
+            progress = False
+            for k in fillers:
+                if cap <= 0:
+                    break
+                if not pending[k]:
+                    continue
+                # добивка не имеет права ДОСРОЧНО закрыть категорию
+                if need.get(k, 4) - field.get(k, 0) <= 1:
+                    continue
+                push(k, pending[k].pop(0))
+                cap -= 1
+                progress = True
+
+    # не разложилось по ритму — хвост идёт группами по категориям: волна тогда
+    # хотя бы завершает одну
+    for key in sorted(ids, key=lambda k: -field.get(k, 0)):
+        for word in pending[key]:
+            push(key, word)
+    return out
+
+
 def build_deal(level_id: int, categories: list[dict]) -> dict:
     """Первая выкладка: состав поля на старте и очередь досыпки.
 
     Правило и его обоснование — в `core/deal.ts`, здесь перевод. Коротко:
     мета-слово на поле не кладётся (оно приходит превращением собранной
-    четвёрки), одна категория выкладывается целиком, остальное раздаётся по
-    кругу почти поровну, и поле с очередью тасуются.
+    четвёрки), старт раздаётся по схеме `auto_scheme` (глубина вместо ширины,
+    без одиночек), очередь строится по ритму, поле тасуется.
     """
     names = {(c.get("name") or "").upper() for c in categories}
     seed = f"deal::{level_id}::" + ",".join(str(c.get("id")) for c in categories)
@@ -181,38 +295,45 @@ def build_deal(level_id: int, categories: list[dict]) -> dict:
         rng.shuffle(words)
         pools.append({"id": category.get("id"), "words": words})
 
+    # мета-связь: сбор дочерней категории дарит родителю пузырь-слово
+    id_by_name = {(c.get("name") or "").upper(): c.get("id") for c in categories}
+    parent_of: dict = {}
+    for category in categories:
+        for w in (category.get("words") or []):
+            child = id_by_name.get(w.upper())
+            if child is not None and child != category.get("id"):
+                parent_of[child] = category.get("id")
+    need = {c.get("id"): len(c.get("words") or []) for c in categories}
+
     total = sum(len(p["words"]) for p in pools)
-    left = min(BOARD_CAPACITY, total)
+    field_size = min(BOARD_CAPACITY, total)
+    scheme = auto_scheme(field_size, len(pools))
 
     counts = {p["id"]: 0 for p in pools}
+    left = field_size
     whole = [p for p in pools if len(p["words"]) >= WORDS_PER_CATEGORY]
     opener = whole[0] if whole else None
-    if opener is not None and left >= WORDS_PER_CATEGORY:
-        counts[opener["id"]] = WORDS_PER_CATEGORY
-        left -= WORDS_PER_CATEGORY
+    if opener is not None and scheme and left >= scheme[0]:
+        counts[opener["id"]] = scheme[0]
+        left -= scheme[0]
 
     rest = [p for p in pools if p is not opener]
     rng.shuffle(rest)
-    i = 0
-    while left > 0 and rest:
-        pool = rest[i % len(rest)]
-        cap = min(WORDS_PER_CATEGORY, len(pool["words"]))
-        if counts[pool["id"]] < cap:
-            counts[pool["id"]] += 1
-            left -= 1
-        elif all(counts[p["id"]] >= min(WORDS_PER_CATEGORY, len(p["words"])) for p in rest):
-            break   # раздавать больше нечего, а место на поле ещё есть
-        i += 1
+    for i, pool in enumerate(rest):
+        if left <= 0:
+            break
+        want = min(scheme[i + 1] if i + 1 < len(scheme) else 0, len(pool["words"]))
+        if want < MIN_START_WORDS or want > left:
+            continue   # доля меньше пола или не влезает — категория ждёт в очереди
+        counts[pool["id"]] = want
+        left -= want
 
-    start, queue = [], []
+    start = []
     for pool in pools:
-        on_field = counts[pool["id"]]
-        for k, word in enumerate(pool["words"]):
-            (start if k < on_field else queue).append(
-                {"word": word, "category": pool["id"]})
+        for word in pool["words"][:counts[pool["id"]]]:
+            start.append({"word": word, "category": pool["id"]})
     rng.shuffle(start)
-    rng.shuffle(queue)
-    return {"start": start, "queue": queue}
+    return {"start": start, "queue": pace_queue(pools, counts, need, parent_of, rng)}
 
 
 def build_level(level: dict) -> dict:

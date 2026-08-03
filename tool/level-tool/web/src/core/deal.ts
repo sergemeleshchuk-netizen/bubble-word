@@ -55,6 +55,71 @@ function spawnableWords(category: LevelCategory): string[] {
   return category.words.filter((w) => w.kind !== 'meta').map((w) => w.text);
 }
 
+/**
+ * Целевая глубина категории на старте: сколько слов она получает, пока бюджет
+ * поля не кончился. Тройка — потому что до сбора ей не хватает ОДНОГО слова:
+ * такая категория и гипотезу подсказывает, и закрывается первой же пачкой
+ * досыпки в 4 пузыря.
+ */
+const START_DEPTH = 3;
+
+/**
+ * Автоматическая схема старта: одиночек нет, двоек мало, троек и четвёрок много.
+ *
+ * Требование владельца продукта 03.08 после наигровки: уровень на 12 категорий
+ * при ровной раздаче встречал игрока полем [4,2,2,2,2,2,2,2,2,2,1,1] — одна
+ * собираемая категория, девять пар, из которых ни одна не собирается, и две
+ * мёртвые одиночки. Собрать после первой четвёрки было нечего, и досыпку
+ * приходилось раздувать до «добери поле до нормы», чтобы уровень вообще
+ * доигрывался. Лечить надо было не досыпку, а старт.
+ *
+ * Поэтому бюджет поля тратится В ГЛУБИНУ, а не в ширину: вход получает полную
+ * четвёрку, дальше категории берут по тройке, пока места хватает, и только
+ * остаток (если он не меньше `minStartWords`) открывает ещё одну категорию
+ * парой. Одиночка не появляется никогда: пузырь, которому не с чем сливаться,
+ * забирает внимание и не даёт хода. Категории, не попавшие в схему, целиком
+ * ждут в очереди — их линия открывается досыпкой.
+ *
+ * Арифметика поля на 24 пузыря: [4,3,3,3,3,3,3,2] при любом числе категорий от
+ * восьми. Категорий на старте видно меньше, зато шесть из них — в одном слове
+ * от сбора, и пачка в 4 пузыря закрывает сразу две.
+ */
+export function autoScheme(
+  fieldBubbles: number, categories: number,
+  wordsPerCategory = 4, minStartWords = 2,
+): number[] {
+  const floor = Math.max(2, minStartWords);
+  const out: number[] = [];
+  let left = fieldBubbles;
+
+  // вход: категория, которую видно всю и можно собрать не дожидаясь досыпки
+  if (categories > 0 && left >= floor) {
+    const opener = Math.min(wordsPerCategory, left);
+    out.push(opener);
+    left -= opener;
+  }
+  // остальные — по тройке, пока бюджет позволяет
+  while (out.length < categories && left >= START_DEPTH) {
+    const n = Math.min(START_DEPTH, wordsPerCategory);
+    out.push(n);
+    left -= n;
+  }
+  // остаток открывает ещё одну категорию, но только если это не одиночка
+  if (out.length < categories && left >= floor) {
+    const n = Math.min(left, START_DEPTH, wordsPerCategory);
+    out.push(n);
+    left -= n;
+  }
+  // недобор (1-2 пузыря, категории кончились) доливается в уже открытые: место
+  // на поле не должно простаивать, а лишний пузырь у тройки делает её четвёркой
+  for (let i = 0; left > 0 && i < out.length * wordsPerCategory; i += 1) {
+    const k = i % out.length;
+    if (out[k] < wordsPerCategory) { out[k] += 1; left -= 1; }
+  }
+
+  return out.sort((a, b) => b - a);
+}
+
 export function buildDeal(
   levelId: number, categories: readonly LevelCategory[], board: DealBoard,
   chunked: ChunkedWords = new Set<string>(),
@@ -110,10 +175,29 @@ export function buildDeal(
    * reference-deal-order.md §5), поэтому checkDeal для спека со схемой
    * проверяет только вместимость и полноту слов, а не точное заполнение.
    */
-  const tpl = scheme && scheme.length > 0
+  const explicit = scheme && scheme.length > 0
     ? [...scheme].sort((a, b) => b - a).map((n) =>
       Math.max(0, Math.min(board.wordsPerCategory, Math.floor(n))))
     : null;
+  /*
+   * Схема без ручной настройки: считается автоматически (autoScheme) — глубина
+   * вместо ширины, без одиночек. Историческая ровная раздача остаётся ровно там,
+   * где была: при minStartWords = 1, то есть у пакетов, собранных до 03.08. Их
+   * хеши закреплены тестом, и трогать их нельзя.
+   */
+  const tpl = explicit
+    ?? (minStartWords >= 2
+      ? autoScheme(fieldSize, pools.length, board.wordsPerCategory, minStartWords)
+      : null);
+  /*
+   * Пол доли: сколько слов должно достаться категории, чтобы её вообще
+   * выкладывать. У автоматической схемы это `minStartWords` (одиночек нет по
+   * правилу): категория, у которой спавнящихся слов меньше пола — например
+   * мета-родитель с тремя детьми, — на старт не идёт, её слово приходит
+   * досыпкой. Ручная схема остаётся ручной: дизайнер вправе поставить в неё
+   * единицу, и она исполняется как написано.
+   */
+  const shareFloor = explicit ? 1 : Math.max(2, minStartWords);
 
   let left = fieldSize;
   const openerWant = tpl ? tpl[0] : board.wordsPerCategory;
@@ -123,74 +207,30 @@ export function buildDeal(
   }
 
   /*
-   * Облегчённая раздача (minStartWords >= 2): у категории на старте либо
-   * минимум `minStartWords` слов, либо её на поле нет вовсе — она целиком
-   * ждёт в очереди досыпки.
+   * Раздача по схеме — и ручной, и автоматической. Доли идут по порядку
+   * перемешанных категорий; «доля меньше пола» или «не влезло в бюджет поля
+   * целиком» означает, что категория уходит в очередь целиком. Частичных долей
+   * нет: иначе схема без одиночек могла бы породить одиночку.
    *
-   * Зачем. Поле держит 24 пузыря при любом числе категорий, и ровная раздача
-   * «всем понемногу» на больших уровнях раскладывает категории по одному
-   * слову. Такой пузырь-одиночка не сливается ни с чем — его пара ещё в
-   * очереди, ход с ним невозможен по построению, а внимание он забирает
-   * наравне с остальными. Замер по 400 уровням: на 13 категориях одиночек
-   * 4-7, на 16 — до 62% поля. Облегчённая раздача меняет мёртвые одиночки
-   * на пары и тройки: категорий на старте видно меньше, но каждая видимая —
-   * материал для хода, а не отвлечение.
+   * Порядок категорий — тот же rng.shuffle, что и у исторической ровной
+   * раздачи: выкладка по-прежнему пересчитывается из одного спека.
    *
-   * Раздача в два прохода: сперва каждой представленной категории её минимум
-   * (кому не хватило бюджета — целиком в очередь), затем остаток по кругу
-   * между уже представленными. Порядок категорий — тот же rng.shuffle, что и
-   * у ровной раздачи: выкладка по-прежнему пересчитывается из одного спека.
-   *
-   * При minStartWords = 1 работает исторический путь «всем понемногу» ниже —
-   * байт в байт, это закреплено тестом воспроизводимости старых пакетов.
+   * При minStartWords = 1 схемы нет, и работает исторический путь «всем
+   * понемногу» ниже — байт в байт, это закреплено тестом воспроизводимости
+   * старых пакетов.
    */
   const rest = rng.shuffle(pools.filter((p) => p !== opener));
 
   if (tpl) {
-    // доли раздаются по порядку перемешанных категорий; «не влезло в бюджет
-    // поля целиком» = категория уходит в очередь, частичных долей нет —
-    // иначе схема без одиночек могла бы породить одиночку
     for (let i = 0; i < rest.length; i += 1) {
       if (left <= 0) break;
       const pool = rest[i];
       const want = Math.min(tpl[i + 1] ?? 0, pool.words.length);
-      if (want <= 0) continue;
+      if (want < shareFloor) continue;
       const price = bubblesFor(pool, want);
       if (price > left) continue;
       counts.set(pool.key, want);
       left -= price;
-    }
-    return assembleDeal(categories, pools, counts, cost, rng);
-  }
-
-  if (minStartWords >= 2) {
-    const represented: typeof rest = [];
-    for (const pool of rest) {
-      if (left <= 0) break;
-      const cap = Math.min(board.wordsPerCategory, pool.words.length);
-      const want = Math.min(minStartWords, cap);
-      const price = bubblesFor(pool, want);
-      if (price > left) continue;   // не влезает минимум — категория ждёт в очереди
-      counts.set(pool.key, want);
-      left -= price;
-      represented.push(pool);
-    }
-    for (let i = 0; left > 0 && represented.length > 0; i += 1) {
-      const pool = represented[i % represented.length];
-      const cap = Math.min(board.wordsPerCategory, pool.words.length);
-      const have = counts.get(pool.key) ?? 0;
-      const next = have < cap ? cost(pool.key, pool.words[have]) : 0;
-      if (have < cap && next <= left) {
-        counts.set(pool.key, have + 1);
-        left -= next;
-      } else if (represented.every((p) => {
-        const done = (counts.get(p.key) ?? 0) >= Math.min(
-          board.wordsPerCategory, p.words.length);
-        const tooBig = !done && cost(p.key, p.words[counts.get(p.key) ?? 0]) > left;
-        return done || tooBig;
-      })) {
-        break;
-      }
     }
     return assembleDeal(categories, pools, counts, cost, rng);
   }
@@ -252,10 +292,12 @@ function assembleDeal(
 /**
  * Очередь досыпки по ритму референса: каждая пачка открывает следующий сбор.
  *
- * Как устроена досыпка в прототипе: новые пузыри приходят ТОЛЬКО после сбора
- * категории (4 пузыря; 3, если категория осталась на поле мета-словом). Значит
- * порядок очереди — это и есть ритм уровня: если пачка не даёт собрать ничего
- * нового, игрок смотрит на поле из одних недоборов и считает уровень сломанным.
+ * Как устроена досыпка в прототипе: пачка приходит после сбора категории — 4
+ * пузыря, или 3, если категория осталась на поле мета-словом, — и ещё один
+ * пузырь после склейки половинок. Числа фиксированные: сколько мест
+ * освободилось, столько и приходит. Значит порядок очереди — это и есть ритм
+ * уровня: если пачка не даёт собрать ничего нового, игрок смотрит на поле из
+ * одних недоборов и считает уровень сломанным.
  * Инцидент 02.08, уровень 12 «как в оригинале»: случайная очередь оставила
  * поле в таком состоянии на 15+ ходов, спасала только страховка «досыпка вне
  * ритма».
@@ -315,18 +357,27 @@ function paceQueue(
 
     let cap = parent !== undefined ? 3 : 4;
 
-    // цель пачки: категория, которую дешевле всего довести до сбора
-    let target: { key: string; words: string[]; costTotal: number } | null = null;
-    for (const c of categories) {
-      const rest = pending.get(c.key) ?? [];
-      const missing = (needed.get(c.key) ?? 4) - (fieldCount.get(c.key) ?? 0);
-      if (missing <= 0 || rest.length < missing) continue;   // не соберётся этой пачкой
-      const words = rest.slice(0, missing);
-      const costTotal = words.reduce((n, w) => n + cost(c.key, w), 0);
-      if (costTotal > cap) continue;
-      if (!target || costTotal < target.costTotal) target = { key: c.key, words, costTotal };
-    }
-    if (target) {
+    /*
+     * Цели пачки: категории, которые дешевле всего довести до сбора. Их в пачке
+     * может быть ДВЕ — требование владельца продукта 03.08: «досыпка должна
+     * всегда открывать следующий сбор, а если на поле лежали тройки — два
+     * следующих». Тройке не хватает одного слова, значит пачка в 4 пузыря
+     * закрывает сразу пару таких категорий, и игра не встаёт после каждого
+     * сбора. Больше двух не берём: остаток пачки обязан достаться добивке,
+     * иначе поле превращается в конвейер готовых четвёрок.
+     */
+    for (let t = 0; t < 2; t += 1) {
+      let target: { key: string; words: string[]; costTotal: number } | null = null;
+      for (const c of categories) {
+        const rest = pending.get(c.key) ?? [];
+        const missing = (needed.get(c.key) ?? 4) - (fieldCount.get(c.key) ?? 0);
+        if (missing <= 0 || rest.length < missing) continue;   // не соберётся этой пачкой
+        const words = rest.slice(0, missing);
+        const costTotal = words.reduce((n, w) => n + cost(c.key, w), 0);
+        if (costTotal > cap) continue;
+        if (!target || costTotal < target.costTotal) target = { key: c.key, words, costTotal };
+      }
+      if (!target) break;
       const rest = pending.get(target.key) ?? [];
       pending.set(target.key, rest.slice(target.words.length));
       for (const w of target.words) push(target.key, w);

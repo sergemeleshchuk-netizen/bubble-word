@@ -26,6 +26,7 @@
  */
 import type { BlockConfig, Modifier } from './types.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
+import { autoScheme } from './deal.ts';
 import { createRng } from './rng.ts';
 
 export interface DecadeProfile {
@@ -653,29 +654,21 @@ export function decadeTuningRowFor(
 }
 
 /**
- * Превью автоматической облегчённой раздачи для M категорий — те же правила,
- * что в core/deal.ts (вход целиком + минимум пара + добор по кругу), но без
- * распилов: номинальная схема для колонки таблицы. Для M = 9 даёт
- * 4-3-3-3-3-2-2-2-2 — ровно медианную схему замера оригинала.
+ * Превью автоматической раздачи для M категорий: номинальная схема для колонки
+ * таблицы (без распилов — они считаются уже на конкретном уровне).
+ *
+ * Правило одно и живёт в core/deal.ts (`autoScheme`): вход целиком, дальше
+ * тройки, остаток — одна пара, одиночек нет. Здесь только вызов: две копии
+ * правила разъехались бы, и таблица показывала бы дизайнеру не то, что уровень
+ * получит на самом деле. Для M >= 8 при поле 24 даёт 4-3-3-3-3-3-3-2.
  */
 export function liteSchemePreview(
   categories: number, wordsPerCategory = 4, capacity = BOARD_CAPACITY,
+  minStartWords = 2,
 ): number[] {
   if (categories <= 0) return [];
-  const counts: number[] = new Array(categories).fill(0);
-  let left = Math.min(capacity, categories * wordsPerCategory);
-  if (left >= wordsPerCategory) { counts[0] = wordsPerCategory; left -= wordsPerCategory; }
-  const represented: number[] = [0];
-  for (let i = 1; i < categories && left >= 2; i += 1) {
-    counts[i] = 2; left -= 2; represented.push(i);
-  }
-  for (let k = 1; left > 0; k += 1) {
-    const i = represented[k % represented.length];
-    if (i === undefined) break;
-    if (counts[i] < wordsPerCategory) { counts[i] += 1; left -= 1; }
-    if (represented.every((j) => counts[j] >= wordsPerCategory)) break;
-  }
-  return counts.filter((n) => n > 0).sort((a, b) => b - a);
+  const field = Math.min(capacity, categories * wordsPerCategory);
+  return autoScheme(field, categories, wordsPerCategory, minStartWords);
 }
 
 /** «4-3-3-3-2-2-2-2-1» → [4,3,3,3,2,2,2,2,1]; пусто → null (авто); мусор → undefined. */
