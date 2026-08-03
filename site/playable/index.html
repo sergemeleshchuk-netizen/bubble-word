@@ -223,38 +223,29 @@ let boardScale=1;
   });
 })();
 
-/* ===== контент: задачи математического солитёра =====
-   категория = одинаковый результат выражения (×, −, +, /, √, ²) */
-/* КАЖДАЯ категория = ровно 4 слова, шар лопается ТОЛЬКО на 4 (как в референсе).
-   На старте на поле лежат части первых 7 категорий: 4-3-3-3-2-2-2 слов (19 пузырей);
-   недостающие слова + 5 целых категорий = ОБЩАЯ ПЕРЕМЕШАННАЯ очередь. Досыпка приходит
-   рывком после сбора категории: 4 шара, если категория улетела, и 3, если она осталась
-   мета-словом (референс). Вне ритма досыпка приходит только как страховка от тупика.
-   Контент = декки Word Solitaire (Solitaire Balance.xlsx → лист Decks text). */
-const DEFAULT_TARGETS=[
- {v:'SEASONS',   ex:['SPRING','AUTUMN','SUMMER','WINTER']},
- {v:'SPACE',     ex:['STAR','ROCKET','PLANET','MOON']},
- {v:'FOOD',      ex:['PIZZA','SOUP','POTATO','PASTA']},
- {v:'PETS',      ex:['CAT','DOG','HAMSTER','PARROT']},
- {v:'FARM',      ex:['COW','PIG','SHEEP','GOAT']},
- {v:'HOME',      ex:['DOOR','WINDOW','BED','LAMP']},
- {v:'FRUITS',    ex:['APPLE','BANANA','ORANGE','PEAR']},
- {v:'TRANSPORT', ex:['BUS','TRAIN','CAR','SHIP']},
- {v:'SKY',       ex:['CLOUD','RAINBOW','STORM','RAIN']},
- {v:'HOLIDAYS',  ex:['EASTER','BIRTHDAY','CHRISTMAS','HALLOWEEN']},
- {v:'JOBS',      ex:['CHEF','DOCTOR','WAITER','ENGINEER']},
- {v:'MAGIC',     ex:['WAND','POTION','SPELL','CAULDRON']},
-];
-let TARGETS=DEFAULT_TARGETS;
-/* Сколько слов каждой категории лежит на поле у встроенного демо-контента:
-   полная четвёрка первой категории плюс понемногу от остальных, всего 24 —
-   столько же, сколько на настоящем уровне. Раньше здесь было 19, и демо
-   выглядело разреженнее любого уровня из пакета. */
-let START_COUNTS=[4,2,2,2,2,2,2,2,2,2,1,1];
+/* ===== контент уровня =======================================================
+   Своего контента у прототипа НЕТ. Он исполняет уровень, который ему передали:
+   `?level=<json>`, `?pack=<id>&n=<N>` или пакет из хранилища (`?gen=N`).
+
+   Раньше здесь лежали двенадцать зашитых категорий — SEASONS, SPACE, FOOD и так
+   далее, — и любой сбой загрузки молча подменял ими настоящий уровень. Читалось
+   это как «прототип работает»: поле полное, пузыри тащатся, категории
+   собираются. На деле проверяющий играл не в тот уровень, который проверял, и
+   заметить подмену можно было только по словам на пузырях. Так уже терялись
+   ошибки: пакет без `board` роняло обращение к `L.board.move_limit`, ошибку
+   гасил общий catch, и вместо своего уровня показывался демо-контент.
+
+   Поэтому уровня нет — играть нечего, и прототип говорит это вслух (`noLevel`
+   в конце файла). Пустой экран с объяснением честнее полного экрана с чужими
+   словами. */
+let TARGETS=[];
+/* Сколько слов каждой категории лежит на старте. Заполняется выкладкой уровня
+   (`applyLevel`); своих значений здесь больше нет. */
+let START_COUNTS=[];
 /* Вместимость поля: сколько пузырей видно одновременно. 24 — замер целевой игры
    (TARGET_GAME_OBSERVATIONS §2), то же число стоит в BOARD_CAPACITY инструмента.
-   Раньше здесь было 19, взятое из встроенного демо-контента, и уровень в проверке
-   выглядел разреженнее, чем он есть. */
+   Раньше здесь было 19, взятое из зашитого демо-контента, и уровень в проверке
+   выглядел разреженнее, чем он есть. Демо-контента больше нет вовсе. */
 const BOARD_CAPACITY=24;
 
 /* ===== лимит ходов ==========================================================
@@ -372,7 +363,8 @@ function applyLevel(L){
   (L.icons||[]).forEach(i=>{ if(i&&i.word&&i.icon) METAICON[String(i.word).toUpperCase()]=i.icon; });
   /* board может не приехать вовсе: у старых пакетов его нет. Обращение к
      L.board.move_limit на таком пакете когда-то падало, ошибка гасилась общим
-     catch, и вместо своего уровня показывался встроенный демо-контент. */
+     catch, и вместо своего уровня показывался зашитый демо-контент. Теперь
+     подменять нечем: сбой загрузки честно говорит «играть нечего» (noLevel). */
   const board=L.board||{};
   /* Безлимит — только по конфигу выше. Если лимита в пакете нет, он считается
      по формуле: молчаливое ∞ снимало бы с уровня половину механики. */
@@ -1273,7 +1265,40 @@ function loop(ts){
   }
   requestAnimationFrame(loop);
 }
-/* ===== старт: уровень из ?level=... (JSON) либо встроенный контент ===== */
+/* Играть нечего: уровень не передали или он не загрузился.
+
+   Молча показать что-нибудь другое здесь нельзя — на этом и горели: сбой
+   загрузки подменялся зашитым демо-контентом, экран выглядел рабочим, и
+   проверяющий играл не в тот уровень. Поэтому вслух и с причиной. */
+function noLevel(reason){
+  board.innerHTML='';
+  /* HUD и бустеры тоже гасим. Оставленные, они показывали бы числа
+     несуществующего уровня — «42 MOVES», «LVL 1», «0/12», три заряда, — то есть
+     ровно ту ложь, ради устранения которой демо-контент и убран. */
+  const hud=document.getElementById('hud');
+  const boosters=document.getElementById('boosters');
+  if(hud) hud.style.visibility='hidden';
+  if(boosters) boosters.style.visibility='hidden';
+  const box=document.createElement('div');
+  box.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;'
+    +'align-items:center;justify-content:center;gap:10px;padding:0 34px;text-align:center;'
+    +'color:#eaf6ff;font:600 15px/1.45 system-ui,-apple-system,sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.5)';
+  const t=document.createElement('div');
+  t.textContent='Уровень не передан';
+  t.style.cssText='font-size:19px';
+  const s=document.createElement('div');
+  s.style.cssText='opacity:.78;font-weight:400;font-size:13px';
+  s.textContent=reason||'Выберите уровень в списке над прототипом.';
+  const h=document.createElement('div');
+  h.style.cssText='opacity:.55;font-weight:400;font-size:12px;margin-top:6px';
+  h.textContent='Своего контента у прототипа нет: он играет только то, '
+    +'что пришло в ?level=, ?pack= или ?gen=.';
+  box.append(t,s,h);
+  board.appendChild(box);
+  console.warn('[playable] играть нечего:', reason||'уровень не передан');
+}
+
+/* ===== старт: уровень приходит из ?level=, ?pack= или ?gen= ===== */
 (async function boot(){
   const params=new URLSearchParams(location.search);
   const q=params.get('level');
@@ -1303,7 +1328,7 @@ function loop(ts){
       if(!lvl) throw new Error('в пакете '+entry.pack_id+' нет уровня '+n);
       applyLevel(lvl);
       console.log('level loaded from pack:',entry.pack_id,'#'+n,'из',pack.levels.length);
-    }catch(e){ console.warn('pack load failed, играем встроенный контент:',e); }
+    }catch(e){ return noLevel('Пакет «'+packId+'» не загрузился: '+e.message); }
   }
   else if(gen!==null){
     try{
@@ -1312,12 +1337,13 @@ function loop(ts){
       if(!lvl) throw new Error('в хранилище нет уровня '+gen);
       applyLevel(lvl);
       console.log('level loaded from generator:',pack.label,lvl.title||lvl.level_id);
-    }catch(e){ console.warn('generated level load failed, играем встроенный контент:',e); }
+    }catch(e){ return noLevel('Уровень из генератора не загрузился: '+e.message); }
   }
   else if(q){
     try{ applyLevel(await (await fetch(q)).json()); console.log('level loaded:',q); }
-    catch(e){ console.warn('level load failed, играем встроенный контент:',e); }
+    catch(e){ return noLevel('Файл «'+q+'» не загрузился: '+e.message); }
   }
+  else return noLevel();
   init();
   requestAnimationFrame(fit);
   requestAnimationFrame(loop);

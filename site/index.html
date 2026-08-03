@@ -1981,9 +1981,10 @@ README должен содержать:
           <div class="phone-wrap">
             <div class="lvl-pick">
               <label for="lvlSel">Уровень</label>
-              <select id="lvlSel" onchange="reloadPlay()">
-                <option value="">Демо · встроенный контент</option>
-              </select>
+              <!-- Пункта «Демо · встроенный контент» здесь больше нет: своего контента
+                   у прототипа не осталось, он играет только переданный уровень.
+                   Группы уровней подставляет mountHandoff при раскрытии пункта. -->
+              <select id="lvlSel" onchange="reloadPlay()"></select>
               <label for="modSel">Модификатор</label>
               <select id="modSel" onchange="reloadPlay()">
                 <option value="">нет · базовая механика</option>
@@ -2067,7 +2068,10 @@ README должен содержать:
       o.textContent=l.title||('Уровень '+l.level_id);
       group.appendChild(o);
     });
-    if(first) sel.insertBefore(group, sel.firstChild.nextSibling);
+    /* Первая группа встаёт в начало списка. Раньше она вставлялась ПОСЛЕ первого
+       узла — им был пункт «Демо»; теперь пункта нет, и insertBefore с null
+       (пустой список) ведёт себя как appendChild, что здесь и нужно. */
+    if(first) sel.insertBefore(group, sel.firstChild);
     else sel.appendChild(group);
     return levels.length;
   }
@@ -2178,7 +2182,16 @@ README должен содержать:
       /* Список уровней пересобираем при каждом раскрытии: генератор мог отдать
          пакет только что, в этой же сессии, и перезагружать страницу ради
          появления группы человек не должен. */
-      if(body.querySelector('#lvlSel')) mountHandoff();
+      if(body.querySelector('#lvlSel')) mountHandoff(function(){
+        /* Демо-контента у прототипа больше нет: пока уровень не выбран, играть
+           ему нечего, и он честно показывает «уровень не передан». Поэтому
+           первый же собранный список сразу отдаёт ему первый уровень — но
+           только если во фрейме уровня ещё нет, иначе повторное раскрытие
+           пункта сбрасывало бы начатую партию. */
+        var fr=document.getElementById('playFrame');
+        var sel=document.getElementById('lvlSel');
+        if(fr && sel && sel.value && fr.src.indexOf('?')<0) reloadPlay();
+      });
       body.style.maxHeight = body.scrollHeight + 'px';
       /* после анимации отпускаем ограничение: контент с vh-размерами
          (рамка телефона) не должен обрезаться при изменении окна */
