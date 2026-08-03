@@ -48,7 +48,7 @@ test('баз ровно две: BADB по умолчанию и RefBWJ, сним
   assert.equal(CONTENT_SOURCES.length, 2);
   assert.deepEqual(CONTENT_SOURCES.map((s) => s.id), ['production', 'reference']);
   assert.deepEqual(CONTENT_SOURCES.map((s) => s.label),
-    ['BubbleAssociations-DB', 'RefBWJ']);
+    ['BubbleAssociations-DB', 'RefBWJ [тест]']);
   assert.equal(DEFAULT_SOURCE_ID, 'production');
   for (const source of CONTENT_SOURCES) {
     assert.ok(existsSync(join(ROOT, source.snapshotFile)),

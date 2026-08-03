@@ -63,10 +63,16 @@ export function ContentBase({ snapshot, source, requested, loading, busy, onSwit
 
       <div className="sources">
         <span className="lbl">источник</span>
+        {/*
+          Выбранная кнопка залита цветом своей роли (`tone` в core/sources.ts):
+          рабочий словарь зелёный, тестовый жёлтый. Раньше выбор отмечался только
+          рамкой, и два похожих названия рядом читались одинаково — а собрать
+          пакет не на том словаре означает пакет, который не воспроизводится.
+        */}
         {CONTENT_SOURCES.map((s) => (
           <button
             key={s.id}
-            className={`ghost ${requested === s.id ? 'on' : ''}`}
+            className={`ghost ${requested === s.id ? `on tone-${s.tone}` : ''}`}
             disabled={busy}
             onClick={() => onSwitch(s.id)}
           >

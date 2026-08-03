@@ -156,6 +156,23 @@ button.ghost:hover { border-color: var(--accent); }
 button.ghost.on { border-color: var(--accent); color: var(--accent); }
 
 /*
+ * Выбранный источник контента залит цветом своей роли.
+ *
+ * Зелёный — рабочий словарь, на нём собираются сдаваемые пакеты. Жёлтый —
+ * тестовая база: чужие уровни только для чтения. Заливка приглушённая, а текст
+ * и рамка яркие: кнопка должна читаться как выбранная с одного взгляда, но не
+ * спорить по контрасту с главной синей кнопкой экрана.
+ */
+button.ghost.on.tone-live {
+  background: rgba(63, 185, 80, 0.16); border-color: var(--ok); color: #74d585;
+}
+button.ghost.on.tone-live:hover { border-color: var(--ok); }
+button.ghost.on.tone-test {
+  background: rgba(210, 153, 34, 0.2); border-color: #e0a92a; color: #ecc35c;
+}
+button.ghost.on.tone-test:hover { border-color: #e0a92a; }
+
+/*
  * Переход к следующему шагу. Стоит в строке закладок с правого края: там же,
  * где видно, на каком шаге ты сейчас, — и до неё не нужно прокручивать экран.
  * Цвет намеренно НЕ синий: синим помечено главное действие самого экрана
