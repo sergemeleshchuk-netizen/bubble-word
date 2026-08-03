@@ -156,6 +156,18 @@ button.ghost:hover { border-color: var(--accent); }
 button.ghost.on { border-color: var(--accent); color: var(--accent); }
 
 /*
+ * Выключенная кнопка обязана читаться выключенной.
+ *
+ * Без этих правил `disabled` менял только поведение: кнопка «Скачать» на
+ * заблокированном экспорте выглядела ровно как рабочая, человек жал и решал,
+ * что инструмент сломан. Курсор `not-allowed` и приглушение — весь ответ;
+ * почему именно нельзя, говорит подпись рядом и `title` на самой кнопке.
+ */
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.primary:disabled:hover { filter: none; }
+button.ghost:disabled:hover { border-color: var(--line); }
+
+/*
  * Выбранный источник контента залит цветом своей роли.
  *
  * Зелёный — рабочий словарь, на нём собираются сдаваемые пакеты. Жёлтый —

@@ -20,7 +20,9 @@ import { fileURLToPath } from 'node:url';
 import type { Snapshot } from '../web/src/core/types.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
-import { generateBlock, redealLevel, withLevel } from '../web/src/core/generateBlock.ts';
+import {
+  generateBlock, levelHardGateFailure, redealLevel, withLevel,
+} from '../web/src/core/generateBlock.ts';
 import { checkDeal } from '../web/src/core/deal.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -117,4 +119,26 @@ test('«авто» возвращает ровно исходный уровен
     'возврат к автоматической раздаче обязан давать прежний уровень с прежним хешем');
   assert.deepEqual(appliedScheme(back.spec), appliedScheme(level.spec));
   assert.equal(back.spec.board.dealScheme, undefined);
+});
+
+/*
+ * Ручная пересдача не имеет права обходить приёмку.
+ *
+ * Аудит 03.08: после правки выкладки к уровню не применялся тот же
+ * динамический hard-гейт, что при генерации, — экспорт всё равно оставался
+ * доступен. Гейт с тех пор один (`levelHardGateFailure`), и результат
+ * пересдачи обязан быть таким, чтобы гейт мог его судить: с посчитанной
+ * проходимостью, а не с унаследованной или пустой.
+ */
+test('к пересданному уровню применим тот же гейт, что к сгенерированному', () => {
+  const redealt = redealLevel({ snapshot, scoring, block, level, scheme: SCHEME });
+  // гейт обязан ВЫНЕСТИ СУЖДЕНИЕ, а не промолчать из-за недостающих данных
+  const failure = levelHardGateFailure(redealt);
+  if (failure) {
+    assert.notEqual(failure.stage, 'проходимость',
+      `гейт не смог оценить пересданный уровень: ${failure.reason}`);
+  }
+  // и исходный уровень блока гейт тоже судит — он пришёл из генерации и прошёл её
+  assert.equal(levelHardGateFailure(level), null,
+    'уровень, принятый генератором, обязан проходить общий гейт');
 });

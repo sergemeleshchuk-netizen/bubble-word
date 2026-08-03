@@ -7,7 +7,9 @@
  */
 import type {
   BlockConfig, BlockResult, GeneratedLevel, GenerationFailure, LevelSpec, Snapshot,
+  SolutionCount, ValidationIssue,
 } from './types.ts';
+import type { PlayabilityResult } from './simulatePlayability.ts';
 import { ContentIndex } from './snapshot.ts';
 import { buildBlockPlan } from './blockPlan.ts';
 import {
@@ -26,6 +28,81 @@ import {
 import { computeInterest, type InterestEvidence } from './scoringInterest.ts';
 import { canonicalJson, levelSpecHash, sha256Hex } from './hashing.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
+
+/**
+ * Hard-условия приёмки уровня — ОДИН список на весь инструмент.
+ *
+ * Раньше их было два: генерация проверяла единственность решения, hard-инварианты
+ * и динамическую проходимость, а экран экспорта — только первые два, да и то
+ * лишь рисовал плашку, не мешая скачать. Получалось, что инструмент обещал
+ * «экспорт разрешён только после проверок» и тут же отдавал файл. Уровень после
+ * ручной пересдачи выкладки не проходил и проверку проходимости — то есть
+ * человек мог выложить старт, который сам же генератор забраковал бы.
+ *
+ * Поэтому условия живут здесь и вызываются из обоих мест. Возвращается причина
+ * отказа (её показывают человеку) или `null`, если уровень принят.
+ */
+export interface HardGateInput {
+  solutions: SolutionCount;
+  hardIssues: ValidationIssue[];
+  /** результат симуляции; `undefined`, если до неё не дошли */
+  playability?: PlayabilityResult;
+  /** цепь-линия снимается прототипом сама — ритм ей мерить нечем */
+  chained: boolean;
+}
+
+export function hardGateFailure(
+  input: HardGateInput,
+): { stage: string; reason: string } | null {
+  const { solutions, hardIssues, playability, chained } = input;
+  if (solutions.count === 0) {
+    return { stage: 'единственность решения',
+      reason: 'ни одной полной раскладки — ошибка сборки' };
+  }
+  if (solutions.count >= 2) {
+    const clash = solutions.secondSolutionExample?.slice(0, 2)
+      .map((s) => s.category).join(' и ') ?? 'две категории';
+    return { stage: 'единственность решения',
+      reason: `найдено две полные раскладки: слова двоятся между ${clash}` };
+  }
+  if (hardIssues.length) {
+    return { stage: 'валидация',
+      reason: hardIssues.map((i) => `${i.code}: ${i.message}`).join('; ') };
+  }
+  /*
+   * Динамическая проходимость — такой же hard-гейт, как единственность решения.
+   * Инцидент 02.08 (уровень 12 «как в оригинале»): семантически безупречный
+   * уровень со случайной очередью досыпки оставил игрока перед полем из одних
+   * недоборов. Уровень обязан не только решаться на бумаге, но и доигрываться
+   * в ритме: без жёстких тупиков, в лимит ходов, без досыпок «вне ритма» и
+   * состояний «выглядит тупиком».
+   */
+  if (!playability) {
+    return { stage: 'проходимость', reason: 'симуляция партии не прогонялась' };
+  }
+  if (!playability.winnable) {
+    return { stage: 'проходимость',
+      reason: playability.failReason ?? 'симуляция партии не дошла до победы' };
+  }
+  if (!chained && (playability.rescues > 0 || playability.perceivedDead > 0)) {
+    return { stage: 'проходимость',
+      reason: `ритм сломан: досыпок вне ритма ${playability.rescues}, `
+        + `состояний-«тупиков» ${playability.perceivedDead}` };
+  }
+  return null;
+}
+
+/** Тот же гейт, но по уже посчитанному уровню: для экспорта и сводки пакета. */
+export function levelHardGateFailure(
+  level: GeneratedLevel,
+): { stage: string; reason: string } | null {
+  return hardGateFailure({
+    solutions: level.solutions,
+    hardIssues: level.validation.issues.filter((i) => i.severity === 'hard'),
+    playability: level.playability,
+    chained: level.spec.modifiers.chainLine !== null,
+  });
+}
 
 export interface BlockGenerationOptions {
   snapshot: Snapshot;
@@ -194,45 +271,25 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       forcedChain: isDeepLevel && reservedChain ? reservedChain : undefined,
       accept: (spec) => {
         const solutions = countSolutions(index, spec);
-        if (solutions.count === 0) {
-          return { ok: false, stage: 'единственность решения',
-            reason: 'ни одной полной раскладки — ошибка сборки' };
-        }
-        if (solutions.count >= 2) {
-          const clash = solutions.secondSolutionExample?.slice(0, 2)
-            .map((s) => s.category).join(' и ') ?? 'две категории';
-          return { ok: false, stage: 'единственность решения',
-            reason: `найдено две полные раскладки: слова двоятся между ${clash}` };
-        }
-        const validation = validateLevel(spec, {
-          ...validationContext(), solutions, repeatCount: repeatCount(spec, history),
+        const validation = solutions.count === 1
+          ? validateLevel(spec, {
+            ...validationContext(), solutions, repeatCount: repeatCount(spec, history),
+          })
+          : undefined;
+        const failure = hardGateFailure({
+          solutions,
+          hardIssues: validation
+            ? validation.issues.filter((i) => i.severity === 'hard')
+            : [],
+          // Симуляцию гоняем только когда уровень дошёл до неё: она дороже
+          // остальных проверок, а на двусмысленном уровне бессмысленна.
+          playability: solutions.count === 1 && validation
+              && !validation.issues.some((i) => i.severity === 'hard')
+            ? simulatePlayability(spec)
+            : undefined,
+          chained: spec.modifiers.chainLine !== null,
         });
-        const hard = validation.issues.filter((i) => i.severity === 'hard');
-        if (hard.length) {
-          return { ok: false, stage: 'валидация',
-            reason: hard.map((i) => `${i.code}: ${i.message}`).join('; ') };
-        }
-        /*
-         * Динамическая проходимость — такой же hard-гейт, как единственность
-         * решения. Инцидент 02.08 (уровень 12 «как в оригинале»): семантически
-         * безупречный уровень со случайной очередью досыпки оставил игрока
-         * перед полем из одних недоборов. Уровень обязан не только решаться
-         * на бумаге, но и доигрываться в ритме: без жёстких тупиков, в лимит
-         * ходов, без досыпок «вне ритма» и состояний «выглядит тупиком».
-         * Цепь-линия — исключение по построению: прототип снимает её сам,
-         * когда мерджей не осталось, и это штатная механика, а не сбой.
-         */
-        const play = simulatePlayability(spec);
-        if (!play.winnable) {
-          return { ok: false, stage: 'проходимость',
-            reason: play.failReason ?? 'симуляция партии не дошла до победы' };
-        }
-        const chained = spec.modifiers.chainLine !== null;
-        if (!chained && (play.rescues > 0 || play.perceivedDead > 0)) {
-          return { ok: false, stage: 'проходимость',
-            reason: `ритм сломан: досыпок вне ритма ${play.rescues}, `
-              + `состояний-«тупиков» ${play.perceivedDead}` };
-        }
+        if (failure) return { ok: false, ...failure };
         return { ok: true, stage: 'проверки', reason: 'все hard-инварианты пройдены' };
       },
     });
