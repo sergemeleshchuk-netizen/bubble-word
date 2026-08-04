@@ -171,6 +171,62 @@ test('слова-двойники в одной категории → NEAR_DUPL
   assert.ok(result.issues.some((i) => i.code === 'NEAR_DUPLICATE_WORDS'));
 });
 
+/**
+ * Двойники в РАЗНЫХ категориях — тот случай, который прошёл приёмку 04.08:
+ * `borders` в MAP и `border` в MAP WORDS. Формально уровень был безупречен (у
+ * каждого слова один дом, решение единственное), играть в него было нельзя.
+ */
+test('слова-двойники в разных категориях → NEAR_DUPLICATE_WORDS', () => {
+  const snapshot = makeSnapshot([
+    { key: 'sky', label: 'SKY', words: [
+      ['star', 4.5, 'approved'], ['moon', 4.6, 'approved'],
+      ['sun', 5.0, 'approved'], ['cloud', 4.7, 'approved']] },
+    { key: 'flags', label: 'FLAGS', words: [
+      ['stars', 4.4, 'approved'], ['stripe', 4.2, 'approved'],
+      ['pole', 4.3, 'approved'], ['banner', 4.1, 'approved']] },
+  ]);
+  const dupIndex = new ContentIndex(snapshot);
+  const spec = buildSpec(201, [
+    levelCategory('sky', 'SKY', [
+      word('star', 4.5), word('moon', 4.6), word('sun', 5.0), word('cloud', 4.7)]),
+    levelCategory('flags', 'FLAGS', [
+      word('stars', 4.4), word('stripe', 4.2), word('pole', 4.3), word('banner', 4.1)]),
+  ]);
+  const result = validateLevel(spec, {
+    index: dupIndex, solutions: countSolutions(dupIndex, spec), hashQuadruple });
+  const issue = result.issues.find((i) => i.code === 'NEAR_DUPLICATE_WORDS');
+  assert.ok(issue, `не поймано, упали: ${result.issues.map((i) => i.code).join(', ')}`);
+  assert.ok(issue.entities?.some((e) => e.includes('в разных категориях')),
+    'разбор обязан называть обе категории — иначе непонятно, что править');
+});
+
+/**
+ * Имена-близнецы: MAP и MAP WORDS. Проверка пересечения пулов (UNSEPARABLE_PAIR)
+ * такую пару не видит — в базе у них НОЛЬ общих слов, потому что `border` никто
+ * не разметил в MAP. Поэтому правило смотрит на имя, а не на разметку.
+ */
+test('вложенные имена категорий → CATEGORY_NAMES_DISTINCT', () => {
+  const snapshot = makeSnapshot([
+    { key: 'map', label: 'MAP', words: [
+      ['chart', 4.5, 'approved'], ['area', 5.4, 'approved'],
+      ['scale', 4.6, 'approved'], ['legend', 4.2, 'approved']] },
+    { key: 'map_words', label: 'MAP WORDS', words: [
+      ['globe', 4.3, 'approved'], ['route', 4.7, 'approved'],
+      ['compass', 4.1, 'approved'], ['atlas', 4.0, 'approved']] },
+  ]);
+  const twinIndex = new ContentIndex(snapshot);
+  const spec = buildSpec(201, [
+    levelCategory('map', 'MAP', [
+      word('chart', 4.5), word('area', 5.4), word('scale', 4.6), word('legend', 4.2)]),
+    levelCategory('map_words', 'MAP WORDS', [
+      word('globe', 4.3), word('route', 4.7), word('compass', 4.1), word('atlas', 4.0)]),
+  ]);
+  const result = validateLevel(spec, {
+    index: twinIndex, solutions: countSolutions(twinIndex, spec), hashQuadruple });
+  assert.ok(result.issues.some((i) => i.code === 'CATEGORY_NAMES_DISTINCT'),
+    `не поймано, упали: ${result.issues.map((i) => i.code).join(', ')}`);
+});
+
 test('фрагмент половинки совпадает со словом уровня → HALF_COLLISION', () => {
   const spec = validLevel();
   spec.halves = [{

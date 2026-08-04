@@ -28,6 +28,7 @@ import { ContentIndex } from './snapshot.ts';
 import { createRng, type Rng } from './rng.ts';
 import { buildDeal, chunkKey, resolveScheme } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
+import { namesTooClose, nearDuplicateForms } from './wordForms.ts';
 import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
 import { metaIconFor, pickMetaIcons } from './metaIcons.ts';
 // Модель знания игрока даёт генератору порог опоры; обратно она берёт из него
@@ -90,8 +91,18 @@ import { ANCHOR_CLARITY, isAnchorWord } from './playerKnowledge.ts';
  *           можно только перебором, и уровни с тремя такими категориями слепой
  *           игрок доходит в 55% случаев против 2% у уровней без них. Хеши всех
  *           уровней меняются, и обязаны: четвёрки собираются из других слов.
+ * gen-1.9 — БЕЗ СЛОВ И ИМЁН-БЛИЗНЕЦОВ на одном поле (жалоба владельца 04.08 на
+ *           собранный уровень). Два запрета: (1) слова-двойники ловятся по всему
+ *           уровню, а не внутри категории — `borders` в MAP и `border` в MAP WORDS
+ *           формально безупречны, но игрок различить их не может; (2) две
+ *           категории, чьё имя вложено одно в другое (MAP и MAP WORDS, CHESS и
+ *           CHESS TERMS), на одно поле не ставятся. Второй запрет нельзя было
+ *           получить из пересечения пулов: у MAP и MAP WORDS в базе НОЛЬ общих
+ *           слов, потому что `border` никто не разметил в MAP. Пересечение мерит
+ *           полноту разметки, смысл выдаёт имя. Хеши всех уровней меняются:
+ *           четвёрки и наборы категорий собираются иначе.
  */
-export const GENERATOR_VERSION = 'gen-1.8';
+export const GENERATOR_VERSION = 'gen-1.9';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -219,18 +230,6 @@ interface Constraints {
 // --------------------------------------------------------------------------- //
 // вспомогательное
 // --------------------------------------------------------------------------- //
-
-/**
- * Слова-двойники внутри одной категории: `star` и `stars`, `bird` и `birds`.
- * Формально это разные слова, но на поле рядом они читаются как ошибка данных.
- */
-function isNearDuplicate(a: string, b: string): boolean {
-  if (a === b) return true;
-  const [short, long] = a.length <= b.length ? [a, b] : [b, a];
-  if (long === `${short}s` || long === `${short}es`) return true;
-  if (short.endsWith('y') && long === `${short.slice(0, -1)}ies`) return true;
-  return false;
-}
 
 function quadrupleKey(words: string[]): string {
   return words.map((w) => w.toLowerCase()).sort().join('|');
@@ -676,6 +675,9 @@ function pairSeparable(
   index: ContentIndex, a: number, b: number, poolCache: Map<number, Set<number>>,
 ): boolean {
   if (index.conflict(a, b)) return false;
+  // имена-близнецы: MAP и MAP WORDS. Стоит раньше пулов — это отказ по смыслу,
+  // и он не зависит от того, насколько подробно категории размечены
+  if (namesTooClose(index.categories[a].l, index.categories[b].l)) return false;
   const pool = (cat: number): Set<number> => {
     let set = poolCache.get(cat);
     if (!set) {
@@ -1084,6 +1086,20 @@ function assignWords(
   const plannedMetaWord = new Map<number, MetaEdge>();  // слово → ребро
   for (const edge of edges) plannedMetaWord.set(edge.word, edge);
 
+  /**
+   * Написания-двойники подписей выбранных категорий: форма → чьё это имя.
+   * Считается один раз на уровень, потому что спрашивается на каждом кандидате
+   * внутри перебора — см. levelNorms о той же цене.
+   */
+  const labelForms = new Map<string, number[]>();
+  for (const p of selected) {
+    for (const f of nearDuplicateForms(index.categories[p.category].l.toLowerCase())) {
+      const list = labelForms.get(f) ?? [];
+      list.push(p.category);
+      labelForms.set(f, list);
+    }
+  }
+
   const forced = new Map<number, number[]>();     // категория → обязательные слова
   for (const edge of edges) {
     const list = forced.get(edge.parent) ?? [];
@@ -1102,6 +1118,21 @@ function assignWords(
     ?? selected.find((p) => p.canQuickwin)?.category;
 
   const used = new Set<number>();                 // занятые слова уровня
+  /**
+   * Написания слов, уже стоящих НА УРОВНЕ, со счётчиком повторов. Список ведётся
+   * инкрементально вместе с `used`, а не собирается заново в `candidatesFor`:
+   * проверка двойников идёт по всему полю и вызывается внутри перебора.
+   */
+  const levelNorms = new Map<string, number>();
+  const addNorm = (w: number): void => {
+    const n = index.words[w].n;
+    levelNorms.set(n, (levelNorms.get(n) ?? 0) + 1);
+  };
+  const dropNorm = (w: number): void => {
+    const n = index.words[w].n;
+    const left = (levelNorms.get(n) ?? 0) - 1;
+    if (left > 0) levelNorms.set(n, left); else levelNorms.delete(n);
+  };
   const assignment = new Map<number, number[]>();
   let unrecognizableUsed = 0;
   let rareUsed = 0;
@@ -1256,7 +1287,9 @@ function assignWords(
         if (!wordFitsGates(index, w, c.gates)) return false;
         const word = index.words[w];
         if (word.n === catLabelNorm) return false;               // слово = имя своей категории
-        if (chosenNorms.some((n) => isNearDuplicate(n, word.n))) return false;
+        // двойник любого слова УРОВНЯ, не только своей категории: `border` в
+        // MAP WORDS рядом с `borders` в MAP — угадывание, а не дедукция
+        if (nearDuplicateForms(word.n).some((f) => levelNorms.has(f))) return false;
 
         // пересдача вернувшейся категории: не больше одного слова из её
         // прошлой четвёрки (REDEAL_OVERLAP_MAX)
@@ -1271,6 +1304,10 @@ function assignWords(
         if (labelOf !== undefined) {
           const edge = plannedMetaWord.get(w);
           if (!edge || edge.parent !== cat) return false;
+        } else if ((labelForms.get(word.n) ?? []).some((k) => k !== cat)) {
+          // двойник имени ЧУЖОЙ категории: `maps` на поле с категорией MAP
+          // читается как её мета-пузырь, которым оно не является
+          return false;
         }
 
         if (isQuickwin && !index.isQuickwinWord(w)) return false;
@@ -1403,6 +1440,7 @@ function assignWords(
       list.push(word);
       assignment.set(target, list);
       used.add(word);
+      addNorm(word);
       const wasUnrecognizable = !index.isRecognizable(word);
       const z = index.zipf(word);
       const wasRare = z !== null && z < rareZipfCeiling(c.gates);
@@ -1416,6 +1454,7 @@ function assignWords(
       list.pop();
       if (list.length === 0) assignment.delete(target); else assignment.set(target, list);
       used.delete(word);
+      dropNorm(word);
       if (wasUnrecognizable) unrecognizableUsed -= 1;
       if (wasRare) rareUsed -= 1;
       if (wasRepeat) repeatsUsed -= 1;
@@ -1432,6 +1471,7 @@ function assignWords(
       list.push(word);
       assignment.set(cat, list);
       used.add(word);
+      addNorm(word);
     }
   }
 

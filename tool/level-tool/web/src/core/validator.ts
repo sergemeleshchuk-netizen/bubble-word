@@ -14,6 +14,7 @@ import type { StructuralMetrics } from './structuralMetrics.ts';
 import { QUEUE_STAGING_FROM, checkDeal } from './deal.ts';
 import { metaIconFor } from './metaIcons.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
+import { isNearDuplicate, namesTooClose } from './wordForms.ts';
 
 export interface ValidationContext {
   index: ContentIndex;
@@ -584,26 +585,70 @@ const CHECKS: Check[] = [
   {
     code: 'NEAR_DUPLICATE_WORDS',
     severity: 'hard',
+    /**
+     * Двойники по ВСЕМУ уровню, а не внутри категории (04.08).
+     *
+     * Раньше правило смотрело каждую категорию отдельно и пропустило уровень, где
+     * `borders` стоял в MAP, а `border` — в MAP WORDS. Формально там всё сходилось:
+     * у каждого слова один дом, решение единственное. Играть в это нельзя — цена
+     * ошибки ход, а различить слова игрок не может. Пара из разных категорий
+     * поэтому даже хуже пары внутри одной: внутри одной это косметика, между
+     * категориями — нечестный уровень.
+     */
+    run: (spec) => {
+      const items = spec.categories.flatMap((c) => c.words
+        .map((w) => ({ cat: c.key, norm: w.text.toLowerCase() })));
+      const bad: string[] = [];
+      for (let i = 0; i < items.length; i += 1) {
+        for (let j = i + 1; j < items.length; j += 1) {
+          const a = items[i];
+          const b = items[j];
+          if (!isNearDuplicate(a.norm, b.norm)) continue;
+          bad.push(a.cat === b.cat
+            ? `${a.cat}: ${a.norm} и ${b.norm}`
+            : `${a.norm} (${a.cat}) и ${b.norm} (${b.cat}) — в разных категориях`);
+        }
+      }
+      return {
+        passed: bad.length === 0,
+        detail: bad.length ? `пар слов-двойников на уровне: ${bad.length}`
+          : 'слов-двойников на уровне нет',
+        entities: bad,
+        suggestion: 'star и stars рядом читаются как ошибка данных, '
+          + 'а в разных категориях — как нечестный уровень',
+      };
+    },
+  },
+  {
+    code: 'CATEGORY_NAMES_DISTINCT',
+    severity: 'hard',
+    /**
+     * Имена-близнецы на одном поле: MAP и MAP WORDS, CHESS и CHESS TERMS.
+     *
+     * Отдельное правило, а не часть UNSEPARABLE_PAIR, потому что мерит другое.
+     * UNSEPARABLE_PAIR считает пересечение размеченных пулов — у MAP и MAP WORDS
+     * оно НУЛЕВОЕ, и пара проходила. Пустое пересечение здесь означает не
+     * «категории независимы», а «никто не разметил `border` в MAP»: полноту
+     * разметки, не смысл. Смысл выдаёт имя, поэтому имя и проверяем.
+     */
     run: (spec) => {
       const bad: string[] = [];
-      for (const category of spec.categories) {
-        const norms = category.words.map((w) => w.text.toLowerCase());
-        for (let i = 0; i < norms.length; i += 1) {
-          for (let j = i + 1; j < norms.length; j += 1) {
-            const [a, b] = [norms[i], norms[j]];
-            const [short, long] = a.length <= b.length ? [a, b] : [b, a];
-            if (long === `${short}s` || long === `${short}es`) {
-              bad.push(`${category.key}: ${a} и ${b}`);
-            }
+      for (let i = 0; i < spec.categories.length; i += 1) {
+        for (let j = i + 1; j < spec.categories.length; j += 1) {
+          const a = spec.categories[i];
+          const b = spec.categories[j];
+          if (namesTooClose(a.label, b.label)) {
+            bad.push(`«${a.label}» и «${b.label}»`);
           }
         }
       }
       return {
         passed: bad.length === 0,
-        detail: bad.length ? `пар слов-двойников в одной категории: ${bad.length}`
-          : 'слов-двойников внутри категорий нет',
+        detail: bad.length ? `пар категорий с вложенными именами: ${bad.length}`
+          : 'имена категорий уровня не вкладываются друг в друга',
         entities: bad,
-        suggestion: 'star и stars рядом читаются как ошибка данных',
+        suggestion: 'слово, годное для «карты», годится и для «слов про карту» — '
+          + 'игрок начинает угадывать вместо того, чтобы думать',
       };
     },
   },
