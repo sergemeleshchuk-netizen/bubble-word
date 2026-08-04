@@ -632,7 +632,7 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
             commit={(raw) => { patch({ categoryPlan: parseOptionalList(raw) }); return true; }} />
           <DraftField
             label="план по мета-связям"
-            tip="Явное число мета-связей на каждую позицию. Пусто — берётся из профиля декады (примерно 28% категорий уровня). Ноль в позиции означает уровень вообще без мета."
+            tip="Явное число мета-связей на каждую позицию. Пусто — план строится сам: 1-2-3 ровными долями на обычных позициях, 4 только на спайке (позиция 5), а раз в две декады один уровень идёт совсем без мета. Ноль в позиции означает уровень вообще без мета."
             hint="пусто — берётся профиль декады"
             value={(draft.metaPlan ?? []).join(', ')}
             commit={(raw) => { patch({ metaPlan: parseOptionalList(raw) }); return true; }} />

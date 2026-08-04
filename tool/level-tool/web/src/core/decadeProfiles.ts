@@ -38,7 +38,13 @@ export interface DecadeProfile {
   categoryCorridor: [number, number];
   /** слов zipf<3 на уровень (в референсе это счётчик, а не пол по частотности) */
   rareRange: [number, number];
-  /** мета-пар (слово = имя другой категории уровня) на уровень */
+  /**
+   * ЗАМЕРЕННЫЙ в референсе разброс мета-пар (слово = имя другой категории
+   * уровня) на уровень. План по нему больше не строится напрямую: сколько
+   * мета-пар просить — решение дизайнера, см. `META_MAX_SPIKE` и
+   * `planMetaCounts`. Из замера остался только верхний край: декада, где
+   * референс мета почти не использует (1-10), и у нас остаётся тихой.
+   */
   metaRange: [number, number];
   /** слов, уже встречавшихся раньше в ДРУГОЙ категории, на уровень */
   repeatRange: [number, number];
@@ -468,19 +474,84 @@ export function planCategoryCounts(
 /** L1 референса: 5 категорий, 20 пузырей = весь уровень, лимита ходов нет. */
 export const TUTORIAL_CATEGORY_COUNT = 5;
 
-/** Мета-план: середина коридора декады, ноль на туториале. */
+/**
+ * Проектный потолок мета-связей (решение владельца 04.08).
+ *
+ * Мета-пара — самый дорогой для игрока рычаг: пузырь-имя выглядит как обычное
+ * слово и молча принадлежит двум категориям, поэтому четыре таких пары на
+ * уровне читаются не как «интересно», а как «непонятно». Пока план брался
+ * случайным броском внутри ЗАМЕРЕННОГО коридора декады, кривая уезжала именно
+ * туда: у декады 31-40 выходило 5,6,6,3,4,6,6,6,3,6, у 91-100 — с семёркой.
+ * Замер референса при этом остаётся замером (`metaRange`), но просим мы теперь
+ * не его: пять мета-пар не нужны нигде, четыре — только на спайке.
+ */
+export const META_MAX_SPIKE = 4;
+/** Обычная позиция декады не просит больше трёх мета-пар. */
+export const META_MAX_ORDINARY = 3;
+/**
+ * Раз в две декады один уровень идёт СОВСЕМ без мета — это передышка, на
+ * которой игрок видит только плоские категории. Дырка в один уровень на 20
+ * заметна как пауза и не заметна как провал сложности.
+ */
+export const META_ZERO_EVERY_DECADES = 2;
+
+/** Потолок мета-пар для позиции декады: спайк выше обычной позиции. */
+export function metaCeilingFor(profile: DecadeProfile, position: number): number {
+  const hi = Math.min(profile.metaRange[1], META_MAX_SPIKE);
+  return position === SPIKE_POSITION ? hi : Math.min(hi, META_MAX_ORDINARY);
+}
+
+/**
+ * Мета-план декады.
+ *
+ * Форма фиксированная, случаен только порядок обычных позиций (детерминированно
+ * от seed, как и всё остальное в плане):
+ *
+ *   - спайк (позиция 5) — потолок декады, максимум `META_MAX_SPIKE`;
+ *   - передышка (позиция 6) — 0 в каждой второй декаде, иначе 1;
+ *   - остальные восемь — ровными долями 1, 2, 3 (три единицы, три двойки,
+ *     две тройки), перемешанные.
+ *
+ * Средняя выходит около двух мета-пар на уровень вместо прежних трёх с
+ * половиной, и в каждой декаде гарантированно есть и единицы, и тройка, и одна
+ * четвёрка на пике. Потолок декады подрезает форму там, где референс мета почти
+ * не использует: у 1-10 замеренный максимум 2, значит и спайк там 2.
+ *
+ * Подрезка `категорий − 1` остаётся: мета-пара — это имя ДРУГОЙ категории
+ * уровня, столько имён на уровне физически и есть.
+ */
 export function planMetaCounts(
   profile: DecadeProfile, categoryCounts: number[], seed: string, isFirstDecade = false,
   rhythmKey: number = profile.from,
 ): number[] {
-  const [lo, hi] = profile.metaRange;
+  const total = categoryCounts.length;
+  if (total === 0) return [];
+  const spikeCeiling = metaCeilingFor(profile, SPIKE_POSITION);
+  const ordinary = metaCeilingFor(profile, 1);
   const rng = createRng(`${seed}::meta::${rhythmKey}`);
-  return categoryCounts.map((categories, i) => {
-    if (isFirstDecade && i === 0) return 0;   // мета-пары в оригинале с L3
-    const span = hi - lo;
-    const value = lo + (span > 0 ? rng.int(span + 1) : 0);
-    return Math.min(value, categories - 1);
-  });
+
+  // короткий блок: спайк съезжает на последнюю позицию, передышки нет вовсе
+  const spikeAt = total >= SPIKE_POSITION ? SPIKE_POSITION : total;
+  const recoveryAt = total >= RECOVERY_POSITION ? RECOVERY_POSITION : 0;
+  const restCount = Math.max(0, total - (recoveryAt ? 2 : 1));
+  // ровные доли: 1,2,3,1,2,3,… — младших значений всегда не меньше, чем старших
+  const rest = rng.shuffle(Array.from({ length: restCount },
+    (_, i) => (ordinary === 0 ? 0 : 1 + (i % ordinary))));
+
+  // ноль на передышке — раз в две декады; номер декады берём из rhythmKey,
+  // потому что за 200-м уровнем профиль один, а блоки идут разные
+  const decadeIndex = Math.max(0, Math.floor((rhythmKey - 1) / 10));
+  const zeroDecade = decadeIndex % META_ZERO_EVERY_DECADES === 0;
+
+  let next = 0;
+  const counts: number[] = [];
+  for (let position = 1; position <= total; position += 1) {
+    if (position === spikeAt) counts.push(spikeCeiling);
+    else if (position === recoveryAt) counts.push(zeroDecade ? 0 : Math.min(1, ordinary));
+    else counts.push(rest[next++] ?? 0);
+  }
+  if (isFirstDecade) counts[0] = 0;   // мета-пары в оригинале с L3
+  return counts.map((value, i) => Math.max(0, Math.min(value, categoryCounts[i] - 1)));
 }
 
 /**
@@ -1024,29 +1095,36 @@ export function checkDecadeFit(
     + `на ${inRange} уровнях из ${levels.length}; факт по уровням ${rareCounts.join(', ')}`);
 
   /**
-   * Мета-пары: потолок жёсткий, пол — с допуском на один уровень.
+   * Мета-пары: потолок жёсткий по позиции, снизу — «мета вообще набирается».
    *
-   * Сверху перебор запрещён строго: лишние мета-пары это скачок сложности, и
-   * генератор их сам не просит. Снизу допуск нужен потому, что мета-пара
-   * конкурирует с точным покрытием: на уровне 39 план требовал 3 пары, и на
-   * 12 попытках из 21 набор с тремя парами не давал каждой категории четырёх
-   * слов с единственным домом. Генератор отступил до 2 — это законный компромисс
-   * (ослабление «меньше мета-связей»), запрещать его в приёмке значит запрещать
-   * то, что мы сами разрешили. Ровно так же устроен допуск у RARE_BUDGET выше.
+   * Сверху перебор запрещён строго и позиционно: четыре мета-пары — фигура
+   * спайка (`META_MAX_SPIKE`), на обычной позиции потолок три. Раньше здесь
+   * стоял замеренный коридор декады целиком, и он же был полом: у декады 31-40
+   * пол 3 требовал минимум три мета-пары на каждом уровне, то есть запрещал
+   * ровно то спокойное большинство, которое план теперь и просит.
    *
-   * Зубы проверка не теряет: провал ниже пола больше чем на 1 или больше чем на
-   * одном уровне декады — это уже дефицит материала, и он обязан быть виден.
+   * Пол заменён на счётчик: мета-пары обязаны быть хотя бы на трети уровней
+   * декады. План даёт их на шести уровнях из десяти, так что у генератора
+   * остаётся запас на законное отступление («меньше мета-связей» из
+   * RELAXATION_ORDER), а полная тишина по мета — дефицит материала, и он
+   * по-прежнему обязан быть виден.
    */
-  const META_FLOOR_SLACK = 1;
+  const META_MIN_LEVELS_SHARE = 1 / 3;
   const metaCounts = levels.map((l) => l.metaCount);
-  const overCeiling = metaCounts.filter((n) => n > profile.metaRange[1]).length;
-  const belowFloor = metaCounts.filter((n) => n < profile.metaRange[0]);
-  const tooDeepBelow = belowFloor.filter((n) => profile.metaRange[0] - n > META_FLOOR_SLACK).length;
+  const overCeiling = metaCounts
+    .map((n, i) => ({ n, position: i + 1 }))
+    .filter(({ n, position }) => n > metaCeilingFor(profile, complete ? position : SPIKE_POSITION));
+  const withMeta = metaCounts.filter((n) => n > 0).length;
+  const needWithMeta = Math.max(1, Math.floor(levels.length * META_MIN_LEVELS_SHARE));
   add('META_RANGE',
-    overCeiling === 0 && belowFloor.length <= 1 && tooDeepBelow === 0,
-    `мета-пар по уровням ${metaCounts.join(', ')}; коридор декады `
-    + `${profile.metaRange.join('-')}, ниже пола ${belowFloor.length} уровней `
-    + `(допустим один и не глубже чем на ${META_FLOOR_SLACK})`);
+    overCeiling.length === 0 && (profile.metaRange[1] === 0 || withMeta >= needWithMeta),
+    `мета-пар по уровням ${metaCounts.join(', ')}; потолок `
+    + `${metaCeilingFor(profile, 1)} на обычной позиции и `
+    + `${metaCeilingFor(profile, SPIKE_POSITION)} на спайке (позиция ${SPIKE_POSITION})`
+    + (overCeiling.length
+      ? `, перебор на позициях ${overCeiling.map((o) => o.position).join(', ')}`
+      : '')
+    + `; мета есть на ${withMeta} уровнях из ${levels.length}, нужно минимум ${needWithMeta}`);
 
   /*
    * Потолок глубины — у каждого уровня свой, по его номеру. Раньше здесь стояла

@@ -11,7 +11,7 @@
 import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
 import { STAGED_CATEGORIES } from './deal.ts';
-import { spreadBoundsFor } from './decadeProfiles.ts';
+import { META_MAX_ORDINARY, META_MAX_SPIKE, spreadBoundsFor } from './decadeProfiles.ts';
 
 /**
  * Дефолтный пресет для 201-210.
@@ -91,7 +91,14 @@ export const DEFAULT_BLOCK_CONFIG: BlockConfig = {
    */
   presetLocked: true,
   categoryPlan: [13, 15, 12, 16, 18, 12, 14, 15, 17, 13],
-  metaPlan: [2, 3, 1, 4, 5, 1, 3, 2, 4, 2],
+  /**
+   * Мета-план приведён к проектному потолку (решение владельца 04.08, см.
+   * `META_MAX_SPIKE` в decadeProfiles.ts): пятёрка на пике убрана, четвёрка
+   * осталась только на нём, передышка на позиции 6 идёт совсем без мета.
+   * Раньше здесь стояло [2, 3, 1, 4, 5, 1, 3, 2, 4, 2] — из спеки, а спека
+   * брала числа из замера референса, где мета-пар щедро.
+   */
+  metaPlan: [1, 2, 1, 3, 4, 0, 2, 3, 3, 1],
 };
 
 function roleFor(position: number, total: number, config: BlockConfig): LevelRole {
@@ -130,17 +137,24 @@ function derivedCategoryCount(
   }
 }
 
-/** Мета-связей для позиции, если явного плана нет. */
+/**
+ * Мета-связей для позиции, если явного плана нет.
+ *
+ * Держится того же потолка, что и план декады (`META_MAX_SPIKE`): было 28% от
+ * числа категорий — на уровне из 16 категорий это четыре мета-пары на КАЖДОЙ
+ * обычной позиции. Теперь доля 15% (две пары на типичном уровне), четвёрка
+ * только на пике, передышка без мета вовсе.
+ */
 function derivedMetaCount(role: LevelRole, categoryCount: number, config: BlockConfig): number {
   if (config.maxMetaDepth <= 0) return 0;
-  const dense = Math.round(categoryCount * 0.28);
+  const dense = Math.min(META_MAX_ORDINARY, Math.round(categoryCount * 0.15));
   switch (role) {
-    case 'recovery': return Math.min(1, dense);
-    case 'peak': return dense;
-    case 'spike': return Math.max(1, dense - 1);
-    case 'entry': return Math.max(1, Math.round(dense * 0.6));
-    case 'exit': return Math.max(1, Math.round(dense * 0.6));
-    default: return Math.max(1, Math.round(dense * 0.8));
+    case 'recovery': return 0;
+    case 'peak': return Math.min(META_MAX_SPIKE, dense + 2);
+    case 'spike': return Math.min(META_MAX_ORDINARY, dense + 1);
+    case 'entry': return Math.min(dense, 1);
+    case 'exit': return dense;
+    default: return dense;
   }
 }
 
