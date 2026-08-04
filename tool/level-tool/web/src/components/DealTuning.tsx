@@ -32,6 +32,14 @@
  * одно, явное, и оно же переписывает конфиг текущего блока: включая пресет
  * 201-210 — человек, нажавший «применить», сильнее закрепления пресета
  * (`presetLocked`), которое защищает только автоматический путь.
+ *
+ * Панель СВЁРНУТА по умолчанию (решение владельца 04.08). Таблица — двадцать с
+ * лишним строк по семь полей, и на первом шаге она занимала весь экран, хотя
+ * заходят в неё редко: кривая настраивается один раз на всю сдачу. В свёрнутом
+ * виде заголовок несёт то, за чем в таблицу и приходят: какая строка достаётся
+ * текущему блоку и есть ли неприменённые правки. Открытое состояние
+ * запоминается — переход на другую вкладку размонтирует панель, и без памяти
+ * она захлопывалась бы у человека, который её только что открыл.
  */
 import { useEffect, useState } from 'react';
 import {
@@ -42,6 +50,24 @@ import { BOARD_CAPACITY } from '../core/levelMath.ts';
 
 function sum(scheme: readonly number[]): number {
   return scheme.reduce((a, b) => a + b, 0);
+}
+
+/**
+ * Раскрыта панель или свёрнута — настройка инструмента, как и сама таблица,
+ * поэтому переживает перезагрузку. Ключ версионирован по той же причине:
+ * смена формата не должна ронять чтение старого значения.
+ *
+ * Умолчание — свёрнуто: пустой ключ читается как «закрыто», так что первый
+ * заход на инструмент всегда начинается с короткого первого шага.
+ */
+const FOLD_KEY = 'level-tool.decade-table-open.v1';
+
+function loadOpen(): boolean {
+  try {
+    return localStorage.getItem(FOLD_KEY) === '1';
+  } catch {
+    return false;
+  }
 }
 
 /** Сколько пузырей реально даст схема строки на краях коридора. */
@@ -91,138 +117,176 @@ export function DecadeTable({ rows, onApply, appliedTo }: {
     setDraft(sorted.map((r) => (r.from === from ? { ...r, ...patch } : r)));
   };
 
+  const [open, setOpen] = useState<boolean>(loadOpen);
+  const toggleFold = (next: boolean) => {
+    setOpen(next);
+    try {
+      localStorage.setItem(FOLD_KEY, next ? '1' : '0');
+    } catch { /* приватный режим: состояние живёт до перезагрузки */ }
+  };
+
   return (
     <div className="panel">
-      <h2>Стартовая раскладка по декадам</h2>
-      <p className="hint">
-        «Шаров на старте» — бюджет стартового поля на промежуток: max подрезает
-        поле (в оригинале первая декада встречает игрока 16-20 пузырями, полные
-        24 приходят к L11-20 и дальше остаются), min — сколько пузырей старт
-        обязан набрать, если материала хватает. Схема — доли категорий на старте
-        по убыванию: <span className="mono">4-3-3-3-2-1</span> — одна категория
-        целиком (вход), три по тройке, пара и одиночка. Уровень с минимумом
-        категорий коридора получает схему min, с максимумом — схему max, между
-        ними раскладка интерполируется. Пустые схемы — автоматическая
-        облегчённая раздача: вход целиком, остальным минимум пара, без одиночек.
-      </p>
-      <div style={{ overflowX: 'auto' }}>
-        <table>
-          <thead>
-            <tr>
-              <th>декада</th>
-              <th>шаров min</th>
-              <th>max</th>
-              <th>категорий min</th>
-              <th>max</th>
-              <th style={{ minWidth: 200 }}>схема min</th>
-              <th style={{ minWidth: 200 }}>схема max</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sorted.map((row) => {
-              const base = defaults.find((d) => d.from === row.from);
-              const edited = !base || JSON.stringify(base) !== JSON.stringify(row);
-              const live = applied.find((a) => a.from === row.from);
-              const pending = !live || JSON.stringify(live) !== JSON.stringify(row);
-              const sums = schemeSums(row);
-              const cap = row.startBubbles[1];
-              return (
-                <tr key={row.from} className={edited ? 'selected' : undefined}>
-                  <td className="mono">
-                    {row.from}-{row.to}
-                    {pending && <div className="note">не применено</div>}
-                    {!pending && appliedRow?.from === row.from
-                      && <div className="note">в текущем блоке</div>}
-                  </td>
-                  <td>
-                    <NumField
-                      value={row.startBubbles[0]} min={4} max={row.startBubbles[1]}
-                      onCommit={(n) => update(row.from,
-                        { startBubbles: [n, row.startBubbles[1]] })}
-                    />
-                  </td>
-                  <td>
-                    <NumField
-                      value={cap} min={row.startBubbles[0]} max={BOARD_CAPACITY}
-                      onCommit={(n) => update(row.from,
-                        { startBubbles: [row.startBubbles[0], n] })}
-                    />
-                  </td>
-                  <td>
-                    <NumField
-                      value={row.corridor[0]} min={3} max={row.corridor[1]}
-                      onCommit={(n) => update(row.from, { corridor: [n, row.corridor[1]] })}
-                    />
-                  </td>
-                  <td>
-                    <NumField
-                      value={row.corridor[1]} min={row.corridor[0]} max={18}
-                      onCommit={(n) => update(row.from, { corridor: [row.corridor[0], n] })}
-                    />
-                  </td>
-                  <td>
-                    <SchemeField
-                      value={row.schemeMin}
-                      placeholder={`авто: ${formatScheme(
-                        liteSchemePreview(row.corridor[0], 4, cap))} = ${sums[0]}`}
-                      onCommit={(schemeMin) => update(row.from, { schemeMin })}
-                    />
-                  </td>
-                  <td>
-                    <SchemeField
-                      value={row.schemeMax}
-                      placeholder={`авто: ${formatScheme(
-                        liteSchemePreview(row.corridor[1], 4, cap))} = ${sums[1]}`}
-                      onCommit={(schemeMax) => update(row.from, { schemeMax })}
-                    />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-      <div className="row" style={{ marginTop: 10 }}>
-        <button
-          className="primary"
-          disabled={!dirty}
-          onClick={() => onApply(sorted)}
-        >
-          Сохранить и применить
-        </button>
-        {dirty && (
-          <button className="ghost" onClick={() => setDraft(applied)}>
-            отменить правки
-          </button>
-        )}
-        {!isDefault && (
-          <button className="ghost" onClick={() => setDraft(decadeTuningDefaults())}>
-            вернуть умолчания
-          </button>
-        )}
-      </div>
-      <p className="hint">
-        {dirty
-          ? 'Правки в черновике: на сборку блока они не влияют, пока не применены.'
-          : 'Конфиг применён и сохранён — блок собирается по нему.'}
-        {appliedRow && (
-          <>
-            {' '}Текущему блоку (уровни {appliedTo?.[0]}-{appliedTo?.[1]}) достаётся
-            строка <span className="mono">{appliedRow.from}-{appliedRow.to}</span>:
-            категорий <span className="mono">
-              {appliedRow.corridor[0]}-{appliedRow.corridor[1]}
-            </span>. Своего поля у коридора на шаге «Настройка блока» нет — он
-            предустановка кривой и правится здесь.
-          </>
-        )}
-      </p>
       {/*
-        Абзац с оговорками под таблицей убран (решение владельца 04.08): пять
-        правил подряд про хеш пакета, целевое среднее коридора и неприкосновенность
-        пресета читателю таблицы не нужны — он пришёл поправить числа. Сами правила
-        никуда не делись, они в шапке этого файла и в `core/decadeProfiles.ts`,
-        где им и место.
+        Свёртка на нативном <details>: состояние панели держит браузер, а React
+        только запоминает его. Черновик таблицы от сворачивания не теряется —
+        содержимое остаётся смонтированным, браузер лишь прячет его.
       */}
+      <details
+        className="fold"
+        open={open}
+        onToggle={(e) => toggleFold(e.currentTarget.open)}
+      >
+        <summary>
+          <h2>Стартовая раскладка по декадам</h2>
+          {/* Свёрнутый заголовок обязан отвечать на вопрос, с которым сюда
+              идут: какая строка действует на текущий блок и не забыл ли я
+              нажать «применить». Иначе свёртка прячет не место, а сведения. */}
+          <span className="muted small">
+            {sorted.length} строк на всю кривую
+            {appliedRow && (
+              <>
+                {' · блоку '}{appliedTo?.[0]}-{appliedTo?.[1]}{' достаётся '}
+                <span className="mono">{appliedRow.from}-{appliedRow.to}</span>
+                {': категорий '}
+                <span className="mono">
+                  {appliedRow.corridor[0]}-{appliedRow.corridor[1]}
+                </span>
+              </>
+            )}
+          </span>
+          {dirty && <span className="tag warn">есть неприменённые правки</span>}
+        </summary>
+        <p className="hint">
+          «Шаров на старте» — бюджет стартового поля на промежуток: max подрезает
+          поле (в оригинале первая декада встречает игрока 16-20 пузырями, полные
+          24 приходят к L11-20 и дальше остаются), min — сколько пузырей старт
+          обязан набрать, если материала хватает. Схема — доли категорий на старте
+          по убыванию: <span className="mono">4-3-3-3-2-1</span> — одна категория
+          целиком (вход), три по тройке, пара и одиночка. Уровень с минимумом
+          категорий коридора получает схему min, с максимумом — схему max, между
+          ними раскладка интерполируется. Пустые схемы — автоматическая
+          облегчённая раздача: вход целиком, остальным минимум пара, без одиночек.
+        </p>
+        <div style={{ overflowX: 'auto' }}>
+          <table>
+            <thead>
+              <tr>
+                <th>декада</th>
+                <th>шаров min</th>
+                <th>max</th>
+                <th>категорий min</th>
+                <th>max</th>
+                <th style={{ minWidth: 200 }}>схема min</th>
+                <th style={{ minWidth: 200 }}>схема max</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((row) => {
+                const base = defaults.find((d) => d.from === row.from);
+                const edited = !base || JSON.stringify(base) !== JSON.stringify(row);
+                const live = applied.find((a) => a.from === row.from);
+                const pending = !live || JSON.stringify(live) !== JSON.stringify(row);
+                const sums = schemeSums(row);
+                const cap = row.startBubbles[1];
+                return (
+                  <tr key={row.from} className={edited ? 'selected' : undefined}>
+                    <td className="mono">
+                      {row.from}-{row.to}
+                      {pending && <div className="note">не применено</div>}
+                      {!pending && appliedRow?.from === row.from
+                        && <div className="note">в текущем блоке</div>}
+                    </td>
+                    <td>
+                      <NumField
+                        value={row.startBubbles[0]} min={4} max={row.startBubbles[1]}
+                        onCommit={(n) => update(row.from,
+                          { startBubbles: [n, row.startBubbles[1]] })}
+                      />
+                    </td>
+                    <td>
+                      <NumField
+                        value={cap} min={row.startBubbles[0]} max={BOARD_CAPACITY}
+                        onCommit={(n) => update(row.from,
+                          { startBubbles: [row.startBubbles[0], n] })}
+                      />
+                    </td>
+                    <td>
+                      <NumField
+                        value={row.corridor[0]} min={3} max={row.corridor[1]}
+                        onCommit={(n) => update(row.from, { corridor: [n, row.corridor[1]] })}
+                      />
+                    </td>
+                    <td>
+                      <NumField
+                        value={row.corridor[1]} min={row.corridor[0]} max={18}
+                        onCommit={(n) => update(row.from, { corridor: [row.corridor[0], n] })}
+                      />
+                    </td>
+                    <td>
+                      <SchemeField
+                        value={row.schemeMin}
+                        placeholder={`авто: ${formatScheme(
+                          liteSchemePreview(row.corridor[0], 4, cap))} = ${sums[0]}`}
+                        onCommit={(schemeMin) => update(row.from, { schemeMin })}
+                      />
+                    </td>
+                    <td>
+                      <SchemeField
+                        value={row.schemeMax}
+                        placeholder={`авто: ${formatScheme(
+                          liteSchemePreview(row.corridor[1], 4, cap))} = ${sums[1]}`}
+                        onCommit={(schemeMax) => update(row.from, { schemeMax })}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="row" style={{ marginTop: 10 }}>
+          <button
+            className="primary"
+            disabled={!dirty}
+            onClick={() => onApply(sorted)}
+          >
+            Сохранить и применить
+          </button>
+          {dirty && (
+            <button className="ghost" onClick={() => setDraft(applied)}>
+              отменить правки
+            </button>
+          )}
+          {!isDefault && (
+            <button className="ghost" onClick={() => setDraft(decadeTuningDefaults())}>
+              вернуть умолчания
+            </button>
+          )}
+        </div>
+        <p className="hint">
+          {dirty
+            ? 'Правки в черновике: на сборку блока они не влияют, пока не применены.'
+            : 'Конфиг применён и сохранён — блок собирается по нему.'}
+          {appliedRow && (
+            <>
+              {' '}Текущему блоку (уровни {appliedTo?.[0]}-{appliedTo?.[1]}) достаётся
+              строка <span className="mono">{appliedRow.from}-{appliedRow.to}</span>:
+              категорий <span className="mono">
+                {appliedRow.corridor[0]}-{appliedRow.corridor[1]}
+              </span>. Своего поля у коридора на шаге «Настройка блока» нет — он
+              предустановка кривой и правится здесь.
+            </>
+          )}
+        </p>
+        {/*
+          Абзац с оговорками под таблицей убран (решение владельца 04.08): пять
+          правил подряд про хеш пакета, целевое среднее коридора и неприкосновенность
+          пресета читателю таблицы не нужны — он пришёл поправить числа. Сами правила
+          никуда не делись, они в шапке этого файла и в `core/decadeProfiles.ts`,
+          где им и место.
+        */}
+      </details>
     </div>
   );
 }

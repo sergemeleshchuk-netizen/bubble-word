@@ -60,6 +60,20 @@ nav.tabs .num { font-family: var(--mono); font-size: 11px; opacity: 0.6; margin-
 .panel > h2 { margin: 0 0 4px; font-size: 15px; font-weight: 600; }
 .panel > .hint { color: var(--muted); font-size: 12px; margin: 0 0 14px; }
 
+/* Сворачиваемая панель: нативный <details> внутри .panel. Заголовок и краткая
+   сводка видны всегда, содержимое прячется. Селекторы дублируют правила
+   `.panel > h2` и `.panel > .hint`: внутри <details> они перестают быть
+   прямыми детьми панели, и без этого заголовок съезжал бы на размер h2. */
+.fold > summary { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  cursor: pointer; list-style: none; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::before { content: '▸'; color: var(--muted); font-size: 12px; }
+.fold[open] > summary::before { content: '▾'; }
+.fold[open] > summary { margin-bottom: 10px; }
+.fold > summary h2 { margin: 0; font-size: 15px; font-weight: 600; }
+.fold > summary:hover h2 { color: var(--accent); }
+.fold > .hint { color: var(--muted); font-size: 12px; margin: 0 0 14px; }
+
 .grid { display: grid; gap: 12px; }
 .grid.c2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .grid.c3 { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
