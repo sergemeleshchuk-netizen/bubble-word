@@ -5397,10 +5397,12 @@ a few fair color traps.
      level-N.json), и ни у одного нет кнопки «Добавить в Playable». Файлы готовит
      tool/level-tool/scripts/pack_to_handoff.py, порядок задаёт packs/index.json.
 
-     Пакетов несколько сознательно: новый не заменяет старый, иначе «до» и «после»
-     улучшения не сравнить. Прототип читает уровень по ?gen=N как индекс в ОДНОМ
-     массиве levels, поэтому сайт склеивает все пакеты в один и раздаёт группам
-     смещения — так контракт прототипа менять не пришлось. */
+     Сверху самый актуальный. 04.08 выкладку очистили: там копились семь пакетов
+     со 2 августа, а генератор менялся почти каждый день — открывший отчёт брал
+     верхнюю группу и играл в уровень его прошлой версии, ничего об этом не зная.
+     Прототип читает уровень по ?gen=N как индекс в ОДНОМ массиве levels, поэтому
+     сайт склеивает все пакеты в один и раздаёт группам смещения — так контракт
+     прототипа менять не пришлось. */
   var PACKS_INDEX='playable/packs/index.json';
   function readHandoff(){
     try{ return JSON.parse(localStorage.getItem(HANDOFF_KEY)||'null'); }
@@ -5454,7 +5456,18 @@ a few fair color traps.
       offset+=renderGroup(sel, src.prefixLabel+' · '+src.label, src.levels, offset, idx===0);
       combined=combined.concat(src.levels);
     });
-    if(!combined.length) return;
+    /* Играть нечего: сданный пакет ещё не выложен, а сам читатель генератором
+       ничего не собирал. Совсем пустой <select> читается как поломка страницы,
+       поэтому говорим вслух — как и прототип, у которого своего контента нет. */
+    if(!combined.length){
+      var empty=document.createElement('option');
+      empty.value=''; empty.disabled=true; empty.selected=true;
+      empty.textContent='уровней нет — соберите пакет генератором в пункте 05';
+      sel.insertBefore(empty, sel.firstChild);
+      return;
+    }
+    var stub=sel.querySelector('option[value=""][disabled]');
+    if(stub) stub.remove();
     /* Прототип берёт уровень из хранилища по индексу, поэтому склейка обязана
        попасть туда целиком и в том же порядке, в каком отрисованы группы.
        Пишем в РАБОЧИЙ слот: затирать здесь нечего, архив собранных пакетов

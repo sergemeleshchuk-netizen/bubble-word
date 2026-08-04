@@ -218,7 +218,43 @@ test('в прототипе нет своего контента: уровень
  * индексом в `spec.halves`, то есть глобально, и у него коллизии не бывает
  * по построению. Поломка жила ровно в прототипе — значит и проверять её надо
  * на прототипе, читая его собственный код.
+ *
+ * Уровень для проверки — свой, прямо здесь. Раньше проверка брала половинки из
+ * выложенных пакетов, и это было её слабым местом: единственный пакет с
+ * распилами был один-единственный, а с очисткой выкладки 04.08 проверять стало
+ * нечего вовсе. Своему уровню это безразлично — и он вдобавок бьёт точно в
+ * поломку: распилы стоят И на старте, И в очереди, то есть ровно в тех двух
+ * вызовах `expandChunks`, чьи номера когда-то столкнулись.
  */
+const HALVES_FIXTURE = {
+  level_id: 1,
+  categories: [
+    { id: 'ocean', name: 'OCEAN ANIMALS', words: ['dolphin', 'whale', 'shark', 'crab'] },
+    { id: 'sweets', name: 'SWEETS', words: ['chocolate', 'candy', 'waffle', 'donut'] },
+  ],
+  board: { board_capacity: 24, start_bubbles: 8, move_limit: 20 },
+  chunks: [
+    { word: 'dolphin', category: 'ocean', pieces: ['dol', 'phin'] },
+    { word: 'chocolate', category: 'sweets', pieces: ['choco', 'late'] },
+  ],
+  deal: {
+    // распил на старте: `dol` + `phin`
+    start: [
+      { word: 'dolphin', category: 'ocean' },
+      { word: 'whale', category: 'ocean' },
+      { word: 'candy', category: 'sweets' },
+    ],
+    // распил в очереди: `choco` + `late` — второй вызов expandChunks
+    queue: [
+      { word: 'chocolate', category: 'sweets' },
+      { word: 'shark', category: 'ocean' },
+      { word: 'crab', category: 'ocean' },
+      { word: 'waffle', category: 'sweets' },
+      { word: 'donut', category: 'sweets' },
+    ],
+  },
+};
+
 test('половинки прототипа: у каждой ровно один законный партнёр', () => {
   const html = readFileSync(join(ROOT, '../../site/playable/index.html'), 'utf8');
   /** Вырезает объявление функции по имени — вместе с телом, по балансу скобок. */
@@ -242,17 +278,29 @@ test('половинки прототипа: у каждой ровно один
     samePair: (a: unknown, b: unknown) => boolean;
   };
 
+  /* Свой уровень — всегда; выложенные с распилами — если они есть.
+     Выкладка меняется от прогона к прогону, поэтому опираться на неё проверка
+     не может, а пройтись по ней, когда она на месте, стоит: файлы попадают в
+     прототип без единой строки кода, и сломать их может кто угодно. */
   const dir = join(ROOT, '../../site/playable/packs');
   const index = JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8')) as
     { packs: string[] };
-  let checkedLevels = 0;
+  type ChunkedLevel = { level_id: number; categories: { id: string; name: string }[];
+    chunks?: unknown[];
+    deal: { start: { word: string; category: string }[];
+      queue: { word: string; category: string }[] } };
+  const cases: { file: string; levels: ChunkedLevel[] }[] = [
+    { file: 'фикстура теста', levels: [HALVES_FIXTURE as ChunkedLevel] },
+  ];
   for (const file of index.packs) {
     const packJson = JSON.parse(readFileSync(join(dir, file), 'utf8')) as
-      { levels: { level_id: number; categories: { id: string; name: string }[];
-        chunks?: unknown[];
-        deal: { start: { word: string; category: string }[];
-          queue: { word: string; category: string }[] } }[] };
-    for (const level of packJson.levels) {
+      { levels: ChunkedLevel[] };
+    cases.push({ file, levels: packJson.levels });
+  }
+
+  let checkedLevels = 0;
+  for (const { file, levels } of cases) {
+    for (const level of levels) {
       if (!level.chunks || level.chunks.length === 0) continue;
       checkedLevels += 1;
       const chunkMap = made.applyChunks(level);
@@ -295,7 +343,8 @@ test('половинки прототипа: у каждой ровно один
     }
   }
   assert.ok(checkedLevels > 0,
-    'ни одного уровня с распилами в пакетах — проверка ничего не проверила');
+    'ни одного уровня с распилами — даже своего: фикстура потеряла chunks, '
+    + 'и проверка ничего не проверила');
 
   /*
    * Вторая половина той же поломки, и она была главной. Досыпка звала
@@ -412,12 +461,16 @@ test('рабочий слот получает именно последнюю �
  * человек, открывший уровень руками. Проверяем то, что прототип молча не
  * переживёт: манифест ссылается на существующие файлы, у каждого уровня есть
  * лимит ходов, и выкладка раздаёт ровно те слова, что заявлены в категориях.
+ *
+ * Сколько пакетов в манифесте — не дело теста. Здесь стояла проверка «хотя бы
+ * один», и она не ловила ничего: пустая выкладка — обычное состояние между
+ * прогонами, а не поломка. Проверяем содержимое того, что выложено, и молчим
+ * про количество.
  */
 test('выложенные пакеты исправны: манифест, лимит ходов, полнота выкладки', () => {
   const dir = join(ROOT, '../../site/playable/packs');
   const index = JSON.parse(readFileSync(join(dir, 'index.json'), 'utf8')) as
     { packs: string[] };
-  assert.ok(index.packs.length > 0, 'манифест пуст: в списке уровней сайта ничего не будет');
 
   for (const file of index.packs) {
     const pack = JSON.parse(readFileSync(join(dir, file), 'utf8')) as {
@@ -476,6 +529,12 @@ test('выложенные пакеты исправны: манифест, ли
  * Ни валидатор, ни решатель этого не видят: оба смотрят на список категорий и
  * ни один не смотрит на ПОЛЕ — сколько пузырей помещается, что приходит на
  * смену собранным, хватает ли ходов. Симулятор смотрит именно туда.
+ *
+ * До финального прогона выкладка пуста, и проверять здесь нечего — проверка
+ * зелёная просто потому, что не нашла работы. Это её нормальное состояние
+ * между прогонами, а не признак того, что уровни в порядке: гейт по проходимости
+ * стоит и в самом генераторе (`simulatePlayability`), выкладка проходит его до
+ * того, как попадёт сюда.
  */
 test('каждый выложенный уровень проходится ботом в пределах лимита', async () => {
   const { simulate } = await import('../scripts/simulate_play.ts');

@@ -1318,7 +1318,7 @@ function noLevel(reason){
     try{
       const index=await (await fetch('packs/pipeline.json')).json();
       const list=index.packs||[];
-      if(!list.length) throw new Error('манифест packs/index.json пуст');
+      if(!list.length) throw new Error('манифест packs/pipeline.json пуст: пакет ещё не выложен');
       /* Манифест отсортирован свежими вперёд, поэтому latest — первый. */
       const entry=(packId==='latest')?list[0]:list.find(p=>p.pack_id===packId);
       if(!entry) throw new Error('в манифесте нет пакета '+packId);
