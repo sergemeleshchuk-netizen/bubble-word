@@ -1571,6 +1571,7 @@ function buildLevelSpec(
   dealScheme?: number[],
   dealStartBubbles?: [number, number],
   dealHoldCategories?: number,
+  dealMinFullSets?: number,
   iconMode: 'auto' | 'require' | 'forbid' = 'auto',
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
@@ -1691,7 +1692,7 @@ function buildLevelSpec(
     boardCapacity: BOARD_CAPACITY, wordsPerCategory,
   }, chunked, dealMinStartWords ?? 1,
   dealScheme && dealScheme.length > 0 ? dealScheme : null,
-  startBudget ?? null, dealHoldCategories ?? 0);
+  startBudget ?? null, dealHoldCategories ?? 0, dealMinFullSets ?? 1);
 
   const frozenBubbles: BlockedBubble[] = [];
   const hiddenBubbles: BlockedBubble[] = [];
@@ -1737,6 +1738,10 @@ function buildLevelSpec(
       dealMinStartWords: dealMinStartWords !== undefined && dealMinStartWords >= 2
         ? dealMinStartWords : undefined,
       dealScheme: dealScheme && dealScheme.length > 0 ? dealScheme : undefined,
+      // готовых четвёрок на старте: как и режим раздачи, «1» приравнена к
+      // отсутствию поля — это прежняя выкладка, и её хеш не меняется
+      dealMinFullSets: dealMinFullSets !== undefined && dealMinFullSets >= 2
+        ? dealMinFullSets : undefined,
       // в спек уезжает только бюджет, который реально подрезает старт: у
       // промежутков «24-24» выкладка и её хеш остаются прежними
       dealStartBubbles: startBudget,
@@ -1968,7 +1973,7 @@ export function generateLevel(
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
       assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
       levelScheme, config.dealStartBubbles, config.dealHoldCategories,
-      constraints.iconMode);
+      config.dealMinFullSets, constraints.iconMode);
 
     /**
      * Требование картинки проверяется на СОБРАННОМ уровне, а не на плане.

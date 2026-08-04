@@ -187,6 +187,9 @@ function normalizeConfig(config: BlockConfig): unknown {
     // облегчённая раздача меняет стартовое поле — входит в хеш; «1» = историческая
     dealMinStartWords: config.dealMinStartWords !== undefined
       && config.dealMinStartWords >= 2 ? config.dealMinStartWords : undefined,
+    // готовые четвёрки на старте меняют поле — тоже контент; «1» = историческая
+    dealMinFullSets: config.dealMinFullSets !== undefined
+      && config.dealMinFullSets >= 2 ? config.dealMinFullSets : undefined,
     // явная схема выкладки тоже контент: входит в хеш, пустая = не задана
     dealScheme: config.dealScheme && config.dealScheme.length > 0
       ? config.dealScheme : undefined,

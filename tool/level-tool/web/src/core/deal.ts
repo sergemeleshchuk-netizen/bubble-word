@@ -179,6 +179,27 @@ function wholeWordsFirst(
 const START_DEPTH = 3;
 
 /**
+ * Сколько категорий старт выкладывает ЦЕЛИКОМ — готовыми четвёрками.
+ *
+ * Требование владельца продукта 04.08 после наигровки собранной десятки:
+ * «добавь в конфиг, чтобы везде было минимум 3 четвёрки — всё ещё неиграбельно
+ * для рядового не носителя языка».
+ *
+ * Почему это именно та ручка. Одна готовая четвёрка (прежнее правило: «вход»)
+ * даёт неносителю один очевидный ход. Дальше поле — тройки и пары незнакомых
+ * слов, и чтобы сделать второй ход, нужно УГАДАТЬ категорию, а не увидеть её.
+ * Носитель языка на это не жалуется: у него связь «radish — овощ» бесплатная.
+ * Три готовые четвёрки дают три хода, видимых глазами, и три сбора подряд —
+ * а каждый сбор приносит пачку досыпки, то есть новые слова к тем обрывкам,
+ * которые игрок пока не понял.
+ *
+ * Чем платим: шириной старта. 24 пузыря при трёх четвёрках открывают 7 линий
+ * вместо 8 (было 4-3-3-3-3-3-3-2, стало 4-4-4-3-3-3-3), остальные категории
+ * ждут в очереди целиком. Обмен сознательный.
+ */
+export const DEAL_MIN_FULL_SETS = 3;
+
+/**
  * Автоматическая схема старта: одиночек нет, двоек мало, троек и четвёрок много.
  *
  * Требование владельца продукта 03.08 после наигровки: уровень на 12 категорий
@@ -201,17 +222,25 @@ const START_DEPTH = 3;
  */
 export function autoScheme(
   fieldBubbles: number, categories: number,
-  wordsPerCategory = 4, minStartWords = 2,
+  wordsPerCategory = 4, minStartWords = 2, minFullSets = 1,
 ): number[] {
   const floor = Math.max(2, minStartWords);
   const out: number[] = [];
   let left = fieldBubbles;
 
-  // вход: категория, которую видно всю и можно собрать не дожидаясь досыпки
-  if (categories > 0 && left >= floor) {
-    const opener = Math.min(wordsPerCategory, left);
-    out.push(opener);
-    left -= opener;
+  /*
+   * Готовые четвёрки: категории, которые видно целиком и можно собрать не
+   * дожидаясь досыпки. Первая — «вход» (её получает quickwin), дальше столько,
+   * сколько просит `minFullSets` и позволяет бюджет поля. Доля меньше полной
+   * четвёркой не считается: если места не хватило, остаток раздают правила ниже
+   * (тройки и одна пара). При minFullSets = 1 это ровно прежний «вход».
+   */
+  const wantFull = Math.max(1, Math.min(minFullSets, categories));
+  while (categories > 0 && out.length < wantFull && left >= floor) {
+    const share = Math.min(wordsPerCategory, left);
+    if (out.length > 0 && share < wordsPerCategory) break;
+    out.push(share);
+    left -= share;
   }
   // остальные — по тройке, пока бюджет позволяет
   while (out.length < categories && left >= START_DEPTH) {
@@ -257,6 +286,7 @@ export function buildDeal(
   scheme: readonly number[] | null = null,
   startBudget: readonly [number, number] | null = null,
   holdCategories = 0,
+  minFullSets = 1,
 ): Deal {
   const rng = createRng(`deal::${levelId}::${categories.map((c) => c.key).join(',')}`);
   /** Сколько мест на поле занимает слово: распиленное — два. */
@@ -331,7 +361,8 @@ export function buildDeal(
    */
   const tpl = explicit
     ?? (minStartWords >= 2
-      ? autoScheme(fieldSize, open.length, board.wordsPerCategory, minStartWords)
+      ? autoScheme(fieldSize, open.length, board.wordsPerCategory, minStartWords,
+        minFullSets)
       : null);
   /*
    * Пол доли: сколько слов должно достаться категории, чтобы её вообще
@@ -684,7 +715,8 @@ export function dealForSpec(spec: LevelSpec): Deal {
   const chunked = new Set(spec.halves.map((h) => chunkKey(h.home, h.word)));
   return buildDeal(spec.levelId, spec.categories, spec.board, chunked,
     spec.board.dealMinStartWords ?? 1, spec.board.dealScheme ?? null,
-    spec.board.dealStartBubbles ?? null, spec.board.dealHoldCategories ?? 0);
+    spec.board.dealStartBubbles ?? null, spec.board.dealHoldCategories ?? 0,
+    spec.board.dealMinFullSets ?? 1);
 }
 
 /**
@@ -779,6 +811,35 @@ export function checkDeal(spec: LevelSpec, deal: Deal | undefined | null): strin
     problems.push(`на старте ${startCost} пузырей, таблица декад требует минимум `
       + `${budget[0]} (пузырей в уровне ${totalBubbles})`);
   }
+  /*
+   * Готовые четвёрки на старте: требование играбельности для не носителя языка
+   * (`DEAL_MIN_FULL_SETS`). Проверяется только у автоматической раздачи и только
+   * когда материала хватает: три четвёрки — это 12 пузырей и три категории с
+   * четырьмя спавнящимися словами (мета-родитель четвёрку держать не может, его
+   * имя на поле не лежит). Если уровень мельче или бюджет старта меньше — спрос
+   * опускается до того, что физически возможно, иначе приёмка запрещала бы
+   * туториальные уровни с неполным полем.
+   */
+  const wantFullSets = spec.board.dealMinFullSets ?? 1;
+  if (!manualScheme && wantFullSets >= 2) {
+    const full = spec.board.wordsPerCategory || 4;
+    const roomy = spec.categories.filter((c) =>
+      !gated.has(c.key) && spawnableWords(c).length >= full).length;
+    const need = Math.min(wantFullSets, roomy, Math.floor(capacity / full));
+    const onField = new Map<string, number>();
+    for (const bubble of deal.start) {
+      onField.set(bubble.category, (onField.get(bubble.category) ?? 0) + 1);
+    }
+    // четвёрка считается готовой, только если её МОЖНО собрать сейчас: у
+    // мета-родителя на поле лежат три слова из четырёх, четвёртое родится сбором
+    // ребёнка — такая категория ходом на старте не является
+    const have = spec.categories.filter((c) => spawnableWords(c).length >= full
+      && (onField.get(c.key) ?? 0) >= full).length;
+    if (have < need) {
+      problems.push(`на старте ${have} готовых четвёрок, нужно ${need}`);
+    }
+  }
+
   // поле имеет право не добрать один пузырь: когда остаток бюджета — одно
   // место, а класть осталось только распиленные слова по два места каждое.
   // При явной схеме выкладки точное заполнение не требуется вовсе: схема —

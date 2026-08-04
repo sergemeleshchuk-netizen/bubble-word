@@ -1381,7 +1381,7 @@ function noLevel(reason){
   }
   else if(gen!==null){
     try{
-      const pack=JSON.parse(localStorage.getItem('bubble-level-tool.generated-pack.v1')||'null');
+      const pack=JSON.parse(localStorage.getItem('bubble-level-tool.generated-pack.v2')||'null');
       const lvl=pack&&pack.levels&&pack.levels[Number(gen)];
       if(!lvl) throw new Error('в хранилище нет уровня '+gen);
       applyLevel(lvl);

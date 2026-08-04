@@ -26,7 +26,7 @@
  */
 import type { BlockConfig, Modifier } from './types.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
-import { STAGED_CATEGORIES, autoScheme } from './deal.ts';
+import { DEAL_MIN_FULL_SETS, STAGED_CATEGORIES, autoScheme } from './deal.ts';
 import { createRng } from './rng.ts';
 
 export interface DecadeProfile {
@@ -751,6 +751,9 @@ export function configForRange(
     // (см. QUEUE_STAGING_FROM и planGates в core/deal.ts). На уровнях до 12
     // категорий поле и так собирается, и гейты там не появляются вовсе
     dealHoldCategories: STAGED_CATEGORIES,
+    // три готовые четвёрки на старте: требование играбельности для не носителя
+    // языка (решение владельца 04.08, DEAL_MIN_FULL_SETS в core/deal.ts)
+    dealMinFullSets: DEAL_MIN_FULL_SETS,
     ...overrides,
   };
 }
@@ -961,18 +964,18 @@ export function decadeTuningRowFor(
  * Превью автоматической раздачи для M категорий: номинальная схема для колонки
  * таблицы (без распилов — они считаются уже на конкретном уровне).
  *
- * Правило одно и живёт в core/deal.ts (`autoScheme`): вход целиком, дальше
- * тройки, остаток — одна пара, одиночек нет. Здесь только вызов: две копии
- * правила разъехались бы, и таблица показывала бы дизайнеру не то, что уровень
- * получит на самом деле. Для M >= 8 при поле 24 даёт 4-3-3-3-3-3-3-2.
+ * Правило одно и живёт в core/deal.ts (`autoScheme`): три готовые четвёрки,
+ * дальше тройки, остаток — одна пара, одиночек нет. Здесь только вызов: две
+ * копии правила разъехались бы, и таблица показывала бы дизайнеру не то, что
+ * уровень получит на самом деле. Для M >= 7 при поле 24 даёт 4-4-4-3-3-3-3.
  */
 export function liteSchemePreview(
   categories: number, wordsPerCategory = 4, capacity = BOARD_CAPACITY,
-  minStartWords = 2,
+  minStartWords = 2, minFullSets = DEAL_MIN_FULL_SETS,
 ): number[] {
   if (categories <= 0) return [];
   const field = Math.min(capacity, categories * wordsPerCategory);
-  return autoScheme(field, categories, wordsPerCategory, minStartWords);
+  return autoScheme(field, categories, wordsPerCategory, minStartWords, minFullSets);
 }
 
 /** «4-3-3-3-2-2-2-2-1» → [4,3,3,3,2,2,2,2,1]; пусто → null (авто); мусор → undefined. */

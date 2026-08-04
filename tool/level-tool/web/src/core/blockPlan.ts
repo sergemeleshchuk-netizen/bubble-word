@@ -10,7 +10,7 @@
  */
 import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
-import { STAGED_CATEGORIES } from './deal.ts';
+import { DEAL_MIN_FULL_SETS, STAGED_CATEGORIES } from './deal.ts';
 import {
   EARLY_CURVE_UNTIL, META_MAX_EARLY, META_MAX_ORDINARY, META_MAX_SPIKE, configForRange,
 } from './decadeProfiles.ts';
@@ -88,6 +88,13 @@ export const DEFAULT_BLOCK_CONFIG: BlockConfig = {
    */
   dealHoldCategories: STAGED_CATEGORIES,
   /**
+   * Три готовые четвёрки на старте — то же требование играбельности, что и на
+   * остальной кривой (DEAL_MIN_FULL_SETS в core/deal.ts). Пресет исключением не
+   * делаем: жалоба «неиграбельно для не носителя языка» относится к любому
+   * уровню, а сдаваемый пакет и так пересобирается заново.
+   */
+  dealMinFullSets: DEAL_MIN_FULL_SETS,
+  /**
    * Таблица стартовой раскладки пресет не переписывает: у сдаваемого пакета своя
    * форма кривой (13-18 категорий против 8-12 в таблице для этих номеров).
    */
@@ -135,6 +142,7 @@ export const STARTING_BLOCK_CONFIG: BlockConfig = {
   categoryFreshnessWindow: 5,
   categoryPlan: [10, 8, 9, 10, 12, 8, 10, 11, 12, 10],
   metaPlan: [0, 1, 2, 2, 2, 0, 1, 2, 1, 0],
+  dealMinFullSets: DEAL_MIN_FULL_SETS,
   presetLocked: true,
 };
 

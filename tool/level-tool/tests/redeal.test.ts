@@ -43,7 +43,13 @@ function appliedScheme(spec: typeof level.spec): number[] {
   return [...counts.values()].sort((a, b) => b - a);
 }
 
-const SCHEME = [4, 4, 3, 3, 2];
+/*
+ * Схема руками — глубже и уже автоматической. Была [4, 4, 3, 3, 2]; с
+ * требованием «минимум 3 четвёрки» (04.08) автоматическая раздача сама даёт три
+ * четвёрки, и прежняя схема стала мельче автоматической — то есть проверяла бы
+ * не то, что обещает название теста.
+ */
+const SCHEME = [4, 4, 4, 3, 3];
 
 test('схема исполняется: старт становится глубже и уже', () => {
   const redealt = redealLevel({ snapshot, scoring, block, level, scheme: SCHEME });
