@@ -1,6 +1,7 @@
 {
   "level_id": 203,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "medium",
   "board": {
     "categories_count": 12,
     "words_per_category": 4,
@@ -8,92 +9,330 @@
     "board_capacity": 24,
     "move_limit": 58
   },
+  "deal": {
+    "start": [
+      {
+        "word": "action",
+        "category": "video_game_genres"
+      },
+      {
+        "word": "papyrus",
+        "category": "water_plants"
+      },
+      {
+        "word": "camel",
+        "category": "desert_things"
+      },
+      {
+        "word": "avi",
+        "category": "files"
+      },
+      {
+        "word": "Belle",
+        "category": "disney_characters"
+      },
+      {
+        "word": "archive",
+        "category": "files"
+      },
+      {
+        "word": "backup",
+        "category": "files"
+      },
+      {
+        "word": "watercress",
+        "category": "water_plants"
+      },
+      {
+        "word": "Met",
+        "category": "famous_museums"
+      },
+      {
+        "word": "Numbers",
+        "category": "data"
+      },
+      {
+        "word": "platformer",
+        "category": "video_game_genres"
+      },
+      {
+        "word": "Cinderella",
+        "category": "disney_characters"
+      },
+      {
+        "word": "cactus",
+        "category": "desert_things"
+      },
+      {
+        "word": "British Museum",
+        "category": "famous_museums"
+      },
+      {
+        "word": "analysis",
+        "category": "data"
+      },
+      {
+        "word": "Fruit of the Loom",
+        "category": "clothing_brands"
+      },
+      {
+        "word": "oasis",
+        "category": "desert_things"
+      },
+      {
+        "word": "agreement",
+        "category": "files"
+      },
+      {
+        "word": "Smithsonian",
+        "category": "famous_museums"
+      },
+      {
+        "word": "Elsa",
+        "category": "disney_characters"
+      },
+      {
+        "word": "Vans",
+        "category": "clothing_brands"
+      },
+      {
+        "word": "percent",
+        "category": "data"
+      },
+      {
+        "word": "lily pad",
+        "category": "water_plants"
+      },
+      {
+        "word": "Hanes",
+        "category": "clothing_brands"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Getty",
+        "category": "famous_museums"
+      },
+      {
+        "word": "Timberland",
+        "category": "clothing_brands"
+      },
+      {
+        "word": "strategy",
+        "category": "video_game_genres"
+      },
+      {
+        "word": "horror",
+        "category": "video_game_genres"
+      },
+      {
+        "word": "kelp",
+        "category": "water_plants"
+      },
+      {
+        "word": "tiger",
+        "category": "jungle_animals"
+      },
+      {
+        "word": "Pyrenees",
+        "category": "mountain_ranges"
+      },
+      {
+        "word": "mirage",
+        "category": "desert_things"
+      },
+      {
+        "word": "Snow White",
+        "category": "disney_characters"
+      },
+      {
+        "word": "sloth",
+        "category": "jungle_animals"
+      },
+      {
+        "word": "Cascades",
+        "category": "mountain_ranges"
+      },
+      {
+        "word": "Urals",
+        "category": "mountain_ranges"
+      },
+      {
+        "word": "Ozarks",
+        "category": "mountain_ranges"
+      },
+      {
+        "word": "boa",
+        "category": "jungle_animals"
+      },
+      {
+        "word": "python",
+        "category": "jungle_animals"
+      },
+      {
+        "word": "jade",
+        "category": "gemstones"
+      },
+      {
+        "word": "diamond",
+        "category": "gemstones"
+      },
+      {
+        "word": "quartz",
+        "category": "gemstones"
+      },
+      {
+        "word": "pearl",
+        "category": "gemstones"
+      },
+      {
+        "word": "saw",
+        "category": "cutting_tools"
+      },
+      {
+        "word": "wire cutter",
+        "category": "cutting_tools"
+      },
+      {
+        "word": "cleaver",
+        "category": "cutting_tools"
+      },
+      {
+        "word": "machete",
+        "category": "cutting_tools"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "storms",
-      "label": "STORMS",
+      "key": "files",
+      "label": "FILES",
       "words": [
         {
-          "text": "ice storm",
+          "text": "agreement",
           "kind": "word"
         },
         {
-          "text": "hurricane",
+          "text": "backup",
           "kind": "word"
         },
         {
-          "text": "gale",
+          "text": "archive",
           "kind": "word"
         },
         {
-          "text": "cyclone",
+          "text": "avi",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "weather_report",
-      "label": "WEATHER REPORT",
+      "key": "data",
+      "label": "DATA",
       "words": [
         {
-          "text": "storms",
+          "text": "files",
           "kind": "meta",
-          "meta_child": "storms"
+          "meta_child": "files"
         },
         {
-          "text": "forecast",
+          "text": "percent",
           "kind": "word"
         },
         {
-          "text": "humidity",
+          "text": "Numbers",
           "kind": "word"
         },
         {
-          "text": "radar",
+          "text": "analysis",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "writing_words",
-      "label": "WRITING WORDS",
+      "key": "famous_museums",
+      "label": "FAMOUS MUSEUMS",
       "words": [
         {
-          "text": "draft",
+          "text": "Met",
           "kind": "word"
         },
         {
-          "text": "font",
+          "text": "British Museum",
           "kind": "word"
         },
         {
-          "text": "margin",
+          "text": "Smithsonian",
           "kind": "word"
         },
         {
-          "text": "outline",
+          "text": "Getty",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "artists",
-      "label": "FAMOUS PAINTERS",
+      "key": "video_game_genres",
+      "label": "VIDEO GAME GENRES",
       "words": [
         {
-          "text": "Monet",
+          "text": "action",
           "kind": "word"
         },
         {
-          "text": "Van Gogh",
+          "text": "strategy",
           "kind": "word"
         },
         {
-          "text": "Michelangelo",
+          "text": "platformer",
           "kind": "word"
         },
         {
-          "text": "Picasso",
+          "text": "horror",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "mountain_ranges",
+      "label": "MOUNTAIN RANGES",
+      "words": [
+        {
+          "text": "Pyrenees",
+          "kind": "word"
+        },
+        {
+          "text": "Ozarks",
+          "kind": "word"
+        },
+        {
+          "text": "Urals",
+          "kind": "word"
+        },
+        {
+          "text": "Cascades",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "gemstones",
+      "label": "GEMSTONES",
+      "words": [
+        {
+          "text": "diamond",
+          "kind": "word"
+        },
+        {
+          "text": "quartz",
+          "kind": "word"
+        },
+        {
+          "text": "pearl",
+          "kind": "word"
+        },
+        {
+          "text": "jade",
           "kind": "word"
         }
       ]
@@ -103,173 +342,129 @@
       "label": "CLOTHING BRANDS",
       "words": [
         {
-          "text": "New Balance",
+          "text": "Timberland",
           "kind": "word"
         },
         {
-          "text": "Nike",
+          "text": "Hanes",
+          "kind": "word"
+        },
+        {
+          "text": "Vans",
           "kind": "word"
         },
         {
           "text": "Fruit of the Loom",
           "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "water_plants",
+      "label": "WATER PLANTS",
+      "words": [
+        {
+          "text": "papyrus",
+          "kind": "word"
         },
         {
-          "text": "Champion",
+          "text": "watercress",
+          "kind": "word"
+        },
+        {
+          "text": "kelp",
+          "kind": "word"
+        },
+        {
+          "text": "lily pad",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "wines_and_drinks",
-      "label": "WINE & BEER",
+      "key": "jungle_animals",
+      "label": "JUNGLE ANIMALS",
       "words": [
         {
-          "text": "ale",
+          "text": "boa",
           "kind": "word"
         },
         {
-          "text": "stout",
+          "text": "python",
           "kind": "word"
         },
         {
-          "text": "porter",
+          "text": "sloth",
           "kind": "word"
         },
         {
-          "text": "ipa",
+          "text": "tiger",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "crops",
-      "label": "FARM CROPS",
+      "key": "desert_things",
+      "label": "DESERT THINGS",
       "words": [
         {
-          "text": "rye",
+          "text": "cactus",
           "kind": "word"
         },
         {
-          "text": "corn",
+          "text": "oasis",
           "kind": "word"
         },
         {
-          "text": "barley",
+          "text": "mirage",
           "kind": "word"
         },
         {
-          "text": "rice",
+          "text": "camel",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "berries",
-      "label": "BERRIES",
+      "key": "disney_characters",
+      "label": "DISNEY CHARACTERS",
       "words": [
         {
-          "text": "gooseberry",
+          "text": "Cinderella",
           "kind": "word"
         },
         {
-          "text": "currant",
+          "text": "Elsa",
           "kind": "word"
         },
         {
-          "text": "huckleberry",
+          "text": "Snow White",
           "kind": "word"
         },
         {
-          "text": "blackberry",
+          "text": "Belle",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "capital_cities_more",
-      "label": "MORE CAPITALS",
+      "key": "cutting_tools",
+      "label": "CUTTING TOOLS",
       "words": [
         {
-          "text": "Wellington",
+          "text": "wire cutter",
           "kind": "word"
         },
         {
-          "text": "Nairobi",
+          "text": "saw",
           "kind": "word"
         },
         {
-          "text": "Sofia",
+          "text": "machete",
           "kind": "word"
         },
         {
-          "text": "Bern",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "birds_of_prey",
-      "label": "BIRDS OF PREY",
-      "words": [
-        {
-          "text": "osprey",
-          "kind": "word"
-        },
-        {
-          "text": "buzzard",
-          "kind": "word"
-        },
-        {
-          "text": "condor",
-          "kind": "word"
-        },
-        {
-          "text": "falcon",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "lab_equipment",
-      "label": "LAB EQUIPMENT",
-      "words": [
-        {
-          "text": "beaker",
-          "kind": "word"
-        },
-        {
-          "text": "petri dish",
-          "kind": "word"
-        },
-        {
-          "text": "dropper",
-          "kind": "word"
-        },
-        {
-          "text": "centrifuge",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "weapons_of_the_past",
-      "label": "OLD WEAPONS",
-      "words": [
-        {
-          "text": "dagger",
-          "kind": "word"
-        },
-        {
-          "text": "sword",
-          "kind": "word"
-        },
-        {
-          "text": "sling",
-          "kind": "word"
-        },
-        {
-          "text": "catapult",
+          "text": "cleaver",
           "kind": "word"
         }
       ]

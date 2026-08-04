@@ -1,6 +1,7 @@
 {
   "level_id": 207,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 14,
     "words_per_category": 4,
@@ -8,314 +9,534 @@
     "board_capacity": 24,
     "move_limit": 57
   },
+  "deal": {
+    "start": [
+      {
+        "word": "stock",
+        "category": "anchor"
+      },
+      {
+        "word": "sword",
+        "category": "things_made_of_metal"
+      },
+      {
+        "word": "ringmaster",
+        "category": "circus_and_fair_jobs"
+      },
+      {
+        "word": "chain",
+        "category": "things_made_of_metal"
+      },
+      {
+        "word": "reporter",
+        "category": "news"
+      },
+      {
+        "word": "tread",
+        "category": "shoe_parts"
+      },
+      {
+        "word": "broadcast",
+        "category": "news"
+      },
+      {
+        "word": "track",
+        "category": "train"
+      },
+      {
+        "word": "coin",
+        "category": "things_made_of_metal"
+      },
+      {
+        "word": "stuffed animal",
+        "category": "toy_box"
+      },
+      {
+        "word": "action figure",
+        "category": "toy_box"
+      },
+      {
+        "word": "flash",
+        "category": "news"
+      },
+      {
+        "word": "ice cream cake",
+        "category": "frozen_treats"
+      },
+      {
+        "word": "windlass",
+        "category": "anchor"
+      },
+      {
+        "word": "buckle",
+        "category": "shoe_parts"
+      },
+      {
+        "word": "rocky road",
+        "category": "frozen_treats"
+      },
+      {
+        "word": "cookies and cream",
+        "category": "frozen_treats"
+      },
+      {
+        "word": "blocks",
+        "category": "toy_box"
+      },
+      {
+        "word": "acrobat",
+        "category": "circus_and_fair_jobs"
+      },
+      {
+        "word": "maglev",
+        "category": "train"
+      },
+      {
+        "word": "ship",
+        "category": "anchor"
+      },
+      {
+        "word": "toe",
+        "category": "shoe_parts"
+      },
+      {
+        "word": "juggler",
+        "category": "circus_and_fair_jobs"
+      },
+      {
+        "word": "breaking",
+        "category": "news"
+      }
+    ],
+    "queue": [
+      {
+        "word": "tightrope walker",
+        "category": "circus_and_fair_jobs"
+      },
+      {
+        "word": "sole",
+        "category": "shoe_parts"
+      },
+      {
+        "word": "railroad",
+        "category": "train"
+      },
+      {
+        "word": "steam",
+        "category": "train"
+      },
+      {
+        "word": "ice cream",
+        "category": "frozen_treats"
+      },
+      {
+        "word": "Square",
+        "category": "shapes"
+      },
+      {
+        "word": "star",
+        "category": "shapes"
+      },
+      {
+        "word": "arch",
+        "category": "shapes"
+      },
+      {
+        "word": "crescent",
+        "category": "shapes"
+      },
+      {
+        "word": "hibiscus",
+        "category": "tropical_plants"
+      },
+      {
+        "word": "papaya",
+        "category": "tropical_plants"
+      },
+      {
+        "word": "banyan",
+        "category": "tropical_plants"
+      },
+      {
+        "word": "mangrove",
+        "category": "tropical_plants"
+      },
+      {
+        "word": "passport",
+        "category": "honda"
+      },
+      {
+        "word": "Civic",
+        "category": "honda"
+      },
+      {
+        "word": "Accord",
+        "category": "honda"
+      },
+      {
+        "word": "pilot",
+        "category": "honda"
+      },
+      {
+        "word": "udder",
+        "category": "dairy_words"
+      },
+      {
+        "word": "churn",
+        "category": "dairy_words"
+      },
+      {
+        "word": "barn",
+        "category": "dairy_words"
+      },
+      {
+        "word": "milking machine",
+        "category": "dairy_words"
+      },
+      {
+        "word": "rat",
+        "category": "pests"
+      },
+      {
+        "word": "snail",
+        "category": "pests"
+      },
+      {
+        "word": "wasp",
+        "category": "pests"
+      },
+      {
+        "word": "mouse",
+        "category": "pests"
+      },
+      {
+        "word": "chilly",
+        "category": "temperature_words"
+      },
+      {
+        "word": "frosty",
+        "category": "temperature_words"
+      },
+      {
+        "word": "boiling",
+        "category": "temperature_words"
+      },
+      {
+        "word": "freezing",
+        "category": "temperature_words"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "islands",
-      "label": "ISLANDS",
+      "key": "news",
+      "label": "NEWS",
       "words": [
         {
-          "text": "Cuba",
+          "text": "flash",
           "kind": "word"
         },
         {
-          "text": "Crete",
+          "text": "reporter",
           "kind": "word"
         },
         {
-          "text": "Sicily",
+          "text": "breaking",
           "kind": "word"
         },
         {
-          "text": "Greenland",
+          "text": "broadcast",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "landforms",
-      "label": "LANDFORMS",
+      "key": "anchor",
+      "label": "ANCHOR",
       "words": [
         {
-          "text": "islands",
+          "text": "news",
           "kind": "meta",
-          "meta_child": "islands"
+          "meta_child": "news"
         },
         {
-          "text": "gorge",
+          "text": "ship",
           "kind": "word"
         },
         {
-          "text": "butte",
+          "text": "stock",
           "kind": "word"
         },
         {
-          "text": "mountain",
+          "text": "windlass",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "map_legend",
-      "label": "MAP LEGEND",
+      "key": "things_made_of_metal",
+      "label": "METAL THINGS",
       "words": [
         {
-          "text": "landforms",
+          "text": "anchor",
           "kind": "meta",
-          "meta_child": "landforms"
+          "meta_child": "anchor",
+          "display": "icon",
+          "icon": "⚓"
         },
         {
-          "text": "scale",
+          "text": "coin",
           "kind": "word"
         },
         {
-          "text": "contour",
+          "text": "sword",
           "kind": "word"
         },
         {
-          "text": "symbol",
+          "text": "chain",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "aquarium_tank",
-      "label": "AQUARIUM",
+      "key": "train",
+      "label": "TRAIN",
       "words": [
         {
-          "text": "filter",
+          "text": "railroad",
           "kind": "word"
         },
         {
-          "text": "turtles",
+          "text": "maglev",
           "kind": "word"
         },
         {
-          "text": "coral",
+          "text": "track",
           "kind": "word"
         },
         {
-          "text": "fish",
+          "text": "steam",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "field_trip_places",
-      "label": "FIELD TRIPS",
+      "key": "toy_box",
+      "label": "TOY BOX",
       "words": [
         {
-          "text": "aquarium",
+          "text": "train",
           "kind": "meta",
-          "meta_child": "aquarium_tank"
+          "meta_child": "train"
         },
         {
-          "text": "planetarium",
+          "text": "action figure",
           "kind": "word"
         },
         {
-          "text": "fire station",
+          "text": "stuffed animal",
           "kind": "word"
         },
         {
-          "text": "historical site",
+          "text": "blocks",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "greek_gods",
-      "label": "GREEK GODS",
+      "key": "honda",
+      "label": "HONDA",
       "words": [
         {
-          "text": "Ares",
+          "text": "passport",
           "kind": "word"
         },
         {
-          "text": "Hermes",
+          "text": "Accord",
           "kind": "word"
         },
         {
-          "text": "Athena",
+          "text": "pilot",
           "kind": "word"
         },
         {
-          "text": "Artemis",
+          "text": "Civic",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "nuts_and_seeds",
-      "label": "NUTS AND SEEDS",
+      "key": "shapes",
+      "label": "SHAPES",
       "words": [
         {
-          "text": "walnut",
+          "text": "crescent",
           "kind": "word"
         },
         {
-          "text": "peanut",
+          "text": "arch",
           "kind": "word"
         },
         {
-          "text": "pumpkin seed",
+          "text": "Square",
           "kind": "word"
         },
         {
-          "text": "chestnut",
+          "text": "star",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "grains_and_beans",
-      "label": "GRAINS AND BEANS",
+      "key": "circus_and_fair_jobs",
+      "label": "CIRCUS JOBS",
       "words": [
         {
-          "text": "millet",
+          "text": "juggler",
           "kind": "word"
         },
         {
-          "text": "oat",
+          "text": "ringmaster",
           "kind": "word"
         },
         {
-          "text": "couscous",
+          "text": "acrobat",
           "kind": "word"
         },
         {
-          "text": "kidney bean",
+          "text": "tightrope walker",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "office_supplies",
-      "label": "OFFICE SUPPLIES",
+      "key": "shoe_parts",
+      "label": "SHOE PARTS",
       "words": [
         {
-          "text": "binder",
+          "text": "tread",
           "kind": "word"
         },
         {
-          "text": "pen",
+          "text": "buckle",
           "kind": "word"
         },
         {
-          "text": "pencil",
+          "text": "sole",
           "kind": "word"
         },
         {
-          "text": "ink",
+          "text": "toe",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "olympic_sports",
-      "label": "OLYMPIC SPORTS",
+      "key": "tropical_plants",
+      "label": "TROPICAL PLANTS",
       "words": [
         {
-          "text": "triathlon",
+          "text": "papaya",
           "kind": "word"
         },
         {
-          "text": "wrestling",
+          "text": "hibiscus",
           "kind": "word"
         },
         {
-          "text": "sailing",
+          "text": "mangrove",
           "kind": "word"
         },
         {
-          "text": "rowing",
+          "text": "banyan",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "crustaceans",
-      "label": "CRUSTACEANS",
+      "key": "dairy_words",
+      "label": "DAIRY FARM",
       "words": [
         {
-          "text": "barnacle",
+          "text": "udder",
           "kind": "word"
         },
         {
-          "text": "crayfish",
+          "text": "milking machine",
           "kind": "word"
         },
         {
-          "text": "krill",
+          "text": "churn",
           "kind": "word"
         },
         {
-          "text": "pill bug",
+          "text": "barn",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "cutting_tools",
-      "label": "CUTTING TOOLS",
+      "key": "pests",
+      "label": "PESTS",
       "words": [
         {
-          "text": "razor",
+          "text": "rat",
           "kind": "word"
         },
         {
-          "text": "guillotine",
+          "text": "mouse",
           "kind": "word"
         },
         {
-          "text": "blade",
+          "text": "snail",
           "kind": "word"
         },
         {
-          "text": "wire cutter",
+          "text": "wasp",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "world_rivers",
-      "label": "WORLD RIVERS",
+      "key": "frozen_treats",
+      "label": "FROZEN DESSERTS",
       "words": [
         {
-          "text": "Po",
+          "text": "rocky road",
           "kind": "word"
         },
         {
-          "text": "Danube",
+          "text": "cookies and cream",
           "kind": "word"
         },
         {
-          "text": "Amazon",
+          "text": "ice cream cake",
           "kind": "word"
         },
         {
-          "text": "Thames",
+          "text": "ice cream",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "comedy_words",
-      "label": "COMEDY WORDS",
+      "key": "temperature_words",
+      "label": "TEMPERATURE WORDS",
       "words": [
         {
-          "text": "slapstick",
+          "text": "freezing",
           "kind": "word"
         },
         {
-          "text": "punchline",
+          "text": "frosty",
           "kind": "word"
         },
         {
-          "text": "standup",
+          "text": "boiling",
           "kind": "word"
         },
         {
-          "text": "heckler",
+          "text": "chilly",
           "kind": "word"
         }
       ]

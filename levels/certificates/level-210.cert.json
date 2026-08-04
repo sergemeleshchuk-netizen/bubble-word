@@ -1,0 +1,121 @@
+{
+  "cert_version": "cert-1.0",
+  "level_id": 210,
+  "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+  "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+  "generator_version": "gen-1.6",
+  "verdict": "CERTIFIED",
+  "c1_key": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "KEY_CATEGORY_COUNT",
+        "passed": true,
+        "detail": "категорий 13, объявлено 13"
+      },
+      {
+        "code": "KEY_CATEGORY_SIZE",
+        "passed": true,
+        "detail": "у всех категорий по 4 слова"
+      },
+      {
+        "code": "KEY_START_BUBBLES",
+        "passed": true,
+        "detail": "слов 52 − мета 2 = 50, объявлено 50"
+      },
+      {
+        "code": "KEY_META_RESOLVES",
+        "passed": true,
+        "detail": "мета-ссылок 2, все ведут на категорию этого уровня"
+      },
+      {
+        "code": "KEY_NO_DUPLICATE_BUBBLE",
+        "passed": true,
+        "detail": "одинаковых текстов на поле нет"
+      },
+      {
+        "code": "KEY_DEAL_PRESENT",
+        "passed": true,
+        "detail": "старт 24, очередь 26"
+      },
+      {
+        "code": "KEY_DEAL_COVERS_LEVEL",
+        "passed": true,
+        "detail": "выкладка покрывает ровно 50 пузырей уровня"
+      },
+      {
+        "code": "KEY_START_FITS_BOARD",
+        "passed": true,
+        "detail": "на старте 24 пузырей при ёмкости поля 24"
+      }
+    ]
+  },
+  "c2_uniqueness": {
+    "passed": true,
+    "solutions": 1,
+    "exhausted": true,
+    "nodes": 53,
+    "multiHome": 3,
+    "unknownWords": [],
+    "widening": {
+      "ownStatuses": "approved + alternative + hard_only",
+      "hardOnlyLinksAdded": 0,
+      "outsideLinksAdded": 0,
+      "outsideMatchedCategories": 8
+    }
+  },
+  "c3_playthrough": {
+    "passed": true,
+    "finished": true,
+    "failReason": null,
+    "moves": 39,
+    "moveLimit": 59,
+    "spare": 20,
+    "peakOnBoard": 24,
+    "boardCapacity": 24,
+    "onlyMoveStates": 1,
+    "stalls": 0,
+    "deadlockImpossible": true
+  },
+  "c4_outside_view": {
+    "matchedCategories": 8,
+    "totalCategories": 13,
+    "covered": 13,
+    "totalWords": 50,
+    "agreeing": 12,
+    "disputed": [
+      {
+        "word": "hammock",
+        "ourHome": "SUMMER THINGS",
+        "outsideHome": [
+          "CAMPING GEAR"
+        ]
+      }
+    ]
+  },
+  "c5_provenance": {
+    "own": 10,
+    "fromReference": 3,
+    "referenceCategories": [
+      "VOYAGE",
+      "CRUISE",
+      "ADOBE"
+    ]
+  },
+  "tool_said": {
+    "solution_count": 1,
+    "moves_needed": 39
+  },
+  "manual_play": {
+    "level_id": 210,
+    "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+    "date": "2026-08-04",
+    "build": "прототип site/playable/index.html, ?gen=9, Chrome",
+    "result": "loaded",
+    "moves_used": 0,
+    "move_limit": 59,
+    "categories_collected": 0,
+    "categories_total": 13,
+    "note": "Проверена только загрузка: 24 пузыря, лимит 59 — совпадает с пакетом."
+  }
+}

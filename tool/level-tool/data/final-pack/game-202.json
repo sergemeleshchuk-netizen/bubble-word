@@ -1,343 +1,583 @@
 {
   "level_id": 202,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 15,
     "words_per_category": 4,
-    "start_bubbles": 57,
+    "start_bubbles": 58,
     "board_capacity": 24,
     "move_limit": 61
   },
+  "deal": {
+    "start": [
+      {
+        "word": "engine",
+        "category": "car_parts"
+      },
+      {
+        "word": "Shangri-La",
+        "category": "legendary_places"
+      },
+      {
+        "word": "hose",
+        "category": "garden"
+      },
+      {
+        "word": "Hubble",
+        "category": "spacecraft"
+      },
+      {
+        "word": "nail",
+        "category": "sewing_and_repair"
+      },
+      {
+        "word": "Camelot",
+        "category": "legendary_places"
+      },
+      {
+        "word": "Micronesia",
+        "category": "oceania_places"
+      },
+      {
+        "word": "Palau",
+        "category": "oceania_places"
+      },
+      {
+        "word": "bloom",
+        "category": "roses"
+      },
+      {
+        "word": "bracket",
+        "category": "sewing_and_repair"
+      },
+      {
+        "word": "seeds",
+        "category": "garden"
+      },
+      {
+        "word": "Challenger",
+        "category": "spacecraft"
+      },
+      {
+        "word": "pad thai",
+        "category": "asian_dishes"
+      },
+      {
+        "word": "red",
+        "category": "roses"
+      },
+      {
+        "word": "thorn",
+        "category": "roses"
+      },
+      {
+        "word": "flowers",
+        "category": "garden"
+      },
+      {
+        "word": "Asgard",
+        "category": "legendary_places"
+      },
+      {
+        "word": "hammer",
+        "category": "sewing_and_repair"
+      },
+      {
+        "word": "bumper",
+        "category": "car_parts"
+      },
+      {
+        "word": "chow mein",
+        "category": "asian_dishes"
+      },
+      {
+        "word": "fragrance",
+        "category": "roses"
+      },
+      {
+        "word": "axle",
+        "category": "car_parts"
+      },
+      {
+        "word": "dim sum",
+        "category": "asian_dishes"
+      },
+      {
+        "word": "Apollo",
+        "category": "spacecraft"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Valhalla",
+        "category": "legendary_places"
+      },
+      {
+        "word": "Galileo",
+        "category": "spacecraft"
+      },
+      {
+        "word": "New Zealand",
+        "category": "oceania_places"
+      },
+      {
+        "word": "Vanuatu",
+        "category": "oceania_places"
+      },
+      {
+        "word": "exhaust",
+        "category": "car_parts"
+      },
+      {
+        "word": "EMT",
+        "category": "emergency_jobs"
+      },
+      {
+        "word": "tuba",
+        "category": "instruments"
+      },
+      {
+        "word": "screw",
+        "category": "sewing_and_repair"
+      },
+      {
+        "word": "piano",
+        "category": "instruments"
+      },
+      {
+        "word": "bassoon",
+        "category": "instruments"
+      },
+      {
+        "word": "lyre",
+        "category": "instruments"
+      },
+      {
+        "word": "coast guard",
+        "category": "emergency_jobs"
+      },
+      {
+        "word": "police officer",
+        "category": "emergency_jobs"
+      },
+      {
+        "word": "deputy",
+        "category": "emergency_jobs"
+      },
+      {
+        "word": "virus",
+        "category": "microorganisms"
+      },
+      {
+        "word": "algae",
+        "category": "microorganisms"
+      },
+      {
+        "word": "fungi",
+        "category": "microorganisms"
+      },
+      {
+        "word": "bacteria",
+        "category": "microorganisms"
+      },
+      {
+        "word": "Persia",
+        "category": "ancient_civilizations"
+      },
+      {
+        "word": "Sparta",
+        "category": "ancient_civilizations"
+      },
+      {
+        "word": "Egypt",
+        "category": "ancient_civilizations"
+      },
+      {
+        "word": "Rome",
+        "category": "ancient_civilizations"
+      },
+      {
+        "word": "can opener",
+        "category": "kitchen_gadgets"
+      },
+      {
+        "word": "timer",
+        "category": "kitchen_gadgets"
+      },
+      {
+        "word": "pizza cutter",
+        "category": "kitchen_gadgets"
+      },
+      {
+        "word": "garlic press",
+        "category": "kitchen_gadgets"
+      },
+      {
+        "word": "fish",
+        "category": "sushi"
+      },
+      {
+        "word": "salmon",
+        "category": "sushi"
+      },
+      {
+        "word": "tuna",
+        "category": "sushi"
+      },
+      {
+        "word": "rice",
+        "category": "sushi"
+      },
+      {
+        "word": "cardinal",
+        "category": "songbirds"
+      },
+      {
+        "word": "sparrow",
+        "category": "songbirds"
+      },
+      {
+        "word": "starling",
+        "category": "songbirds"
+      },
+      {
+        "word": "lark",
+        "category": "songbirds"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "shellfish",
-      "label": "SHELLFISH",
+      "key": "roses",
+      "label": "ROSES",
       "words": [
         {
-          "text": "crustaceans",
+          "text": "red",
           "kind": "word"
         },
         {
-          "text": "prawn",
+          "text": "bloom",
           "kind": "word"
         },
         {
-          "text": "abalone",
+          "text": "thorn",
           "kind": "word"
         },
         {
-          "text": "crab",
+          "text": "fragrance",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "seafood",
-      "label": "SEAFOOD",
+      "key": "garden",
+      "label": "GARDEN",
       "words": [
         {
-          "text": "shellfish",
+          "text": "roses",
           "kind": "meta",
-          "meta_child": "shellfish"
+          "meta_child": "roses"
         },
         {
-          "text": "eel",
+          "text": "flowers",
           "kind": "word"
         },
         {
-          "text": "trout",
+          "text": "seeds",
           "kind": "word"
         },
         {
-          "text": "cod",
+          "text": "hose",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "grocery_aisles",
-      "label": "GROCERY AISLES",
+      "key": "sushi",
+      "label": "SUSHI",
       "words": [
         {
-          "text": "seafood",
+          "text": "fish",
+          "kind": "word"
+        },
+        {
+          "text": "salmon",
+          "kind": "word"
+        },
+        {
+          "text": "rice",
+          "kind": "word"
+        },
+        {
+          "text": "tuna",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "asian_dishes",
+      "label": "ASIAN DISHES",
+      "words": [
+        {
+          "text": "sushi",
           "kind": "meta",
-          "meta_child": "seafood"
+          "meta_child": "sushi",
+          "display": "icon",
+          "icon": "🍣"
         },
         {
-          "text": "meats",
+          "text": "pad thai",
           "kind": "word"
         },
         {
-          "text": "vegetables",
+          "text": "chow mein",
           "kind": "word"
         },
         {
-          "text": "Frozen",
+          "text": "dim sum",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "constellations",
-      "label": "CONSTELLATIONS",
+      "key": "microorganisms",
+      "label": "MICROORGANISMS",
       "words": [
         {
-          "text": "Orion",
+          "text": "virus",
           "kind": "word"
         },
         {
-          "text": "Andromeda",
+          "text": "bacteria",
           "kind": "word"
         },
         {
-          "text": "Draco",
+          "text": "algae",
           "kind": "word"
         },
         {
-          "text": "Hercules",
+          "text": "fungi",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "stargazing",
-      "label": "STARGAZING",
+      "key": "ancient_civilizations",
+      "label": "ANCIENT CIVILIZATIONS",
       "words": [
         {
-          "text": "constellations",
-          "kind": "meta",
-          "meta_child": "constellations"
-        },
-        {
-          "text": "planets",
+          "text": "Persia",
           "kind": "word"
         },
         {
-          "text": "stars",
+          "text": "Egypt",
           "kind": "word"
         },
         {
-          "text": "moons",
+          "text": "Sparta",
+          "kind": "word"
+        },
+        {
+          "text": "Rome",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "aircraft",
-      "label": "AIRCRAFT",
+      "key": "instruments",
+      "label": "INSTRUMENTS",
       "words": [
         {
-          "text": "balloon",
+          "text": "tuba",
           "kind": "word"
         },
         {
-          "text": "Zeppelin",
+          "text": "lyre",
           "kind": "word"
         },
         {
-          "text": "cargo plane",
+          "text": "bassoon",
           "kind": "word"
         },
         {
-          "text": "glider",
+          "text": "piano",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "weather_adjectives",
-      "label": "WEATHER ADJECTIVES",
+      "key": "legendary_places",
+      "label": "LEGENDARY PLACES",
       "words": [
         {
-          "text": "windy",
+          "text": "Asgard",
           "kind": "word"
         },
         {
-          "text": "mild",
+          "text": "Shangri-La",
           "kind": "word"
         },
         {
-          "text": "stormy",
+          "text": "Camelot",
           "kind": "word"
         },
         {
-          "text": "icy",
+          "text": "Valhalla",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "world_currencies_more",
-      "label": "MORE CURRENCIES",
+      "key": "oceania_places",
+      "label": "OCEANIA PLACES",
       "words": [
         {
-          "text": "baht",
+          "text": "Vanuatu",
           "kind": "word"
         },
         {
-          "text": "ruble",
+          "text": "Micronesia",
           "kind": "word"
         },
         {
-          "text": "dinar",
+          "text": "Palau",
           "kind": "word"
         },
         {
-          "text": "kroner",
+          "text": "New Zealand",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "greek_letters",
-      "label": "GREEK LETTERS",
+      "key": "emergency_jobs",
+      "label": "EMERGENCY JOBS",
       "words": [
         {
-          "text": "Omega",
+          "text": "EMT",
           "kind": "word"
         },
         {
-          "text": "eta",
+          "text": "deputy",
           "kind": "word"
         },
         {
-          "text": "theta",
+          "text": "police officer",
           "kind": "word"
         },
         {
-          "text": "sigma",
+          "text": "coast guard",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "medical_jobs",
-      "label": "MEDICAL JOBS",
+      "key": "spacecraft",
+      "label": "SPACECRAFT",
       "words": [
         {
-          "text": "doctor",
+          "text": "Apollo",
           "kind": "word"
         },
         {
-          "text": "psychiatrist",
+          "text": "Galileo",
           "kind": "word"
         },
         {
-          "text": "therapist",
+          "text": "Hubble",
           "kind": "word"
         },
         {
-          "text": "surgeon",
+          "text": "Challenger",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "facial_expressions",
-      "label": "FACIAL EXPRESSIONS",
+      "key": "car_parts",
+      "label": "CAR PARTS",
       "words": [
         {
-          "text": "blink",
+          "text": "exhaust",
           "kind": "word"
         },
         {
-          "text": "smile",
+          "text": "bumper",
           "kind": "word"
         },
         {
-          "text": "beam",
+          "text": "engine",
           "kind": "word"
         },
         {
-          "text": "smirk",
+          "text": "axle",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "cartoon_characters",
-      "label": "CARTOON CHARACTERS",
+      "key": "kitchen_gadgets",
+      "label": "KITCHEN GADGETS",
       "words": [
         {
-          "text": "Yogi",
+          "text": "garlic press",
           "kind": "word"
         },
         {
-          "text": "Mickey",
+          "text": "timer",
           "kind": "word"
         },
         {
-          "text": "Goofy",
+          "text": "can opener",
           "kind": "word"
         },
         {
-          "text": "Bugs Bunny",
+          "text": "pizza cutter",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "noise_adjectives",
-      "label": "VOLUME WORDS",
+      "key": "songbirds",
+      "label": "SONGBIRDS",
       "words": [
         {
-          "text": "still",
+          "text": "cardinal",
           "kind": "word"
         },
         {
-          "text": "loud",
+          "text": "starling",
           "kind": "word"
         },
         {
-          "text": "roaring",
+          "text": "sparrow",
           "kind": "word"
         },
         {
-          "text": "booming",
+          "text": "lark",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "pests",
-      "label": "PESTS",
+      "key": "sewing_and_repair",
+      "label": "HOME REPAIR",
       "words": [
         {
-          "text": "insects",
+          "text": "screw",
           "kind": "word"
         },
         {
-          "text": "mole",
+          "text": "hammer",
           "kind": "word"
         },
         {
-          "text": "rodents",
+          "text": "nail",
           "kind": "word"
         },
         {
-          "text": "flea",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "arctic_animals",
-      "label": "ARCTIC ANIMALS",
-      "words": [
-        {
-          "text": "beluga",
-          "kind": "word"
-        },
-        {
-          "text": "puffin",
-          "kind": "word"
-        },
-        {
-          "text": "orca",
-          "kind": "word"
-        },
-        {
-          "text": "caribou",
+          "text": "bracket",
           "kind": "word"
         }
       ]

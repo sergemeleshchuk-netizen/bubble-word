@@ -208,8 +208,17 @@ function scoreBlock(seed: string, block: BlockResult): BlockScore {
 const candidates: { score: BlockScore; block: BlockResult }[] = [];
 for (let i = 0; i < seedCount; i += 1) {
   const seed = `final-${String(i).padStart(2, '0')}`;
+  /*
+   * novelty=hard именно ЗДЕСЬ, а не только в отборе блока. Хеши референса
+   * воронка получала и раньше, но режим оставался 'off': генератор копию
+   * четвёрки собирал молча, а воронка потом выбрасывала из-за неё весь блок.
+   * На склеенной базе (в снимке живёт и слой оригинала) так отсеялись все 24
+   * кандидата разом. Правильное место отказа — сборка категории: генератор
+   * пересдаёт четвёрку и блок доживает до критериев.
+   */
   const block = generateBlock({
-    snapshot, scoring, config: { ...DEFAULT_BLOCK_CONFIG, seed }, referenceQuadrupleHashes,
+    snapshot, scoring, config: { ...DEFAULT_BLOCK_CONFIG, seed },
+    referenceQuadrupleHashes, referenceNovelty: 'hard',
   });
   candidates.push({ score: scoreBlock(seed, block), block });
 }
@@ -280,6 +289,13 @@ writeFileSync(join(OUT, 'pack.json'), JSON.stringify({
     rejection_reasons: Object.fromEntries(reasons),
   },
   block_criteria: winner.score,
+  /*
+   * Режим novelty пишем в пакет наравне с seed: без него команда воспроизведения
+   * неполна. Тот же seed и тот же снимок при `off` дают ДРУГОЙ блок — генератор
+   * не пересдаёт скопированные четвёрки, — и тест воспроизводимости не смог бы
+   * отличить «пакет испортился» от «его собирали другой командой».
+   */
+  reference_novelty: 'hard',
   config: winner.block.config,
   levels: winner.block.levels.map((l) => ({
     level_id: l.spec.levelId, role: l.plan.role,
@@ -357,7 +373,14 @@ function levelCard(level: GeneratedLevel): string {
   L.push('');
   L.push(`**Интересность:** Clarity ${level.interest.clarity}, Variety ${level.interest.variety}, `
     + `Aha ${level.interest.aha}, Freshness ${level.interest.freshness}.\n`);
-  L.push('**Ручная игра:** _заполняется после прохождения в прототипе._\n');
+  /*
+   * Раньше здесь стояло «заполняется после прохождения» — и не заполнялось
+   * никогда: файл переписывается воронкой, любая ручная правка терялась при
+   * следующей пересборке. Поэтому запись живёт в `levels/manual-play.json`,
+   * а карточка на неё ссылается.
+   */
+  L.push('**Ручная игра:** запись — `levels/manual-play.json`, сводка — '
+    + '`levels/CERTIFICATION.md`, раздел «Ручная игра».\n');
   return L.join('\n');
 }
 
