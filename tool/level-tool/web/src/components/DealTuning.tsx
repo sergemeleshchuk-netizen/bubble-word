@@ -22,10 +22,18 @@
  *
  * Живёт на первой вкладке: это настройка ИНСТРУМЕНТА на всю кривую, а не
  * одного блока. Правки переживают перезагрузку (localStorage в App) и
- * применяются к сборке блока по номеру его первого уровня. Пресет 201-210
- * (сдаваемый пакет) таблица не трогает — его выкладка и хеш закреплены.
+ * применяются к сборке блока по номеру его первого уровня.
+ *
+ * Таблица — ЧЕРНОВИК до кнопки «Сохранить и применить» (решение владельца
+ * 04.08). Раньше каждое нажатие клавиши уезжало в localStorage и молча
+ * становилось действующей настройкой, но на конфиг блока не влияло до
+ * следующей сборки — то есть настройка была применена и не применена
+ * одновременно, и по экранам это было никак не видно. Теперь применение
+ * одно, явное, и оно же переписывает конфиг текущего блока: включая пресет
+ * 201-210 — человек, нажавший «применить», сильнее закрепления пресета
+ * (`presetLocked`), которое защищает только автоматический путь.
  */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   decadeTuningDefaults, formatScheme, liteSchemePreview, parseScheme,
 } from '../core/decadeProfiles.ts';
@@ -48,16 +56,39 @@ function schemeSums(row: DecadeTuningRow): [number, number] {
   return a <= b ? [a, b] : [b, a];
 }
 
-export function DecadeTable({ rows, onChange }: {
+export function DecadeTable({ rows, onApply, appliedTo }: {
+  /** действующий конфиг: то, по чему собирается блок */
   rows: DecadeTuningRow[];
-  onChange: (next: DecadeTuningRow[]) => void;
+  onApply: (next: DecadeTuningRow[]) => void;
+  /**
+   * Диапазон уровней текущего конфига блока — только для подписи под кнопкой.
+   * Человеку нужно видеть, какая именно строка таблицы уедет в его блок:
+   * применяется та, в которую попадает первый уровень диапазона.
+   */
+  appliedTo?: [number, number];
 }) {
-  const sorted = [...rows].sort((a, b) => a.from - b.from);
+  const applied = [...rows].sort((a, b) => a.from - b.from);
   const defaults = decadeTuningDefaults();
+  /**
+   * Черновик таблицы. Правки живут здесь и не влияют ни на что до кнопки.
+   */
+  const [draft, setDraft] = useState<DecadeTuningRow[]>(applied);
+  const appliedKey = JSON.stringify(applied);
+  // внешняя смена действующего конфига (загрузка из localStorage, «умолчания»
+  // из другого места) обязана попасть в черновик: иначе таблица показывала бы
+  // числа, которых в конфиге больше нет
+  useEffect(() => { setDraft(applied); }, [appliedKey]);
+
+  const sorted = draft;
+  const dirty = JSON.stringify(sorted) !== appliedKey;
   const isDefault = JSON.stringify(sorted) === JSON.stringify(defaults);
+  const appliedRow = appliedTo
+    ? sorted.find((r) => r.from <= appliedTo[0]
+      && !sorted.some((o) => o.from <= appliedTo[0] && o.from > r.from))
+    : undefined;
 
   const update = (from: number, patch: Partial<DecadeTuningRow>) => {
-    onChange(sorted.map((r) => (r.from === from ? { ...r, ...patch } : r)));
+    setDraft(sorted.map((r) => (r.from === from ? { ...r, ...patch } : r)));
   };
 
   return (
@@ -91,58 +122,42 @@ export function DecadeTable({ rows, onChange }: {
             {sorted.map((row) => {
               const base = defaults.find((d) => d.from === row.from);
               const edited = !base || JSON.stringify(base) !== JSON.stringify(row);
+              const live = applied.find((a) => a.from === row.from);
+              const pending = !live || JSON.stringify(live) !== JSON.stringify(row);
               const sums = schemeSums(row);
               const cap = row.startBubbles[1];
               return (
                 <tr key={row.from} className={edited ? 'selected' : undefined}>
-                  <td className="mono">{row.from}-{row.to}</td>
+                  <td className="mono">
+                    {row.from}-{row.to}
+                    {pending && <div className="note">не применено</div>}
+                    {!pending && appliedRow?.from === row.from
+                      && <div className="note">в текущем блоке</div>}
+                  </td>
                   <td>
-                    <input
-                      type="text" inputMode="numeric" style={{ width: 52 }}
-                      value={String(row.startBubbles[0])}
-                      onChange={(e) => {
-                        const n = Number(e.target.value);
-                        if (Number.isInteger(n) && n >= 4 && n <= row.startBubbles[1]) {
-                          update(row.from, { startBubbles: [n, row.startBubbles[1]] });
-                        }
-                      }}
+                    <NumField
+                      value={row.startBubbles[0]} min={4} max={row.startBubbles[1]}
+                      onCommit={(n) => update(row.from,
+                        { startBubbles: [n, row.startBubbles[1]] })}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text" inputMode="numeric" style={{ width: 52 }}
-                      value={String(cap)}
-                      onChange={(e) => {
-                        const n = Number(e.target.value);
-                        if (Number.isInteger(n) && n >= row.startBubbles[0]
-                          && n <= BOARD_CAPACITY) {
-                          update(row.from, { startBubbles: [row.startBubbles[0], n] });
-                        }
-                      }}
+                    <NumField
+                      value={cap} min={row.startBubbles[0]} max={BOARD_CAPACITY}
+                      onCommit={(n) => update(row.from,
+                        { startBubbles: [row.startBubbles[0], n] })}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text" inputMode="numeric" style={{ width: 52 }}
-                      value={String(row.corridor[0])}
-                      onChange={(e) => {
-                        const n = Number(e.target.value);
-                        if (Number.isInteger(n) && n >= 3 && n <= row.corridor[1]) {
-                          update(row.from, { corridor: [n, row.corridor[1]] });
-                        }
-                      }}
+                    <NumField
+                      value={row.corridor[0]} min={3} max={row.corridor[1]}
+                      onCommit={(n) => update(row.from, { corridor: [n, row.corridor[1]] })}
                     />
                   </td>
                   <td>
-                    <input
-                      type="text" inputMode="numeric" style={{ width: 52 }}
-                      value={String(row.corridor[1])}
-                      onChange={(e) => {
-                        const n = Number(e.target.value);
-                        if (Number.isInteger(n) && n >= row.corridor[0] && n <= 18) {
-                          update(row.from, { corridor: [row.corridor[0], n] });
-                        }
-                      }}
+                    <NumField
+                      value={row.corridor[1]} min={row.corridor[0]} max={18}
+                      onCommit={(n) => update(row.from, { corridor: [row.corridor[0], n] })}
                     />
                   </td>
                   <td>
@@ -168,22 +183,88 @@ export function DecadeTable({ rows, onChange }: {
         </table>
       </div>
       <div className="row" style={{ marginTop: 10 }}>
+        <button
+          className="primary"
+          disabled={!dirty}
+          onClick={() => onApply(sorted)}
+        >
+          Сохранить и применить
+        </button>
+        {dirty && (
+          <button className="ghost" onClick={() => setDraft(applied)}>
+            отменить правки
+          </button>
+        )}
         {!isDefault && (
-          <button className="ghost" onClick={() => onChange(decadeTuningDefaults())}>
+          <button className="ghost" onClick={() => setDraft(decadeTuningDefaults())}>
             вернуть умолчания
           </button>
         )}
       </div>
-      <p className="small muted" style={{ marginTop: 8 }}>
-        Заполнена одна схема из двух — она действует на весь промежуток; после
-        «авто:» показано, какую раскладку и сколько пузырей даст автоматическая
-        раздача при этом бюджете. Правка коридора пересобирает план категорий
-        блока: середина коридора становится целевым средним, его края — спайком
-        и передышкой. Бюджет старта и разрешённая для уровня схема записываются
-        в спек и входят в хеш пакета. Пресет 201-210 таблица не трогает.
-        Вместимость поля остаётся 24 всегда: подрезается старт, а не поле.
+      <p className="hint">
+        {dirty
+          ? 'Правки в черновике: на сборку блока они не влияют, пока не применены.'
+          : 'Конфиг применён и сохранён — блок собирается по нему.'}
+        {appliedRow && (
+          <>
+            {' '}Текущему блоку (уровни {appliedTo?.[0]}-{appliedTo?.[1]}) достаётся
+            строка <span className="mono">{appliedRow.from}-{appliedRow.to}</span>:
+            категорий <span className="mono">
+              {appliedRow.corridor[0]}-{appliedRow.corridor[1]}
+            </span>. Своего поля у коридора на шаге «Настройка блока» нет — он
+            предустановка кривой и правится здесь.
+          </>
+        )}
       </p>
+      {/*
+        Абзац с оговорками под таблицей убран (решение владельца 04.08): пять
+        правил подряд про хеш пакета, целевое среднее коридора и неприкосновенность
+        пресета читателю таблицы не нужны — он пришёл поправить числа. Сами правила
+        никуда не делись, они в шапке этого файла и в `core/decadeProfiles.ts`,
+        где им и место.
+      */}
     </div>
+  );
+}
+
+/**
+ * Числовая ячейка с черновиком.
+ *
+ * Без черновика ячейки таблицы были нередактируемы, и это не мелочь: поле
+ * полностью управляемое, а проверка отвергала промежуточный ввод. Чтобы
+ * поставить в потолок коридора 13 вместо 12, нужно было набрать «1» — а «1»
+ * меньше пола 8, значение не принималось, и в поле возвращалось прежнее «12».
+ * Ни одну двузначную границу изменить было нельзя вовсе.
+ *
+ * Поведение теперь то же, что у полей Composer: пока набранное не проходит
+ * границы, оно живёт в черновике и подсвечивается, в таблицу не уезжает, а на
+ * выходе из поля черновик отбрасывается.
+ */
+function NumField({ value, min, max, onCommit }: {
+  value: number;
+  min: number;
+  max: number;
+  onCommit: (n: number) => void;
+}) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const [pending, setPending] = useState(false);
+
+  return (
+    <input
+      type="text" inputMode="numeric" style={{ width: 52 }}
+      className={pending ? 'pending' : undefined}
+      value={draft ?? String(value)}
+      onChange={(e) => {
+        const raw = e.target.value;
+        setDraft(raw);
+        const n = Number(raw.trim());
+        const ok = raw.trim() !== '' && Number.isInteger(n) && n >= min && n <= max;
+        setPending(!ok);
+        if (ok) onCommit(n);
+      }}
+      onFocus={(e) => e.currentTarget.select()}
+      onBlur={() => { setDraft(null); setPending(false); }}
+    />
   );
 }
 

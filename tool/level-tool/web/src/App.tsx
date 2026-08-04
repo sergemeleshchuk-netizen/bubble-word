@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { BlockConfig, BlockResult, Snapshot } from './core/types.ts';
 import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
-import { generateBlock, toGameJson, toPipelineJson } from './core/generateBlock.ts';
+import {
+  generateBlock, redealLevel, toGameJson, toPipelineJson, withLevel,
+} from './core/generateBlock.ts';
 import { ContentIndex } from './core/snapshot.ts';
 import { DEFAULT_SOURCE_ID, sourceById, type SourceId } from './core/sources.ts';
 import type { ScoringConfig } from './core/scoringDifficulty.ts';
@@ -122,11 +124,26 @@ export function App() {
   const [elapsed, setElapsed] = useState<number>(0);
   const [decadeTuning, setDecadeTuning] = useState<DecadeTuningRow[]>(loadDecadeTuning);
 
-  const changeDecadeTuning = (next: DecadeTuningRow[]) => {
+  /**
+   * Применение конфига декад: сохранить и НЕМЕДЛЕННО переписать конфиг блока.
+   *
+   * Раньше здесь было только сохранение, а таблица доезжала до конфига лишь в
+   * момент следующей сборки. Практическое следствие: на шаге «Настройка блока»
+   * стоял коридор, которого в конфиге декад уже нет, и понять, какое из двух
+   * чисел действует, было нельзя.
+   *
+   * `presetLocked` здесь снимается сознательно. Закрепление сдаваемого пакета
+   * защищает автоматический путь (`generate`), чтобы таблица не переписала хеш
+   * пакета молча. Но человек, нажавший «Сохранить и применить», просит ровно
+   * этого — и отказать ему значило бы показать кнопку, которая на пресете
+   * ничего не делает.
+   */
+  const applyDecadeTuningConfig = (next: DecadeTuningRow[]) => {
     setDecadeTuning(next);
     try {
       localStorage.setItem(DECADE_TUNING_KEY, JSON.stringify(next));
     } catch { /* приватный режим: настройка живёт до перезагрузки */ }
+    setConfig((prev) => applyDecadeTuning({ ...prev, presetLocked: undefined }, next));
   };
 
   /**
@@ -215,10 +232,9 @@ export function App() {
    */
   const generate = (raw: BlockConfig = config) => {
     // Таблица декад применяется В МОМЕНТ сборки: черновик конфига мог быть
-    // собран до правки таблицы. Пресет 201-210 раздачу не задаёт (undefined) —
-    // его не трогаем, хеш сдаваемого пакета закреплён.
-    const next = raw.dealMinStartWords === undefined ? raw
-      : applyDecadeTuning(raw, decadeTuning);
+    // собран до правки таблицы. Пресет инструмента она не переписывает — у
+    // сдаваемого пакета своя форма кривой (`presetLocked` в core/types.ts).
+    const next = raw.presetLocked ? raw : applyDecadeTuning(raw, decadeTuning);
     setConfig(next);
     const started = performance.now();
     const result = generateBlock({ snapshot, config: next, scoring });
@@ -255,6 +271,22 @@ export function App() {
 
   const level = block?.levels.find((l) => l.spec.levelId === selectedLevel) ?? null;
   const busy = loadingSource !== null;
+
+  /**
+   * Переложить старт выбранного уровня по схеме с экрана «Уровень».
+   *
+   * Уровень пересчитывается целиком (`redealLevel`), а блок получает новый хеш
+   * пакета (`withLevel`): выкладка входит в хеш спека, и оставить прежний
+   * packHash значило бы подписать старым именем другой пакет.
+   *
+   * На реф-базе это не предлагается вовсе: там выкладка взята из записи
+   * оригинала, и «поправить» её значило бы наиграть не тот уровень, что записан.
+   */
+  const redeal = (scheme: number[] | null) => {
+    if (!block || !level || isReference) return;
+    const next = redealLevel({ snapshot, scoring, block, level, scheme, index });
+    setBlock(withLevel(block, next, scoring));
+  };
 
   /**
    * Следующий шаг для кнопки в строке закладок. На последнем экране её нет:
@@ -327,7 +359,11 @@ export function App() {
             busy={busy}
             onSwitch={switchSource}
           />
-          <DecadeTable rows={decadeTuning} onChange={changeDecadeTuning} />
+          <DecadeTable
+            rows={decadeTuning}
+            onApply={applyDecadeTuningConfig}
+            appliedTo={config.levelRange}
+          />
         </>
       )}
 
@@ -371,6 +407,7 @@ export function App() {
               scoring={scoring}
               onSelect={setSelectedLevel}
               levels={block!.levels}
+              onRedeal={isReference ? undefined : redeal}
             />
           )
           : <Empty onGenerate={generate} isReference={isReference} onGoPick={() => setTab('compose')} />

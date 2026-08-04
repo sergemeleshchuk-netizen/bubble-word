@@ -20,10 +20,12 @@ import type { Snapshot } from '../web/src/core/types.ts';
 import type { ScoringConfig } from '../web/src/core/scoringDifficulty.ts';
 import { DEFAULT_BLOCK_CONFIG } from '../web/src/core/blockPlan.ts';
 import { generateBlock } from '../web/src/core/generateBlock.ts';
-import { buildDeal, checkDeal, dealForSpec } from '../web/src/core/deal.ts';
+import { buildDeal, checkDeal, chunkKey, dealForSpec } from '../web/src/core/deal.ts';
 import { BOARD_CAPACITY } from '../web/src/core/levelMath.ts';
 import { buildSetup } from '../web/src/core/playableModifiers.ts';
-import { buildSpec, validLevel, word, metaWord } from './fixtures/synthetic.ts';
+import {
+  buildSpec, levelCategory, metaWord, validLevel, word,
+} from './fixtures/synthetic.ts';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const snapshot = JSON.parse(
@@ -167,4 +169,87 @@ test('уровень с мета-словом: в выкладке на пузы
   assert.equal(total, spec.categories.length * 4 - 1,
     'мета-слово посчитали как обычный пузырь');
   assert.deepEqual(checkDeal(spec, spec.deal), []);
+});
+
+// --------------------------------------------------------------------------- //
+// схема против мета и половинок
+// --------------------------------------------------------------------------- //
+
+/*
+ * Требование владельца 03.08: «4 это 4, а половинки в разных досыпках и мета
+ * не должны нарушать». До этого доля отдавалась очередной категории и молча
+ * урезалась до её размера: мета-родитель (спавнится три слова, имя-мета на
+ * старте не лежит) превращал четвёрку схемы в тройку, а распиленное слово
+ * стоимостью в два пузыря съедало место соседней доли.
+ */
+const SCHEME_STRICT = [4, 4, 3, 3, 2];
+
+function startByCategory(deal: ReturnType<typeof buildDeal>): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  for (const b of deal.start) {
+    out.set(b.category, [...(out.get(b.category) ?? []), b.word]);
+  }
+  return out;
+}
+
+test('мета-категория не забирает четвёрку схемы: доля уходит тому, кто её держит', () => {
+  // у категории meta_host спавнящихся слов три: четвёртое — имя дочерней категории
+  const categories = [
+    levelCategory('colors', 'COLORS', [
+      word('red', 5.0), word('blue', 4.9), word('green', 4.8), word('yellow', 4.5)]),
+    levelCategory('fruits', 'FRUITS', [
+      word('apple', 4.7), word('banana', 4.2), word('pear', 3.9), word('plum', 3.6)]),
+    levelCategory('meta_host', 'GARDEN', [
+      word('soil', 4.1), word('fence', 4.0), word('shed', 3.8), metaWord('COLORS', 'colors')]),
+    levelCategory('tools', 'TOOLS', [
+      word('hammer', 4.1), word('saw', 4.4), word('drill', 4.0), word('wrench', 3.5)]),
+    levelCategory('weather', 'WEATHER', [
+      word('rain', 5.1), word('snow', 4.9), word('wind', 4.8), word('fog', 4.0)]),
+  ];
+  const deal = buildDeal(300, categories, { boardCapacity: BOARD_CAPACITY, wordsPerCategory: 4 },
+    new Set<string>(), 2, SCHEME_STRICT);
+
+  const shares = [...startByCategory(deal).values()].map((ws) => ws.length)
+    .sort((a, b) => b - a);
+  assert.deepEqual(shares, SCHEME_STRICT,
+    `схема ${SCHEME_STRICT.join('-')} исполнена как ${shares.join('-')}`);
+  // тройка досталась мета-родителю: четвёрку он держать не может
+  const byCategory = startByCategory(deal);
+  assert.equal(byCategory.get('meta_host')?.length, 3,
+    'мета-родителю положена доля 3: спавнящихся слов у него три');
+});
+
+test('половинки уходят в досыпку и не съедают долю схемы', () => {
+  const categories = [
+    levelCategory('colors', 'COLORS', [
+      word('red', 5.0), word('blue', 4.9), word('green', 4.8), word('yellow', 4.5)]),
+    levelCategory('fruits', 'FRUITS', [
+      word('apple', 4.7), word('banana', 4.2), word('pear', 3.9), word('plum', 3.6)]),
+    levelCategory('tools', 'TOOLS', [
+      word('hammer', 4.1), word('saw', 4.4), word('drill', 4.0), word('wrench', 3.5)]),
+    levelCategory('weather', 'WEATHER', [
+      word('rain', 5.1), word('snow', 4.9), word('wind', 4.8), word('fog', 4.0)]),
+    levelCategory('birds', 'BIRDS', [
+      word('crow', 4.3), word('owl', 4.2), word('swan', 3.9), word('finch', 3.4)]),
+  ];
+  // по распиленному слову в трёх категориях: каждое стоит на поле два пузыря
+  const chunked = new Set([
+    chunkKey('fruits', 'banana'), chunkKey('tools', 'wrench'), chunkKey('birds', 'finch')]);
+  const deal = buildDeal(301, categories, { boardCapacity: BOARD_CAPACITY, wordsPerCategory: 4 },
+    chunked, 2, SCHEME_STRICT);
+
+  const byCategory = startByCategory(deal);
+  const shares = [...byCategory.values()].map((ws) => ws.length).sort((a, b) => b - a);
+  assert.deepEqual(shares, SCHEME_STRICT,
+    `распилы не должны менять схему: вышло ${shares.join('-')}`);
+
+  // распиленное слово попадает на старт только если доля забирает категорию целиком
+  for (const [key, words] of byCategory) {
+    const splits = words.filter((w) => chunked.has(chunkKey(key, w))).length;
+    const spawnable = categories.find((c) => c.key === key)!.words
+      .filter((w) => w.kind !== 'meta').length;
+    const expected = words.length === spawnable ? 1 : 0;
+    assert.ok(splits <= expected,
+      `${key}: на старте ${splits} половинок при доле ${words.length} из ${spawnable}`);
+  }
 });
