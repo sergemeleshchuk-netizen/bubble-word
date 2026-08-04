@@ -375,8 +375,15 @@ export function metaIconFor(text: string): string | null {
 export function pickMetaIcons(
   metaWords: readonly string[],
   weight: (key: string) => number,
+  /**
+   * Минимум картинок на уровне. Ноль — правило доли работает как всегда.
+   * Единица приходит от плана: уровень, которому человек поставил галочку
+   * «категория-картинка», обязан её получить, даже если мета-пара на нём одна
+   * (доля дала бы ноль, см. `metaIconTarget`).
+   */
+  minCount = 0,
 ): Map<string, string> {
-  const target = metaIconTarget(metaWords.length);
+  const target = Math.max(minCount, metaIconTarget(metaWords.length));
   const chosen = new Map<string, string>();
   if (target <= 0) return chosen;
 

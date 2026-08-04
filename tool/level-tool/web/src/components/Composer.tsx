@@ -15,6 +15,7 @@ import {
 } from '../core/intentParser.ts';
 import { startBubbles } from '../core/levelMath.ts';
 import { configForRange } from '../core/decadeProfiles.ts';
+import { metaIconTarget } from '../core/metaIcons.ts';
 import {
   parseCount, parseNumberList, parseOptionalList, parseRange,
 } from '../core/fieldParse.ts';
@@ -108,18 +109,50 @@ const ROLE_LABEL: Record<string, string> = {
  * «почему тут так тяжело». Остальные четыре взаимоисключающие — на уровне живёт
  * один модификатор (GDD §7), поэтому включение одного гасит другой.
  */
-const LEVEL_TOGGLES: { key: 'meta' | LevelModifier; mark: string; title: string }[] = [
+const LEVEL_TOGGLES: {
+  key: 'meta' | 'icon' | LevelModifier;
+  mark: string;
+  /** короткая подпись для легенды под графиком */
+  title: string;
+  /** подробное объяснение по наведению на сам чекбокс */
+  tip?: string;
+}[] = [
   { key: 'meta', mark: 'M', title: 'мета-связи' },
+  {
+    key: 'icon',
+    mark: '\u{1F5BC}',
+    title: 'категория-картинка: мета-пузырь рисуется значком',
+    tip: 'Категория-картинка. Включено — уровень ОБЯЗАН получить мета-пузырь со '
+      + 'значком вместо слова: генератор выбирает мета-пары среди имён, у которых '
+      + 'значок в словаре есть (core/metaIcons.ts, 313 имён). Выключено — картинок '
+      + 'на уровне нет вовсе. Пока галочку не трогали, работает прежнее правило: '
+      + 'четверть мета-пузырей уровня, что нашлось в словаре. На уровне без '
+      + 'мета-связей картинки быть не может — там галочка недоступна.',
+  },
   { key: 'halves', mark: '½', title: 'половинки: слово из двух пузырей' },
   { key: 'ice', mark: '❄', title: 'лёд: снимается счётчиком мерджей' },
   { key: 'hidden', mark: '?', title: 'скрытые: слово открывается мерджами' },
   { key: 'chain_line', mark: '⛓', title: 'цепь: делит поле до сбора категорий' },
 ];
 
+/**
+ * Ждём ли картинку на уровне по одному плану, без собранного блока.
+ *
+ * `require` — обязана быть; `forbid` — нет; `auto` — по правилу доли, то есть от
+ * двух мета-пар и выше. Галочка на графике и обработчик клика обязаны отвечать
+ * одинаково, иначе первый же клик «переворачивал» бы не то, что видно.
+ */
+export function iconExpected(plan: LevelPlan): boolean {
+  if (plan.iconMode === 'require') return true;
+  if (plan.iconMode === 'forbid') return false;
+  return metaIconTarget(plan.metaCount) >= 1;
+}
+
 export interface RhythmEditing {
   /** перетащили колонку: композиция позиции едет за ней */
   onReorder: (from: number, to: number) => void;
   onToggleMeta: (index: number) => void;
+  onToggleIcon: (index: number) => void;
   onToggleModifier: (index: number, modifier: LevelModifier) => void;
 }
 
@@ -131,10 +164,12 @@ export interface RhythmEditing {
  * `draggable` и настоящий `input[type=checkbox]` — с клавиатурой, фокусом и
  * поведением, которого от них ждут.
  */
-function RhythmColumns({ plans, editing, offsets }: {
+function RhythmColumns({ plans, editing, offsets, iconOn }: {
   plans: LevelPlan[];
   editing: RhythmEditing;
   offsets: { left: string; right: string };
+  /** есть ли картинка на СОБРАННОМ уровне позиции: галочка показывает факт, а не желание */
+  iconOn: (index: number) => boolean;
 }) {
   /**
    * Откуда тащат, живёт в ref, а не только в состоянии.
@@ -178,17 +213,21 @@ function RhythmColumns({ plans, editing, offsets }: {
         >
           <div className="rc-head mono">{plan.levelId}</div>
           {LEVEL_TOGGLES.map((toggle) => {
-            const on = toggle.key === 'meta'
-              ? plan.metaCount > 0
+            const on = toggle.key === 'meta' ? plan.metaCount > 0
+              : toggle.key === 'icon' ? iconOn(i)
               : plan.modifier === toggle.key;
             return (
-              <label key={toggle.key} className="rc-toggle" title={toggle.title}>
+              <label key={toggle.key} className="rc-toggle" title={toggle.tip ?? toggle.title}>
                 <input
                   type="checkbox"
                   checked={on}
+                  // картинка на уровне без мета-пар невозможна физически
+                  disabled={toggle.key === 'icon' && plan.metaCount === 0}
                   onChange={() => (toggle.key === 'meta'
                     ? editing.onToggleMeta(i)
-                    : editing.onToggleModifier(i, toggle.key as LevelModifier))}
+                    : toggle.key === 'icon'
+                      ? editing.onToggleIcon(i)
+                      : editing.onToggleModifier(i, toggle.key as LevelModifier))}
                 />
                 <span>{toggle.mark}</span>
               </label>
@@ -304,6 +343,13 @@ export function RhythmChart({ plans, levels, editing }: {
         <RhythmColumns
           plans={plans}
           editing={editing}
+          iconOn={(i) => {
+            const level = byId.get(plans[i].levelId);
+            // есть собранный уровень — показываем факт, иначе ожидание плана
+            return level
+              ? level.spec.categories.some((c) => c.words.some((w) => w.icon))
+              : iconExpected(plans[i]);
+          }}
           offsets={{
             left: `${(padL / W) * 100}%`,
             right: `${(padR / W) * 100}%`,
@@ -474,6 +520,17 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
       const derived = buildBlockPlan({ ...d, metaPlan: undefined })[index]?.metaCount ?? 1;
       metaPlan[index] = metaPlan[index] > 0 ? 0 : Math.max(1, derived);
       return { ...d, metaPlan };
+    }),
+    onToggleIcon: (index) => setDraft((d) => {
+      /*
+       * Пишем ЯВНЫЙ план: иначе выбор жил бы до первого пересчёта — правило доли
+       * вывело бы своё и молча стёрло галочку. Остальные позиции фиксируем в том
+       * виде, в котором человек их сейчас видит на графике, чтобы одна галочка
+       * не переставила картинки на всём блоке.
+       */
+      const iconPlan: (0 | 1 | null)[] = plans.map((plan) => (iconExpected(plan) ? 1 : 0));
+      iconPlan[index] = iconPlan[index] === 1 ? 0 : 1;
+      return { ...d, iconPlan };
     }),
     onToggleModifier: (index, modifier) => setDraft((d) => {
       const modifierPlan: (typeof plans[number]['modifier'])[] = plans.map((p) => p.modifier);
@@ -740,6 +797,7 @@ const STAGE_SETTING: Record<string, string> = {
   'пул категорий': 'темы (включённые и исключённые), окно свежести категорий, коридор по категориям в конфиге декад на шаге «База контента»',
   'выбор категорий': 'число категорий на уровне и «мета-пар на уровень»',
   'мета-связи': '«мета-пар на уровень» и «глубина мета»',
+  картинка: 'галочка 🖼 на графике ритма: у имён мета-категорий этого уровня нет значка в словаре — снимите галочку или дайте уровню другие мета-пары',
   'назначение слов': 'окно свежести слов и наполнение базы: категориям не хватает утверждённых слов',
   редкость: 'редких слов на уровень',
 };

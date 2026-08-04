@@ -267,6 +267,22 @@ function poolRankShift(role: LevelRole): number {
   }
 }
 
+/**
+ * Режим картинки для позиции блока.
+ *
+ * Картинка живёт НА мета-пузыре, поэтому уровень без мета-пар нести её не может
+ * физически: требование на таком уровне не отказ генератора, а бессмыслица в
+ * плане, и оно превращается в `auto`. Запрет наоборот действует всегда — он
+ * ничего не требует от материала.
+ */
+function iconModeFor(
+  choice: 0 | 1 | null, metaCount: number, isTutorial: boolean,
+): 'auto' | 'require' | 'forbid' {
+  if (choice === 0) return 'forbid';
+  if (isTutorial || metaCount === 0) return 'auto';
+  return choice === 1 ? 'require' : 'auto';
+}
+
 export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
   const [from, to] = config.levelRange;
   const total = to - from + 1;
@@ -328,6 +344,11 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
         ? null
         : Math.min(1, Math.max(0, config.decadeGates.poolRankTarget
           + poolRankShift(isTutorial ? 'tutorial' : role))),
+      // Категория-картинка. Явный выбор человека сильнее доли: 1 — уровень
+      // обязан её получить, 0 — картинок нет. Без плана режим `auto`, то есть
+      // ровно прежнее поведение. Уровень без мета-пар картинку нести не может
+      // по построению, поэтому требование на нём молча становится `auto`.
+      iconMode: iconModeFor(config.iconPlan?.[position - 1] ?? null, metaCount, isTutorial),
     });
   }
   return plans;

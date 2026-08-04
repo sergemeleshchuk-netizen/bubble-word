@@ -29,7 +29,7 @@ import { createRng, type Rng } from './rng.ts';
 import { buildDeal, chunkKey, resolveScheme } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
-import { pickMetaIcons } from './metaIcons.ts';
+import { metaIconFor, pickMetaIcons } from './metaIcons.ts';
 
 /**
  * gen-1.0 — исходный алгоритм сборки.
@@ -129,6 +129,7 @@ const RELAXATION_ORDER = [
   'меньше ловушек',
   'меньше мета-связей',
   'меньше глубины мета',
+  'картинка не обязательна',
   'другой набор категорий',
 ] as const;
 
@@ -156,6 +157,12 @@ interface Constraints {
   categoryWindow: number;
   metaCount: number;
   metaDepthTarget: number;
+  /**
+   * Категория-картинка: `require` — уровень обязан получить мета-пузырь со
+   * значком, и при выборе мета-пар покрытые словарём имена идут первыми;
+   * `forbid` — картинок нет вовсе; `auto` — правило доли, как было всегда.
+   */
+  iconMode: 'auto' | 'require' | 'forbid';
   rareTarget: number;
   rareTolerance: number;
   trapTarget: number;
@@ -720,7 +727,20 @@ function buildMetaForest(
     return { edges: [], categories: new Set() };
   }
 
-  const shuffled = rng.shuffle(allEdges);
+  /**
+   * Порядок перебора. Обычно чистый шаффл, но уровню с требованием картинки
+   * (`iconMode === 'require'`) мета-пара с покрытым словарём именем нужна
+   * ФИЗИЧЕСКИ: картинка живёт на мета-пузыре, и если ни одно выбранное имя не
+   * читается значком, требование не выполнить никакими последующими шагами.
+   * Поэтому такие рёбра идут первыми — внутри группы порядок по-прежнему
+   * случаен, то есть выбор остаётся разнообразным и воспроизводимым.
+   */
+  const iconable = (edge: MetaEdge): boolean =>
+    metaIconFor(index.words[edge.word].t) !== null;
+  const shuffledAll = rng.shuffle(allEdges);
+  const shuffled = c.iconMode === 'require'
+    ? [...shuffledAll.filter(iconable), ...shuffledAll.filter((e) => !iconable(e))]
+    : shuffledAll;
   const edges: MetaEdge[] = [];
   const parentOf = new Map<number, number>();
   const involved = new Set<number>();
@@ -1395,6 +1415,7 @@ function buildLevelSpec(
   dealScheme?: number[],
   dealStartBubbles?: [number, number],
   dealHoldCategories?: number,
+  iconMode: 'auto' | 'require' | 'forbid' = 'auto',
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
   for (const edge of edges) parentOf.set(edge.child, edge.parent);
@@ -1457,7 +1478,11 @@ function buildLevelSpec(
   // блокираторы, лимит — считается как считалось.
   const metaTexts = categories.flatMap((c) =>
     c.words.filter((w) => w.kind === 'meta').map((w) => w.text));
-  const icons = pickMetaIcons(metaTexts, (key) => rng.stableWeight(`meta-icon::${key}`));
+  // `forbid` — картинок нет вовсе; `require` — минимум одна, даже если доля
+  // от одной мета-пары дала бы ноль (см. minCount в pickMetaIcons)
+  const icons = iconMode === 'forbid' ? new Map<string, string>()
+    : pickMetaIcons(metaTexts, (key) => rng.stableWeight(`meta-icon::${key}`),
+      iconMode === 'require' ? 1 : 0);
   if (icons.size > 0) {
     for (const c of categories) {
       for (const w of c.words) {
@@ -1631,6 +1656,7 @@ export function generateLevel(
     categoryWindow: config.categoryFreshnessWindow,
     metaCount: plan.metaCount,
     metaDepthTarget: plan.metaDepthTarget,
+    iconMode: plan.iconMode ?? 'auto',
     rareTarget: plan.rareTarget,
     rareTolerance: 0,
     trapTarget: plan.trapTarget,
@@ -1654,6 +1680,11 @@ export function generateLevel(
           out.metaCount = Math.max(0, out.metaCount - 1); break;
         case 'меньше глубины мета':
           out.metaDepthTarget = Math.max(1, out.metaDepthTarget - 1); break;
+        case 'картинка не обязательна':
+          // требование картинки сужает выбор мета-пар до покрытых словарём имён:
+          // если пул декады таких не даёт, уровень дороже значка
+          if (out.iconMode === 'require') out.iconMode = 'auto';
+          break;
         case 'другой набор категорий':
           break;                                   // реализуется сменой seed попытки
       }
@@ -1763,7 +1794,27 @@ export function generateLevel(
       : config.dealScheme;
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
       assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
-      levelScheme, config.dealStartBubbles, config.dealHoldCategories);
+      levelScheme, config.dealStartBubbles, config.dealHoldCategories,
+      constraints.iconMode);
+
+    /**
+     * Требование картинки проверяется на СОБРАННОМ уровне, а не на плане.
+     *
+     * Предпочтение покрытых имён при выборе мета-пар (`iconable` в
+     * buildMetaForest) — это предпочтение, а не гарантия: точное покрытие слов
+     * могло отбросить именно ту пару. Проверять нечем, кроме факта, поэтому
+     * смотрим готовый уровень и пробуем ещё раз. Ослабление «картинка не
+     * обязательна» включается на 20-й попытке из 48 и снимает требование.
+     */
+    if (constraints.iconMode === 'require'
+      && !spec.categories.some((c) => c.words.some((w) => w.icon))) {
+      lastStage = 'картинка';
+      lastReason = 'ни одно имя мета-категории уровня не читается значком '
+        + '(словарь core/metaIcons.ts)';
+      attempts.push({ index: attempt, outcome: 'rejected', stage: lastStage,
+        reason: lastReason, relaxations: active.slice() });
+      continue;
+    }
 
     if (options.accept) {
       const verdict = options.accept(spec);

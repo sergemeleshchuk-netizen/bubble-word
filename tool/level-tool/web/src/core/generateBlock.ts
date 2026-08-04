@@ -172,6 +172,10 @@ function normalizeConfig(config: BlockConfig): unknown {
     // в хеш. Ноль приравнен к отсутствию поля: это уровень без гейтов
     dealHoldCategories: config.dealHoldCategories && config.dealHoldCategories > 0
       ? config.dealHoldCategories : undefined,
+    // выбор категории-картинки меняет и набор мета-пар, и отрисовку пузыря —
+    // контент. Пустой план (все позиции `null`) приравнен к отсутствию поля:
+    // это прежнее автоматическое поведение и прежний хеш
+    iconPlan: config.iconPlan?.some((v) => v !== null) ? config.iconPlan : undefined,
   };
 }
 
