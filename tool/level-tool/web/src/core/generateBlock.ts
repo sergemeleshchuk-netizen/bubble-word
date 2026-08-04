@@ -30,6 +30,37 @@ import { canonicalJson, levelSpecHash, sha256Hex } from './hashing.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
 
 /**
+ * Сколько прогонов слепого игрока уровень обязан ДОХОДИТЬ, чтобы быть принятым.
+ *
+ * Прогонов двенадцать, каждый — свой игрок со своим словарным запасом. 0.8
+ * означает «не больше двух игроков из десяти упираются в лимит ходов». Не 1.0 и
+ * не 0.95: слепой бот не знает ёмкости поля и помнит все свои промахи, то есть
+ * оптимистичен, а его модель знания не откалибрована живыми наигровками (шапка
+ * playerKnowledge.ts). Требовать от неоткалиброванной модели идеала значило бы
+ * выбрасывать уровни по шуму.
+ *
+ * Порог назначен, а не измерен, — и это единственное число в приёмке с таким
+ * происхождением. Когда появятся живые наигровки с замером промахов, править
+ * надо его и `skill` в DEFAULT_KNOWLEDGE.
+ */
+export const BLIND_WIN_MIN = 0.8;
+
+/**
+ * Слепой прогон уровня — один вызов на весь модуль.
+ *
+ * Гейт приёмки и карточка уровня ОБЯЗАНЫ показывать одни и те же числа: иначе
+ * человек читает в карточке «доходят 60%» у уровня, который приёмку прошёл, и
+ * не может понять, кто из двух врёт. Поэтому seed и параметры собираются здесь.
+ * `movesFloor` влияет только на подпись «запас ходов» и на `errorBudgetUsed`;
+ * доля дошедших от него не зависит, поэтому гейту он не нужен.
+ */
+function blindPlayOf(
+  spec: LevelSpec, index: ContentIndex, seed: string, movesFloor = 0,
+): import('./simulateBlindPlay.ts').BlindPlayResult {
+  return simulateBlindPlay(spec, movesFloor, { seed: `${seed}#blind-${spec.levelId}`, index });
+}
+
+/**
  * Hard-условия приёмки уровня — ОДИН список на весь инструмент.
  *
  * Раньше их было два: генерация проверяла единственность решения, hard-инварианты
@@ -289,7 +320,7 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
       maxAttempts: options.maxAttempts,
       excludeCategories: isDeepLevel ? undefined : reservedCategories,
       forcedChain: isDeepLevel && reservedChain ? reservedChain : undefined,
-      accept: (spec) => {
+      accept: (spec, progress) => {
         const solutions = countSolutions(index, spec);
         const validation = solutions.count === 1
           ? validateLevel(spec, {
@@ -310,6 +341,38 @@ export function generateBlock(options: BlockGenerationOptions): BlockResult {
           chained: spec.modifiers.chainLine !== null,
         });
         if (failure) return { ok: false, ...failure };
+
+        /*
+         * Слепой прогон как приёмка (решение владельца 04.08 после наигровки
+         * уровня 103, который он не смог пройти руками).
+         *
+         * Зрячий бот отвечает «уложится ли в лимит ИДЕАЛЬНЫЙ игрок» и поэтому
+         * пропускает любой уровень, у которого раскладка вообще существует.
+         * Живому игроку неверная догадка стоит ход, и на замере 200 первых
+         * уровней 35 из них слепой игрок не доходил чаще, чем в 20% попыток.
+         * Диагностикой это быть перестало: уровень, который модельный игрок
+         * проигрывает, отбраковывается и собирается заново.
+         *
+         * Гейт СНИМАЕТСЯ в последней трети попыток — та же граница, что у
+         * требования мета-пар: модель знания не откалибрована (см. шапку
+         * playerKnowledge.ts), и терять из-за неё уровень целиком нельзя.
+         * Уровень, прошедший на снятом гейте, честно показывает свой слепой
+         * прогон в карточке — числа считаются тем же seed и не расходятся.
+         */
+        const blindGate = progress.attempt < Math.floor((progress.maxAttempts * 2) / 3);
+        if (blindGate && solutions.count === 1) {
+          const blind = blindPlayOf(spec, index, config.seed);
+          if (blind.moveLimit !== null && blind.winRate < BLIND_WIN_MIN) {
+            return {
+              ok: false,
+              stage: 'слепой прогон',
+              reason: `слепой игрок доходит в ${Math.round(blind.winRate * 100)}% `
+                + `прогонов, нужно ${Math.round(BLIND_WIN_MIN * 100)}%: ходов `
+                + `${blind.movesMedian} при лимите ${blind.moveLimit}, промахов `
+                + `${blind.missesP90} (p90)`,
+            };
+          }
+        }
         return { ok: true, stage: 'проверки', reason: 'все hard-инварианты пройдены' };
       },
     });
@@ -415,18 +478,20 @@ function evaluateSpec(args: {
   });
 
   /*
-   * Слепой прогон — ДИАГНОСТИКА, а не гейт.
+   * Слепой прогон принятого уровня — те же числа, что видел гейт.
    *
-   * Он считается только для принятого уровня и ни на что в приёмке не влияет:
-   * модель знания игрока не откалибрована (см. шапку `playerKnowledge.ts`),
-   * и браковать уровни по неоткалиброванному числу значило бы выдать догадку
-   * за измерение. Здесь он затем, чтобы цена незнания слов была ВИДНА в
-   * карточке уровня и накапливалась по пакетам — до того, как ей доверят
-   * решать судьбу уровня. Seed привязан к блоку и уровню: тот же блок даёт те
-   * же числа, разные уровни — разных игроков.
+   * С 04.08 он не только диагностика: приёмка отбраковывает уровень, который
+   * модельный игрок проигрывает (BLIND_WIN_MIN выше). Здесь прогон считается
+   * заново, потому что через эту функцию проходит и уровень с ВРУЧНУЮ
+   * переложенной выкладкой (`redealLevel`), а выкладка меняет и ходы, и
+   * промахи. Seed один и тот же (`blindPlayOf`), поэтому карточка и приёмка
+   * никогда не расходятся в числах.
+   *
+   * Что осталось верным: модель знания игрока не откалибрована живыми
+   * наигровками, и её числа — нижняя граница цены незнания, а не измерение.
+   * В оценку сложности D она по-прежнему не входит.
    */
-  const blindPlay = simulateBlindPlay(spec, playability.movesNeeded,
-    { seed: `${config.seed}#blind-${plan.levelId}`, index });
+  const blindPlay = blindPlayOf(spec, index, config.seed, playability.movesNeeded);
 
   return {
     plan,

@@ -10,6 +10,7 @@ import type { GeneratedLevel, LevelSpec } from '../core/types.ts';
 import type { ContentIndex } from '../core/snapshot.ts';
 import { formatScheme, parseScheme } from '../core/decadeProfiles.ts';
 import { startCapacity } from '../core/deal.ts';
+import { ANCHOR_CLARITY, wordProfiles } from '../core/playerKnowledge.ts';
 
 export function LevelInspector({
   level, index, onSelect, levels, onRedeal,
@@ -30,6 +31,15 @@ export function LevelInspector({
     .flatMap((c) => c.words
       .filter((w) => w.kind === 'meta')
       .map((w) => ({ parent: c.key, child: w.metaChild!, word: w.text })));
+  /**
+   * Опоры — слова, по которым игрок узнаёт категорию (правило опоры генератора,
+   * порог `ANCHOR_CLARITY`). Считаются той же моделью и по тому же снимку, что
+   * у слепого прогона: показать здесь другое число значило бы дать дизайнеру
+   * вторую правду о том же уровне.
+   */
+  const clarityOf = wordProfiles(s, undefined, index);
+  const isAnchor = (text: string): boolean =>
+    (clarityOf.get(text)?.clarity ?? 0) >= ANCHOR_CLARITY;
 
   return (
     <>
@@ -83,7 +93,10 @@ export function LevelInspector({
             (простое имя, примерно четверть мета-пузырей). Тег{' '}
             <span className="tag meta">глубина N → …</span> у самой категории — это её
             место в цепочке, а не число её связей.{' '}
-            <span className="tag trap">редкое</span> — zipf ниже 3.
+            <span className="tag trap">редкое</span> — zipf ниже 3. Точка ● у слова —
+            ОПОРА: игрок понимает, с чем оно лежит (ясность от {ANCHOR_CLARITY}).
+            Опор в категории обязано быть минимум две, иначе четвёрка собирается
+            только перебором, а перебор стоит ходов.
           </p>
           {s.categories.map((c) => (
             <div key={c.key} style={{ borderTop: '1px solid var(--line)', padding: '8px 0' }}>
@@ -94,6 +107,16 @@ export function LevelInspector({
                 {c.metaDepth > 0 && (
                   <span className="tag meta">глубина {c.metaDepth} → {c.parentKey}</span>
                 )}
+                {(() => {
+                  const anchors = c.words.filter((w) => isAnchor(w.text)).length;
+                  return (
+                    <span className={`tag ${anchors >= 2 ? '' : 'warn'}`}
+                      title={'Слова, по которым игрок узнаёт категорию. Меньше двух — '
+                        + 'категорию приходится угадывать целиком.'}>
+                      опор {anchors}
+                    </span>
+                  );
+                })()}
               </div>
               <div className="small muted" style={{ margin: '2px 0 5px' }}>{c.rule}</div>
               <div className="row">
@@ -101,8 +124,12 @@ export function LevelInspector({
                   const rare = w.zipf !== null && w.zipf < 3;
                   return (
                     <span key={w.text}
-                      className={`tag ${w.kind === 'meta' ? 'meta' : rare ? 'trap' : ''}`}>
+                      className={`tag ${w.kind === 'meta' ? 'meta' : rare ? 'trap' : ''}`}
+                      title={isAnchor(w.text)
+                        ? 'опора: игрок понимает, с чем это слово лежит'
+                        : 'без опоры: это слово игрок раскладывает догадкой'}>
                       {w.icon && <span style={{ marginRight: 3 }}>{w.icon}</span>}
+                      {isAnchor(w.text) && <span style={{ marginRight: 3 }}>●</span>}
                       {w.text}
                       <span className="muted mono" style={{ fontSize: 10, marginLeft: 4 }}>
                         {w.kind === 'meta' ? (w.icon ? 'мета·картинка' : 'мета')
@@ -240,8 +267,12 @@ export function LevelInspector({
 /**
  * Слепой прогон: во что уровень обходится игроку, который читает слова, а не
  * ответы. Панель намеренно не показывает ни одной оценки — только ходы, промахи
- * и бюджет ошибок. Это диагностика: числа модели не откалиброваны, и подавать
- * их рядом с D как ещё одну оценку значило бы намекнуть, что им уже верят.
+ * и бюджет ошибок: числа модели не откалиброваны, и подавать их рядом с D как
+ * ещё одну оценку значило бы намекнуть, что им уже верят.
+ *
+ * С 04.08 доля дошедших — гейт приёмки (`BLIND_WIN_MIN`), поэтому у принятого
+ * уровня она почти всегда высокая. Низкая означает уровень, принятый на СНЯТОМ
+ * гейте (последняя треть попыток), и это повод посмотреть его руками.
  */
 function BlindPlayPanel({ blind, minMoves }: {
   blind: import('../core/simulateBlindPlay.ts').BlindPlayResult;
@@ -270,6 +301,8 @@ function BlindPlayPanel({ blind, minMoves }: {
             слова — очевидность связи, приторможенная редкостью, — нечитаемое
             пробует наугад, неверная догадка стоит ход, как в прототипе.
             {' '}{blind.seeds} прогонов, у каждого своя выборка знакомых слов.
+            Доля дошедших — гейт приёмки: уровень, который этот игрок
+            проигрывает, генератор собирает заново.
           </p>
         </div>
         <div className="row">

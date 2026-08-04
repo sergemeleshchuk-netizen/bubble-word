@@ -11,7 +11,9 @@
 import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
 import { STAGED_CATEGORIES } from './deal.ts';
-import { META_MAX_ORDINARY, META_MAX_SPIKE, spreadBoundsFor } from './decadeProfiles.ts';
+import {
+  EARLY_CURVE_UNTIL, META_MAX_EARLY, META_MAX_ORDINARY, META_MAX_SPIKE, spreadBoundsFor,
+} from './decadeProfiles.ts';
 
 /**
  * Дефолтный пресет для 201-210.
@@ -144,14 +146,23 @@ function derivedCategoryCount(
  * числа категорий — на уровне из 16 категорий это четыре мета-пары на КАЖДОЙ
  * обычной позиции. Теперь доля 15% (две пары на типичном уровне), четвёрка
  * только на пике, передышка без мета вовсе.
+ *
+ * На ранней кривой (до `EARLY_CURVE_UNTIL`) потолок тот же, что у плана декады,
+ * — `META_MAX_EARLY`. Иначе блок, собранный без явного мета-плана, обходил бы
+ * измеренное правило и выдавал на первой сотне по три-четыре пары.
  */
-function derivedMetaCount(role: LevelRole, categoryCount: number, config: BlockConfig): number {
+function derivedMetaCount(
+  role: LevelRole, categoryCount: number, config: BlockConfig, levelId: number,
+): number {
   if (config.maxMetaDepth <= 0) return 0;
-  const dense = Math.min(META_MAX_ORDINARY, Math.round(categoryCount * 0.15));
+  const early = levelId <= EARLY_CURVE_UNTIL;
+  const ordinaryCap = early ? META_MAX_EARLY : META_MAX_ORDINARY;
+  const spikeCap = early ? META_MAX_EARLY : META_MAX_SPIKE;
+  const dense = Math.min(ordinaryCap, Math.round(categoryCount * 0.15));
   switch (role) {
     case 'recovery': return 0;
-    case 'peak': return Math.min(META_MAX_SPIKE, dense + 2);
-    case 'spike': return Math.min(META_MAX_ORDINARY, dense + 1);
+    case 'peak': return Math.min(spikeCap, dense + 2);
+    case 'spike': return Math.min(ordinaryCap, dense + 1);
     case 'entry': return Math.min(dense, 1);
     case 'exit': return dense;
     default: return dense;
@@ -232,16 +243,34 @@ function modifierFor(
   return 'none';
 }
 
+/**
+ * Прибавка к бюджету ошибок на ранней кривой (решение владельца 04.08).
+ *
+ * Запас сверх минимума ходов — это и есть бюджет ошибок: неверный мердж тратит
+ * ход. Слепой прогон 200 первых уровней показал, что на уровне роста типичный
+ * игрок делает 5-15 промахов при запасе в 10 ходов, то есть проигрывает не
+ * потому, что не понял уровень, а потому, что понял его со второй попытки.
+ * +0.15 к K даёт растущему уровню на 9 категорий примерно четыре лишних хода.
+ *
+ * Это ручка ПРОЩЕНИЯ, а не понятности: путаницу в словах она не убирает (это
+ * делают правило опоры и потолок мета-пар), она перестаёт наказывать за неё
+ * проигрышем. Потолок `MAX_MOVE_LIMIT_K` остаётся: 1.6 наблюдался в оригинале
+ * на самых просторных уровнях, выше — уже не наблюдение, а выдумка.
+ */
+const EARLY_MOVE_LIMIT_BONUS = 0.15;
+
 /** K лимита ходов: чем тяжелее роль, тем теснее проход. */
-function moveLimitK(role: LevelRole): number | null {
+function moveLimitK(role: LevelRole, levelId: number): number | null {
+  const early = levelId <= EARLY_CURVE_UNTIL ? EARLY_MOVE_LIMIT_BONUS : 0;
+  const withBonus = (k: number): number => Math.min(MAX_MOVE_LIMIT_K, k + early);
   switch (role) {
     case 'tutorial': return null;
     case 'recovery': return MAX_MOVE_LIMIT_K;
-    case 'entry': return 1.45;
-    case 'exit': return 1.5;
-    case 'growth': return 1.35;
-    case 'peak': return MIN_MOVE_LIMIT_K;
-    case 'spike': return 1.3;
+    case 'entry': return withBonus(1.45);
+    case 'exit': return withBonus(1.5);
+    case 'growth': return withBonus(1.35);
+    case 'peak': return withBonus(MIN_MOVE_LIMIT_K);
+    case 'spike': return withBonus(1.3);
   }
 }
 
@@ -295,12 +324,13 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
 
   const plans: LevelPlan[] = [];
   for (let position = 1; position <= total; position += 1) {
+    const levelId = from + position - 1;
     const role = roleFor(position, total, config);
     const isTutorial = tutorial && position === 1;
     const categoryCount = config.categoryPlan?.[position - 1]
       ?? derivedCategoryCount(role, position, total, config);
     const metaCount = isTutorial ? 0 : (config.metaPlan?.[position - 1]
-      ?? derivedMetaCount(role, categoryCount, config));
+      ?? derivedMetaCount(role, categoryCount, config, levelId));
 
     // редкость — единственный признак референса, который рос до самого конца
     // и не разворачивался; растим её вместе с ролью, а не с номером уровня
@@ -323,10 +353,10 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
     // «решай сам», значение — «поставь ровно это». Туториал исключений не знает.
     const modifier = isTutorial ? 'none'
       : (config.modifierPlan?.[position - 1]
-        ?? modifierFor(role, from + position - 1, position, config.allowedModifiers));
+        ?? modifierFor(role, levelId, position, config.allowedModifiers));
 
     plans.push({
-      levelId: from + position - 1,
+      levelId,
       position,
       role: isTutorial ? 'tutorial' : role,
       categoryCount,
@@ -340,7 +370,7 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
       targetInterest: isTutorial ? [6.5, 8.5] : targetInterest(role),
       // лимита ходов на туториале нет: в референсе L1 без лимита, поле держит
       // весь уровень целиком, игрока учат только драгу
-      moveLimitK: isTutorial ? null : moveLimitK(role),
+      moveLimitK: isTutorial ? null : moveLimitK(role, levelId),
       poolRankTarget: config.decadeGates?.poolRankTarget === undefined
         || config.decadeGates.poolRankTarget === null
         ? null

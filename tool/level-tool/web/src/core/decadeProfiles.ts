@@ -495,10 +495,45 @@ export const META_MAX_ORDINARY = 3;
  */
 export const META_ZERO_EVERY_DECADES = 2;
 
-/** Потолок мета-пар для позиции декады: спайк выше обычной позиции. */
-export function metaCeilingFor(profile: DecadeProfile, position: number): number {
-  const hi = Math.min(profile.metaRange[1], META_MAX_SPIKE);
-  return position === SPIKE_POSITION ? hi : Math.min(hi, META_MAX_ORDINARY);
+/**
+ * Докуда кривая считается РАННЕЙ и получает поблажки (решение владельца 04.08:
+ * «в первых двух сотнях должно решаться легче»).
+ *
+ * Двести — не круглое число ради красоты: до L200 медиана размера уровня в
+ * оригинале ещё растёт (9 категорий на первой сотне, 13-14 на второй), игрок
+ * только знакомится с тем, что у категории бывает имя-пузырь, и цена ошибки для
+ * него выше всего. Дальше кривая выходит на плато 12-14 категорий, и уровень
+ * вправе требовать полной внимательности.
+ */
+export const EARLY_CURVE_UNTIL = 200;
+
+/**
+ * Потолок мета-пар на ранней кривой — измеренная величина, а не вкус.
+ *
+ * Слепой прогон 200 первых уровней (04.08): при 0-1 мета-паре не провалился ни
+ * один уровень из 82, при двух — 16% уровней, при трёх — 41%, при четырёх —
+ * 52%. Причина в механике: мета-пузырь выглядит как обычное слово и молча
+ * принадлежит другой категории, поэтому КАЖДАЯ мета-пара — вынужденная догадка,
+ * а догадка стоит ход. Отсюда двойка: на ранней кривой уровень имеет право на
+ * две такие догадки и не больше — включая спайк, который свою пиковость берёт
+ * числом категорий и редкостью слов.
+ */
+export const META_MAX_EARLY = 2;
+
+/**
+ * Потолок мета-пар для позиции декады: спайк выше обычной позиции, а на первых
+ * двухстах уровнях обе позиции подрезаны до `META_MAX_EARLY`.
+ *
+ * Номер уровня передаётся явно: за 200-м уровнем профиль декады один и тот же
+ * на весь остаток кривой, и `profile.from` про место уровня в ней уже не
+ * говорит ничего.
+ */
+export function metaCeilingFor(
+  profile: DecadeProfile, position: number, level: number = profile.from,
+): number {
+  const design = level <= EARLY_CURVE_UNTIL ? META_MAX_EARLY : META_MAX_SPIKE;
+  const hi = Math.min(profile.metaRange[1], design);
+  return position === SPIKE_POSITION ? hi : Math.min(hi, design, META_MAX_ORDINARY);
 }
 
 /**
@@ -507,15 +542,16 @@ export function metaCeilingFor(profile: DecadeProfile, position: number): number
  * Форма фиксированная, случаен только порядок обычных позиций (детерминированно
  * от seed, как и всё остальное в плане):
  *
- *   - спайк (позиция 5) — потолок декады, максимум `META_MAX_SPIKE`;
+ *   - спайк (позиция 5) — потолок декады (`metaCeilingFor`);
  *   - передышка (позиция 6) — 0 в каждой второй декаде, иначе 1;
- *   - остальные восемь — ровными долями 1, 2, 3 (три единицы, три двойки,
- *     две тройки), перемешанные.
+ *   - остальные восемь — ровными долями от единицы до потолка обычной позиции,
+ *     перемешанные (младших значений всегда не меньше, чем старших).
  *
  * Средняя выходит около двух мета-пар на уровень вместо прежних трёх с
- * половиной, и в каждой декаде гарантированно есть и единицы, и тройка, и одна
- * четвёрка на пике. Потолок декады подрезает форму там, где референс мета почти
- * не использует: у 1-10 замеренный максимум 2, значит и спайк там 2.
+ * половиной, и в каждой декаде гарантированно есть и единицы, и ноль раз в две
+ * декады. На первых двухстах уровнях потолок обеих позиций — две мета-пары
+ * (`META_MAX_EARLY`), то есть форма там 1-2 с двойкой на спайке. Потолок декады
+ * подрезает форму и сверху: у 1-10 замеренный максимум 2, значит и спайк там 2.
  *
  * Подрезка `категорий − 1` остаётся: мета-пара — это имя ДРУГОЙ категории
  * уровня, столько имён на уровне физически и есть.
@@ -526,8 +562,8 @@ export function planMetaCounts(
 ): number[] {
   const total = categoryCounts.length;
   if (total === 0) return [];
-  const spikeCeiling = metaCeilingFor(profile, SPIKE_POSITION);
-  const ordinary = metaCeilingFor(profile, 1);
+  const spikeCeiling = metaCeilingFor(profile, SPIKE_POSITION, rhythmKey);
+  const ordinary = metaCeilingFor(profile, 1, rhythmKey);
   const rng = createRng(`${seed}::meta::${rhythmKey}`);
 
   // короткий блок: спайк съезжает на последнюю позицию, передышки нет вовсе
@@ -1113,16 +1149,19 @@ export function checkDecadeFit(
    */
   const META_MIN_LEVELS_SHARE = 1 / 3;
   const metaCounts = levels.map((l) => l.metaCount);
+  const firstLevelId = levels[0]?.levelId ?? profile.from;
   const overCeiling = metaCounts
-    .map((n, i) => ({ n, position: i + 1 }))
-    .filter(({ n, position }) => n > metaCeilingFor(profile, complete ? position : SPIKE_POSITION));
+    .map((n, i) => ({ n, position: i + 1, levelId: levels[i].levelId }))
+    .filter(({ n, position, levelId }) =>
+      n > metaCeilingFor(profile, complete ? position : SPIKE_POSITION, levelId));
   const withMeta = metaCounts.filter((n) => n > 0).length;
   const needWithMeta = Math.max(1, Math.floor(levels.length * META_MIN_LEVELS_SHARE));
   add('META_RANGE',
     overCeiling.length === 0 && (profile.metaRange[1] === 0 || withMeta >= needWithMeta),
     `мета-пар по уровням ${metaCounts.join(', ')}; потолок `
-    + `${metaCeilingFor(profile, 1)} на обычной позиции и `
-    + `${metaCeilingFor(profile, SPIKE_POSITION)} на спайке (позиция ${SPIKE_POSITION})`
+    + `${metaCeilingFor(profile, 1, firstLevelId)} на обычной позиции и `
+    + `${metaCeilingFor(profile, SPIKE_POSITION, firstLevelId)} на спайке `
+    + `(позиция ${SPIKE_POSITION})`
     + (overCeiling.length
       ? `, перебор на позициях ${overCeiling.map((o) => o.position).join(', ')}`
       : '')

@@ -30,6 +30,10 @@ import { buildDeal, chunkKey, resolveScheme } from './deal.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 import { BLOCKER_MOVE_BONUS, halfBudget, splitWord } from './playableModifiers.ts';
 import { metaIconFor, pickMetaIcons } from './metaIcons.ts';
+// Модель знания игрока даёт генератору порог опоры; обратно она берёт из него
+// только `normalizeWordKey`. Обе связи — на уровне функций, а не значений
+// времени загрузки, поэтому взаимный импорт безопасен.
+import { ANCHOR_CLARITY, isAnchorWord } from './playerKnowledge.ts';
 
 /**
  * gen-1.0 — исходный алгоритм сборки.
@@ -77,8 +81,17 @@ import { metaIconFor, pickMetaIcons } from './metaIcons.ts';
  *           из четырёх, и тринадцать живых линий одновременно — это поле, на
  *           котором собрать нельзя ничего. Хеши крупных уровней меняются, у
  *           уровней до 12 категорий включительно — нет: гейтов там не бывает.
+ * gen-1.8 — ПРАВИЛО ОПОРЫ (решение владельца 04.08 после наигровки уровня 103):
+ *           в каждой категории уровня обязаны стоять минимум два слова, которые
+ *           игрок опознаёт на их месте (`ANCHORS_PER_CATEGORY`, порог ясности —
+ *           `ANCHOR_CLARITY` в core/playerKnowledge.ts). Причина измерена
+ *           слепым прогоном 200 первых уровней: категорию с одной опорой
+ *           (`kawai`, `steinway`, `Chopin`, `hammer` — это уровень 103) собрать
+ *           можно только перебором, и уровни с тремя такими категориями слепой
+ *           игрок доходит в 55% случаев против 2% у уровней без них. Хеши всех
+ *           уровней меняются, и обязаны: четвёрки собираются из других слов.
  */
-export const GENERATOR_VERSION = 'gen-1.7';
+export const GENERATOR_VERSION = 'gen-1.8';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -130,10 +143,28 @@ const RELAXATION_ORDER = [
   'меньше мета-связей',
   'меньше глубины мета',
   'картинка не обязательна',
+  'одна опора вместо двух',
   'другой набор категорий',
 ] as const;
 
 type Relaxation = typeof RELAXATION_ORDER[number];
+
+/**
+ * Сколько опорных слов обязана иметь категория уровня.
+ *
+ * Два — это «игрок видит пару, которая явно про одно и то же, и достраивает
+ * четвёрку», то есть та самая догадка, за которой игра и играется. Одна опора
+ * превращает категорию в шифр: собрать её можно только перебором, а перебор
+ * стоит ходов (неверный мердж тратит ход). Ноль — уровень 103, который владелец
+ * не смог пройти руками.
+ *
+ * Правило стоит НА ВСЕЙ кривой, а не только на первых двухстах. Сложность
+ * поздних уровней держат число категорий, редкость, повторы и ловушки —
+ * нечитаемая категория не «сложность», а отсутствие информации. Ослабление
+ * «одна опора вместо двух» включается на 25-й попытке из 48: потерять уровень
+ * хуже, чем потерять одну опору, и в отчёте это видно как применённое ослабление.
+ */
+const ANCHORS_PER_CATEGORY = 2;
 
 interface Constraints {
   categoryCount: number;
@@ -163,6 +194,13 @@ interface Constraints {
    * `forbid` — картинок нет вовсе; `auto` — правило доли, как было всегда.
    */
   iconMode: 'auto' | 'require' | 'forbid';
+  /**
+   * Сколько опорных слов обязана дать каждая категория — правило опоры
+   * (`ANCHORS_PER_CATEGORY`). Ослабление опускает требование до одной опоры;
+   * ниже единицы не опускается никогда: категория, в которой игрок не понимает
+   * ни одного слова, не собирается, а угадывается.
+   */
+  anchorsPerCategory: number;
   rareTarget: number;
   rareTolerance: number;
   trapTarget: number;
@@ -329,6 +367,23 @@ const OBVIOUSNESS_SLOT_TARGETS = [0.71, 0.60, 0.50, 0.39] as const;
  * в одну константу можно только замером, а замера пока нет.
  */
 const OBVIOUSNESS_UNKNOWN = 0.78;
+
+/**
+ * Сила связи слово→категория по всем approved-словам категории: `weight`, а
+ * где веса нет — размеченная очевидность.
+ *
+ * Одно место на весь файл: по этому числу отбор и упорядочивает кандидатов, и
+ * решает, годится ли слово в ОПОРУ (правило опоры, ANCHORS_PER_CATEGORY). Две
+ * копии правила означали бы, что пул отсеивает категории одним сигналом, а
+ * решатель считает опоры другим.
+ */
+function linkStrengthMap(index: ContentIndex, category: number): Map<number, number> {
+  const map = new Map<number, number>();
+  for (const m of index.categoryMemberships(category, STATUS.approved)) {
+    map.set(m.word, m.weight ?? m.obviousness);
+  }
+  return map;
+}
 
 /**
  * Ширина шкалы узнаваемости при отборе слова — вниз и вверх от целевой медианы.
@@ -551,6 +606,20 @@ function buildPool(
      */
     if (approved.length < 4) continue;
 
+    /**
+     * Правило опоры на входе в пул, а не только в решателе.
+     *
+     * Категория, у которой играбельных опор меньше требуемого, четвёрку с
+     * опорами не даст никогда — и, попав в набор, сжигала бы попытку целиком:
+     * решатель перебирал бы её хвост, получал отказ «точное покрытие не
+     * сошлось» и не мог объяснить, что дело в опорах. Смысл требования и порог
+     * ясности — в ANCHORS_PER_CATEGORY и core/playerKnowledge.ts.
+     */
+    const strength = linkStrengthMap(index, cat);
+    const anchorsAvailable = approved.filter((w) =>
+      isAnchorWord(index.zipf(w), strength.get(w))).length;
+    if (anchorsAvailable < c.anchorsPerCategory) continue;
+
     const frequentCount = approved.filter((w) => index.isQuickwinWord(w)).length;
     const rareCeiling = rareZipfCeiling(c.gates);
     const rareCount = approved.filter((w) => {
@@ -765,6 +834,16 @@ function buildMetaForest(
   // сначала пытаемся набрать требуемую глубину: цепочка ребёнок → родитель → дед
   const wantDepth = Math.max(1, c.metaDepthTarget);
   const tryAdd = (edge: MetaEdge): boolean => {
+    // Бюджет мета-пар — потолок, а не пожелание.
+    //
+    // Раньше его проверял только проход 2 («добираем количество»), а проход
+    // глубины и зарезервированная цепь добавляли рёбра поверх. Уровень 165
+    // декады 161-170 приезжал с ТРЕМЯ мета-парами при плане в две: из
+    // зарезервированной цепи свежим оказалось одно ребро, глубина 2 недобиралась,
+    // и поиск цепочки докладывал ещё два. Пока потолок приёмки совпадал с самым
+    // большим значением плана, перебор был не виден; с подрезкой ранней кривой
+    // (META_MAX_EARLY) декада 161-170 перестала проходить свою же приёмку.
+    if (edges.length >= c.metaCount) return false;
     if (parentOf.has(edge.child)) return false;              // не больше одного родителя
     // цикл: родитель уже висит под ребёнком
     let cursor: number | undefined = edge.parent;
@@ -818,6 +897,9 @@ function buildMetaForest(
 
   if (chainDepth() < wantDepth && wantDepth >= 2 && c.metaCount >= wantDepth) {
     for (let target = wantDepth; target >= 2; target -= 1) {
+      // цепочку берём только целиком: половина цепи глубины не даёт, а бюджет
+      // мета-пар тратит — и уровень остаётся и без глубины, и без пар
+      if (edges.length + target > c.metaCount) continue;
       const chain = findChain(target);
       if (!chain) continue;
       for (const edge of chain) tryAdd(edge);
@@ -1072,10 +1154,7 @@ function assignWords(
   const obviousnessIn = (cat: number): Map<number, number> => {
     let map = obviousnessCache.get(cat);
     if (!map) {
-      map = new Map<number, number>();
-      for (const m of index.categoryMemberships(cat, STATUS.approved)) {
-        map.set(m.word, m.weight ?? m.obviousness);
-      }
+      map = linkStrengthMap(index, cat);
       obviousnessCache.set(cat, map);
     }
     return map;
@@ -1125,16 +1204,53 @@ function assignWords(
     }
   }
 
+  /**
+   * Опорное ли слово для этой категории — правило опоры (ANCHORS_PER_CATEGORY).
+   *
+   * Сигнал берётся из того же `obviousnessIn`, что и предпочтение по
+   * очевидности: сила связи `weight ?? obviousness`. Порог и формула — в
+   * core/playerKnowledge.ts, здесь только вопрос «годится ли слово в опору»:
+   * две копии формулы разъехались бы, и генератор считал бы опоры не тем
+   * правилом, которым их потом мерит слепой прогон.
+   */
+  const anchorCache = new Map<number, Set<number>>();
+  const isAnchor = (cat: number, word: number): boolean => {
+    let set = anchorCache.get(cat);
+    if (!set) {
+      set = new Set<number>();
+      const obviousness = obviousnessIn(cat);
+      for (const w of obviousness.keys()) {
+        if (isAnchorWord(index.zipf(w), obviousness.get(w))) set.add(w);
+      }
+      anchorCache.set(cat, set);
+    }
+    return set.has(word);
+  };
+  /** Опор в уже собранной части четвёрки. */
+  const anchorsIn = (cat: number): number =>
+    (assignment.get(cat) ?? []).filter((w) => isAnchor(cat, w)).length;
+
   const candidatesFor = (cat: number): number[] => {
     const chosen = assignment.get(cat) ?? [];
     const chosenNorms = chosen.map((w) => index.words[w].n);
     const isQuickwin = cat === quickwinCat;
     const catLabelNorm = index.categories[cat].l.toLowerCase();
+    /*
+     * Правило опоры проверяется вперёд, а не по готовой четвёрке: когда
+     * свободных слотов ровно столько, сколько не хватает опор, кандидатами
+     * остаются только опоры. Так требование попадает и в forward checking
+     * решателя (`options.length < need`), то есть тупик виден сразу, а не после
+     * полного перебора хвоста.
+     */
+    const anchorsNeeded = Math.max(0, c.anchorsPerCategory - anchorsIn(cat));
+    const slotsLeft = wordsPerCategory - chosen.length;
+    const anchorsOnly = anchorsNeeded > 0 && slotsLeft <= anchorsNeeded;
 
     return index.categoryMemberships(cat, STATUS.approved)
       .map((m) => m.word)
       .filter((w) => {
         if (used.has(w)) return false;
+        if (anchorsOnly && !isAnchor(cat, w)) return false;      // правило опоры
         // тот же фильтр формы, что в buildPool: список кандидатов собирается
         // заново из индекса, поэтому без него сюда возвращались отсеянные слова
         if (!wordFitsGates(index, w, c.gates)) return false;
@@ -1609,7 +1725,16 @@ function buildLevelSpec(
  * прогон выдал уровень 202 с двумя полными раскладками. Отбраковывать надо
  * там, где ещё можно попробовать другой набор категорий.
  */
-export type AcceptCheck = (spec: LevelSpec) => { ok: boolean; stage: string; reason: string };
+export type AcceptCheck = (
+  spec: LevelSpec,
+  /**
+   * Где мы в лестнице попыток. Нужно проверкам, которые обязаны СНИМАТЬСЯ к
+   * концу: слепой прогон в generateBlock работает как гейт первые две трети
+   * попыток, а дальше уступает — потерять уровень целиком хуже, чем выпустить
+   * уровень, тяжёлый для незнающего игрока, с отметкой в карточке.
+   */
+  progress: { attempt: number; maxAttempts: number },
+) => { ok: boolean; stage: string; reason: string };
 
 export function generateLevel(
   index: ContentIndex,
@@ -1657,6 +1782,7 @@ export function generateLevel(
     metaCount: plan.metaCount,
     metaDepthTarget: plan.metaDepthTarget,
     iconMode: plan.iconMode ?? 'auto',
+    anchorsPerCategory: ANCHORS_PER_CATEGORY,
     rareTarget: plan.rareTarget,
     rareTolerance: 0,
     trapTarget: plan.trapTarget,
@@ -1684,6 +1810,11 @@ export function generateLevel(
           // требование картинки сужает выбор мета-пар до покрытых словарём имён:
           // если пул декады таких не даёт, уровень дороже значка
           if (out.iconMode === 'require') out.iconMode = 'auto';
+          break;
+        case 'одна опора вместо двух':
+          // ниже единицы не опускаемся: категория без единого понятного слова
+          // не собирается, а угадывается — это не сложность, а отсутствие данных
+          out.anchorsPerCategory = Math.max(1, out.anchorsPerCategory - 1);
           break;
         case 'другой набор категорий':
           break;                                   // реализуется сменой seed попытки
@@ -1771,7 +1902,9 @@ export function generateLevel(
     if (!assigned) {
       lastStage = 'назначение слов';
       lastReason = 'точное покрытие не сошлось: у части категорий не остаётся '
-        + 'четырёх свободных слов, каждое из которых имеет ровно один дом';
+        + 'четырёх свободных слов, каждое из которых имеет ровно один дом и из '
+        + `которых ${constraints.anchorsPerCategory} — опоры (ясность от `
+        + `${ANCHOR_CLARITY})`;
       attempts.push({ index: attempt, outcome: 'rejected', stage: lastStage,
         reason: lastReason, relaxations: active.slice() });
       continue;
@@ -1817,7 +1950,7 @@ export function generateLevel(
     }
 
     if (options.accept) {
-      const verdict = options.accept(spec);
+      const verdict = options.accept(spec, { attempt, maxAttempts });
       if (!verdict.ok) {
         lastStage = verdict.stage;
         lastReason = verdict.reason;
