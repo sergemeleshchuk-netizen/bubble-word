@@ -50,7 +50,9 @@ interface HandoffLevelJson {
   categories: { id: string; name: string; words: string[] }[];
   board: { board_capacity: number; move_limit: number | null };
   deal: { start: { word: string; category: string }[];
-    queue: { word: string; category: string }[] };
+    queue: { word: string; category: string }[];
+    /** очередь линий: категория ждёт, пока собрано `after_collected` других */
+    gates?: { category: string; after_collected: number }[] };
   chunks?: { word: string; category: string; pieces: [string, string] }[];
 }
 
@@ -118,9 +120,38 @@ export function simulate(level: HandoffLevelJson): PlayResult {
    * прототип кладёт РОВНО то, что выложил генератор. Уровень 12 «как в записи»
    * лежит на 21 пузыре — симулятор играл не тот уровень, который видит игрок.
    */
+  /*
+   * Очередь линий (`deal.gates`, см. planGates в web/src/core/deal.ts): на
+   * крупном уровне часть категорий не выходит на поле, пока игрок не собрал
+   * заданное число других. Симулятор обязан исполнять это правило наравне с
+   * прототипом — иначе он играет не тот уровень, который получит игрок, а его
+   * вердикт «проходится» ничего не значит для сданного пакета.
+   *
+   * Гейт уступает необходимости: если открытых шаров в очереди не осталось,
+   * берётся тот, которому до открытия ближе всех, — как и в прототипе.
+   */
+  /** Собрано категорий: по нему открываются гейты очереди линий. */
+  let done = 0;
+  const gateOf = new Map((level.deal.gates ?? [])
+    .map((g) => [g.category, g.after_collected] as const));
+  const gateKey = (c: Cluster): string =>
+    (c.cat.startsWith('half:') ? c.cat.slice(5).split('::')[0] : c.cat);
+  const nextIndex = (): number => {
+    if (gateOf.size === 0) return 0;
+    for (let i = 0; i < queue.length; i += 1) {
+      if ((gateOf.get(gateKey(queue[i])) ?? 0) <= done) return i;
+    }
+    let best = 0;
+    for (let i = 1; i < queue.length; i += 1) {
+      if ((gateOf.get(gateKey(queue[i])) ?? 0) < (gateOf.get(gateKey(queue[best])) ?? 0)) {
+        best = i;
+      }
+    }
+    return best;
+  };
   const spawn = (n: number) => {
     for (let k = 0; k < n && queue.length && field.length < capacity; k += 1) {
-      field.push(queue.shift()!);
+      field.push(queue.splice(nextIndex(), 1)[0]);
     }
   };
   /** Есть ли на поле хоть одна пара, которую можно слить. */
@@ -136,7 +167,6 @@ export function simulate(level: HandoffLevelJson): PlayResult {
   };
 
   let moves = 0;
-  let done = 0;
   let fieldMin = field.length;
   let rescues = 0;
   /** Идёт ли серия страховочных досыпок: снимается первым удачным мерджем. */
