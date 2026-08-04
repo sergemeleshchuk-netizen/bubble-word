@@ -1,20 +1,4 @@
 {
-  "packs": [
-    {
-      "pack_id": "ten-0802-1520",
-      "prefix": "TEN",
-      "label": "TEN · 10 уровней",
-      "created_at": "2026-08-02T15:20:26Z",
-      "levels": 10,
-      "file": "ten-0802-1520.json"
-    },
-    {
-      "pack_id": "top-0802-1520",
-      "prefix": "TOP",
-      "label": "TOP · 20 уровней",
-      "created_at": "2026-08-02T15:20:26Z",
-      "levels": 20,
-      "file": "top-0802-1520.json"
-    }
-  ]
+  "_comment": "Те же выложенные пакеты, но для ссылок вида playable/index.html?pack=<pack_id>&n=<номер>: ими делятся, поэтому уровень должен приезжать файлом с сервера, а не из localStorage конкретного браузера. Сверху самый актуальный, ?pack=latest берёт первый. Пусто с 04.08 — по той же причине, что и в packs/index.json.",
+  "packs": []
 }
