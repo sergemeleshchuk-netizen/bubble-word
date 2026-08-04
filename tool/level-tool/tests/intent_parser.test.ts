@@ -83,7 +83,8 @@ test('«передышка после пиков» ставит её следо�
 
 test('«меньше сложных слов» — это редкость, а не исключение темы', () => {
   const { patch } = parseIntent('меньше сложных слов', CURRENT);
-  assert.deepEqual(patch.rarityRange, [5, 8]);
+  // 1-2 редких слова на уровень: решение владельца 04.08 (вечер), было 5-8
+  assert.deepEqual(patch.rarityRange, [1, 2]);
   assert.equal(patch.excludeThemes, undefined,
     'слово «слов» не должно вычёркивать тему language');
 });

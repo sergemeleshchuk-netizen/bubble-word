@@ -311,7 +311,13 @@ export function parseIntent(
     // редкость и сложность
     if (/редк|rare|экзотик|сложн\S*\s+слов|hard words/.test(fragment)) {
       touched = true;
-      patch.rarityRange = negated ? [5, 8] : [11, 15];
+      /**
+       * «Меньше сложных слов» = почти без редких, 1-2 на уровень (решение
+       * владельца 04.08, вечер: он выставил эту вилку руками). Было 5-8 — числа
+       * с поздней кривой, где умолчание декады 9-13; на ранней кривой они
+       * означали «12-20% слов уровня редкие», то есть не меньше, а много.
+       */
+      patch.rarityRange = negated ? [1, 2] : [11, 15];
       matches.push({ field: 'rarityRange', value: patch.rarityRange.join('-'),
         source: fragment });
     }

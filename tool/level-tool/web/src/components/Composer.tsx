@@ -756,7 +756,13 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
           </span>
           {corridorOffConfig && (
             <>
-              <span style={{ color: 'var(--warn)' }}>
+              {/*
+                Оранжевым — только когда расхождение и правда неожиданное. У
+                конфига, собранного руками (`presetLocked`: стартовый блок,
+                пресет сдаваемого пакета), своя форма кривой по определению, и
+                тревожный цвет там означал бы «непорядок» там, где порядок.
+              */}
+              <span style={draft.presetLocked ? undefined : { color: 'var(--warn)' }}>
                 конфиг декад для уровней {draft.levelRange.join('–')} даёт
                 {' '}<span className="mono">{configCorridor.join('–')}</span>
               </span>
