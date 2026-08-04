@@ -109,6 +109,17 @@ export interface HandoffLevel {
   deal: {
     start: { word: string; category: string }[];
     queue: { word: string; category: string }[];
+    /**
+     * Очередь линий: категории, которые не выходят на поле, пока игрок не собрал
+     * `after_collected` других (core/deal.ts, `planGates`). Прототип обязан их
+     * ИСПОЛНЯТЬ: досыпка берёт из очереди первый пузырь ОТКРЫТОЙ линии, а
+     * закрытую пропускает. Без этого пакет с гейтами играется не так, как его
+     * проверял симулятор: линия выходила бы на поле сразу, и крупный уровень
+     * снова встречал бы игрока обрывками всех категорий разом.
+     *
+     * Поля нет = гейтов у уровня нет (так собраны все пакеты до 04.08).
+     */
+    gates?: { category: string; after_collected: number }[];
   };
   /**
    * Слова, приходящие кусочками: пузырь не один, а два, и склейка тратит ход.
@@ -208,6 +219,12 @@ export function buildHandoffPack(block: BlockResult): HandoffPack {
       deal: {
         start: level.spec.deal.start.map((b) => ({ word: b.word, category: b.category })),
         queue: level.spec.deal.queue.map((b) => ({ word: b.word, category: b.category })),
+        // пустого списка не пишем: уровень без гейтов уезжает в прототип таким же,
+        // каким уезжал до них
+        gates: (level.spec.deal.gates ?? []).length === 0 ? undefined
+          : level.spec.deal.gates!.map((g) => ({
+            category: g.category, after_collected: g.afterCollected,
+          })),
       },
       chunks: level.spec.halves.length === 0 ? undefined
         : level.spec.halves.map((h) => ({

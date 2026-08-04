@@ -332,6 +332,14 @@ let METAICON={};
    прислал (демо-контент, старый пакет), тогда состав считается на месте
    по START_COUNTS, а порядок тасуется. См. комментарий в applyDeal. */
 let DEAL=null;
+/* Очередь линий от генератора: {ИМЯ КАТЕГОРИИ -> сборов до открытия} или null.
+   Крупный уровень (больше 12 категорий) не показывает часть категорий сразу:
+   пока сборов меньше порога, досыпка ПРОПУСКАЕТ пузыри такой линии и берёт из
+   очереди следующий подходящий. Считает генератор (planGates в
+   tool/level-tool/web/src/core/deal.ts), прототип ИСПОЛНЯЕТ — иначе поле на
+   16 категориях встречает игрока обрывками всех линий разом, и пачка в 4 шара
+   расходится по четырём разным категориям, не закрывая ни одной. */
+let GATES=null;
 /* Распилы от пакета: {категория::СЛОВО -> [КУСОК,КУСОК]} или null. */
 let CHUNKS=null;
 /* Модификатор от пакета: {type:'ice'|'hidden'|'chain', frozen/hidden:[{word,
@@ -375,6 +383,7 @@ function applyLevel(L){
   FIELD_TARGET=Math.min(board.start_bubbles||capacity,capacity,total);
   CHUNKS=applyChunks(L);
   DEAL=applyDeal(L);
+  GATES=DEAL?DEAL.gates:null;
   PACK_MOD=applyPackModifier(L);
   if(DEAL){
     /* поле меряется в ПУЗЫРЯХ: распиленное слово занимает два места */
@@ -435,7 +444,17 @@ function applyDeal(L){
     console.warn('[playable] выкладка уровня не сошлась ('+bad+') — раскладываю сам');
     return null;
   }
-  return {start:start,queue:queue};
+  /* Очередь линий: непонятая запись пропускается с warn. Сыграть уровень без
+     одного гейта честнее, чем не сыграть вовсе, — но молчать нельзя: без гейта
+     линия выйдет на поле раньше, чем её проверял симулятор. */
+  const gates={};
+  (d.gates||[]).forEach(g=>{
+    const v=byId[g&&g.category];
+    const n=Math.floor(Number(g&&g.after_collected));
+    if(v===undefined||!(n>0)){ console.warn('[playable] гейт не понят, пропускаю:',g); return; }
+    gates[v]=n;
+  });
+  return {start:start,queue:queue,gates:Object.keys(gates).length?gates:null};
 }
 /* Распилы, заданные пакетом: {категория::СЛОВО -> [КУСОК, КУСОК]}.
    Если они есть, прототип их ИСПОЛНЯЕТ и своей эвристикой (splitHalves)
@@ -747,6 +766,7 @@ function init(){
   board.querySelectorAll('.part,.conf').forEach(e=>e.remove());
   done=0; over=false; pendingPops=0; pendingSpawn=0; held=false; drag=null; clearMarks();
   chainY=null; chainNeed=0; chainDown=true; halfPairs=0; missStreak=0; rescueRun=false;
+  gateShown={};
   chainEl.hidden=true; chainEl.classList.remove('hit');
   boosts={plus:2,hint:2,mag:2};
   let start=[]; queue=[];
@@ -914,13 +934,42 @@ function spawnBatch(n){
 }
 /* Счётчик подряд идущих промахов. Планка — MISS_RESCUE в конфиге выше. */
 let missStreak=0;
+/* Кого из очереди выпускать на поле: первый шар ОТКРЫТОЙ линии.
+   Гейт УСТУПАЕТ НЕОБХОДИМОСТИ: если открытых линий в очереди не осталось,
+   спавнится та, которой до открытия ближе всех. Поле важнее расписания — шар,
+   не пришедший вовсе, оставил бы игрока перед мёртвым полем, а это хуже, чем
+   линия, открывшаяся на сбор раньше срока. Тот же порядок и в симуляторе
+   (nextIndex в tool/level-tool/web/src/core/playSim.ts), поэтому наигровка
+   руками и вердикт приёмки говорят об одном и том же уровне. */
+/* Отложенные линии, о выходе которых игрока уже предупредили. */
+let gateShown={};
+function nextQueueIndex(){
+  if(!GATES) return 0;
+  for(let i=0;i<queue.length;i++){
+    const need=GATES[queue[i].v];
+    if(need===undefined||done>=need) return i;
+  }
+  let best=0;
+  for(let i=1;i<queue.length;i++){
+    if((GATES[queue[i].v]||0)<(GATES[queue[best].v]||0)) best=i;
+  }
+  console.warn('[playable] очередь линий: открытых шаров нет, вскрываю гейт '
+    +queue[best].v+' (собрано '+done+' из '+GATES[queue[best].v]+')');
+  return best;
+}
 function trySpawn(ts){
   if(!queue.length) pendingSpawn=0;
   if(over||held||pendingSpawn<=0) return;
   if(ts-lastSpawn<150) return;   /* каскадом: четвёрка читается одним рывком */
   lastSpawn=ts;
   pendingSpawn--;
-  const it=queue.shift();
+  const it=queue.splice(nextQueueIndex(),1)[0];
+  /* Открытие отложенной линии видно игроку: на поле приходит категория, которой
+     там не было ни разу. Без подписи это читается как «досыпка принесла мусор» —
+     шар, не сливающийся ни с чем из лежащего. */
+  if(GATES&&GATES[it.v]!==undefined&&!gateShown[it.v]){
+    gateShown[it.v]=1; toastText('НОВАЯ КАТЕГОРИЯ',true);
+  }
   /* `it.half` передаётся ОБЯЗАТЕЛЬНО — ровно как на старте (см. init).
      Без него половинка из очереди приезжала обычным пузырём: кусочек `SAR`
      становился полноправным «словом» категории HUMOR, счётчик слов категории

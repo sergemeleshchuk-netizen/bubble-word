@@ -117,6 +117,15 @@ export interface PlaySim {
 export interface SimStats {
   /** досыпок «вне ритма» — поле вставало без единого мерджа при живой очереди */
   rescues: number;
+  /**
+   * Сколько раз досыпка вскрыла закрытый гейт: в очереди не осталось ни одного
+   * пузыря открытой линии, и правило «линия ждёт прогресса» пришлось нарушить.
+   *
+   * Ноль — норма и требование приёмки крупного уровня: очередь, посчитанная
+   * генератором, обязана держать поле живым, не вскрывая расписание. Больше
+   * нуля означает, что порядок очереди и пороги гейтов разъехались.
+   */
+  gatesForced: number;
   /** волн досыпки за партию */
   refillWaves: number;
   /** волн, сразу открывших сбор новой категории целиком */
@@ -217,8 +226,38 @@ export function createPlaySim(spec: LevelSpec): PlaySim {
   /** Идёт ли серия страховочных досыпок: снимается первым удачным мерджем. */
   let inRescueRun = false;
   const stats: SimStats = {
-    rescues: 0, refillWaves: 0, refillCompletions: 0, maxDrought: 0,
+    rescues: 0, gatesForced: 0, refillWaves: 0, refillCompletions: 0, maxDrought: 0,
     chainRescued: false, blockersRescued: false,
+  };
+
+  /*
+   * Очередь линий: отложенная категория не спавнится, пока сборов меньше порога
+   * (core/deal.ts, `planGates`). Правила исполняет движок, а не бот, — ровно как
+   * прототип: это факт партии, а не решение игрока.
+   */
+  const gateOf = new Map<string, number>();
+  for (const gate of spec.deal.gates ?? []) gateOf.set(gate.category, gate.afterCollected);
+  /**
+   * Позиция первого пузыря, которому разрешено выйти на поле. Гейт УСТУПАЕТ
+   * НЕОБХОДИМОСТИ: если открытых линий в очереди не осталось, спавнится первый
+   * попавшийся — поле важнее расписания, и мёртвого поля из-за гейта быть не
+   * должно. Такой случай считается (`gatesForced`) и разбирается приёмкой.
+   */
+  const nextIndex = (): number => {
+    if (gateOf.size === 0) return 0;
+    for (let i = 0; i < queue.length; i += 1) {
+      if ((gateOf.get(queue[i].category) ?? 0) <= done) return i;
+    }
+    // вскрывать приходится ту линию, которой до открытия ближе всех: расписание
+    // нарушается на минимум, и порядок волн сохраняется
+    let best = 0;
+    for (let i = 1; i < queue.length; i += 1) {
+      if ((gateOf.get(queue[i].category) ?? 0) < (gateOf.get(queue[best].category) ?? 0)) {
+        best = i;
+      }
+    }
+    stats.gatesForced += 1;
+    return best;
   };
 
   const fullOf = (category: string): number => fullOfMap.get(category) ?? 4;
@@ -261,7 +300,7 @@ export function createPlaySim(spec: LevelSpec): PlaySim {
     if (n <= 0 || queue.length === 0) return;
     const before = completableSet();
     for (let i = 0; i < n && queue.length > 0; i += 1) {
-      field.push(toBubble(queue.shift()!));
+      field.push(toBubble(queue.splice(nextIndex(), 1)[0]));
     }
     if (!wave) return;
     stats.refillWaves += 1;

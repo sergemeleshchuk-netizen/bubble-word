@@ -10,6 +10,7 @@
  */
 import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.ts';
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
+import { STAGED_CATEGORIES } from './deal.ts';
 import { spreadBoundsFor } from './decadeProfiles.ts';
 
 /**
@@ -76,6 +77,14 @@ export const DEFAULT_BLOCK_CONFIG: BlockConfig = {
    * играть с первого хода.
    */
   dealMinStartWords: 2,
+  /**
+   * Крупные уровни пресета (13-18 категорий) раскладывают линии в очередь:
+   * четыре категории ждут прогресса и выходят на поле волнами (`planGates` в
+   * core/deal.ts). Пресет — единственный блок кривой, где больше 12 категорий
+   * встречается на шести уровнях из десяти, и именно на нём жалоба «со старта
+   * некуда двигаться» была громче всего.
+   */
+  dealHoldCategories: STAGED_CATEGORIES,
   /**
    * Таблица стартовой раскладки пресет не переписывает: у сдаваемого пакета своя
    * форма кривой (13-18 категорий против 8-12 в таблице для этих номеров).
