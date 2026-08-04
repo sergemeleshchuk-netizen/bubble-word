@@ -86,9 +86,14 @@ test('профиль выбирается по первому уровню ди�
 });
 
 test('ступенька размера уровня на L121 сохранена в таблице', () => {
+  // замер: 9.3 → 13.2, прыжок больше трёх категорий
+  const raw = (from: number) => DECADE_PROFILES.find((p) => p.from === from)!.categoryMean;
+  assert.ok(raw(121) - raw(111) > 3, `замер: ${raw(111)} → ${raw(121)}`);
+  // дизайн: поблажка по размеру (`easedProfile`) снимает с этих декад две
+  // категории, но ступенька обязана остаться ступенькой
   const before = profileForRange([111, 120]).categoryMean;
   const after = profileForRange([121, 130]).categoryMean;
-  assert.ok(after - before > 3, `ожидался прыжок, получено ${before} → ${after}`);
+  assert.ok(after - before > 1.5, `ожидался прыжок, получено ${before} → ${after}`);
 });
 
 test('узнаваемость падает от первой декады к последней', () => {
@@ -134,8 +139,7 @@ test('план категорий укладывается в коридор с�
 });
 
 test('ритм пресета 201-210 по-прежнему проходит проверку', () => {
-  assert.ok(checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG),
-    DEFAULT_BLOCK_CONFIG.categoryCorridor).passed);
+  assert.ok(checkBlockRhythm(buildBlockPlan(DEFAULT_BLOCK_CONFIG)).passed);
 });
 
 test('плоский план ритм не проходит', () => {

@@ -423,8 +423,18 @@ export function RhythmLegend() {
 function configFromIntent(
   base: BlockConfig, patch: Partial<BlockConfig>, tuned: (c: BlockConfig) => BlockConfig,
 ): BlockConfig {
+  /**
+   * Профиль поднимается только когда диапазон в промпте ОТЛИЧАЕТСЯ от того, что
+   * уже стоит в конфиге. Иначе «10 уровней в линейке 121-130» поверх конфига,
+   * который и так про 121-130, молча стирал бы всё, что настроено руками:
+   * планы категорий и мета, окна свежести, seed. Именно так исчезали настройки
+   * при первом открытии экрана — форма показывала не тот блок, с которым
+   * инструмент открылся.
+   */
   const range = patch.levelRange;
-  const profile = range ? tuned(configForRange(range, base.seed)) : base;
+  const sameRange = range
+    && range[0] === base.levelRange[0] && range[1] === base.levelRange[1];
+  const profile = range && !sameRange ? tuned(configForRange(range, base.seed)) : base;
   return { ...profile, ...patch };
 }
 
@@ -475,7 +485,7 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
 
   // предпросмотр считается по черновику, а не по применённому конфигу
   const plans = buildBlockPlan(draft);
-  const rhythm = checkBlockRhythm(plans, draft.categoryCorridor);
+  const rhythm = checkBlockRhythm(plans);
   const dirty = canonicalJson(draft) !== canonicalJson(config);
 
   /**

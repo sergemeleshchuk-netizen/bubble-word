@@ -95,7 +95,7 @@ test('«меньше сложных слов» — это редкость, а �
 test('предзаполненный промпт разбирается без остатка', () => {
   const parsed = parseIntent(DEFAULT_INTENT_PROMPT, DEFAULT_BLOCK_CONFIG.levelRange);
   assert.deepEqual(parsed.unrecognized, []);
-  assert.deepEqual(parsed.patch.levelRange, [150, 159], 'просили 10 уровней от 150');
+  assert.deepEqual(parsed.patch.levelRange, [121, 130], 'просили 10 уровней от 121');
   assert.deepEqual(parsed.patch.spikePositions, [5, 9]);
   assert.deepEqual(parsed.patch.recoveryPositions, [6, 10]);
   assert.ok((parsed.patch.includeThemes ?? []).length >= 3,
@@ -116,7 +116,7 @@ test('по предзаполненному промпту блок собира
     ...configForRange(parsed.patch.levelRange!, DEFAULT_BLOCK_CONFIG.seed),
     ...parsed.patch,
   };
-  assert.ok(checkBlockRhythm(buildBlockPlan(config), config.categoryCorridor).passed,
+  assert.ok(checkBlockRhythm(buildBlockPlan(config)).passed,
     'ритм блока должен быть пилой');
 
   const block = generateBlock({ snapshot, config, scoring });
@@ -128,5 +128,5 @@ test('по предзаполненному промпту блок собира
       `уровень ${level.spec.levelId}: решений ${level.solutions.count}, должно быть одно`);
   }
   assert.deepEqual(block.levels.map((l) => l.spec.levelId),
-    [150, 151, 152, 153, 154, 155, 156, 157, 158, 159]);
+    [121, 122, 123, 124, 125, 126, 127, 128, 129, 130]);
 });

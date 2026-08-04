@@ -12,7 +12,7 @@ import type { BlockConfig, LevelModifier, LevelPlan, LevelRole } from './types.t
 import { MAX_MOVE_LIMIT_K, MIN_MOVE_LIMIT_K } from './levelMath.ts';
 import { STAGED_CATEGORIES } from './deal.ts';
 import {
-  EARLY_CURVE_UNTIL, META_MAX_EARLY, META_MAX_ORDINARY, META_MAX_SPIKE, spreadBoundsFor,
+  EARLY_CURVE_UNTIL, META_MAX_EARLY, META_MAX_ORDINARY, META_MAX_SPIKE, configForRange,
 } from './decadeProfiles.ts';
 
 /**
@@ -101,6 +101,41 @@ export const DEFAULT_BLOCK_CONFIG: BlockConfig = {
    * брала числа из замера референса, где мета-пар щедро.
    */
   metaPlan: [1, 2, 1, 3, 4, 0, 2, 3, 3, 1],
+};
+
+/**
+ * С чем инструмент ОТКРЫВАЕТСЯ (решение владельца 04.08, вечер: «сделай
+ * дефолтно выбранными значениями в генераторе»).
+ *
+ * Это ровно тот блок, который владелец собрал руками, когда искал, чем ещё
+ * облегчить уровни: линейка 121-130, два пика (5 и 9) с передышкой сразу после
+ * каждого, редких слов 1-2, глубина мета 1 (цепочек нет), узкие окна свежести,
+ * план категорий до 12 и мета-план до двух пар. Держать эти числа в коде, а не
+ * в чьей-то памяти, — единственный способ открывать инструмент на состоянии,
+ * которое проверено игрой.
+ *
+ * Пресет 201-210 (`DEFAULT_BLOCK_CONFIG`) остаётся отдельно: по нему живут
+ * скрипты и регрессия сданного пакета, и подменять его настройками одного
+ * вечера нельзя.
+ *
+ * Гейты декады берём у 121-130 (`configForRange`): длина слова, число токенов,
+ * пол для имён собственных — это свойства номеров уровней, а не вкуса.
+ * `presetLocked` стоит по той же причине, что у пресета: конфиг собран руками,
+ * и таблица декад не вправе переписать его молча — она вступает в дело, когда
+ * человек меняет диапазон.
+ */
+export const STARTING_BLOCK_CONFIG: BlockConfig = {
+  ...configForRange([121, 130], 'final-04'),
+  categoryCorridor: [8, 12],
+  spikePositions: [5, 9],
+  recoveryPositions: [6, 10],
+  rarityRange: [1, 2],
+  maxMetaDepth: 1,
+  wordFreshnessWindow: 1,
+  categoryFreshnessWindow: 5,
+  categoryPlan: [10, 8, 9, 10, 12, 8, 10, 11, 12, 10],
+  metaPlan: [0, 1, 2, 2, 2, 0, 1, 2, 1, 0],
+  presetLocked: true,
 };
 
 function roleFor(position: number, total: number, config: BlockConfig): LevelRole {
@@ -391,7 +426,7 @@ export function buildBlockPlan(config: BlockConfig): LevelPlan[] {
  * Проверяются на плане, до генерации: если план плохой, генерировать бессмысленно.
  */
 export function checkBlockRhythm(
-  plans: LevelPlan[], corridor?: readonly [number, number],
+  plans: LevelPlan[],
 ): { passed: boolean; issues: string[] } {
   const issues: string[] = [];
   const counts = plans.map((p) => p.categoryCount);
@@ -403,25 +438,15 @@ export function checkBlockRhythm(
   }
 
   /**
-   * Разброс. Верхнюю границу добавили по замеру всех 19 полных декад референса:
-   * там разброс макс-мин стабильно 5-7 категорий. Раньше проверялось только
-   * `>= 4`, и блок с разбросом 3 (как даёт усреднённый шаблон) проходил, хотя
-   * на референс не похож; блок с разбросом 12 тоже проходил, хотя это уже
-   * не ритм, а качели.
+   * Разброса макс-мин здесь больше нет (решение владельца 04.08, вечер:
+   * «это требование не нужно», оранжевая строка про разбросы путала и мешала).
    *
-   * Границы считаются от коридора блока, если он известен: коридор — решение
-   * дизайнера, и в узком (8-12, решение 03.08 для поздней кривой) разброс 5
-   * недостижим физически. См. `spreadBoundsFor` в decadeProfiles.ts.
+   * Требование стояло по замеру референса (5-7 категорий внутри декады), но
+   * работало против человека: разброс — следствие коридора, а не выбор
+   * дизайнера, и планировщик уже раздвигает спайк с передышкой на всю ширину
+   * коридора (`spreadBoundsFor` в decadeProfiles.ts, там оно и осталось). Форму
+   * кривой проверяют переходы вниз и передышка после спайка — ниже.
    */
-  const spread = Math.max(...counts) - Math.min(...counts);
-  const [minSpread, maxSpread] = corridor
-    ? spreadBoundsFor(corridor) : [5, 7];
-  if (spread < minSpread || spread > maxSpread) {
-    issues.push(`разброс внутри блока ${spread} категорий, нужно `
-      + `${minSpread}-${maxSpread}`
-      + (corridor ? ` для коридора ${corridor.join('-')}` : ' (по замеру стабильно 5-7)'));
-  }
-
   const peaks = plans.filter((p) => p.role === 'peak' || p.role === 'spike');
   if (peaks.length < 1) issues.push('нет ни одного выраженного пика');
 

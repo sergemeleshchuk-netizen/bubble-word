@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { BlockConfig, BlockResult, Snapshot } from './core/types.ts';
-import { DEFAULT_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
+import { STARTING_BLOCK_CONFIG, buildBlockPlan } from './core/blockPlan.ts';
 import {
   generateBlock, redealLevel, toGameJson, toPipelineJson, withLevel,
 } from './core/generateBlock.ts';
@@ -62,7 +62,7 @@ async function loadReferenceLevels(): Promise<BwjLevels> {
  * настройка инструмента, а не одного блока. Ключ версионирован — смена формата
  * не должна ронять чтение старого значения.
  */
-const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v3';
+const DECADE_TUNING_KEY = 'level-tool.decade-tuning.v4';
 
 function loadDecadeTuning(): DecadeTuningRow[] {
   const defaults = decadeTuningDefaults();
@@ -118,7 +118,7 @@ type TabId = typeof TABS[number]['id'];
 
 export function App() {
   const [tab, setTab] = useState<TabId>('base');
-  const [config, setConfig] = useState<BlockConfig>(DEFAULT_BLOCK_CONFIG);
+  const [config, setConfig] = useState<BlockConfig>(STARTING_BLOCK_CONFIG);
   const [block, setBlock] = useState<BlockResult | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<number | null>(null);
   const [elapsed, setElapsed] = useState<number>(0);
@@ -258,7 +258,7 @@ export function App() {
     setBlock({
       // конфиг здесь — не настройка сборки, а расписка о происхождении: уровни
       // не собирались ни этим конфигом, ни вообще генератором
-      config: { ...DEFAULT_BLOCK_CONFIG, levelRange: [ids[0], ids[ids.length - 1]],
+      config: { ...STARTING_BLOCK_CONFIG, levelRange: [ids[0], ids[ids.length - 1]],
         seed: REFERENCE_ORIGIN },
       contentSnapshotHash: snapshot.content_snapshot_hash,
       generatorVersion: REFERENCE_ORIGIN,

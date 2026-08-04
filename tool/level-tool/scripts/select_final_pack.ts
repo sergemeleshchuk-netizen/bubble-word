@@ -403,8 +403,7 @@ for (const level of winner.block.levels) {
   }
 }
 
-const rhythm = checkBlockRhythm(buildBlockPlan(winner.block.config),
-  winner.block.config.categoryCorridor);
+const rhythm = checkBlockRhythm(buildBlockPlan(winner.block.config));
 const V: string[] = [];
 V.push('# VALIDATION_REPORT — что и как проверено\n');
 V.push(`Пакет \`${winner.block.packHash}\`\n`);

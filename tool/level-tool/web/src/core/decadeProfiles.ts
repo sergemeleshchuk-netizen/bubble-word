@@ -320,13 +320,65 @@ export function maxMetaDepthFor(levelId: number): number {
   return levelId >= META_DEPTH_3_FROM_LEVEL ? 3 : 2;
 }
 
+/**
+ * Выше какого числа категорий уровень становится тяжёлым (решение владельца
+ * 04.08, вечер: «уровни выше 12 по количеству категорий уменьши на 1-2»).
+ *
+ * Почему 12. Поле вмещает 24 пузыря, четвёрка = категория, значит на 12
+ * категориях половина уровня видна сразу, а на 17 — меньше трети, и остальное
+ * приходит досыпками. Игрок в этот момент держит в голове не расклад, а
+ * очередь: собранная четвёрка открывает слова, которых он не видел, когда
+ * планировал ход. Замер решаемости бил именно по этим уровням.
+ *
+ * Это ДИЗАЙН, а не замер: `DECADE_PROFILES` остаётся тем, что снято с
+ * оригинала, а просим мы теперь на два меньше там, где замер выше потолка —
+ * ровно так же, как с мета-парами (`META_MAX_EARLY`).
+ */
+export const CATEGORY_EASE_ABOVE = 12;
+/** На сколько уменьшается число категорий выше потолка. */
+export const CATEGORY_EASE_STEP = 2;
+
+/** Число категорий с поблажкой: 17 → 15, 13 → 11, 12 и ниже не трогаем. */
+export function easedCategoryCount(count: number): number {
+  return count > CATEGORY_EASE_ABOVE ? count - CATEGORY_EASE_STEP : count;
+}
+
+/** Коридор с поблажкой: потолок опускается, пол — только если обгонит потолок. */
+export function easedCorridor(
+  corridor: readonly [number, number],
+): [number, number] {
+  const hi = easedCategoryCount(corridor[1]);
+  return [Math.min(corridor[0], hi), hi];
+}
+
+/**
+ * Профиль декады с поблажкой по размеру уровня.
+ *
+ * Среднее едет вместе с коридором, и это обязательно: план категорий строится
+ * от среднего, а приёмка (`checkDecadeFit`, CATEGORY_MEAN) по нему судит. Опусти
+ * только потолок — и декада 121-130 просила бы прежние 13.2 категории в среднем
+ * при потолке 14, то есть выстроилась бы в прямую по верхней границе.
+ */
+export function easedProfile(profile: DecadeProfile): DecadeProfile {
+  const corridor = easedCorridor(profile.categoryCorridor);
+  if (corridor[1] === profile.categoryCorridor[1]) return profile;
+  const mean = profile.categoryMean > CATEGORY_EASE_ABOVE
+    ? profile.categoryMean - CATEGORY_EASE_STEP
+    : profile.categoryMean;
+  return {
+    ...profile,
+    categoryCorridor: corridor,
+    categoryMean: Math.min(mean, corridor[1] - 1),
+  };
+}
+
 export function profileForRange(levelRange: [number, number]): DecadeProfile {
   const first = levelRange[0];
   let profile = DECADE_PROFILES[0];
   for (const candidate of DECADE_PROFILES) {
     if (candidate.from <= first) profile = candidate;
   }
-  return profile;
+  return easedProfile(profile);
 }
 
 /** Человеческое имя декады для интерфейса: «уровни 1-10». */
@@ -521,6 +573,17 @@ export const EARLY_CURVE_UNTIL = 200;
 export const META_MAX_EARLY = 2;
 
 /**
+ * Глубина мета-цепи на ранней кривой (решение владельца 04.08, вечер).
+ *
+ * Единица — это «цепочек нет»: мета-пара может быть, но собранная четвёрка не
+ * превращается в пузырь, который сам лежит в категории, которая сама лежит в
+ * третьей (WATER → KITCHEN → HOUSE). Одна такая цепочка стоит игроку двух
+ * догадок подряд, причём вторая приходит после того, как поле уже
+ * перестроилось. До L200 этого не просим.
+ */
+export const META_DEPTH_EARLY = 1;
+
+/**
  * Потолок мета-пар для позиции декады: спайк выше обычной позиции, а на первых
  * двухстах уровнях обе позиции подрезаны до `META_MAX_EARLY`.
  *
@@ -623,8 +686,10 @@ export function configForRange(
     spikePositions: [SPIKE_POSITION],
     recoveryPositions: [RECOVERY_POSITION],
     rarityRange: profile.rareRange,
-    // глубина 3 в оригинале появляется с L438 — см. META_DEPTH_3_FROM_LEVEL
-    maxMetaDepth: maxMetaDepthFor(levelRange[1]),
+    // глубина 3 в оригинале появляется с L438 — см. META_DEPTH_3_FROM_LEVEL;
+    // на ранней кривой глубина 1 — цепочек нет вовсе (см. META_DEPTH_EARLY)
+    maxMetaDepth: Math.min(maxMetaDepthFor(levelRange[1]),
+      levelRange[0] <= EARLY_CURVE_UNTIL ? META_DEPTH_EARLY : 3),
     // Игровые модификаторы включаются лесенкой по декадам (решение 02.08:
     // механики входят в генерацию, оценку и игровой JSON разом, а не по одной):
     //   с L11 половинки — в референсе распилы видны уже на уровне 12;
@@ -638,10 +703,18 @@ export function configForRange(
     includeThemes: [],
     excludeThemes: [],
     trapThemes: [],
-    // повтор слова в ДРУГОЙ категории — рычаг сложности, а не брак: окно запрета
-    // сужаем до половины декады, а нужное число повторов задаёт repeatRange
-    wordFreshnessWindow: 5,
-    categoryFreshnessWindow: Math.max(10, 40 - Math.floor(profile.from / 10) * 2),
+    /**
+     * Окна свежести — узкие (решение владельца 04.08, вечер: он выставил 1 и 5
+     * руками, и на этих значениях уровни решались).
+     *
+     * Окно не ТРЕБУЕТ повторов, оно их РАЗРЕШАЕТ, а нужное число задаёт
+     * repeatRange. Широкое окно (5 слов / 16-40 категорий) отсекало от уровня
+     * как раз те категории, у которых есть узнаваемая опора: их мало, и в
+     * пределах блока они кончались первыми. То есть окно платило свежестью за
+     * решаемость — за то, чем мы весь вечер и занимались.
+     */
+    wordFreshnessWindow: 1,
+    categoryFreshnessWindow: 5,
     wordsPerCategory: 4,
     seed,
     categoryPlan,
@@ -830,14 +903,17 @@ export function decadeTuningDefaults(): DecadeTuningRow[] {
   const corridorAt = (level: number): [number, number] => {
     let profile = DECADE_PROFILES[0];
     for (const p of DECADE_PROFILES) if (p.from <= level) profile = p;
-    return [profile.categoryCorridor[0], profile.categoryCorridor[1]];
+    // поблажка по размеру уровня (`easedCorridor`) применяется здесь тоже:
+    // таблица — то, что видит и правит человек, и показывать в ней потолок,
+    // которого генератор уже не просит, значило бы врать в интерфейсе
+    return easedCorridor(profile.categoryCorridor);
   };
   const push = (from: number, to: number) => {
     // с 161 коридор задан решением дизайнера, до 160 — объединением коридоров
     // всех декад замера внутри промежутка
     let corridor: [number, number];
     if (from >= LATE_CORRIDORS[0].from) {
-      corridor = [...rowAt(LATE_CORRIDORS, from).corridor] as [number, number];
+      corridor = easedCorridor(rowAt(LATE_CORRIDORS, from).corridor);
     } else {
       let lo = Infinity;
       let hi = -Infinity;
@@ -1047,10 +1123,18 @@ function median(values: number[]): number {
 }
 
 export function checkDecadeFit(
-  levels: DecadeFitInput[], profile: DecadeProfile,
-  blockTolerance = zipfBlockTolerance(profile),
+  levels: DecadeFitInput[], rawProfile: DecadeProfile,
+  blockTolerance = zipfBlockTolerance(rawProfile),
   plannedCount = levels.length,
 ): DecadeFitResult {
+  /**
+   * Поблажка по размеру уровня применяется ЗДЕСЬ, а не только у вызывающего.
+   * Иначе приёмку можно накормить строкой замера (`DECADE_PROFILES[12]`) и
+   * получить FAIL по среднему за то, что генератор честно собрал облегчённую
+   * декаду: собрано 11.7 категории, цель замера 13.2. Судить блок мерой, по
+   * которой его не строили, — самый дорогой вид ложной тревоги.
+   */
+  const profile = easedProfile(rawProfile);
   const checks: DecadeFitResult['checks'] = [];
   const add = (code: string, passed: boolean, detail: string): void => {
     checks.push({ code, passed, detail });
@@ -1075,15 +1159,17 @@ export function checkDecadeFit(
   if (complete) add('CATEGORY_MEAN', Math.abs(mean - profile.categoryMean) <= 1.0,
     `среднее категорий ${mean.toFixed(1)}, цель декады ${profile.categoryMean} (допуск ±1.0)`);
 
-  const spread = Math.max(...counts) - Math.min(...counts);
-  // требование по разбросу — «столько пилы, сколько допускает коридор»: в
-  // коридоре шириной 4 разброс 5 недостижим физически (см. spreadBoundsFor)
-  const [minSpread, maxSpread] = spreadBoundsFor(profile.categoryCorridor);
-  if (complete) add('CATEGORY_SPREAD', spread >= minSpread && spread <= maxSpread,
-    `разброс ${spread} категорий (${Math.min(...counts)}-${Math.max(...counts)}), `
-    + `для коридора ${profile.categoryCorridor.join('-')} нужно ${minSpread}-${maxSpread} `
-    + '(по замеру 5-7)');
-
+  /**
+   * Разброс макс-мин больше НЕ ТРЕБОВАНИЕ (решение владельца 04.08, вечер:
+   * «это требование не нужно»).
+   *
+   * Он остался целью планировщика (`planCategoryCounts` по-прежнему раздвигает
+   * спайк и передышку), но судить по нему нельзя: планировщик выжимает из
+   * коридора всё, что тот позволяет, а провал по разбросу человек читал как
+   * «блок плохой» и шёл править коридор — то есть лечил измеритель. Пилу в
+   * блоке проверяет DESCENTS (переходы вниз) и SPIKE_THEN_RECOVERY — они
+   * говорят про форму кривой, а не про её амплитуду.
+   */
   if (complete) add('CATEGORY_CORRIDOR',
     counts.every((c) => c >= profile.categoryCorridor[0] && c <= profile.categoryCorridor[1]),
     `коридор декады ${profile.categoryCorridor.join('-')}, факт `

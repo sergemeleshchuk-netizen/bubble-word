@@ -161,7 +161,7 @@ test('правка коридора пересобирает план катег
   assert.equal(new Set(plan).size > 1, true, `план стал прямой линией: ${plan}`);
   assert.ok(plan.slice(1).every((n, i) => n !== plan[i]),
     `в плане есть структурно одинаковые соседи: ${plan}`);
-  assert.ok(checkBlockRhythm(buildBlockPlan(tuned), tuned.categoryCorridor).passed,
+  assert.ok(checkBlockRhythm(buildBlockPlan(tuned)).passed,
     'пересобранный план не прошёл проверку ритма');
 });
 
@@ -267,10 +267,13 @@ test('поздние коридоры: потолок оригинала до 10
   assert.deepEqual(at(450), [8, 12]);
   assert.deepEqual(at(501), [9, 12]);
   assert.deepEqual(at(1000), [9, 12]);
-  assert.deepEqual(at(1001), [9, 13]);
-  assert.deepEqual(at(2001), [8, 14]);
-  assert.deepEqual(at(3001), [9, 15]);
-  assert.deepEqual(at(4321), [9, 15]);
+  // выше 1000 потолок открывался ВЫШЕ референса (13, 14, 15) — поблажка по
+  // размеру уровня (`easedCategoryCount`, решение 04.08) снимает с него две
+  // категории, как и со всех остальных строк выше 12
+  assert.deepEqual(at(1001), [9, 11]);
+  assert.deepEqual(at(2001), [8, 12]);
+  assert.deepEqual(at(3001), [9, 13]);
+  assert.deepEqual(at(4321), [9, 13]);
   // до 1000 потолок не выше замеренного оригинала, пол оставляет передышку
   for (const row of rows) {
     if (row.from < 161) continue;
@@ -280,7 +283,7 @@ test('поздние коридоры: потолок оригинала до 10
   // строки 1-160 остались замером: их трогать было нечем, они сняты с уровней
   assert.deepEqual(at(1), [5, 12]);
   assert.deepEqual(at(11), [7, 12]);
-  assert.deepEqual(at(121), [10, 17]);
+  assert.deepEqual(at(121), [10, 15]);   // замер 10-17, минус поблажка
 });
 
 test('каждая строка таблицы даёт живой ритм с передышкой', () => {
@@ -289,7 +292,7 @@ test('каждая строка таблицы даёт живой ритм с �
     const cfg = applyDecadeTuning(
       configForRange([row.from, row.from + 9], 'rows-rhythm'), rows);
     const plans = buildBlockPlan(cfg);
-    const rhythm = checkBlockRhythm(plans, cfg.categoryCorridor);
+    const rhythm = checkBlockRhythm(plans);
     assert.ok(rhythm.passed,
       `строка ${row.from}-${row.to} (коридор ${cfg.categoryCorridor.join('-')}): `
       + rhythm.issues.join('; '));
