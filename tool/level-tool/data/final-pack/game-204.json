@@ -1,6 +1,7 @@
 {
   "level_id": 204,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 16,
     "words_per_category": 4,
@@ -8,359 +9,607 @@
     "board_capacity": 24,
     "move_limit": 65
   },
+  "deal": {
+    "start": [
+      {
+        "word": "trophy",
+        "category": "wimbledon"
+      },
+      {
+        "word": "mousse",
+        "category": "french_dishes"
+      },
+      {
+        "word": "college features",
+        "category": "tennis_courts"
+      },
+      {
+        "word": "hard",
+        "category": "tennis_courts"
+      },
+      {
+        "word": "bohemian",
+        "category": "fashion_styles"
+      },
+      {
+        "word": "retro",
+        "category": "fashion_styles"
+      },
+      {
+        "word": "minimalist",
+        "category": "fashion_styles"
+      },
+      {
+        "word": "turf",
+        "category": "grass"
+      },
+      {
+        "word": "London",
+        "category": "wimbledon"
+      },
+      {
+        "word": "championships",
+        "category": "wimbledon"
+      },
+      {
+        "word": "badminton",
+        "category": "racquet_sports"
+      },
+      {
+        "word": "string",
+        "category": "tennis"
+      },
+      {
+        "word": "quiche",
+        "category": "french_dishes"
+      },
+      {
+        "word": "roland garros",
+        "category": "tennis_courts"
+      },
+      {
+        "word": "pickleball",
+        "category": "racquet_sports"
+      },
+      {
+        "word": "sod",
+        "category": "grass"
+      },
+      {
+        "word": "crepe",
+        "category": "french_dishes"
+      },
+      {
+        "word": "meadow",
+        "category": "grass"
+      },
+      {
+        "word": "ale",
+        "category": "wines_and_drinks"
+      },
+      {
+        "word": "lawn",
+        "category": "grass"
+      },
+      {
+        "word": "racquetball",
+        "category": "racquet_sports"
+      },
+      {
+        "word": "ipa",
+        "category": "wines_and_drinks"
+      },
+      {
+        "word": "stout",
+        "category": "wines_and_drinks"
+      },
+      {
+        "word": "match",
+        "category": "tennis"
+      }
+    ],
+    "queue": [
+      {
+        "word": "ratatouille",
+        "category": "french_dishes"
+      },
+      {
+        "word": "pinot",
+        "category": "wines_and_drinks"
+      },
+      {
+        "word": "love",
+        "category": "tennis"
+      },
+      {
+        "word": "serve",
+        "category": "tennis"
+      },
+      {
+        "word": "Mississippi",
+        "category": "rivers"
+      },
+      {
+        "word": "recipe",
+        "category": "cooking"
+      },
+      {
+        "word": "Danube",
+        "category": "rivers"
+      },
+      {
+        "word": "Rio Grande",
+        "category": "rivers"
+      },
+      {
+        "word": "Rhine",
+        "category": "rivers"
+      },
+      {
+        "word": "chef",
+        "category": "cooking"
+      },
+      {
+        "word": "baking",
+        "category": "cooking"
+      },
+      {
+        "word": "pan",
+        "category": "cooking"
+      },
+      {
+        "word": "maple syrup",
+        "category": "honey_and_syrups"
+      },
+      {
+        "word": "molasses",
+        "category": "honey_and_syrups"
+      },
+      {
+        "word": "cane sugar",
+        "category": "honey_and_syrups"
+      },
+      {
+        "word": "corn syrup",
+        "category": "honey_and_syrups"
+      },
+      {
+        "word": "barnacle",
+        "category": "crustaceans"
+      },
+      {
+        "word": "crayfish",
+        "category": "crustaceans"
+      },
+      {
+        "word": "prawn",
+        "category": "crustaceans"
+      },
+      {
+        "word": "krill",
+        "category": "crustaceans"
+      },
+      {
+        "word": "primer",
+        "category": "painting_supplies"
+      },
+      {
+        "word": "drop cloth",
+        "category": "painting_supplies"
+      },
+      {
+        "word": "roller",
+        "category": "painting_supplies"
+      },
+      {
+        "word": "paint",
+        "category": "painting_supplies"
+      },
+      {
+        "word": "jeans",
+        "category": "casual"
+      },
+      {
+        "word": "sneakers",
+        "category": "casual"
+      },
+      {
+        "word": "hoodie",
+        "category": "casual"
+      },
+      {
+        "word": "t shirt",
+        "category": "casual"
+      },
+      {
+        "word": "Hercules",
+        "category": "constellations"
+      },
+      {
+        "word": "Andromeda",
+        "category": "constellations"
+      },
+      {
+        "word": "Leo",
+        "category": "constellations"
+      },
+      {
+        "word": "Crux",
+        "category": "constellations"
+      },
+      {
+        "word": "blunt",
+        "category": "candid"
+      },
+      {
+        "word": "straightforward",
+        "category": "candid"
+      },
+      {
+        "word": "direct",
+        "category": "candid"
+      },
+      {
+        "word": "explicit",
+        "category": "candid"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "minerals",
-      "label": "MINERALS",
+      "key": "grass",
+      "label": "GRASS",
       "words": [
         {
-          "text": "pyrite",
+          "text": "turf",
           "kind": "word"
         },
         {
-          "text": "calcite",
+          "text": "meadow",
           "kind": "word"
         },
         {
-          "text": "magnetite",
+          "text": "lawn",
           "kind": "word"
         },
         {
-          "text": "talc",
+          "text": "sod",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "science_fair",
-      "label": "SCIENCE FAIR",
+      "key": "wimbledon",
+      "label": "WIMBLEDON",
       "words": [
         {
-          "text": "minerals",
+          "text": "grass",
           "kind": "meta",
-          "meta_child": "minerals"
+          "meta_child": "grass"
         },
         {
-          "text": "hypothesis",
+          "text": "London",
           "kind": "word"
         },
         {
-          "text": "inventions",
+          "text": "trophy",
           "kind": "word"
         },
         {
-          "text": "volcanoes",
+          "text": "championships",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "school_events",
-      "label": "SCHOOL EVENTS",
+      "key": "tennis_courts",
+      "label": "TENNIS COURTS",
       "words": [
         {
-          "text": "science fair",
+          "text": "Wimbledon",
           "kind": "meta",
-          "meta_child": "science_fair"
+          "meta_child": "wimbledon"
         },
         {
-          "text": "open house",
+          "text": "hard",
           "kind": "word"
         },
         {
-          "text": "field trip",
+          "text": "college features",
           "kind": "word"
         },
         {
-          "text": "picture day",
+          "text": "roland garros",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "puzzle_types",
-      "label": "PUZZLES",
+      "key": "casual",
+      "label": "CASUAL",
       "words": [
         {
-          "text": "anagram",
+          "text": "t shirt",
           "kind": "word"
         },
         {
-          "text": "rebus",
+          "text": "jeans",
           "kind": "word"
         },
         {
-          "text": "maze",
+          "text": "hoodie",
           "kind": "word"
         },
         {
-          "text": "word search",
+          "text": "sneakers",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "toy_chest",
-      "label": "TOY CHEST",
+      "key": "fashion_styles",
+      "label": "FASHION STYLES",
       "words": [
         {
-          "text": "puzzles",
+          "text": "casual",
           "kind": "meta",
-          "meta_child": "puzzle_types"
+          "meta_child": "casual"
         },
         {
-          "text": "marbles",
+          "text": "bohemian",
           "kind": "word"
         },
         {
-          "text": "blocks",
+          "text": "minimalist",
           "kind": "word"
         },
         {
-          "text": "balls",
+          "text": "retro",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "storage_containers",
-      "label": "CONTAINERS",
+      "key": "tennis",
+      "label": "TENNIS",
       "words": [
         {
-          "text": "cooler",
+          "text": "love",
           "kind": "word"
         },
         {
-          "text": "sack",
+          "text": "serve",
           "kind": "word"
         },
         {
-          "text": "box",
+          "text": "match",
           "kind": "word"
         },
         {
-          "text": "bag",
+          "text": "string",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "kitchen_drawer",
-      "label": "KITCHEN DRAWER",
+      "key": "racquet_sports",
+      "label": "RACQUET SPORTS",
       "words": [
         {
-          "text": "containers",
+          "text": "tennis",
           "kind": "meta",
-          "meta_child": "storage_containers"
+          "meta_child": "tennis",
+          "display": "icon",
+          "icon": "🎾"
         },
         {
-          "text": "corkscrew",
+          "text": "pickleball",
           "kind": "word"
         },
         {
-          "text": "peeler",
+          "text": "racquetball",
           "kind": "word"
         },
         {
-          "text": "whisk",
+          "text": "badminton",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "gardening_words",
-      "label": "GARDENING WORDS",
+      "key": "candid",
+      "label": "CANDID",
       "words": [
         {
-          "text": "soil",
+          "text": "direct",
           "kind": "word"
         },
         {
-          "text": "fertilizer",
+          "text": "explicit",
           "kind": "word"
         },
         {
-          "text": "seed",
+          "text": "straightforward",
           "kind": "word"
         },
         {
-          "text": "sprout",
+          "text": "blunt",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "religious_books",
-      "label": "SACRED TEXTS",
+      "key": "crustaceans",
+      "label": "CRUSTACEANS",
       "words": [
         {
-          "text": "Bible",
+          "text": "prawn",
           "kind": "word"
         },
         {
-          "text": "gospel",
+          "text": "krill",
           "kind": "word"
         },
         {
-          "text": "Torah",
+          "text": "crayfish",
           "kind": "word"
         },
         {
-          "text": "Psalms",
+          "text": "barnacle",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "legendary_places",
-      "label": "LEGENDARY PLACES",
+      "key": "french_dishes",
+      "label": "FRENCH DISHES",
       "words": [
         {
-          "text": "Eden",
+          "text": "ratatouille",
           "kind": "word"
         },
         {
-          "text": "Troy",
+          "text": "quiche",
           "kind": "word"
         },
         {
-          "text": "Atlantis",
+          "text": "crepe",
           "kind": "word"
         },
         {
-          "text": "El Dorado",
+          "text": "mousse",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "owls",
-      "label": "OWLS",
+      "key": "honey_and_syrups",
+      "label": "SYRUPS AND SWEETENERS",
       "words": [
         {
-          "text": "barred owl",
+          "text": "cane sugar",
           "kind": "word"
         },
         {
-          "text": "barn owl",
+          "text": "corn syrup",
           "kind": "word"
         },
         {
-          "text": "elf owl",
+          "text": "molasses",
           "kind": "word"
         },
         {
-          "text": "snowy owl",
+          "text": "maple syrup",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "sandwich_fillings",
-      "label": "SANDWICH FILLINGS",
+      "key": "rivers",
+      "label": "RIVERS",
       "words": [
         {
-          "text": "mayo",
+          "text": "Mississippi",
           "kind": "word"
         },
         {
-          "text": "cheese",
+          "text": "Rhine",
           "kind": "word"
         },
         {
-          "text": "peanut butter",
+          "text": "Rio Grande",
           "kind": "word"
         },
         {
-          "text": "onion",
+          "text": "Danube",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "roman_gods",
-      "label": "ROMAN GODS",
+      "key": "wines_and_drinks",
+      "label": "WINE & BEER",
       "words": [
         {
-          "text": "Venus",
+          "text": "stout",
           "kind": "word"
         },
         {
-          "text": "mercury",
+          "text": "ale",
           "kind": "word"
         },
         {
-          "text": "Neptune",
+          "text": "pinot",
           "kind": "word"
         },
         {
-          "text": "Saturn",
+          "text": "ipa",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "sea_mammals",
-      "label": "SEA MAMMALS",
+      "key": "painting_supplies",
+      "label": "PAINTING SUPPLIES",
       "words": [
         {
-          "text": "porpoise",
+          "text": "paint",
           "kind": "word"
         },
         {
-          "text": "humpback",
+          "text": "drop cloth",
           "kind": "word"
         },
         {
-          "text": "walrus",
+          "text": "roller",
           "kind": "word"
         },
         {
-          "text": "dolphin",
+          "text": "primer",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "ways_of_speaking",
-      "label": "WAYS OF SPEAKING",
+      "key": "constellations",
+      "label": "CONSTELLATIONS",
       "words": [
         {
-          "text": "announce",
+          "text": "Crux",
           "kind": "word"
         },
         {
-          "text": "chant",
+          "text": "Hercules",
           "kind": "word"
         },
         {
-          "text": "shout",
+          "text": "Andromeda",
           "kind": "word"
         },
         {
-          "text": "chatter",
+          "text": "Leo",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "cocktails",
-      "label": "COCKTAILS",
+      "key": "cooking",
+      "label": "COOKING",
       "words": [
         {
-          "text": "manhattan",
+          "text": "recipe",
           "kind": "word"
         },
         {
-          "text": "martini",
+          "text": "pan",
           "kind": "word"
         },
         {
-          "text": "tom collins",
+          "text": "chef",
           "kind": "word"
         },
         {
-          "text": "moscow mule",
+          "text": "baking",
           "kind": "word"
         }
       ]

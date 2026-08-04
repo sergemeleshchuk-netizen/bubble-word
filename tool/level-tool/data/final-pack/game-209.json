@@ -1,6 +1,7 @@
 {
   "level_id": 209,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 17,
     "words_per_category": 4,
@@ -8,25 +9,621 @@
     "board_capacity": 24,
     "move_limit": 67
   },
+  "deal": {
+    "start": [
+      {
+        "word": "behavior",
+        "category": "psychology"
+      },
+      {
+        "word": "dal",
+        "category": "indian"
+      },
+      {
+        "word": "Russian",
+        "category": "nationalities"
+      },
+      {
+        "word": "chemistry",
+        "category": "university_departments"
+      },
+      {
+        "word": "lemon",
+        "category": "sour_flavors"
+      },
+      {
+        "word": "tamarind",
+        "category": "sour_flavors"
+      },
+      {
+        "word": "sad",
+        "category": "feelings"
+      },
+      {
+        "word": "Australian",
+        "category": "nationalities"
+      },
+      {
+        "word": "biryani",
+        "category": "indian"
+      },
+      {
+        "word": "curry",
+        "category": "indian"
+      },
+      {
+        "word": "bored",
+        "category": "feelings"
+      },
+      {
+        "word": "lime",
+        "category": "sour_flavors"
+      },
+      {
+        "word": "fine arts",
+        "category": "university_departments"
+      },
+      {
+        "word": "loader",
+        "category": "construction_equipment"
+      },
+      {
+        "word": "French",
+        "category": "nationalities"
+      },
+      {
+        "word": "cement mixer",
+        "category": "construction_equipment"
+      },
+      {
+        "word": "perception",
+        "category": "psychology"
+      },
+      {
+        "word": "guilty",
+        "category": "feelings"
+      },
+      {
+        "word": "philosophy",
+        "category": "university_departments"
+      },
+      {
+        "word": "tape measure",
+        "category": "tailor_words"
+      },
+      {
+        "word": "jealous",
+        "category": "feelings"
+      },
+      {
+        "word": "thread",
+        "category": "tailor_words"
+      },
+      {
+        "word": "therapy",
+        "category": "psychology"
+      },
+      {
+        "word": "drill rig",
+        "category": "construction_equipment"
+      }
+    ],
+    "queue": [
+      {
+        "word": "samosa",
+        "category": "indian"
+      },
+      {
+        "word": "scaffold",
+        "category": "construction_equipment"
+      },
+      {
+        "word": "pattern",
+        "category": "tailor_words"
+      },
+      {
+        "word": "pin",
+        "category": "tailor_words"
+      },
+      {
+        "word": "netting",
+        "category": "orchard_words"
+      },
+      {
+        "word": "submarine",
+        "category": "boats"
+      },
+      {
+        "word": "cider press",
+        "category": "orchard_words"
+      },
+      {
+        "word": "tree",
+        "category": "orchard_words"
+      },
+      {
+        "word": "blossom",
+        "category": "orchard_words"
+      },
+      {
+        "word": "ferry",
+        "category": "boats"
+      },
+      {
+        "word": "raft",
+        "category": "boats"
+      },
+      {
+        "word": "boat",
+        "category": "boats"
+      },
+      {
+        "word": "yuzu",
+        "category": "citrus"
+      },
+      {
+        "word": "bergamot",
+        "category": "citrus"
+      },
+      {
+        "word": "ugli",
+        "category": "citrus"
+      },
+      {
+        "word": "tangerine",
+        "category": "citrus"
+      },
+      {
+        "word": "solar flare",
+        "category": "space_phenomena"
+      },
+      {
+        "word": "black hole",
+        "category": "space_phenomena"
+      },
+      {
+        "word": "nebula",
+        "category": "space_phenomena"
+      },
+      {
+        "word": "gravity well",
+        "category": "space_phenomena"
+      },
+      {
+        "word": "toolbox",
+        "category": "workshop_things"
+      },
+      {
+        "word": "vise",
+        "category": "workshop_things"
+      },
+      {
+        "word": "lumber",
+        "category": "workshop_things"
+      },
+      {
+        "word": "workbench",
+        "category": "workshop_things"
+      },
+      {
+        "word": "dinar",
+        "category": "currencies"
+      },
+      {
+        "word": "lira",
+        "category": "currencies"
+      },
+      {
+        "word": "won",
+        "category": "currencies"
+      },
+      {
+        "word": "ruble",
+        "category": "currencies"
+      },
+      {
+        "word": "foundation",
+        "category": "makeup"
+      },
+      {
+        "word": "eyeshadow",
+        "category": "makeup"
+      },
+      {
+        "word": "brow pencil",
+        "category": "makeup"
+      },
+      {
+        "word": "setting spray",
+        "category": "makeup"
+      },
+      {
+        "word": "onion soup",
+        "category": "soups"
+      },
+      {
+        "word": "split pea",
+        "category": "soups"
+      },
+      {
+        "word": "broth",
+        "category": "soups"
+      },
+      {
+        "word": "stew",
+        "category": "soups"
+      },
+      {
+        "word": "fever",
+        "category": "illnesses"
+      },
+      {
+        "word": "asthma",
+        "category": "illnesses"
+      },
+      {
+        "word": "migraine",
+        "category": "illnesses"
+      },
+      {
+        "word": "flu",
+        "category": "illnesses"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "diseases",
-      "label": "DISEASES",
+      "key": "feelings",
+      "label": "FEELINGS",
       "words": [
         {
-          "text": "polio",
+          "text": "guilty",
           "kind": "word"
         },
         {
-          "text": "tuberculosis",
+          "text": "sad",
           "kind": "word"
         },
         {
-          "text": "malaria",
+          "text": "bored",
           "kind": "word"
         },
         {
-          "text": "cancer",
+          "text": "jealous",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "psychology",
+      "label": "PSYCHOLOGY",
+      "words": [
+        {
+          "text": "feelings",
+          "kind": "meta",
+          "meta_child": "feelings"
+        },
+        {
+          "text": "behavior",
+          "kind": "word"
+        },
+        {
+          "text": "therapy",
+          "kind": "word"
+        },
+        {
+          "text": "perception",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "university_departments",
+      "label": "UNIVERSITY DEPARTMENTS",
+      "words": [
+        {
+          "text": "psychology",
+          "kind": "meta",
+          "meta_child": "psychology"
+        },
+        {
+          "text": "philosophy",
+          "kind": "word"
+        },
+        {
+          "text": "chemistry",
+          "kind": "word"
+        },
+        {
+          "text": "fine arts",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "indian",
+      "label": "INDIAN",
+      "words": [
+        {
+          "text": "biryani",
+          "kind": "word"
+        },
+        {
+          "text": "samosa",
+          "kind": "word"
+        },
+        {
+          "text": "curry",
+          "kind": "word"
+        },
+        {
+          "text": "dal",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "nationalities",
+      "label": "NATIONALITIES",
+      "words": [
+        {
+          "text": "Indian",
+          "kind": "meta",
+          "meta_child": "indian"
+        },
+        {
+          "text": "Australian",
+          "kind": "word"
+        },
+        {
+          "text": "Russian",
+          "kind": "word"
+        },
+        {
+          "text": "French",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "citrus",
+      "label": "CITRUS",
+      "words": [
+        {
+          "text": "yuzu",
+          "kind": "word"
+        },
+        {
+          "text": "tangerine",
+          "kind": "word"
+        },
+        {
+          "text": "bergamot",
+          "kind": "word"
+        },
+        {
+          "text": "ugli",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "sour_flavors",
+      "label": "SOUR FLAVORS",
+      "words": [
+        {
+          "text": "citrus",
+          "kind": "meta",
+          "meta_child": "citrus"
+        },
+        {
+          "text": "tamarind",
+          "kind": "word"
+        },
+        {
+          "text": "lemon",
+          "kind": "word"
+        },
+        {
+          "text": "lime",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "space_phenomena",
+      "label": "SPACE PHENOMENA",
+      "words": [
+        {
+          "text": "black hole",
+          "kind": "word"
+        },
+        {
+          "text": "gravity well",
+          "kind": "word"
+        },
+        {
+          "text": "nebula",
+          "kind": "word"
+        },
+        {
+          "text": "solar flare",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "construction_equipment",
+      "label": "CONSTRUCTION EQUIPMENT",
+      "words": [
+        {
+          "text": "loader",
+          "kind": "word"
+        },
+        {
+          "text": "drill rig",
+          "kind": "word"
+        },
+        {
+          "text": "scaffold",
+          "kind": "word"
+        },
+        {
+          "text": "cement mixer",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "workshop_things",
+      "label": "WORKSHOP THINGS",
+      "words": [
+        {
+          "text": "workbench",
+          "kind": "word"
+        },
+        {
+          "text": "vise",
+          "kind": "word"
+        },
+        {
+          "text": "toolbox",
+          "kind": "word"
+        },
+        {
+          "text": "lumber",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "currencies",
+      "label": "CURRENCIES",
+      "words": [
+        {
+          "text": "ruble",
+          "kind": "word"
+        },
+        {
+          "text": "dinar",
+          "kind": "word"
+        },
+        {
+          "text": "lira",
+          "kind": "word"
+        },
+        {
+          "text": "won",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "tailor_words",
+      "label": "TAILOR SHOP",
+      "words": [
+        {
+          "text": "pattern",
+          "kind": "word"
+        },
+        {
+          "text": "thread",
+          "kind": "word"
+        },
+        {
+          "text": "pin",
+          "kind": "word"
+        },
+        {
+          "text": "tape measure",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "makeup",
+      "label": "MAKEUP",
+      "words": [
+        {
+          "text": "eyeshadow",
+          "kind": "word"
+        },
+        {
+          "text": "foundation",
+          "kind": "word"
+        },
+        {
+          "text": "setting spray",
+          "kind": "word"
+        },
+        {
+          "text": "brow pencil",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "orchard_words",
+      "label": "ORCHARD WORDS",
+      "words": [
+        {
+          "text": "cider press",
+          "kind": "word"
+        },
+        {
+          "text": "blossom",
+          "kind": "word"
+        },
+        {
+          "text": "tree",
+          "kind": "word"
+        },
+        {
+          "text": "netting",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "boats",
+      "label": "BOATS AND SHIPS",
+      "words": [
+        {
+          "text": "raft",
+          "kind": "word"
+        },
+        {
+          "text": "ferry",
+          "kind": "word"
+        },
+        {
+          "text": "boat",
+          "kind": "word"
+        },
+        {
+          "text": "submarine",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "soups",
+      "label": "SOUPS AND STEWS",
+      "words": [
+        {
+          "text": "split pea",
+          "kind": "word"
+        },
+        {
+          "text": "stew",
+          "kind": "word"
+        },
+        {
+          "text": "onion soup",
+          "kind": "word"
+        },
+        {
+          "text": "broth",
           "kind": "word"
         }
       ]
@@ -36,364 +633,25 @@
       "label": "ILLNESSES",
       "words": [
         {
-          "text": "diseases",
-          "kind": "meta",
-          "meta_child": "diseases"
-        },
-        {
-          "text": "diabetes",
+          "text": "asthma",
           "kind": "word"
         },
         {
-          "text": "infection",
+          "text": "fever",
           "kind": "word"
         },
         {
-          "text": "ulcer",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "emergency_room",
-      "label": "EMERGENCY ROOM",
-      "words": [
-        {
-          "text": "illnesses",
-          "kind": "meta",
-          "meta_child": "illnesses"
-        },
-        {
-          "text": "symptoms",
-          "kind": "meta",
-          "meta_child": "symptoms"
-        },
-        {
-          "text": "triage",
+          "text": "flu",
           "kind": "word"
         },
         {
-          "text": "injuries",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "hospital_things",
-      "label": "HOSPITAL THINGS",
-      "words": [
-        {
-          "text": "emergency room",
-          "kind": "meta",
-          "meta_child": "emergency_room"
-        },
-        {
-          "text": "stethoscope",
-          "kind": "word"
-        },
-        {
-          "text": "oxygen mask",
-          "kind": "word"
-        },
-        {
-          "text": "ward",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "symptoms",
-      "label": "SYMPTOMS",
-      "words": [
-        {
-          "text": "sore throat",
-          "kind": "word"
-        },
-        {
-          "text": "nausea",
-          "kind": "word"
-        },
-        {
-          "text": "cough",
-          "kind": "word"
-        },
-        {
-          "text": "itching",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "police_things",
-      "label": "POLICE THINGS",
-      "words": [
-        {
-          "text": "dispatch",
-          "kind": "word"
-        },
-        {
-          "text": "handcuffs",
-          "kind": "word"
-        },
-        {
-          "text": "patrol",
-          "kind": "word"
-        },
-        {
-          "text": "uniform",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "famous_composers",
-      "label": "COMPOSERS",
-      "words": [
-        {
-          "text": "Beethoven",
-          "kind": "word"
-        },
-        {
-          "text": "Bach",
-          "kind": "word"
-        },
-        {
-          "text": "Wagner",
-          "kind": "word"
-        },
-        {
-          "text": "Mozart",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "wild_west",
-      "label": "WILD WEST",
-      "words": [
-        {
-          "text": "horse",
-          "kind": "word"
-        },
-        {
-          "text": "outlaw",
-          "kind": "word"
-        },
-        {
-          "text": "spurs",
-          "kind": "word"
-        },
-        {
-          "text": "revolver",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "greek_heroes",
-      "label": "MYTHOLOGICAL HEROES",
-      "words": [
-        {
-          "text": "Aeneas",
-          "kind": "word"
-        },
-        {
-          "text": "Perseus",
-          "kind": "word"
-        },
-        {
-          "text": "Orpheus",
-          "kind": "word"
-        },
-        {
-          "text": "Atalanta",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "explorers",
-      "label": "EXPLORERS",
-      "words": [
-        {
-          "text": "Columbus",
-          "kind": "word"
-        },
-        {
-          "text": "Cabot",
-          "kind": "word"
-        },
-        {
-          "text": "Clark",
-          "kind": "word"
-        },
-        {
-          "text": "Lewis",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "famous_landmarks",
-      "label": "FAMOUS LANDMARKS",
-      "words": [
-        {
-          "text": "Big Ben",
-          "kind": "word"
-        },
-        {
-          "text": "sphinx",
-          "kind": "word"
-        },
-        {
-          "text": "Golden Gate",
-          "kind": "word"
-        },
-        {
-          "text": "Taj Mahal",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "martial_arts",
-      "label": "MARTIAL ARTS",
-      "words": [
-        {
-          "text": "aikido",
-          "kind": "word"
-        },
-        {
-          "text": "taekwondo",
-          "kind": "word"
-        },
-        {
-          "text": "muay thai",
-          "kind": "word"
-        },
-        {
-          "text": "kickboxing",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "flowers_more",
-      "label": "MORE FLOWERS",
-      "words": [
-        {
-          "text": "snapdragon",
-          "kind": "word"
-        },
-        {
-          "text": "pansy",
-          "kind": "word"
-        },
-        {
-          "text": "chrysanthemum",
-          "kind": "word"
-        },
-        {
-          "text": "sweet pea",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "jewelry_stones",
-      "label": "JEWELRY STONES",
-      "words": [
-        {
-          "text": "turquoise",
-          "kind": "word"
-        },
-        {
-          "text": "amethyst",
-          "kind": "word"
-        },
-        {
-          "text": "ruby",
-          "kind": "word"
-        },
-        {
-          "text": "opal",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "italian_dishes",
-      "label": "ITALIAN DISHES",
-      "words": [
-        {
-          "text": "alfredo",
-          "kind": "word"
-        },
-        {
-          "text": "lasagna",
-          "kind": "word"
-        },
-        {
-          "text": "pizza",
-          "kind": "word"
-        },
-        {
-          "text": "spaghetti",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "hot_drinks",
-      "label": "HOT DRINKS",
-      "words": [
-        {
-          "text": "hot chocolate",
-          "kind": "word"
-        },
-        {
-          "text": "tea",
-          "kind": "word"
-        },
-        {
-          "text": "coffee",
-          "kind": "word"
-        },
-        {
-          "text": "latte",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "south_american_cities",
-      "label": "LATIN CITIES",
-      "words": [
-        {
-          "text": "Santiago",
-          "kind": "word"
-        },
-        {
-          "text": "Sao Paulo",
-          "kind": "word"
-        },
-        {
-          "text": "Rio de Janeiro",
-          "kind": "word"
-        },
-        {
-          "text": "Buenos Aires",
+          "text": "migraine",
           "kind": "word"
         }
       ]
     }
   ],
   "modifiers": {
-    "chains": [
-      {
-        "locks": "martial_arts",
-        "unlocked_by": "hot_drinks"
-      }
-    ]
+    "chains": []
   }
 }

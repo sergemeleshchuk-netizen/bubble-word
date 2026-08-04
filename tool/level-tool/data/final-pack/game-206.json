@@ -1,6 +1,7 @@
 {
   "level_id": 206,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "medium",
   "board": {
     "categories_count": 12,
     "words_per_category": 4,
@@ -8,268 +9,462 @@
     "board_capacity": 24,
     "move_limit": 58
   },
+  "deal": {
+    "start": [
+      {
+        "word": "Haydn",
+        "category": "famous_composers"
+      },
+      {
+        "word": "chocolate square",
+        "category": "candy_shapes"
+      },
+      {
+        "word": "cashew",
+        "category": "nuts_world"
+      },
+      {
+        "word": "construction paper",
+        "category": "art_class_things"
+      },
+      {
+        "word": "birdie",
+        "category": "golf_words"
+      },
+      {
+        "word": "leaf",
+        "category": "types_of_ants"
+      },
+      {
+        "word": "army",
+        "category": "types_of_ants"
+      },
+      {
+        "word": "macadamia",
+        "category": "nuts_world"
+      },
+      {
+        "word": "sawdust",
+        "category": "carpenter"
+      },
+      {
+        "word": "sander",
+        "category": "carpenter"
+      },
+      {
+        "word": "ball",
+        "category": "golf_words"
+      },
+      {
+        "word": "lollipop",
+        "category": "candy_shapes"
+      },
+      {
+        "word": "overcast",
+        "category": "weather_adjectives"
+      },
+      {
+        "word": "par",
+        "category": "golf_words"
+      },
+      {
+        "word": "Mozart",
+        "category": "famous_composers"
+      },
+      {
+        "word": "foggy",
+        "category": "weather_adjectives"
+      },
+      {
+        "word": "lathe",
+        "category": "carpenter"
+      },
+      {
+        "word": "jelly",
+        "category": "candy_shapes"
+      },
+      {
+        "word": "stormy",
+        "category": "weather_adjectives"
+      },
+      {
+        "word": "canvas",
+        "category": "art_class_things"
+      },
+      {
+        "word": "bullet",
+        "category": "types_of_ants"
+      },
+      {
+        "word": "hazelnut",
+        "category": "nuts_world"
+      },
+      {
+        "word": "hard candy",
+        "category": "candy_shapes"
+      },
+      {
+        "word": "Chopin",
+        "category": "famous_composers"
+      }
+    ],
+    "queue": [
+      {
+        "word": "level",
+        "category": "carpenter"
+      },
+      {
+        "word": "Handel",
+        "category": "famous_composers"
+      },
+      {
+        "word": "brush",
+        "category": "art_class_things"
+      },
+      {
+        "word": "fairy",
+        "category": "fantasy_creatures"
+      },
+      {
+        "word": "hole in one",
+        "category": "golf_words"
+      },
+      {
+        "word": "pecan",
+        "category": "nuts_world"
+      },
+      {
+        "word": "troll",
+        "category": "fantasy_creatures"
+      },
+      {
+        "word": "glitter",
+        "category": "art_class_things"
+      },
+      {
+        "word": "snowy",
+        "category": "weather_adjectives"
+      },
+      {
+        "word": "vampire",
+        "category": "fantasy_creatures"
+      },
+      {
+        "word": "pneumonia",
+        "category": "diseases"
+      },
+      {
+        "word": "griffin",
+        "category": "fantasy_creatures"
+      },
+      {
+        "word": "diabetes",
+        "category": "diseases"
+      },
+      {
+        "word": "polio",
+        "category": "diseases"
+      },
+      {
+        "word": "arthritis",
+        "category": "diseases"
+      },
+      {
+        "word": "horse",
+        "category": "pack_animals"
+      },
+      {
+        "word": "mule",
+        "category": "pack_animals"
+      },
+      {
+        "word": "water buffalo",
+        "category": "pack_animals"
+      },
+      {
+        "word": "donkey",
+        "category": "pack_animals"
+      },
+      {
+        "word": "renaissance",
+        "category": "art_styles"
+      },
+      {
+        "word": "folk art",
+        "category": "art_styles"
+      },
+      {
+        "word": "art deco",
+        "category": "art_styles"
+      },
+      {
+        "word": "pop art",
+        "category": "art_styles"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "ice_cream_flavors",
-      "label": "ICE CREAM",
+      "key": "carpenter",
+      "label": "CARPENTER",
       "words": [
         {
-          "text": "rocky road",
+          "text": "sawdust",
           "kind": "word"
         },
         {
-          "text": "cookies and cream",
+          "text": "sander",
           "kind": "word"
         },
         {
-          "text": "cookie dough",
+          "text": "lathe",
           "kind": "word"
         },
         {
-          "text": "moose tracks",
+          "text": "level",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "desserts",
-      "label": "DESSERTS",
+      "key": "types_of_ants",
+      "label": "TYPES OF ANTS",
       "words": [
         {
-          "text": "ice cream",
+          "text": "carpenter",
           "kind": "meta",
-          "meta_child": "ice_cream_flavors"
+          "meta_child": "carpenter"
         },
         {
-          "text": "pudding",
+          "text": "army",
           "kind": "word"
         },
         {
-          "text": "cheesecake",
+          "text": "bullet",
           "kind": "word"
         },
         {
-          "text": "cake",
+          "text": "leaf",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "places_to_eat",
-      "label": "PLACES TO EAT",
+      "key": "candy_shapes",
+      "label": "CANDY TYPES",
       "words": [
         {
-          "text": "restaurant",
+          "text": "hard candy",
           "kind": "word"
         },
         {
-          "text": "cafeteria",
+          "text": "lollipop",
           "kind": "word"
         },
         {
-          "text": "pub",
+          "text": "chocolate square",
           "kind": "word"
         },
         {
-          "text": "deli",
+          "text": "jelly",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "teas",
-      "label": "TEAS",
+      "key": "pack_animals",
+      "label": "WORK ANIMALS",
       "words": [
         {
-          "text": "hibiscus",
+          "text": "mule",
           "kind": "word"
         },
         {
-          "text": "matcha",
+          "text": "water buffalo",
           "kind": "word"
         },
         {
-          "text": "darjeeling",
+          "text": "horse",
           "kind": "word"
         },
         {
-          "text": "chamomile",
+          "text": "donkey",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "patterns",
-      "label": "PATTERNS",
+      "key": "famous_composers",
+      "label": "COMPOSERS",
       "words": [
         {
-          "text": "tartan",
+          "text": "Handel",
           "kind": "word"
         },
         {
-          "text": "argyle",
+          "text": "Haydn",
           "kind": "word"
         },
         {
-          "text": "checkered",
+          "text": "Chopin",
           "kind": "word"
         },
         {
-          "text": "stripe",
+          "text": "Mozart",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "silverware",
-      "label": "SILVERWARE",
+      "key": "golf_words",
+      "label": "GOLF WORDS",
       "words": [
         {
-          "text": "spoon",
+          "text": "ball",
           "kind": "word"
         },
         {
-          "text": "salad fork",
+          "text": "hole in one",
           "kind": "word"
         },
         {
-          "text": "teaspoon",
+          "text": "birdie",
           "kind": "word"
         },
         {
-          "text": "fork",
+          "text": "par",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "dental_words",
-      "label": "DENTAL WORDS",
+      "key": "nuts_world",
+      "label": "SNACK NUTS",
       "words": [
         {
-          "text": "braces",
+          "text": "pecan",
           "kind": "word"
         },
         {
-          "text": "retainer",
+          "text": "macadamia",
           "kind": "word"
         },
         {
-          "text": "plaque",
+          "text": "cashew",
           "kind": "word"
         },
         {
-          "text": "canine",
+          "text": "hazelnut",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "locksmith_words",
-      "label": "LOCKS & KEYS",
+      "key": "art_class_things",
+      "label": "ART CLASS",
       "words": [
         {
-          "text": "safe",
+          "text": "brush",
           "kind": "word"
         },
         {
-          "text": "key",
+          "text": "glitter",
           "kind": "word"
         },
         {
-          "text": "latch",
+          "text": "canvas",
           "kind": "word"
         },
         {
-          "text": "master key",
+          "text": "construction paper",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "wind_instruments",
-      "label": "WIND INSTRUMENTS",
+      "key": "fantasy_creatures",
+      "label": "MYTHICAL CREATURES",
       "words": [
         {
-          "text": "recorder",
+          "text": "fairy",
           "kind": "word"
         },
         {
-          "text": "french horn",
+          "text": "troll",
           "kind": "word"
         },
         {
-          "text": "clarinet",
+          "text": "griffin",
           "kind": "word"
         },
         {
-          "text": "piccolo",
+          "text": "vampire",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "kitchen_tools",
-      "label": "KITCHEN TOOLS",
+      "key": "art_styles",
+      "label": "ART STYLES",
       "words": [
         {
-          "text": "plate",
+          "text": "art deco",
           "kind": "word"
         },
         {
-          "text": "rolling pin",
+          "text": "folk art",
           "kind": "word"
         },
         {
-          "text": "cutting board",
+          "text": "renaissance",
           "kind": "word"
         },
         {
-          "text": "pan",
+          "text": "pop art",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "japanese_names",
-      "label": "JAPANESE NAMES",
+      "key": "weather_adjectives",
+      "label": "WEATHER ADJECTIVES",
       "words": [
         {
-          "text": "Hana",
+          "text": "foggy",
           "kind": "word"
         },
         {
-          "text": "Sakura",
+          "text": "stormy",
           "kind": "word"
         },
         {
-          "text": "Yuki",
+          "text": "snowy",
           "kind": "word"
         },
         {
-          "text": "Mei",
+          "text": "overcast",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "plumbing_words",
-      "label": "PLUMBING WORDS",
+      "key": "diseases",
+      "label": "DISEASES",
       "words": [
         {
-          "text": "plunger",
+          "text": "pneumonia",
           "kind": "word"
         },
         {
-          "text": "gasket",
+          "text": "polio",
           "kind": "word"
         },
         {
-          "text": "flange",
+          "text": "arthritis",
           "kind": "word"
         },
         {
-          "text": "pipe",
+          "text": "diabetes",
           "kind": "word"
         }
       ]

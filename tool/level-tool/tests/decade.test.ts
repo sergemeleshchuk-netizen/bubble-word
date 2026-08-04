@@ -76,12 +76,27 @@ test('сдаваемый пакет 201-210 цел: его pack hash перес�
 });
 
 test('пресет 201-210 воспроизводится, пока снимок базы тот же', () => {
-  const block = generateBlock({ snapshot, config: DEFAULT_BLOCK_CONFIG, scoring });
+  /*
+   * Воспроизводим пакет ЕГО ЖЕ параметрами, а не параметрами по умолчанию.
+   * Раньше здесь стоял `DEFAULT_BLOCK_CONFIG` целиком, и это работало ровно до
+   * тех пор, пока сдаваемый блок совпадал с блоком дефолтного seed. С воронкой
+   * отбора (`select_final_pack.ts` перебирает 24 seed и берёт лучший) это
+   * перестало быть правдой, и тест начал требовать невозможного. Поэтому seed и
+   * режим novelty берутся из самого пакета — иначе «команда воспроизведения»
+   * нигде не записана, и проверять нечего.
+   */
+  const novelty = (FINAL_PACK.reference_novelty ?? 'off') as 'off' | 'soft' | 'hard';
+  const hashes = novelty === 'off' ? undefined : new Set<string>(JSON.parse(readFileSync(
+    join(ROOT, 'data/reference-derived/reference-quadruple-hashes.json'), 'utf8')).hashes);
+  const block = generateBlock({
+    snapshot, scoring,
+    config: { ...DEFAULT_BLOCK_CONFIG, seed: FINAL_PACK.seed },
+    referenceQuadrupleHashes: hashes, referenceNovelty: novelty,
+  });
   assert.equal(block.levels.length, 10);
   if (FINAL_PACK.content_snapshot_hash !== snapshot.content_snapshot_hash) {
-    // База сменилась осознанно (переход на аудированную базу). Пакет остаётся
-    // артефактом прежнего снимка; чтобы инструмент снова воспроизводил его
-    // байт-в-байт, пакет надо пересобрать и заново прогнать слепым решателем.
+    // База сменилась осознанно. Пакет остаётся артефактом прежнего снимка; чтобы
+    // инструмент снова воспроизводил его байт-в-байт, пакет надо пересобрать.
     assert.notEqual(block.packHash, FINAL_PACK_HASH);
     return;
   }
