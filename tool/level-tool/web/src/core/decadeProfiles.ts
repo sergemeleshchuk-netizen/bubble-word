@@ -969,7 +969,7 @@ export function checkDecadeFit(
   if (complete) add('CATEGORY_SPREAD', spread >= minSpread && spread <= maxSpread,
     `разброс ${spread} категорий (${Math.min(...counts)}-${Math.max(...counts)}), `
     + `для коридора ${profile.categoryCorridor.join('-')} нужно ${minSpread}-${maxSpread} `
-    + '(в референсе 5-7)');
+    + '(по замеру 5-7)');
 
   if (complete) add('CATEGORY_CORRIDOR',
     counts.every((c) => c >= profile.categoryCorridor[0] && c <= profile.categoryCorridor[1]),
@@ -978,14 +978,14 @@ export function checkDecadeFit(
 
   const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
   if (complete) add('DESCENTS', descents >= 3,
-    `переходов вниз ${descents} из ${counts.length - 1}, нужно минимум 3 (в референсе 37%)`);
+    `переходов вниз ${descents} из ${counts.length - 1}, нужно минимум 3 (по замеру 37%)`);
 
   if (complete && counts.length >= RECOVERY_POSITION) {
     const spike = counts[SPIKE_POSITION - 1];
     const recovery = counts[RECOVERY_POSITION - 1];
     add('SPIKE_THEN_RECOVERY', recovery < spike,
       `позиция ${SPIKE_POSITION}: ${spike} категорий, позиция ${RECOVERY_POSITION}: ${recovery} `
-      + '(в референсе 16 декад из 19 идут вниз именно здесь)');
+      + '(по замеру 16 декад из 19 идут вниз именно здесь)');
   }
 
   // медиана по блоку: усредняем медианы уровней, а не сваливаем все слова в кучу,

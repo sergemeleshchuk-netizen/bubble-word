@@ -323,7 +323,7 @@ export function checkBlockRhythm(
   const descents = counts.slice(1).filter((c, i) => c < counts[i]).length;
   if (descents < 3) {
     issues.push(`переходов вниз ${descents}, нужно минимум 3: блок читается как прямая линия, `
-      + 'а в референсе 37% уровней проще предыдущего');
+      + 'а по замеру 37% уровней проще предыдущего');
   }
 
   /**
@@ -343,7 +343,7 @@ export function checkBlockRhythm(
   if (spread < minSpread || spread > maxSpread) {
     issues.push(`разброс внутри блока ${spread} категорий, нужно `
       + `${minSpread}-${maxSpread}`
-      + (corridor ? ` для коридора ${corridor.join('-')}` : ' (в референсе стабильно 5-7)'));
+      + (corridor ? ` для коридора ${corridor.join('-')}` : ' (по замеру стабильно 5-7)'));
   }
 
   const peaks = plans.filter((p) => p.role === 'peak' || p.role === 'spike');

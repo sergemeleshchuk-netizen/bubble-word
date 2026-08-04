@@ -247,7 +247,7 @@ export function computeDifficulty(
       + (features.metaDepth >= 3
         ? ' — глубина 3 в оригинале появляется только с L438 (замер 1025 уровней)'
         : '')
-      + '. Вес объявлен, а не откалиброван: по референсу вклад мета не '
+      + '. Вес объявлен, а не откалиброван: по замеру вклад мета не '
       + 'идентифицируется (см. SCORING §7)');
   }
   explanation.push(`${features.quickwinCategories} категорий быстрой победы снижают `
@@ -335,9 +335,9 @@ export function computeDifficulty(
   if (halves > 0) explanation.push(`${halves} распилов: склейка половинки тратит ход, `
     + 'лимит это учитывает');
   if (iced > 0) explanation.push(`${iced} замороженных пузыря: тают от мерджей `
-    + '(вес объявлен, референсом не калиброван)');
+    + '(вес объявлен, замером не калиброван)');
   if (hidden > 0) explanation.push(`${hidden} скрытых «?» (вес объявлен, `
-    + 'референсом не калиброван)');
+    + 'замером не калиброван)');
   if (chainLine) explanation.push('цепь-линия делит поле '
     + `(снимается сбором ${spec.modifiers.chainLine?.need} категорий; вес объявлен)`);
   explanation.push(spec.board.moveLimit === null

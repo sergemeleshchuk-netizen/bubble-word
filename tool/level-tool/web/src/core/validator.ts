@@ -611,24 +611,24 @@ const CHECKS: Check[] = [
       // По умолчанию выключено: см. ValidationContext.referenceNovelty.
       const mode = ctx.referenceNovelty ?? 'off';
       if (mode === 'off') {
-        return { passed: true, detail: 'проверка на копирование референса выключена (referenceNovelty=off)' };
+        return { passed: true, detail: 'проверка на копирование чужих четвёрок выключена (referenceNovelty=off)' };
       }
       if (!ctx.referenceQuadrupleHashes || !ctx.hashQuadruple) {
-        return { passed: true, detail: 'хеши четвёрок референса не переданы: проверка пропущена' };
+        return { passed: true, detail: 'хеши чужих четвёрок не переданы: проверка пропущена' };
       }
       const copies: string[] = [];
       for (const category of spec.categories) {
         const hash = ctx.hashQuadruple(category.words.map((w) => w.text));
         if (ctx.referenceQuadrupleHashes.has(hash)) {
-          copies.push(`${category.key}: четвёрка совпадает с референсной`);
+          copies.push(`${category.key}: четвёрка совпадает с чужой`);
         }
       }
       return {
         passed: copies.length === 0,
-        detail: copies.length ? `точных копий четвёрок референса: ${copies.length}`
-          : 'точных совпадений с четвёрками референса нет',
+        detail: copies.length ? `точных копий чужих четвёрок: ${copies.length}`
+          : 'точных совпадений с чужими четвёрками нет',
         entities: copies,
-        suggestion: 'референс — источник кривой, а не контента',
+        suggestion: 'чужие уровни — источник кривой, а не контента',
       };
     },
   },
@@ -732,7 +732,7 @@ const CHECKS: Check[] = [
           : `форма слов в норме декады (до ${gates.maxTokens} токенов, `
             + `${gates.maxWordLen} букв, имена собственные от zipf ${gates.minProperNounZipf})`,
         entities: bad,
-        suggestion: 'ранние декады референса однословные и без редких имён собственных: '
+        suggestion: 'ранние декады однословные и без редких имён собственных: '
           + 'mars 4.27 и egypt 4.45 узнаваемы, steinbeck 2.67 — уже викторина',
       };
     },
@@ -762,7 +762,7 @@ const CHECKS: Check[] = [
         detail: `медиана zipf ${median.toFixed(2)} (цель декады ${gates.zipfMedianTarget}), `
           + `p25 ${p25.toFixed(2)} (цель ${gates.zipfP25Target}), допуск на уровень `
           + `±${ZIPF_LEVEL_TOLERANCE}`,
-        suggestion: 'узнаваемость — главная ось сложности первых 120 уровней референса: '
+        suggestion: 'узнаваемость — главная ось сложности первых 120 уровней: '
           + 'медиана 4.35 на L1-10 против 3.70 на L121-130',
       };
     },
@@ -779,7 +779,7 @@ const CHECKS: Check[] = [
         passed: rare.length >= lo && rare.length <= hi,
         detail: `редких слов (zipf<3) ${rare.length}, коридор декады ${lo}-${hi}`,
         entities: rare.map((w) => w.text),
-        suggestion: 'в референсе экзотика есть с L4 (aglet, zipf 1.32), но ровно 1-2 '
+        suggestion: 'экзотика по замеру есть с L4 (aglet, zipf 1.32), но ровно 1-2 '
           + 'слова на уровень — это счётчик, а не пол по частотности',
       };
     },
@@ -798,7 +798,7 @@ const CHECKS: Check[] = [
         detail: `на поле видно ${(share * 100).toFixed(1)}% уровня `
           + `(${capacity} из ${total}), минимум декады ${(gates.visibleShareMin * 100).toFixed(1)}%`,
         suggestion: 'чем меньше видно, тем меньше пар в поле зрения: это скрытый '
-          + 'источник сложности. На L1 референса видно 100% — потому там и нет лимита ходов',
+          + 'источник сложности. На L1 видно 100% — потому там и нет лимита ходов',
       };
     },
   },
@@ -816,7 +816,7 @@ const CHECKS: Check[] = [
         detail: `слов из прошлых уровней в другой категории: ${ctx.repeatCount}, `
           + `коридор декады ${lo}-${hi}`,
         suggestion: 'повтор слова в ДРУГОЙ категории — самая сильная растущая ось '
-          + 'референса (2.9 слова на уровень в L1-10 против 28 в L171-180)',
+          + 'по замеру (2.9 слова на уровень в L1-10 против 28 в L171-180)',
       };
     },
   },
