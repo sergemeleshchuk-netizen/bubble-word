@@ -11,7 +11,7 @@ import type {
 import { STATUS, ZIPF_LEVEL_TOLERANCE } from './types.ts';
 import type { ContentIndex } from './snapshot.ts';
 import type { StructuralMetrics } from './structuralMetrics.ts';
-import { checkDeal } from './deal.ts';
+import { QUEUE_STAGING_FROM, checkDeal } from './deal.ts';
 import { metaIconFor } from './metaIcons.ts';
 import { BOARD_CAPACITY, moveFloor, moveLimit, startBubbles } from './levelMath.ts';
 
@@ -446,6 +446,60 @@ const CHECKS: Check[] = [
           : problems.slice(0, 5).join('; '),
         suggestion: 'выкладку считает core/deal.ts из спека, руками её не правят',
         entities: problems.slice(0, 5),
+      };
+    },
+  },
+  {
+    /*
+     * Крупный уровень обязан раскладывать линии в очередь.
+     *
+     * Требование владельца продукта 04.08. Поле держит 24 пузыря, категория
+     * собирается из четырёх: больше двенадцати живых линий одновременно — это
+     * поле, на котором собрать нельзя ничего, и никакая досыпка этого не лечит
+     * (пачка в 4 пузыря расходится по четырём разным категориям). Поэтому на
+     * уровнях от `QUEUE_STAGING_FROM` категорий часть линий обязана ждать
+     * прогресса, а не лежать обрывками на старте.
+     *
+     * Проверка hard, но только для уровней, собранных С гейтами: у пакетов до
+     * 04.08 поля `dealHoldCategories` нет, и требовать от них очередь линий
+     * значило бы забраковать уже сданное задним числом.
+     */
+    code: 'QUEUE_STAGED',
+    severity: 'hard',
+    run: (spec) => {
+      const asked = spec.board.dealHoldCategories ?? 0;
+      const gates = spec.deal.gates ?? [];
+      if (asked === 0) {
+        const big = spec.categories.length >= QUEUE_STAGING_FROM;
+        return {
+          passed: true,
+          detail: big
+            ? `${spec.categories.length} категорий, очередь линий выключена (старый пакет)`
+            : `${spec.categories.length} категорий — очередь линий не нужна`,
+        };
+      }
+      const expected = Math.min(asked, spec.categories.length - QUEUE_STAGING_FROM + 1);
+      const staged = gates.length;
+      // отложенных ровно столько, сколько заказано, и ни одна не лежит на старте
+      // (последнее проверяет checkDeal, здесь — сам факт очереди)
+      const passed = spec.categories.length < QUEUE_STAGING_FROM
+        ? staged === 0
+        : staged > 0 && staged >= Math.min(expected, 1);
+      return {
+        passed,
+        detail: passed
+          ? (staged === 0
+            ? `${spec.categories.length} категорий — очередь линий не нужна`
+            : `${staged} линий за гейтом: пороги ${gates
+              .map((g) => g.afterCollected).join(', ')} сборов`)
+          : (staged === 0
+            ? `${spec.categories.length} категорий, а очередь линий пуста: `
+              + 'на старте живут все линии сразу'
+            : `${staged} линий за гейтом на уровне из ${spec.categories.length} `
+              + 'категорий — очередь линий не построена'),
+        suggestion: 'очередь линий считает planGates в core/deal.ts по '
+          + 'board.dealHoldCategories',
+        entities: gates.map((g) => `${g.category}:${g.afterCollected}`),
       };
     },
   },

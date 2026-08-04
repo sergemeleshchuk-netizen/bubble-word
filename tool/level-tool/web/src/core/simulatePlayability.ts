@@ -39,6 +39,8 @@ export interface PlayabilityResult {
   spareMoves: number | null;
   /** досыпок «вне ритма» — поле вставало без единого мерджа при живой очереди */
   rescues: number;
+  /** раз досыпка вскрыла закрытый гейт: открытых линий в очереди не осталось */
+  gatesForced: number;
   /** состояний «выглядит тупиком»: собрать нечего и легальных мерджей ≤ 1 */
   perceivedDead: number;
   /** самая длинная серия ходов без единого сбора категории */
@@ -68,7 +70,7 @@ export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
     return {
       winnable: false, failReason: 'выкладки нет: симулировать нечего',
       movesNeeded: 0, moveLimit: spec.board.moveLimit, spareMoves: null,
-      rescues: 0, perceivedDead: 0, maxDrought: 0,
+      rescues: 0, gatesForced: 0, perceivedDead: 0, maxDrought: 0,
       refillWaves: 0, refillCompletions: 0,
       chainRescued: false, blockersRescued: false,
     };
@@ -87,6 +89,7 @@ export function simulatePlayability(spec: LevelSpec): PlayabilityResult {
       moveLimit: limit,
       spareMoves: limit === null ? null : limit - sim.moves(),
       rescues: s.rescues,
+      gatesForced: s.gatesForced,
       perceivedDead,
       maxDrought: s.maxDrought,
       refillWaves: s.refillWaves,

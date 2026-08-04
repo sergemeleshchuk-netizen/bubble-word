@@ -67,8 +67,18 @@ import { pickMetaIcons } from './metaIcons.ts';
  *           хвост категории, то есть в досыпку, и не съедают чужую долю своим
  *           вторым пузырём. Плюс пресет 201-210 переведён на раздачу в глубину.
  *           Хеши меняются по той же причине: другая выкладка — другой уровень.
+ * gen-1.7 — очередь линий на крупных уровнях (требование владельца 04.08: «в
+ *           уровнях больше 12 категорий 4 категории не показываются до некоторого
+ *           прогресса»). Уровень от 13 категорий откладывает четыре линии за гейт
+ *           прогресса (`planGates` в `core/deal.ts`): на старте их нет, и досыпка
+ *           не выпускает их на поле, пока игрок не собрал заданное число других.
+ *           Линия, гейт которой открылся этим сбором, идёт первой в пачке.
+ *           Причина арифметическая: поле держит 24 пузыря, категория собирается
+ *           из четырёх, и тринадцать живых линий одновременно — это поле, на
+ *           котором собрать нельзя ничего. Хеши крупных уровней меняются, у
+ *           уровней до 12 категорий включительно — нет: гейтов там не бывает.
  */
-export const GENERATOR_VERSION = 'gen-1.6';
+export const GENERATOR_VERSION = 'gen-1.7';
 
 /** Что уже использовано в пакете — для правил свежести. */
 export interface PackHistory {
@@ -1384,6 +1394,7 @@ function buildLevelSpec(
   dealMinStartWords?: number,
   dealScheme?: number[],
   dealStartBubbles?: [number, number],
+  dealHoldCategories?: number,
 ): { spec: LevelSpec; traps: Trap[] } {
   const parentOf = new Map<number, number>();
   for (const edge of edges) parentOf.set(edge.child, edge.parent);
@@ -1499,7 +1510,7 @@ function buildLevelSpec(
     boardCapacity: BOARD_CAPACITY, wordsPerCategory,
   }, chunked, dealMinStartWords ?? 1,
   dealScheme && dealScheme.length > 0 ? dealScheme : null,
-  startBudget ?? null);
+  startBudget ?? null, dealHoldCategories ?? 0);
 
   const frozenBubbles: BlockedBubble[] = [];
   const hiddenBubbles: BlockedBubble[] = [];
@@ -1548,6 +1559,9 @@ function buildLevelSpec(
       // в спек уезжает только бюджет, который реально подрезает старт: у
       // промежутков «24-24» выкладка и её хеш остаются прежними
       dealStartBubbles: startBudget,
+      // гейты очереди — свойство уровня: без поля выкладка пересчитается без них
+      dealHoldCategories: deal.gates && deal.gates.length > 0
+        ? dealHoldCategories : undefined,
     },
     categories,
     deal,
@@ -1749,7 +1763,7 @@ export function generateLevel(
       : config.dealScheme;
     const { spec, traps } = buildLevelSpec(index, plan, picked.selected, picked.edges,
       assigned.words, wordsPerCategory, rng, config.dealMinStartWords,
-      levelScheme, config.dealStartBubbles);
+      levelScheme, config.dealStartBubbles, config.dealHoldCategories);
 
     if (options.accept) {
       const verdict = options.accept(spec);

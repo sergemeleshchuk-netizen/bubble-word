@@ -471,6 +471,9 @@ function StartScheme({ level, onRedeal }: {
    */
   const asked = manual ? [...s.board.dealScheme!].sort((a, b) => b - a) : null;
   const mismatch = asked && formatScheme(asked) !== formatScheme(applied);
+  // очередь линий: категории, которых на старте нет по правилу, а не по остатку
+  // бюджета поля (см. planGates в core/deal.ts)
+  const gates = [...(s.deal.gates ?? [])].sort((a, b) => a.afterCollected - b.afterCollected);
 
   const apply = () => {
     if (bad || !onRedeal) return;
@@ -543,7 +546,25 @@ function StartScheme({ level, onRedeal }: {
             самая долгая пауза без сбора: {play.maxDrought} ходов
           </span>
         )}
+        {play && play.gatesForced > 0 && (
+          <span className="tag warn">
+            гейт вскрыт досыпкой {play.gatesForced} раз
+          </span>
+        )}
       </div>
+
+      {gates.length > 0 && (
+        <p className="small muted" style={{ margin: '8px 0 0' }}>
+          <strong style={{ color: 'var(--text)' }}>Очередь линий:</strong>{' '}
+          {gates.length} {gates.length === 1 ? 'категория' : 'категории'} не
+          показываются со старта и выходят на поле по прогрессу —{' '}
+          {gates.map((g) => `${categoryLabel(s, g.category)} после `
+            + `${g.afterCollected}`).join(', ')} сборов. На поле из 24 пузырей
+          больше двенадцати живых линий одновременно означает, что собрать нельзя
+          ничего: досыпка тратит пачку на четыре разные категории, не закрывая ни
+          одной. Порог считает planGates в core/deal.ts.
+        </p>
+      )}
 
       {bad && (
         <p className="small" style={{ color: 'var(--warn)', margin: '8px 0 0' }}>
@@ -568,6 +589,11 @@ function StartScheme({ level, onRedeal }: {
       )}
     </div>
   );
+}
+
+/** Имя категории для подписи; ключ, если категории в уровне почему-то нет. */
+function categoryLabel(spec: LevelSpec, key: string): string {
+  return spec.categories.find((c) => c.key === key)?.label ?? key;
 }
 
 /**

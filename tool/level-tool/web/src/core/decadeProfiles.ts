@@ -26,7 +26,7 @@
  */
 import type { BlockConfig, Modifier } from './types.ts';
 import { BOARD_CAPACITY } from './levelMath.ts';
-import { autoScheme } from './deal.ts';
+import { STAGED_CATEGORIES, autoScheme } from './deal.ts';
 import { createRng } from './rng.ts';
 
 export interface DecadeProfile {
@@ -565,6 +565,10 @@ export function configForRange(
     // игрока неполным полем, дальше 24. Здесь, а не только в интерфейсе, чтобы
     // офлайн-сборка блока давала то же, что кнопка в инструменте
     dealStartBubbles: dealStartBubblesFor(levelRange[0]),
+    // очередь линий на крупных уровнях: четыре категории ждут прогресса
+    // (см. QUEUE_STAGING_FROM и planGates в core/deal.ts). На уровнях до 12
+    // категорий поле и так собирается, и гейты там не появляются вовсе
+    dealHoldCategories: STAGED_CATEGORIES,
     ...overrides,
   };
 }

@@ -25,11 +25,103 @@
  * лишняя выборка молча меняла бы выкладку всех уровней.
  */
 import { createRng } from './rng.ts';
-import type { Deal, DealBubble, LevelCategory, LevelSpec } from './types.ts';
+import type { Deal, DealBubble, DealGate, LevelCategory, LevelSpec } from './types.ts';
 
 export interface DealBoard {
   boardCapacity: number;
   wordsPerCategory: number;
+}
+
+/**
+ * С какого размера уровня линии выстраиваются В ОЧЕРЕДЬ, а не выкладываются все
+ * сразу.
+ *
+ * Арифметика поля: пузырей на поле 24, категория собирается из четырёх. Значит
+ * больше двенадцати ЖИВЫХ линий одновременно — это поле, на котором в среднем
+ * меньше двух слов на категорию, то есть собрать нельзя ничего, чем бы досыпка
+ * ни помогала. Уровень на 16-18 категорий именно так и играется: старт кладёт
+ * обрывки восьми линий, а остальные восемь ждут в очереди вперемешку, и пачка в
+ * 4 пузыря почти всегда приносит слова тех линий, которых на поле по одному.
+ *
+ * Поэтому крупный уровень раскладывается ВОЛНАМИ: часть категорий не выходит на
+ * поле вовсе, пока игрок не соберёт заданное число других (`planGates`). Пока
+ * гейт закрыт, досыпка выбирает из очереди только открытые линии — то есть
+ * тратит пачку на те категории, которые на поле уже начаты. Требование
+ * владельца продукта 04.08: «в уровнях больше 12 категорий 4 категории не
+ * показываются до некоторого прогресса — тогда досыпка сработает».
+ */
+export const QUEUE_STAGING_FROM = 13;
+
+/** Сколько категорий крупный уровень откладывает за гейты по умолчанию. */
+export const STAGED_CATEGORIES = 4;
+
+/**
+ * Сколько линий обязано остаться на раннем поле. Гейты не имеют права
+ * превратить старт в три категории: игроку нужен выбор, а не коридор.
+ */
+const MIN_OPEN_LINES = 9;
+
+/**
+ * Отложенные категории и порог для каждой: очередь линий уровня.
+ *
+ * Кого откладываем. Сначала «чистые» линии — без мета-связей и не точку входа:
+ * мета-родитель, ушедший за гейт, уносит с собой всю ветку (его слово рождается
+ * сбором ребёнка), а точка входа обязана лежать на старте целиком. Мета и
+ * quickwin берутся только если чистых линий не хватило: гейт всё равно полезнее
+ * ровной раздачи всех линий сразу.
+ *
+ * Когда открываем. Пороги раскладываются по РАННЕЙ части уровня: i-я отложенная
+ * линия открывается после `(i+1) * открытых / (отложенных + 2)` сборов. На
+ * уровне 16 категорий это 2, 4, 6 и 8 сборов — последняя линия приходит около
+ * половины прогресса, когда поле уже освободилось. Пороги строго возрастают:
+ * две линии, открывающиеся одновременно, — это та же ровная раздача, только
+ * позже.
+ *
+ * Делитель `+2`, а не `+1`, из-за хвоста уровня: порог, поставленный слишком
+ * поздно, оставляет очередь без пузырей ОТКРЫТЫХ линий, и досыпке приходится
+ * вскрывать гейт (`gatesForced` в core/playSim.ts). С делителем `+1` декада 51
+ * не собиралась целиком: один уровень из десяти не проходил приёмку за 48
+ * попыток именно по этой причине.
+ *
+ * Выбор детерминирован через `stableWeight`, а не `shuffle`: поток `rng` здесь
+ * трогать нельзя — на нём стоит воспроизводимость выкладки уровней без гейтов.
+ */
+export function planGates(
+  categories: readonly LevelCategory[], hold: number,
+  rng: ReturnType<typeof createRng>,
+): DealGate[] {
+  if (hold <= 0 || categories.length < QUEUE_STAGING_FROM) return [];
+  // потолок MIN_OPEN_LINES-1 держит пороги внутри уровня: при count+1 <= открытых
+  // лестница «строго возрастая» гарантированно укладывается в раннюю часть
+  const count = Math.min(hold, categories.length - MIN_OPEN_LINES, MIN_OPEN_LINES - 1);
+  if (count <= 0) return [];
+
+  const metaParents = new Set(categories
+    .filter((c) => c.words.some((w) => w.kind === 'meta')).map((c) => c.key));
+  const metaChildren = new Set(categories
+    .filter((c) => c.parentKey !== null).map((c) => c.key));
+  /** Чем меньше ранг, тем охотнее линию откладываем. */
+  const rank = (c: LevelCategory): number =>
+    (metaParents.has(c.key) ? 4 : 0)
+    + (metaChildren.has(c.key) ? 2 : 0)
+    + (c.isQuickwin ? 1 : 0);
+
+  const held = [...categories]
+    .sort((a, b) => (rank(a) - rank(b))
+      || (rng.stableWeight(`gate::${a.key}`) - rng.stableWeight(`gate::${b.key}`))
+      || (a.key < b.key ? -1 : 1))
+    .slice(0, count);
+
+  const open = categories.length - count;
+  const gates: DealGate[] = [];
+  let prev = 0;
+  held.forEach((category, i) => {
+    const want = Math.round(((i + 1) * open) / (count + 2));
+    const after = Math.max(prev + 1, Math.min(open, want));
+    prev = after;
+    gates.push({ category: category.key, afterCollected: after });
+  });
+  return gates;
 }
 
 /**
@@ -164,11 +256,21 @@ export function buildDeal(
   minStartWords = 1,
   scheme: readonly number[] | null = null,
   startBudget: readonly [number, number] | null = null,
+  holdCategories = 0,
 ): Deal {
   const rng = createRng(`deal::${levelId}::${categories.map((c) => c.key).join(',')}`);
   /** Сколько мест на поле занимает слово: распиленное — два. */
   const cost = (categoryKey: string, word: string): number =>
     (chunked.has(chunkKey(categoryKey, word)) ? 2 : 1);
+
+  /*
+   * Очередь линий: отложенные категории на старт не идут вовсе и в досыпке ждут
+   * своего порога. Считается до раздачи, потому что бюджет старта обязан делиться
+   * между ОТКРЫТЫМИ линиями: иначе схема отдала бы четвёрку категории, которой на
+   * поле ещё нет.
+   */
+  const gates = planGates(categories, holdCategories, rng);
+  const gateOf = new Map(gates.map((g) => [g.category, g.afterCollected]));
 
   const pools = categories.map((category) => ({
     key: category.key,
@@ -178,9 +280,11 @@ export function buildDeal(
     // по очевидности слова, и игрок получал бы самые явные слова бесплатно
     words: wholeWordsFirst(rng.shuffle(spawnableWords(category)), category.key, chunked),
   }));
+  const open = pools.filter((p) => !gateOf.has(p.key));
 
-  // бюджет поля считается в ПУЗЫРЯХ, а не в словах: распиленное слово стоит два
-  const totalBubbles = pools.reduce(
+  // бюджет поля считается в ПУЗЫРЯХ, а не в словах: распиленное слово стоит два.
+  // За гейтом лежащие линии в бюджет старта не входят — их на поле нет
+  const totalBubbles = open.reduce(
     (n, p) => n + p.words.reduce((k, w) => k + cost(p.key, w), 0), 0);
   const fieldSize = Math.min(
     startCapacity(board.boardCapacity, startBudget), totalBubbles);
@@ -197,7 +301,7 @@ export function buildDeal(
    * самую простую четвёрку честнее: она объясняет правило игры, а не проверяет
    * его знание.
    */
-  const whole = pools.filter((p) => p.words.length >= board.wordsPerCategory);
+  const whole = open.filter((p) => p.words.length >= board.wordsPerCategory);
   const opener = whole.find((p) => p.isQuickwin) ?? whole[0] ?? null;
 
   const counts = new Map<string, number>(pools.map((p) => [p.key, 0]));
@@ -227,7 +331,7 @@ export function buildDeal(
    */
   const tpl = explicit
     ?? (minStartWords >= 2
-      ? autoScheme(fieldSize, pools.length, board.wordsPerCategory, minStartWords)
+      ? autoScheme(fieldSize, open.length, board.wordsPerCategory, minStartWords)
       : null);
   /*
    * Пол доли: сколько слов должно достаться категории, чтобы её вообще
@@ -258,8 +362,10 @@ export function buildDeal(
    * При minStartWords = 1 схемы нет, и работает исторический путь «всем
    * понемногу» ниже — байт в байт, это закреплено тестом воспроизводимости
    * старых пакетов.
+   *
+   * Отложенных линий в раздаче старта нет по построению: они не в `open`.
    */
-  const rest = rng.shuffle(pools.filter((p) => p !== opener));
+  const rest = rng.shuffle(open.filter((p) => p !== opener));
 
   if (tpl) {
     /*
@@ -304,7 +410,7 @@ export function buildDeal(
       left -= bubblesFor(pool, share);
       queue.splice(bestIndex, 1);
     }
-    return assembleDeal(categories, pools, counts, cost, rng);
+    return assembleDeal(categories, pools, counts, cost, rng, gateOf);
   }
 
   // остаток раздаётся по кругу почти поровну: так на поле видно понемногу от
@@ -331,7 +437,7 @@ export function buildDeal(
     }
   }
 
-  return assembleDeal(categories, pools, counts, cost, rng);
+  return assembleDeal(categories, pools, counts, cost, rng, gateOf);
 }
 
 /**
@@ -345,6 +451,7 @@ function assembleDeal(
   counts: Map<string, number>,
   cost: (categoryKey: string, word: string) => number,
   rng: ReturnType<typeof createRng>,
+  gateOf: Map<string, number>,
 ): Deal {
   const start: DealBubble[] = [];
   for (const pool of pools) {
@@ -357,8 +464,16 @@ function assembleDeal(
   // поле тасуется: сгруппированные по категориям пузыри выдали бы структуру
   // уровня раньше, чем игрок её разгадает; очередь же строится ПО РИТМУ —
   // внутри пачки порядок и так перемешан выбором добивки
-  const queue = paceQueue(categories, pools, counts, cost, rng);
-  return { start: rng.shuffle(start), queue };
+  const queue = paceQueue(categories, pools, counts, cost, rng, gateOf);
+  const deal: Deal = { start: rng.shuffle(start), queue };
+  // пустого списка не пишем: уровень без гейтов должен остаться прежним и в
+  // хеше, и в экспорте — канонический сериализатор выбрасывает undefined
+  if (gateOf.size > 0) {
+    deal.gates = [...gateOf.entries()]
+      .map(([category, afterCollected]) => ({ category, afterCollected }))
+      .sort((a, b) => a.afterCollected - b.afterCollected);
+  }
+  return deal;
 }
 
 /**
@@ -384,6 +499,11 @@ function assembleDeal(
  * прототипа. Точное попадание в границы пачек невозможно при распилах —
  * половинка может «переползти» в следующую волну; это допустимо, финальную
  * правду о ритме говорит симулятор проходимости.
+ *
+ * Гейты (`gateOf`) очередь УЧИТЫВАЕТ: слово отложенной линии не попадает в
+ * пачку, пока сборов меньше порога. Иначе порядок очереди и порядок спавна
+ * расходились бы — клиент пропускал бы закрытые линии и брал следующее слово,
+ * то есть играл бы не по тому ритму, который здесь посчитан.
  */
 function paceQueue(
   categories: readonly LevelCategory[],
@@ -391,6 +511,7 @@ function paceQueue(
   counts: Map<string, number>,
   cost: (categoryKey: string, word: string) => number,
   rng: ReturnType<typeof createRng>,
+  gateOf: Map<string, number>,
 ): DealBubble[] {
   const needed = new Map(categories.map((c) => [c.key, c.words.length]));
   const parentOf = new Map(categories
@@ -416,12 +537,17 @@ function paceQueue(
     return null;
   };
 
+  /** Сборов позади: по нему открываются гейты отложенных линий. */
+  let collected = 0;
+  const gateOpen = (key: string): boolean => (gateOf.get(key) ?? 0) <= collected;
+
   let guard = categories.length * 8;
   while (guard > 0) {
     guard -= 1;
     const key = collectible();
     if (!key) break;
     // сбор: слова категории уходят с поля; мета-ребёнок дарит родителю слово
+    collected += 1;
     fieldCount.set(key, 0);
     const parent = parentOf.get(key);
     if (parent !== undefined) fieldCount.set(parent, (fieldCount.get(parent) ?? 0) + 1);
@@ -441,6 +567,7 @@ function paceQueue(
     for (let t = 0; t < 2; t += 1) {
       let target: { key: string; words: string[]; costTotal: number } | null = null;
       for (const c of categories) {
+        if (!gateOpen(c.key)) continue;                        // линия ещё не открыта
         const rest = pending.get(c.key) ?? [];
         const missing = (needed.get(c.key) ?? 4) - (fieldCount.get(c.key) ?? 0);
         if (missing <= 0 || rest.length < missing) continue;   // не соберётся этой пачкой
@@ -456,13 +583,25 @@ function paceQueue(
       cap -= target.costTotal;
     }
 
-    // добивка: слова других начатых категорий, чтобы на поле было чем ходить;
-    // нетронутые категории идут в хвосте — они открывают новую линию, когда
-    // у начатых слова кончились
-    const shuffledKeys = rng.shuffle(pools.map((p) => p.key));
+    /*
+     * Добивка: слова других начатых категорий, чтобы на поле было чем ходить;
+     * нетронутые категории идут в хвосте — они открывают новую линию, когда
+     * у начатых слова кончились.
+     *
+     * Исключение — линия, гейт которой открылся ИМЕННО ЭТИМ сбором: она идёт
+     * первой. Иначе очередь ставила её в общий хвост «нетронутых», и на замере
+     * уровня 209 (17 категорий) три отложенных линии из четырёх приезжали на
+     * поле разом при 13 собранных — то есть порог 2, 4 и 7 сборов не работал, а
+     * последняя треть уровня превращалась во второй уровень внутри первого.
+     * Волна обязана совпадать с открытием: гейт для этого и нужен.
+     */
+    const shuffledKeys = rng.shuffle(pools.map((p) => p.key))
+      .filter((k) => gateOpen(k));
+    const justOpened = (k: string): boolean => gateOf.get(k) === collected;
     const fillers = [
-      ...shuffledKeys.filter((k) => (fieldCount.get(k) ?? 0) > 0),
-      ...shuffledKeys.filter((k) => (fieldCount.get(k) ?? 0) === 0),
+      ...shuffledKeys.filter((k) => justOpened(k)),
+      ...shuffledKeys.filter((k) => !justOpened(k) && (fieldCount.get(k) ?? 0) > 0),
+      ...shuffledKeys.filter((k) => !justOpened(k) && (fieldCount.get(k) ?? 0) === 0),
     ];
     let progress = true;
     while (cap > 0 && progress) {
@@ -486,9 +625,12 @@ function paceQueue(
   }
 
   // не разложилось по ритму (нет цели дешевле пачки, кончились сборы) — хвост
-  // идёт группами по категориям: каждая волна тогда хотя бы завершает одну
+  // идёт группами по категориям: каждая волна тогда хотя бы завершает одну.
+  // Отложенные линии в хвосте стоят по порядку своих порогов: клиент всё равно
+  // пропустит закрытую, но очередь обязана читаться так же, как играется
   const leftovers = [...pending.entries()].filter(([, w]) => w.length > 0)
-    .sort((a, b) => (fieldCount.get(b[0]) ?? 0) - (fieldCount.get(a[0]) ?? 0));
+    .sort((a, b) => ((gateOf.get(a[0]) ?? 0) - (gateOf.get(b[0]) ?? 0))
+      || ((fieldCount.get(b[0]) ?? 0) - (fieldCount.get(a[0]) ?? 0)));
   for (const [key, words] of leftovers) {
     for (const w of words) push(key, w);
   }
@@ -542,7 +684,7 @@ export function dealForSpec(spec: LevelSpec): Deal {
   const chunked = new Set(spec.halves.map((h) => chunkKey(h.home, h.word)));
   return buildDeal(spec.levelId, spec.categories, spec.board, chunked,
     spec.board.dealMinStartWords ?? 1, spec.board.dealScheme ?? null,
-    spec.board.dealStartBubbles ?? null);
+    spec.board.dealStartBubbles ?? null, spec.board.dealHoldCategories ?? 0);
 }
 
 /**
@@ -588,6 +730,31 @@ export function checkDeal(spec: LevelSpec, deal: Deal | undefined | null): strin
   const bubbleCost = (bubbles: readonly DealBubble[]): number =>
     bubbles.reduce((n, b) => n + (chunked.has(chunkKey(b.category, b.word)) ? 2 : 1), 0);
 
+  /*
+   * Очередь линий: отложенная категория обязана отсутствовать на старте, а её
+   * порог — быть достижимым внутри уровня. Порог, равный числу категорий, линию
+   * не откладывает, а хоронит: собрать её было бы нужно ПОСЛЕ победы.
+   */
+  const gates = deal.gates ?? [];
+  const keys = new Set(spec.categories.map((c) => c.key));
+  const gated = new Set(gates.map((g) => g.category));
+  for (const gate of gates) {
+    if (!keys.has(gate.category)) {
+      problems.push(`гейт ${gate.category}: такой категории в уровне нет`);
+    }
+    if (!(gate.afterCollected >= 1 && gate.afterCollected < spec.categories.length)) {
+      problems.push(`гейт ${gate.category}: порог ${gate.afterCollected} вне `
+        + `1..${spec.categories.length - 1}`);
+    }
+  }
+  if (gated.size !== gates.length) problems.push('гейты дублируют категорию');
+  for (const bubble of deal.start) {
+    if (gated.has(bubble.category)) {
+      problems.push(`${bubble.category}::${bubble.word}: линия за гейтом, `
+        + 'а пузырь лежит на старте');
+    }
+  }
+
   const startCost = bubbleCost(deal.start);
   const budget = spec.board.dealStartBubbles ?? null;
   const capacity = startCapacity(spec.board.boardCapacity, budget);
@@ -596,7 +763,10 @@ export function checkDeal(spec: LevelSpec, deal: Deal | undefined | null): strin
       + (budget && budget[1] < spec.board.boardCapacity
         ? ` (вместимость ${spec.board.boardCapacity}, бюджет декады ${budget[1]})` : ''));
   }
-  const totalBubbles = bubbleCost([...deal.start, ...deal.queue]);
+  // бюджет старта делится только между ОТКРЫТЫМИ линиями: пузыри за гейтом на
+  // поле попасть не могут, и требовать от старта их места нельзя
+  const totalBubbles = bubbleCost([...deal.start, ...deal.queue]
+    .filter((b) => !gated.has(b.category)));
   const fieldSize = Math.min(capacity, totalBubbles);
   /*
    * Пол бюджета: столько пузырей старт обязан набрать, если материала хватает.

@@ -84,6 +84,18 @@ export function hardGateFailure(
     return { stage: 'проходимость',
       reason: playability.failReason ?? 'симуляция партии не дошла до победы' };
   }
+  /*
+   * Очередь линий обязана выдержать партию. Гейт, вскрытый досыпкой, означает
+   * ровно одно: в очереди не осталось пузырей открытых линий, и правило «линия
+   * ждёт прогресса» пришлось нарушить, чтобы поле не встало. Уровень от этого не
+   * ломается (страховка сработала), но обещание «крупный уровень раскладывается
+   * волнами» перестаёт выполняться — а это и есть то, ради чего гейты введены.
+   */
+  if (playability.gatesForced > 0) {
+    return { stage: 'проходимость',
+      reason: `очередь линий не сошлась: досыпка вскрывала закрытый гейт `
+        + `${playability.gatesForced} раз` };
+  }
   if (!chained && (playability.rescues > 0 || playability.perceivedDead > 0)) {
     return { stage: 'проходимость',
       reason: `ритм сломан: досыпок вне ритма ${playability.rescues}, `
@@ -156,6 +168,10 @@ function normalizeConfig(config: BlockConfig): unknown {
     dealStartBubbles: config.dealStartBubbles
       && config.dealStartBubbles[1] < BOARD_CAPACITY
       ? config.dealStartBubbles : undefined,
+    // очередь линий меняет и старт, и порядок досыпки — то есть контент: входит
+    // в хеш. Ноль приравнен к отсутствию поля: это уровень без гейтов
+    dealHoldCategories: config.dealHoldCategories && config.dealHoldCategories > 0
+      ? config.dealHoldCategories : undefined,
   };
 }
 
@@ -568,10 +584,18 @@ export function toGameJson(spec: LevelSpec, difficultyValue?: number): unknown {
      * уровень, который мы проверили руками и оценили по D, у игрока оказался бы
      * другим. Порядок массивов значащий: `start` — что лежит на поле, `queue` —
      * очередь досыпки строго слева направо.
+     *
+     * `gates` — очередь линий крупного уровня: категория ждёт, пока игрок не
+     * собрал `after_collected` других, и досыпка пропускает её пузыри, беря из
+     * очереди следующий подходящий (core/deal.ts). Поля нет — гейтов нет.
      */
     deal: {
       start: spec.deal.start.map((b) => ({ word: b.word, category: b.category })),
       queue: spec.deal.queue.map((b) => ({ word: b.word, category: b.category })),
+      gates: (spec.deal.gates ?? []).length === 0 ? undefined
+        : spec.deal.gates!.map((g) => ({
+          category: g.category, after_collected: g.afterCollected,
+        })),
     },
     categories: spec.categories.map((c) => ({
       key: c.key,
