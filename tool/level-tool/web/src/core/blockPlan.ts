@@ -217,6 +217,8 @@ function modifierFor(
   role: LevelRole, levelId: number, position: number,
   allowed: BlockConfig['allowedModifiers'],
 ): LevelModifier {
+  // Цепь на пик ставится только если её кто-то положил в `allowedModifiers`
+  // руками: лесенка декад с 04.08 цепь не выдаёт (механика нестабильна).
   if (role === 'peak' && allowed.includes('chain_line')) return 'chain_line';
   if (role === 'spike' || role === 'peak') {
     const blockers = (['ice', 'hidden'] as const).filter((m) => allowed.includes(m));
