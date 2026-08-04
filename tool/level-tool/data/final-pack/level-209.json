@@ -1,7 +1,7 @@
 {
   "level_spec": {
     "levelId": 209,
-    "schemaVersion": "2.0",
+    "schemaVersion": "2.2",
     "board": {
       "categoriesCount": 17,
       "wordsPerCategory": 4,
@@ -10,54 +10,752 @@
       "moveFloor": 51,
       "moveLimit": 67,
       "moveLimitK": 1.3,
-      "moveLimitPolicy": "conservative"
+      "moveLimitPolicy": "conservative",
+      "dealMinStartWords": 2
     },
     "categories": [
       {
-        "key": "diseases",
-        "label": "DISEASES",
-        "rule": "Diseases an average person can name",
-        "theme": "medicine",
+        "key": "feelings",
+        "label": "FEELINGS",
+        "rule": "Words naming human emotions",
+        "theme": "people",
         "words": [
           {
-            "text": "polio",
+            "text": "guilty",
             "kind": "word",
-            "zipf": 3.27,
+            "zipf": 4.61,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.8
+            "obviousness": 0.93
           },
           {
-            "text": "tuberculosis",
+            "text": "sad",
             "kind": "word",
-            "zipf": 3.58,
+            "zipf": 4.84,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.8
+            "obviousness": 0.95
           },
           {
-            "text": "malaria",
+            "text": "bored",
             "kind": "word",
-            "zipf": 3.65,
+            "zipf": 4.2,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "jealous",
+            "kind": "word",
+            "zipf": 4.24,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          }
+        ],
+        "metaDepth": 2,
+        "parentKey": "psychology",
+        "isQuickwin": true
+      },
+      {
+        "key": "psychology",
+        "label": "PSYCHOLOGY",
+        "rule": "What belongs to the group «Psychology» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "feelings",
+            "kind": "meta",
+            "metaChild": "feelings",
+            "zipf": 4.71,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "behavior",
+            "kind": "word",
+            "zipf": 4.69,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.8
           },
           {
-            "text": "cancer",
+            "text": "therapy",
+            "kind": "word",
+            "zipf": 4.52,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.75
+          },
+          {
+            "text": "perception",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.67
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "university_departments",
+        "isQuickwin": false
+      },
+      {
+        "key": "university_departments",
+        "label": "UNIVERSITY DEPARTMENTS",
+        "rule": "What belongs to the group «University Departments» as used in the original game",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "psychology",
+            "kind": "meta",
+            "metaChild": "psychology",
+            "zipf": 4.31,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "philosophy",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.75
+          },
+          {
+            "text": "chemistry",
+            "kind": "word",
+            "zipf": 4.35,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.71
+          },
+          {
+            "text": "fine arts",
+            "kind": "word",
+            "zipf": 4.7,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.8
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "indian",
+        "label": "INDIAN",
+        "rule": "What belongs to the group «Indian» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "biryani",
+            "kind": "word",
+            "zipf": 2.49,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.25
+          },
+          {
+            "text": "samosa",
+            "kind": "word",
+            "zipf": 2.13,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.2
+          },
+          {
+            "text": "curry",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.61
+          },
+          {
+            "text": "dal",
+            "kind": "word",
+            "zipf": 3.25,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.44
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "nationalities",
+        "isQuickwin": false
+      },
+      {
+        "key": "nationalities",
+        "label": "NATIONALITIES",
+        "rule": "Words for people from a particular country",
+        "theme": "people",
+        "words": [
+          {
+            "text": "Indian",
+            "kind": "meta",
+            "metaChild": "indian",
+            "zipf": 4.91,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "Australian",
             "kind": "word",
             "zipf": 4.93,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.8
+            "obviousness": 0.95
+          },
+          {
+            "text": "Russian",
+            "kind": "word",
+            "zipf": 5.01,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "French",
+            "kind": "word",
+            "zipf": 5.09,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
           }
         ],
-        "metaDepth": 3,
-        "parentKey": "illnesses",
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "citrus",
+        "label": "CITRUS",
+        "rule": "What belongs to the group «Citrus» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "yuzu",
+            "kind": "word",
+            "zipf": 2.39,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.22
+          },
+          {
+            "text": "tangerine",
+            "kind": "word",
+            "zipf": 2.94,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.36
+          },
+          {
+            "text": "bergamot",
+            "kind": "word",
+            "zipf": 2.31,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.2
+          },
+          {
+            "text": "ugli",
+            "kind": "word",
+            "zipf": 1.02,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.2
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "sour_flavors",
+        "isQuickwin": false
+      },
+      {
+        "key": "sour_flavors",
+        "label": "SOUR FLAVORS",
+        "rule": "What belongs to the group «Sour Flavors» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "citrus",
+            "kind": "meta",
+            "metaChild": "citrus",
+            "zipf": 3.58,
+            "frequencyUnknown": false
+          },
+          {
+            "text": "tamarind",
+            "kind": "word",
+            "zipf": 2.59,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.27
+          },
+          {
+            "text": "lemon",
+            "kind": "word",
+            "zipf": 4.1,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.65
+          },
+          {
+            "text": "lime",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.59
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "space_phenomena",
+        "label": "SPACE PHENOMENA",
+        "rule": "Events and phenomena seen in space",
+        "theme": "space",
+        "words": [
+          {
+            "text": "black hole",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "gravity well",
+            "kind": "word",
+            "zipf": 4.21,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "nebula",
+            "kind": "word",
+            "zipf": 3.23,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "solar flare",
+            "kind": "word",
+            "zipf": 3.64,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "construction_equipment",
+        "label": "CONSTRUCTION EQUIPMENT",
+        "rule": "Large machines used on a building or road construction site",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "loader",
+            "kind": "word",
+            "zipf": 3.1,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "drill rig",
+            "kind": "word",
+            "zipf": 3.86,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "scaffold",
+            "kind": "word",
+            "zipf": 3.03,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cement mixer",
+            "kind": "word",
+            "zipf": 3.5,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "workshop_things",
+        "label": "WORKSHOP THINGS",
+        "rule": "Things found in a home workshop",
+        "theme": "tools",
+        "words": [
+          {
+            "text": "workbench",
+            "kind": "word",
+            "zipf": 2.59,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "vise",
+            "kind": "word",
+            "zipf": 2.79,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "toolbox",
+            "kind": "word",
+            "zipf": 2.99,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "lumber",
+            "kind": "word",
+            "zipf": 3.59,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.87
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "currencies",
+        "label": "CURRENCIES",
+        "rule": "Names of national currencies",
+        "theme": "business",
+        "words": [
+          {
+            "text": "ruble",
+            "kind": "word",
+            "zipf": 2.62,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "dinar",
+            "kind": "word",
+            "zipf": 2.58,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "lira",
+            "kind": "word",
+            "zipf": 2.99,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "won",
+            "kind": "word",
+            "zipf": 5.2,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.84
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "tailor_words",
+        "label": "TAILOR SHOP",
+        "rule": "Things a tailor uses",
+        "theme": "trades",
+        "words": [
+          {
+            "text": "pattern",
+            "kind": "word",
+            "zipf": 4.56,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "thread",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "pin",
+            "kind": "word",
+            "zipf": 4.28,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "tape measure",
+            "kind": "word",
+            "zipf": 4.44,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.93
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "makeup",
+        "label": "MAKEUP",
+        "rule": "Cosmetics applied to the face",
+        "theme": "fashion",
+        "words": [
+          {
+            "text": "eyeshadow",
+            "kind": "word",
+            "zipf": 3.14,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "foundation",
+            "kind": "word",
+            "zipf": 4.81,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.81
+          },
+          {
+            "text": "setting spray",
+            "kind": "word",
+            "zipf": 4.18,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "brow pencil",
+            "kind": "word",
+            "zipf": 3.55,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "orchard_words",
+        "label": "ORCHARD WORDS",
+        "rule": "Things found in a fruit orchard",
+        "theme": "farming",
+        "words": [
+          {
+            "text": "cider press",
+            "kind": "word",
+            "zipf": 3.5,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "blossom",
+            "kind": "word",
+            "zipf": 3.62,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.87
+          },
+          {
+            "text": "tree",
+            "kind": "word",
+            "zipf": 4.85,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.82
+          },
+          {
+            "text": "netting",
+            "kind": "word",
+            "zipf": 3.24,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "boats",
+        "label": "BOATS AND SHIPS",
+        "rule": "Kinds of watercraft",
+        "theme": "transport",
+        "words": [
+          {
+            "text": "raft",
+            "kind": "word",
+            "zipf": 3.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "ferry",
+            "kind": "word",
+            "zipf": 4.02,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "boat",
+            "kind": "word",
+            "zipf": 4.71,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.95,
+            "obviousness": 0.92
+          },
+          {
+            "text": "submarine",
+            "kind": "word",
+            "zipf": 3.81,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "soups",
+        "label": "SOUPS AND STEWS",
+        "rule": "Kinds of soup and stew",
+        "theme": "world_food",
+        "words": [
+          {
+            "text": "split pea",
+            "kind": "word",
+            "zipf": 3.54,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "stew",
+            "kind": "word",
+            "zipf": 3.48,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "onion soup",
+            "kind": "word",
+            "zipf": 3.89,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "broth",
+            "kind": "word",
+            "zipf": 3.39,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.81
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
         "isQuickwin": true
       },
       {
@@ -67,737 +765,40 @@
         "theme": "body",
         "words": [
           {
-            "text": "diseases",
-            "kind": "meta",
-            "metaChild": "diseases",
-            "zipf": 4.36,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "diabetes",
+            "text": "asthma",
             "kind": "word",
-            "zipf": 4.17,
+            "zipf": 3.73,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.95
           },
           {
-            "text": "infection",
+            "text": "fever",
             "kind": "word",
-            "zipf": 4.33,
+            "zipf": 4.22,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.87
           },
           {
-            "text": "ulcer",
+            "text": "flu",
             "kind": "word",
-            "zipf": 3.03,
+            "zipf": 3.96,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 2,
-        "parentKey": "emergency_room",
-        "isQuickwin": false
-      },
-      {
-        "key": "emergency_room",
-        "label": "EMERGENCY ROOM",
-        "rule": "What is treated, seen or used in a hospital emergency room",
-        "theme": "medicine",
-        "words": [
-          {
-            "text": "illnesses",
-            "kind": "meta",
-            "metaChild": "illnesses",
-            "zipf": 3.67,
-            "frequencyUnknown": false
+            "obviousness": 0.96
           },
           {
-            "text": "symptoms",
-            "kind": "meta",
-            "metaChild": "symptoms",
-            "zipf": 4.48,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "triage",
-            "kind": "word",
-            "zipf": 2.89,
-            "frequencyUnknown": false,
-            "relation": "associated_with",
-            "fit": 0.92,
-            "obviousness": 0.6
-          },
-          {
-            "text": "injuries",
-            "kind": "word",
-            "zipf": 4.44,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "hospital_things",
-        "isQuickwin": false
-      },
-      {
-        "key": "hospital_things",
-        "label": "HOSPITAL THINGS",
-        "rule": "Things and places found in a hospital",
-        "theme": "body",
-        "words": [
-          {
-            "text": "emergency room",
-            "kind": "meta",
-            "metaChild": "emergency_room",
-            "zipf": 4.72,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "stethoscope",
-            "kind": "word",
-            "zipf": 2.66,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "oxygen mask",
-            "kind": "word",
-            "zipf": 4.25,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "ward",
-            "kind": "word",
-            "zipf": 4.37,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "symptoms",
-        "label": "SYMPTOMS",
-        "rule": "Signs that a person feels unwell",
-        "theme": "body",
-        "words": [
-          {
-            "text": "sore throat",
-            "kind": "word",
-            "zipf": 3.99,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "nausea",
-            "kind": "word",
-            "zipf": 3.54,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "cough",
-            "kind": "word",
-            "zipf": 3.95,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "itching",
-            "kind": "word",
-            "zipf": 3.37,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 2,
-        "parentKey": "emergency_room",
-        "isQuickwin": true
-      },
-      {
-        "key": "police_things",
-        "label": "POLICE THINGS",
-        "rule": "Equipment and things used by police",
-        "theme": "law",
-        "words": [
-          {
-            "text": "dispatch",
-            "kind": "word",
-            "zipf": 3.76,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "handcuffs",
-            "kind": "word",
-            "zipf": 3.21,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "patrol",
-            "kind": "word",
-            "zipf": 4.14,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "uniform",
-            "kind": "word",
-            "zipf": 4.33,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "famous_composers",
-        "label": "COMPOSERS",
-        "rule": "Famous classical composers",
-        "theme": "entertainment",
-        "words": [
-          {
-            "text": "Beethoven",
-            "kind": "word",
-            "zipf": 3.41,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
-          },
-          {
-            "text": "Bach",
-            "kind": "word",
-            "zipf": 3.53,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
-          },
-          {
-            "text": "Wagner",
-            "kind": "word",
-            "zipf": 3.71,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
-          },
-          {
-            "text": "Mozart",
-            "kind": "word",
-            "zipf": 3.42,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "wild_west",
-        "label": "WILD WEST",
-        "rule": "Things associated with the American Old West",
-        "theme": "history",
-        "words": [
-          {
-            "text": "horse",
-            "kind": "word",
-            "zipf": 4.76,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "outlaw",
-            "kind": "word",
-            "zipf": 3.51,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "spurs",
-            "kind": "word",
-            "zipf": 4,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "revolver",
-            "kind": "word",
-            "zipf": 3.41,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "greek_heroes",
-        "label": "MYTHOLOGICAL HEROES",
-        "rule": "Heroes of classical mythology",
-        "theme": "mythology",
-        "words": [
-          {
-            "text": "Aeneas",
-            "kind": "word",
-            "zipf": 2.56,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Perseus",
-            "kind": "word",
-            "zipf": 2.74,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Orpheus",
-            "kind": "word",
-            "zipf": 2.87,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Atalanta",
-            "kind": "word",
-            "zipf": 2.51,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "explorers",
-        "label": "EXPLORERS",
-        "rule": "Famous explorers from history",
-        "theme": "people",
-        "words": [
-          {
-            "text": "Columbus",
-            "kind": "word",
-            "zipf": 4.04,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Cabot",
-            "kind": "word",
-            "zipf": 3.01,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Clark",
-            "kind": "word",
-            "zipf": 4.38,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "Lewis",
-            "kind": "word",
-            "zipf": 4.48,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "famous_landmarks",
-        "label": "FAMOUS LANDMARKS",
-        "rule": "World landmarks most people can recognize",
-        "theme": "geography",
-        "words": [
-          {
-            "text": "Big Ben",
-            "kind": "word",
-            "zipf": 4.69,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "sphinx",
-            "kind": "word",
-            "zipf": 3,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "Golden Gate",
-            "kind": "word",
-            "zipf": 4.47,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.82
-          },
-          {
-            "text": "Taj Mahal",
-            "kind": "word",
-            "zipf": 3.2,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.82
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "martial_arts",
-        "label": "MARTIAL ARTS",
-        "rule": "Fighting sports and self defense disciplines",
-        "theme": "sports",
-        "words": [
-          {
-            "text": "aikido",
-            "kind": "word",
-            "zipf": 2.67,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "taekwondo",
-            "kind": "word",
-            "zipf": 2.84,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "muay thai",
-            "kind": "word",
-            "zipf": 2.85,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "kickboxing",
-            "kind": "word",
-            "zipf": 2.88,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "flowers_more",
-        "label": "MORE FLOWERS",
-        "rule": "Flowers beyond the most common garden ones",
-        "theme": "lists",
-        "words": [
-          {
-            "text": "snapdragon",
-            "kind": "word",
-            "zipf": 2.7,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "pansy",
-            "kind": "word",
-            "zipf": 2.77,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "chrysanthemum",
-            "kind": "word",
-            "zipf": 2.57,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "sweet pea",
-            "kind": "word",
-            "zipf": 3.54,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.68
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "jewelry_stones",
-        "label": "JEWELRY STONES",
-        "rule": "Stones set into jewelry",
-        "theme": "fashion",
-        "words": [
-          {
-            "text": "turquoise",
+            "text": "migraine",
             "kind": "word",
             "zipf": 3.33,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "amethyst",
-            "kind": "word",
-            "zipf": 3.01,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "ruby",
-            "kind": "word",
-            "zipf": 3.98,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "opal",
-            "kind": "word",
-            "zipf": 3.2,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "italian_dishes",
-        "label": "ITALIAN DISHES",
-        "rule": "Dishes from Italian cuisine widely eaten in the United States",
-        "theme": "food",
-        "words": [
-          {
-            "text": "alfredo",
-            "kind": "word",
-            "zipf": 3.27,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "lasagna",
-            "kind": "word",
-            "zipf": 3.12,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "pizza",
-            "kind": "word",
-            "zipf": 4.43,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "spaghetti",
-            "kind": "word",
-            "zipf": 3.65,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "hot_drinks",
-        "label": "HOT DRINKS",
-        "rule": "Drinks normally served hot",
-        "theme": "food",
-        "words": [
-          {
-            "text": "hot chocolate",
-            "kind": "word",
-            "zipf": 4.49,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "tea",
-            "kind": "word",
-            "zipf": 4.73,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "coffee",
-            "kind": "word",
-            "zipf": 4.86,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          },
-          {
-            "text": "latte",
-            "kind": "word",
-            "zipf": 3.3,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.9
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "south_american_cities",
-        "label": "LATIN CITIES",
-        "rule": "Well known cities in South America",
-        "theme": "cities",
-        "words": [
-          {
-            "text": "Santiago",
-            "kind": "word",
-            "zipf": 3.66,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Sao Paulo",
-            "kind": "word",
-            "zipf": 3.37,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Rio de Janeiro",
-            "kind": "word",
-            "zipf": 3.52,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Buenos Aires",
-            "kind": "word",
-            "zipf": 3.55,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
+            "obviousness": 0.94
           }
         ],
         "metaDepth": 0,
@@ -805,36 +806,302 @@
         "isQuickwin": true
       }
     ],
+    "deal": {
+      "start": [
+        {
+          "word": "behavior",
+          "category": "psychology"
+        },
+        {
+          "word": "dal",
+          "category": "indian"
+        },
+        {
+          "word": "Russian",
+          "category": "nationalities"
+        },
+        {
+          "word": "chemistry",
+          "category": "university_departments"
+        },
+        {
+          "word": "lemon",
+          "category": "sour_flavors"
+        },
+        {
+          "word": "tamarind",
+          "category": "sour_flavors"
+        },
+        {
+          "word": "sad",
+          "category": "feelings"
+        },
+        {
+          "word": "Australian",
+          "category": "nationalities"
+        },
+        {
+          "word": "biryani",
+          "category": "indian"
+        },
+        {
+          "word": "curry",
+          "category": "indian"
+        },
+        {
+          "word": "bored",
+          "category": "feelings"
+        },
+        {
+          "word": "lime",
+          "category": "sour_flavors"
+        },
+        {
+          "word": "fine arts",
+          "category": "university_departments"
+        },
+        {
+          "word": "loader",
+          "category": "construction_equipment"
+        },
+        {
+          "word": "French",
+          "category": "nationalities"
+        },
+        {
+          "word": "cement mixer",
+          "category": "construction_equipment"
+        },
+        {
+          "word": "perception",
+          "category": "psychology"
+        },
+        {
+          "word": "guilty",
+          "category": "feelings"
+        },
+        {
+          "word": "philosophy",
+          "category": "university_departments"
+        },
+        {
+          "word": "tape measure",
+          "category": "tailor_words"
+        },
+        {
+          "word": "jealous",
+          "category": "feelings"
+        },
+        {
+          "word": "thread",
+          "category": "tailor_words"
+        },
+        {
+          "word": "therapy",
+          "category": "psychology"
+        },
+        {
+          "word": "drill rig",
+          "category": "construction_equipment"
+        }
+      ],
+      "queue": [
+        {
+          "word": "samosa",
+          "category": "indian"
+        },
+        {
+          "word": "scaffold",
+          "category": "construction_equipment"
+        },
+        {
+          "word": "pattern",
+          "category": "tailor_words"
+        },
+        {
+          "word": "pin",
+          "category": "tailor_words"
+        },
+        {
+          "word": "netting",
+          "category": "orchard_words"
+        },
+        {
+          "word": "submarine",
+          "category": "boats"
+        },
+        {
+          "word": "cider press",
+          "category": "orchard_words"
+        },
+        {
+          "word": "tree",
+          "category": "orchard_words"
+        },
+        {
+          "word": "blossom",
+          "category": "orchard_words"
+        },
+        {
+          "word": "ferry",
+          "category": "boats"
+        },
+        {
+          "word": "raft",
+          "category": "boats"
+        },
+        {
+          "word": "boat",
+          "category": "boats"
+        },
+        {
+          "word": "yuzu",
+          "category": "citrus"
+        },
+        {
+          "word": "bergamot",
+          "category": "citrus"
+        },
+        {
+          "word": "ugli",
+          "category": "citrus"
+        },
+        {
+          "word": "tangerine",
+          "category": "citrus"
+        },
+        {
+          "word": "solar flare",
+          "category": "space_phenomena"
+        },
+        {
+          "word": "black hole",
+          "category": "space_phenomena"
+        },
+        {
+          "word": "nebula",
+          "category": "space_phenomena"
+        },
+        {
+          "word": "gravity well",
+          "category": "space_phenomena"
+        },
+        {
+          "word": "toolbox",
+          "category": "workshop_things"
+        },
+        {
+          "word": "vise",
+          "category": "workshop_things"
+        },
+        {
+          "word": "lumber",
+          "category": "workshop_things"
+        },
+        {
+          "word": "workbench",
+          "category": "workshop_things"
+        },
+        {
+          "word": "dinar",
+          "category": "currencies"
+        },
+        {
+          "word": "lira",
+          "category": "currencies"
+        },
+        {
+          "word": "won",
+          "category": "currencies"
+        },
+        {
+          "word": "ruble",
+          "category": "currencies"
+        },
+        {
+          "word": "foundation",
+          "category": "makeup"
+        },
+        {
+          "word": "eyeshadow",
+          "category": "makeup"
+        },
+        {
+          "word": "brow pencil",
+          "category": "makeup"
+        },
+        {
+          "word": "setting spray",
+          "category": "makeup"
+        },
+        {
+          "word": "onion soup",
+          "category": "soups"
+        },
+        {
+          "word": "split pea",
+          "category": "soups"
+        },
+        {
+          "word": "broth",
+          "category": "soups"
+        },
+        {
+          "word": "stew",
+          "category": "soups"
+        },
+        {
+          "word": "fever",
+          "category": "illnesses"
+        },
+        {
+          "word": "asthma",
+          "category": "illnesses"
+        },
+        {
+          "word": "migraine",
+          "category": "illnesses"
+        },
+        {
+          "word": "flu",
+          "category": "illnesses"
+        }
+      ]
+    },
     "traps": [
       {
-        "word": "diabetes",
-        "home": "illnesses",
-        "decoy": "diseases",
-        "homeObviousness": 0.85,
-        "decoyFit": 0.97,
-        "decoyObviousness": 0.8
+        "word": "lime",
+        "home": "sour_flavors",
+        "decoy": "citrus",
+        "homeObviousness": 0.59,
+        "decoyFit": 0.95,
+        "decoyObviousness": 0.59
+      },
+      {
+        "word": "lemon",
+        "home": "sour_flavors",
+        "decoy": "citrus",
+        "homeObviousness": 0.65,
+        "decoyFit": 0.95,
+        "decoyObviousness": 0.65
       }
     ],
     "halves": [],
     "modifiers": {
-      "chains": [
-        {
-          "locksCategory": "martial_arts",
-          "unlockedByCompleting": "hot_drinks"
-        }
-      ],
+      "chains": [],
       "frozenBubbles": [],
-      "hiddenBubbles": []
+      "hiddenBubbles": [],
+      "chainLine": null
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T08:51:36.192Z",
-    "generator_version": "gen-1.0",
-    "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
-    "level_spec_hash": "671ff2f00b5e0e2d4ee0e59cd9982bd454b3fe53186570c28be56ce4288f38cc",
-    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
-    "seed": "final-03"
+    "generated_at": "2026-08-04T00:35:22.836Z",
+    "generator_version": "gen-1.6",
+    "scoring_version": "d-1.4-calibrated",
+    "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+    "level_spec_hash": "87a36938779624e96d0abb336003678458dd1389b34bc19f28df483f4e3d9e22",
+    "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+    "seed": "final-13"
   },
   "plan": {
     "levelId": 209,
@@ -842,10 +1109,11 @@
     "role": "spike",
     "categoryCount": 17,
     "metaCount": 4,
-    "metaDepthTarget": 3,
+    "metaDepthTarget": 2,
     "rareTarget": 13,
     "trapTarget": 2,
-    "chainCount": 1,
+    "chainCount": 0,
+    "modifier": "none",
     "targetDifficulty": [
       7.5,
       8.5
@@ -854,20 +1122,27 @@
       6,
       7.5
     ],
-    "moveLimitK": 1.3
+    "moveLimitK": 1.3,
+    "poolRankTarget": null
   },
   "scoring": {
-    "difficulty": 10,
+    "difficulty": 9.5,
+    "difficulty_tier": "hard",
     "difficulty_breakdown": {
       "base_calibrated": {
-        "объём (пузырей на старте)": 5.8176,
+        "масштаб (категорий × 4 слова)": 5.8176,
         "редкие слова (zipf < 3)": 1.2311,
-        "очень редкие (zipf < 2)": 0
+        "очень редкие (zipf < 2)": 0.1552,
+        "повторы из прошлых уровней": 0
       },
       "declared_not_calibrated": {
         "мета-связи (объявлено)": 0.88,
-        "глубина мета сверх 1 (объявлено)": 1.1,
-        "быстрые победы (объявлено)": -0.6
+        "глубина мета сверх 1 (объявлено)": 0.55,
+        "быстрые победы (объявлено)": -0.6,
+        "готовые четвёрки на старте (объявлено)": -0.4,
+        "тройки на старте (объявлено)": -0.1,
+        "одиночки на старте (объявлено)": 0,
+        "бесплодная досыпка (объявлено)": 0
       },
       "semantic": {
         "подтверждённые ловушки": 0,
@@ -875,39 +1150,45 @@
         "незапланированная спорность": 0
       },
       "mechanical": {
-        "цепи": 0.5,
+        "цепи": 0,
         "половинки": 0,
+        "лёд (объявлено)": 0,
+        "«?» (объявлено)": 0,
+        "цепь-линия (объявлено)": 0,
         "теснота лимита ходов": 0.7714285714285714
       },
       "totals": {
-        "base": 7.071400000000001,
-        "declared": 1.38,
+        "base": 7.2266,
+        "declared": 0.3300000000000002,
         "semantic": 1.2,
-        "mechanical": 1.2714285714285714
+        "mechanical": 0.7714285714285714
       }
     },
     "difficulty_explanation": [
-      "64 пузырей на старте при 17 категориях",
-      "13 редких слов, из них 0 очень редких",
-      "4 мета-связей, максимальная глубина 3 — глубины 3 в референсе нет ни разу. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
-      "11 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "5 пар категорий из одной тематической сферы",
+      "17 категорий — это 64 слов на уровне; масштаб растёт линейно по числу категорий",
+      "13 редких слов, из них 1 очень редких",
+      "повторы из прошлых уровней не переданы: спек оценивается как первый уровень пакета (0 повторов)",
+      "4 мета-связей, максимальная глубина 2. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
+      "9 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
+      "раскладка старта: 5 готовых четвёрок, 2 троек, 1 пар, 0 одиночек, 9 категорий целиком в очереди",
+      "на старте нет категорий-одиночек: каждый из 24 пузырей поля имеет пару и участвует в ходе",
+      "досыпка открывает сбор в 11 из 11 волн (100%): пачка почти всегда приносит развязку",
+      "8 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
-      "1 цепи: аналитически проверяемый модификатор",
       "лимит ходов 67 при минимуме 51 (K = 1.3)"
     ],
-    "interest": 7.5,
+    "interest": 7,
     "interest_breakdown": {
-      "clarity": 2.23,
-      "variety": 1.83,
+      "clarity": 1.47,
+      "variety": 1.95,
       "aha": 1.3,
-      "freshness": 2.05
+      "freshness": 2.5
     },
     "interest_explanation": [
-      "Clarity 2.23: узнаваемых слов 98%, средняя очевидность связи 0.78",
-      "Variety 1.83: 4 типов связи, 13 тематических сфер, но 76% категорий однотипны",
-      "Aha 1.30: 0 честных ловушек, 4 мета-связей, глубина 3",
-      "Freshness 2.05: новых для пакета слов 100%"
+      "Clarity 1.47: узнаваемых слов 92%, средняя очевидность связи 0.81, натужных категорий 2",
+      "Variety 1.95: 3 типов связи, 12 тематических сфер, но 53% категорий однотипны",
+      "Aha 1.30: 0 честных ловушек, 4 мета-связей, глубина 2",
+      "Freshness 2.50: новых для пакета слов 100%, категорий-эхо нет"
     ]
   },
   "validation": {
@@ -950,6 +1231,18 @@
         "detail": "ровно одна полная раскладка, перебор исчерпан (69 узлов)"
       },
       {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "16 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
         "code": "META_PARENT_COUNT",
         "passed": true,
         "severity": "hard",
@@ -962,22 +1255,34 @@
         "detail": "мета-лес ацикличен, связей 4"
       },
       {
+        "code": "META_ICONS_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "картинок на мета-пузырях: 0"
+      },
+      {
         "code": "META_DEPTH_WITHIN_CONFIG",
         "passed": true,
         "severity": "soft",
-        "detail": "максимальная глубина мета 3, разрешено 3"
+        "detail": "максимальная глубина мета 2, разрешено 2"
       },
       {
         "code": "CHAIN_ACYCLIC",
         "passed": true,
         "severity": "hard",
-        "detail": "цепей 1, граф зависимостей ацикличен"
+        "detail": "цепей 0, граф зависимостей ацикличен"
       },
       {
         "code": "START_BUBBLE_COUNT",
         "passed": true,
         "severity": "hard",
         "detail": "заявлено 64, по формуле 4 × 17 − 4 = 64"
+      },
+      {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 64, в очереди 40"
       },
       {
         "code": "MOVE_LIMIT_SANE",
@@ -989,13 +1294,13 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 11: diseases, symptoms, police_things, famous_composers, wild_west, explorers, famous_landmarks, jewelry_stones, italian_dishes, hot_drinks, south_american_cities"
+        "detail": "категорий быстрой победы 9: feelings, space_phenomena, construction_equipment, tailor_words, makeup, orchard_words, boats, soups, illnesses"
       },
       {
         "code": "RECOGNIZABILITY",
         "passed": true,
         "severity": "hard",
-        "detail": "внутри top-50k 98.5% пузырей (порог zipf 2.55, вне порога 1)"
+        "detail": "внутри top-50k 92.6% пузырей (порог zipf 2.55, вне порога 5)"
       },
       {
         "code": "NEAR_DUPLICATE_WORDS",
@@ -1022,24 +1327,97 @@
         "detail": "точных совпадений с четвёрками референса нет"
       },
       {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
         "code": "UNSEPARABLE_PAIR",
         "passed": true,
         "severity": "soft",
         "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор редкости не задан"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор повторов не задан"
       }
     ],
-    "issues": [],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
     "solution_count": 1,
     "solution_search_exhausted": true,
-    "solution_nodes_visited": 69
+    "solution_nodes_visited": 69,
+    "playability": {
+      "winnable": true,
+      "moves_needed": 51,
+      "move_limit": 67,
+      "spare_moves": 16,
+      "offbeat_refills": 0,
+      "perceived_dead_states": 0,
+      "max_moves_without_collect": 3
+    },
+    "structure": {
+      "multi_home_words": 2,
+      "max_contested_slots": 2,
+      "opening_categories": 16,
+      "deduction_only": true,
+      "forced_steps": 68,
+      "explanation": [
+        "2 слов с двумя и более правдоподобными домами",
+        "16 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда",
+        "самая оспариваемая категория: 2 кандидатов сверх своей четвёрки"
+      ]
+    }
   },
   "generation": {
     "attempts": [
       {
         "index": 0,
+        "outcome": "rejected",
+        "stage": "валидация",
+        "reason": "REFERENCE_NOVELTY: точных копий четвёрок референса: 2",
+        "relaxations": []
+      },
+      {
+        "index": 1,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "17 категорий, 4 мета-связей, 13 редких слов, 1 ловушек",
+        "reason": "17 категорий, 4 мета-связей, 13 редких слов, 2 ловушек",
         "relaxations": []
       }
     ]

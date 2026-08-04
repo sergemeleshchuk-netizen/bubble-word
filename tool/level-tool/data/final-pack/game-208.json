@@ -1,6 +1,7 @@
 {
   "level_id": 208,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 15,
     "words_per_category": 4,
@@ -8,335 +9,575 @@
     "board_capacity": 24,
     "move_limit": 61
   },
+  "deal": {
+    "start": [
+      {
+        "word": "bucket",
+        "category": "cleaning_tools"
+      },
+      {
+        "word": "beat",
+        "category": "heart"
+      },
+      {
+        "word": "bathroom",
+        "category": "mirror"
+      },
+      {
+        "word": "Stonehenge",
+        "category": "landmarks"
+      },
+      {
+        "word": "sagrada fam lia",
+        "category": "landmarks"
+      },
+      {
+        "word": "reflection",
+        "category": "mirror"
+      },
+      {
+        "word": "eye drops",
+        "category": "medicine_cabinet"
+      },
+      {
+        "word": "vanity",
+        "category": "mirror"
+      },
+      {
+        "word": "Great Wall",
+        "category": "landmarks"
+      },
+      {
+        "word": "flag",
+        "category": "things_you_hang"
+      },
+      {
+        "word": "storm",
+        "category": "weather"
+      },
+      {
+        "word": "cottage",
+        "category": "cheese"
+      },
+      {
+        "word": "banner",
+        "category": "things_you_hang"
+      },
+      {
+        "word": "steam cleaner",
+        "category": "cleaning_tools"
+      },
+      {
+        "word": "colby",
+        "category": "cheese"
+      },
+      {
+        "word": "dear",
+        "category": "heart"
+      },
+      {
+        "word": "sun",
+        "category": "weather"
+      },
+      {
+        "word": "aspirin",
+        "category": "medicine_cabinet"
+      },
+      {
+        "word": "Hope",
+        "category": "heart"
+      },
+      {
+        "word": "thermometer",
+        "category": "medicine_cabinet"
+      },
+      {
+        "word": "aged",
+        "category": "cheese"
+      },
+      {
+        "word": "dust storm",
+        "category": "weather"
+      },
+      {
+        "word": "silver",
+        "category": "mirror"
+      },
+      {
+        "word": "wreath",
+        "category": "things_you_hang"
+      }
+    ],
+    "queue": [
+      {
+        "word": "courage",
+        "category": "heart"
+      },
+      {
+        "word": "American",
+        "category": "cheese"
+      },
+      {
+        "word": "sponge",
+        "category": "cleaning_tools"
+      },
+      {
+        "word": "rag",
+        "category": "cleaning_tools"
+      },
+      {
+        "word": "bandage",
+        "category": "medicine_cabinet"
+      },
+      {
+        "word": "Nordstrom",
+        "category": "retail_stores"
+      },
+      {
+        "word": "potato salad",
+        "category": "bbq_foods"
+      },
+      {
+        "word": "Colosseum",
+        "category": "landmarks"
+      },
+      {
+        "word": "burger",
+        "category": "bbq_foods"
+      },
+      {
+        "word": "hot dog",
+        "category": "bbq_foods"
+      },
+      {
+        "word": "pulled pork",
+        "category": "bbq_foods"
+      },
+      {
+        "word": "Safeway",
+        "category": "retail_stores"
+      },
+      {
+        "word": "Lowes",
+        "category": "retail_stores"
+      },
+      {
+        "word": "Aldi",
+        "category": "retail_stores"
+      },
+      {
+        "word": "asterisk",
+        "category": "punctuation"
+      },
+      {
+        "word": "question",
+        "category": "punctuation"
+      },
+      {
+        "word": "quotation mark",
+        "category": "punctuation"
+      },
+      {
+        "word": "period",
+        "category": "punctuation"
+      },
+      {
+        "word": "car",
+        "category": "toys"
+      },
+      {
+        "word": "jack in the box",
+        "category": "toys"
+      },
+      {
+        "word": "teddy bear",
+        "category": "toys"
+      },
+      {
+        "word": "bubble",
+        "category": "toys"
+      },
+      {
+        "word": "haze",
+        "category": "mist"
+      },
+      {
+        "word": "vapor",
+        "category": "mist"
+      },
+      {
+        "word": "fog",
+        "category": "mist"
+      },
+      {
+        "word": "spray",
+        "category": "mist"
+      },
+      {
+        "word": "selenium",
+        "category": "vitamins_and_minerals"
+      },
+      {
+        "word": "niacin",
+        "category": "vitamins_and_minerals"
+      },
+      {
+        "word": "folate",
+        "category": "vitamins_and_minerals"
+      },
+      {
+        "word": "biotin",
+        "category": "vitamins_and_minerals"
+      },
+      {
+        "word": "owls",
+        "category": "birds"
+      },
+      {
+        "word": "blue jay",
+        "category": "birds"
+      },
+      {
+        "word": "raven",
+        "category": "birds"
+      },
+      {
+        "word": "canary",
+        "category": "birds"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "furniture",
-      "label": "FURNITURE",
+      "key": "mirror",
+      "label": "MIRROR",
       "words": [
         {
-          "text": "bench",
+          "text": "silver",
           "kind": "word"
         },
         {
-          "text": "rocker",
+          "text": "bathroom",
           "kind": "word"
         },
         {
-          "text": "table",
+          "text": "reflection",
           "kind": "word"
         },
         {
-          "text": "dresser",
+          "text": "vanity",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "home_decor",
-      "label": "HOME DECOR",
+      "key": "things_you_hang",
+      "label": "THINGS YOU HANG",
       "words": [
         {
-          "text": "furniture",
+          "text": "mirror",
           "kind": "meta",
-          "meta_child": "furniture"
+          "meta_child": "mirror",
+          "display": "icon",
+          "icon": "🪞"
         },
         {
-          "text": "colors",
+          "text": "banner",
           "kind": "word"
         },
         {
-          "text": "lighting",
+          "text": "flag",
           "kind": "word"
         },
         {
-          "text": "curtains",
+          "text": "wreath",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "bones",
-      "label": "BONES",
+      "key": "mist",
+      "label": "MIST",
       "words": [
         {
-          "text": "femur",
+          "text": "spray",
           "kind": "word"
         },
         {
-          "text": "shin bone",
+          "text": "fog",
           "kind": "word"
         },
         {
-          "text": "skull",
+          "text": "haze",
           "kind": "word"
         },
         {
-          "text": "hip bone",
+          "text": "vapor",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "natural_history_museum",
-      "label": "NATURAL HISTORY MUSEUM",
+      "key": "weather",
+      "label": "WEATHER",
       "words": [
         {
-          "text": "bones",
+          "text": "mist",
           "kind": "meta",
-          "meta_child": "bones"
+          "meta_child": "mist"
         },
         {
-          "text": "gemstones",
+          "text": "sun",
           "kind": "word"
         },
         {
-          "text": "diorama",
+          "text": "storm",
           "kind": "word"
         },
         {
-          "text": "fossil",
+          "text": "dust storm",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "hats",
-      "label": "HATS",
+      "key": "cleaning_tools",
+      "label": "CLEANING TOOLS",
       "words": [
         {
-          "text": "helmet",
+          "text": "sponge",
           "kind": "word"
         },
         {
-          "text": "sun hat",
+          "text": "rag",
           "kind": "word"
         },
         {
-          "text": "cap",
+          "text": "bucket",
           "kind": "word"
         },
         {
-          "text": "headband",
+          "text": "steam cleaner",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "hotel_chains",
-      "label": "HOTEL CHAINS",
+      "key": "bbq_foods",
+      "label": "BARBECUE FOODS",
       "words": [
         {
-          "text": "Westin",
+          "text": "pulled pork",
           "kind": "word"
         },
         {
-          "text": "Days Inn",
+          "text": "potato salad",
           "kind": "word"
         },
         {
-          "text": "Hyatt",
+          "text": "burger",
           "kind": "word"
         },
         {
-          "text": "Holiday Inn",
+          "text": "hot dog",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "sleep_and_rest",
-      "label": "SLEEP WORDS",
+      "key": "retail_stores",
+      "label": "RETAIL STORES",
       "words": [
         {
-          "text": "rest",
+          "text": "Aldi",
           "kind": "word"
         },
         {
-          "text": "bedtime",
+          "text": "Safeway",
           "kind": "word"
         },
         {
-          "text": "nightmare",
+          "text": "Nordstrom",
           "kind": "word"
         },
         {
-          "text": "insomnia",
+          "text": "Lowes",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "flowers",
-      "label": "FLOWERS",
+      "key": "birds",
+      "label": "BIRDS",
       "words": [
         {
-          "text": "rose",
+          "text": "blue jay",
           "kind": "word"
         },
         {
-          "text": "lavender",
+          "text": "raven",
           "kind": "word"
         },
         {
-          "text": "Violet",
+          "text": "owls",
           "kind": "word"
         },
         {
-          "text": "sunflower",
+          "text": "canary",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "national_parks_us",
-      "label": "NATIONAL PARKS",
+      "key": "heart",
+      "label": "HEART",
       "words": [
         {
-          "text": "Denali",
+          "text": "beat",
           "kind": "word"
         },
         {
-          "text": "Everglades",
+          "text": "Hope",
           "kind": "word"
         },
         {
-          "text": "Badlands",
+          "text": "dear",
           "kind": "word"
         },
         {
-          "text": "Acadia",
+          "text": "courage",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "oceania_places",
-      "label": "OCEANIA PLACES",
+      "key": "cheese",
+      "label": "CHEESE",
       "words": [
         {
-          "text": "Papua New Guinea",
+          "text": "American",
           "kind": "word"
         },
         {
-          "text": "Tonga",
+          "text": "aged",
           "kind": "word"
         },
         {
-          "text": "Samoa",
+          "text": "cottage",
           "kind": "word"
         },
         {
-          "text": "Solomon Islands",
+          "text": "colby",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "harvest_words",
-      "label": "HARVEST WORDS",
+      "key": "toys",
+      "label": "TOYS",
       "words": [
         {
-          "text": "field",
+          "text": "jack in the box",
           "kind": "word"
         },
         {
-          "text": "reap",
+          "text": "teddy bear",
           "kind": "word"
         },
         {
-          "text": "sickle",
+          "text": "car",
           "kind": "word"
         },
         {
-          "text": "bale",
+          "text": "bubble",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "injuries",
-      "label": "INJURIES",
+      "key": "medicine_cabinet",
+      "label": "MEDICINE CABINET",
       "words": [
         {
-          "text": "blister",
+          "text": "eye drops",
           "kind": "word"
         },
         {
-          "text": "fracture",
+          "text": "aspirin",
           "kind": "word"
         },
         {
-          "text": "puncture",
+          "text": "bandage",
           "kind": "word"
         },
         {
-          "text": "burn",
+          "text": "thermometer",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "vegetables",
-      "label": "VEGETABLES",
+      "key": "vitamins_and_minerals",
+      "label": "VITAMINS AND MINERALS",
       "words": [
         {
-          "text": "lettuce",
+          "text": "biotin",
           "kind": "word"
         },
         {
-          "text": "beet",
+          "text": "selenium",
           "kind": "word"
         },
         {
-          "text": "cabbage",
+          "text": "folate",
           "kind": "word"
         },
         {
-          "text": "squash",
+          "text": "niacin",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "snakes",
-      "label": "SNAKES",
+      "key": "landmarks",
+      "label": "LANDMARKS",
       "words": [
         {
-          "text": "garter",
+          "text": "Stonehenge",
           "kind": "word"
         },
         {
-          "text": "rattlesnake",
+          "text": "Colosseum",
           "kind": "word"
         },
         {
-          "text": "anaconda",
+          "text": "sagrada fam lia",
           "kind": "word"
         },
         {
-          "text": "mamba",
+          "text": "Great Wall",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "classic_novels",
-      "label": "CLASSIC NOVELS",
+      "key": "punctuation",
+      "label": "PUNCTUATION MARKS",
       "words": [
         {
-          "text": "Treasure Island",
+          "text": "quotation mark",
           "kind": "word"
         },
         {
-          "text": "Call of the Wild",
+          "text": "asterisk",
           "kind": "word"
         },
         {
-          "text": "Of Mice and Men",
+          "text": "question",
           "kind": "word"
         },
         {
-          "text": "Oliver Twist",
+          "text": "period",
           "kind": "word"
         }
       ]

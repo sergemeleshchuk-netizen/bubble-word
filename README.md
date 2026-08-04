@@ -43,14 +43,17 @@ The base has two layers, and they are marked apart in the data (`categories.orig
 Two things follow, and both are enforced rather than promised:
 
 - **Ready-made quadruples from the game are never reused.** A quadruple is a
-  level layout, not content; the `REFERENCE_NOVELTY` check in the validator
-  rejects a level that reproduces one. Sources for the import are in
-  `tool/word_content_pipeline/data/runs/run-002-bwj-org/`.
-- **Level layouts are assembled only from our own categories.** All 14 248
-  validated quadruples come from the 1263 `seed` categories; the reference layer
-  contributes none. It works as a dictionary and as a check surface for the
-  solver — the more places a word could plausibly belong, the stricter the
-  uniqueness proof.
+  level layout, not content; the `REFERENCE_NOVELTY` check rejects a level that
+  reproduces one, and the shipped pack is built with that check set to `hard`
+  (recorded in `data/final-pack/pack.json` as `reference_novelty`). Sources for
+  the import are in `tool/word_content_pipeline/data/runs/run-002-bwj-org/`.
+- **The reference layer does contribute categories, and the count is stated
+  rather than glossed.** In the shipped pack of 10 levels, 55 of 145 categories
+  have a key that also occurs in the game's transcription; the other 90 were
+  written for this project. Per-level counts are in `levels/CERTIFICATION.md`,
+  column C5. The words inside a borrowed category are re-selected by the
+  generator, so no quadruple is a copy — but the category and its pool are the
+  original's, and calling the whole pack original would be untrue.
 
 A separate read-only source, `RefBWJ`, exposes the original game's levels as
 recorded, for comparison and playtesting. It never feeds generation.
@@ -68,6 +71,12 @@ recorded, for comparison and playtesting. It never feeds generation.
    of contributing factors, calibrated on 199 recorded levels of the original.
 4. **Exports JSON** — a game-facing format and a full pipeline artifact.
    Export is blocked while any level fails a hard check.
+
+Solvability of the shipped pack is certified **by a second, independent program**
+(`tool/level-tool/scripts/certify_solvability.ts`), which imports nothing from
+the tool's core and reads only the shipped JSON. It re-proves uniqueness over a
+wider plausibility graph, replays the deal with the real board capacity, and
+writes a machine certificate per level. Report: `levels/CERTIFICATION.md`.
 
 ## Repository layout
 
@@ -89,3 +98,8 @@ have — most importantly, that independent blind-solver runs by a separate AI
 session were not performed. The base itself currently fails three
 reference-reproduction tests and its integrity check; the causes and the repair
 plan are in `status.md`.
+
+`levels/CERTIFICATION.md` has its own "what this does not prove" section, and
+`levels/manual-play.json` records how far a human actually played each level:
+one of the ten was played by hand, the other nine were only opened and checked
+against the pack's start layout.

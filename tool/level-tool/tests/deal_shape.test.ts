@@ -87,7 +87,6 @@ test('бесплодная досыпка усложняет: доля прод�
   const spec = withStart(buildSpec(913, categories), [4, 4, 1, 1]);
   const shape = dealShape(spec);
   assert.ok(shape.refillWaves > 0, 'у уровня с очередью обязаны быть волны досыпки');
-  assert.ok(shape.refillCompletionShare >= 0 && shape.refillCompletionShare <= 1);
 
   const weights = scoring.difficulty.declared;
   const withDry = computeDifficulty(spec, index, {

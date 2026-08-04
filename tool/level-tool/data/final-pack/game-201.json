@@ -1,6 +1,7 @@
 {
   "level_id": 201,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 13,
     "words_per_category": 4,
@@ -8,291 +9,497 @@
     "board_capacity": 24,
     "move_limit": 57
   },
+  "deal": {
+    "start": [
+      {
+        "word": "theater",
+        "category": "academic_subjects"
+      },
+      {
+        "word": "clothing tag",
+        "category": "clothing_purchase"
+      },
+      {
+        "word": "credit",
+        "category": "economics"
+      },
+      {
+        "word": "geometry",
+        "category": "academic_subjects"
+      },
+      {
+        "word": "biology",
+        "category": "academic_subjects"
+      },
+      {
+        "word": "laser",
+        "category": "optical_devices"
+      },
+      {
+        "word": "market",
+        "category": "economics"
+      },
+      {
+        "word": "supply",
+        "category": "economics"
+      },
+      {
+        "word": "cupcake",
+        "category": "pastries"
+      },
+      {
+        "word": "flashlight",
+        "category": "diving_gear"
+      },
+      {
+        "word": "hanger",
+        "category": "clothing_purchase"
+      },
+      {
+        "word": "antelope",
+        "category": "antelope_and_grazers"
+      },
+      {
+        "word": "porcini",
+        "category": "mushrooms"
+      },
+      {
+        "word": "chanterelle",
+        "category": "mushrooms"
+      },
+      {
+        "word": "danish",
+        "category": "pastries"
+      },
+      {
+        "word": "periscope",
+        "category": "optical_devices"
+      },
+      {
+        "word": "cashier",
+        "category": "clothing_purchase"
+      },
+      {
+        "word": "demand",
+        "category": "economics"
+      },
+      {
+        "word": "regulator",
+        "category": "diving_gear"
+      },
+      {
+        "word": "donut",
+        "category": "pastries"
+      },
+      {
+        "word": "gauge",
+        "category": "diving_gear"
+      },
+      {
+        "word": "lens",
+        "category": "optical_devices"
+      },
+      {
+        "word": "gnu",
+        "category": "antelope_and_grazers"
+      },
+      {
+        "word": "morel",
+        "category": "mushrooms"
+      }
+    ],
+    "queue": [
+      {
+        "word": "try on",
+        "category": "clothing_purchase"
+      },
+      {
+        "word": "portobello",
+        "category": "mushrooms"
+      },
+      {
+        "word": "bison",
+        "category": "antelope_and_grazers"
+      },
+      {
+        "word": "yak",
+        "category": "antelope_and_grazers"
+      },
+      {
+        "word": "dive knife",
+        "category": "diving_gear"
+      },
+      {
+        "word": "chamois",
+        "category": "mountain_animals"
+      },
+      {
+        "word": "Hawking",
+        "category": "scientists"
+      },
+      {
+        "word": "biscuit",
+        "category": "pastries"
+      },
+      {
+        "word": "bighorn",
+        "category": "mountain_animals"
+      },
+      {
+        "word": "alpaca",
+        "category": "mountain_animals"
+      },
+      {
+        "word": "llama",
+        "category": "mountain_animals"
+      },
+      {
+        "word": "Newton",
+        "category": "scientists"
+      },
+      {
+        "word": "Fleming",
+        "category": "scientists"
+      },
+      {
+        "word": "Einstein",
+        "category": "scientists"
+      },
+      {
+        "word": "glass",
+        "category": "prism"
+      },
+      {
+        "word": "triangle",
+        "category": "prism"
+      },
+      {
+        "word": "crystal",
+        "category": "prism"
+      },
+      {
+        "word": "rainbow",
+        "category": "prism"
+      },
+      {
+        "word": "bass",
+        "category": "string_instruments"
+      },
+      {
+        "word": "violin",
+        "category": "string_instruments"
+      },
+      {
+        "word": "fiddle",
+        "category": "string_instruments"
+      },
+      {
+        "word": "guitar",
+        "category": "string_instruments"
+      },
+      {
+        "word": "peso",
+        "category": "world_currencies_more"
+      },
+      {
+        "word": "rupee",
+        "category": "world_currencies_more"
+      },
+      {
+        "word": "yen",
+        "category": "world_currencies_more"
+      },
+      {
+        "word": "baht",
+        "category": "world_currencies_more"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "salads",
-      "label": "SALADS",
+      "key": "economics",
+      "label": "ECONOMICS",
       "words": [
         {
-          "text": "coleslaw",
+          "text": "demand",
           "kind": "word"
         },
         {
-          "text": "chef salad",
+          "text": "credit",
           "kind": "word"
         },
         {
-          "text": "macaroni salad",
+          "text": "market",
           "kind": "word"
         },
         {
-          "text": "waldorf",
+          "text": "supply",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "picnic_basket",
-      "label": "PICNIC BASKET",
+      "key": "academic_subjects",
+      "label": "ACADEMIC SUBJECTS",
       "words": [
         {
-          "text": "salads",
+          "text": "economics",
           "kind": "meta",
-          "meta_child": "salads"
+          "meta_child": "economics"
         },
         {
-          "text": "thermos",
+          "text": "biology",
           "kind": "word"
         },
         {
-          "text": "fruits",
+          "text": "theater",
           "kind": "word"
         },
         {
-          "text": "desserts",
+          "text": "geometry",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "houseplants",
-      "label": "HOUSEPLANTS",
+      "key": "prism",
+      "label": "PRISM",
       "words": [
         {
-          "text": "geranium",
+          "text": "crystal",
           "kind": "word"
         },
         {
-          "text": "Ivy",
+          "text": "rainbow",
           "kind": "word"
         },
         {
-          "text": "peace lily",
+          "text": "glass",
           "kind": "word"
         },
         {
-          "text": "spider plant",
+          "text": "triangle",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "garden_center",
-      "label": "GARDEN CENTER",
+      "key": "optical_devices",
+      "label": "OPTICAL DEVICES",
       "words": [
         {
-          "text": "houseplants",
+          "text": "prism",
           "kind": "meta",
-          "meta_child": "houseplants"
+          "meta_child": "prism"
         },
         {
-          "text": "trowel",
+          "text": "periscope",
           "kind": "word"
         },
         {
-          "text": "seedling",
+          "text": "lens",
           "kind": "word"
         },
         {
-          "text": "trees",
+          "text": "laser",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "voice_sounds",
-      "label": "VOICE SOUNDS",
+      "key": "clothing_purchase",
+      "label": "CLOTHING PURCHASE",
       "words": [
         {
-          "text": "whistle",
+          "text": "try on",
           "kind": "word"
         },
         {
-          "text": "moan",
+          "text": "clothing tag",
           "kind": "word"
         },
         {
-          "text": "sob",
+          "text": "hanger",
           "kind": "word"
         },
         {
-          "text": "grunt",
+          "text": "cashier",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "sports_legends",
-      "label": "SPORTS LEGENDS",
+      "key": "world_currencies_more",
+      "label": "MORE CURRENCIES",
       "words": [
         {
-          "text": "Gretzky",
+          "text": "baht",
           "kind": "word"
         },
         {
-          "text": "Nicklaus",
+          "text": "yen",
           "kind": "word"
         },
         {
-          "text": "Ruth",
+          "text": "peso",
           "kind": "word"
         },
         {
-          "text": "Ali",
+          "text": "rupee",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "baby_things",
-      "label": "BABY THINGS",
+      "key": "mushrooms",
+      "label": "MUSHROOMS",
       "words": [
         {
-          "text": "diaper",
+          "text": "morel",
           "kind": "word"
         },
         {
-          "text": "formula",
+          "text": "porcini",
           "kind": "word"
         },
         {
-          "text": "crib",
+          "text": "portobello",
           "kind": "word"
         },
         {
-          "text": "cradle",
+          "text": "chanterelle",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "laundry_things",
-      "label": "LAUNDRY THINGS",
+      "key": "mountain_animals",
+      "label": "MOUNTAIN ANIMALS",
       "words": [
         {
-          "text": "basket",
+          "text": "alpaca",
           "kind": "word"
         },
         {
-          "text": "starch",
+          "text": "llama",
           "kind": "word"
         },
         {
-          "text": "detergent",
+          "text": "bighorn",
           "kind": "word"
         },
         {
-          "text": "washer",
+          "text": "chamois",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "bible_books",
-      "label": "BIBLE BOOKS",
+      "key": "scientists",
+      "label": "FAMOUS SCIENTISTS",
       "words": [
         {
-          "text": "Genesis",
+          "text": "Fleming",
           "kind": "word"
         },
         {
-          "text": "Isaiah",
+          "text": "Newton",
           "kind": "word"
         },
         {
-          "text": "Revelation",
+          "text": "Einstein",
           "kind": "word"
         },
         {
-          "text": "Proverbs",
+          "text": "Hawking",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "famous_museums",
-      "label": "FAMOUS MUSEUMS",
+      "key": "antelope_and_grazers",
+      "label": "GRAZING ANIMALS",
       "words": [
         {
-          "text": "Prado",
+          "text": "gnu",
           "kind": "word"
         },
         {
-          "text": "Hermitage",
+          "text": "antelope",
           "kind": "word"
         },
         {
-          "text": "MoMA",
+          "text": "bison",
           "kind": "word"
         },
         {
-          "text": "British Museum",
+          "text": "yak",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "disney_characters",
-      "label": "DISNEY CHARACTERS",
+      "key": "diving_gear",
+      "label": "DIVING GEAR",
       "words": [
         {
-          "text": "Snow White",
+          "text": "regulator",
           "kind": "word"
         },
         {
-          "text": "Nemo",
+          "text": "gauge",
           "kind": "word"
         },
         {
-          "text": "Peter Pan",
+          "text": "flashlight",
           "kind": "word"
         },
         {
-          "text": "Anna",
+          "text": "dive knife",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "trees_more",
-      "label": "MORE TREES",
+      "key": "string_instruments",
+      "label": "STRING INSTRUMENTS",
       "words": [
         {
-          "text": "linden",
+          "text": "fiddle",
           "kind": "word"
         },
         {
-          "text": "eucalyptus",
+          "text": "guitar",
           "kind": "word"
         },
         {
-          "text": "mulberry",
+          "text": "bass",
           "kind": "word"
         },
         {
-          "text": "olive",
+          "text": "violin",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "famous_stadiums",
-      "label": "FAMOUS STADIUMS",
+      "key": "pastries",
+      "label": "PASTRIES",
       "words": [
         {
-          "text": "Rose Bowl",
+          "text": "donut",
           "kind": "word"
         },
         {
-          "text": "Madison Square Garden",
+          "text": "cupcake",
           "kind": "word"
         },
         {
-          "text": "Daytona",
+          "text": "danish",
           "kind": "word"
         },
         {
-          "text": "Churchill Downs",
+          "text": "biscuit",
           "kind": "word"
         }
       ]

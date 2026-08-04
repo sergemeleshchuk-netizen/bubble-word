@@ -1,0 +1,137 @@
+{
+  "_comment": "Записи РУЧНОЙ игры. Единственная часть сертификации, которую не делает скрипт: человек открывает уровень в прототипе и играет. Файл ведётся руками; sertify_solvability.ts его читает и вкладывает в сертификаты. Уровень без записи здесь получает в сертификате manual_play: null, и отчёт называет это вслух — молчаливого «наверное сыграли» быть не должно.",
+  "_fields": {
+    "level_id": "номер уровня пакета",
+    "pack_hash": "какой пакет играли: запись от другого пакета не считается",
+    "date": "дата прохождения",
+    "build": "где играли",
+    "result": "won | partial | lost",
+    "moves_used": "сколько ходов потрачено",
+    "move_limit": "лимит уровня",
+    "categories_collected": "сколько категорий собрано",
+    "categories_total": "сколько их всего",
+    "note": "что увидели своими глазами"
+  },
+  "records": [
+    {
+      "level_id": 201,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, пакет через ?gen=0, Chrome",
+      "result": "partial",
+      "moves_used": 19,
+      "move_limit": 57,
+      "categories_collected": 3,
+      "categories_total": 13,
+      "note": "Сертифицированная выкладка играется: 24 пузыря на старте ровно те, что в deal.start, мерджи проходят, сбор категории даёт волну досыпки, мета-связь ECONOMICS → ACADEMIC SUBJECTS отработала (сбор дочерней категории родил пузырь с её именем у родителя). Партия НЕ доиграна до конца, и причина не в уровне: досыпанные пузыри всплывают под шапку и там встают. Один оказался целиком за полосой прогресса — не читается и не берётся мышью; попытка мерджа в него не состоялась, а ход списался (38 из 57). Это дефект клиента, а не уровня: правила игры уровень проходят (C3), а прототип делает часть поля недоступной. Заведено как отдельная находка ручной игры."
+    },
+    {
+      "level_id": 202,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=1, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 61,
+      "categories_collected": 0,
+      "categories_total": 15,
+      "note": "Проверена только загрузка: 24 пузыря стартовой выкладки, лимит 61 — совпадает с пакетом. Партия руками не игралась."
+    },
+    {
+      "level_id": 203,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=2, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 58,
+      "categories_collected": 0,
+      "categories_total": 12,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 58 — совпадает с пакетом."
+    },
+    {
+      "level_id": 204,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=3, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 65,
+      "categories_collected": 0,
+      "categories_total": 16,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 65 — совпадает с пакетом."
+    },
+    {
+      "level_id": 205,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=4, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 68,
+      "categories_collected": 0,
+      "categories_total": 18,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 68 — совпадает с пакетом."
+    },
+    {
+      "level_id": 206,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=5, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 58,
+      "categories_collected": 0,
+      "categories_total": 12,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 58 — совпадает с пакетом."
+    },
+    {
+      "level_id": 207,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=6, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 57,
+      "categories_collected": 0,
+      "categories_total": 14,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 57 — совпадает с пакетом."
+    },
+    {
+      "level_id": 208,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=7, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 61,
+      "categories_collected": 0,
+      "categories_total": 15,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 61 — совпадает с пакетом."
+    },
+    {
+      "level_id": 209,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=8, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 67,
+      "categories_collected": 0,
+      "categories_total": 17,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 67 — совпадает с пакетом."
+    },
+    {
+      "level_id": 210,
+      "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+      "date": "2026-08-04",
+      "build": "прототип site/playable/index.html, ?gen=9, Chrome",
+      "result": "loaded",
+      "moves_used": 0,
+      "move_limit": 59,
+      "categories_collected": 0,
+      "categories_total": 13,
+      "note": "Проверена только загрузка: 24 пузыря, лимит 59 — совпадает с пакетом."
+    }
+  ]
+}

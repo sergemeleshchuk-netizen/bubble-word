@@ -1,7 +1,7 @@
 {
   "level_spec": {
     "levelId": 208,
-    "schemaVersion": "2.0",
+    "schemaVersion": "2.2",
     "board": {
       "categoriesCount": 15,
       "wordsPerCategory": 4,
@@ -10,95 +10,97 @@
       "moveFloor": 45,
       "moveLimit": 61,
       "moveLimitK": 1.35,
-      "moveLimitPolicy": "conservative"
+      "moveLimitPolicy": "conservative",
+      "dealMinStartWords": 2
     },
     "categories": [
       {
-        "key": "furniture",
-        "label": "FURNITURE",
-        "rule": "Movable household furniture",
+        "key": "mirror",
+        "label": "MIRROR",
+        "rule": "What belongs to the group «Mirror» as used in the original game",
+        "theme": "misc",
+        "words": [
+          {
+            "text": "silver",
+            "kind": "word",
+            "zipf": 4.81,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.83
+          },
+          {
+            "text": "bathroom",
+            "kind": "word",
+            "zipf": 4.54,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.76
+          },
+          {
+            "text": "reflection",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.67
+          },
+          {
+            "text": "vanity",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.56
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "things_you_hang",
+        "isQuickwin": true
+      },
+      {
+        "key": "things_you_hang",
+        "label": "THINGS YOU HANG",
+        "rule": "Things a person hangs up",
         "theme": "home",
         "words": [
           {
-            "text": "bench",
-            "kind": "word",
-            "zipf": 4.39,
+            "text": "mirror",
+            "kind": "meta",
+            "metaChild": "mirror",
+            "zipf": 4.47,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "icon": "🪞"
           },
           {
-            "text": "rocker",
+            "text": "banner",
             "kind": "word",
-            "zipf": 3.34,
+            "zipf": 4.12,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "relation": "does_action",
+            "fit": 0.95,
+            "obviousness": 0.85
           },
           {
-            "text": "table",
+            "text": "flag",
             "kind": "word",
-            "zipf": 5.05,
+            "zipf": 4.58,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "relation": "does_action",
+            "fit": 0.95,
+            "obviousness": 0.85
           },
           {
-            "text": "dresser",
+            "text": "wreath",
             "kind": "word",
             "zipf": 3.36,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "home_decor",
-        "isQuickwin": true
-      },
-      {
-        "key": "home_decor",
-        "label": "HOME DECOR",
-        "rule": "What you choose when you decorate a room",
-        "theme": "home",
-        "words": [
-          {
-            "text": "furniture",
-            "kind": "meta",
-            "metaChild": "furniture",
-            "zipf": 4.29,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "colors",
-            "kind": "word",
-            "zipf": 4.46,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.9,
-            "obviousness": 0.62
-          },
-          {
-            "text": "lighting",
-            "kind": "word",
-            "zipf": 4.29,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.92,
-            "obviousness": 0.68
-          },
-          {
-            "text": "curtains",
-            "kind": "word",
-            "zipf": 3.66,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.93,
-            "obviousness": 0.8
+            "relation": "does_action",
+            "fit": 0.95,
+            "obviousness": 0.85
           }
         ],
         "metaDepth": 0,
@@ -106,232 +108,138 @@
         "isQuickwin": false
       },
       {
-        "key": "bones",
-        "label": "BONES",
-        "rule": "Bones of the human skeleton",
-        "theme": "body",
+        "key": "mist",
+        "label": "MIST",
+        "rule": "What belongs to the group «Mist» as used in the original game",
+        "theme": "misc",
         "words": [
           {
-            "text": "femur",
+            "text": "spray",
             "kind": "word",
-            "zipf": 3,
+            "zipf": 4.18,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.67
           },
           {
-            "text": "shin bone",
+            "text": "fog",
             "kind": "word",
-            "zipf": 3.69,
+            "zipf": 3.9,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.6
           },
           {
-            "text": "skull",
+            "text": "haze",
             "kind": "word",
-            "zipf": 4.09,
+            "zipf": 3.42,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.48
           },
           {
-            "text": "hip bone",
-            "kind": "word",
-            "zipf": 4.46,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 1,
-        "parentKey": "natural_history_museum",
-        "isQuickwin": true
-      },
-      {
-        "key": "natural_history_museum",
-        "label": "NATURAL HISTORY MUSEUM",
-        "rule": "What is displayed in a natural history museum case",
-        "theme": "science",
-        "words": [
-          {
-            "text": "bones",
-            "kind": "meta",
-            "metaChild": "bones",
-            "zipf": 4.32,
-            "frequencyUnknown": false
-          },
-          {
-            "text": "gemstones",
-            "kind": "word",
-            "zipf": 2.78,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.88,
-            "obviousness": 0.56
-          },
-          {
-            "text": "diorama",
-            "kind": "word",
-            "zipf": 2.49,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.9,
-            "obviousness": 0.64
-          },
-          {
-            "text": "fossil",
-            "kind": "word",
-            "zipf": 3.99,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.96,
-            "obviousness": 0.86
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "hats",
-        "label": "HATS",
-        "rule": "Things worn on the head",
-        "theme": "clothing",
-        "words": [
-          {
-            "text": "helmet",
-            "kind": "word",
-            "zipf": 4.02,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "sun hat",
-            "kind": "word",
-            "zipf": 4.53,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "cap",
-            "kind": "word",
-            "zipf": 4.51,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "headband",
-            "kind": "word",
-            "zipf": 3,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "hotel_chains",
-        "label": "HOTEL CHAINS",
-        "rule": "Major hotel chains",
-        "theme": "brands",
-        "words": [
-          {
-            "text": "Westin",
-            "kind": "word",
-            "zipf": 2.67,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Days Inn",
-            "kind": "word",
-            "zipf": 4.07,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Hyatt",
-            "kind": "word",
-            "zipf": 3.17,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          },
-          {
-            "text": "Holiday Inn",
-            "kind": "word",
-            "zipf": 4.07,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.7
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "sleep_and_rest",
-        "label": "SLEEP WORDS",
-        "rule": "Words about sleep and its problems",
-        "theme": "medicine",
-        "words": [
-          {
-            "text": "rest",
-            "kind": "word",
-            "zipf": 5.23,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "bedtime",
+            "text": "vapor",
             "kind": "word",
             "zipf": 3.56,
             "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.52
+          }
+        ],
+        "metaDepth": 1,
+        "parentKey": "weather",
+        "isQuickwin": true
+      },
+      {
+        "key": "weather",
+        "label": "WEATHER",
+        "rule": "What belongs to the group «Weather» as used in the original game",
+        "theme": "nature",
+        "words": [
+          {
+            "text": "mist",
+            "kind": "meta",
+            "metaChild": "mist",
+            "zipf": 3.67,
+            "frequencyUnknown": false
           },
           {
-            "text": "nightmare",
+            "text": "sun",
             "kind": "word",
-            "zipf": 4.19,
+            "zipf": 4.97,
             "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.87
           },
           {
-            "text": "insomnia",
+            "text": "storm",
             "kind": "word",
-            "zipf": 3.43,
+            "zipf": 4.66,
             "frequencyUnknown": false,
-            "relation": "found_in",
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.79
+          },
+          {
+            "text": "dust storm",
+            "kind": "word",
+            "zipf": 4.41,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.73
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "cleaning_tools",
+        "label": "CLEANING TOOLS",
+        "rule": "Tools used for cleaning and tidying",
+        "theme": "tools",
+        "words": [
+          {
+            "text": "sponge",
+            "kind": "word",
+            "zipf": 3.59,
+            "frequencyUnknown": false,
+            "relation": "used_in",
             "fit": 0.97,
-            "obviousness": 0.75
+            "obviousness": 0.82
+          },
+          {
+            "text": "rag",
+            "kind": "word",
+            "zipf": 3.55,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "bucket",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.79
+          },
+          {
+            "text": "steam cleaner",
+            "kind": "word",
+            "zipf": 3.9,
+            "frequencyUnknown": false,
+            "relation": "used_in",
+            "fit": 0.97,
+            "obviousness": 0.89
           }
         ],
         "metaDepth": 0,
@@ -339,46 +247,140 @@
         "isQuickwin": true
       },
       {
-        "key": "flowers",
-        "label": "FLOWERS",
-        "rule": "Kinds of flowers commonly sold or grown in gardens",
-        "theme": "nature",
+        "key": "bbq_foods",
+        "label": "BARBECUE FOODS",
+        "rule": "Foods cooked or served at an American backyard barbecue",
+        "theme": "food",
         "words": [
           {
-            "text": "rose",
+            "text": "pulled pork",
             "kind": "word",
-            "zipf": 4.82,
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "potato salad",
+            "kind": "word",
+            "zipf": 4.11,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "burger",
+            "kind": "word",
+            "zipf": 4.07,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.89
+          },
+          {
+            "text": "hot dog",
+            "kind": "word",
+            "zipf": 5.1,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.88
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "retail_stores",
+        "label": "RETAIL STORES",
+        "rule": "Large retail store chains in America",
+        "theme": "brands",
+        "words": [
+          {
+            "text": "Aldi",
+            "kind": "word",
+            "zipf": 2.96,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "Safeway",
+            "kind": "word",
+            "zipf": 2.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "Nordstrom",
+            "kind": "word",
+            "zipf": 2.98,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "Lowes",
+            "kind": "word",
+            "zipf": 2.69,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "birds",
+        "label": "BIRDS",
+        "rule": "Bird species an average American can name",
+        "theme": "animals",
+        "words": [
+          {
+            "text": "blue jay",
+            "kind": "word",
+            "zipf": 4.38,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "raven",
+            "kind": "word",
+            "zipf": 3.79,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "owls",
+            "kind": "word",
+            "zipf": 3.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.98,
             "obviousness": 0.88
           },
           {
-            "text": "lavender",
+            "text": "canary",
             "kind": "word",
             "zipf": 3.44,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "Violet",
-            "kind": "word",
-            "zipf": 3.84,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "sunflower",
-            "kind": "word",
-            "zipf": 3.36,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.92
           }
         ],
         "metaDepth": 0,
@@ -386,46 +388,234 @@
         "isQuickwin": true
       },
       {
-        "key": "national_parks_us",
-        "label": "NATIONAL PARKS",
-        "rule": "American national parks",
-        "theme": "nature_more",
+        "key": "heart",
+        "label": "HEART",
+        "rule": "What belongs to the group «Heart» as used in the original game",
+        "theme": "entertainment",
         "words": [
           {
-            "text": "Denali",
+            "text": "beat",
             "kind": "word",
-            "zipf": 2.62,
+            "zipf": 5.01,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.88
           },
           {
-            "text": "Everglades",
+            "text": "Hope",
             "kind": "word",
-            "zipf": 2.93,
+            "zipf": 5.44,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.95
           },
           {
-            "text": "Badlands",
+            "text": "dear",
             "kind": "word",
-            "zipf": 2.83,
+            "zipf": 4.77,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.82
           },
           {
-            "text": "Acadia",
+            "text": "courage",
             "kind": "word",
-            "zipf": 2.72,
+            "zipf": 4.32,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.71
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "cheese",
+        "label": "CHEESE",
+        "rule": "What belongs to the group «Cheese» as used in the original game",
+        "theme": "food",
+        "words": [
+          {
+            "text": "American",
+            "kind": "word",
+            "zipf": 5.49,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.95
+          },
+          {
+            "text": "aged",
+            "kind": "word",
+            "zipf": 4.5,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.75
+          },
+          {
+            "text": "cottage",
+            "kind": "word",
+            "zipf": 4,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.62
+          },
+          {
+            "text": "colby",
+            "kind": "word",
+            "zipf": 3.25,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.44
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "toys",
+        "label": "TOYS",
+        "rule": "Things children play with",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "jack in the box",
+            "kind": "word",
+            "zipf": 4.82,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.94
+          },
+          {
+            "text": "teddy bear",
+            "kind": "word",
+            "zipf": 3.88,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "car",
+            "kind": "word",
+            "zipf": 5.45,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.95
+          },
+          {
+            "text": "bubble",
+            "kind": "word",
+            "zipf": 4.16,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.79
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "medicine_cabinet",
+        "label": "MEDICINE CABINET",
+        "rule": "Things kept in a home medicine cabinet",
+        "theme": "body",
+        "words": [
+          {
+            "text": "eye drops",
+            "kind": "word",
+            "zipf": 4.33,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "aspirin",
+            "kind": "word",
+            "zipf": 3.34,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "bandage",
+            "kind": "word",
+            "zipf": 3.24,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "thermometer",
+            "kind": "word",
+            "zipf": 3.22,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.84
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "vitamins_and_minerals",
+        "label": "VITAMINS AND MINERALS",
+        "rule": "Nutrients the body needs in small amounts",
+        "theme": "medicine",
+        "words": [
+          {
+            "text": "biotin",
+            "kind": "word",
+            "zipf": 2.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "selenium",
+            "kind": "word",
+            "zipf": 2.92,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "folate",
+            "kind": "word",
+            "zipf": 2.65,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "niacin",
+            "kind": "word",
+            "zipf": 2.51,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
           }
         ],
         "metaDepth": 0,
@@ -433,281 +623,93 @@
         "isQuickwin": false
       },
       {
-        "key": "oceania_places",
-        "label": "OCEANIA PLACES",
-        "rule": "Countries and islands of Oceania",
-        "theme": "places",
+        "key": "landmarks",
+        "label": "LANDMARKS",
+        "rule": "What belongs to the group «Landmarks» as used in the original game",
+        "theme": "geography",
         "words": [
           {
-            "text": "Papua New Guinea",
+            "text": "Stonehenge",
             "kind": "word",
-            "zipf": 3.42,
+            "zipf": 2.93,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.36
           },
           {
-            "text": "Tonga",
+            "text": "Colosseum",
             "kind": "word",
-            "zipf": 3.1,
+            "zipf": 2.84,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.33
           },
           {
-            "text": "Samoa",
+            "text": "sagrada fam lia",
             "kind": "word",
-            "zipf": 3.39,
+            "zipf": 2.2,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.2
           },
           {
-            "text": "Solomon Islands",
+            "text": "Great Wall",
             "kind": "word",
-            "zipf": 3.81,
+            "zipf": 5.04,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.65
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.89
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
-        "isQuickwin": true
+        "isQuickwin": false
       },
       {
-        "key": "harvest_words",
-        "label": "HARVEST WORDS",
-        "rule": "Words used at harvest time",
-        "theme": "farming",
+        "key": "punctuation",
+        "label": "PUNCTUATION MARKS",
+        "rule": "Marks used to punctuate written English",
+        "theme": "language",
         "words": [
           {
-            "text": "field",
+            "text": "quotation mark",
             "kind": "word",
-            "zipf": 5.24,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "reap",
-            "kind": "word",
-            "zipf": 3.53,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "sickle",
-            "kind": "word",
-            "zipf": 3.15,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "bale",
-            "kind": "word",
-            "zipf": 3.61,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "injuries",
-        "label": "INJURIES",
-        "rule": "Kinds of physical injury",
-        "theme": "medicine",
-        "words": [
-          {
-            "text": "blister",
-            "kind": "word",
-            "zipf": 3,
+            "zipf": 3.51,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.85
+            "obviousness": 0.94
           },
           {
-            "text": "fracture",
-            "kind": "word",
-            "zipf": 3.7,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "puncture",
-            "kind": "word",
-            "zipf": 3.23,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          },
-          {
-            "text": "burn",
-            "kind": "word",
-            "zipf": 4.53,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.85
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "vegetables",
-        "label": "VEGETABLES",
-        "rule": "Common edible vegetables sold in an ordinary American grocery store",
-        "theme": "food",
-        "words": [
-          {
-            "text": "lettuce",
-            "kind": "word",
-            "zipf": 3.56,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "beet",
+            "text": "asterisk",
             "kind": "word",
             "zipf": 3.05,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "question",
+            "kind": "word",
+            "zipf": 5.35,
+            "frequencyUnknown": false,
+            "relation": "associated_with",
+            "fit": 0.95,
             "obviousness": 0.95
           },
           {
-            "text": "cabbage",
+            "text": "period",
             "kind": "word",
-            "zipf": 3.55,
+            "zipf": 5.21,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.95
-          },
-          {
-            "text": "squash",
-            "kind": "word",
-            "zipf": 3.63,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.95
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "snakes",
-        "label": "SNAKES",
-        "rule": "Kinds of snake",
-        "theme": "species",
-        "words": [
-          {
-            "text": "garter",
-            "kind": "word",
-            "zipf": 2.97,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "rattlesnake",
-            "kind": "word",
-            "zipf": 2.87,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "anaconda",
-            "kind": "word",
-            "zipf": 2.97,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "mamba",
-            "kind": "word",
-            "zipf": 2.64,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "classic_novels",
-        "label": "CLASSIC NOVELS",
-        "rule": "Classic novels widely read in school",
-        "theme": "media",
-        "words": [
-          {
-            "text": "Treasure Island",
-            "kind": "word",
-            "zipf": 4.17,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "Call of the Wild",
-            "kind": "word",
-            "zipf": 4.8,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "Of Mice and Men",
-            "kind": "word",
-            "zipf": 4.09,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "Oliver Twist",
-            "kind": "word",
-            "zipf": 4.22,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.72
+            "obviousness": 0.85
           }
         ],
         "metaDepth": 0,
@@ -715,22 +717,270 @@
         "isQuickwin": true
       }
     ],
-    "traps": [],
+    "deal": {
+      "start": [
+        {
+          "word": "bucket",
+          "category": "cleaning_tools"
+        },
+        {
+          "word": "beat",
+          "category": "heart"
+        },
+        {
+          "word": "bathroom",
+          "category": "mirror"
+        },
+        {
+          "word": "Stonehenge",
+          "category": "landmarks"
+        },
+        {
+          "word": "sagrada fam lia",
+          "category": "landmarks"
+        },
+        {
+          "word": "reflection",
+          "category": "mirror"
+        },
+        {
+          "word": "eye drops",
+          "category": "medicine_cabinet"
+        },
+        {
+          "word": "vanity",
+          "category": "mirror"
+        },
+        {
+          "word": "Great Wall",
+          "category": "landmarks"
+        },
+        {
+          "word": "flag",
+          "category": "things_you_hang"
+        },
+        {
+          "word": "storm",
+          "category": "weather"
+        },
+        {
+          "word": "cottage",
+          "category": "cheese"
+        },
+        {
+          "word": "banner",
+          "category": "things_you_hang"
+        },
+        {
+          "word": "steam cleaner",
+          "category": "cleaning_tools"
+        },
+        {
+          "word": "colby",
+          "category": "cheese"
+        },
+        {
+          "word": "dear",
+          "category": "heart"
+        },
+        {
+          "word": "sun",
+          "category": "weather"
+        },
+        {
+          "word": "aspirin",
+          "category": "medicine_cabinet"
+        },
+        {
+          "word": "Hope",
+          "category": "heart"
+        },
+        {
+          "word": "thermometer",
+          "category": "medicine_cabinet"
+        },
+        {
+          "word": "aged",
+          "category": "cheese"
+        },
+        {
+          "word": "dust storm",
+          "category": "weather"
+        },
+        {
+          "word": "silver",
+          "category": "mirror"
+        },
+        {
+          "word": "wreath",
+          "category": "things_you_hang"
+        }
+      ],
+      "queue": [
+        {
+          "word": "courage",
+          "category": "heart"
+        },
+        {
+          "word": "American",
+          "category": "cheese"
+        },
+        {
+          "word": "sponge",
+          "category": "cleaning_tools"
+        },
+        {
+          "word": "rag",
+          "category": "cleaning_tools"
+        },
+        {
+          "word": "bandage",
+          "category": "medicine_cabinet"
+        },
+        {
+          "word": "Nordstrom",
+          "category": "retail_stores"
+        },
+        {
+          "word": "potato salad",
+          "category": "bbq_foods"
+        },
+        {
+          "word": "Colosseum",
+          "category": "landmarks"
+        },
+        {
+          "word": "burger",
+          "category": "bbq_foods"
+        },
+        {
+          "word": "hot dog",
+          "category": "bbq_foods"
+        },
+        {
+          "word": "pulled pork",
+          "category": "bbq_foods"
+        },
+        {
+          "word": "Safeway",
+          "category": "retail_stores"
+        },
+        {
+          "word": "Lowes",
+          "category": "retail_stores"
+        },
+        {
+          "word": "Aldi",
+          "category": "retail_stores"
+        },
+        {
+          "word": "asterisk",
+          "category": "punctuation"
+        },
+        {
+          "word": "question",
+          "category": "punctuation"
+        },
+        {
+          "word": "quotation mark",
+          "category": "punctuation"
+        },
+        {
+          "word": "period",
+          "category": "punctuation"
+        },
+        {
+          "word": "car",
+          "category": "toys"
+        },
+        {
+          "word": "jack in the box",
+          "category": "toys"
+        },
+        {
+          "word": "teddy bear",
+          "category": "toys"
+        },
+        {
+          "word": "bubble",
+          "category": "toys"
+        },
+        {
+          "word": "haze",
+          "category": "mist"
+        },
+        {
+          "word": "vapor",
+          "category": "mist"
+        },
+        {
+          "word": "fog",
+          "category": "mist"
+        },
+        {
+          "word": "spray",
+          "category": "mist"
+        },
+        {
+          "word": "selenium",
+          "category": "vitamins_and_minerals"
+        },
+        {
+          "word": "niacin",
+          "category": "vitamins_and_minerals"
+        },
+        {
+          "word": "folate",
+          "category": "vitamins_and_minerals"
+        },
+        {
+          "word": "biotin",
+          "category": "vitamins_and_minerals"
+        },
+        {
+          "word": "owls",
+          "category": "birds"
+        },
+        {
+          "word": "blue jay",
+          "category": "birds"
+        },
+        {
+          "word": "raven",
+          "category": "birds"
+        },
+        {
+          "word": "canary",
+          "category": "birds"
+        }
+      ]
+    },
+    "traps": [
+      {
+        "word": "fog",
+        "home": "mist",
+        "decoy": "weather",
+        "homeObviousness": 0.6,
+        "decoyFit": 0.95,
+        "decoyObviousness": 0.6
+      }
+    ],
     "halves": [],
     "modifiers": {
       "chains": [],
       "frozenBubbles": [],
-      "hiddenBubbles": []
+      "hiddenBubbles": [],
+      "chainLine": null
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T08:51:36.192Z",
-    "generator_version": "gen-1.0",
-    "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
-    "level_spec_hash": "97bb6981656bd0a134585ad8267240a590e1364350bc3987c9752b2f5ba93969",
-    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
-    "seed": "final-03"
+    "generated_at": "2026-08-04T00:35:22.836Z",
+    "generator_version": "gen-1.6",
+    "scoring_version": "d-1.4-calibrated",
+    "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+    "level_spec_hash": "df06c90f00bcd7a97201c369155b0b0ebcfbca7866289e82fc19b0b90f9956cf",
+    "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+    "seed": "final-13"
   },
   "plan": {
     "levelId": 208,
@@ -742,6 +992,7 @@
     "rareTarget": 11,
     "trapTarget": 1,
     "chainCount": 0,
+    "modifier": "none",
     "targetDifficulty": [
       6,
       7.5
@@ -750,59 +1001,73 @@
       6,
       8
     ],
-    "moveLimitK": 1.35
+    "moveLimitK": 1.35,
+    "poolRankTarget": null
   },
   "scoring": {
     "difficulty": 7.5,
+    "difficulty_tier": "hard",
     "difficulty_breakdown": {
       "base_calibrated": {
-        "объём (пузырей на старте)": 5.2722,
+        "масштаб (категорий × 4 слова)": 5.2722,
         "редкие слова (zipf < 3)": 1.0417,
-        "очень редкие (zipf < 2)": 0
+        "очень редкие (zipf < 2)": 0,
+        "повторы из прошлых уровней": 0
       },
       "declared_not_calibrated": {
         "мета-связи (объявлено)": 0.44,
         "глубина мета сверх 1 (объявлено)": 0,
-        "быстрые победы (объявлено)": -0.6
+        "быстрые победы (объявлено)": -0.6,
+        "готовые четвёрки на старте (объявлено)": -0.24,
+        "тройки на старте (объявлено)": -0.2,
+        "одиночки на старте (объявлено)": 0,
+        "бесплодная досыпка (объявлено)": 0
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 0.8,
+        "смежность категорий": 1.2,
         "незапланированная спорность": 0
       },
       "mechanical": {
         "цепи": 0,
         "половинки": 0,
+        "лёд (объявлено)": 0,
+        "«?» (объявлено)": 0,
+        "цепь-линия (объявлено)": 0,
         "теснота лимита ходов": 0.6428571428571427
       },
       "totals": {
         "base": 6.336600000000001,
-        "declared": -0.15999999999999998,
-        "semantic": 0.8,
+        "declared": -0.6,
+        "semantic": 1.2,
         "mechanical": 0.6428571428571427
       }
     },
     "difficulty_explanation": [
-      "58 пузырей на старте при 15 категориях",
+      "15 категорий — это 58 слов на уровне; масштаб растёт линейно по числу категорий",
       "11 редких слов, из них 0 очень редких",
+      "повторы из прошлых уровней не переданы: спек оценивается как первый уровень пакета (0 повторов)",
       "2 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
       "10 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "2 пар категорий из одной тематической сферы",
+      "раскладка старта: 3 готовых четвёрок, 4 троек, 1 пар, 0 одиночек, 7 категорий целиком в очереди",
+      "на старте нет категорий-одиночек: каждый из 24 пузырей поля имеет пару и участвует в ходе",
+      "досыпка открывает сбор в 9 из 9 волн (100%): пачка почти всегда приносит развязку",
+      "3 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 61 при минимуме 45 (K = 1.35)"
     ],
-    "interest": 6,
+    "interest": 7.5,
     "interest_breakdown": {
-      "clarity": 2.24,
-      "variety": 1.38,
+      "clarity": 2.21,
+      "variety": 2.5,
       "aha": 0.4,
-      "freshness": 2.05
+      "freshness": 2.5
     },
     "interest_explanation": [
-      "Clarity 2.24: узнаваемых слов 98%, средняя очевидность связи 0.79",
-      "Variety 1.38: 2 типов связи, 13 тематических сфер, но 73% категорий однотипны",
+      "Clarity 2.21: узнаваемых слов 95%, средняя очевидность связи 0.81",
+      "Variety 2.50: 5 типов связи, 12 тематических сфер",
       "Aha 0.40: 0 честных ловушек, 2 мета-связей, глубина 1",
-      "Freshness 2.05: новых для пакета слов 100%"
+      "Freshness 2.50: новых для пакета слов 100%, категорий-эхо нет"
     ]
   },
   "validation": {
@@ -845,6 +1110,18 @@
         "detail": "ровно одна полная раскладка, перебор исчерпан (61 узлов)"
       },
       {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "14 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
         "code": "META_PARENT_COUNT",
         "passed": true,
         "severity": "hard",
@@ -857,10 +1134,16 @@
         "detail": "мета-лес ацикличен, связей 2"
       },
       {
+        "code": "META_ICONS_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "картинок на мета-пузырях: 1"
+      },
+      {
         "code": "META_DEPTH_WITHIN_CONFIG",
         "passed": true,
         "severity": "soft",
-        "detail": "максимальная глубина мета 1, разрешено 3"
+        "detail": "максимальная глубина мета 1, разрешено 2"
       },
       {
         "code": "CHAIN_ACYCLIC",
@@ -875,6 +1158,12 @@
         "detail": "заявлено 58, по формуле 4 × 15 − 2 = 58"
       },
       {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 58, в очереди 34"
+      },
+      {
         "code": "MOVE_LIMIT_SANE",
         "passed": true,
         "severity": "hard",
@@ -884,13 +1173,13 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 10: furniture, bones, hats, sleep_and_rest, flowers, oceania_places, harvest_words, injuries, vegetables, classic_novels"
+        "detail": "категорий быстрой победы 10: mirror, mist, cleaning_tools, bbq_foods, birds, heart, cheese, toys, medicine_cabinet, punctuation"
       },
       {
         "code": "RECOGNIZABILITY",
         "passed": true,
         "severity": "hard",
-        "detail": "внутри top-50k 98.3% пузырей (порог zipf 2.55, вне порога 1)"
+        "detail": "внутри top-50k 95.0% пузырей (порог zipf 2.55, вне порога 3)"
       },
       {
         "code": "NEAR_DUPLICATE_WORDS",
@@ -917,31 +1206,97 @@
         "detail": "точных совпадений с четвёрками референса нет"
       },
       {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
         "code": "UNSEPARABLE_PAIR",
         "passed": true,
         "severity": "soft",
         "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор редкости не задан"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор повторов не задан"
       }
     ],
-    "issues": [],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
     "solution_count": 1,
     "solution_search_exhausted": true,
-    "solution_nodes_visited": 61
+    "solution_nodes_visited": 61,
+    "playability": {
+      "winnable": true,
+      "moves_needed": 45,
+      "move_limit": 61,
+      "spare_moves": 16,
+      "offbeat_refills": 0,
+      "perceived_dead_states": 0,
+      "max_moves_without_collect": 3
+    },
+    "structure": {
+      "multi_home_words": 1,
+      "max_contested_slots": 1,
+      "opening_categories": 14,
+      "deduction_only": true,
+      "forced_steps": 60,
+      "explanation": [
+        "1 слов с двумя и более правдоподобными домами",
+        "14 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда",
+        "самая оспариваемая категория: 1 кандидатов сверх своей четвёрки"
+      ]
+    }
   },
   "generation": {
     "attempts": [
       {
         "index": 0,
         "outcome": "rejected",
-        "stage": "единственность решения",
-        "reason": "найдено две полные раскладки: слова двоятся между gemstones и jewelry_box",
+        "stage": "валидация",
+        "reason": "APPROVED_CONTENT_ONLY: связей не в статусе approved: 1",
         "relaxations": []
       },
       {
         "index": 1,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "15 категорий, 2 мета-связей, 11 редких слов, 0 ловушек",
+        "reason": "15 категорий, 2 мета-связей, 11 редких слов, 1 ловушек",
         "relaxations": []
       }
     ]

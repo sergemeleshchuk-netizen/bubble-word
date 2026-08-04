@@ -1,7 +1,7 @@
 {
   "level_spec": {
     "levelId": 206,
-    "schemaVersion": "2.0",
+    "schemaVersion": "2.2",
     "board": {
       "categoriesCount": 12,
       "wordsPerCategory": 4,
@@ -10,95 +10,96 @@
       "moveFloor": 36,
       "moveLimit": 58,
       "moveLimitK": 1.6,
-      "moveLimitPolicy": "conservative"
+      "moveLimitPolicy": "conservative",
+      "dealMinStartWords": 2
     },
     "categories": [
       {
-        "key": "ice_cream_flavors",
-        "label": "ICE CREAM",
-        "rule": "Flavors of ice cream sold in American shops",
-        "theme": "food",
+        "key": "carpenter",
+        "label": "CARPENTER",
+        "rule": "A material, tool or joint used working wood",
+        "theme": "trades",
         "words": [
           {
-            "text": "rocky road",
+            "text": "sawdust",
             "kind": "word",
-            "zipf": 4.16,
+            "zipf": 2.85,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "used_in",
+            "fit": 0.95,
+            "obviousness": 0.88
           },
           {
-            "text": "cookies and cream",
+            "text": "sander",
             "kind": "word",
-            "zipf": 4.12,
+            "zipf": 2.94,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "used_in",
+            "fit": 0.95,
+            "obviousness": 0.91
           },
           {
-            "text": "cookie dough",
+            "text": "lathe",
             "kind": "word",
-            "zipf": 3.86,
+            "zipf": 2.91,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "used_in",
+            "fit": 0.95,
+            "obviousness": 0.93
           },
           {
-            "text": "moose tracks",
+            "text": "level",
             "kind": "word",
-            "zipf": 3.61,
+            "zipf": 5.41,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.95
           }
         ],
         "metaDepth": 1,
-        "parentKey": "desserts",
-        "isQuickwin": true
+        "parentKey": "types_of_ants",
+        "isQuickwin": false
       },
       {
-        "key": "desserts",
-        "label": "DESSERTS",
-        "rule": "Sweet dishes served at the end of a meal",
-        "theme": "food",
+        "key": "types_of_ants",
+        "label": "TYPES OF ANTS",
+        "rule": "What belongs to the group «Types Of Ants» as used in the original game",
+        "theme": "misc",
         "words": [
           {
-            "text": "ice cream",
+            "text": "carpenter",
             "kind": "meta",
-            "metaChild": "ice_cream_flavors",
-            "zipf": 4.62,
+            "metaChild": "carpenter",
+            "zipf": 3.81,
             "frequencyUnknown": false
           },
           {
-            "text": "pudding",
+            "text": "army",
             "kind": "word",
-            "zipf": 3.61,
+            "zipf": 5.06,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.89
           },
           {
-            "text": "cheesecake",
+            "text": "bullet",
             "kind": "word",
-            "zipf": 3.22,
+            "zipf": 4.24,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.69
           },
           {
-            "text": "cake",
+            "text": "leaf",
             "kind": "word",
-            "zipf": 4.53,
+            "zipf": 4.22,
             "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.92
+            "relation": "associated_with",
+            "fit": 0.95,
+            "obviousness": 0.68
           }
         ],
         "metaDepth": 0,
@@ -106,375 +107,93 @@
         "isQuickwin": false
       },
       {
-        "key": "places_to_eat",
-        "label": "PLACES TO EAT",
-        "rule": "Places where people go to eat a meal",
-        "theme": "places",
+        "key": "candy_shapes",
+        "label": "CANDY TYPES",
+        "rule": "Forms candy is sold in",
+        "theme": "food_more",
         "words": [
           {
-            "text": "restaurant",
+            "text": "hard candy",
             "kind": "word",
-            "zipf": 4.68,
+            "zipf": 4.29,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.93
           },
           {
-            "text": "cafeteria",
+            "text": "lollipop",
+            "kind": "word",
+            "zipf": 3.15,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "chocolate square",
+            "kind": "word",
+            "zipf": 4.49,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "jelly",
+            "kind": "word",
+            "zipf": 3.77,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.77
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "pack_animals",
+        "label": "WORK ANIMALS",
+        "rule": "Animals used to carry loads or do work",
+        "theme": "animals_more",
+        "words": [
+          {
+            "text": "mule",
             "kind": "word",
             "zipf": 3.44,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.88
+            "obviousness": 0.93
           },
           {
-            "text": "pub",
-            "kind": "word",
-            "zipf": 4.23,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "deli",
-            "kind": "word",
-            "zipf": 3.35,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "teas",
-        "label": "TEAS",
-        "rule": "Kinds of tea",
-        "theme": "world_food",
-        "words": [
-          {
-            "text": "hibiscus",
-            "kind": "word",
-            "zipf": 2.76,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "matcha",
-            "kind": "word",
-            "zipf": 2.67,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "darjeeling",
-            "kind": "word",
-            "zipf": 2.59,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          },
-          {
-            "text": "chamomile",
-            "kind": "word",
-            "zipf": 2.62,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.8
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "patterns",
-        "label": "PATTERNS",
-        "rule": "Patterns printed on cloth",
-        "theme": "fashion",
-        "words": [
-          {
-            "text": "tartan",
-            "kind": "word",
-            "zipf": 2.91,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "argyle",
-            "kind": "word",
-            "zipf": 2.96,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "checkered",
-            "kind": "word",
-            "zipf": 2.89,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "stripe",
-            "kind": "word",
-            "zipf": 3.51,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": false
-      },
-      {
-        "key": "silverware",
-        "label": "SILVERWARE",
-        "rule": "Eating utensils laid out at a table setting",
-        "theme": "home",
-        "words": [
-          {
-            "text": "spoon",
-            "kind": "word",
-            "zipf": 3.88,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "salad fork",
-            "kind": "word",
-            "zipf": 4.03,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "teaspoon",
-            "kind": "word",
-            "zipf": 3.3,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "fork",
-            "kind": "word",
-            "zipf": 4.03,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.88
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "dental_words",
-        "label": "DENTAL WORDS",
-        "rule": "Words used at a dental office",
-        "theme": "medicine",
-        "words": [
-          {
-            "text": "braces",
-            "kind": "word",
-            "zipf": 3.49,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "retainer",
-            "kind": "word",
-            "zipf": 3.12,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "plaque",
-            "kind": "word",
-            "zipf": 3.69,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          },
-          {
-            "text": "canine",
-            "kind": "word",
-            "zipf": 3.33,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.75
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "locksmith_words",
-        "label": "LOCKS & KEYS",
-        "rule": "Things involved with locks and keys",
-        "theme": "trades",
-        "words": [
-          {
-            "text": "safe",
-            "kind": "word",
-            "zipf": 5.07,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "key",
-            "kind": "word",
-            "zipf": 5.12,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "latch",
-            "kind": "word",
-            "zipf": 3.34,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.68
-          },
-          {
-            "text": "master key",
-            "kind": "word",
-            "zipf": 4.93,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.68
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "wind_instruments",
-        "label": "WIND INSTRUMENTS",
-        "rule": "Musical instruments played by blowing air",
-        "theme": "entertainment",
-        "words": [
-          {
-            "text": "recorder",
-            "kind": "word",
-            "zipf": 3.71,
-            "frequencyUnknown": false,
-            "relation": "is_a",
-            "fit": 0.97,
-            "obviousness": 0.78
-          },
-          {
-            "text": "french horn",
+            "text": "water buffalo",
             "kind": "word",
             "zipf": 4.14,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.92
           },
           {
-            "text": "clarinet",
+            "text": "horse",
             "kind": "word",
-            "zipf": 3.12,
+            "zipf": 4.76,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
+            "obviousness": 0.87
           },
           {
-            "text": "piccolo",
+            "text": "donkey",
             "kind": "word",
-            "zipf": 3.03,
+            "zipf": 3.62,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.78
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "kitchen_tools",
-        "label": "KITCHEN TOOLS",
-        "rule": "Handheld tools and utensils used to prepare food in a kitchen",
-        "theme": "home",
-        "words": [
-          {
-            "text": "plate",
-            "kind": "word",
-            "zipf": 4.55,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.9,
             "obviousness": 0.9
-          },
-          {
-            "text": "rolling pin",
-            "kind": "word",
-            "zipf": 4.28,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "cutting board",
-            "kind": "word",
-            "zipf": 4.61,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.88
-          },
-          {
-            "text": "pan",
-            "kind": "word",
-            "zipf": 4.39,
-            "frequencyUnknown": false,
-            "relation": "used_in",
-            "fit": 0.97,
-            "obviousness": 0.88
           }
         ],
         "metaDepth": 0,
@@ -482,125 +201,593 @@
         "isQuickwin": true
       },
       {
-        "key": "japanese_names",
-        "label": "JAPANESE NAMES",
-        "rule": "First names common in Japan",
-        "theme": "names_world",
+        "key": "famous_composers",
+        "label": "COMPOSERS",
+        "rule": "Famous classical composers",
+        "theme": "entertainment",
         "words": [
           {
-            "text": "Hana",
+            "text": "Handel",
             "kind": "word",
-            "zipf": 3.21,
+            "zipf": 2.97,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.65
+            "obviousness": 0.87
           },
           {
-            "text": "Sakura",
+            "text": "Haydn",
             "kind": "word",
-            "zipf": 3.31,
+            "zipf": 2.83,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.65
+            "obviousness": 0.85
           },
           {
-            "text": "Yuki",
+            "text": "Chopin",
             "kind": "word",
-            "zipf": 3.05,
+            "zipf": 2.94,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.65
+            "obviousness": 0.92
           },
           {
-            "text": "Mei",
+            "text": "Mozart",
             "kind": "word",
-            "zipf": 3.39,
+            "zipf": 3.42,
             "frequencyUnknown": false,
             "relation": "is_a",
             "fit": 0.97,
-            "obviousness": 0.65
-          }
-        ],
-        "metaDepth": 0,
-        "parentKey": null,
-        "isQuickwin": true
-      },
-      {
-        "key": "plumbing_words",
-        "label": "PLUMBING WORDS",
-        "rule": "Things a plumber works with",
-        "theme": "trades",
-        "words": [
-          {
-            "text": "plunger",
-            "kind": "word",
-            "zipf": 2.92,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "gasket",
-            "kind": "word",
-            "zipf": 2.98,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "flange",
-            "kind": "word",
-            "zipf": 2.92,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.72
-          },
-          {
-            "text": "pipe",
-            "kind": "word",
-            "zipf": 4.25,
-            "frequencyUnknown": false,
-            "relation": "found_in",
-            "fit": 0.97,
-            "obviousness": 0.72
+            "obviousness": 0.95
           }
         ],
         "metaDepth": 0,
         "parentKey": null,
         "isQuickwin": false
-      }
-    ],
-    "traps": [
+      },
       {
-        "word": "spoon",
-        "home": "silverware",
-        "decoy": "kitchen_tools",
-        "homeObviousness": 0.88,
-        "decoyFit": 0.97,
-        "decoyObviousness": 0.88
+        "key": "golf_words",
+        "label": "GOLF WORDS",
+        "rule": "Words used to describe play and equipment in golf",
+        "theme": "sports",
+        "words": [
+          {
+            "text": "ball",
+            "kind": "word",
+            "zipf": 5.04,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.9,
+            "obviousness": 0.88
+          },
+          {
+            "text": "hole in one",
+            "kind": "word",
+            "zipf": 4.66,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "birdie",
+            "kind": "word",
+            "zipf": 3.26,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.96
+          },
+          {
+            "text": "par",
+            "kind": "word",
+            "zipf": 4.15,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "nuts_world",
+        "label": "SNACK NUTS",
+        "rule": "Nuts sold as snacks",
+        "theme": "world_food",
+        "words": [
+          {
+            "text": "pecan",
+            "kind": "word",
+            "zipf": 2.93,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.87
+          },
+          {
+            "text": "macadamia",
+            "kind": "word",
+            "zipf": 2.53,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "cashew",
+            "kind": "word",
+            "zipf": 2.75,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "hazelnut",
+            "kind": "word",
+            "zipf": 2.78,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": false
+      },
+      {
+        "key": "art_class_things",
+        "label": "ART CLASS",
+        "rule": "Things used in a school art class",
+        "theme": "education",
+        "words": [
+          {
+            "text": "brush",
+            "kind": "word",
+            "zipf": 4.23,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "glitter",
+            "kind": "word",
+            "zipf": 3.56,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "canvas",
+            "kind": "word",
+            "zipf": 3.96,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.95
+          },
+          {
+            "text": "construction paper",
+            "kind": "word",
+            "zipf": 4.97,
+            "frequencyUnknown": false,
+            "relation": "found_in",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "fantasy_creatures",
+        "label": "MYTHICAL CREATURES",
+        "rule": "Creatures from myth and legend",
+        "theme": "entertainment",
+        "words": [
+          {
+            "text": "fairy",
+            "kind": "word",
+            "zipf": 4.08,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "troll",
+            "kind": "word",
+            "zipf": 3.73,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.85
+          },
+          {
+            "text": "griffin",
+            "kind": "word",
+            "zipf": 3.9,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "vampire",
+            "kind": "word",
+            "zipf": 4.03,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.81
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "art_styles",
+        "label": "ART STYLES",
+        "rule": "Named styles of visual art",
+        "theme": "art",
+        "words": [
+          {
+            "text": "art deco",
+            "kind": "word",
+            "zipf": 3.41,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "folk art",
+            "kind": "word",
+            "zipf": 4.22,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.9
+          },
+          {
+            "text": "renaissance",
+            "kind": "word",
+            "zipf": 3.87,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.88
+          },
+          {
+            "text": "pop art",
+            "kind": "word",
+            "zipf": 4.87,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "weather_adjectives",
+        "label": "WEATHER ADJECTIVES",
+        "rule": "Words describing the weather outside",
+        "theme": "descriptive",
+        "words": [
+          {
+            "text": "foggy",
+            "kind": "word",
+            "zipf": 3.19,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "stormy",
+            "kind": "word",
+            "zipf": 3.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "snowy",
+            "kind": "word",
+            "zipf": 3.46,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "overcast",
+            "kind": "word",
+            "zipf": 3.05,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.95
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
+      },
+      {
+        "key": "diseases",
+        "label": "DISEASES",
+        "rule": "Diseases an average person can name",
+        "theme": "medicine",
+        "words": [
+          {
+            "text": "pneumonia",
+            "kind": "word",
+            "zipf": 3.74,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          },
+          {
+            "text": "polio",
+            "kind": "word",
+            "zipf": 3.27,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.92
+          },
+          {
+            "text": "arthritis",
+            "kind": "word",
+            "zipf": 3.61,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.93
+          },
+          {
+            "text": "diabetes",
+            "kind": "word",
+            "zipf": 4.17,
+            "frequencyUnknown": false,
+            "relation": "is_a",
+            "fit": 0.97,
+            "obviousness": 0.94
+          }
+        ],
+        "metaDepth": 0,
+        "parentKey": null,
+        "isQuickwin": true
       }
     ],
+    "deal": {
+      "start": [
+        {
+          "word": "Haydn",
+          "category": "famous_composers"
+        },
+        {
+          "word": "chocolate square",
+          "category": "candy_shapes"
+        },
+        {
+          "word": "cashew",
+          "category": "nuts_world"
+        },
+        {
+          "word": "construction paper",
+          "category": "art_class_things"
+        },
+        {
+          "word": "birdie",
+          "category": "golf_words"
+        },
+        {
+          "word": "leaf",
+          "category": "types_of_ants"
+        },
+        {
+          "word": "army",
+          "category": "types_of_ants"
+        },
+        {
+          "word": "macadamia",
+          "category": "nuts_world"
+        },
+        {
+          "word": "sawdust",
+          "category": "carpenter"
+        },
+        {
+          "word": "sander",
+          "category": "carpenter"
+        },
+        {
+          "word": "ball",
+          "category": "golf_words"
+        },
+        {
+          "word": "lollipop",
+          "category": "candy_shapes"
+        },
+        {
+          "word": "overcast",
+          "category": "weather_adjectives"
+        },
+        {
+          "word": "par",
+          "category": "golf_words"
+        },
+        {
+          "word": "Mozart",
+          "category": "famous_composers"
+        },
+        {
+          "word": "foggy",
+          "category": "weather_adjectives"
+        },
+        {
+          "word": "lathe",
+          "category": "carpenter"
+        },
+        {
+          "word": "jelly",
+          "category": "candy_shapes"
+        },
+        {
+          "word": "stormy",
+          "category": "weather_adjectives"
+        },
+        {
+          "word": "canvas",
+          "category": "art_class_things"
+        },
+        {
+          "word": "bullet",
+          "category": "types_of_ants"
+        },
+        {
+          "word": "hazelnut",
+          "category": "nuts_world"
+        },
+        {
+          "word": "hard candy",
+          "category": "candy_shapes"
+        },
+        {
+          "word": "Chopin",
+          "category": "famous_composers"
+        }
+      ],
+      "queue": [
+        {
+          "word": "level",
+          "category": "carpenter"
+        },
+        {
+          "word": "Handel",
+          "category": "famous_composers"
+        },
+        {
+          "word": "brush",
+          "category": "art_class_things"
+        },
+        {
+          "word": "fairy",
+          "category": "fantasy_creatures"
+        },
+        {
+          "word": "hole in one",
+          "category": "golf_words"
+        },
+        {
+          "word": "pecan",
+          "category": "nuts_world"
+        },
+        {
+          "word": "troll",
+          "category": "fantasy_creatures"
+        },
+        {
+          "word": "glitter",
+          "category": "art_class_things"
+        },
+        {
+          "word": "snowy",
+          "category": "weather_adjectives"
+        },
+        {
+          "word": "vampire",
+          "category": "fantasy_creatures"
+        },
+        {
+          "word": "pneumonia",
+          "category": "diseases"
+        },
+        {
+          "word": "griffin",
+          "category": "fantasy_creatures"
+        },
+        {
+          "word": "diabetes",
+          "category": "diseases"
+        },
+        {
+          "word": "polio",
+          "category": "diseases"
+        },
+        {
+          "word": "arthritis",
+          "category": "diseases"
+        },
+        {
+          "word": "horse",
+          "category": "pack_animals"
+        },
+        {
+          "word": "mule",
+          "category": "pack_animals"
+        },
+        {
+          "word": "water buffalo",
+          "category": "pack_animals"
+        },
+        {
+          "word": "donkey",
+          "category": "pack_animals"
+        },
+        {
+          "word": "renaissance",
+          "category": "art_styles"
+        },
+        {
+          "word": "folk art",
+          "category": "art_styles"
+        },
+        {
+          "word": "art deco",
+          "category": "art_styles"
+        },
+        {
+          "word": "pop art",
+          "category": "art_styles"
+        }
+      ]
+    },
+    "traps": [],
     "halves": [],
     "modifiers": {
       "chains": [],
       "frozenBubbles": [],
-      "hiddenBubbles": []
+      "hiddenBubbles": [],
+      "chainLine": null
     }
   },
   "build_metadata": {
-    "generated_at": "2026-07-31T08:51:36.192Z",
-    "generator_version": "gen-1.0",
-    "scoring_version": "d-1.0-calibrated",
-    "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
-    "level_spec_hash": "8192ee0a3c291d98cb690f8baef6bd01eb57c27a15f4fdf0da944d833903ca13",
-    "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
-    "seed": "final-03"
+    "generated_at": "2026-08-04T00:35:22.835Z",
+    "generator_version": "gen-1.6",
+    "scoring_version": "d-1.4-calibrated",
+    "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+    "level_spec_hash": "c782d4842d9fccf71df7519f2c469de89409830f730d84e42ac74cb7dfb37c70",
+    "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+    "seed": "final-13"
   },
   "plan": {
     "levelId": 206,
@@ -612,6 +799,7 @@
     "rareTarget": 10,
     "trapTarget": 0,
     "chainCount": 0,
+    "modifier": "none",
     "targetDifficulty": [
       4,
       5.5
@@ -620,59 +808,73 @@
       7,
       9
     ],
-    "moveLimitK": 1.6
+    "moveLimitK": 1.6,
+    "poolRankTarget": null
   },
   "scoring": {
-    "difficulty": 6,
+    "difficulty": 5,
+    "difficulty_tier": "medium",
     "difficulty_breakdown": {
       "base_calibrated": {
-        "объём (пузырей на старте)": 4.2722999999999995,
+        "масштаб (категорий × 4 слова)": 4.2722999999999995,
         "редкие слова (zipf < 3)": 0.9470000000000001,
-        "очень редкие (zipf < 2)": 0
+        "очень редкие (zipf < 2)": 0,
+        "повторы из прошлых уровней": 0
       },
       "declared_not_calibrated": {
         "мета-связи (объявлено)": 0.22,
         "глубина мета сверх 1 (объявлено)": 0,
-        "быстрые победы (объявлено)": -0.6
+        "быстрые победы (объявлено)": -0.6,
+        "готовые четвёрки на старте (объявлено)": -0.16,
+        "тройки на старте (объявлено)": -0.25,
+        "одиночки на старте (объявлено)": 0,
+        "бесплодная досыпка (объявлено)": 0
       },
       "semantic": {
         "подтверждённые ловушки": 0,
-        "смежность категорий": 1.2,
+        "смежность категорий": 0.4,
         "незапланированная спорность": 0
       },
       "mechanical": {
         "цепи": 0,
         "половинки": 0,
+        "лёд (объявлено)": 0,
+        "«?» (объявлено)": 0,
+        "цепь-линия (объявлено)": 0,
         "теснота лимита ходов": 0
       },
       "totals": {
         "base": 5.242,
-        "declared": -0.38,
-        "semantic": 1.2,
+        "declared": -0.79,
+        "semantic": 0.4,
         "mechanical": 0
       }
     },
     "difficulty_explanation": [
-      "47 пузырей на старте при 12 категориях",
+      "12 категорий — это 47 слов на уровне; масштаб растёт линейно по числу категорий",
       "10 редких слов, из них 0 очень редких",
+      "повторы из прошлых уровней не переданы: спек оценивается как первый уровень пакета (0 повторов)",
       "1 мета-связей, максимальная глубина 1. Вес объявлен, а не откалиброван: по референсу вклад мета не идентифицируется (см. SCORING §7)",
       "8 категорий быстрой победы снижают оценку на объявленную величину: дверь остаётся открытой",
-      "3 пар категорий из одной тематической сферы",
+      "раскладка старта: 2 готовых четвёрок, 5 троек, 1 пар, 0 одиночек, 4 категорий целиком в очереди",
+      "на старте нет категорий-одиночек: каждый из 24 пузырей поля имеет пару и участвует в ходе",
+      "досыпка открывает сбор в 6 из 6 волн (100%): пачка почти всегда приносит развязку",
+      "1 пар категорий из одной тематической сферы",
       "незапланированная спорность не измерена: нужен прогон слепого решателя",
       "лимит ходов 58 при минимуме 36 (K = 1.6)"
     ],
-    "interest": 6,
+    "interest": 7,
     "interest_breakdown": {
-      "clarity": 2.26,
-      "variety": 1.73,
+      "clarity": 2.36,
+      "variety": 1.98,
       "aha": 0.2,
-      "freshness": 2.05
+      "freshness": 2.5
     },
     "interest_explanation": [
-      "Clarity 2.26: узнаваемых слов 100%, средняя очевидность связи 0.79",
-      "Variety 1.73: 3 типов связи, 9 тематических сфер, но 67% категорий однотипны",
+      "Clarity 2.36: узнаваемых слов 98%, средняя очевидность связи 0.90",
+      "Variety 1.98: 4 типов связи, 11 тематических сфер, но 67% категорий однотипны",
       "Aha 0.20: 0 честных ловушек, 1 мета-связей, глубина 1",
-      "Freshness 2.05: новых для пакета слов 100%"
+      "Freshness 2.50: новых для пакета слов 100%, категорий-эхо нет"
     ]
   },
   "validation": {
@@ -715,6 +917,18 @@
         "detail": "ровно одна полная раскладка, перебор исчерпан (49 узлов)"
       },
       {
+        "code": "OPENING_CATEGORY",
+        "passed": true,
+        "severity": "soft",
+        "detail": "12 категорий можно закрыть сразу: вход в уровень есть"
+      },
+      {
+        "code": "DEDUCTION_ONLY",
+        "passed": false,
+        "severity": "soft",
+        "detail": "уровень раскладывается чистой дедукцией: развилок нет"
+      },
+      {
         "code": "META_PARENT_COUNT",
         "passed": true,
         "severity": "hard",
@@ -727,10 +941,16 @@
         "detail": "мета-лес ацикличен, связей 1"
       },
       {
+        "code": "META_ICONS_VALID",
+        "passed": true,
+        "severity": "hard",
+        "detail": "картинок на мета-пузырях: 0"
+      },
+      {
         "code": "META_DEPTH_WITHIN_CONFIG",
         "passed": true,
         "severity": "soft",
-        "detail": "максимальная глубина мета 1, разрешено 3"
+        "detail": "максимальная глубина мета 1, разрешено 2"
       },
       {
         "code": "CHAIN_ACYCLIC",
@@ -745,6 +965,12 @@
         "detail": "заявлено 47, по формуле 4 × 12 − 1 = 47"
       },
       {
+        "code": "DEAL_COMPLETE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "на поле 24 из 47, в очереди 23"
+      },
+      {
         "code": "MOVE_LIMIT_SANE",
         "passed": true,
         "severity": "hard",
@@ -754,13 +980,13 @@
         "code": "QUICK_WIN_PRESENT",
         "passed": true,
         "severity": "hard",
-        "detail": "категорий быстрой победы 8: ice_cream_flavors, places_to_eat, silverware, dental_words, locksmith_words, wind_instruments, kitchen_tools, japanese_names"
+        "detail": "категорий быстрой победы 8: candy_shapes, pack_animals, golf_words, art_class_things, fantasy_creatures, art_styles, weather_adjectives, diseases"
       },
       {
         "code": "RECOGNIZABILITY",
         "passed": true,
         "severity": "hard",
-        "detail": "внутри top-50k 100.0% пузырей (порог zipf 2.55, вне порога 0)"
+        "detail": "внутри top-50k 97.9% пузырей (порог zipf 2.55, вне порога 1)"
       },
       {
         "code": "NEAR_DUPLICATE_WORDS",
@@ -787,16 +1013,81 @@
         "detail": "точных совпадений с четвёрками референса нет"
       },
       {
+        "code": "CONFLICT_PAIR",
+        "passed": true,
+        "severity": "hard",
+        "detail": "запрещённых базой пар на уровне нет"
+      },
+      {
         "code": "UNSEPARABLE_PAIR",
         "passed": true,
         "severity": "soft",
         "detail": "сильно пересекающихся пар категорий нет"
+      },
+      {
+        "code": "WORD_FORM_GATE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "ZIPF_DISTRIBUTION",
+        "passed": true,
+        "severity": "soft",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "RARE_WORD_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор редкости не задан"
+      },
+      {
+        "code": "VISIBLE_SHARE",
+        "passed": true,
+        "severity": "hard",
+        "detail": "гейты декады не заданы"
+      },
+      {
+        "code": "REPEAT_BUDGET",
+        "passed": true,
+        "severity": "soft",
+        "detail": "коридор повторов не задан"
       }
     ],
-    "issues": [],
+    "issues": [
+      {
+        "code": "DEDUCTION_ONLY",
+        "severity": "soft",
+        "message": "уровень раскладывается чистой дедукцией: развилок нет",
+        "entities": [],
+        "suggestion": "добавить слово со вторым правдоподобным домом — иначе уровень проходится как рутина"
+      }
+    ],
     "solution_count": 1,
     "solution_search_exhausted": true,
-    "solution_nodes_visited": 49
+    "solution_nodes_visited": 49,
+    "playability": {
+      "winnable": true,
+      "moves_needed": 36,
+      "move_limit": 58,
+      "spare_moves": 22,
+      "offbeat_refills": 0,
+      "perceived_dead_states": 0,
+      "max_moves_without_collect": 3
+    },
+    "structure": {
+      "multi_home_words": 0,
+      "max_contested_slots": 0,
+      "opening_categories": 12,
+      "deduction_only": true,
+      "forced_steps": 48,
+      "explanation": [
+        "0 слов с двумя и более правдоподобными домами",
+        "12 категорий можно закрыть сразу, без гипотез",
+        "уровень раскладывается чистой дедукцией: развилок нет, инсайту взяться неоткуда"
+      ]
+    }
   },
   "generation": {
     "attempts": [
@@ -804,7 +1095,7 @@
         "index": 0,
         "outcome": "accepted",
         "stage": "готово",
-        "reason": "12 категорий, 1 мета-связей, 10 редких слов, 2 ловушек",
+        "reason": "12 категорий, 1 мета-связей, 10 редких слов, 0 ловушек",
         "relaxations": []
       }
     ]
