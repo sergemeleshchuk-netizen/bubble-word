@@ -1,192 +1,38 @@
 {
-  "pack_hash": "bed218b182ba2b53ee9a1158b75ec31dd59dc217c3a056613da1f4c232ad4bb5",
-  "content_snapshot_hash": "2afaed2259a2dad24b80deeed7adf7c4f5a11197961f946bcafe3fd7dabffc02",
-  "generator_version": "gen-1.0",
-  "scoring_version": "d-1.0-calibrated",
-  "seed": "final-03",
+  "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+  "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+  "generator_version": "gen-1.6",
+  "scoring_version": "d-1.4-calibrated",
+  "seed": "final-13",
   "funnel": {
-    "candidate_blocks": 32,
-    "rejected": 14,
-    "survivors": 18,
+    "candidate_blocks": 24,
+    "rejected": 2,
+    "survivors": 22,
     "rejection_reasons": {
-      "после максимального пика нет передышки": 4,
-      "сложность и интересность идут одной линией": 10
+      "сложность и интересность идут одной линией": 2
     }
   },
   "block_criteria": {
-    "seed": "final-03",
+    "seed": "final-13",
     "levels": 10,
     "allPassed": true,
     "allUnique": true,
     "descents": 3,
-    "dSpread": 4.5,
-    "iSpread": 2,
-    "divergence": 0.43016544401254075,
-    "maxDepth": 3,
+    "dSpread": 5,
+    "iSpread": 1.5,
+    "divergence": 0.6179214717453589,
+    "maxDepth": 2,
     "trapLevels": 6,
-    "chainLevels": 2,
+    "chainLevels": 0,
     "wordCollisions": 0,
     "categoryCollisions": 0,
     "exactCopies": 0,
-    "nearCopies": 9,
+    "nearCopies": 0,
     "recoveryAfterPeak": true,
-    "total": 10.150827220062704,
-    "near": [
-      {
-        "levelId": 203,
-        "category": "FAMOUS PAINTERS",
-        "words": [
-          "Monet",
-          "Van Gogh",
-          "Michelangelo",
-          "Picasso"
-        ],
-        "refLevel": 193,
-        "refCategory": "famous painters",
-        "shared": [
-          "picasso",
-          "monet",
-          "van gogh"
-        ]
-      },
-      {
-        "levelId": 203,
-        "category": "FARM CROPS",
-        "words": [
-          "rye",
-          "corn",
-          "barley",
-          "rice"
-        ],
-        "refLevel": 89,
-        "refCategory": "crop",
-        "shared": [
-          "corn",
-          "rice",
-          "barley"
-        ]
-      },
-      {
-        "levelId": 203,
-        "category": "FARM CROPS",
-        "words": [
-          "rye",
-          "corn",
-          "barley",
-          "rice"
-        ],
-        "refLevel": 146,
-        "refCategory": "crop",
-        "shared": [
-          "corn",
-          "rice",
-          "barley"
-        ]
-      },
-      {
-        "levelId": 205,
-        "category": "REPTILES",
-        "words": [
-          "lizards",
-          "cobra",
-          "python",
-          "boa"
-        ],
-        "refLevel": 113,
-        "refCategory": "snake",
-        "shared": [
-          "cobra",
-          "python",
-          "boa"
-        ]
-      },
-      {
-        "levelId": 205,
-        "category": "REPTILES",
-        "words": [
-          "lizards",
-          "cobra",
-          "python",
-          "boa"
-        ],
-        "refLevel": 135,
-        "refCategory": "snake",
-        "shared": [
-          "cobra",
-          "boa",
-          "python"
-        ]
-      },
-      {
-        "levelId": 205,
-        "category": "HAND TOOLS",
-        "words": [
-          "wrench",
-          "saw",
-          "tape measure",
-          "hammer"
-        ],
-        "refLevel": 80,
-        "refCategory": "tools",
-        "shared": [
-          "hammer",
-          "wrench",
-          "saw"
-        ]
-      },
-      {
-        "levelId": 206,
-        "category": "DESSERTS",
-        "words": [
-          "ice cream",
-          "pudding",
-          "cheesecake",
-          "cake"
-        ],
-        "refLevel": 62,
-        "refCategory": "dessert",
-        "shared": [
-          "cake",
-          "ice cream",
-          "pudding"
-        ]
-      },
-      {
-        "levelId": 206,
-        "category": "DESSERTS",
-        "words": [
-          "ice cream",
-          "pudding",
-          "cheesecake",
-          "cake"
-        ],
-        "refLevel": 184,
-        "refCategory": "dessert",
-        "shared": [
-          "cake",
-          "pudding",
-          "ice cream"
-        ]
-      },
-      {
-        "levelId": 209,
-        "category": "COMPOSERS",
-        "words": [
-          "Beethoven",
-          "Bach",
-          "Wagner",
-          "Mozart"
-        ],
-        "refLevel": 31,
-        "refCategory": "composer",
-        "shared": [
-          "mozart",
-          "bach",
-          "beethoven"
-        ]
-      }
-    ]
+    "total": 9.789607358726794,
+    "near": []
   },
+  "reference_novelty": "hard",
   "config": {
     "levelRange": [
       201,
@@ -209,17 +55,17 @@
       9,
       13
     ],
-    "maxMetaDepth": 3,
-    "allowedModifiers": [
-      "chains"
-    ],
+    "maxMetaDepth": 2,
+    "allowedModifiers": [],
     "includeThemes": [],
     "excludeThemes": [],
     "trapThemes": [],
     "wordFreshnessWindow": 30,
     "categoryFreshnessWindow": 40,
     "wordsPerCategory": 4,
-    "seed": "final-03",
+    "seed": "final-13",
+    "dealMinStartWords": 2,
+    "presetLocked": true,
     "categoryPlan": [
       13,
       15,
@@ -249,72 +95,72 @@
     {
       "level_id": 201,
       "role": "entry",
-      "difficulty": 7,
-      "interest": 6.5,
-      "level_spec_hash": "68285c26c2fc27fae023716526f4066f5de0055f6f0b0a903d8502d0215af2f8"
+      "difficulty": 7.5,
+      "interest": 7,
+      "level_spec_hash": "158bae4187c4b04fb353be96f6e9df4efcd3e35974078990f46bcd97b042980f"
     },
     {
       "level_id": 202,
       "role": "growth",
-      "difficulty": 8.5,
-      "interest": 7,
-      "level_spec_hash": "9a1ce5e94d5bc5e564299459f70fb0cef5cfa5e32913d894ee38029436626b86"
+      "difficulty": 7,
+      "interest": 7.5,
+      "level_spec_hash": "e6a8b511711b9dcb7b98bce3c78db9917e8dcb755bd328a65c77ceb1e1022518"
     },
     {
       "level_id": 203,
       "role": "recovery",
       "difficulty": 5.5,
-      "interest": 6.5,
-      "level_spec_hash": "1f7ffa382f23ae6b2f573bfa7fb5941954e052065be998c838cc5cc4f9172def"
+      "interest": 7,
+      "level_spec_hash": "7c7dcc303d10ddac726d770e67055967ab0046563957d1340904866cccf79c56"
     },
     {
       "level_id": 204,
       "role": "growth",
       "difficulty": 9,
-      "interest": 8,
-      "level_spec_hash": "7af9da521a61d9e22896ae4e4d82243ac849717e7d32505efbc4fb6c155e97f5"
+      "interest": 7.5,
+      "level_spec_hash": "60b5979aeedc6f37fa42364c677c297f7d14870671038dadfb4737a7b5cdd151"
     },
     {
       "level_id": 205,
       "role": "peak",
       "difficulty": 10,
-      "interest": 6.5,
-      "level_spec_hash": "8950a1efe28f0d5ef01b88fc76b1ac60ef76738193e6b829c55745dc75e443f1"
+      "interest": 8.5,
+      "level_spec_hash": "00af6f7fa01974a334d6bca16e5e44c19ee2619a4afd45516bae1d9729270cc2"
     },
     {
       "level_id": 206,
       "role": "recovery",
-      "difficulty": 6,
-      "interest": 6,
-      "level_spec_hash": "8192ee0a3c291d98cb690f8baef6bd01eb57c27a15f4fdf0da944d833903ca13"
+      "difficulty": 5,
+      "interest": 7,
+      "level_spec_hash": "c782d4842d9fccf71df7519f2c469de89409830f730d84e42ac74cb7dfb37c70"
     },
     {
       "level_id": 207,
       "role": "growth",
-      "difficulty": 8.5,
-      "interest": 7.5,
-      "level_spec_hash": "03c40d58fbf67c6bf871b90ee9c262846d05121e905fac5c5e91ff494c00612f"
+      "difficulty": 8,
+      "interest": 8.5,
+      "level_spec_hash": "9e528dda448e560939593cdaa54c5618d0f19fd13a0ae5df97bf3ec1b9510c6f"
     },
     {
       "level_id": 208,
       "role": "growth",
       "difficulty": 7.5,
-      "interest": 6,
-      "level_spec_hash": "97bb6981656bd0a134585ad8267240a590e1364350bc3987c9752b2f5ba93969"
+      "interest": 7.5,
+      "level_spec_hash": "df06c90f00bcd7a97201c369155b0b0ebcfbca7866289e82fc19b0b90f9956cf"
     },
     {
       "level_id": 209,
       "role": "spike",
-      "difficulty": 10,
-      "interest": 7.5,
-      "level_spec_hash": "671ff2f00b5e0e2d4ee0e59cd9982bd454b3fe53186570c28be56ce4288f38cc"
+      "difficulty": 9.5,
+      "interest": 7,
+      "level_spec_hash": "87a36938779624e96d0abb336003678458dd1389b34bc19f28df483f4e3d9e22"
     },
     {
       "level_id": 210,
       "role": "exit",
       "difficulty": 7,
-      "interest": 7,
-      "level_spec_hash": "58f27f1d7a61d80d2aa7200cd473e6a936800fada917f2e2d9e2f11b4d03186e"
+      "interest": 8.5,
+      "level_spec_hash": "feefaff4871a2d30a04a2d76f5b5f98297337174ee41c46d18b6fedd43cc3dd8"
     }
   ]
 }

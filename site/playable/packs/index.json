@@ -1,12 +1,12 @@
 {
-  "_comment": "Сданные пакеты, доступные в прототипе без сборки генератором. Порядок здесь = порядок групп в списке уровней сайта и порядок индексов ?gen=N. Новый пакет ДОБАВЛЯЕМ, а не заменяем: сравнивать старое с новым можно только если оба на месте. Файлы готовит tool/level-tool/scripts/pack_to_handoff.py, а пакет-сравнение источников — tool/level-tool/scripts/compare_level_sources.ts. Порядок: новейшее первым, чтобы «до» и «после» стояли рядом.",
-  "packs": [
-    "remake20.handoff.json",
-    "top20-deep.handoff.json",
-    "level12-as-recorded.handoff.json",
-    "level12-three-sources.handoff.json",
-    "register-ten.handoff.json",
-    "floor375-ten.handoff.json",
-    "top20.handoff.json"
-  ]
+ "_comment": "Сданные пакеты, доступные в прототипе без сборки генератором. Порядок здесь = порядок групп в списке уровней сайта и порядок индексов ?gen=N. Новый пакет ДОБАВЛЯЕМ, а не заменяем: сравнивать старое с новым можно только если оба на месте. Файлы готовит tool/level-tool/scripts/pack_to_handoff.py, а пакет-сравнение источников — tool/level-tool/scripts/compare_level_sources.ts. Порядок: новейшее первым, чтобы «до» и «после» стояли рядом.",
+ "packs": [
+  "final201-210.handoff.json",
+  "top20-deep.handoff.json",
+  "level12-as-recorded.handoff.json",
+  "level12-three-sources.handoff.json",
+  "register-ten.handoff.json",
+  "floor375-ten.handoff.json",
+  "top20.handoff.json"
+ ]
 }

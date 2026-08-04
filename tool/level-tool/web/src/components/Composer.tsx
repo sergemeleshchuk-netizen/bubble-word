@@ -540,8 +540,8 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
       <div className="panel">
         <h2>Ритм блока до генерации</h2>
         <p className="hint">
-          Профиль задаётся настройками, а не кодом. Пресет воспроизводит найденный
-          в референсе ритм: пик на позициях 5 и 9, провал сразу после пика,
+          Профиль задаётся настройками, а не кодом. Пресет воспроизводит замеренный
+          ритм: пик на позициях 5 и 9, провал сразу после пика,
           4 перехода вниз из 9.
         </p>
         <RhythmChart plans={plans} editing={editing} />
@@ -608,7 +608,7 @@ export function Composer({ config, onGenerate, tuneConfig, generated }: {
             commit={(raw) => { patch({ spikePositions: parseNumberList(raw) }); return true; }} />
           <DraftField
             label="позиции передышек"
-            tip="Позиции, где сложность падает: лёгкий уровень как награда после пика. Категорий берётся минимум коридора. В референсе 37% переходов идут вниз — без передышек блок читается как ровная стена."
+            tip="Позиции, где сложность падает: лёгкий уровень как награда после пика. Категорий берётся минимум коридора. По замеру 37% переходов идут вниз — без передышек блок читается как ровная стена."
             hint="через запятую"
             value={draft.recoveryPositions.join(', ')}
             commit={(raw) => { patch({ recoveryPositions: parseNumberList(raw) }); return true; }} />

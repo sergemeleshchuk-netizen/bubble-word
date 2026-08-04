@@ -1,6 +1,7 @@
 {
   "level_id": 205,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 18,
     "words_per_category": 4,
@@ -8,419 +9,686 @@
     "board_capacity": 24,
     "move_limit": 68
   },
+  "deal": {
+    "start": [
+      {
+        "word": "dark",
+        "category": "chocolate_types"
+      },
+      {
+        "word": "almond",
+        "category": "chocolate_types"
+      },
+      {
+        "word": "code",
+        "category": "ruby"
+      },
+      {
+        "word": "Alps",
+        "category": "world_mountains"
+      },
+      {
+        "word": "breath",
+        "category": "meditation"
+      },
+      {
+        "word": "nuts",
+        "category": "snacks"
+      },
+      {
+        "word": "fire",
+        "category": "ruby"
+      },
+      {
+        "word": "spine",
+        "category": "posture"
+      },
+      {
+        "word": "stance",
+        "category": "posture"
+      },
+      {
+        "word": "alignment",
+        "category": "posture"
+      },
+      {
+        "word": "exercise",
+        "category": "healthy_life"
+      },
+      {
+        "word": "diet",
+        "category": "healthy_life"
+      },
+      {
+        "word": "milk",
+        "category": "chocolate_types"
+      },
+      {
+        "word": "8 ball",
+        "category": "pub_games"
+      },
+      {
+        "word": "trail mix",
+        "category": "snacks"
+      },
+      {
+        "word": "sleep",
+        "category": "healthy_life"
+      },
+      {
+        "word": "shuffleboard",
+        "category": "pub_games"
+      },
+      {
+        "word": "silence",
+        "category": "meditation"
+      },
+      {
+        "word": "Whitney",
+        "category": "world_mountains"
+      },
+      {
+        "word": "pretzel",
+        "category": "snacks"
+      },
+      {
+        "word": "Fuji",
+        "category": "world_mountains"
+      },
+      {
+        "word": "peace",
+        "category": "meditation"
+      },
+      {
+        "word": "balance",
+        "category": "posture"
+      },
+      {
+        "word": "bowling",
+        "category": "pub_games"
+      }
+    ],
+    "queue": [
+      {
+        "word": "Everest",
+        "category": "world_mountains"
+      },
+      {
+        "word": "birthstone",
+        "category": "ruby"
+      },
+      {
+        "word": "gemstone",
+        "category": "ruby"
+      },
+      {
+        "word": "folder",
+        "category": "office_supplies"
+      },
+      {
+        "word": "mask",
+        "category": "doctor"
+      },
+      {
+        "word": "drill",
+        "category": "power_tools"
+      },
+      {
+        "word": "hospital",
+        "category": "doctor"
+      },
+      {
+        "word": "medicine",
+        "category": "doctor"
+      },
+      {
+        "word": "patient",
+        "category": "doctor"
+      },
+      {
+        "word": "calendar",
+        "category": "office_supplies"
+      },
+      {
+        "word": "calculator",
+        "category": "office_supplies"
+      },
+      {
+        "word": "sticky note",
+        "category": "office_supplies"
+      },
+      {
+        "word": "air compressor",
+        "category": "power_tools"
+      },
+      {
+        "word": "table saw",
+        "category": "power_tools"
+      },
+      {
+        "word": "nail gun",
+        "category": "power_tools"
+      },
+      {
+        "word": "raspberry",
+        "category": "fruits"
+      },
+      {
+        "word": "Pinot Noir",
+        "category": "grape_varieties"
+      },
+      {
+        "word": "orange",
+        "category": "fruits"
+      },
+      {
+        "word": "pineapple",
+        "category": "fruits"
+      },
+      {
+        "word": "blackberry",
+        "category": "fruits"
+      },
+      {
+        "word": "Chardonnay",
+        "category": "grape_varieties"
+      },
+      {
+        "word": "Concord",
+        "category": "grape_varieties"
+      },
+      {
+        "word": "Thompson",
+        "category": "grape_varieties"
+      },
+      {
+        "word": "agent",
+        "category": "mystery"
+      },
+      {
+        "word": "hide",
+        "category": "mystery"
+      },
+      {
+        "word": "secret",
+        "category": "mystery"
+      },
+      {
+        "word": "black hat",
+        "category": "mystery"
+      },
+      {
+        "word": "record player",
+        "category": "sound_devices"
+      },
+      {
+        "word": "turntable",
+        "category": "sound_devices"
+      },
+      {
+        "word": "megaphone",
+        "category": "sound_devices"
+      },
+      {
+        "word": "walkman",
+        "category": "sound_devices"
+      },
+      {
+        "word": "visor",
+        "category": "astronaut_gear"
+      },
+      {
+        "word": "communicator",
+        "category": "astronaut_gear"
+      },
+      {
+        "word": "jetpack",
+        "category": "astronaut_gear"
+      },
+      {
+        "word": "tether",
+        "category": "astronaut_gear"
+      },
+      {
+        "word": "necklace",
+        "category": "fashion_accessories"
+      },
+      {
+        "word": "bracelet",
+        "category": "fashion_accessories"
+      },
+      {
+        "word": "pocket square",
+        "category": "fashion_accessories"
+      },
+      {
+        "word": "earring",
+        "category": "fashion_accessories"
+      },
+      {
+        "word": "table",
+        "category": "billiards"
+      },
+      {
+        "word": "potting",
+        "category": "billiards"
+      },
+      {
+        "word": "chalked",
+        "category": "billiards"
+      },
+      {
+        "word": "break",
+        "category": "billiards"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "lizards",
-      "label": "LIZARDS",
+      "key": "posture",
+      "label": "POSTURE",
       "words": [
         {
-          "text": "gecko",
+          "text": "balance",
           "kind": "word"
         },
         {
-          "text": "salamander",
+          "text": "stance",
           "kind": "word"
         },
         {
-          "text": "gila monster",
+          "text": "spine",
           "kind": "word"
         },
         {
-          "text": "komodo dragon",
+          "text": "alignment",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "reptiles",
-      "label": "REPTILES",
+      "key": "meditation",
+      "label": "MEDITATION",
       "words": [
         {
-          "text": "lizards",
+          "text": "posture",
           "kind": "meta",
-          "meta_child": "lizards"
+          "meta_child": "posture"
         },
         {
-          "text": "cobra",
+          "text": "silence",
           "kind": "word"
         },
         {
-          "text": "python",
+          "text": "breath",
           "kind": "word"
         },
         {
-          "text": "boa",
+          "text": "peace",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "pet_store",
-      "label": "PET STORE",
+      "key": "healthy_life",
+      "label": "HEALTHY LIFE",
       "words": [
         {
-          "text": "reptiles",
+          "text": "meditation",
           "kind": "meta",
-          "meta_child": "reptiles"
+          "meta_child": "meditation"
         },
         {
-          "text": "birds",
+          "text": "exercise",
+          "kind": "word"
+        },
+        {
+          "text": "sleep",
+          "kind": "word"
+        },
+        {
+          "text": "diet",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "fruits",
+      "label": "FRUITS",
+      "words": [
+        {
+          "text": "raspberry",
+          "kind": "word"
+        },
+        {
+          "text": "blackberry",
+          "kind": "word"
+        },
+        {
+          "text": "pineapple",
+          "kind": "word"
+        },
+        {
+          "text": "orange",
+          "kind": "word"
+        }
+      ]
+    },
+    {
+      "key": "snacks",
+      "label": "SNACKS",
+      "words": [
+        {
+          "text": "fruits",
           "kind": "meta",
-          "meta_child": "birds"
+          "meta_child": "fruits",
+          "display": "icon",
+          "icon": "🍎"
         },
         {
-          "text": "kibble",
+          "text": "pretzel",
           "kind": "word"
         },
         {
-          "text": "leash",
+          "text": "trail mix",
+          "kind": "word"
+        },
+        {
+          "text": "nuts",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "accessories",
-      "label": "ACCESSORIES",
+      "key": "ruby",
+      "label": "RUBY",
       "words": [
         {
-          "text": "suspenders",
+          "text": "gemstone",
           "kind": "word"
         },
         {
-          "text": "cufflinks",
+          "text": "code",
           "kind": "word"
         },
         {
-          "text": "eyewear",
+          "text": "fire",
           "kind": "word"
         },
         {
-          "text": "handbag",
+          "text": "birthstone",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "wardrobe",
-      "label": "WARDROBE",
+      "key": "chocolate_types",
+      "label": "CHOCOLATE TYPES",
       "words": [
         {
-          "text": "accessories",
+          "text": "ruby",
           "kind": "meta",
-          "meta_child": "accessories"
+          "meta_child": "ruby"
         },
         {
-          "text": "sleepwear",
+          "text": "dark",
           "kind": "word"
         },
         {
-          "text": "hats",
+          "text": "milk",
           "kind": "word"
         },
         {
-          "text": "footwear",
+          "text": "almond",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "birds",
-      "label": "BIRDS",
+      "key": "billiards",
+      "label": "BILLIARDS",
       "words": [
         {
-          "text": "blue jay",
+          "text": "chalked",
           "kind": "word"
         },
         {
-          "text": "crane",
+          "text": "potting",
           "kind": "word"
         },
         {
-          "text": "cardinal",
+          "text": "table",
           "kind": "word"
         },
         {
-          "text": "poultry",
+          "text": "break",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "candy",
-      "label": "CANDY",
+      "key": "pub_games",
+      "label": "PUB GAMES",
       "words": [
         {
-          "text": "lollipop",
-          "kind": "word"
-        },
-        {
-          "text": "rock candy",
-          "kind": "word"
-        },
-        {
-          "text": "chocolate bar",
-          "kind": "word"
-        },
-        {
-          "text": "chocolate",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "halloween_things",
-      "label": "HALLOWEEN THINGS",
-      "words": [
-        {
-          "text": "candy",
+          "text": "billiards",
           "kind": "meta",
-          "meta_child": "candy"
+          "meta_child": "billiards"
         },
         {
-          "text": "treat",
+          "text": "shuffleboard",
           "kind": "word"
         },
         {
-          "text": "trick",
+          "text": "8 ball",
           "kind": "word"
         },
         {
-          "text": "skeleton",
+          "text": "bowling",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "hand_tools",
-      "label": "HAND TOOLS",
+      "key": "mystery",
+      "label": "MYSTERY",
       "words": [
         {
-          "text": "wrench",
+          "text": "secret",
           "kind": "word"
         },
         {
-          "text": "saw",
+          "text": "agent",
           "kind": "word"
         },
         {
-          "text": "tape measure",
+          "text": "hide",
           "kind": "word"
         },
         {
-          "text": "hammer",
+          "text": "black hat",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "rivers",
-      "label": "RIVERS",
+      "key": "doctor",
+      "label": "DOCTOR",
       "words": [
         {
-          "text": "Mississippi",
+          "text": "hospital",
           "kind": "word"
         },
         {
-          "text": "Nile",
+          "text": "mask",
           "kind": "word"
         },
         {
-          "text": "Congo",
+          "text": "patient",
           "kind": "word"
         },
         {
-          "text": "Seine",
+          "text": "medicine",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "scientists",
-      "label": "FAMOUS SCIENTISTS",
+      "key": "world_mountains",
+      "label": "FAMOUS MOUNTAINS",
       "words": [
         {
-          "text": "Einstein",
+          "text": "Whitney",
           "kind": "word"
         },
         {
-          "text": "Galileo",
+          "text": "Everest",
           "kind": "word"
         },
         {
-          "text": "Fleming",
+          "text": "Alps",
           "kind": "word"
         },
         {
-          "text": "Kepler",
+          "text": "Fuji",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "seas_and_oceans",
-      "label": "SEAS",
+      "key": "astronaut_gear",
+      "label": "ASTRONAUT GEAR",
       "words": [
         {
-          "text": "Yellow Sea",
+          "text": "communicator",
           "kind": "word"
         },
         {
-          "text": "Caribbean",
+          "text": "visor",
           "kind": "word"
         },
         {
-          "text": "mediterranean",
+          "text": "jetpack",
           "kind": "word"
         },
         {
-          "text": "Dead Sea",
+          "text": "tether",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "track_events",
-      "label": "TRACK EVENTS",
+      "key": "fashion_accessories",
+      "label": "FASHION ACCESSORIES",
       "words": [
         {
-          "text": "relay",
+          "text": "pocket square",
           "kind": "word"
         },
         {
-          "text": "triple jump",
+          "text": "bracelet",
           "kind": "word"
         },
         {
-          "text": "high jump",
+          "text": "necklace",
           "kind": "word"
         },
         {
-          "text": "long jump",
+          "text": "earring",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "antelope_and_grazers",
-      "label": "GRAZING ANIMALS",
+      "key": "office_supplies",
+      "label": "OFFICE SUPPLIES",
       "words": [
         {
-          "text": "gazelle",
+          "text": "sticky note",
           "kind": "word"
         },
         {
-          "text": "springbok",
+          "text": "calendar",
           "kind": "word"
         },
         {
-          "text": "wildebeest",
+          "text": "folder",
           "kind": "word"
         },
         {
-          "text": "oryx",
+          "text": "calculator",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "us_landmarks",
-      "label": "US LANDMARKS",
+      "key": "sound_devices",
+      "label": "SOUND DEVICES",
       "words": [
         {
-          "text": "Grand Canyon",
+          "text": "turntable",
           "kind": "word"
         },
         {
-          "text": "Liberty Bell",
+          "text": "walkman",
           "kind": "word"
         },
         {
-          "text": "Yosemite",
+          "text": "megaphone",
           "kind": "word"
         },
         {
-          "text": "Niagara Falls",
+          "text": "record player",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "crimes",
-      "label": "CRIMES",
+      "key": "grape_varieties",
+      "label": "GRAPE VARIETIES",
       "words": [
         {
-          "text": "poaching",
+          "text": "Concord",
           "kind": "word"
         },
         {
-          "text": "fraud",
+          "text": "Thompson",
           "kind": "word"
         },
         {
-          "text": "forgery",
+          "text": "Chardonnay",
           "kind": "word"
         },
         {
-          "text": "trespassing",
+          "text": "Pinot Noir",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "temperature_words",
-      "label": "TEMPERATURE WORDS",
+      "key": "power_tools",
+      "label": "POWER TOOLS",
       "words": [
         {
-          "text": "boiling",
+          "text": "table saw",
           "kind": "word"
         },
         {
-          "text": "cool",
+          "text": "drill",
           "kind": "word"
         },
         {
-          "text": "chilly",
+          "text": "nail gun",
           "kind": "word"
         },
         {
-          "text": "hot",
-          "kind": "word"
-        }
-      ]
-    },
-    {
-      "key": "sports_injuries",
-      "label": "SPORTS INJURIES",
-      "words": [
-        {
-          "text": "concussion",
-          "kind": "word"
-        },
-        {
-          "text": "pulled muscle",
-          "kind": "word"
-        },
-        {
-          "text": "cramp",
-          "kind": "word"
-        },
-        {
-          "text": "torn acl",
+          "text": "air compressor",
           "kind": "word"
         }
       ]
     }
   ],
   "modifiers": {
-    "chains": [
-      {
-        "locks": "antelope_and_grazers",
-        "unlocked_by": "birds"
-      },
-      {
-        "locks": "halloween_things",
-        "unlocked_by": "temperature_words"
-      }
-    ]
+    "chains": []
   }
 }

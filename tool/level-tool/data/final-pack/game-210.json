@@ -1,6 +1,7 @@
 {
   "level_id": 210,
-  "schema_version": "2.0",
+  "schema_version": "2.2",
+  "difficulty_tier": "hard",
   "board": {
     "categories_count": 13,
     "words_per_category": 4,
@@ -8,291 +9,497 @@
     "board_capacity": 24,
     "move_limit": 59
   },
+  "deal": {
+    "start": [
+      {
+        "word": "photoshop",
+        "category": "adobe"
+      },
+      {
+        "word": "desk",
+        "category": "classroom_things"
+      },
+      {
+        "word": "crew",
+        "category": "cruise"
+      },
+      {
+        "word": "lightroom",
+        "category": "adobe"
+      },
+      {
+        "word": "hall pass",
+        "category": "classroom_things"
+      },
+      {
+        "word": "insulation",
+        "category": "building_materials"
+      },
+      {
+        "word": "ocean",
+        "category": "cruise"
+      },
+      {
+        "word": "Medellin",
+        "category": "south_american_cities"
+      },
+      {
+        "word": "vessel",
+        "category": "voyage"
+      },
+      {
+        "word": "Beauty and the Beast",
+        "category": "fairy_tales"
+      },
+      {
+        "word": "Emirates",
+        "category": "airlines"
+      },
+      {
+        "word": "British Airways",
+        "category": "airlines"
+      },
+      {
+        "word": "quest",
+        "category": "voyage"
+      },
+      {
+        "word": "cement",
+        "category": "building_materials"
+      },
+      {
+        "word": "United",
+        "category": "airlines"
+      },
+      {
+        "word": "Little Mermaid",
+        "category": "fairy_tales"
+      },
+      {
+        "word": "liner",
+        "category": "cruise"
+      },
+      {
+        "word": "Rio de Janeiro",
+        "category": "south_american_cities"
+      },
+      {
+        "word": "Three Little Pigs",
+        "category": "fairy_tales"
+      },
+      {
+        "word": "illustrator",
+        "category": "adobe"
+      },
+      {
+        "word": "journey",
+        "category": "voyage"
+      },
+      {
+        "word": "cargo",
+        "category": "voyage"
+      },
+      {
+        "word": "plaster",
+        "category": "building_materials"
+      },
+      {
+        "word": "La Paz",
+        "category": "south_american_cities"
+      }
+    ],
+    "queue": [
+      {
+        "word": "audacity",
+        "category": "adobe"
+      },
+      {
+        "word": "Southwest",
+        "category": "airlines"
+      },
+      {
+        "word": "textbook",
+        "category": "classroom_things"
+      },
+      {
+        "word": "alphabet",
+        "category": "classroom_things"
+      },
+      {
+        "word": "Bogota",
+        "category": "south_american_cities"
+      },
+      {
+        "word": "fry",
+        "category": "cooking_methods"
+      },
+      {
+        "word": "chisel",
+        "category": "art_tools"
+      },
+      {
+        "word": "Red Riding Hood",
+        "category": "fairy_tales"
+      },
+      {
+        "word": "slow cook",
+        "category": "cooking_methods"
+      },
+      {
+        "word": "airbrush",
+        "category": "art_tools"
+      },
+      {
+        "word": "deep fry",
+        "category": "cooking_methods"
+      },
+      {
+        "word": "simmer",
+        "category": "cooking_methods"
+      },
+      {
+        "word": "palette",
+        "category": "art_tools"
+      },
+      {
+        "word": "easel",
+        "category": "art_tools"
+      },
+      {
+        "word": "beach",
+        "category": "seasons_summer"
+      },
+      {
+        "word": "barbecue",
+        "category": "seasons_summer"
+      },
+      {
+        "word": "hammock",
+        "category": "seasons_summer"
+      },
+      {
+        "word": "sandals",
+        "category": "seasons_summer"
+      },
+      {
+        "word": "mess kit",
+        "category": "camping_gear"
+      },
+      {
+        "word": "firewood",
+        "category": "camping_gear"
+      },
+      {
+        "word": "first aid kit",
+        "category": "camping_gear"
+      },
+      {
+        "word": "campfire",
+        "category": "camping_gear"
+      },
+      {
+        "word": "mezzanine",
+        "category": "architecture_words"
+      },
+      {
+        "word": "cornice",
+        "category": "architecture_words"
+      },
+      {
+        "word": "portico",
+        "category": "architecture_words"
+      },
+      {
+        "word": "buttress",
+        "category": "architecture_words"
+      }
+    ]
+  },
   "categories": [
     {
-      "key": "superheroes",
-      "label": "SUPERHEROES",
+      "key": "voyage",
+      "label": "VOYAGE",
       "words": [
         {
-          "text": "Ant Man",
+          "text": "journey",
           "kind": "word"
         },
         {
-          "text": "Superman",
+          "text": "vessel",
           "kind": "word"
         },
         {
-          "text": "Green Lantern",
+          "text": "cargo",
           "kind": "word"
         },
         {
-          "text": "Supergirl",
+          "text": "quest",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "costume_party",
-      "label": "COSTUME PARTY",
+      "key": "cruise",
+      "label": "CRUISE",
       "words": [
         {
-          "text": "superheroes",
+          "text": "voyage",
           "kind": "meta",
-          "meta_child": "superheroes"
+          "meta_child": "voyage"
         },
         {
-          "text": "mask",
+          "text": "ocean",
           "kind": "word"
         },
         {
-          "text": "cape",
+          "text": "crew",
           "kind": "word"
         },
         {
-          "text": "makeup",
+          "text": "liner",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "farm_morning",
-      "label": "FARM",
+      "key": "adobe",
+      "label": "ADOBE",
       "words": [
         {
-          "text": "livestock",
+          "text": "lightroom",
           "kind": "word"
         },
         {
-          "text": "silo",
+          "text": "audacity",
           "kind": "word"
         },
         {
-          "text": "pests",
+          "text": "photoshop",
           "kind": "word"
         },
         {
-          "text": "barn",
+          "text": "illustrator",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "places_with_animals",
-      "label": "PLACES WITH ANIMALS",
+      "key": "building_materials",
+      "label": "BUILDING MATERIALS",
       "words": [
         {
-          "text": "farm",
+          "text": "Adobe",
           "kind": "meta",
-          "meta_child": "farm_morning"
+          "meta_child": "adobe"
         },
         {
-          "text": "pet store",
+          "text": "cement",
           "kind": "word"
         },
         {
-          "text": "ranch",
+          "text": "plaster",
           "kind": "word"
         },
         {
-          "text": "shelter",
+          "text": "insulation",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "root_vegetables",
-      "label": "ROOT VEGETABLES",
+      "key": "seasons_summer",
+      "label": "SUMMER THINGS",
       "words": [
         {
-          "text": "potato",
+          "text": "sandals",
           "kind": "word"
         },
         {
-          "text": "yam",
+          "text": "barbecue",
           "kind": "word"
         },
         {
-          "text": "ginger",
+          "text": "hammock",
           "kind": "word"
         },
         {
-          "text": "carrot",
+          "text": "beach",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "insects",
-      "label": "INSECTS",
+      "key": "airlines",
+      "label": "AIRLINES",
       "words": [
         {
-          "text": "caterpillar",
+          "text": "United",
           "kind": "word"
         },
         {
-          "text": "fly",
+          "text": "British Airways",
           "kind": "word"
         },
         {
-          "text": "roach",
+          "text": "Emirates",
           "kind": "word"
         },
         {
-          "text": "wasp",
+          "text": "Southwest",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "fabric_types",
-      "label": "FABRIC TYPES",
+      "key": "camping_gear",
+      "label": "CAMPING GEAR",
       "words": [
         {
-          "text": "burlap",
+          "text": "first aid kit",
           "kind": "word"
         },
         {
-          "text": "linen",
+          "text": "firewood",
           "kind": "word"
         },
         {
-          "text": "tweed",
+          "text": "mess kit",
           "kind": "word"
         },
         {
-          "text": "felt",
+          "text": "campfire",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "egypt_things",
-      "label": "ANCIENT EGYPT",
+      "key": "cooking_methods",
+      "label": "COOKING METHODS",
       "words": [
         {
-          "text": "obelisk",
+          "text": "fry",
           "kind": "word"
         },
         {
-          "text": "papyrus",
+          "text": "simmer",
           "kind": "word"
         },
         {
-          "text": "sarcophagus",
+          "text": "deep fry",
           "kind": "word"
         },
         {
-          "text": "pyramid",
+          "text": "slow cook",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "boats",
-      "label": "BOATS AND SHIPS",
+      "key": "art_tools",
+      "label": "ART TOOLS",
       "words": [
         {
-          "text": "yacht",
+          "text": "easel",
           "kind": "word"
         },
         {
-          "text": "ferry",
+          "text": "airbrush",
           "kind": "word"
         },
         {
-          "text": "canoe",
+          "text": "chisel",
           "kind": "word"
         },
         {
-          "text": "kayak",
+          "text": "palette",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "dog_breeds",
-      "label": "DOG BREEDS",
+      "key": "classroom_things",
+      "label": "CLASSROOM THINGS",
       "words": [
         {
-          "text": "beagle",
+          "text": "desk",
           "kind": "word"
         },
         {
-          "text": "terrier",
+          "text": "textbook",
           "kind": "word"
         },
         {
-          "text": "husky",
+          "text": "hall pass",
           "kind": "word"
         },
         {
-          "text": "greyhound",
+          "text": "alphabet",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "rodents",
-      "label": "RODENTS",
+      "key": "architecture_words",
+      "label": "ARCHITECTURE WORDS",
       "words": [
         {
-          "text": "prairie dog",
+          "text": "cornice",
           "kind": "word"
         },
         {
-          "text": "beaver",
+          "text": "buttress",
           "kind": "word"
         },
         {
-          "text": "rat",
+          "text": "mezzanine",
           "kind": "word"
         },
         {
-          "text": "guinea pig",
+          "text": "portico",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "garden_flowers_summer",
-      "label": "SUMMER FLOWERS",
+      "key": "south_american_cities",
+      "label": "LATIN CITIES",
       "words": [
         {
-          "text": "dahlia",
+          "text": "Bogota",
           "kind": "word"
         },
         {
-          "text": "marigold",
+          "text": "Medellin",
           "kind": "word"
         },
         {
-          "text": "black eyed susan",
+          "text": "Rio de Janeiro",
           "kind": "word"
         },
         {
-          "text": "Daisy",
+          "text": "La Paz",
           "kind": "word"
         }
       ]
     },
     {
-      "key": "art_styles",
-      "label": "ART STYLES",
+      "key": "fairy_tales",
+      "label": "FAIRY TALES",
       "words": [
         {
-          "text": "surrealism",
+          "text": "Three Little Pigs",
           "kind": "word"
         },
         {
-          "text": "expressionism",
+          "text": "Red Riding Hood",
           "kind": "word"
         },
         {
-          "text": "minimalism",
+          "text": "Little Mermaid",
           "kind": "word"
         },
         {
-          "text": "impressionism",
+          "text": "Beauty and the Beast",
           "kind": "word"
         }
       ]

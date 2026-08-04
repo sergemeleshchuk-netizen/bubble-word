@@ -155,24 +155,12 @@ $WC generate-level-candidates --db "$DB" --limit 5 --categories 5 --seed 2026073
     --profile accessible_fun
 $WC validate-levels --db "$DB"
 
-echo "== 18.5/20 ремейк двадцатки оригинала (RMK) =="
-# Пакет RMK001..RMK020 — не украшение, а сданный артефакт: он лежит в
-# levels/packs/reference-remake-20/ и на него ссылается отчёт. Пока сборка его
-# не делала, пакет в репозитории и база в репозитории жили порознь, а тест
-# межпроектного контракта с прототипом (test_18d) молча уходил в skip —
-# «пакета RMK в базе нет». Зерно фиксировано, состав берётся с записи
-# (--categories 0), то есть шаг воспроизводим.
-$WC generate-level-candidates --db "$DB" --limit 20 --categories 0 --seed 101 \
-    --key-prefix RMK
-$WC export-level-pack --db "$DB" --prefix RMK \
-    --output ../../levels/packs/reference-remake-20/pack.json
-# Тот же пакет в формате прототипа: без этого шага пакет в levels/ и пакет,
-# в который можно сыграть на сайте, расходятся молча. Имя файла уже стоит в
-# site/playable/packs/index.json, поэтому здесь только перезапись содержимого.
-python3 ../level-tool/scripts/pack_to_handoff.py \
-    ../../levels/packs/reference-remake-20/pack.json \
-    --label "Ремейк двадцатки оригинала" \
-    > ../../site/playable/packs/remake20.handoff.json
+# Шага 18.5 (ремейк двадцатки оригинала, пакет RMK) здесь больше нет: пакет
+# `levels/packs/reference-remake-20/` удалён по решению владельца 04.08. Он был
+# ремейком чужой двадцатки, а сдаём мы собственный блок 201-210 — тот, что
+# сертифицирован (`levels/CERTIFICATION.md`). Межпроектный контракт с прототипом,
+# ради которого шаг тут стоял, теперь проверяется на пакете REF: он в базе есть
+# всегда и мета-связей у него больше (см. test_18d).
 
 echo "== 19/20 версия и приёмка =="
 $WC stamp-version --db "$DB" --content-version "$CONTENT_VERSION"

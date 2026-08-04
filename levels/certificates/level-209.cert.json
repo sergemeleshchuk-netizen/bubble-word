@@ -1,0 +1,115 @@
+{
+  "cert_version": "cert-1.0",
+  "level_id": 209,
+  "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+  "content_snapshot_hash": "b8f8309cc2b56cc8763c86f2fa7aebb82cd531cda8a7077812d718e8d222f8d9",
+  "generator_version": "gen-1.6",
+  "verdict": "CERTIFIED",
+  "c1_key": {
+    "passed": true,
+    "checks": [
+      {
+        "code": "KEY_CATEGORY_COUNT",
+        "passed": true,
+        "detail": "категорий 17, объявлено 17"
+      },
+      {
+        "code": "KEY_CATEGORY_SIZE",
+        "passed": true,
+        "detail": "у всех категорий по 4 слова"
+      },
+      {
+        "code": "KEY_START_BUBBLES",
+        "passed": true,
+        "detail": "слов 68 − мета 4 = 64, объявлено 64"
+      },
+      {
+        "code": "KEY_META_RESOLVES",
+        "passed": true,
+        "detail": "мета-ссылок 4, все ведут на категорию этого уровня"
+      },
+      {
+        "code": "KEY_NO_DUPLICATE_BUBBLE",
+        "passed": true,
+        "detail": "одинаковых текстов на поле нет"
+      },
+      {
+        "code": "KEY_DEAL_PRESENT",
+        "passed": true,
+        "detail": "старт 24, очередь 40"
+      },
+      {
+        "code": "KEY_DEAL_COVERS_LEVEL",
+        "passed": true,
+        "detail": "выкладка покрывает ровно 64 пузырей уровня"
+      },
+      {
+        "code": "KEY_START_FITS_BOARD",
+        "passed": true,
+        "detail": "на старте 24 пузырей при ёмкости поля 24"
+      }
+    ]
+  },
+  "c2_uniqueness": {
+    "passed": true,
+    "solutions": 1,
+    "exhausted": true,
+    "nodes": 69,
+    "multiHome": 2,
+    "unknownWords": [],
+    "widening": {
+      "ownStatuses": "approved + alternative + hard_only",
+      "hardOnlyLinksAdded": 0,
+      "outsideLinksAdded": 0,
+      "outsideMatchedCategories": 9
+    }
+  },
+  "c3_playthrough": {
+    "passed": true,
+    "finished": true,
+    "failReason": null,
+    "moves": 51,
+    "moveLimit": 67,
+    "spare": 16,
+    "peakOnBoard": 24,
+    "boardCapacity": 24,
+    "onlyMoveStates": 1,
+    "stalls": 0,
+    "deadlockImpossible": true
+  },
+  "c4_outside_view": {
+    "matchedCategories": 9,
+    "totalCategories": 17,
+    "covered": 19,
+    "totalWords": 64,
+    "agreeing": 19,
+    "disputed": []
+  },
+  "c5_provenance": {
+    "own": 12,
+    "fromReference": 5,
+    "referenceCategories": [
+      "PSYCHOLOGY",
+      "UNIVERSITY DEPARTMENTS",
+      "INDIAN",
+      "CITRUS",
+      "SOUR FLAVORS"
+    ]
+  },
+  "tool_said": {
+    "solution_count": 1,
+    "moves_needed": 51
+  },
+  "manual_play": {
+    "level_id": 209,
+    "pack_hash": "908fcf358de1e10ded0a7f03cc1c306d7c5194d65246d4e17a095093b459eaff",
+    "date": "2026-08-04",
+    "build": "прототип site/playable/index.html, ?gen=8, Chrome",
+    "result": "loaded",
+    "moves_used": 0,
+    "move_limit": 67,
+    "categories_collected": 0,
+    "categories_total": 17,
+    "note": "Проверена только загрузка: 24 пузыря, лимит 67 — совпадает с пакетом."
+  }
+}
