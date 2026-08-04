@@ -6,19 +6,16 @@
  * границу между измеренным и решённым.
  */
 import { useState } from 'react';
-import type { BlockResult, GeneratedLevel, LevelSpec } from '../core/types.ts';
+import type { GeneratedLevel, LevelSpec } from '../core/types.ts';
 import type { ContentIndex } from '../core/snapshot.ts';
-import type { ScoringConfig } from '../core/scoringDifficulty.ts';
 import { formatScheme, parseScheme } from '../core/decadeProfiles.ts';
 import { startCapacity } from '../core/deal.ts';
 
 export function LevelInspector({
-  level, block, index, scoring, onSelect, levels, onRedeal,
+  level, index, onSelect, levels, onRedeal,
 }: {
   level: GeneratedLevel;
-  block: BlockResult;
   index: ContentIndex;
-  scoring: ScoringConfig;
   onSelect: (id: number) => void;
   levels: GeneratedLevel[];
   /**
@@ -120,8 +117,8 @@ export function LevelInspector({
           <div className="panel">
             <h2>Мета-лес</h2>
             <p className="hint">
-              Именно лес, а не дерево: связность не требуется. В референсе мета-граф
-              распадается в среднем на 2.12 независимых компонент.
+              Именно лес, а не дерево: связность не требуется — мета-связи уровня
+              спокойно распадаются на несколько независимых компонент.
             </p>
             {metaLinks.length === 0
               ? <p className="small muted">Плоский уровень: мета-связей нет.</p>
@@ -132,10 +129,10 @@ export function LevelInspector({
             <h2>Сложность D = {level.difficulty.value}</h2>
             <p className="hint">
               Модель разделена по источнику истины. Первая корзина откалибрована
-              на 199 уровнях референса; вторая — объявленные продуктовые веса,
-              которые референс не идентифицирует.
+              на замере 199 уровней; вторая — объявленные продуктовые веса,
+              которых в замере не видно.
             </p>
-            <Bucket title="откалибровано на референсе" items={level.difficulty.base}
+            <Bucket title="откалибровано на замере" items={level.difficulty.base}
               total={level.difficulty.baseTotal} color="#4cc2ff" />
             <Bucket title="объявлено, не откалибровано" items={level.difficulty.declared}
               total={level.difficulty.declaredTotal} color="#bc8cff" />
@@ -230,31 +227,6 @@ export function LevelInspector({
         </p>
       </div>
 
-      <div className="panel">
-        <h2>Происхождение</h2>
-        <table>
-          <tbody>
-            <tr><td className="muted small">хеш уровня</td>
-              <td className="mono small">{level.levelSpecHash}</td></tr>
-            <tr><td className="muted small">хеш пакета</td>
-              <td className="mono small">{block.packHash}</td></tr>
-            <tr><td className="muted small">снимок базы</td>
-              <td className="mono small">{block.contentSnapshotHash}</td></tr>
-            <tr><td className="muted small">версия генератора</td>
-              <td className="mono small">{block.generatorVersion}</td></tr>
-            <tr><td className="muted small">версия скоринга</td>
-              <td className="mono small">{scoring.scoring_version}</td></tr>
-            <tr><td className="muted small">seed</td>
-              <td className="mono small">{block.config.seed}</td></tr>
-            <tr><td className="muted small">попыток генерации</td>
-              <td className="mono small">{level.attempts.length}</td></tr>
-          </tbody>
-        </table>
-        <p className="small muted" style={{ marginTop: 8 }}>
-          Время сборки в хеш не входит: иначе обещание «тот же вход → тот же уровень»
-          нарушалось бы каждым запуском.
-        </p>
-      </div>
     </>
   );
 }
@@ -373,7 +345,7 @@ function BlindPlayPanel({ blind, minMoves }: {
       <p className="small muted">
         В оценку D и в гейт приёмки эти числа НЕ входят: модель знания игрока
         ({blind.knowledgeVersion}) не откалибрована — живых наигровок с замером
-        промахов у нас нет, а в референсе нет раскладки поля. Читать их надо как
+        промахов у нас нет. Читать их надо как
         нижнюю границу: у бота идеальная память и он видит все досыпанные слова
         сразу, значит живому игроку уровень дешевле не обойдётся.
       </p>

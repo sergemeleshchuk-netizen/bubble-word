@@ -402,9 +402,7 @@ export function App() {
           ? (
             <LevelInspector
               level={level}
-              block={block!}
               index={index}
-              scoring={scoring}
               onSelect={setSelectedLevel}
               levels={block!.levels}
               onRedeal={isReference ? undefined : redeal}

@@ -356,7 +356,7 @@ export function buildSetup(
   if (modifier !== 'none' && delta > 0) {
     notes.push(`прикидка добавки к сложности: +${delta.toFixed(2)} `
       + '(цепь и половинки — по весам scoring.config, лёд и «?» — объявленные веса, '
-      + 'референсом не калиброваны)');
+      + 'замером не калиброваны)');
   }
 
   return {
